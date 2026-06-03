@@ -1,0 +1,6 @@
+<?php
+/**
+ * Copia questo file come bootstrap.local.php (gitignored) e inserisci la tua API key.
+ * Usato in locale quando GEMINI_API_KEY non è impostata.
+ */
+define('LUNA_GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY_HERE');

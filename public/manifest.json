@@ -1,0 +1,16 @@
+{
+  "short_name": "Luna Nihongo",
+  "name": "Luna Nihongo - Impara il Giapponese con Luna",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0e1117",
+  "theme_color": "#e74c3c",
+  "display": "standalone",
+  "orientation": "portrait"
+}

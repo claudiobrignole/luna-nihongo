@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Crimson Rising Sun -->
+  <circle cx="50" cy="50" r="45" fill="hsl(350, 85%, 50%)" />
+  
+  <!-- Golden Moon (Luna) cutting in -->
+  <path d="M 50 15 A 35 35 0 0 0 50 85 A 25 25 0 0 1 50 15 Z" fill="hsl(38, 90%, 55%)" opacity="0.95" />
+</svg>

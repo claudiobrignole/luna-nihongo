@@ -1,0 +1,7 @@
+{
+  "build": {
+    "command": "npm ci && npm run build",
+    "output": "dist"
+  },
+  "note": "In hPanel → Git → set Node 20+, output directory dist. Add VITE_FIREBASE_* env vars before build. Set GEMINI_API_KEY or bootstrap.local.php on server after first deploy."
+}
