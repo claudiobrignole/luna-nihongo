@@ -1,0 +1,7 @@
+# Block direct HTTP access to secret PHP files
+<Files "gemini-secret.php">
+  Require all denied
+</Files>
+<Files "bootstrap.local.php">
+  Require all denied
+</Files>

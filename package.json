@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:api": "php -S localhost:8080 -t public",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-gemini-secret.mjs && tsc -b && vite build",
     "build:hostinger": "bash scripts/build-hostinger.sh",
     "lint": "eslint .",
     "preview": "vite preview",

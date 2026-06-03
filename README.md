@@ -25,7 +25,8 @@ npm run dev:api   # terminale 1 — PHP su :8080
 npm run dev       # terminale 2 — Vite su :5173
 ```
 
-Configura la Gemini API key in `public/api/bootstrap.php` (sostituisci `YOUR_GEMINI_API_KEY_HERE`).
+In locale, copia `public/api/bootstrap.local.php.example` → `bootstrap.local.php` e incolla la chiave Gemini.  
+Oppure: `export GEMINI_API_KEY=...` prima di `npm run build`.
 
 ## Build per produzione
 
@@ -61,15 +62,14 @@ public_html/
 └── favicon.svg
 ```
 
-### 3. Configura Gemini API (server)
+### 3. Gemini API key (automatica al build)
 
-Su Hostinger, modifica `public_html/api/bootstrap.php`:
+**Non serve creare file manuali nel File Manager.**
 
-```php
-$apiKey = 'YOUR_GEMINI_API_KEY_HERE';
-```
+Aggiungi `GEMINI_API_KEY` nelle **Environment Variables** del deploy Git in hPanel (stessa schermata delle `VITE_FIREBASE_*`).  
+A ogni build viene generato `public_html/api/gemini-secret.php` dentro `dist/` — resta in `public_html`, non fuori.
 
-Oppure imposta la variabile d'ambiente `GEMINI_API_KEY` nel pannello Hostinger se disponibile.
+L'accesso HTTP diretto a quel file è bloccato da `api/.htaccess`.
 
 ### 4. Firebase — dominio autorizzato
 
@@ -122,22 +122,15 @@ VITE_FIREBASE_PROJECT_ID=
 VITE_FIREBASE_STORAGE_BUCKET=
 VITE_FIREBASE_MESSAGING_SENDER_ID=
 VITE_FIREBASE_APP_ID=
+GEMINI_API_KEY=
 ```
 
-(Copia i valori dal tuo `.env` locale.)
+(Copia i valori dal tuo `.env` locale. `GEMINI_API_KEY` serve al tutor e al TTS PHP — non va nel frontend.)
 
 ### Dopo il primo deploy
 
 1. **Firebase** → Authentication → Authorized domains → aggiungi il tuo dominio Hostinger.
-2. **Gemini API key** — sul server crea `public_html/api/bootstrap.local.php` (non è nel repo):
-
-```php
-<?php
-define('LUNA_GEMINI_API_KEY', 'la-tua-chiave-gemini');
-```
-
-Oppure imposta `GEMINI_API_KEY` nelle variabili d'ambiente PHP di Hostinger.
-
+2. Verifica che `GEMINI_API_KEY` sia tra le variabili d'ambiente del deploy e fai **Redeploy** se l'hai aggiunta dopo il primo build.
 3. **Firestore rules** (da locale): `firebase deploy --only firestore:rules`
 
 ### Deploy manuale (alternativa)

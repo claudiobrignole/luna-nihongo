@@ -16,18 +16,34 @@ function luna_send_cors_headers(): void
     }
 }
 
+function luna_load_api_key_from_secret_files(): string
+{
+    $secretFiles = [
+        __DIR__ . '/gemini-secret.php',
+        __DIR__ . '/bootstrap.local.php',
+        __DIR__ . '/../private/luna-gemini.php',
+        __DIR__ . '/../../private/luna-gemini.php',
+    ];
+
+    foreach ($secretFiles as $localFile) {
+        if (!file_exists($localFile)) {
+            continue;
+        }
+        require_once $localFile;
+        if (defined('LUNA_GEMINI_API_KEY') && LUNA_GEMINI_API_KEY !== '') {
+            return LUNA_GEMINI_API_KEY;
+        }
+    }
+
+    return '';
+}
+
 function luna_get_gemini_api_key(): string
 {
     $apiKey = getenv('GEMINI_API_KEY');
 
     if (empty($apiKey)) {
-        $localFile = __DIR__ . '/bootstrap.local.php';
-        if (file_exists($localFile)) {
-            require_once $localFile;
-            if (defined('LUNA_GEMINI_API_KEY')) {
-                $apiKey = LUNA_GEMINI_API_KEY;
-            }
-        }
+        $apiKey = luna_load_api_key_from_secret_files();
     }
 
     if (empty($apiKey)) {
