@@ -63,7 +63,12 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     messagesCount: data.messagesCount ?? 0,
     memory: data.memory ?? '',
     chatHistory: data.chatHistory ?? [],
-    onboardingCompleted: data.onboardingCompleted ?? false,
+    onboardingCompleted:
+      data.onboardingCompleted === true
+        ? true
+        : data.onboardingCompleted === false
+          ? false
+          : (data.completedUnits?.length ?? 0) > 0,
     preferredStartLevel: typeof data.preferredStartLevel === 'number' ? data.preferredStartLevel : 0,
     showRomaji: data.showRomaji !== false,
     tutorVoiceEnabled: data.tutorVoiceEnabled !== false,

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { LearningPath } from './components/LearningPath';
 import { Flashcards } from './components/Flashcards';
 import { TeacherProfile } from './components/TeacherProfile';
@@ -30,6 +30,8 @@ function App() {
   const [authSignupMode, setAuthSignupMode] = useState(true);
   const [registerPromptOpen, setRegisterPromptOpen] = useState(false);
   const [registerReason, setRegisterReason] = useState<RegisterReason>('study');
+  const [onboardingOpen, setOnboardingOpen] = useState(false);
+  const onboardingAutoOpened = useRef(false);
 
   const openRegister = (reason: RegisterReason = 'study') => {
     setRegisterReason(reason);
@@ -92,7 +94,10 @@ function App() {
       level: preferredStartLevel,
     });
     setActiveTab('path');
+    setOnboardingOpen(false);
   };
+
+  const openOnboarding = () => setOnboardingOpen(true);
 
   const handleUserUpdate = async (updates: Partial<LunaUser>) => {
     await updateUser(updates);
@@ -101,6 +106,24 @@ function App() {
   const handleLanguageToggle = () => {
     setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
+
+  // After login: first-time users see onboarding; returning users land on Studio.
+  useEffect(() => {
+    if (!currentUser) {
+      setOnboardingOpen(false);
+      onboardingAutoOpened.current = false;
+      return;
+    }
+
+    if (!currentUser.onboardingCompleted && !onboardingAutoOpened.current) {
+      setOnboardingOpen(true);
+      onboardingAutoOpened.current = true;
+    }
+
+    if (currentUser.onboardingCompleted) {
+      setActiveTab((tab) => (tab === 'auth' || tab === 'home' ? 'path' : tab));
+    }
+  }, [currentUser?.id, currentUser?.onboardingCompleted]);
 
   if (loading) {
     return (
@@ -200,8 +223,6 @@ function App() {
     );
   }
 
-  const showOnboarding = !currentUser.onboardingCompleted;
-
   return (
     <div className="app-container">
       <div className="bg-glow-1" />
@@ -215,40 +236,46 @@ function App() {
         onLanguageToggle={handleLanguageToggle}
         currentUser={currentUser}
         onLogout={handleLogout}
+        onOpenOnboarding={openOnboarding}
       />
 
-      <main className="main-content">
-        {showOnboarding && (
-          <Onboarding
-            language={language}
-            username={currentUser.username}
-            onComplete={(level) => void handleOnboardingComplete(level)}
-          />
-        )}
+      {onboardingOpen && (
+        <Onboarding
+          language={language}
+          username={currentUser.username}
+          initialLevel={currentUser.preferredStartLevel}
+          startAtLevelStep={currentUser.onboardingCompleted}
+          onComplete={(level) => void handleOnboardingComplete(level)}
+          onClose={() => setOnboardingOpen(false)}
+        />
+      )}
 
-        {!showOnboarding && activeTab === 'home' && (
+      <main className="main-content">
+        {activeTab === 'home' && (
           <HomeLanding
             language={language}
             currentUser={currentUser}
             onNavigate={setActiveTab}
+            onOpenOnboarding={openOnboarding}
           />
         )}
 
-        {!showOnboarding && activeTab === 'path' && (
+        {activeTab === 'path' && (
           <LearningPath
             language={language}
             completedUnits={currentUser.completedUnits}
             onCompleteUnit={handleCompleteUnit}
             initialLevel={currentUser.preferredStartLevel}
             onUnitOpen={handleUnitOpen}
+            onOpenOnboarding={openOnboarding}
           />
         )}
 
-        {!showOnboarding && activeTab === 'flashcards' && (
+        {activeTab === 'flashcards' && (
           <Flashcards language={language} userId={currentUser.id} />
         )}
 
-        {!showOnboarding && activeTab === 'tutor' && (
+        {activeTab === 'tutor' && (
           <AITutor
             language={language}
             currentUser={currentUser}
@@ -263,14 +290,14 @@ function App() {
           />
         )}
 
-        {!showOnboarding && activeTab === 'teacher' && (
+        {activeTab === 'teacher' && (
           <TeacherProfile
             language={language}
             onNavigateToBooking={() => setActiveTab('booking')}
           />
         )}
 
-        {!showOnboarding && activeTab === 'booking' && (
+        {activeTab === 'booking' && (
           <BookingCalendar
             language={language}
             userId={currentUser.id}
@@ -278,7 +305,7 @@ function App() {
           />
         )}
 
-        {!showOnboarding && activeTab === 'dashboard' && (
+        {activeTab === 'dashboard' && (
           <StudentDashboard
             language={language}
             onNavigateToBooking={() => setActiveTab('booking')}
@@ -288,7 +315,7 @@ function App() {
           />
         )}
 
-        {!showOnboarding && activeTab === 'admin' && isAdminRole(currentUser.role) && (
+        {activeTab === 'admin' && isAdminRole(currentUser.role) && (
           <AdminPanel language={language} currentUser={currentUser} />
         )}
       </main>

@@ -938,6 +938,62 @@ body.has-mobile-nav {
   font-size: 0.88rem;
 }
 
+.auth-password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-field-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.auth-password-input {
+  width: 100%;
+  padding: 0.8rem 2.8rem 0.8rem 2.4rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.auth-password-toggle {
+  position: absolute;
+  right: 8px;
+  padding: 0.4rem;
+  color: var(--text-muted);
+  border-radius: 8px;
+}
+
+.auth-password-toggle:hover {
+  color: var(--primary);
+  background: var(--primary-glow);
+}
+
+.study-hub-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.study-level-change-btn {
+  font-size: 0.82rem;
+  padding: 0.55rem 1rem;
+  align-self: center;
+}
+
+.home-hero .home-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
 /* Register prompt modal */
 .register-prompt-backdrop {
   position: fixed;
@@ -1302,6 +1358,21 @@ body.has-mobile-nav {
   width: 100%;
   padding: 2rem;
   text-align: center;
+  position: relative;
+}
+
+.onboarding-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: var(--text-muted);
+  padding: 0.35rem;
+  border-radius: 8px;
+}
+
+.onboarding-close:hover {
+  color: var(--text-main);
+  background: var(--bg-input);
 }
 
 .onboarding-panel-wide {

@@ -30,6 +30,7 @@ interface LearningPathProps {
   onUnitOpen?: (unitId: string, level: number) => void;
   guestMode?: boolean;
   onRequireAuth?: () => void;
+  onOpenOnboarding?: () => void;
 }
 
 export const LearningPath: React.FC<LearningPathProps> = ({
@@ -40,6 +41,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
   onUnitOpen,
   guestMode = false,
   onRequireAuth,
+  onOpenOnboarding,
 }) => {
   const [activeLevel, setActiveLevel] = useState(initialLevel);
 
@@ -152,9 +154,16 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                 : 'Scegli un livello — tutte le unità sono aperte. Esercitati con l\'audio su ogni scheda.')}
           </p>
         </div>
-        <div className="study-hub-progress glass-panel">
-          <strong>{completedInLevel}/{levelUnits.length}</strong>
-          <span>{language === 'en' ? 'units in this level' : 'unità in questo livello'}</span>
+        <div className="study-hub-header-actions">
+          {onOpenOnboarding && !guestMode && (
+            <button type="button" className="btn btn-secondary study-level-change-btn" onClick={onOpenOnboarding}>
+              {language === 'en' ? 'Change level' : 'Cambia livello'}
+            </button>
+          )}
+          <div className="study-hub-progress glass-panel">
+            <strong>{completedInLevel}/{levelUnits.length}</strong>
+            <span>{language === 'en' ? 'units in this level' : 'unità in questo livello'}</span>
+          </div>
         </div>
       </header>
 

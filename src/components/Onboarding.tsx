@@ -1,24 +1,47 @@
 import { useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, X } from 'lucide-react';
 import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
 import type { LanguageType } from './Header';
 
 interface OnboardingProps {
   language: LanguageType;
   username: string;
+  initialLevel?: number;
+  /** When true, open directly on level picker (returning users). */
+  startAtLevelStep?: boolean;
   onComplete: (preferredStartLevel: number) => void;
+  onClose?: () => void;
 }
 
-export function Onboarding({ language, username, onComplete }: OnboardingProps) {
-  const [step, setStep] = useState(0);
-  const [level, setLevel] = useState(0);
+export function Onboarding({
+  language,
+  username,
+  initialLevel = 0,
+  startAtLevelStep = false,
+  onComplete,
+  onClose,
+}: OnboardingProps) {
+  const [step, setStep] = useState(startAtLevelStep ? 1 : 0);
+  const [level, setLevel] = useState(initialLevel);
 
   const unitCountForLevel = (lvl: number) => SYLLABUS.filter((u) => u.level === lvl).length;
+
+  const closeButton = onClose ? (
+    <button
+      type="button"
+      className="onboarding-close"
+      onClick={onClose}
+      aria-label={language === 'en' ? 'Close' : 'Chiudi'}
+    >
+      <X size={20} />
+    </button>
+  ) : null;
 
   if (step === 0) {
     return (
       <div className="onboarding-overlay">
         <div className="onboarding-panel glass-panel">
+          {closeButton}
           <div className="onboarding-icon">月</div>
           <h2>
             {language === 'en' ? `Welcome, ${username}!` : `Benvenuto, ${username}!`}
@@ -45,6 +68,7 @@ export function Onboarding({ language, username, onComplete }: OnboardingProps) 
   return (
     <div className="onboarding-overlay">
       <div className="onboarding-panel glass-panel onboarding-panel-wide">
+        {closeButton}
         <h2>
           <Sparkles size={20} style={{ verticalAlign: 'middle', marginRight: 8 }} />
           {language === 'en' ? 'Where do you want to start?' : 'Da dove vuoi iniziare?'}
@@ -69,7 +93,9 @@ export function Onboarding({ language, username, onComplete }: OnboardingProps) 
           ))}
         </div>
         <button type="button" className="btn btn-primary" onClick={() => onComplete(level)}>
-          {language === 'en' ? 'Start learning' : 'Inizia a studiare'}
+          {startAtLevelStep
+            ? (language === 'en' ? 'Save level' : 'Salva livello')
+            : (language === 'en' ? 'Start learning' : 'Inizia a studiare')}
           <ArrowRight size={18} />
         </button>
       </div>

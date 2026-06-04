@@ -50,6 +50,7 @@ interface HeaderProps {
   onLogout?: () => void;
   onRegister?: () => void;
   onLogin?: () => void;
+  onOpenOnboarding?: () => void;
 }
 
 function NavButton({
@@ -90,6 +91,7 @@ export function Header({
   onLogout,
   onRegister,
   onLogin,
+  onOpenOnboarding,
 }: HeaderProps) {
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const hasMobileNav = variant === 'app' || variant === 'guest';
@@ -257,6 +259,7 @@ export function Header({
                 activeTab={activeTab}
                 onNavigate={navigate}
                 onLogout={onLogout}
+                onOpenOnboarding={onOpenOnboarding}
               />
             )}
           </div>

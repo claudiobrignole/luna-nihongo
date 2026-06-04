@@ -7,9 +7,10 @@ interface HomeLandingProps {
   language: LanguageType;
   currentUser: LunaUser;
   onNavigate: (tab: TabType) => void;
+  onOpenOnboarding?: () => void;
 }
 
-export function HomeLanding({ language, currentUser, onNavigate }: HomeLandingProps) {
+export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboarding }: HomeLandingProps) {
   const completed = currentUser.completedUnits.length;
   const total = SYLLABUS.length;
   const level = CURRICULUM_LEVELS.find((l) => l.level === currentUser.preferredStartLevel)
@@ -80,11 +81,18 @@ export function HomeLanding({ language, currentUser, onNavigate }: HomeLandingPr
             <span>{language === 'en' ? 'your focus' : 'il tuo focus'}</span>
           </div>
         </div>
-        <button type="button" className="btn btn-primary" onClick={() => onNavigate('path')}>
-          <BookOpen size={18} />
-          {language === 'en' ? 'Continue studying' : 'Continua a studiare'}
-          <ArrowRight size={18} />
-        </button>
+        <div className="home-hero-cta">
+          <button type="button" className="btn btn-primary" onClick={() => onNavigate('path')}>
+            <BookOpen size={18} />
+            {language === 'en' ? 'Continue studying' : 'Continua a studiare'}
+            <ArrowRight size={18} />
+          </button>
+          {onOpenOnboarding && (
+            <button type="button" className="btn btn-secondary" onClick={onOpenOnboarding}>
+              {language === 'en' ? 'Change study level' : 'Cambia livello di studio'}
+            </button>
+          )}
+        </div>
       </section>
 
       <div className="home-cards">

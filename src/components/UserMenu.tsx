@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronDown, LayoutDashboard, LogOut, Shield } from 'lucide-react';
+import { ChevronDown, Compass, LayoutDashboard, LogOut, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
 import { isAdminRole, roleLabel } from '../types/user';
 
@@ -12,9 +12,10 @@ interface UserMenuProps {
   activeTab: TabType;
   onNavigate: (tab: TabType) => void;
   onLogout: () => void;
+  onOpenOnboarding?: () => void;
 }
 
-export function UserMenu({ currentUser, language, activeTab, onNavigate, onLogout }: UserMenuProps) {
+export function UserMenu({ currentUser, language, activeTab, onNavigate, onLogout, onOpenOnboarding }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const isAdmin = isAdminRole(currentUser.role);
@@ -97,6 +98,21 @@ export function UserMenu({ currentUser, language, activeTab, onNavigate, onLogou
             <LayoutDashboard size={18} />
             {language === 'en' ? 'My profile' : 'Il mio profilo'}
           </button>
+
+          {onOpenOnboarding && (
+            <button
+              type="button"
+              role="menuitem"
+              className="user-menu-item"
+              onClick={() => {
+                setOpen(false);
+                onOpenOnboarding();
+              }}
+            >
+              <Compass size={18} />
+              {language === 'en' ? 'Choose study level' : 'Scegli livello di studio'}
+            </button>
+          )}
 
           {isAdmin && (
             <button

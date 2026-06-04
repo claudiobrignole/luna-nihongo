@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, UserPlus, LogIn, User } from 'lucide-react';
+import { Mail, Lock, ArrowRight, UserPlus, LogIn, User, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { isFirebaseConfigured } from '../lib/firebase';
 
@@ -16,6 +16,7 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -194,30 +195,26 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
             <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)' }}>
               {language === 'en' ? 'Password' : 'Password'}
             </label>
-            <div style={{ position: 'relative' }}>
-              <Lock size={18} style={{
-                position: 'absolute',
-                left: '12px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'var(--text-light)'
-              }} />
+            <div className="auth-password-wrap">
+              <Lock size={18} className="auth-field-icon" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete={isLogin ? 'current-password' : 'new-password'}
-                style={{
-                  width: '100%',
-                  padding: '0.8rem 1rem 0.8rem 2.4rem',
-                  borderRadius: '12px',
-                  border: '1px solid var(--border)',
-                  backgroundColor: 'var(--bg-input)',
-                  color: 'var(--text-main)',
-                  fontSize: '0.95rem'
-                }}
+                className="auth-password-input"
               />
+              <button
+                type="button"
+                className="auth-password-toggle"
+                onClick={() => setShowPassword((v) => !v)}
+                aria-label={showPassword
+                  ? (language === 'en' ? 'Hide password' : 'Nascondi password')
+                  : (language === 'en' ? 'Show password' : 'Mostra password')}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
           </div>
 
