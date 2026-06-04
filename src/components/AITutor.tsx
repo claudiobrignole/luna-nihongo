@@ -1,10 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX,
+  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
 import { FREE_TUTOR_TURN_LIMIT } from '../types/user';
-import { extractJapaneseForSpeech, speakJapaneseText } from '../services/ttsService';
+import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
+import {
+  buildTutorSystemPrompt,
+  conversationOpener,
+  type TutorMode,
+} from '../services/tutorContext';
+import { fetchTutorReply } from '../services/tutorService';
 
 interface AITutorProps {
   language: 'en' | 'it';
@@ -37,19 +43,6 @@ const FALLBACK_RESPONSES_IT = [
 
 let fallbackIndex = 0;
 
-function buildSystemPrompt(user: LunaUser, language: string): string {
-  const levelText = user.completedUnits.length === 0 ? 'a complete beginner' :
-    user.completedUnits.length <= 3 ? 'an early beginner' : 'an intermediate student';
-
-  return `You are Luna-sensei, a warm, encouraging, and knowledgeable Japanese language tutor on the Luna Nihongo learning platform.
-Your student's name is: ${user.username}
-Student's level: ${levelText} (completed ${user.completedUnits.length} lesson units, ${user.xp} XP)
-Completed units: ${user.completedUnits.join(', ') || 'none yet'}
-Student memory notes: ${user.memory}
-Response language: ${language === 'it' ? 'Italian (with Japanese examples in romaji when helpful)' : 'English (with Japanese examples in romaji when helpful)'}
-Keep responses concise (2-4 sentences), friendly, and educational. Occasionally use Japanese words/phrases with translations. Reference their progress and memory when relevant. Always end with an encouraging note or a small challenge.`;
-}
-
 export const AITutor: React.FC<AITutorProps> = ({
   language,
   currentUser,
@@ -65,6 +58,8 @@ export const AITutor: React.FC<AITutorProps> = ({
   const [isEditingMemory, setIsEditingMemory] = useState(false);
   const [voiceEnabled, setVoiceEnabled] = useState(currentUser.tutorVoiceEnabled);
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
+  const [tutorMode, setTutorMode] = useState<TutorMode>('conversation');
+  const [ttsError, setTtsError] = useState<string | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   const isFree = currentUser.tier === 'free';
@@ -72,11 +67,46 @@ export const AITutor: React.FC<AITutorProps> = ({
   const remaining = FREE_TUTOR_TURN_LIMIT - msgCount;
   const isBlocked = isFree && msgCount >= FREE_TUTOR_TURN_LIMIT;
 
+  const saveUser = async (updates: Partial<LunaUser>) => {
+    await onUserUpdate(updates);
+  };
+
   const speakReply = async (text: string, index?: number) => {
     const toSpeak = extractJapaneseForSpeech(text);
+    if (!toSpeak.trim()) return;
     if (index !== undefined) setSpeakingIndex(index);
-    await speakJapaneseText(toSpeak);
+    setTtsError(null);
+    const result = await speakJapaneseText(toSpeak);
     setSpeakingIndex(null);
+    if ('error' in result) {
+      setTtsError(
+        language === 'en'
+          ? `Voice failed: ${result.detail ?? result.error}`
+          : `Voce non disponibile: ${result.detail ?? result.error}`
+      );
+    }
+  };
+
+  const seedConversation = useCallback(
+    (withVoice = false) => {
+      const opener: ChatMessage = {
+        role: 'assistant',
+        content: conversationOpener(currentUser.username, language),
+      };
+      setMessages([opener]);
+      void saveUser({ chatHistory: [opener] });
+      if (withVoice && voiceEnabled) {
+        void speakReply(opener.content, 0);
+      }
+    },
+    [currentUser.username, language, voiceEnabled]
+  );
+
+  const switchTutorMode = (mode: TutorMode) => {
+    setTutorMode(mode);
+    if (mode === 'conversation' && messages.length === 0) {
+      seedConversation(false);
+    }
   };
 
   const toggleVoice = async () => {
@@ -89,12 +119,14 @@ export const AITutor: React.FC<AITutorProps> = ({
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading]);
 
-  const saveUser = async (updates: Partial<LunaUser>) => {
-    await onUserUpdate(updates);
-  };
+  useEffect(() => {
+    if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
+      seedConversation(false);
+    }
+  }, []);
 
-  const sendMessage = async () => {
-    const text = input.trim();
+  const sendMessage = async (textOverride?: string) => {
+    const text = (textOverride ?? input).trim();
     if (!text || isLoading || isBlocked) return;
 
     if (isFree && msgCount >= FREE_TUTOR_TURN_LIMIT) {
@@ -105,39 +137,21 @@ export const AITutor: React.FC<AITutorProps> = ({
     const userMsg: ChatMessage = { role: 'user', content: text };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
-    setInput('');
+    if (!textOverride) setInput('');
     setIsLoading(true);
 
     const newCount = msgCount + 1;
+    const systemPrompt = buildTutorSystemPrompt(currentUser, language, tutorMode);
 
     let replyText = '';
 
     try {
-      // Try PHP proxy endpoint (works on Hostinger)
-      const response = await fetch('/api/tutor.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          systemPrompt: buildSystemPrompt(currentUser, language),
-          messages: newMessages,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        replyText = data.reply || (language === 'it'
-          ? 'Mi dispiace, non ho ricevuto risposta. Riprova!'
-          : "Sorry, I didn't get a response. Please try again!");
-      } else {
-        throw new Error('PHP proxy not available');
-      }
+      replyText = await fetchTutorReply(systemPrompt, newMessages, tutorMode);
+      if (!replyText) throw new Error('Empty reply');
     } catch {
-      // Fallback to local simulator in development
       const pool = language === 'it' ? FALLBACK_RESPONSES_IT : FALLBACK_RESPONSES_EN;
       replyText = pool[fallbackIndex % pool.length];
       fallbackIndex++;
-
-      // Personalize fallback
       replyText = replyText.replace('you', currentUser.username);
     }
 
@@ -149,7 +163,7 @@ export const AITutor: React.FC<AITutorProps> = ({
 
     onTutorMessage?.(text.slice(0, 80));
 
-    saveUser({
+    void saveUser({
       messagesCount: newCount,
       chatHistory: finalMessages,
     });
@@ -161,6 +175,36 @@ export const AITutor: React.FC<AITutorProps> = ({
     if (isFree && newCount >= FREE_TUTOR_TURN_LIMIT) {
       setTimeout(() => setShowUpgradeModal(true), 800);
     }
+  };
+
+  const handleMicDictation = () => {
+    type RecognitionCtor = new () => {
+      lang: string;
+      interimResults: boolean;
+      onresult: ((event: { results: { [i: number]: { [j: number]: { transcript: string } } } }) => void) | null;
+      onerror: (() => void) | null;
+      start: () => void;
+    };
+    const win = window as Window & {
+      SpeechRecognition?: RecognitionCtor;
+      webkitSpeechRecognition?: RecognitionCtor;
+    };
+    const Recognition = win.SpeechRecognition || win.webkitSpeechRecognition;
+    if (!Recognition) {
+      alert(language === 'en' ? 'Use Chrome or Safari for the mic.' : 'Usa Chrome o Safari per il microfono.');
+      return;
+    }
+    stopJapaneseSpeech();
+    const recognition = new Recognition();
+    recognition.lang = language === 'it' ? 'it-IT' : 'en-US';
+    recognition.interimResults = false;
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.trim();
+      if (transcript) {
+        setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
+      }
+    };
+    recognition.start();
   };
 
   const saveMemory = async () => {
@@ -380,6 +424,38 @@ export const AITutor: React.FC<AITutorProps> = ({
           )}
         </div>
 
+        <div className="tutor-mode-bar">
+          <button
+            type="button"
+            className={`tutor-mode-tab ${tutorMode === 'conversation' ? 'active' : ''}`}
+            onClick={() => switchTutorMode('conversation')}
+          >
+            <MessagesSquare size={16} />
+            {language === 'en' ? 'Conversation' : 'Conversazione'}
+          </button>
+          <button
+            type="button"
+            className={`tutor-mode-tab ${tutorMode === 'qa' ? 'active' : ''}`}
+            onClick={() => switchTutorMode('qa')}
+          >
+            <MessageCircle size={16} />
+            {language === 'en' ? 'Q&A' : 'Domande'}
+          </button>
+          {tutorMode === 'conversation' && (
+            <button
+              type="button"
+              className="tutor-new-session"
+              onClick={() => seedConversation(voiceEnabled)}
+            >
+              {language === 'en' ? 'New topic' : 'Nuovo argomento'}
+            </button>
+          )}
+        </div>
+
+        {ttsError && (
+          <p className="tutor-tts-error">{ttsError}</p>
+        )}
+
         {/* Messages list */}
         <div style={{
           flex: 1,
@@ -389,27 +465,13 @@ export const AITutor: React.FC<AITutorProps> = ({
           flexDirection: 'column',
           gap: '1rem'
         }}>
-          {messages.length === 0 && (
-            <div style={{
-              textAlign: 'center',
-              color: 'var(--text-muted)',
-              marginTop: '3rem',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '1rem'
-            }}>
-              <div style={{
-                width: '60px', height: '60px', borderRadius: '50%',
-                background: 'var(--primary-glow)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                <Bot size={30} style={{ color: 'var(--primary)' }} />
-              </div>
-              <p style={{ fontSize: '0.95rem' }}>
+          {messages.length === 0 && tutorMode === 'qa' && (
+            <div className="tutor-empty-hint">
+              <Bot size={30} style={{ color: 'var(--primary)' }} />
+              <p>
                 {language === 'en'
-                  ? `こんにちは、${currentUser.username}さん！ I'm Luna-sensei. Ask me anything about Japanese!`
-                  : `こんにちは、${currentUser.username}さん！ Sono Luna-sensei. Chiedi pure qualsiasi cosa sul giapponese!`}
+                  ? `Hi ${currentUser.username}! Ask about any lesson, grammar, or vocab from the full N5 path.`
+                  : `Ciao ${currentUser.username}! Chiedi di lezioni, grammatica o vocaboli da tutto il percorso N5.`}
               </p>
             </div>
           )}
@@ -541,18 +603,35 @@ export const AITutor: React.FC<AITutorProps> = ({
             </div>
           ) : (
             <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-end' }}>
+              {tutorMode === 'conversation' && (
+                <button
+                  type="button"
+                  className="btn btn-secondary tutor-mic-btn"
+                  onClick={handleMicDictation}
+                  title={language === 'en' ? 'Speak your reply' : 'Parla la tua risposta'}
+                  disabled={isLoading}
+                >
+                  <Mic size={18} />
+                </button>
+              )}
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
-                    sendMessage();
+                    void sendMessage();
                   }
                 }}
-                placeholder={language === 'en'
-                  ? 'Ask Luna-sensei anything… (Enter to send, Shift+Enter for new line)'
-                  : 'Chiedi qualcosa a Luna-sensei… (Invio per inviare)'}
+                placeholder={
+                  tutorMode === 'conversation'
+                    ? (language === 'en'
+                      ? 'Reply to Luna… (Enter to send)'
+                      : 'Rispondi a Luna… (Invio per inviare)')
+                    : (language === 'en'
+                      ? 'Ask about any lesson… (Enter to send)'
+                      : 'Chiedi su una lezione… (Invio per inviare)')
+                }
                 rows={2}
                 style={{
                   flex: 1,
@@ -569,7 +648,7 @@ export const AITutor: React.FC<AITutorProps> = ({
               />
               <button
                 className="btn btn-primary"
-                onClick={sendMessage}
+                onClick={() => void sendMessage()}
                 disabled={!input.trim() || isLoading}
                 style={{
                   padding: '0.9rem',

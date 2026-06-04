@@ -1667,6 +1667,69 @@ body.has-mobile-nav {
   min-width: 0;
 }
 
+.tutor-mode-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-input);
+  align-items: center;
+}
+
+.tutor-mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+}
+
+.tutor-mode-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.tutor-new-session {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  padding: 0.35rem 0.6rem;
+}
+
+.tutor-tts-error {
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--error);
+  background: var(--error-glow);
+  border-bottom: 1px solid var(--border);
+}
+
+.tutor-empty-hint {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.tutor-mic-btn {
+  padding: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 @media (max-width: 900px) {
   .tutor-layout {
     flex-direction: column;

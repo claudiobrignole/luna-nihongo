@@ -67,6 +67,68 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
     }
   }, [language, clearSpeechFeedback]);
 
+  /** Free-form dictation (e.g. tutor conversation) — puts transcript in callback. */
+  const listenForTranscript = useCallback(
+    (itemId: string, onTranscript: (text: string) => void) => {
+      const win = window as Window & {
+        SpeechRecognition?: SpeechRecognitionConstructor;
+        webkitSpeechRecognition?: SpeechRecognitionConstructor;
+      };
+      const SpeechRecognition = win.SpeechRecognition || win.webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        alert(
+          language === 'en'
+            ? 'Speech recognition is not supported in this browser. Please use Chrome or Safari.'
+            : 'Il riconoscimento vocale non è supportato in questo browser. Usa Chrome o Safari.'
+        );
+        return;
+      }
+
+      stopJapaneseSpeech();
+
+      setSpeechFeedback({
+        itemId,
+        status: 'listening',
+        text: language === 'en' ? 'Listening… speak in Japanese or Italian' : 'Ascolto… parla in giapponese o italiano',
+      });
+      setActiveMicItemId(itemId);
+
+      const recognition = new SpeechRecognition() as SpeechRecognitionLike;
+      recognition.lang = 'ja-JP';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.onresult = (event: SpeechRecognitionEventLike) => {
+        const transcript = event.results[0][0].transcript.trim();
+        if (transcript) onTranscript(transcript);
+        setSpeechFeedback({
+          itemId,
+          status: 'success',
+          text:
+            language === 'en'
+              ? `Heard: "${transcript}"`
+              : `Sentito: "${transcript}"`,
+        });
+      };
+
+      recognition.onerror = () => {
+        setSpeechFeedback({
+          itemId,
+          status: 'fail',
+          text: language === 'en' ? 'Microphone error. Try again!' : 'Errore del microfono. Riprova!',
+        });
+      };
+
+      recognition.onend = () => {
+        setActiveMicItemId(null);
+      };
+
+      recognition.start();
+    },
+    [language]
+  );
+
   const startSpeechRecognition = useCallback(
     (itemId: string, targetJa: string, targetRomaji: string) => {
       const win = window as Window & {
@@ -134,6 +196,7 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
 
   return {
     speakJapanese,
+    listenForTranscript,
     startSpeechRecognition,
     speechFeedback,
     activeMicItemId,

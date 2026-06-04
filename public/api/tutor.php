@@ -31,7 +31,7 @@ $geminiPayload = [
     ],
     'contents' => [],
     'generationConfig' => [
-        'maxOutputTokens' => 400,
+        'maxOutputTokens' => isset($body['maxOutputTokens']) ? (int) $body['maxOutputTokens'] : 400,
         'temperature'     => 0.75,
     ]
 ];
