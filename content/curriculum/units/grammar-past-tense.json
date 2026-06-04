@@ -1,0 +1,147 @@
+{
+  "level": 5,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · passato dei verbi",
+    "en": "Grammar · verb past tense"
+  },
+  "description": {
+    "it": "Finalmente puoi raccontare ciò che hai fatto! Il passato cortese è tra le cose più semplici del giapponese: nessuna irregolarità. Affermativo: -ます → -ました (たべました, 'ho mangiato'). Negativo: -ません → -ませんでした (たべませんでした, 'non ho mangiato'). Ora ogni verbo ha quattro forme pulite — presente affermativo/negativo e passato affermativo/negativo — e zero eccezioni da temere.",
+    "en": "At last you can tell what you did! The polite past is among the simplest things in Japanese: no irregularities. Affirmative: -ます → -ました (たべました, 'I ate'). Negative: -ません → -ませんでした (たべませんでした, 'I didn't eat'). Now every verb has four clean forms — affirmative/negative present and affirmative/negative past — and zero exceptions to fear."
+  },
+  "grammarRefs": [
+    "gr-past-tense"
+  ],
+  "vocabRefs": [
+    "vocab-au",
+    "vocab-kaeru",
+    "vocab-asobu",
+    "vocab-neru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gpt-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato affermativo di たべます?",
+        "en": "Affirmative past of たべます?"
+      },
+      "options": [
+        {
+          "it": "たべました",
+          "en": "たべました"
+        },
+        {
+          "it": "たべませんでした",
+          "en": "たべませんでした"
+        },
+        {
+          "it": "たべます",
+          "en": "たべます"
+        },
+        {
+          "it": "たべて",
+          "en": "たべて"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpt-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato negativo di のみます ('non ho bevuto')?",
+        "en": "Negative past of のみます ('I didn't drink')?"
+      },
+      "options": [
+        {
+          "it": "のみませんでした",
+          "en": "のみませんでした"
+        },
+        {
+          "it": "のみました",
+          "en": "のみました"
+        },
+        {
+          "it": "のみません",
+          "en": "のみません"
+        },
+        {
+          "it": "のんでした",
+          "en": "のんでした"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpt-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quante forme cortesi 'base' ha un verbo (presente/passato, aff./neg.)?",
+        "en": "How many 'base' polite forms does a verb have (present/past, aff./neg.)?"
+      },
+      "options": [
+        {
+          "it": "Quattro",
+          "en": "Four"
+        },
+        {
+          "it": "Due",
+          "en": "Two"
+        },
+        {
+          "it": "Sei",
+          "en": "Six"
+        },
+        {
+          "it": "Una",
+          "en": "One"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpt-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina forma e significato (たべる).",
+        "en": "Match form to meaning (たべる)."
+      },
+      "pairs": [
+        {
+          "left": "たべます",
+          "right": "mangio / I eat"
+        },
+        {
+          "left": "たべません",
+          "right": "non mangio / I don't eat"
+        },
+        {
+          "left": "たべました",
+          "right": "ho mangiato / I ate"
+        },
+        {
+          "left": "たべませんでした",
+          "right": "non ho mangiato / I didn't eat"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "-ました / -ませんでした",
+      "en": "-ました / -ませんでした"
+    },
+    {
+      "it": "Le quattro forme verbali",
+      "en": "The four verb forms"
+    }
+  ],
+  "id": "grammar-past-tense"
+}

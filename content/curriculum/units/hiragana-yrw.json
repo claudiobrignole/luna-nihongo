@@ -1,0 +1,158 @@
+{
+  "level": 0,
+  "order": 8,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · Y, R, W + ん",
+    "en": "Hiragana · Y, R, W + n"
+  },
+  "description": {
+    "it": "L'ultimo blocco base! や・ゆ・よ (solo tre), ら・り・る・れ・ろ, poi わ・を e infine ん. を è raro: serve quasi solo come particella dell'oggetto. ん è speciale: è l'unica consonante che sta da sola e non inizia mai una parola.",
+    "en": "The last base block! や・ゆ・よ (just three), ら・り・る・れ・ろ, then わ・を and finally ん. を is rare: it's used almost only as the object particle. ん is special: the only standalone consonant, and it never starts a word."
+  },
+  "kanaRefs": [
+    "hira-ya",
+    "hira-yu",
+    "hira-yo",
+    "hira-ra",
+    "hira-ri",
+    "hira-ru",
+    "hira-re",
+    "hira-ro",
+    "hira-wa",
+    "hira-wo",
+    "hira-n"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hy-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "る e ろ si distinguono per un dettaglio. Quale è 'ru' (con il cappio)?",
+        "en": "る and ろ differ by one detail. Which is 'ru' (with the loop)?"
+      },
+      "options": [
+        {
+          "it": "る",
+          "en": "る"
+        },
+        {
+          "it": "ろ",
+          "en": "ろ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hy-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere non inizia mai una parola?",
+        "en": "Which character never begins a word?"
+      },
+      "options": [
+        {
+          "it": "ん",
+          "en": "ん"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "わ",
+          "en": "わ"
+        },
+        {
+          "it": "よ",
+          "en": "よ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hy-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "を si usa soprattutto come...",
+        "en": "を is used mainly as..."
+      },
+      "options": [
+        {
+          "it": "particella dell'oggetto diretto",
+          "en": "the direct-object particle"
+        },
+        {
+          "it": "vocale extra",
+          "en": "an extra vowel"
+        },
+        {
+          "it": "forma di saluto",
+          "en": "a greeting"
+        },
+        {
+          "it": "numero",
+          "en": "a number"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hy-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ゆ",
+        "en": "Type the romaji for: ゆ"
+      },
+      "answer": "yu",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hy-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la riga R.",
+        "en": "Match the R-line."
+      },
+      "pairs": [
+        {
+          "left": "ら",
+          "right": "ra"
+        },
+        {
+          "left": "り",
+          "right": "ri"
+        },
+        {
+          "left": "る",
+          "right": "ru"
+        },
+        {
+          "left": "れ",
+          "right": "re"
+        },
+        {
+          "left": "ろ",
+          "right": "ro"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "る vs ろ, わ vs れ",
+      "en": "る vs ろ, わ vs れ"
+    },
+    {
+      "it": "ん e を: i due caratteri speciali",
+      "en": "ん and を: the two special characters"
+    }
+  ],
+  "id": "hiragana-yrw"
+}

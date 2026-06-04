@@ -1,0 +1,108 @@
+{
+  "id": "hiragana-vowels",
+  "level": 0,
+  "order": 0,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · le vocali",
+    "en": "Hiragana · vowels"
+  },
+  "description": {
+    "it": "Benvenuto! Iniziamo dalle cinque vocali: あ・い・う・え・お. Sono i mattoni di ogni suono giapponese — tutto il resto si costruisce su questi cinque. Prenditi il tempo di disegnarli: la memoria delle dita aiuta più di quanto pensi.",
+    "en": "Welcome! Let's start with the five vowels: あ・い・う・え・お. They're the building blocks of every Japanese sound — everything else is built on these five. Take your time tracing them: muscle memory helps more than you'd think."
+  },
+  "kanaRefs": ["hira-a", "hira-i", "hira-u", "hira-e", "hira-o"],
+  "quizzes": [
+    {
+      "id": "q-hv-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'a'?",
+        "en": "Which character reads 'a'?"
+      },
+      "options": [
+        { "it": "あ", "en": "あ" },
+        { "it": "お", "en": "お" },
+        { "it": "え", "en": "え" },
+        { "it": "う", "en": "う" }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hv-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge お?",
+        "en": "How do you read お?"
+      },
+      "options": [
+        { "it": "u", "en": "u" },
+        { "it": "o", "en": "o" },
+        { "it": "a", "en": "a" },
+        { "it": "e", "en": "e" }
+      ],
+      "correctIndex": 1,
+      "xp": 10
+    },
+    {
+      "id": "q-hv-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale di questi NON è una vocale dell'hiragana?",
+        "en": "Which of these is NOT a hiragana vowel?"
+      },
+      "options": [
+        { "it": "い", "en": "い" },
+        { "it": "か", "en": "か" },
+        { "it": "う", "en": "う" },
+        { "it": "え", "en": "え" }
+      ],
+      "correctIndex": 1,
+      "xp": 10
+    },
+    {
+      "id": "q-hv-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji il carattere: い",
+        "en": "Type the romaji for the character: い"
+      },
+      "answer": "i",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hv-spell-2",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji il carattere: え",
+        "en": "Type the romaji for the character: え"
+      },
+      "answer": "e",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hv-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina ogni carattere alla sua lettura.",
+        "en": "Match each character to its reading."
+      },
+      "pairs": [
+        { "left": "あ", "right": "a" },
+        { "left": "う", "right": "u" },
+        { "left": "お", "right": "o" },
+        { "left": "い", "right": "i" },
+        { "left": "え", "right": "e" }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    { "it": "Le cinque vocali e i loro suoni", "en": "The five vowels and their sounds" },
+    { "it": "Distinguere あ da お (si somigliano)", "en": "Telling あ apart from お (they look alike)" }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "level": 6,
+  "order": 1,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Padronanza · ~80 Kanji N5",
+    "en": "Mastery · ~80 N5 Kanji"
+  },
+  "description": {
+    "it": "Tutti i kanji N5 in un'unica prova: numeri, natura, persone, posizione, tempo, scuola, corpo, verbi. Qui non conta solo riconoscere la forma, ma collegare significato e letture — e ricordare le composizioni che hai imparato (木→林→森, 目→見, 言→話・読). Se le scomposizioni ti tornano in mente da sole, sei pronto per l'esame.",
+    "en": "All the N5 kanji in one test: numbers, nature, people, position, time, school, body, verbs. Here it's not just about recognizing shapes, but connecting meaning and readings — and recalling the compositions you learned (木→林→森, 目→見, 言→話/読). If the breakdowns come back to you on their own, you're exam-ready."
+  },
+  "reviewPoolRefs": [
+    "kanji-ichi",
+    "kanji-juu",
+    "kanji-hyaku",
+    "kanji-hi",
+    "kanji-ki",
+    "kanji-mori",
+    "kanji-hito",
+    "kanji-dai",
+    "kanji-hon",
+    "kanji-naka",
+    "kanji-ta",
+    "kanji-ji-time",
+    "kanji-shoku",
+    "kanji-gaku",
+    "kanji-sei",
+    "kanji-me-eye",
+    "kanji-te-hand",
+    "kanji-miru-k",
+    "kanji-kiku-k",
+    "kanji-hanasu-k",
+    "kanji-yomu-k",
+    "kanji-ten"
+  ],
+  "quizzes": [
+    {
+      "id": "q-nkjm-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "森 (foresta) = quanti 木?",
+        "en": "森 (forest) = how many 木?"
+      },
+      "options": [
+        {
+          "it": "tre",
+          "en": "three"
+        },
+        {
+          "it": "due",
+          "en": "two"
+        },
+        {
+          "it": "uno",
+          "en": "one"
+        },
+        {
+          "it": "quattro",
+          "en": "four"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkjm-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji condivide il componente 言 (dire)?",
+        "en": "Which kanji shares the 言 (say) component?"
+      },
+      "options": [
+        {
+          "it": "話 (parlare)",
+          "en": "話 (speak)"
+        },
+        {
+          "it": "見 (vedere)",
+          "en": "見 (see)"
+        },
+        {
+          "it": "食 (mangiare)",
+          "en": "食 (eat)"
+        },
+        {
+          "it": "山 (montagna)",
+          "en": "山 (mountain)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkjm-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "見 (vedere) deriva dalla composizione...",
+        "en": "見 (see) comes from the composition..."
+      },
+      "options": [
+        {
+          "it": "目 (occhio) + gambe",
+          "en": "目 (eye) + legs"
+        },
+        {
+          "it": "耳 (orecchio) + cancello",
+          "en": "耳 (ear) + gate"
+        },
+        {
+          "it": "口 (bocca) + mano",
+          "en": "口 (mouth) + hand"
+        },
+        {
+          "it": "日 (sole) + tempio",
+          "en": "日 (sun) + temple"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkjm-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "先生 (insegnante) significa letteralmente...",
+        "en": "先生 (teacher) literally means..."
+      },
+      "options": [
+        {
+          "it": "chi è nato prima",
+          "en": "one born before"
+        },
+        {
+          "it": "chi studia molto",
+          "en": "one who studies a lot"
+        },
+        {
+          "it": "persona grande",
+          "en": "big person"
+        },
+        {
+          "it": "vita lunga",
+          "en": "long life"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkjm-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "百",
+          "right": "cento / hundred"
+        },
+        {
+          "left": "中",
+          "right": "mezzo / middle"
+        },
+        {
+          "left": "食",
+          "right": "mangiare / eat"
+        },
+        {
+          "left": "学",
+          "right": "studio / study"
+        },
+        {
+          "left": "天",
+          "right": "cielo / sky"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-nkjm-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e lettura on'yomi.",
+        "en": "Match kanji to on'yomi reading."
+      },
+      "pairs": [
+        {
+          "left": "人",
+          "right": "ジン/ニン"
+        },
+        {
+          "left": "日",
+          "right": "ニチ"
+        },
+        {
+          "left": "時",
+          "right": "ジ"
+        },
+        {
+          "left": "見",
+          "right": "ケン"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Composizioni chiave dei kanji N5",
+      "en": "Key N5 kanji compositions"
+    },
+    {
+      "it": "On'yomi vs kun'yomi nei composti",
+      "en": "On'yomi vs kun'yomi in compounds"
+    }
+  ],
+  "id": "n5-kanji-mastery"
+}

@@ -1,0 +1,132 @@
+{
+  "level": 0,
+  "order": 2,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga S",
+    "en": "Hiragana · S-line"
+  },
+  "description": {
+    "it": "さ・し・す・せ・そ. Una sola eccezione da ricordare: し non si legge 'si' ma 'shi'. È la stessa 'sh' di 'sushi'. Per il resto, riga regolare. Occhio a non confondere さ con la futura き.",
+    "en": "さ・し・す・せ・そ. Just one exception to remember: し isn't read 'si' but 'shi' — the same 'sh' as in 'sushi'. Otherwise a regular row. Watch out not to mix up さ with き."
+  },
+  "kanaRefs": [
+    "hira-sa",
+    "hira-shi",
+    "hira-su",
+    "hira-se",
+    "hira-so"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hs-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge し?",
+        "en": "How do you read し?"
+      },
+      "options": [
+        {
+          "it": "shi",
+          "en": "shi"
+        },
+        {
+          "it": "si",
+          "en": "si"
+        },
+        {
+          "it": "chi",
+          "en": "chi"
+        },
+        {
+          "it": "su",
+          "en": "su"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hs-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge la parola すし?",
+        "en": "How do you read the word すし?"
+      },
+      "options": [
+        {
+          "it": "sushi",
+          "en": "sushi"
+        },
+        {
+          "it": "susi",
+          "en": "susi"
+        },
+        {
+          "it": "shisu",
+          "en": "shisu"
+        },
+        {
+          "it": "sosu",
+          "en": "sosu"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hs-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: そ",
+        "en": "Type the romaji for: そ"
+      },
+      "answer": "so",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hs-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "さ",
+          "right": "sa"
+        },
+        {
+          "left": "し",
+          "right": "shi"
+        },
+        {
+          "left": "す",
+          "right": "su"
+        },
+        {
+          "left": "せ",
+          "right": "se"
+        },
+        {
+          "left": "そ",
+          "right": "so"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "L'eccezione し = 'shi'",
+      "en": "The し = 'shi' exception"
+    },
+    {
+      "it": "さ vs き a confronto",
+      "en": "さ vs き"
+    }
+  ],
+  "id": "hiragana-s"
+}

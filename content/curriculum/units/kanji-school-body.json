@@ -1,0 +1,153 @@
+{
+  "level": 4,
+  "order": 6,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · scuola e corpo",
+    "en": "Kanji · school & body"
+  },
+  "description": {
+    "it": "Due gruppi: la scuola (学 studio, 校 scuola, 先 prima, 生 vita/studente) e il corpo (目 occhio, 耳 orecchio, 口 bocca, 手 mano, 足 piede). Belle composizioni: 学 contiene 子 (bambino) sotto un tetto di sapere; 先生 (insegnante) è 'chi è nato prima' (先+生); 学生 (studente) è 'chi studia la vita'. E 手 (mano) è proprio la て dell'hiragana cresciuta!",
+    "en": "Two groups: school (学 study, 校 school, 先 ahead, 生 life/student) and the body (目 eye, 耳 ear, 口 mouth, 手 hand, 足 foot). Nice compositions: 学 holds 子 (child) under a roof of knowledge; 先生 (teacher) is 'one born before' (先+生); 学生 (student) is 'one who studies life'. And 手 (hand) is hiragana て all grown up!"
+  },
+  "kanjiRefs": [
+    "kanji-gaku",
+    "kanji-kou",
+    "kanji-sen-teacher",
+    "kanji-sei",
+    "kanji-me-eye",
+    "kanji-mimi",
+    "kanji-kuchi",
+    "kanji-te-hand",
+    "kanji-ashi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ksb-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "学 (studio) contiene quale kanji già visto?",
+        "en": "学 (study) contains which kanji you've seen?"
+      },
+      "options": [
+        {
+          "it": "子 (bambino)",
+          "en": "子 (child)"
+        },
+        {
+          "it": "木 (albero)",
+          "en": "木 (tree)"
+        },
+        {
+          "it": "人 (persona)",
+          "en": "人 (person)"
+        },
+        {
+          "it": "日 (sole)",
+          "en": "日 (sun)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ksb-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "先生 (insegnante) si compone di 先 (prima) + 生. Letteralmente è...",
+        "en": "先生 (teacher) is 先 (before) + 生. Literally it's..."
+      },
+      "options": [
+        {
+          "it": "chi è nato prima",
+          "en": "one born before"
+        },
+        {
+          "it": "chi studia",
+          "en": "one who studies"
+        },
+        {
+          "it": "la prima vita",
+          "en": "the first life"
+        },
+        {
+          "it": "un bambino grande",
+          "en": "a big child"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ksb-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "手 (mano) ricorda quale carattere hiragana?",
+        "en": "手 (hand) recalls which hiragana character?"
+      },
+      "options": [
+        {
+          "it": "て (te)",
+          "en": "て (te)"
+        },
+        {
+          "it": "に (ni)",
+          "en": "に (ni)"
+        },
+        {
+          "it": "め (me)",
+          "en": "め (me)"
+        },
+        {
+          "it": "ま (ma)",
+          "en": "ま (ma)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ksb-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji del corpo e significato.",
+        "en": "Match body kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "目",
+          "right": "occhio / eye"
+        },
+        {
+          "left": "耳",
+          "right": "orecchio / ear"
+        },
+        {
+          "left": "口",
+          "right": "bocca / mouth"
+        },
+        {
+          "left": "手",
+          "right": "mano / hand"
+        },
+        {
+          "left": "足",
+          "right": "piede / foot"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "先生 e 学生 scomposti",
+      "en": "先生 and 学生 broken down"
+    },
+    {
+      "it": "手=て, 目=め",
+      "en": "手=て, 目=め"
+    }
+  ],
+  "id": "kanji-school-body"
+}

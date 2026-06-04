@@ -1,0 +1,189 @@
+{
+  "level": 0,
+  "order": 11,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · combinazioni (yōon) e っ",
+    "en": "Hiragana · combinations (yōon) & っ"
+  },
+  "description": {
+    "it": "Quasi alla fine! Quando un carattere della colonna 'i' (き, し, ち...) è seguito da una や/ゆ/よ PICCOLA, si fondono in un'unica sillaba: きゃ='kya', しゅ='shu', ちょ='cho'. E lo っ piccolo non si pronuncia: raddoppia la consonante che segue (きって='kitte'). Sono gli ultimi pezzi del puzzle hiragana.",
+    "en": "Almost there! When an 'i'-column character (き, し, ち...) is followed by a SMALL や/ゆ/よ, they fuse into one syllable: きゃ='kya', しゅ='shu', ちょ='cho'. And the small っ is silent: it doubles the next consonant (きって='kitte'). These are the last pieces of the hiragana puzzle."
+  },
+  "kanaRefs": [
+    "hira-kya",
+    "hira-kyu",
+    "hira-kyo",
+    "hira-sha",
+    "hira-shu",
+    "hira-sho",
+    "hira-cha",
+    "hira-chu",
+    "hira-cho",
+    "hira-nya",
+    "hira-nyu",
+    "hira-nyo",
+    "hira-hya",
+    "hira-hyu",
+    "hira-hyo",
+    "hira-mya",
+    "hira-myu",
+    "hira-myo",
+    "hira-rya",
+    "hira-ryu",
+    "hira-ryo",
+    "hira-gya",
+    "hira-gyu",
+    "hira-gyo",
+    "hira-ja",
+    "hira-ju",
+    "hira-jo",
+    "hira-bya",
+    "hira-byu",
+    "hira-byo",
+    "hira-pya",
+    "hira-pyu",
+    "hira-pyo",
+    "hira-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "きゃ si pronuncia...",
+        "en": "きゃ is pronounced..."
+      },
+      "options": [
+        {
+          "it": "kya (una sillaba)",
+          "en": "kya (one syllable)"
+        },
+        {
+          "it": "ki-ya (due sillabe)",
+          "en": "ki-ya (two syllables)"
+        },
+        {
+          "it": "ka",
+          "en": "ka"
+        },
+        {
+          "it": "kyo",
+          "en": "kyo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa fa lo っ piccolo in きって?",
+        "en": "What does the small っ do in きって?"
+      },
+      "options": [
+        {
+          "it": "Raddoppia la consonante: 'kitte'",
+          "en": "Doubles the consonant: 'kitte'"
+        },
+        {
+          "it": "Si legge 'tsu'",
+          "en": "It's read 'tsu'"
+        },
+        {
+          "it": "Allunga la vocale",
+          "en": "Lengthens the vowel"
+        },
+        {
+          "it": "Non cambia nulla",
+          "en": "Changes nothing"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge しゃしん (foto)?",
+        "en": "How do you read しゃしん (photo)?"
+      },
+      "options": [
+        {
+          "it": "shashin",
+          "en": "shashin"
+        },
+        {
+          "it": "shiyashin",
+          "en": "shiyashin"
+        },
+        {
+          "it": "sashin",
+          "en": "sashin"
+        },
+        {
+          "it": "shashinn",
+          "en": "shashinn"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hc-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ちょ",
+        "en": "Type the romaji for: ちょ"
+      },
+      "answer": "cho",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina le combinazioni alla lettura.",
+        "en": "Match the combinations to their reading."
+      },
+      "pairs": [
+        {
+          "left": "きゃ",
+          "right": "kya"
+        },
+        {
+          "left": "しゅ",
+          "right": "shu"
+        },
+        {
+          "left": "ちょ",
+          "right": "cho"
+        },
+        {
+          "left": "じゃ",
+          "right": "ja"
+        },
+        {
+          "left": "りょ",
+          "right": "ryo"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "yōon: una sillaba, non due",
+      "en": "yōon: one syllable, not two"
+    },
+    {
+      "it": "っ raddoppia la consonante",
+      "en": "っ doubles the consonant"
+    }
+  ],
+  "id": "hiragana-combos"
+}

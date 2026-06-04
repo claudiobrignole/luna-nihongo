@@ -1,0 +1,137 @@
+{
+  "level": 4,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · congiunzioni (そして・でも・から)",
+    "en": "Grammar · conjunctions (soshite / demo / kara)"
+  },
+  "description": {
+    "it": "Tre parole per dare ritmo e logica al discorso. そして ('e poi') aggiunge, でも ('ma') contrappone — entrambe all'inizio della frase. から ('perché/poiché') è la più diversa: va alla FINE della frase del motivo, non all'inizio come in italiano. やすいですから、かいます = 'siccome è economico, lo compro'. Questa posizione finale di から è lo scoglio principale.",
+    "en": "Three words to give rhythm and logic to your speech. そして ('and then') adds, でも ('but') contrasts — both at the start of the sentence. から ('because/since') is the odd one: it goes at the END of the reason clause, not the start like English. やすいですから、かいます = 'since it's cheap, I'll buy it'. This final position of から is the main hurdle."
+  },
+  "grammarRefs": [
+    "gr-conjunctions"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Dove si mette から ('perché')?",
+        "en": "Where does から ('because') go?"
+      },
+      "options": [
+        {
+          "it": "alla fine della frase del motivo",
+          "en": "at the end of the reason clause"
+        },
+        {
+          "it": "all'inizio della frase del motivo",
+          "en": "at the start of the reason clause"
+        },
+        {
+          "it": "prima del verbo",
+          "en": "before the verb"
+        },
+        {
+          "it": "non importa",
+          "en": "it doesn't matter"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "でも significa...",
+        "en": "でも means..."
+      },
+      "options": [
+        {
+          "it": "ma / però",
+          "en": "but / however"
+        },
+        {
+          "it": "e poi",
+          "en": "and then"
+        },
+        {
+          "it": "perché",
+          "en": "because"
+        },
+        {
+          "it": "quindi",
+          "en": "therefore"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "やすいですから、かいます significa...",
+        "en": "やすいですから、かいます means..."
+      },
+      "options": [
+        {
+          "it": "Siccome è economico, lo compro.",
+          "en": "Since it's cheap, I'll buy it."
+        },
+        {
+          "it": "È economico ma non lo compro.",
+          "en": "It's cheap but I won't buy it."
+        },
+        {
+          "it": "È caro, quindi lo compro.",
+          "en": "It's expensive, so I'll buy it."
+        },
+        {
+          "it": "Compro e poi è economico.",
+          "en": "I buy and then it's cheap."
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina congiunzione e funzione.",
+        "en": "Match conjunction to function."
+      },
+      "pairs": [
+        {
+          "left": "そして",
+          "right": "e poi (aggiunta) / and then (adds)"
+        },
+        {
+          "left": "でも",
+          "right": "ma (contrasto) / but (contrast)"
+        },
+        {
+          "left": "から",
+          "right": "perché (motivo) / because (reason)"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "から in posizione finale",
+      "en": "から in final position"
+    },
+    {
+      "it": "そして vs でも",
+      "en": "そして vs でも"
+    }
+  ],
+  "id": "grammar-conjunctions"
+}

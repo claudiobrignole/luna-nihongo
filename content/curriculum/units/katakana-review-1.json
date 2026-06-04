@@ -1,0 +1,177 @@
+{
+  "level": 1,
+  "order": 3,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · Katakana ア → ホ",
+    "en": "Review · Katakana ア → ho"
+  },
+  "description": {
+    "it": "Metà katakana fatto! Consolidiamo da ア a ホ con un focus speciale sulle coppie che fanno impazzire tutti: シ/ツ e ソ/ン. Se le distingui qui, hai vinto la sfida più dura del katakana.",
+    "en": "Half of katakana done! Let's consolidate ア through ホ with special focus on the pairs that drive everyone crazy: シ/ツ and ソ/ン. Tell these apart here and you've beaten katakana's toughest challenge."
+  },
+  "reviewPoolRefs": [
+    "kata-a",
+    "kata-i",
+    "kata-u",
+    "kata-e",
+    "kata-o",
+    "kata-ka",
+    "kata-ki",
+    "kata-ku",
+    "kata-ke",
+    "kata-ko",
+    "kata-sa",
+    "kata-shi",
+    "kata-su",
+    "kata-se",
+    "kata-so",
+    "kata-ta",
+    "kata-chi",
+    "kata-tsu",
+    "kata-te",
+    "kata-to",
+    "kata-na",
+    "kata-ni",
+    "kata-nu",
+    "kata-ne",
+    "kata-no",
+    "kata-ha",
+    "kata-hi",
+    "kata-fu",
+    "kata-he",
+    "kata-ho"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kr1-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Coppia killer: quale è 'shi'?",
+        "en": "Killer pair: which one is 'shi'?"
+      },
+      "options": [
+        {
+          "it": "シ",
+          "en": "シ"
+        },
+        {
+          "it": "ツ",
+          "en": "ツ"
+        },
+        {
+          "it": "ソ",
+          "en": "ソ"
+        },
+        {
+          "it": "ン",
+          "en": "ン"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kr1-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge カキ (in katakana)?",
+        "en": "How do you read カキ (in katakana)?"
+      },
+      "options": [
+        {
+          "it": "kaki",
+          "en": "kaki"
+        },
+        {
+          "it": "kiki",
+          "en": "kiki"
+        },
+        {
+          "it": "keke",
+          "en": "keke"
+        },
+        {
+          "it": "kako",
+          "en": "kako"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kr1-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale coppia scende verso il basso?",
+        "en": "Which character's strokes point downward?"
+      },
+      "options": [
+        {
+          "it": "ツ e ソ",
+          "en": "ツ and ソ"
+        },
+        {
+          "it": "シ e ン",
+          "en": "シ and ン"
+        },
+        {
+          "it": "ナ e ニ",
+          "en": "ナ and ニ"
+        },
+        {
+          "it": "ハ e ホ",
+          "en": "ハ and ホ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kr1-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ヌ",
+        "en": "Type the romaji for: ヌ"
+      },
+      "answer": "nu",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-kr1-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina le quattro confondibili.",
+        "en": "Match the four confusables."
+      },
+      "pairs": [
+        {
+          "left": "シ",
+          "right": "shi"
+        },
+        {
+          "left": "ツ",
+          "right": "tsu"
+        },
+        {
+          "left": "ソ",
+          "right": "so"
+        },
+        {
+          "left": "ン",
+          "right": "n"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Le quattro killer: シ/ツ/ソ/ン",
+      "en": "The four killers: シ/ツ/ソ/ン"
+    }
+  ],
+  "id": "katakana-review-1"
+}

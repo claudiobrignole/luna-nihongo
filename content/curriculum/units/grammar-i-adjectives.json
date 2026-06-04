@@ -1,0 +1,153 @@
+{
+  "level": 4,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · aggettivi in -い",
+    "en": "Grammar · i-adjectives"
+  },
+  "description": {
+    "it": "Finalmente puoi descrivere il mondo! Gli aggettivi in -い (たかい caro, おいしい buono, あたらしい nuovo) sono la prima delle due famiglie. Davanti a un nome li attacchi e basta (たかいほん, 'libro caro'); come predicato vanno prima di です. La negazione è la loro firma: -い diventa -くない (たかい → たかくない, 'non è caro'). Occhio all'unica vera eccezione: いい (buono) nega in よくない.",
+    "en": "At last you can describe the world! i-adjectives (たかい expensive, おいしい delicious, あたらしい new) are the first of two families. Before a noun you just attach them (たかいほん, 'expensive book'); as a predicate they go before です. The negative is their signature: -い becomes -くない (たかい → たかくない, 'isn't expensive'). Mind the one true exception: いい (good) negates to よくない."
+  },
+  "grammarRefs": [
+    "gr-i-adjectives"
+  ],
+  "vocabRefs": [
+    "vocab-takai",
+    "vocab-yasui",
+    "vocab-oishii",
+    "vocab-atarashii",
+    "vocab-furui",
+    "vocab-omoshiroi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gia-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come neghi たかい (caro)?",
+        "en": "How do you negate たかい (expensive)?"
+      },
+      "options": [
+        {
+          "it": "たかくない",
+          "en": "たかくない"
+        },
+        {
+          "it": "たかいない",
+          "en": "たかいない"
+        },
+        {
+          "it": "たかではない",
+          "en": "たかではない"
+        },
+        {
+          "it": "たかません",
+          "en": "たかません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gia-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'un libro caro' (aggettivo + nome)?",
+        "en": "How do you say 'an expensive book' (adjective + noun)?"
+      },
+      "options": [
+        {
+          "it": "たかいほん",
+          "en": "たかいほん"
+        },
+        {
+          "it": "ほんたかい",
+          "en": "ほんたかい"
+        },
+        {
+          "it": "たかなほん",
+          "en": "たかなほん"
+        },
+        {
+          "it": "ほんのたかい",
+          "en": "ほんのたかい"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gia-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "L'eccezione いい (buono) si nega in...",
+        "en": "The exception いい (good) negates to..."
+      },
+      "options": [
+        {
+          "it": "よくない",
+          "en": "よくない"
+        },
+        {
+          "it": "いくない",
+          "en": "いくない"
+        },
+        {
+          "it": "いいではない",
+          "en": "いいではない"
+        },
+        {
+          "it": "いません",
+          "en": "いません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gia-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina aggettivo e significato.",
+        "en": "Match adjective to meaning."
+      },
+      "pairs": [
+        {
+          "left": "たかい",
+          "right": "caro/alto / expensive/tall"
+        },
+        {
+          "left": "やすい",
+          "right": "economico / cheap"
+        },
+        {
+          "left": "おいしい",
+          "right": "buono / delicious"
+        },
+        {
+          "left": "あたらしい",
+          "right": "nuovo / new"
+        },
+        {
+          "left": "おもしろい",
+          "right": "interessante / interesting"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Negazione -くない",
+      "en": "Negative -くない"
+    },
+    {
+      "it": "いい→よくない eccezione",
+      "en": "いい→よくない exception"
+    }
+  ],
+  "id": "grammar-i-adjectives"
+}

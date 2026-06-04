@@ -1,0 +1,219 @@
+{
+  "level": 6,
+  "order": 2,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Padronanza · grammatica N5",
+    "en": "Mastery · N5 grammar"
+  },
+  "description": {
+    "it": "Tutta la grammatica N5 messa alla prova insieme: le particelle (は・の・も・を・に・で・へ・が), i verbi -ます e i loro tempi, le due famiglie di aggettivi, la forma -て con i suoi usi, gusti e desideri, le congiunzioni. Questa prova non isola le regole: le mette in competizione, come succede in una frase vera, dove devi scegliere la particella giusta e la forma corretta al volo.",
+    "en": "All N5 grammar tested together: the particles (は・の・も・を・に・で・へ・が), -masu verbs and their tenses, the two adjective families, the -te form and its uses, likes and wants, conjunctions. This test doesn't isolate the rules: it pits them against each other, just like a real sentence, where you must pick the right particle and the right form on the fly."
+  },
+  "reviewPoolRefs": [
+    "gr-wa-topic",
+    "gr-no-possessive",
+    "gr-mo-also",
+    "gr-masu-verbs",
+    "gr-o-object",
+    "gr-ni-de-place",
+    "gr-e-ni-direction",
+    "gr-i-adjectives",
+    "gr-na-adjectives",
+    "gr-suki-hoshii",
+    "gr-conjunctions",
+    "gr-te-form",
+    "gr-te-requests-progressive",
+    "gr-te-permission",
+    "gr-past-tense",
+    "gr-adjective-past"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ngm-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "がっこう___ともだち___あいます ('a scuola incontro un amico'). Particelle?",
+        "en": "がっこう___ともだち___あいます ('at school I meet a friend'). Particles?"
+      },
+      "options": [
+        {
+          "it": "で … に",
+          "en": "で … に"
+        },
+        {
+          "it": "に … を",
+          "en": "に … を"
+        },
+        {
+          "it": "を … で",
+          "en": "を … で"
+        },
+        {
+          "it": "へ … が",
+          "en": "へ … が"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-ngm-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "コーヒー___すきですが、おちゃ___きらいです. Particelle?",
+        "en": "コーヒー___すきですが、おちゃ___きらいです. Particles?"
+      },
+      "options": [
+        {
+          "it": "が … が",
+          "en": "が … が"
+        },
+        {
+          "it": "を … を",
+          "en": "を … を"
+        },
+        {
+          "it": "は … を",
+          "en": "は … を"
+        },
+        {
+          "it": "に … に",
+          "en": "に … に"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-ngm-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Il film era interessante' — quale è corretto?",
+        "en": "'The movie was interesting' — which is correct?"
+      },
+      "options": [
+        {
+          "it": "えいがはおもしろかったです",
+          "en": "えいがはおもしろかったです"
+        },
+        {
+          "it": "えいがはおもしろいでした",
+          "en": "えいがはおもしろいでした"
+        },
+        {
+          "it": "えいがはおもしろでした",
+          "en": "えいがはおもしろでした"
+        },
+        {
+          "it": "えいがはおもしろました",
+          "en": "えいがはおもしろました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-ngm-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -て di いく, e perché è speciale?",
+        "en": "-te form of いく, and why is it special?"
+      },
+      "options": [
+        {
+          "it": "いって — eccezione, non segue il pattern -く→-いて",
+          "en": "いって — an exception, doesn't follow -く→-いて"
+        },
+        {
+          "it": "いいて — regolare",
+          "en": "いいて — regular"
+        },
+        {
+          "it": "いきて — regolare",
+          "en": "いきて — regular"
+        },
+        {
+          "it": "いて — irregolare come する",
+          "en": "いて — irregular like する"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-ngm-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina particella e funzione.",
+        "en": "Match particle to function."
+      },
+      "pairs": [
+        {
+          "left": "を",
+          "right": "oggetto diretto / object"
+        },
+        {
+          "left": "で",
+          "right": "luogo dell'azione / action place"
+        },
+        {
+          "left": "に",
+          "right": "esistenza/meta / existence/goal"
+        },
+        {
+          "left": "が",
+          "right": "soggetto di すき/ほしい / subject of suki/hoshii"
+        },
+        {
+          "left": "へ",
+          "right": "direzione / direction"
+        }
+      ],
+      "xp": 25
+    },
+    {
+      "id": "q-ngm-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura -て e funzione.",
+        "en": "Match -te structure to function."
+      },
+      "pairs": [
+        {
+          "left": "～てください",
+          "right": "richiesta / request"
+        },
+        {
+          "left": "～ています",
+          "right": "in corso / ongoing"
+        },
+        {
+          "left": "～てもいい",
+          "right": "permesso / permission"
+        },
+        {
+          "left": "～てはいけない",
+          "right": "divieto / prohibition"
+        }
+      ],
+      "xp": 25
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Scegliere la particella giusta nel contesto",
+      "en": "Choosing the right particle in context"
+    },
+    {
+      "it": "Tutte le forme verbo/aggettivo",
+      "en": "All verb/adjective forms"
+    },
+    {
+      "it": "La famiglia -て completa",
+      "en": "The full -te family"
+    }
+  ],
+  "id": "n5-grammar-mastery"
+}

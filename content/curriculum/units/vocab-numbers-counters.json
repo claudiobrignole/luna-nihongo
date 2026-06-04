@@ -1,0 +1,158 @@
+{
+  "level": 2,
+  "order": 6,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · numeri e contatori",
+    "en": "Vocabulary · numbers & counters"
+  },
+  "description": {
+    "it": "Il giapponese ha due modi di contare: i numeri 'sino-giapponesi' (いち, に, さん...) e il conteggio nativo per oggetti generici (ひとつ, ふたつ, みっつ...). Per le persone si usa ひとり, ふたり (irregolari!) e poi 〜にん. Sembra complicato, ma userai ひとつ〜みっつ e ひとり/ふたり ogni giorno.",
+    "en": "Japanese has two ways to count: the Sino-Japanese numbers (いち, に, さん...) and native counting for general objects (ひとつ, ふたつ, みっつ...). For people you use ひとり, ふたり (irregular!) then 〜にん. It looks complicated, but you'll use ひとつ〜みっつ and ひとり/ふたり every day."
+  },
+  "vocabRefs": [
+    "vocab-ichi",
+    "vocab-ni-num",
+    "vocab-san-num",
+    "vocab-yon",
+    "vocab-go-num",
+    "vocab-juu-num",
+    "vocab-hyaku-num",
+    "vocab-en-money",
+    "vocab-zero",
+    "vocab-hitotsu",
+    "vocab-futatsu",
+    "vocab-mittsu",
+    "vocab-hitori",
+    "vocab-futari"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vnc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come conti 'due cose' (oggetti generici)?",
+        "en": "How do you count 'two things' (general objects)?"
+      },
+      "options": [
+        {
+          "it": "ふたつ",
+          "en": "ふたつ"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "ふたり",
+          "en": "ふたり"
+        },
+        {
+          "it": "にこ",
+          "en": "にこ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vnc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'due persone'?",
+        "en": "How do you say 'two people'?"
+      },
+      "options": [
+        {
+          "it": "ふたり",
+          "en": "ふたり"
+        },
+        {
+          "it": "ふたつ",
+          "en": "ふたつ"
+        },
+        {
+          "it": "にひと",
+          "en": "にひと"
+        },
+        {
+          "it": "にじん",
+          "en": "にじん"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vnc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché ゼロ è scritto in katakana?",
+        "en": "Why is ゼロ written in katakana?"
+      },
+      "options": [
+        {
+          "it": "È un prestito dall'inglese 'zero'",
+          "en": "It's a loanword from English 'zero'"
+        },
+        {
+          "it": "È un errore",
+          "en": "It's a mistake"
+        },
+        {
+          "it": "I numeri sono sempre katakana",
+          "en": "Numbers are always katakana"
+        },
+        {
+          "it": "È un kanji",
+          "en": "It's a kanji"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vnc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina al conteggio nativo.",
+        "en": "Match to native counting."
+      },
+      "pairs": [
+        {
+          "left": "ひとつ",
+          "right": "1 cosa / 1 thing"
+        },
+        {
+          "left": "ふたつ",
+          "right": "2 cose / 2 things"
+        },
+        {
+          "left": "みっつ",
+          "right": "3 cose / 3 things"
+        },
+        {
+          "left": "ひとり",
+          "right": "1 persona / 1 person"
+        },
+        {
+          "left": "ふたり",
+          "right": "2 persone / 2 people"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Due sistemi: いち/に vs ひとつ/ふたつ",
+      "en": "Two systems: いち/に vs ひとつ/ふたつ"
+    },
+    {
+      "it": "Contatori di persone irregolari",
+      "en": "Irregular people counters"
+    }
+  ],
+  "id": "vocab-numbers-counters"
+}

@@ -1,0 +1,160 @@
+{
+  "level": 5,
+  "order": 5,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · set finale N5",
+    "en": "Kanji · final N5 set"
+  },
+  "description": {
+    "it": "Gli ultimi kanji per completare l'N5: movimento (出 uscire, 入 entrare, 行 andare, 来 venire), percezione (見 vedere, 聞 ascoltare), comunicazione (言 dire, 話 parlare, 読 leggere, 書 scrivere) e il tempo atmosferico (天 cielo, 気 aria/spirito). Splendide composizioni che chiudono il cerchio: 見 è 目 (occhio) su gambe, 聞 è 耳 (orecchio) dentro un cancello, 話 e 読 contengono entrambi 言 (dire/parola).",
+    "en": "The last kanji to complete N5: movement (出 exit, 入 enter, 行 go, 来 come), perception (見 see, 聞 hear), communication (言 say, 話 speak, 読 read, 書 write) and weather (天 sky, 気 air/spirit). Beautiful compositions that close the loop: 見 is 目 (eye) on legs, 聞 is 耳 (ear) inside a gate, 話 and 読 both contain 言 (say/word)."
+  },
+  "kanjiRefs": [
+    "kanji-deru",
+    "kanji-hairu",
+    "kanji-iku-k",
+    "kanji-kuru-k",
+    "kanji-miru-k",
+    "kanji-kiku-k",
+    "kanji-iu",
+    "kanji-hanasu-k",
+    "kanji-yomu-k",
+    "kanji-kaku-k",
+    "kanji-ten",
+    "kanji-ki-spirit"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kfs-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "見 (vedere) è composto da quale kanji + gambe?",
+        "en": "見 (see) is which kanji + legs?"
+      },
+      "options": [
+        {
+          "it": "目 (occhio)",
+          "en": "目 (eye)"
+        },
+        {
+          "it": "耳 (orecchio)",
+          "en": "耳 (ear)"
+        },
+        {
+          "it": "口 (bocca)",
+          "en": "口 (mouth)"
+        },
+        {
+          "it": "手 (mano)",
+          "en": "手 (hand)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kfs-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "話 (parlare) e 読 (leggere) condividono quale componente?",
+        "en": "話 (speak) and 読 (read) share which component?"
+      },
+      "options": [
+        {
+          "it": "言 (dire/parola)",
+          "en": "言 (say/word)"
+        },
+        {
+          "it": "口 (bocca)",
+          "en": "口 (mouth)"
+        },
+        {
+          "it": "耳 (orecchio)",
+          "en": "耳 (ear)"
+        },
+        {
+          "it": "日 (sole)",
+          "en": "日 (sun)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kfs-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "天気 (tempo atmosferico) combina 天 (cielo) + ?",
+        "en": "天気 (weather) combines 天 (sky) + ?"
+      },
+      "options": [
+        {
+          "it": "気 (aria/spirito)",
+          "en": "気 (air/spirit)"
+        },
+        {
+          "it": "水 (acqua)",
+          "en": "水 (water)"
+        },
+        {
+          "it": "日 (sole)",
+          "en": "日 (sun)"
+        },
+        {
+          "it": "火 (fuoco)",
+          "en": "火 (fire)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kfs-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "出",
+          "right": "uscire / exit"
+        },
+        {
+          "left": "入",
+          "right": "entrare / enter"
+        },
+        {
+          "left": "見",
+          "right": "vedere / see"
+        },
+        {
+          "left": "聞",
+          "right": "ascoltare / hear"
+        },
+        {
+          "left": "書",
+          "right": "scrivere / write"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "見←目, 聞←耳",
+      "en": "見←目, 聞←耳"
+    },
+    {
+      "it": "言 dentro 話/読",
+      "en": "言 inside 話/読"
+    },
+    {
+      "it": "出/入 coppia opposta",
+      "en": "出/入 opposite pair"
+    }
+  ],
+  "id": "kanji-final-set"
+}

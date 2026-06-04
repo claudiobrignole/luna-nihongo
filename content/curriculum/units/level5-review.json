@@ -1,0 +1,202 @@
+{
+  "level": 5,
+  "order": 7,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · Livello 5",
+    "en": "Review · Level 5"
+  },
+  "description": {
+    "it": "Il livello più impegnativo è alle spalle. Hai conquistato la forma -て e tutta la sua famiglia (richieste, azioni in corso, permessi, divieti) e i passati di verbi e aggettivi. Questo ripasso intreccia tutto, con un occhio di riguardo per gli errori classici: la costruzione della forma -て per gruppo, e il temibile たかいでした (sbagliato!) contro たかかった (giusto). Superalo e l'N5 è praticamente tuo.",
+    "en": "The toughest level is behind you. You've conquered the -te form and its whole family (requests, ongoing actions, permission, prohibition) and the past of verbs and adjectives. This review weaves it all together, with special attention to the classic mistakes: building the -te form by group, and the dreaded たかいでした (wrong!) versus たかかった (right). Pass it and N5 is practically yours."
+  },
+  "kanjiRefs": [
+    "kanji-miru-k",
+    "kanji-kiku-k",
+    "kanji-iku-k",
+    "kanji-deru",
+    "kanji-ten"
+  ],
+  "grammarRefs": [
+    "gr-te-form",
+    "gr-te-requests-progressive",
+    "gr-te-permission",
+    "gr-past-tense",
+    "gr-adjective-past"
+  ],
+  "vocabRefs": [
+    "vocab-kau",
+    "vocab-au",
+    "vocab-tenki",
+    "vocab-mae"
+  ],
+  "reviewPoolRefs": [
+    "gr-te-form",
+    "gr-te-requests-progressive",
+    "gr-te-permission",
+    "gr-past-tense",
+    "gr-adjective-past",
+    "kanji-miru-k",
+    "kanji-kiku-k",
+    "kanji-deru",
+    "vocab-kau",
+    "vocab-tenki"
+  ],
+  "quizzes": [
+    {
+      "id": "q-l5r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -て di かう?",
+        "en": "-te form of かう?"
+      },
+      "options": [
+        {
+          "it": "かって",
+          "en": "かって"
+        },
+        {
+          "it": "かいて",
+          "en": "かいて"
+        },
+        {
+          "it": "かんで",
+          "en": "かんで"
+        },
+        {
+          "it": "かて",
+          "en": "かて"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l5r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale è il passato CORRETTO di たかい?",
+        "en": "Which is the CORRECT past of たかい?"
+      },
+      "options": [
+        {
+          "it": "たかかった",
+          "en": "たかかった"
+        },
+        {
+          "it": "たかいでした",
+          "en": "たかいでした"
+        },
+        {
+          "it": "たかました",
+          "en": "たかました"
+        },
+        {
+          "it": "たかくでした",
+          "en": "たかくでした"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l5r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Sto aspettando' si dice...",
+        "en": "'I'm waiting' is..."
+      },
+      "options": [
+        {
+          "it": "まっています",
+          "en": "まっています"
+        },
+        {
+          "it": "まってください",
+          "en": "まってください"
+        },
+        {
+          "it": "まちました",
+          "en": "まちました"
+        },
+        {
+          "it": "まってはいけません",
+          "en": "まってはいけません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l5r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato negativo di いきます ('non sono andato')?",
+        "en": "Negative past of いきます ('I didn't go')?"
+      },
+      "options": [
+        {
+          "it": "いきませんでした",
+          "en": "いきませんでした"
+        },
+        {
+          "it": "いきました",
+          "en": "いきました"
+        },
+        {
+          "it": "いきません",
+          "en": "いきません"
+        },
+        {
+          "it": "いってでした",
+          "en": "いってでした"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l5r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura -て e funzione.",
+        "en": "Match -te structure to function."
+      },
+      "pairs": [
+        {
+          "left": "～てください",
+          "right": "richiesta / request"
+        },
+        {
+          "left": "～ています",
+          "right": "azione in corso / ongoing"
+        },
+        {
+          "left": "～てもいい",
+          "right": "permesso / permission"
+        },
+        {
+          "left": "～てはいけない",
+          "right": "divieto / prohibition"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Costruzione -て per gruppo",
+      "en": "Building -te by group"
+    },
+    {
+      "it": "たかかった vs たかいでした",
+      "en": "たかかった vs たかいでした"
+    },
+    {
+      "it": "La famiglia -て completa",
+      "en": "The full -te family"
+    }
+  ],
+  "id": "level5-review"
+}

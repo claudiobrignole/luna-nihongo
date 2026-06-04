@@ -1,0 +1,1910 @@
+{
+  "$comment": "Full hiragana repository. Stable ids: hira-<romaji>. romaji always populated. Mnemonics added selectively in Luna's voice.",
+  "kana": [
+    {
+      "id": "hira-a",
+      "script": "hiragana",
+      "japanese": "あ",
+      "romaji": "a",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Una signora con un'acconciatura elaborata: il cerchietto in basso a destra è il fiocco.",
+        "en": "A lady with a fancy hairdo — the little loop bottom-right is her bow."
+      }
+    },
+    {
+      "id": "hira-i",
+      "script": "hiragana",
+      "japanese": "い",
+      "romaji": "i",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Due gocce in piedi una accanto all'altra, come una doppia 'i'.",
+        "en": "Two strokes standing side by side, like a pair of 'i' beans."
+      }
+    },
+    {
+      "id": "hira-u",
+      "script": "hiragana",
+      "japanese": "う",
+      "romaji": "u",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Un naso di profilo che fa 'uh?': il trattino in alto è la fronte sorpresa.",
+        "en": "A nose in profile going 'ooh?' — the top stroke is a surprised brow."
+      }
+    },
+    {
+      "id": "hira-e",
+      "script": "hiragana",
+      "japanese": "え",
+      "romaji": "e",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Una persona che s'inchina dicendo 'eh, grazie!': testa su, schiena curva.",
+        "en": "Someone bowing 'eh, thanks!' — head up, back curving down."
+      }
+    },
+    {
+      "id": "hira-o",
+      "script": "hiragana",
+      "japanese": "お",
+      "romaji": "o",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Come あ ma con una palla in più: la goccia in alto a destra è la palla lanciata.",
+        "en": "Like あ but tossing a ball — the dot top-right is the ball mid-air."
+      }
+    },
+    {
+      "id": "hira-ka",
+      "script": "hiragana",
+      "japanese": "か",
+      "romaji": "ka",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Un coltello (knife) che taglia: la linea diagonale è la lama, il puntino la goccia.",
+        "en": "A 'ka'-rate chop: the diagonal slash is the cutting motion, the dot flying off."
+      }
+    },
+    {
+      "id": "hira-ki",
+      "script": "hiragana",
+      "japanese": "き",
+      "romaji": "ki",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Una chiave (key) appesa: due trattini orizzontali e il gancio sotto.",
+        "en": "A 'key' hanging on a hook — two crossbars and the curl below."
+      }
+    },
+    {
+      "id": "hira-ku",
+      "script": "hiragana",
+      "japanese": "く",
+      "romaji": "ku",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Un becco aperto che fa 'ku-ku': l'angolo è il becco di un cucù.",
+        "en": "An open beak going 'coo-coo' — the angle is a cuckoo's mouth."
+      }
+    },
+    {
+      "id": "hira-ke",
+      "script": "hiragana",
+      "japanese": "け",
+      "romaji": "ke",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Una caffettiera (Ke-ttle) di profilo, con il manico a sinistra.",
+        "en": "A 'ke'-ttle in profile, handle on the left."
+      }
+    },
+    {
+      "id": "hira-ko",
+      "script": "hiragana",
+      "japanese": "こ",
+      "romaji": "ko",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Due trattini come due corde: pensa a 'co-llegare'.",
+        "en": "Two short cords, side by side — think 'co-nnect'."
+      }
+    },
+    {
+      "id": "hira-sa",
+      "script": "hiragana",
+      "japanese": "さ",
+      "romaji": "sa",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Quasi uguale a き ma con un trattino in meno: 'sa' ha meno linee.",
+        "en": "Almost like き but one stroke fewer — 'sa' is the simpler twin."
+      }
+    },
+    {
+      "id": "hira-shi",
+      "script": "hiragana",
+      "japanese": "し",
+      "romaji": "shi",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Un amo da pesca che scende e risale: pesca un pesce e fa 'shhh' (shi).",
+        "en": "A fishing hook curving down then up — hooking a 'she'-fish quietly."
+      }
+    },
+    {
+      "id": "hira-su",
+      "script": "hiragana",
+      "japanese": "す",
+      "romaji": "su",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Un cappio con la coda lunga: 'su'-spende qualcosa dal gancio.",
+        "en": "A loop with a long tail — it 'su'-spends from the hook."
+      }
+    },
+    {
+      "id": "hira-se",
+      "script": "hiragana",
+      "japanese": "せ",
+      "romaji": "se",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Simile a sa/ki ma con la gamba che scende: 'se' si siede.",
+        "en": "Like sa/ki but with a leg dropping down — 'se' sits down."
+      }
+    },
+    {
+      "id": "hira-so",
+      "script": "hiragana",
+      "japanese": "そ",
+      "romaji": "so",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Un filo che zigzaga: pensa a cucire ('so' come 'to sew').",
+        "en": "A zig-zag thread — think 'so' as in 'to sew'."
+      }
+    },
+    {
+      "id": "hira-ta",
+      "script": "hiragana",
+      "japanese": "た",
+      "romaji": "ta",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Un 'ta'volo con una gamba: la croce in alto, il piedino sotto.",
+        "en": "A little 'ta'-ble: the cross on top, a single leg below."
+      }
+    },
+    {
+      "id": "hira-chi",
+      "script": "hiragana",
+      "japanese": "ち",
+      "romaji": "chi",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Un numero 5 al contrario, o una guancia ('chi'-guancia) che sorride.",
+        "en": "A backwards 5 — or a cheery 'chee'-k curving out."
+      }
+    },
+    {
+      "id": "hira-tsu",
+      "script": "hiragana",
+      "japanese": "つ",
+      "romaji": "tsu",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Un'onda (tsu-nami) che si arriccia da destra a sinistra.",
+        "en": "A 'tsu'-nami wave curling from right to left."
+      }
+    },
+    {
+      "id": "hira-te",
+      "script": "hiragana",
+      "japanese": "て",
+      "romaji": "te",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Una mano (te = mano in giapponese!) che si tende: trattino e curva.",
+        "en": "A hand reaching out — 'te' literally means 'hand' in Japanese."
+      }
+    },
+    {
+      "id": "hira-to",
+      "script": "hiragana",
+      "japanese": "と",
+      "romaji": "to",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Un dito del piede (toe) con una spina: la linea verticale e il puntino.",
+        "en": "A 'to'-e with a thorn poking it — the vertical line and the little jab."
+      }
+    },
+    {
+      "id": "hira-na",
+      "script": "hiragana",
+      "japanese": "な",
+      "romaji": "na",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Una persona che prega in ginocchio: 'na'maste.",
+        "en": "Someone kneeling in prayer — 'na'maste."
+      }
+    },
+    {
+      "id": "hira-ni",
+      "script": "hiragana",
+      "japanese": "に",
+      "romaji": "ni",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Due ginocchia ('ni' come 'knee'): la linea e la curva accanto.",
+        "en": "A 'knee' bent — the upright and the little curl beside it."
+      }
+    },
+    {
+      "id": "hira-nu",
+      "script": "hiragana",
+      "japanese": "ぬ",
+      "romaji": "nu",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Un nodo (knot) con due lacci che pendono: 'nu' si annoda.",
+        "en": "A 'noo'-se with two dangling laces — all knotted up."
+      }
+    },
+    {
+      "id": "hira-ne",
+      "script": "hiragana",
+      "japanese": "ね",
+      "romaji": "ne",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Un gatto ('neko') con la coda arricciata sulla destra.",
+        "en": "A 'ne'-ko (cat) with its tail curling on the right."
+      }
+    },
+    {
+      "id": "hira-no",
+      "script": "hiragana",
+      "japanese": "の",
+      "romaji": "no",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Una chiocciola/spirale: pensa a 'no' come un dito che ruota.",
+        "en": "A swirl, like a finger tracing 'no'-thing in a loop."
+      }
+    },
+    {
+      "id": "hira-ha",
+      "script": "hiragana",
+      "japanese": "は",
+      "romaji": "ha",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Una persona accanto a una colonna: 'ha' come una risata HA!.",
+        "en": "A figure beside a tall post — like a hearty 'HA!' laugh."
+      }
+    },
+    {
+      "id": "hira-hi",
+      "script": "hiragana",
+      "japanese": "ひ",
+      "romaji": "hi",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Un sorriso largo ('hi!' come ciao in inglese): la curva sorridente.",
+        "en": "A wide smile saying 'hi!' — the curving grin."
+      }
+    },
+    {
+      "id": "hira-fu",
+      "script": "hiragana",
+      "japanese": "ふ",
+      "romaji": "fu",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Una montagna soffiata dal vento: 'fu' come un soffio (Fuji!).",
+        "en": "Mount 'Fu'-ji catching the wind — a puff of breath, 'fu'."
+      }
+    },
+    {
+      "id": "hira-he",
+      "script": "hiragana",
+      "japanese": "へ",
+      "romaji": "he",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Una collina semplice: una sola linea che sale e scende, 'he'.",
+        "en": "A simple hill — one stroke up and down, that's 'he'."
+      }
+    },
+    {
+      "id": "hira-ho",
+      "script": "hiragana",
+      "japanese": "ほ",
+      "romaji": "ho",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Come は ma con una traversa in più: 'ho' ha il cappello.",
+        "en": "Like は but with an extra bar on top — 'ho' wears a hat."
+      }
+    },
+    {
+      "id": "hira-ma",
+      "script": "hiragana",
+      "japanese": "ま",
+      "romaji": "ma",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Una mamma ('ma') con un nodo: la curva e il cappio in basso.",
+        "en": "A 'ma'-ma with a bow — the curve and the loop below."
+      }
+    },
+    {
+      "id": "hira-mi",
+      "script": "hiragana",
+      "japanese": "み",
+      "romaji": "mi",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Il numero 21, o una persona che si guarda ('mi'rarsi).",
+        "en": "Looks like '21' — or someone catching their reflection, 'mi'."
+      }
+    },
+    {
+      "id": "hira-mu",
+      "script": "hiragana",
+      "japanese": "む",
+      "romaji": "mu",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Una mucca ('mu'!) con un codino: il verso della mucca, muu.",
+        "en": "A cow going 'muu' — note the little tail flick."
+      }
+    },
+    {
+      "id": "hira-me",
+      "script": "hiragana",
+      "japanese": "め",
+      "romaji": "me",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Un occhio ('me' = occhio in giapponese!) con la ciglia arricciata.",
+        "en": "An eye — 'me' literally means 'eye' in Japanese — with a curling lash."
+      }
+    },
+    {
+      "id": "hira-mo",
+      "script": "hiragana",
+      "japanese": "も",
+      "romaji": "mo",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Un amo con due esche: 'mo' pesca ancora di più (mo = anche).",
+        "en": "A hook with two worms — 'mo' means 'also', so it catches more."
+      }
+    },
+    {
+      "id": "hira-ya",
+      "script": "hiragana",
+      "japanese": "や",
+      "romaji": "ya",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Una freccia (yari = lancia) scoccata di lato.",
+        "en": "A 'ya'-ri (spear) thrown sideways."
+      }
+    },
+    {
+      "id": "hira-yu",
+      "script": "hiragana",
+      "japanese": "ゆ",
+      "romaji": "yu",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Un pesce stilizzato che nuota: 'yu' scivola nell'acqua calda.",
+        "en": "A fish gliding — 'yu' slips into warm water (a hot spring)."
+      }
+    },
+    {
+      "id": "hira-yo",
+      "script": "hiragana",
+      "japanese": "よ",
+      "romaji": "yo",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Un amo con un'asta lunga: 'yo!' lo chiami da lontano.",
+        "en": "A hook on a long pole — 'yo!' you call out from afar."
+      }
+    },
+    {
+      "id": "hira-ra",
+      "script": "hiragana",
+      "japanese": "ら",
+      "romaji": "ra",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Una persona seduta che alza un braccio: 'ra' rilassato.",
+        "en": "Someone seated raising an arm — a relaxed 'ra'."
+      }
+    },
+    {
+      "id": "hira-ri",
+      "script": "hiragana",
+      "japanese": "り",
+      "romaji": "ri",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Due linee parallele che scendono: pensa a un fiume ('ri'-o).",
+        "en": "Two parallel strokes flowing down — like a 'ri'-ver."
+      }
+    },
+    {
+      "id": "hira-ru",
+      "script": "hiragana",
+      "japanese": "る",
+      "romaji": "ru",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Come ろ ma con un cappio in fondo: 'ru' fa il nodo, ろ no.",
+        "en": "Like ろ but with a loop at the bottom — 'ru' ties the knot, ろ doesn't."
+      }
+    },
+    {
+      "id": "hira-re",
+      "script": "hiragana",
+      "japanese": "れ",
+      "romaji": "re",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Una persona in piedi con la schiena dritta: 're' resta su.",
+        "en": "A figure standing tall — 're' stays upright."
+      }
+    },
+    {
+      "id": "hira-ro",
+      "script": "hiragana",
+      "japanese": "ろ",
+      "romaji": "ro",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Come る ma SENZA cappio: 'ro' resta aperto.",
+        "en": "Like る but WITHOUT the loop — 'ro' stays open."
+      }
+    },
+    {
+      "id": "hira-wa",
+      "script": "hiragana",
+      "japanese": "わ",
+      "romaji": "wa",
+      "group": "w-line",
+      "mnemonic": {
+        "it": "Simile a れ ma con un cappio: 'wa' fa il giro (come un cerchio, wa).",
+        "en": "Like れ but with a loop — 'wa' comes full circle (wa = ring)."
+      }
+    },
+    {
+      "id": "hira-wo",
+      "script": "hiragana",
+      "japanese": "を",
+      "romaji": "wo",
+      "group": "w-line",
+      "mnemonic": {
+        "it": "Una persona con le braccia larghe che dice 'wo!': raro, segna l'oggetto.",
+        "en": "A figure with arms wide saying 'wo!' — rare, it marks the object."
+      }
+    },
+    {
+      "id": "hira-n",
+      "script": "hiragana",
+      "japanese": "ん",
+      "romaji": "n",
+      "group": "n-final",
+      "mnemonic": {
+        "it": "Un singolo gancio morbido: l'unico suono che chiude, 'n'.",
+        "en": "A single soft hook — the only standalone consonant, 'n'."
+      }
+    },
+    {
+      "id": "hira-ga",
+      "script": "hiragana",
+      "japanese": "が",
+      "romaji": "ga",
+      "group": "g-line",
+      "mnemonic": {
+        "it": "か + due trattini (dakuten): la 'k' diventa 'g'. か→が.",
+        "en": "か + two ticks (dakuten): the 'k' softens to 'g'. か→が."
+      }
+    },
+    {
+      "id": "hira-gi",
+      "script": "hiragana",
+      "japanese": "ぎ",
+      "romaji": "gi",
+      "group": "g-line"
+    },
+    {
+      "id": "hira-gu",
+      "script": "hiragana",
+      "japanese": "ぐ",
+      "romaji": "gu",
+      "group": "g-line"
+    },
+    {
+      "id": "hira-ge",
+      "script": "hiragana",
+      "japanese": "げ",
+      "romaji": "ge",
+      "group": "g-line"
+    },
+    {
+      "id": "hira-go",
+      "script": "hiragana",
+      "japanese": "ご",
+      "romaji": "go",
+      "group": "g-line"
+    },
+    {
+      "id": "hira-za",
+      "script": "hiragana",
+      "japanese": "ざ",
+      "romaji": "za",
+      "group": "z-line",
+      "mnemonic": {
+        "it": "さ + dakuten: 's' diventa 'z'. さ→ざ.",
+        "en": "さ + dakuten: 's' becomes 'z'. さ→ざ."
+      }
+    },
+    {
+      "id": "hira-ji",
+      "script": "hiragana",
+      "japanese": "じ",
+      "romaji": "ji",
+      "group": "z-line",
+      "mnemonic": {
+        "it": "し + dakuten = 'ji'. Attenzione: stesso suono di ぢ ma molto più comune.",
+        "en": "し + dakuten = 'ji'. Note: same sound as ぢ but far more common."
+      }
+    },
+    {
+      "id": "hira-zu",
+      "script": "hiragana",
+      "japanese": "ず",
+      "romaji": "zu",
+      "group": "z-line",
+      "mnemonic": {
+        "it": "す + dakuten = 'zu'. Più comune della variante づ.",
+        "en": "す + dakuten = 'zu'. More common than the づ variant."
+      }
+    },
+    {
+      "id": "hira-ze",
+      "script": "hiragana",
+      "japanese": "ぜ",
+      "romaji": "ze",
+      "group": "z-line"
+    },
+    {
+      "id": "hira-zo",
+      "script": "hiragana",
+      "japanese": "ぞ",
+      "romaji": "zo",
+      "group": "z-line"
+    },
+    {
+      "id": "hira-da",
+      "script": "hiragana",
+      "japanese": "だ",
+      "romaji": "da",
+      "group": "d-line",
+      "mnemonic": {
+        "it": "た + dakuten: 't' diventa 'd'. た→だ.",
+        "en": "た + dakuten: 't' becomes 'd'. た→だ."
+      }
+    },
+    {
+      "id": "hira-dji",
+      "script": "hiragana",
+      "japanese": "ぢ",
+      "romaji": "dji",
+      "group": "d-line"
+    },
+    {
+      "id": "hira-dzu",
+      "script": "hiragana",
+      "japanese": "づ",
+      "romaji": "dzu",
+      "group": "d-line"
+    },
+    {
+      "id": "hira-de",
+      "script": "hiragana",
+      "japanese": "で",
+      "romaji": "de",
+      "group": "d-line"
+    },
+    {
+      "id": "hira-do",
+      "script": "hiragana",
+      "japanese": "ど",
+      "romaji": "do",
+      "group": "d-line"
+    },
+    {
+      "id": "hira-ba",
+      "script": "hiragana",
+      "japanese": "ば",
+      "romaji": "ba",
+      "group": "b-line",
+      "mnemonic": {
+        "it": "は + dakuten: 'h' diventa 'b'. は→ば.",
+        "en": "は + dakuten: 'h' becomes 'b'. は→ば."
+      }
+    },
+    {
+      "id": "hira-bi",
+      "script": "hiragana",
+      "japanese": "び",
+      "romaji": "bi",
+      "group": "b-line"
+    },
+    {
+      "id": "hira-bu",
+      "script": "hiragana",
+      "japanese": "ぶ",
+      "romaji": "bu",
+      "group": "b-line"
+    },
+    {
+      "id": "hira-be",
+      "script": "hiragana",
+      "japanese": "べ",
+      "romaji": "be",
+      "group": "b-line"
+    },
+    {
+      "id": "hira-bo",
+      "script": "hiragana",
+      "japanese": "ぼ",
+      "romaji": "bo",
+      "group": "b-line"
+    },
+    {
+      "id": "hira-pa",
+      "script": "hiragana",
+      "japanese": "ぱ",
+      "romaji": "pa",
+      "group": "p-line",
+      "mnemonic": {
+        "it": "は + handakuten (pallino): 'h' diventa 'p'. は→ぱ.",
+        "en": "は + handakuten (small circle): 'h' becomes 'p'. は→ぱ."
+      }
+    },
+    {
+      "id": "hira-pi",
+      "script": "hiragana",
+      "japanese": "ぴ",
+      "romaji": "pi",
+      "group": "p-line"
+    },
+    {
+      "id": "hira-pu",
+      "script": "hiragana",
+      "japanese": "ぷ",
+      "romaji": "pu",
+      "group": "p-line"
+    },
+    {
+      "id": "hira-pe",
+      "script": "hiragana",
+      "japanese": "ぺ",
+      "romaji": "pe",
+      "group": "p-line"
+    },
+    {
+      "id": "hira-po",
+      "script": "hiragana",
+      "japanese": "ぽ",
+      "romaji": "po",
+      "group": "p-line"
+    },
+    {
+      "id": "hira-kya",
+      "script": "hiragana",
+      "japanese": "きゃ",
+      "romaji": "kya",
+      "group": "yoon-ky",
+      "mnemonic": {
+        "it": "き + や piccola: si fonde in un'unica sillaba 'kya', non 'ki-ya'.",
+        "en": "き + small や: blends into one syllable 'kya', not 'ki-ya'."
+      }
+    },
+    {
+      "id": "hira-kyu",
+      "script": "hiragana",
+      "japanese": "きゅ",
+      "romaji": "kyu",
+      "group": "yoon-ky"
+    },
+    {
+      "id": "hira-kyo",
+      "script": "hiragana",
+      "japanese": "きょ",
+      "romaji": "kyo",
+      "group": "yoon-ky"
+    },
+    {
+      "id": "hira-sha",
+      "script": "hiragana",
+      "japanese": "しゃ",
+      "romaji": "sha",
+      "group": "yoon-sh",
+      "mnemonic": {
+        "it": "し + や piccola = 'sha' (una sillaba sola).",
+        "en": "し + small や = 'sha' (a single syllable)."
+      }
+    },
+    {
+      "id": "hira-shu",
+      "script": "hiragana",
+      "japanese": "しゅ",
+      "romaji": "shu",
+      "group": "yoon-sh"
+    },
+    {
+      "id": "hira-sho",
+      "script": "hiragana",
+      "japanese": "しょ",
+      "romaji": "sho",
+      "group": "yoon-sh"
+    },
+    {
+      "id": "hira-cha",
+      "script": "hiragana",
+      "japanese": "ちゃ",
+      "romaji": "cha",
+      "group": "yoon-ch"
+    },
+    {
+      "id": "hira-chu",
+      "script": "hiragana",
+      "japanese": "ちゅ",
+      "romaji": "chu",
+      "group": "yoon-ch"
+    },
+    {
+      "id": "hira-cho",
+      "script": "hiragana",
+      "japanese": "ちょ",
+      "romaji": "cho",
+      "group": "yoon-ch",
+      "mnemonic": {
+        "it": "ち + よ piccola = 'cho' (una sillaba sola).",
+        "en": "ち + small よ = 'cho' (a single syllable)."
+      }
+    },
+    {
+      "id": "hira-nya",
+      "script": "hiragana",
+      "japanese": "にゃ",
+      "romaji": "nya",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "hira-nyu",
+      "script": "hiragana",
+      "japanese": "にゅ",
+      "romaji": "nyu",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "hira-nyo",
+      "script": "hiragana",
+      "japanese": "にょ",
+      "romaji": "nyo",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "hira-hya",
+      "script": "hiragana",
+      "japanese": "ひゃ",
+      "romaji": "hya",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "hira-hyu",
+      "script": "hiragana",
+      "japanese": "ひゅ",
+      "romaji": "hyu",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "hira-hyo",
+      "script": "hiragana",
+      "japanese": "ひょ",
+      "romaji": "hyo",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "hira-mya",
+      "script": "hiragana",
+      "japanese": "みゃ",
+      "romaji": "mya",
+      "group": "yoon-my"
+    },
+    {
+      "id": "hira-myu",
+      "script": "hiragana",
+      "japanese": "みゅ",
+      "romaji": "myu",
+      "group": "yoon-my"
+    },
+    {
+      "id": "hira-myo",
+      "script": "hiragana",
+      "japanese": "みょ",
+      "romaji": "myo",
+      "group": "yoon-my"
+    },
+    {
+      "id": "hira-rya",
+      "script": "hiragana",
+      "japanese": "りゃ",
+      "romaji": "rya",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "hira-ryu",
+      "script": "hiragana",
+      "japanese": "りゅ",
+      "romaji": "ryu",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "hira-ryo",
+      "script": "hiragana",
+      "japanese": "りょ",
+      "romaji": "ryo",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "hira-gya",
+      "script": "hiragana",
+      "japanese": "ぎゃ",
+      "romaji": "gya",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "hira-gyu",
+      "script": "hiragana",
+      "japanese": "ぎゅ",
+      "romaji": "gyu",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "hira-gyo",
+      "script": "hiragana",
+      "japanese": "ぎょ",
+      "romaji": "gyo",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "hira-ja",
+      "script": "hiragana",
+      "japanese": "じゃ",
+      "romaji": "ja",
+      "group": "yoon-j"
+    },
+    {
+      "id": "hira-ju",
+      "script": "hiragana",
+      "japanese": "じゅ",
+      "romaji": "ju",
+      "group": "yoon-j"
+    },
+    {
+      "id": "hira-jo",
+      "script": "hiragana",
+      "japanese": "じょ",
+      "romaji": "jo",
+      "group": "yoon-j"
+    },
+    {
+      "id": "hira-bya",
+      "script": "hiragana",
+      "japanese": "びゃ",
+      "romaji": "bya",
+      "group": "yoon-by"
+    },
+    {
+      "id": "hira-byu",
+      "script": "hiragana",
+      "japanese": "びゅ",
+      "romaji": "byu",
+      "group": "yoon-by"
+    },
+    {
+      "id": "hira-byo",
+      "script": "hiragana",
+      "japanese": "びょ",
+      "romaji": "byo",
+      "group": "yoon-by"
+    },
+    {
+      "id": "hira-pya",
+      "script": "hiragana",
+      "japanese": "ぴゃ",
+      "romaji": "pya",
+      "group": "yoon-py"
+    },
+    {
+      "id": "hira-pyu",
+      "script": "hiragana",
+      "japanese": "ぴゅ",
+      "romaji": "pyu",
+      "group": "yoon-py"
+    },
+    {
+      "id": "hira-pyo",
+      "script": "hiragana",
+      "japanese": "ぴょ",
+      "romaji": "pyo",
+      "group": "yoon-py"
+    },
+    {
+      "id": "hira-sokuon",
+      "script": "hiragana",
+      "japanese": "っ",
+      "romaji": "(double consonant)",
+      "group": "sokuon",
+      "mnemonic": {
+        "it": "Lo っ piccolo non si pronuncia: RADDOPPIA la consonante seguente. きって = 'kitte'.",
+        "en": "The small っ is silent: it DOUBLES the next consonant. きって = 'kitte'."
+      }
+    },
+    {
+      "id": "kata-a",
+      "script": "katakana",
+      "japanese": "ア",
+      "romaji": "a",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Un'accetta (Ascia) che colpisce: due tratti netti e angolari.",
+        "en": "An 'A'xe striking — two sharp angular strokes."
+      }
+    },
+    {
+      "id": "kata-i",
+      "script": "katakana",
+      "japanese": "イ",
+      "romaji": "i",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Due trattini inclinati, come due 'i' che cadono.",
+        "en": "Two slanted strokes, like a pair of falling 'i' marks."
+      }
+    },
+    {
+      "id": "kata-u",
+      "script": "katakana",
+      "japanese": "ウ",
+      "romaji": "u",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Un tetto spiovente: la 'U' sta sotto a una piccola punta.",
+        "en": "A pointed roof — 'oo' sheltering underneath."
+      }
+    },
+    {
+      "id": "kata-e",
+      "script": "katakana",
+      "japanese": "エ",
+      "romaji": "e",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Una scala stilizzata che sale: 'E' come 'elevarsi'.",
+        "en": "A little staircase going up — 'e' for 'elevate'."
+      }
+    },
+    {
+      "id": "kata-o",
+      "script": "katakana",
+      "japanese": "オ",
+      "romaji": "o",
+      "group": "vowels",
+      "mnemonic": {
+        "it": "Una persona che fa il saluto militare 'O!': tratto deciso.",
+        "en": "A sharp salute, 'O!' — a crisp angular stroke."
+      }
+    },
+    {
+      "id": "kata-ka",
+      "script": "katakana",
+      "japanese": "カ",
+      "romaji": "ka",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Come la か hiragana ma più spigolosa: una lama (knife) netta.",
+        "en": "Like hiragana か but sharper — a clean 'ka'-rate slash."
+      }
+    },
+    {
+      "id": "kata-ki",
+      "script": "katakana",
+      "japanese": "キ",
+      "romaji": "ki",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Tre tratti come le punte di una chiave (key) di metallo.",
+        "en": "Three strokes like the teeth of a metal 'key'."
+      }
+    },
+    {
+      "id": "kata-ku",
+      "script": "katakana",
+      "japanese": "ク",
+      "romaji": "ku",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Un angolo aperto, lo stesso 'becco' del cucù.",
+        "en": "An open angle — the same cuckoo 'coo' beak."
+      }
+    },
+    {
+      "id": "kata-ke",
+      "script": "katakana",
+      "japanese": "ケ",
+      "romaji": "ke",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Tre tratti come una caffettiera (Kettle) spigolosa.",
+        "en": "Three strokes forming an angular 'ke'-ttle."
+      }
+    },
+    {
+      "id": "kata-ko",
+      "script": "katakana",
+      "japanese": "コ",
+      "romaji": "ko",
+      "group": "k-line",
+      "mnemonic": {
+        "it": "Due tratti che formano un angolo: un contenitore (container).",
+        "en": "Two strokes making a corner — a 'co'-ntainer box."
+      }
+    },
+    {
+      "id": "kata-sa",
+      "script": "katakana",
+      "japanese": "サ",
+      "romaji": "sa",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Tre tratti netti: pensa a 'sa' come a una stella (star) spigolosa.",
+        "en": "Three crisp strokes — think 'sa' as a sharp 'sta'r."
+      }
+    },
+    {
+      "id": "kata-shi",
+      "script": "katakana",
+      "japanese": "シ",
+      "romaji": "shi",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Tre tratti che 'guardano' in alto: occhio, somiglia molto a ツ!",
+        "en": "Three strokes 'looking' upward — careful, it resembles ツ!"
+      }
+    },
+    {
+      "id": "kata-su",
+      "script": "katakana",
+      "japanese": "ス",
+      "romaji": "su",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Un gancio con coda: 'su'-spende qualcosa, versione angolare.",
+        "en": "A hook with a tail — angular 'su'-spension."
+      }
+    },
+    {
+      "id": "kata-se",
+      "script": "katakana",
+      "japanese": "セ",
+      "romaji": "se",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Come una sedia di profilo: 'se' si siede, spigoloso.",
+        "en": "Like a chair in profile — angular 'se' sitting down."
+      }
+    },
+    {
+      "id": "kata-so",
+      "script": "katakana",
+      "japanese": "ソ",
+      "romaji": "so",
+      "group": "s-line",
+      "mnemonic": {
+        "it": "Due tratti diagonali: occhio, somiglia molto a ン!",
+        "en": "Two diagonal strokes — careful, it looks a lot like ン!"
+      }
+    },
+    {
+      "id": "kata-ta",
+      "script": "katakana",
+      "japanese": "タ",
+      "romaji": "ta",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Tre tratti come un 'ta'volo capovolto e spigoloso.",
+        "en": "Three strokes like an upturned angular 'ta'-ble."
+      }
+    },
+    {
+      "id": "kata-chi",
+      "script": "katakana",
+      "japanese": "チ",
+      "romaji": "chi",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Due tratti che si incrociano: pensa a 'chi' come a una croce.",
+        "en": "Two crossing strokes — picture 'chee' as a little cross."
+      }
+    },
+    {
+      "id": "kata-tsu",
+      "script": "katakana",
+      "japanese": "ツ",
+      "romaji": "tsu",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Tre tratti che scendono: occhio, si confonde con シ! ツ scende, シ sale.",
+        "en": "Three downward strokes — confused with シ! ツ points down, シ points up."
+      }
+    },
+    {
+      "id": "kata-te",
+      "script": "katakana",
+      "japanese": "テ",
+      "romaji": "te",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Tre tratti come una mano (te) tesa e rigida.",
+        "en": "Three strokes like a stiff outstretched hand (te)."
+      }
+    },
+    {
+      "id": "kata-to",
+      "script": "katakana",
+      "japanese": "ト",
+      "romaji": "to",
+      "group": "t-line",
+      "mnemonic": {
+        "it": "Un tratto verticale con una punta: un 'to'-tem.",
+        "en": "A vertical stroke with a barb — a 'to'-tem pole."
+      }
+    },
+    {
+      "id": "kata-na",
+      "script": "katakana",
+      "japanese": "ナ",
+      "romaji": "na",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Due tratti a croce inclinata: 'na' come un coltello e un taglio.",
+        "en": "A slanted cross — 'na' like a blade and a cut."
+      }
+    },
+    {
+      "id": "kata-ni",
+      "script": "katakana",
+      "japanese": "ニ",
+      "romaji": "ni",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Due trattini orizzontali: 'ni' come due (il numero due ha due linee).",
+        "en": "Two horizontal strokes — 'ni' like the number two."
+      }
+    },
+    {
+      "id": "kata-nu",
+      "script": "katakana",
+      "japanese": "ヌ",
+      "romaji": "nu",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Due tratti incrociati con coda: occhio, somiglia a ク e ス.",
+        "en": "Two crossing strokes with a tail — careful, near ク and ス."
+      }
+    },
+    {
+      "id": "kata-ne",
+      "script": "katakana",
+      "japanese": "ネ",
+      "romaji": "ne",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Più tratti spigolosi: un gatto (neko) stilizzato e duro.",
+        "en": "Several angular strokes — a stylized, edgy 'ne'-ko (cat)."
+      }
+    },
+    {
+      "id": "kata-no",
+      "script": "katakana",
+      "japanese": "ノ",
+      "romaji": "no",
+      "group": "n-line",
+      "mnemonic": {
+        "it": "Un solo tratto diagonale: il più semplice di tutti, 'no'.",
+        "en": "A single diagonal stroke — the simplest of all, 'no'."
+      }
+    },
+    {
+      "id": "kata-ha",
+      "script": "katakana",
+      "japanese": "ハ",
+      "romaji": "ha",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Due tratti a 'V' rovesciata: 'ha' come una risata aperta.",
+        "en": "Two strokes like an inverted V — 'ha', an open laugh."
+      }
+    },
+    {
+      "id": "kata-hi",
+      "script": "katakana",
+      "japanese": "ヒ",
+      "romaji": "hi",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Due tratti che formano un sorriso angolare: 'hi!'.",
+        "en": "Two strokes forming an angular grin — 'hi!'."
+      }
+    },
+    {
+      "id": "kata-fu",
+      "script": "katakana",
+      "japanese": "フ",
+      "romaji": "fu",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Un solo tratto curvo-spigoloso: un soffio (fu) di vento.",
+        "en": "A single angular curve — a puff of wind, 'fu'."
+      }
+    },
+    {
+      "id": "kata-he",
+      "script": "katakana",
+      "japanese": "ヘ",
+      "romaji": "he",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Identico all'hiragana へ! Una collina: stessa forma in entrambi.",
+        "en": "Identical to hiragana へ! A hill — same shape in both scripts."
+      }
+    },
+    {
+      "id": "kata-ho",
+      "script": "katakana",
+      "japanese": "ホ",
+      "romaji": "ho",
+      "group": "h-line",
+      "mnemonic": {
+        "it": "Più tratti con una base larga: 'ho' come una casa (house).",
+        "en": "Several strokes on a wide base — 'ho' like a 'ho'-use."
+      }
+    },
+    {
+      "id": "kata-ma",
+      "script": "katakana",
+      "japanese": "マ",
+      "romaji": "ma",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Tre tratti con un gancio: una mamma (ma) spigolosa.",
+        "en": "Three strokes with a hook — an angular 'ma'-ma."
+      }
+    },
+    {
+      "id": "kata-mi",
+      "script": "katakana",
+      "japanese": "ミ",
+      "romaji": "mi",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Tre tratti paralleli inclinati: tre linee per 'mi'.",
+        "en": "Three slanted parallel strokes — three lines for 'mi'."
+      }
+    },
+    {
+      "id": "kata-mu",
+      "script": "katakana",
+      "japanese": "ム",
+      "romaji": "mu",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Tre tratti con punta: una mucca (mu) che abbassa le corna.",
+        "en": "Three strokes with a point — a 'moo'-cow lowering its horns."
+      }
+    },
+    {
+      "id": "kata-me",
+      "script": "katakana",
+      "japanese": "メ",
+      "romaji": "me",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Due tratti incrociati: occhio (me), versione angolare.",
+        "en": "Two crossing strokes — an eye (me), angular version."
+      }
+    },
+    {
+      "id": "kata-mo",
+      "script": "katakana",
+      "japanese": "モ",
+      "romaji": "mo",
+      "group": "m-line",
+      "mnemonic": {
+        "it": "Tre tratti come un amo rigido: 'mo' pesca ancora.",
+        "en": "Three strokes like a stiff hook — 'mo' still catches more."
+      }
+    },
+    {
+      "id": "kata-ya",
+      "script": "katakana",
+      "japanese": "ヤ",
+      "romaji": "ya",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Due tratti come una lancia (yari) scagliata.",
+        "en": "Two strokes like a thrown spear (yari)."
+      }
+    },
+    {
+      "id": "kata-yu",
+      "script": "katakana",
+      "japanese": "ユ",
+      "romaji": "yu",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Due tratti come un contenitore: 'yu' dell'acqua calda.",
+        "en": "Two strokes like a vessel — 'yu' of hot water."
+      }
+    },
+    {
+      "id": "kata-yo",
+      "script": "katakana",
+      "japanese": "ヨ",
+      "romaji": "yo",
+      "group": "y-line",
+      "mnemonic": {
+        "it": "Tre tratti con una base: 'yo!' chiamato con forza.",
+        "en": "Three strokes on a base — 'yo!' called out firmly."
+      }
+    },
+    {
+      "id": "kata-ra",
+      "script": "katakana",
+      "japanese": "ラ",
+      "romaji": "ra",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Due tratti, uno corto uno lungo: 'ra' rilassato e angolare.",
+        "en": "Two strokes, one short one long — angular relaxed 'ra'."
+      }
+    },
+    {
+      "id": "kata-ri",
+      "script": "katakana",
+      "japanese": "リ",
+      "romaji": "ri",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Due tratti verticali: un fiume (river) che scende dritto.",
+        "en": "Two vertical strokes — a 'ri'-ver running straight down."
+      }
+    },
+    {
+      "id": "kata-ru",
+      "script": "katakana",
+      "japanese": "ル",
+      "romaji": "ru",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Due tratti con gancio: 'ru' fa una piccola curva finale.",
+        "en": "Two strokes with a hook — 'ru' makes a small final turn."
+      }
+    },
+    {
+      "id": "kata-re",
+      "script": "katakana",
+      "japanese": "レ",
+      "romaji": "re",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Un tratto verticale che si piega: 're' resta dritto e poi gira.",
+        "en": "A vertical stroke that bends — 're' stays straight, then turns."
+      }
+    },
+    {
+      "id": "kata-ro",
+      "script": "katakana",
+      "japanese": "ロ",
+      "romaji": "ro",
+      "group": "r-line",
+      "mnemonic": {
+        "it": "Un quadrato aperto: 'ro' come una stanza (room) squadrata.",
+        "en": "An open square — 'ro' like a boxy 'ro'-om."
+      }
+    },
+    {
+      "id": "kata-wa",
+      "script": "katakana",
+      "japanese": "ワ",
+      "romaji": "wa",
+      "group": "w-line",
+      "mnemonic": {
+        "it": "Due tratti aperti: 'wa' come un anello angolare.",
+        "en": "Two open strokes — 'wa' like an angular ring."
+      }
+    },
+    {
+      "id": "kata-wo",
+      "script": "katakana",
+      "japanese": "ヲ",
+      "romaji": "wo",
+      "group": "w-line",
+      "mnemonic": {
+        "it": "Tre tratti, raro: 'wo' quasi solo nei testi formali.",
+        "en": "Three strokes, rare — 'wo' mostly in formal text."
+      }
+    },
+    {
+      "id": "kata-n",
+      "script": "katakana",
+      "japanese": "ン",
+      "romaji": "n",
+      "group": "n-final",
+      "mnemonic": {
+        "it": "Due tratti che salgono: occhio, ン (sale) si confonde con ソ (scende).",
+        "en": "Two upward strokes — careful, ン (up) vs ソ (down)."
+      }
+    },
+    {
+      "id": "kata-ga",
+      "script": "katakana",
+      "japanese": "ガ",
+      "romaji": "ga",
+      "group": "g-line",
+      "mnemonic": {
+        "it": "カ + dakuten: 'k' diventa 'g'. カ→ガ, stessa logica dell'hiragana.",
+        "en": "カ + dakuten: 'k' becomes 'g'. カ→ガ, same logic as hiragana."
+      }
+    },
+    {
+      "id": "kata-gi",
+      "script": "katakana",
+      "japanese": "ギ",
+      "romaji": "gi",
+      "group": "g-line"
+    },
+    {
+      "id": "kata-gu",
+      "script": "katakana",
+      "japanese": "グ",
+      "romaji": "gu",
+      "group": "g-line"
+    },
+    {
+      "id": "kata-ge",
+      "script": "katakana",
+      "japanese": "ゲ",
+      "romaji": "ge",
+      "group": "g-line"
+    },
+    {
+      "id": "kata-go",
+      "script": "katakana",
+      "japanese": "ゴ",
+      "romaji": "go",
+      "group": "g-line"
+    },
+    {
+      "id": "kata-za",
+      "script": "katakana",
+      "japanese": "ザ",
+      "romaji": "za",
+      "group": "z-line"
+    },
+    {
+      "id": "kata-ji",
+      "script": "katakana",
+      "japanese": "ジ",
+      "romaji": "ji",
+      "group": "z-line",
+      "mnemonic": {
+        "it": "シ + dakuten = 'ji'. La più comune per il suono 'ji'.",
+        "en": "シ + dakuten = 'ji'. The common one for the 'ji' sound."
+      }
+    },
+    {
+      "id": "kata-zu",
+      "script": "katakana",
+      "japanese": "ズ",
+      "romaji": "zu",
+      "group": "z-line"
+    },
+    {
+      "id": "kata-ze",
+      "script": "katakana",
+      "japanese": "ゼ",
+      "romaji": "ze",
+      "group": "z-line"
+    },
+    {
+      "id": "kata-zo",
+      "script": "katakana",
+      "japanese": "ゾ",
+      "romaji": "zo",
+      "group": "z-line"
+    },
+    {
+      "id": "kata-da",
+      "script": "katakana",
+      "japanese": "ダ",
+      "romaji": "da",
+      "group": "d-line"
+    },
+    {
+      "id": "kata-dji",
+      "script": "katakana",
+      "japanese": "ヂ",
+      "romaji": "dji",
+      "group": "d-line"
+    },
+    {
+      "id": "kata-dzu",
+      "script": "katakana",
+      "japanese": "ヅ",
+      "romaji": "dzu",
+      "group": "d-line"
+    },
+    {
+      "id": "kata-de",
+      "script": "katakana",
+      "japanese": "デ",
+      "romaji": "de",
+      "group": "d-line"
+    },
+    {
+      "id": "kata-do",
+      "script": "katakana",
+      "japanese": "ド",
+      "romaji": "do",
+      "group": "d-line"
+    },
+    {
+      "id": "kata-ba",
+      "script": "katakana",
+      "japanese": "バ",
+      "romaji": "ba",
+      "group": "b-line"
+    },
+    {
+      "id": "kata-bi",
+      "script": "katakana",
+      "japanese": "ビ",
+      "romaji": "bi",
+      "group": "b-line"
+    },
+    {
+      "id": "kata-bu",
+      "script": "katakana",
+      "japanese": "ブ",
+      "romaji": "bu",
+      "group": "b-line"
+    },
+    {
+      "id": "kata-be",
+      "script": "katakana",
+      "japanese": "ベ",
+      "romaji": "be",
+      "group": "b-line"
+    },
+    {
+      "id": "kata-bo",
+      "script": "katakana",
+      "japanese": "ボ",
+      "romaji": "bo",
+      "group": "b-line"
+    },
+    {
+      "id": "kata-pa",
+      "script": "katakana",
+      "japanese": "パ",
+      "romaji": "pa",
+      "group": "p-line"
+    },
+    {
+      "id": "kata-pi",
+      "script": "katakana",
+      "japanese": "ピ",
+      "romaji": "pi",
+      "group": "p-line"
+    },
+    {
+      "id": "kata-pu",
+      "script": "katakana",
+      "japanese": "プ",
+      "romaji": "pu",
+      "group": "p-line"
+    },
+    {
+      "id": "kata-pe",
+      "script": "katakana",
+      "japanese": "ペ",
+      "romaji": "pe",
+      "group": "p-line"
+    },
+    {
+      "id": "kata-po",
+      "script": "katakana",
+      "japanese": "ポ",
+      "romaji": "po",
+      "group": "p-line"
+    },
+    {
+      "id": "kata-kya",
+      "script": "katakana",
+      "japanese": "キャ",
+      "romaji": "kya",
+      "group": "yoon-ky"
+    },
+    {
+      "id": "kata-kyu",
+      "script": "katakana",
+      "japanese": "キュ",
+      "romaji": "kyu",
+      "group": "yoon-ky"
+    },
+    {
+      "id": "kata-kyo",
+      "script": "katakana",
+      "japanese": "キョ",
+      "romaji": "kyo",
+      "group": "yoon-ky"
+    },
+    {
+      "id": "kata-sha",
+      "script": "katakana",
+      "japanese": "シャ",
+      "romaji": "sha",
+      "group": "yoon-sh"
+    },
+    {
+      "id": "kata-shu",
+      "script": "katakana",
+      "japanese": "シュ",
+      "romaji": "shu",
+      "group": "yoon-sh"
+    },
+    {
+      "id": "kata-sho",
+      "script": "katakana",
+      "japanese": "ショ",
+      "romaji": "sho",
+      "group": "yoon-sh"
+    },
+    {
+      "id": "kata-cha",
+      "script": "katakana",
+      "japanese": "チャ",
+      "romaji": "cha",
+      "group": "yoon-ch"
+    },
+    {
+      "id": "kata-chu",
+      "script": "katakana",
+      "japanese": "チュ",
+      "romaji": "chu",
+      "group": "yoon-ch"
+    },
+    {
+      "id": "kata-cho",
+      "script": "katakana",
+      "japanese": "チョ",
+      "romaji": "cho",
+      "group": "yoon-ch"
+    },
+    {
+      "id": "kata-nya",
+      "script": "katakana",
+      "japanese": "ニャ",
+      "romaji": "nya",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "kata-nyu",
+      "script": "katakana",
+      "japanese": "ニュ",
+      "romaji": "nyu",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "kata-nyo",
+      "script": "katakana",
+      "japanese": "ニョ",
+      "romaji": "nyo",
+      "group": "yoon-ny"
+    },
+    {
+      "id": "kata-hya",
+      "script": "katakana",
+      "japanese": "ヒャ",
+      "romaji": "hya",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "kata-hyu",
+      "script": "katakana",
+      "japanese": "ヒュ",
+      "romaji": "hyu",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "kata-hyo",
+      "script": "katakana",
+      "japanese": "ヒョ",
+      "romaji": "hyo",
+      "group": "yoon-hy"
+    },
+    {
+      "id": "kata-mya",
+      "script": "katakana",
+      "japanese": "ミャ",
+      "romaji": "mya",
+      "group": "yoon-my"
+    },
+    {
+      "id": "kata-myu",
+      "script": "katakana",
+      "japanese": "ミュ",
+      "romaji": "myu",
+      "group": "yoon-my"
+    },
+    {
+      "id": "kata-myo",
+      "script": "katakana",
+      "japanese": "ミョ",
+      "romaji": "myo",
+      "group": "yoon-my"
+    },
+    {
+      "id": "kata-rya",
+      "script": "katakana",
+      "japanese": "リャ",
+      "romaji": "rya",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "kata-ryu",
+      "script": "katakana",
+      "japanese": "リュ",
+      "romaji": "ryu",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "kata-ryo",
+      "script": "katakana",
+      "japanese": "リョ",
+      "romaji": "ryo",
+      "group": "yoon-ry"
+    },
+    {
+      "id": "kata-gya",
+      "script": "katakana",
+      "japanese": "ギャ",
+      "romaji": "gya",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "kata-gyu",
+      "script": "katakana",
+      "japanese": "ギュ",
+      "romaji": "gyu",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "kata-gyo",
+      "script": "katakana",
+      "japanese": "ギョ",
+      "romaji": "gyo",
+      "group": "yoon-gy"
+    },
+    {
+      "id": "kata-ja",
+      "script": "katakana",
+      "japanese": "ジャ",
+      "romaji": "ja",
+      "group": "yoon-j"
+    },
+    {
+      "id": "kata-ju",
+      "script": "katakana",
+      "japanese": "ジュ",
+      "romaji": "ju",
+      "group": "yoon-j"
+    },
+    {
+      "id": "kata-jo",
+      "script": "katakana",
+      "japanese": "ジョ",
+      "romaji": "jo",
+      "group": "yoon-j"
+    },
+    {
+      "id": "kata-bya",
+      "script": "katakana",
+      "japanese": "ビャ",
+      "romaji": "bya",
+      "group": "yoon-by"
+    },
+    {
+      "id": "kata-byu",
+      "script": "katakana",
+      "japanese": "ビュ",
+      "romaji": "byu",
+      "group": "yoon-by"
+    },
+    {
+      "id": "kata-byo",
+      "script": "katakana",
+      "japanese": "ビョ",
+      "romaji": "byo",
+      "group": "yoon-by"
+    },
+    {
+      "id": "kata-pya",
+      "script": "katakana",
+      "japanese": "ピャ",
+      "romaji": "pya",
+      "group": "yoon-py"
+    },
+    {
+      "id": "kata-pyu",
+      "script": "katakana",
+      "japanese": "ピュ",
+      "romaji": "pyu",
+      "group": "yoon-py"
+    },
+    {
+      "id": "kata-pyo",
+      "script": "katakana",
+      "japanese": "ピョ",
+      "romaji": "pyo",
+      "group": "yoon-py"
+    },
+    {
+      "id": "kata-chouon",
+      "script": "katakana",
+      "japanese": "ー",
+      "romaji": "(long vowel)",
+      "group": "chouon",
+      "mnemonic": {
+        "it": "La barretta ー allunga la vocale precedente: コーヒー = 'koohii' (caffè).",
+        "en": "The ー bar lengthens the previous vowel: コーヒー = 'koohii' (coffee)."
+      }
+    },
+    {
+      "id": "kata-sokuon",
+      "script": "katakana",
+      "japanese": "ッ",
+      "romaji": "(double consonant)",
+      "group": "sokuon",
+      "mnemonic": {
+        "it": "Lo ッ piccolo raddoppia la consonante seguente, come in hiragana: ベッド='beddo'.",
+        "en": "The small ッ doubles the next consonant, just like in hiragana: ベッド='beddo'."
+      }
+    }
+  ]
+}

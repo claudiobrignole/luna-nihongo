@@ -1,0 +1,963 @@
+{
+  "$comment": "Grammar repository (excerpt). Units reference points by id.",
+  "grammar": [
+    {
+      "id": "gr-wa-topic",
+      "title": {
+        "it": "は (wa) — la particella del tema, e です (desu)",
+        "en": "は (wa) — the topic particle, and です (desu)"
+      },
+      "explanation": {
+        "it": "は marca il TEMA della frase: la cosa di cui stai parlando. Si scrive con il carattere は ma in questa funzione si legge sempre 'wa', non 'ha'. È una delle pochissime eccezioni di lettura del giapponese, quindi tienila a mente fin da subito.\n\nLa struttura più semplice è: A は B です. Significa 'A è B', oppure più letteralmente 'riguardo ad A, è B'. です è una copula gentile — l'equivalente educato di 'essere'. Chiude la frase e la rende cortese.\n\nEsempio: わたし は がくせい です = 'Io sono uno studente'. わたし (io) è il tema, がくせい (studente) è ciò che si dice del tema, です chiude con cortesia.\n\nです non cambia con il genere o il numero: vale per 'io sono', 'lei è', 'loro sono'. Il giapponese spesso omette il tema quando è chiaro dal contesto: se è ovvio che parli di te, puoi dire solo がくせいです.",
+        "en": "は marks the TOPIC of the sentence: the thing you're talking about. It's written with the character は but in this role it's always read 'wa', never 'ha'. It's one of Japanese's very few reading exceptions, so lock it in right away.\n\nThe simplest structure is: A は B です. It means 'A is B', or more literally 'as for A, it is B'. です is a polite copula — the courteous equivalent of 'to be'. It closes the sentence and makes it polite.\n\nExample: わたし は がくせい です = 'I am a student'. わたし (I) is the topic, がくせい (student) is what's said about the topic, です closes it politely.\n\nです doesn't change for gender or number: it covers 'I am', 'she is', 'they are'. Japanese often drops the topic when it's clear from context: if it's obvious you're talking about yourself, you can just say がくせいです."
+      },
+      "examples": [
+        {
+          "japanese": "わたしは がくせいです。",
+          "romaji": "watashi wa gakusei desu.",
+          "translation": {
+            "it": "Io sono uno studente.",
+            "en": "I am a student."
+          },
+          "note": {
+            "it": "Struttura base A は B です.",
+            "en": "Base structure A は B です."
+          }
+        },
+        {
+          "japanese": "これは ほんです。",
+          "romaji": "kore wa hon desu.",
+          "translation": {
+            "it": "Questo è un libro.",
+            "en": "This is a book."
+          },
+          "note": {
+            "it": "これ = 'questo'.",
+            "en": "これ = 'this'."
+          }
+        },
+        {
+          "japanese": "せんせいは にほんじんです。",
+          "romaji": "sensei wa nihonjin desu.",
+          "translation": {
+            "it": "L'insegnante è giapponese.",
+            "en": "The teacher is Japanese."
+          }
+        },
+        {
+          "japanese": "がくせいです。",
+          "romaji": "gakusei desu.",
+          "translation": {
+            "it": "(Io) sono uno studente.",
+            "en": "(I) am a student."
+          },
+          "note": {
+            "it": "Tema omesso perché chiaro dal contesto.",
+            "en": "Topic dropped because it's clear from context."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-no-possessive",
+        "gr-mo-also"
+      ]
+    },
+    {
+      "id": "gr-no-possessive",
+      "title": {
+        "it": "の (no) — il possessivo e il legame fra nomi",
+        "en": "の (no) — possession and noun linking"
+      },
+      "explanation": {
+        "it": "の collega due nomi e di solito indica possesso o appartenenza, come l'inglese 's o la preposizione 'di'. La struttura è A の B = 'la B di A'.\n\nIl nome che POSSIEDE viene prima, seguito da の, poi la cosa posseduta: わたしのほん = 'il mio libro' (letteralmente 'di-me libro'). Attenzione all'ordine, è l'opposto dell'italiano 'il libro di me'.\n\nの fa molto di più del solo possesso: lega nomi per origine (にほんのくるま = 'auto giapponese'), per tipo, per appartenenza a un gruppo. È una delle particelle più frequenti in assoluto.",
+        "en": "の links two nouns and usually shows possession or belonging, like English 's or 'of'. The structure is A の B = 'A's B' / 'the B of A'.\n\nThe noun that POSSESSES comes first, then の, then the thing possessed: わたしのほん = 'my book' (literally 'me-of book'). Mind the order — it's the reverse of 'the book of me'.\n\nの does much more than possession: it links nouns by origin (にほんのくるま = 'Japanese car'), by type, by group membership. It's one of the most frequent particles of all."
+      },
+      "examples": [
+        {
+          "japanese": "わたしのほん",
+          "romaji": "watashi no hon",
+          "translation": {
+            "it": "il mio libro",
+            "en": "my book"
+          },
+          "note": {
+            "it": "A=watashi possiede B=hon.",
+            "en": "A=watashi owns B=hon."
+          }
+        },
+        {
+          "japanese": "せんせいのくるま",
+          "romaji": "sensei no kuruma",
+          "translation": {
+            "it": "l'auto dell'insegnante",
+            "en": "the teacher's car"
+          }
+        },
+        {
+          "japanese": "にほんごのほん",
+          "romaji": "nihongo no hon",
+          "translation": {
+            "it": "un libro di giapponese",
+            "en": "a Japanese-language book"
+          },
+          "note": {
+            "it": "の lega per tipo, non solo possesso.",
+            "en": "の links by type, not only possession."
+          }
+        },
+        {
+          "japanese": "これはだれのですか。",
+          "romaji": "kore wa dare no desu ka.",
+          "translation": {
+            "it": "Di chi è questo?",
+            "en": "Whose is this?"
+          },
+          "note": {
+            "it": "の può reggere da solo, sottintendendo il nome.",
+            "en": "の can stand alone, with the noun implied."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-wa-topic"
+      ]
+    },
+    {
+      "id": "gr-mo-also",
+      "title": {
+        "it": "も (mo) — 'anche', e le domande con か",
+        "en": "も (mo) — 'also', and questions with か"
+      },
+      "explanation": {
+        "it": "も significa 'anche / pure' e SOSTITUISCE は (o を) quando vuoi dire che qualcosa vale ugualmente per un altro elemento. わたしもがくせいです = 'Anch'io sono uno studente'.\n\nNota chiave: dove avresti messo は, metti も — non si usano insieme. は marca un tema nuovo, も dice 'lo stesso vale anche per questo'.\n\nLe domande: aggiungi semplicemente か alla fine di una frase per renderla interrogativa. Non serve cambiare l'ordine delle parole come in italiano. がくせいです → がくせいですか = 'Sei uno studente?'. Con le parole interrogative (なに 'cosa', だれ 'chi') la struttura resta uguale, basta inserire la parola e chiudere con か.",
+        "en": "も means 'also / too' and REPLACES は (or を) when you want to say something applies equally to another item. わたしもがくせいです = 'I am a student too'.\n\nKey note: put も where you would have put は — they're not used together. は marks a new topic; も says 'the same goes for this one'.\n\nQuestions: simply add か at the end of a sentence to make it a question. No word-order change like in English. がくせいです → がくせいですか = 'Are you a student?'. With question words (なに 'what', だれ 'who') the structure stays the same — just slot the word in and close with か."
+      },
+      "examples": [
+        {
+          "japanese": "わたしもがくせいです。",
+          "romaji": "watashi mo gakusei desu.",
+          "translation": {
+            "it": "Anch'io sono uno studente.",
+            "en": "I'm a student too."
+          },
+          "note": {
+            "it": "も sostituisce は.",
+            "en": "も replaces は."
+          }
+        },
+        {
+          "japanese": "これはほんですか。",
+          "romaji": "kore wa hon desu ka.",
+          "translation": {
+            "it": "Questo è un libro?",
+            "en": "Is this a book?"
+          },
+          "note": {
+            "it": "か trasforma in domanda.",
+            "en": "か turns it into a question."
+          }
+        },
+        {
+          "japanese": "これはなんですか。",
+          "romaji": "kore wa nan desu ka.",
+          "translation": {
+            "it": "Cos'è questo?",
+            "en": "What is this?"
+          },
+          "note": {
+            "it": "何 qui letto 'nan'.",
+            "en": "何 read 'nan' here."
+          }
+        },
+        {
+          "japanese": "あのひとはだれですか。",
+          "romaji": "ano hito wa dare desu ka.",
+          "translation": {
+            "it": "Chi è quella persona?",
+            "en": "Who is that person?"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-wa-topic"
+      ]
+    },
+    {
+      "id": "gr-masu-verbs",
+      "title": {
+        "it": "I verbi nella forma -ます (cortese)",
+        "en": "Verbs in the -masu form (polite)"
+      },
+      "explanation": {
+        "it": "I verbi giapponesi vanno alla fine della frase. La forma -ます è quella cortese, perfetta per parlare con chiunque: educata e sempre corretta.\n\nUna cosa sorprendente: la stessa forma -ます copre sia il presente sia il futuro. たべます può voler dire 'mangio' o 'mangerò' — il contesto chiarisce. Non esiste un tempo futuro separato.\n\nLa negazione è regolarissima: -ます diventa -ません. たべます (mangio) → たべません (non mangio). Nessuna eccezione, nessun ausiliare come l'inglese 'don't'.\n\nForme che incontrerai: ～ます (affermativo presente/futuro), ～ません (negativo). Più avanti vedrai il passato ～ました / ～ませんでした.",
+        "en": "Japanese verbs go at the end of the sentence. The -masu form is the polite one, perfect for talking to anyone: courteous and always correct.\n\nA surprising thing: the same -masu form covers both present and future. たべます can mean 'I eat' or 'I will eat' — context makes it clear. There is no separate future tense.\n\nThe negative is wonderfully regular: -ます becomes -ません. たべます (I eat) → たべません (I don't eat). No exceptions, no auxiliary like English 'don't'.\n\nForms you'll meet: ～ます (affirmative present/future), ～ません (negative). Later you'll see the past ～ました / ～ませんでした."
+      },
+      "examples": [
+        {
+          "japanese": "わたしはたべます。",
+          "romaji": "watashi wa tabemasu.",
+          "translation": {
+            "it": "Io mangio. / Mangerò.",
+            "en": "I eat. / I will eat."
+          },
+          "note": {
+            "it": "Presente e futuro nella stessa forma.",
+            "en": "Present and future in one form."
+          }
+        },
+        {
+          "japanese": "コーヒーをのみます。",
+          "romaji": "koohii o nomimasu.",
+          "translation": {
+            "it": "Bevo un caffè.",
+            "en": "I drink coffee."
+          }
+        },
+        {
+          "japanese": "テレビをみません。",
+          "romaji": "terebi o mimasen.",
+          "translation": {
+            "it": "Non guardo la TV.",
+            "en": "I don't watch TV."
+          },
+          "note": {
+            "it": "Negativo: ます→ません.",
+            "en": "Negative: ます→ません."
+          }
+        },
+        {
+          "japanese": "あした、いきます。",
+          "romaji": "ashita, ikimasu.",
+          "translation": {
+            "it": "Domani vado/andrò.",
+            "en": "Tomorrow I (will) go."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-o-object"
+      ]
+    },
+    {
+      "id": "gr-o-object",
+      "title": {
+        "it": "を (o) — la particella dell'oggetto diretto",
+        "en": "を (o) — the direct-object particle"
+      },
+      "explanation": {
+        "it": "を marca l'oggetto diretto: la cosa su cui ricade l'azione del verbo. La struttura è N を V: 'fare V alla cosa N'.\n\nを si scrive con un carattere speciale (lo hai imparato nell'hiragana) ma si pronuncia esattamente come お, cioè 'o'. È usato quasi solo come questa particella.\n\nコーヒーをのみます = 'bevo (un) caffè': コーヒー è l'oggetto, を lo marca, のみます è il verbo in fondo. L'ordine tipico è Tema は ... Oggetto を Verbo.",
+        "en": "を marks the direct object: the thing the verb's action falls on. The structure is N を V: 'do V to thing N'.\n\nを is written with a special character (you learned it in hiragana) but pronounced exactly like お, i.e. 'o'. It's used almost only as this particle.\n\nコーヒーをのみます = 'I drink coffee': コーヒー is the object, を marks it, のみます is the verb at the end. The typical order is Topic は ... Object を Verb."
+      },
+      "examples": [
+        {
+          "japanese": "コーヒーをのみます。",
+          "romaji": "koohii o nomimasu.",
+          "translation": {
+            "it": "Bevo un caffè.",
+            "en": "I drink coffee."
+          },
+          "note": {
+            "it": "を marca l'oggetto コーヒー.",
+            "en": "を marks the object コーヒー."
+          }
+        },
+        {
+          "japanese": "ほんをよみます。",
+          "romaji": "hon o yomimasu.",
+          "translation": {
+            "it": "Leggo un libro.",
+            "en": "I read a book."
+          }
+        },
+        {
+          "japanese": "わたしはごはんをたべます。",
+          "romaji": "watashi wa gohan o tabemasu.",
+          "translation": {
+            "it": "Io mangio il riso.",
+            "en": "I eat rice."
+          },
+          "note": {
+            "it": "Tema は + Oggetto を + Verbo.",
+            "en": "Topic は + Object を + Verb."
+          }
+        },
+        {
+          "japanese": "にほんごをはなします。",
+          "romaji": "nihongo o hanashimasu.",
+          "translation": {
+            "it": "Parlo giapponese.",
+            "en": "I speak Japanese."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-masu-verbs"
+      ]
+    },
+    {
+      "id": "gr-ni-de-place",
+      "title": {
+        "it": "に e で — luogo di esistenza vs luogo dell'azione",
+        "en": "に & で — place of existence vs place of action"
+      },
+      "explanation": {
+        "it": "Due particelle, due funzioni che gli studenti confondono spesso. Tienile separate fin da subito.\n\nに indica DOVE qualcosa si trova o esiste. Si usa con verbi di esistenza come います (esseri viventi) e あります (oggetti). うちにいます = 'sono a casa'.\n\nで indica DOVE si svolge un'azione. Si usa con verbi d'azione. がっこうでべんきょうします = 'studio a scuola' — l'azione (studiare) avviene a scuola.\n\nRegola pratica: se il verbo è 'essere/esserci' → に. Se è un'azione che fai in un posto → で. うちにいます (sto a casa, esistenza) vs うちでたべます (mangio a casa, azione).",
+        "en": "Two particles, two functions that learners often mix up. Keep them apart from the start.\n\nに marks WHERE something is or exists. Used with existence verbs like います (living things) and あります (objects). うちにいます = 'I'm at home'.\n\nで marks WHERE an action takes place. Used with action verbs. がっこうでべんきょうします = 'I study at school' — the action (studying) happens at school.\n\nRule of thumb: if the verb is 'to be/exist' → に. If it's an action you do somewhere → で. うちにいます (I'm at home, existence) vs うちでたべます (I eat at home, action)."
+      },
+      "examples": [
+        {
+          "japanese": "うちにいます。",
+          "romaji": "uchi ni imasu.",
+          "translation": {
+            "it": "Sono a casa.",
+            "en": "I'm at home."
+          },
+          "note": {
+            "it": "に + esistenza (います).",
+            "en": "に + existence (います)."
+          }
+        },
+        {
+          "japanese": "えきにあります。",
+          "romaji": "eki ni arimasu.",
+          "translation": {
+            "it": "Si trova alla stazione.",
+            "en": "It's at the station."
+          },
+          "note": {
+            "it": "に + あります (oggetti).",
+            "en": "に + あります (objects)."
+          }
+        },
+        {
+          "japanese": "がっこうでたべます。",
+          "romaji": "gakkou de tabemasu.",
+          "translation": {
+            "it": "Mangio a scuola.",
+            "en": "I eat at school."
+          },
+          "note": {
+            "it": "で + azione.",
+            "en": "で + action."
+          }
+        },
+        {
+          "japanese": "みせでほんをよみます。",
+          "romaji": "mise de hon o yomimasu.",
+          "translation": {
+            "it": "Leggo un libro nel negozio.",
+            "en": "I read a book in the shop."
+          },
+          "note": {
+            "it": "で luogo dell'azione + を oggetto.",
+            "en": "で action place + を object."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-e-ni-direction",
+        "gr-o-object"
+      ]
+    },
+    {
+      "id": "gr-e-ni-direction",
+      "title": {
+        "it": "へ／に — la direzione di un movimento",
+        "en": "へ / に — direction of movement"
+      },
+      "explanation": {
+        "it": "Quando ti muovi verso un luogo, usi へ oppure に con verbi come いきます (vado), きます (vengo), かえります (torno).\n\nへ si scrive col carattere へ ma come particella si legge 'e', non 'he' (un'altra eccezione, come は→wa). Indica la direzione: 'verso'.\n\nIn pratica へ e に sono spesso intercambiabili per la direzione. La sfumatura: へ sottolinea il movimento/la direzione, に sottolinea la destinazione precisa. All'inizio puoi usarli quasi come sinonimi: がっこうへいきます = がっこうにいきます = 'vado a scuola'.",
+        "en": "When you move toward a place, you use へ or に with verbs like いきます (go), きます (come), かえります (return).\n\nへ is written with the character へ but as a particle reads 'e', not 'he' (another exception, like は→wa). It marks direction: 'toward'.\n\nIn practice へ and に are often interchangeable for direction. The nuance: へ stresses the movement/direction, に stresses the precise destination. At first you can treat them as near-synonyms: がっこうへいきます = がっこうにいきます = 'I go to school'."
+      },
+      "examples": [
+        {
+          "japanese": "がっこうへいきます。",
+          "romaji": "gakkou e ikimasu.",
+          "translation": {
+            "it": "Vado a scuola.",
+            "en": "I go to school."
+          },
+          "note": {
+            "it": "へ letta 'e', direzione.",
+            "en": "へ read 'e', direction."
+          }
+        },
+        {
+          "japanese": "うちにかえります。",
+          "romaji": "uchi ni kaerimasu.",
+          "translation": {
+            "it": "Torno a casa.",
+            "en": "I return home."
+          },
+          "note": {
+            "it": "に + destinazione.",
+            "en": "に + destination."
+          }
+        },
+        {
+          "japanese": "にほんへきます。",
+          "romaji": "nihon e kimasu.",
+          "translation": {
+            "it": "Vengo in Giappone.",
+            "en": "I come to Japan."
+          }
+        },
+        {
+          "japanese": "えきへいきます。",
+          "romaji": "eki e ikimasu.",
+          "translation": {
+            "it": "Vado alla stazione.",
+            "en": "I go to the station."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-ni-de-place"
+      ]
+    },
+    {
+      "id": "gr-i-adjectives",
+      "title": {
+        "it": "Aggettivi in -い (keiyōshi)",
+        "en": "i-adjectives (keiyōshi)"
+      },
+      "explanation": {
+        "it": "Gli aggettivi giapponesi si dividono in due famiglie. La prima sono gli aggettivi in -い, che finiscono sempre per い: たかい (alto/caro), おおきい (grande), おいしい (buono).\n\nSi usano in due modi. Davanti a un nome, semplicemente li attacchi: たかいほん = 'un libro caro'. Come predicato, vanno alla fine prima di です: このほんはたかいです = 'questo libro è caro'.\n\nLa negazione è particolare: NON usi ない da solo, ma trasformi -い in -くない. たかい → たかくない (non è caro/alto). Nota bene: です resta invariato, è l'aggettivo a cambiare. たかくないです = 'non è caro'.\n\nUnica eccezione famosa: いい (buono) è irregolare, la sua negazione è よくない, non いくない.",
+        "en": "Japanese adjectives come in two families. The first are the i-adjectives, which always end in い: たかい (tall/expensive), おおきい (big), おいしい (delicious).\n\nThey're used in two ways. Before a noun, you simply attach them: たかいほん = 'an expensive book'. As a predicate, they go at the end before です: このほんはたかいです = 'this book is expensive'.\n\nThe negative is special: you do NOT use ない alone, you change -い into -くない. たかい → たかくない (isn't expensive/tall). Note: です stays the same, it's the adjective that changes. たかくないです = 'it isn't expensive'.\n\nOne famous exception: いい (good) is irregular — its negative is よくない, not いくない."
+      },
+      "examples": [
+        {
+          "japanese": "たかいほんです。",
+          "romaji": "takai hon desu.",
+          "translation": {
+            "it": "È un libro caro.",
+            "en": "It's an expensive book."
+          },
+          "note": {
+            "it": "Aggettivo + nome, attaccato.",
+            "en": "Adjective + noun, attached."
+          }
+        },
+        {
+          "japanese": "このほんはたかいです。",
+          "romaji": "kono hon wa takai desu.",
+          "translation": {
+            "it": "Questo libro è caro.",
+            "en": "This book is expensive."
+          },
+          "note": {
+            "it": "Aggettivo come predicato + です.",
+            "en": "Adjective as predicate + です."
+          }
+        },
+        {
+          "japanese": "たかくないです。",
+          "romaji": "takakunai desu.",
+          "translation": {
+            "it": "Non è caro.",
+            "en": "It isn't expensive."
+          },
+          "note": {
+            "it": "Negazione: -い→-くない.",
+            "en": "Negative: -い→-くない."
+          }
+        },
+        {
+          "japanese": "このりょうりはおいしいです。",
+          "romaji": "kono ryouri wa oishii desu.",
+          "translation": {
+            "it": "Questo piatto è buono.",
+            "en": "This dish is delicious."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-na-adjectives"
+      ]
+    },
+    {
+      "id": "gr-na-adjectives",
+      "title": {
+        "it": "Aggettivi in -な (keiyōdōshi)",
+        "en": "na-adjectives (keiyōdōshi)"
+      },
+      "explanation": {
+        "it": "La seconda famiglia di aggettivi. Si comportano quasi come dei nomi e, quando precedono un nome, richiedono un な di collegamento: しずかなまち = 'una città tranquilla' (しずか + な + まち).\n\nCome predicato, invece, il な sparisce e si usa direttamente です: このまちはしずかです = 'questa città è tranquilla'. Niente な qui, perché non c'è un nome da collegare.\n\nLa negazione segue il modello dei nomi: ではありません (o il più colloquiale じゃありません). しずかではありません = 'non è tranquillo'. NON si usa -くない (quello è solo per gli aggettivi in -い).\n\nAttenzione alle trappole: きれい (bello/pulito) e ゆうめい (famoso) finiscono in -い ma sono aggettivi in -な! Si dice きれいなはな (un bel fiore), con な.",
+        "en": "The second family of adjectives. They behave almost like nouns and, when they come before a noun, they need a linking な: しずかなまち = 'a quiet town' (しずか + な + まち).\n\nAs a predicate, though, the な disappears and you use です directly: このまちはしずかです = 'this town is quiet'. No な here, because there's no noun to link.\n\nThe negative follows the noun pattern: ではありません (or the more colloquial じゃありません). しずかではありません = 'it isn't quiet'. You do NOT use -くない (that's only for i-adjectives).\n\nWatch the traps: きれい (pretty/clean) and ゆうめい (famous) end in -い but are na-adjectives! You say きれいなはな (a pretty flower), with な."
+      },
+      "examples": [
+        {
+          "japanese": "しずかなまちです。",
+          "romaji": "shizuka na machi desu.",
+          "translation": {
+            "it": "È una città tranquilla.",
+            "en": "It's a quiet town."
+          },
+          "note": {
+            "it": "な collega l'aggettivo al nome.",
+            "en": "な links adjective to noun."
+          }
+        },
+        {
+          "japanese": "このまちはしずかです。",
+          "romaji": "kono machi wa shizuka desu.",
+          "translation": {
+            "it": "Questa città è tranquilla.",
+            "en": "This town is quiet."
+          },
+          "note": {
+            "it": "Come predicato: niente な.",
+            "en": "As a predicate: no な."
+          }
+        },
+        {
+          "japanese": "きれいなはなです。",
+          "romaji": "kirei na hana desu.",
+          "translation": {
+            "it": "È un bel fiore.",
+            "en": "It's a pretty flower."
+          },
+          "note": {
+            "it": "きれい è -な nonostante la -い.",
+            "en": "きれい is na-type despite the -い."
+          }
+        },
+        {
+          "japanese": "ゆうめいではありません。",
+          "romaji": "yuumei dewa arimasen.",
+          "translation": {
+            "it": "Non è famoso.",
+            "en": "It isn't famous."
+          },
+          "note": {
+            "it": "Negazione tipo-nome.",
+            "en": "Noun-type negative."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-i-adjectives"
+      ]
+    },
+    {
+      "id": "gr-suki-hoshii",
+      "title": {
+        "it": "～がすき／～がほしい — gusti e desideri",
+        "en": "~ga suki / ~ga hoshii — likes & wants"
+      },
+      "explanation": {
+        "it": "Per dire cosa ti piace e cosa vuoi, il giapponese usa una costruzione che sorprende: l'oggetto del tuo gradimento è marcato da が, non da を.\n\nGusti: NはMがすきです = 'a N piace M'. わたしはコーヒーがすきです = 'mi piace il caffè' (letteralmente 'quanto a me, il caffè è gradito'). Per ciò che non piace: きらい. すき e きらい sono aggettivi in -な.\n\nDesideri di oggetti: NはMがほしいです = 'N vuole M'. くるまがほしいです = 'voglio un'auto'. ほしい è un aggettivo in -い e si usa per OGGETTI che desideri.\n\nIl punto chiave da ricordare: con すき, きらい, ほしい si usa が (non を), perché grammaticalmente non sono verbi d'azione ma stati/aggettivi. È un errore tipico mettere を.",
+        "en": "To say what you like and what you want, Japanese uses a construction that surprises learners: the object of your liking is marked by が, not を.\n\nLikes: NはMがすきです = 'N likes M'. わたしはコーヒーがすきです = 'I like coffee' (literally 'as for me, coffee is liked'). For dislikes: きらい. すき and きらい are na-adjectives.\n\nWanting objects: NはMがほしいです = 'N wants M'. くるまがほしいです = 'I want a car'. ほしい is an i-adjective, used for OBJECTS you desire.\n\nKey point to remember: with すき, きらい, ほしい you use が (not を), because grammatically they aren't action verbs but states/adjectives. Putting を is a classic mistake."
+      },
+      "examples": [
+        {
+          "japanese": "コーヒーがすきです。",
+          "romaji": "koohii ga suki desu.",
+          "translation": {
+            "it": "Mi piace il caffè.",
+            "en": "I like coffee."
+          },
+          "note": {
+            "it": "Oggetto del gradimento con が.",
+            "en": "Object of liking takes が."
+          }
+        },
+        {
+          "japanese": "やさいがきらいです。",
+          "romaji": "yasai ga kirai desu.",
+          "translation": {
+            "it": "Non mi piace la verdura.",
+            "en": "I don't like vegetables."
+          }
+        },
+        {
+          "japanese": "あたらしいくるまがほしいです。",
+          "romaji": "atarashii kuruma ga hoshii desu.",
+          "translation": {
+            "it": "Voglio un'auto nuova.",
+            "en": "I want a new car."
+          },
+          "note": {
+            "it": "ほしい per oggetti desiderati.",
+            "en": "ほしい for desired objects."
+          }
+        },
+        {
+          "japanese": "にほんごがすきですか。",
+          "romaji": "nihongo ga suki desu ka.",
+          "translation": {
+            "it": "Ti piace il giapponese?",
+            "en": "Do you like Japanese?"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-i-adjectives",
+        "gr-na-adjectives"
+      ]
+    },
+    {
+      "id": "gr-conjunctions",
+      "title": {
+        "it": "Congiunzioni: そして・でも・から",
+        "en": "Conjunctions: soshite / demo / kara"
+      },
+      "explanation": {
+        "it": "Per collegare le frasi e dare ritmo al discorso, tre congiunzioni essenziali.\n\nそして = 'e (poi)'. Unisce due frasi o aggiunge un'informazione: たべます。そしてのみます = 'mangio. E (poi) bevo'. Va all'inizio della seconda frase.\n\nでも = 'ma / però'. Introduce un contrasto, sempre all'inizio della frase: たかいです。でもおいしいです = 'è caro. Ma è buono'.\n\nから = 'perché / poiché'. A differenza delle altre, から va alla FINE della frase che esprime il motivo: たかいですから = 'perché è caro'. La struttura è [motivo]から、[conseguenza]. やすいですから、かいます = 'siccome è economico, lo compro'.\n\nNota: から segue il verbo o l'aggettivo, non lo precede come il 'perché' italiano. È la difficoltà principale per chi inizia.",
+        "en": "To link sentences and give rhythm to your speech, three essential conjunctions.\n\nそして = 'and (then)'. Joins two sentences or adds information: たべます。そしてのみます = 'I eat. And (then) I drink'. It goes at the start of the second sentence.\n\nでも = 'but / however'. Introduces a contrast, always at the start of the sentence: たかいです。でもおいしいです = 'it's expensive. But it's delicious'.\n\nから = 'because / since'. Unlike the others, から goes at the END of the clause that gives the reason: たかいですから = 'because it's expensive'. The structure is [reason]から、[consequence]. やすいですから、かいます = 'since it's cheap, I'll buy it'.\n\nNote: から follows the verb or adjective, it doesn't precede it like English 'because'. That's the main hurdle for beginners."
+      },
+      "examples": [
+        {
+          "japanese": "たべます。そしてのみます。",
+          "romaji": "tabemasu. soshite nomimasu.",
+          "translation": {
+            "it": "Mangio. E poi bevo.",
+            "en": "I eat. And then I drink."
+          },
+          "note": {
+            "it": "そして = 'e poi'.",
+            "en": "そして = 'and then'."
+          }
+        },
+        {
+          "japanese": "たかいです。でもおいしいです。",
+          "romaji": "takai desu. demo oishii desu.",
+          "translation": {
+            "it": "È caro. Ma è buono.",
+            "en": "It's expensive. But it's delicious."
+          },
+          "note": {
+            "it": "でも = contrasto.",
+            "en": "でも = contrast."
+          }
+        },
+        {
+          "japanese": "やすいですから、かいます。",
+          "romaji": "yasui desu kara, kaimasu.",
+          "translation": {
+            "it": "Siccome è economico, lo compro.",
+            "en": "Since it's cheap, I'll buy it."
+          },
+          "note": {
+            "it": "から alla fine del motivo.",
+            "en": "から at the end of the reason."
+          }
+        },
+        {
+          "japanese": "にほんごがすきですから、べんきょうします。",
+          "romaji": "nihongo ga suki desu kara, benkyou shimasu.",
+          "translation": {
+            "it": "Mi piace il giapponese, quindi lo studio.",
+            "en": "I like Japanese, so I study it."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-i-adjectives"
+      ]
+    },
+    {
+      "id": "gr-te-form",
+      "title": {
+        "it": "La forma -て: come si costruisce",
+        "en": "The -te form: how to build it"
+      },
+      "explanation": {
+        "it": "La forma -て è il pilastro della grammatica giapponese: da sola non ha un significato fisso, ma è la base per richieste, azioni in corso, permessi, concatenazioni e moltissimo altro. Imparare a costruirla bene apre decine di porte.\n\nLe regole dipendono dal verbo. Per i verbi in -る (ichidan, gruppo 2) è facilissimo: togli -る e aggiungi -て. たべる → たべて, みる → みて.\n\nPer i verbi in -う/-つ/-る (godan) la fine diventa -って: かう → かって, まつ → まって. Per -む/-ぶ/-ぬ diventa -んで: のむ → のんで, あそぶ → あそんで. Per -く diventa -いて: かく → かいて (eccezione: いく → いって). Per -ぐ → -いで, per -す → -して: はなす → はなして.\n\nDue irregolari da memorizzare: する → して, くる → きて. All'inizio sembra tanto, ma con la pratica diventa automatico — ed è l'investimento grammaticale più redditizio dell'N5.",
+        "en": "The -te form is the backbone of Japanese grammar: on its own it has no fixed meaning, but it's the base for requests, ongoing actions, permission, chaining and much more. Learning to build it well opens dozens of doors.\n\nThe rules depend on the verb. For -る verbs (ichidan, group 2) it's super easy: drop -る and add -て. たべる → たべて, みる → みて.\n\nFor -う/-つ/-る verbs (godan) the ending becomes -って: かう → かって, まつ → まって. For -む/-ぶ/-ぬ it becomes -んで: のむ → のんで, あそぶ → あそんで. For -く it becomes -いて: かく → かいて (exception: いく → いって). For -ぐ → -いで, for -す → -して: はなす → はなして.\n\nTwo irregulars to memorize: する → して, くる → きて. It looks like a lot at first, but with practice it becomes automatic — and it's the highest-return grammar investment in N5."
+      },
+      "examples": [
+        {
+          "japanese": "たべる → たべて",
+          "romaji": "taberu → tabete",
+          "translation": {
+            "it": "mangiare → forma -て",
+            "en": "to eat → -te form"
+          },
+          "note": {
+            "it": "Gruppo 2: togli -る, aggiungi -て.",
+            "en": "Group 2: drop -る, add -て."
+          }
+        },
+        {
+          "japanese": "かう → かって",
+          "romaji": "kau → katte",
+          "translation": {
+            "it": "comprare → forma -て",
+            "en": "to buy → -te form"
+          },
+          "note": {
+            "it": "-う diventa -って.",
+            "en": "-う becomes -って."
+          }
+        },
+        {
+          "japanese": "のむ → のんで",
+          "romaji": "nomu → nonde",
+          "translation": {
+            "it": "bere → forma -て",
+            "en": "to drink → -te form"
+          },
+          "note": {
+            "it": "-む diventa -んで.",
+            "en": "-む becomes -んで."
+          }
+        },
+        {
+          "japanese": "する → して、くる → きて",
+          "romaji": "suru → shite, kuru → kite",
+          "translation": {
+            "it": "i due irregolari",
+            "en": "the two irregulars"
+          },
+          "note": {
+            "it": "Da memorizzare a parte.",
+            "en": "Memorize these separately."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-requests-progressive",
+        "gr-te-permission",
+        "gr-masu-verbs"
+      ]
+    },
+    {
+      "id": "gr-te-requests-progressive",
+      "title": {
+        "it": "～てください e ～ています",
+        "en": "~te kudasai and ~te imasu"
+      },
+      "explanation": {
+        "it": "Due usi fondamentali della forma -て che userai ogni giorno.\n\n～てください = 'per favore fai...'. È il modo cortese di chiedere a qualcuno di fare qualcosa. Prendi la forma -て e aggiungi ください: みてください = 'guarda, per favore'; まってください = 'aspetta, per favore'.\n\n～ています esprime un'azione IN CORSO ('sto facendo') o uno stato continuo. Forma -て + います: たべています = 'sto mangiando'; よんでいます = 'sto leggendo'. È l'equivalente del present continuous inglese.\n\nNota: ～ています serve anche per abitudini o stati duraturi: とうきょうにすんでいます = 'vivo a Tokyo' (stato continuo, non 'sto vivendo in questo momento'). Il contesto distingue azione in corso e stato.",
+        "en": "Two fundamental uses of the -te form you'll use every day.\n\n～てください = 'please do...'. It's the polite way to ask someone to do something. Take the -te form and add ください: みてください = 'please look'; まってください = 'please wait'.\n\n～ています expresses an ONGOING action ('I'm doing') or a continuous state. -te form + います: たべています = 'I'm eating'; よんでいます = 'I'm reading'. It's the equivalent of the English present continuous.\n\nNote: ～ています also covers habits or lasting states: とうきょうにすんでいます = 'I live in Tokyo' (continuous state, not 'I'm living right now'). Context tells ongoing action apart from state."
+      },
+      "examples": [
+        {
+          "japanese": "みてください。",
+          "romaji": "mite kudasai.",
+          "translation": {
+            "it": "Guarda, per favore.",
+            "en": "Please look."
+          },
+          "note": {
+            "it": "-て + ください = richiesta cortese.",
+            "en": "-て + ください = polite request."
+          }
+        },
+        {
+          "japanese": "まってください。",
+          "romaji": "matte kudasai.",
+          "translation": {
+            "it": "Aspetta, per favore.",
+            "en": "Please wait."
+          }
+        },
+        {
+          "japanese": "たべています。",
+          "romaji": "tabete imasu.",
+          "translation": {
+            "it": "Sto mangiando.",
+            "en": "I'm eating."
+          },
+          "note": {
+            "it": "-て + います = azione in corso.",
+            "en": "-て + います = ongoing action."
+          }
+        },
+        {
+          "japanese": "とうきょうにすんでいます。",
+          "romaji": "toukyou ni sunde imasu.",
+          "translation": {
+            "it": "Vivo a Tokyo.",
+            "en": "I live in Tokyo."
+          },
+          "note": {
+            "it": "Stato continuo, non azione momentanea.",
+            "en": "Continuous state, not a momentary action."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form",
+        "gr-te-permission"
+      ]
+    },
+    {
+      "id": "gr-te-permission",
+      "title": {
+        "it": "～てもいい e ～てはいけない — permesso e divieto",
+        "en": "~te mo ii and ~te wa ikenai — permission & prohibition"
+      },
+      "explanation": {
+        "it": "Ancora la forma -て, stavolta per dire cosa si può e cosa non si può fare.\n\n～てもいいです = 'puoi / è permesso fare...'. Forma -て + もいい(です): たべてもいいです = 'puoi mangiare'; みてもいいですか = 'posso guardare?'. È il modo standard di chiedere e dare permesso.\n\n～てはいけません = 'non si deve / è vietato fare...'. Forma -て + はいけません: たべてはいけません = 'non devi mangiare / è vietato mangiare'. Più forte di un semplice 'non...': esprime una regola o un divieto.\n\nNel parlato, ては si contrae spesso in ちゃ: たべちゃいけない. Per ora usa la forma piena, più sicura e cortese. Insieme, queste due strutture ti permettono di gestire regole, permessi e cortesie nella vita quotidiana.",
+        "en": "The -te form again, this time to say what you may and may not do.\n\n～てもいいです = 'you may / it's allowed to...'. -te form + もいい(です): たべてもいいです = 'you may eat'; みてもいいですか = 'may I look?'. It's the standard way to ask for and give permission.\n\n～てはいけません = 'you must not / it's forbidden to...'. -te form + はいけません: たべてはいけません = 'you must not eat / eating is forbidden'. Stronger than a plain 'don't': it expresses a rule or prohibition.\n\nIn speech, ては often contracts to ちゃ: たべちゃいけない. For now use the full form — safer and more polite. Together, these two structures let you handle rules, permissions and courtesies in daily life."
+      },
+      "examples": [
+        {
+          "japanese": "たべてもいいです。",
+          "romaji": "tabete mo ii desu.",
+          "translation": {
+            "it": "Puoi mangiare.",
+            "en": "You may eat."
+          },
+          "note": {
+            "it": "-て + もいい = permesso.",
+            "en": "-て + もいい = permission."
+          }
+        },
+        {
+          "japanese": "みてもいいですか。",
+          "romaji": "mite mo ii desu ka.",
+          "translation": {
+            "it": "Posso guardare?",
+            "en": "May I look?"
+          },
+          "note": {
+            "it": "Domanda di permesso.",
+            "en": "Asking permission."
+          }
+        },
+        {
+          "japanese": "ここでたべてはいけません。",
+          "romaji": "koko de tabete wa ikemasen.",
+          "translation": {
+            "it": "Non si può mangiare qui.",
+            "en": "You must not eat here."
+          },
+          "note": {
+            "it": "-て + はいけません = divieto.",
+            "en": "-て + はいけません = prohibition."
+          }
+        },
+        {
+          "japanese": "はいってはいけません。",
+          "romaji": "haitte wa ikemasen.",
+          "translation": {
+            "it": "Vietato entrare.",
+            "en": "Entry forbidden."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form",
+        "gr-te-requests-progressive"
+      ]
+    },
+    {
+      "id": "gr-past-tense",
+      "title": {
+        "it": "Il passato dei verbi: -ました / -ませんでした",
+        "en": "Verb past tense: -mashita / -masen deshita"
+      },
+      "explanation": {
+        "it": "Buone notizie: il passato cortese dei verbi è regolarissimo, basta una sostituzione finale rispetto alla forma -ます che già conosci.\n\nPassato affermativo: -ます diventa -ました. たべます (mangio) → たべました (ho mangiato). のみます → のみました. Sempre, senza eccezioni.\n\nPassato negativo: -ません diventa -ませんでした. たべません (non mangio) → たべませんでした (non ho mangiato). Si aggiunge semplicemente でした dopo il negativo presente.\n\nRiepilogo delle quattro forme di un verbo cortese: たべます (presente/futuro affermativo), たべません (presente negativo), たべました (passato affermativo), たべませんでした (passato negativo). Quattro forme, zero irregolari. È uno dei pochi punti in cui il giapponese è più semplice dell'italiano.",
+        "en": "Good news: the polite past of verbs is wonderfully regular — just a final swap from the -masu form you already know.\n\nAffirmative past: -ます becomes -ました. たべます (I eat) → たべました (I ate). のみます → のみました. Always, no exceptions.\n\nNegative past: -ません becomes -ませんでした. たべません (I don't eat) → たべませんでした (I didn't eat). You simply add でした after the present negative.\n\nThe four forms of a polite verb at a glance: たべます (affirmative present/future), たべません (negative present), たべました (affirmative past), たべませんでした (negative past). Four forms, zero irregulars. It's one of the few places where Japanese is simpler than English."
+      },
+      "examples": [
+        {
+          "japanese": "たべました。",
+          "romaji": "tabemashita.",
+          "translation": {
+            "it": "Ho mangiato.",
+            "en": "I ate."
+          },
+          "note": {
+            "it": "-ます → -ました.",
+            "en": "-ます → -ました."
+          }
+        },
+        {
+          "japanese": "えいがをみました。",
+          "romaji": "eiga o mimashita.",
+          "translation": {
+            "it": "Ho visto un film.",
+            "en": "I watched a movie."
+          }
+        },
+        {
+          "japanese": "たべませんでした。",
+          "romaji": "tabemasen deshita.",
+          "translation": {
+            "it": "Non ho mangiato.",
+            "en": "I didn't eat."
+          },
+          "note": {
+            "it": "-ません + でした.",
+            "en": "-ません + でした."
+          }
+        },
+        {
+          "japanese": "きのう、はたらきませんでした。",
+          "romaji": "kinou, hatarakimasen deshita.",
+          "translation": {
+            "it": "Ieri non ho lavorato.",
+            "en": "Yesterday I didn't work."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-masu-verbs",
+        "gr-adjective-past"
+      ]
+    },
+    {
+      "id": "gr-adjective-past",
+      "title": {
+        "it": "Il passato degli aggettivi",
+        "en": "Adjective past tense"
+      },
+      "explanation": {
+        "it": "Anche gli aggettivi hanno un passato — e qui le due famiglie si comportano diversamente, quindi tieni a mente la distinzione -い vs -な.\n\nAggettivi in -い: la -い finale diventa -かった. たかい (caro) → たかかった (era caro). おいしい → おいしかった (era buono). Per la forma cortese si aggiunge です: たかかったです. Negativo passato: -くなかった (たかくなかった = 'non era caro').\n\nAggettivi in -な (e i nomi): si comportano come i nomi e usano でした. しずか → しずかでした (era tranquillo). Negativo: ではありませんでした (しずかではありませんでした = 'non era tranquillo').\n\nAttenzione all'errore classico: NON dire たかいでした. L'aggettivo in -い cambia la sua radice (たかかった), non aggiunge でした. でした è solo per gli aggettivi in -な e per i nomi.",
+        "en": "Adjectives have a past tense too — and here the two families behave differently, so keep the -い vs -な distinction in mind.\n\ni-adjectives: the final -い becomes -かった. たかい (expensive) → たかかった (was expensive). おいしい → おいしかった (was delicious). For the polite form add です: たかかったです. Negative past: -くなかった (たかくなかった = 'wasn't expensive').\n\nna-adjectives (and nouns): they behave like nouns and use でした. しずか → しずかでした (was quiet). Negative: ではありませんでした (しずかではありませんでした = 'wasn't quiet').\n\nWatch the classic mistake: do NOT say たかいでした. The i-adjective changes its own stem (たかかった), it doesn't add でした. でした is only for na-adjectives and nouns."
+      },
+      "examples": [
+        {
+          "japanese": "たかかったです。",
+          "romaji": "takakatta desu.",
+          "translation": {
+            "it": "Era caro.",
+            "en": "It was expensive."
+          },
+          "note": {
+            "it": "-い → -かった (NON たかいでした).",
+            "en": "-い → -かった (NOT たかいでした)."
+          }
+        },
+        {
+          "japanese": "えいがはおもしろかったです。",
+          "romaji": "eiga wa omoshirokatta desu.",
+          "translation": {
+            "it": "Il film era interessante.",
+            "en": "The movie was interesting."
+          }
+        },
+        {
+          "japanese": "しずかでした。",
+          "romaji": "shizuka deshita.",
+          "translation": {
+            "it": "Era tranquillo.",
+            "en": "It was quiet."
+          },
+          "note": {
+            "it": "-な + でした.",
+            "en": "-na + でした."
+          }
+        },
+        {
+          "japanese": "げんきではありませんでした。",
+          "romaji": "genki dewa arimasen deshita.",
+          "translation": {
+            "it": "Non stava bene.",
+            "en": "They weren't well."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-i-adjectives",
+        "gr-na-adjectives",
+        "gr-past-tense"
+      ]
+    }
+  ]
+}

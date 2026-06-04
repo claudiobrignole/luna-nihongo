@@ -1,0 +1,82 @@
+{
+  "$comment": "Luna Nihongo — macro-sections (levels). schemaVersion 1.0.0",
+  "levels": [
+    {
+      "level": 0,
+      "title": {
+        "it": "Livello 0 · Hiragana",
+        "en": "Level 0 · Hiragana"
+      },
+      "description": {
+        "it": "Il primo alfabeto giapponese. Impari a leggere e scrivere tutti i 46 suoni base più le combinazioni. È la fondamenta di tutto: senza hiragana non si va avanti.",
+        "en": "The first Japanese alphabet. You'll learn to read and write all 46 base sounds plus combinations. This is the foundation of everything — no progress without hiragana."
+      }
+    },
+    {
+      "level": 1,
+      "title": {
+        "it": "Livello 1 · Katakana",
+        "en": "Level 1 · Katakana"
+      },
+      "description": {
+        "it": "Il secondo alfabeto, usato per parole straniere, nomi e onomatopee. Stessi suoni dell'hiragana, forme diverse. Imparerai a riconoscere parole prese dall'inglese e dall'italiano.",
+        "en": "The second alphabet, used for foreign words, names and onomatopoeia. Same sounds as hiragana, different shapes. You'll learn to spot words borrowed from English and Italian."
+      }
+    },
+    {
+      "level": 2,
+      "title": {
+        "it": "Livello 2 · Primi kanji e grammatica base",
+        "en": "Level 2 · First kanji & basic grammar"
+      },
+      "description": {
+        "it": "Entriamo nel cuore della lingua: i primi kanji (numeri, natura, persone) introdotti per composizione, le particelle fondamentali (は・の・も) e la frase con です. Vocabolario di saluti e numeri.",
+        "en": "Into the heart of the language: your first kanji (numbers, nature, people) introduced by composition, the core particles (wa / no / mo) and the desu sentence. Greetings and numbers vocabulary."
+      }
+    },
+    {
+      "level": 3,
+      "title": {
+        "it": "Livello 3 · Azioni, luoghi e tempo",
+        "en": "Level 3 · Actions, places & time"
+      },
+      "description": {
+        "it": "I verbi entrano in scena con la forma -ます. Particelle di luogo e oggetto (を・に・へ・で), come dire dove sei e dove vai, e il vocabolario di tempo, luoghi e famiglia.",
+        "en": "Verbs arrive with the -masu form. Place and object particles (o / ni / e / de), how to say where you are and where you go, plus time, places and family vocabulary."
+      }
+    },
+    {
+      "level": 4,
+      "title": {
+        "it": "Livello 4 · Descrivere e collegare",
+        "en": "Level 4 · Describing & connecting"
+      },
+      "description": {
+        "it": "Aggettivi in -i e in -na, come descrivere cose e persone, esprimere preferenze e desideri (～がすきです・～がほしいです), e collegare le frasi. Vocabolario di cibo, colori e aggettivi.",
+        "en": "i-adjectives and na-adjectives, how to describe things and people, express likes and wants (~ga suki desu / ~ga hoshii desu), and link sentences. Food, colors and adjectives vocabulary."
+      }
+    },
+    {
+      "level": 5,
+      "title": {
+        "it": "Livello 5 · La forma -te e oltre",
+        "en": "Level 5 · The -te form & beyond"
+      },
+      "description": {
+        "it": "La potente forma -て: richieste, azioni in corso, permessi e divieti. Il passato dei verbi e degli aggettivi. Gli ultimi kanji e la grammatica per chiudere il livello N5 con sicurezza.",
+        "en": "The powerful -te form: requests, ongoing actions, permission and prohibition. Past tense of verbs and adjectives. The final kanji and grammar to close out N5 with confidence."
+      }
+    },
+    {
+      "level": 6,
+      "title": {
+        "it": "Livello 6 · Verso N5 — sintesi finale",
+        "en": "Level 6 · Toward N5 — final synthesis"
+      },
+      "description": {
+        "it": "Ripasso integrale e simulazione: tutto il kana, i ~80 kanji N5, la grammatica e il vocabolario tematico messi alla prova insieme, nello stile dell'esame.",
+        "en": "Full review and mock test: all the kana, the ~80 N5 kanji, grammar and thematic vocabulary tested together, in exam style."
+      }
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "level": 3,
+  "order": 0,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · persone e dimensioni",
+    "en": "Kanji · people & size"
+  },
+  "description": {
+    "it": "Kanji che descrivono chi e quanto: 人 (persona), 大 (grande), 小 (piccolo), 男 (uomo), 女 (donna), 子 (bambino), 本 (libro/origine). Guarda la composizione: 大 è una 人 con le braccia spalancate ('grande così!'), e 本 è 木 (albero) con un segno alla radice — l'origine, e quindi il libro di carta-legno.",
+    "en": "Kanji that describe who and how much: 人 (person), 大 (big), 小 (small), 男 (man), 女 (woman), 子 (child), 本 (book/origin). Look at the composition: 大 is a 人 with arms flung wide ('this big!'), and 本 is 木 (tree) with a mark at the root — the origin, hence the wood-paper book."
+  },
+  "kanjiRefs": [
+    "kanji-hito",
+    "kanji-dai",
+    "kanji-shou",
+    "kanji-otoko",
+    "kanji-onna",
+    "kanji-ko",
+    "kanji-hon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "大 (grande) è una versione di quale kanji con le braccia aperte?",
+        "en": "大 (big) is which kanji with arms spread wide?"
+      },
+      "options": [
+        {
+          "it": "人 (persona)",
+          "en": "人 (person)"
+        },
+        {
+          "it": "子 (bambino)",
+          "en": "子 (child)"
+        },
+        {
+          "it": "木 (albero)",
+          "en": "木 (tree)"
+        },
+        {
+          "it": "女 (donna)",
+          "en": "女 (woman)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "本 deriva da 木 (albero) e significa anche...",
+        "en": "本 derives from 木 (tree) and also means..."
+      },
+      "options": [
+        {
+          "it": "origine / libro",
+          "en": "origin / book"
+        },
+        {
+          "it": "montagna",
+          "en": "mountain"
+        },
+        {
+          "it": "persona",
+          "en": "person"
+        },
+        {
+          "it": "acqua",
+          "en": "water"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kp-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "人 si legge ジン o ニン nelle parole composte. Come si legge da solo (kun)?",
+        "en": "人 reads ジン or ニン in compounds. How is it read alone (kun)?"
+      },
+      "options": [
+        {
+          "it": "ひと",
+          "en": "ひと"
+        },
+        {
+          "it": "こ",
+          "en": "こ"
+        },
+        {
+          "it": "おお",
+          "en": "おお"
+        },
+        {
+          "it": "もと",
+          "en": "もと"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "人",
+          "right": "persona / person"
+        },
+        {
+          "left": "大",
+          "right": "grande / big"
+        },
+        {
+          "left": "小",
+          "right": "piccolo / small"
+        },
+        {
+          "left": "男",
+          "right": "uomo / man"
+        },
+        {
+          "left": "女",
+          "right": "donna / woman"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "大 come 人 'ingrandita'",
+      "en": "大 as an 'enlarged' 人"
+    },
+    {
+      "it": "本 da 木: origine→libro",
+      "en": "本 from 木: origin→book"
+    }
+  ],
+  "id": "kanji-people"
+}

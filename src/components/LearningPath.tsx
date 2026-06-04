@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { SYLLABUS } from '../data/lessons';
-import type { SyllabusUnit } from '../data/lessons';
+import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import type { HydratedUnit, Quiz } from '../types/curriculum';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
+import {
+  checkQuizAnswer,
+  getDisplayCards,
+  getGrammarPoints,
+  getQuizOptionLabel,
+  unitTypeLabel,
+} from '../utils/curriculumDisplay';
 import { 
   BookOpen, 
   CheckCircle, 
@@ -23,41 +30,17 @@ interface LearningPathProps {
   completedUnits: string[];
 }
 
-const LEVELS = [
-  {
-    level: 0,
-    title: {
-      en: 'Level 0: The Writing Systems',
-      it: 'Livello 0: Primi Passi (Kana)'
-    },
-    description: {
-      en: 'Learn the foundational Japanese alphabets: Hiragana and Katakana.',
-      it: 'Impara gli alfabeti fondamentali del giapponese: Hiragana e Katakana.'
-    }
-  },
-  {
-    level: 1,
-    title: {
-      en: 'Level 1: Basic Kanji & Grammar',
-      it: 'Livello 1: Kanji e Grammatica Base'
-    },
-    description: {
-      en: 'Master initial ideograms and learn to build basic sentences.',
-      it: 'Padroneggia i primi ideogrammi e impara a strutturare le prime frasi.'
-    }
-  }
-];
-
 export const LearningPath: React.FC<LearningPathProps> = ({
   language,
   onCompleteUnit,
   completedUnits,
 }) => {
-  const [selectedUnit, setSelectedUnit] = useState<SyllabusUnit | null>(null);
+  const [selectedUnit, setSelectedUnit] = useState<HydratedUnit | null>(null);
   const [quizActive, setQuizActive] = useState<boolean>(false);
   const [currentQuizIndex, setCurrentQuizIndex] = useState<number>(0);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [spellingInput, setSpellingInput] = useState<string>('');
+  const [matchingAnswers, setMatchingAnswers] = useState<Record<string, string>>({});
   const [showResult, setShowResult] = useState<boolean>(false);
   const [shakeQuiz, setShakeQuiz] = useState<boolean>(false);
 
@@ -75,7 +58,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     return completedUnits.includes(SYLLABUS[index - 1].id);
   };
 
-  const handleUnitClick = (unit: SyllabusUnit, index: number) => {
+  const handleUnitClick = (unit: HydratedUnit, index: number) => {
     if (!isUnlocked(index)) return;
     setSelectedUnit(unit);
     setQuizActive(false);
@@ -83,31 +66,35 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     clearSpeechFeedback();
   };
 
+  const resetQuizInputs = () => {
+    setSelectedOptionIndex(null);
+    setSpellingInput('');
+    setMatchingAnswers({});
+  };
+
   const startQuiz = () => {
     setQuizActive(true);
     setCurrentQuizIndex(0);
     setShowResult(false);
-    setSelectedOption(null);
-    setSpellingInput('');
+    resetQuizInputs();
   };
 
   const handleAnswerSubmit = () => {
     if (!selectedUnit) return;
     const currentQuestion = selectedUnit.quizzes[currentQuizIndex];
-    let isCorrect = false;
-
-    if (currentQuestion.type === 'multiple-choice') {
-      isCorrect = selectedOption === currentQuestion.correctAnswer;
-    } else if (currentQuestion.type === 'spelling') {
-      isCorrect = spellingInput.trim().toLowerCase() === currentQuestion.correctAnswer.toLowerCase();
-    }
+    const isCorrect = checkQuizAnswer(
+      currentQuestion,
+      language,
+      selectedOptionIndex,
+      spellingInput,
+      matchingAnswers,
+    );
 
     if (isCorrect) {
       if (currentQuizIndex + 1 < selectedUnit.quizzes.length) {
         setTimeout(() => {
           setCurrentQuizIndex(prev => prev + 1);
-          setSelectedOption(null);
-          setSpellingInput('');
+          resetQuizInputs();
         }, 600);
       } else {
         setTimeout(() => {
@@ -119,6 +106,20 @@ export const LearningPath: React.FC<LearningPathProps> = ({
       setShakeQuiz(true);
       setTimeout(() => setShakeQuiz(false), 500);
     }
+  };
+
+  const currentQuiz: Quiz | undefined = selectedUnit?.quizzes[currentQuizIndex];
+  const displayCards = selectedUnit ? getDisplayCards(selectedUnit, language) : [];
+  const grammarPoints = selectedUnit ? getGrammarPoints(selectedUnit) : [];
+
+  const isSubmitDisabled = () => {
+    if (!currentQuiz) return true;
+    if (currentQuiz.type === 'multiple-choice') return selectedOptionIndex === null;
+    if (currentQuiz.type === 'spelling') return !spellingInput.trim();
+    if (currentQuiz.type === 'matching') {
+      return !currentQuiz.pairs.every((pair) => matchingAnswers[pair.left]);
+    }
+    return true;
   };
 
   return (
@@ -143,7 +144,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
         width: '100%',
         padding: '1rem 0'
       }}>
-        {LEVELS.map((levelObj) => {
+        {CURRICULUM_LEVELS.map((levelObj) => {
           const levelUnits = SYLLABUS.filter(u => u.level === levelObj.level);
           
           return (
@@ -226,12 +227,12 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             textTransform: 'uppercase',
                             letterSpacing: '0.05em',
                             fontWeight: 700,
-                            color: unit.type === 'grammar' ? 'var(--secondary)' : 'var(--primary)',
-                            background: unit.type === 'grammar' ? 'rgba(155, 89, 182, 0.1)' : 'var(--primary-glow)',
+                            color: unit.type === 'grammar' ? 'var(--secondary)' : unit.type === 'review' ? 'var(--accent)' : 'var(--primary)',
+                            background: unit.type === 'grammar' ? 'rgba(155, 89, 182, 0.1)' : unit.type === 'review' ? 'rgba(243, 156, 18, 0.12)' : 'var(--primary-glow)',
                             padding: '2px 6px',
                             borderRadius: '4px'
                           }}>
-                            {unit.type}
+                            {unitTypeLabel(unit.type, language)}
                           </span>
                           {completed && (
                             <span style={{ fontSize: '0.7rem', color: 'var(--success)', fontWeight: 600 }}>
@@ -292,7 +293,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <span style={{ textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>
-                {selectedUnit.type}
+                {unitTypeLabel(selectedUnit.type, language)}
               </span>
               <button onClick={() => setSelectedUnit(null)} style={{ color: 'var(--text-muted)' }}>
                 <X size={24} />
@@ -308,13 +309,13 @@ export const LearningPath: React.FC<LearningPathProps> = ({
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', flex: 1 }}>
                 
                 {/* Character/Vocabulary List */}
-                {selectedUnit.items && selectedUnit.items.length > 0 && (
+                {displayCards.length > 0 && (
                   <div>
                     <h3 style={{ marginBottom: '1rem' }}>
-                      {language === 'en' ? 'Characters & Sounds' : 'Caratteri e Suoni'}
+                      {language === 'en' ? 'Characters & Vocabulary' : 'Caratteri e Vocabolario'}
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                      {selectedUnit.items.map((item) => (
+                      {displayCards.map((item) => (
                         <div 
                           key={item.id}
                           className="glass-panel" 
@@ -342,8 +343,13 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                                 /{item.romaji}/
                               </div>
                               <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                                {item.meaning[language]}
+                                {item.label}
                               </div>
+                              {item.extra && (
+                                <div style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>
+                                  {item.extra}
+                                </div>
+                              )}
                             </div>
 
                             {/* Vocal Controls */}
@@ -431,16 +437,16 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                 )}
 
                 {/* Grammar Explanation */}
-                {selectedUnit.grammar && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <h3 style={{ color: 'var(--secondary)' }}>{selectedUnit.grammar.title[language]}</h3>
+                {grammarPoints.map((grammarPoint) => (
+                  <div key={grammarPoint.id} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <h3 style={{ color: 'var(--secondary)' }}>{grammarPoint.title[language]}</h3>
                     <p style={{ whiteSpace: 'pre-wrap', fontSize: '0.95rem' }}>
-                      {selectedUnit.grammar.explanation[language]}
+                      {grammarPoint.explanation[language]}
                     </p>
 
                     <h4 style={{ marginTop: '0.5rem' }}>{language === 'en' ? 'Examples' : 'Esempi'}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                      {selectedUnit.grammar.examples.map((example, i) => (
+                      {grammarPoint.examples.map((example, i) => (
                         <div 
                           key={i} 
                           className="glass-panel" 
@@ -479,13 +485,18 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             {example.romaji}
                           </div>
                           <div style={{ fontSize: '0.9rem', fontWeight: 500 }}>
-                            {example.meaning[language]}
+                            {example.translation[language]}
                           </div>
+                          {example.note && (
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-light)', fontStyle: 'italic' }}>
+                              {example.note[language]}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
                   </div>
-                )}
+                ))}
 
                 {/* Bottom CTA to start quiz */}
                 <div style={{ marginTop: 'auto', paddingTop: '2rem' }}>
@@ -588,24 +599,23 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                     </div>
 
                     <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem' }}>
-                      {selectedUnit.quizzes[currentQuizIndex].question[language]}
+                      {currentQuiz?.prompt[language]}
                     </h3>
 
-                    {/* Question Interface */}
-                    {selectedUnit.quizzes[currentQuizIndex].type === 'multiple-choice' ? (
+                    {currentQuiz?.type === 'multiple-choice' ? (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '2rem' }}>
-                        {selectedUnit.quizzes[currentQuizIndex].options?.map((option) => (
+                        {currentQuiz.options.map((option, index) => (
                           <button
-                            key={option}
-                            onClick={() => setSelectedOption(option)}
+                            key={index}
+                            onClick={() => setSelectedOptionIndex(index)}
                             style={{
                               padding: '1rem',
                               borderRadius: '12px',
-                              border: selectedOption === option 
-                                ? '2px solid var(--primary)' 
+                              border: selectedOptionIndex === index
+                                ? '2px solid var(--primary)'
                                 : '1px solid var(--border)',
-                              backgroundColor: selectedOption === option 
-                                ? 'var(--primary-glow)' 
+                              backgroundColor: selectedOptionIndex === index
+                                ? 'var(--primary-glow)'
                                 : 'var(--bg-input)',
                               textAlign: 'left',
                               fontSize: '1rem',
@@ -614,9 +624,38 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                               transition: 'all var(--transition-fast)'
                             }}
                           >
-                            {option}
+                            {getQuizOptionLabel(option, language)}
                           </button>
                         ))}
+                      </div>
+                    ) : currentQuiz?.type === 'matching' ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+                        {currentQuiz.pairs.map((pair) => {
+                          const rightOptions = [...new Set(currentQuiz.pairs.map((p) => p.right))];
+                          return (
+                            <div key={pair.left} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                              <span className="ja-text" style={{ minWidth: '3rem', fontWeight: 700 }}>{pair.left}</span>
+                              <select
+                                value={matchingAnswers[pair.left] ?? ''}
+                                onChange={(e) => setMatchingAnswers((prev) => ({ ...prev, [pair.left]: e.target.value }))}
+                                style={{
+                                  flex: 1,
+                                  minWidth: '120px',
+                                  padding: '0.75rem',
+                                  borderRadius: '10px',
+                                  border: '1px solid var(--border)',
+                                  backgroundColor: 'var(--bg-input)',
+                                  color: 'var(--text-main)',
+                                }}
+                              >
+                                <option value="">{language === 'en' ? 'Select…' : 'Scegli…'}</option>
+                                {rightOptions.map((right) => (
+                                  <option key={right} value={right}>{right}</option>
+                                ))}
+                              </select>
+                            </div>
+                          );
+                        })}
                       </div>
                     ) : (
                       /* Spelling/Text Input Question */
@@ -654,11 +693,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                         onClick={handleAnswerSubmit}
                         className="btn btn-primary"
                         style={{ flex: 1 }}
-                        disabled={
-                          selectedUnit.quizzes[currentQuizIndex].type === 'multiple-choice'
-                            ? !selectedOption
-                            : !spellingInput
-                        }
+                        disabled={isSubmitDisabled()}
                       >
                         {language === 'en' ? 'Submit Answer' : 'Invia Risposta'}
                       </button>

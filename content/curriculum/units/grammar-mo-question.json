@@ -1,0 +1,141 @@
+{
+  "level": 2,
+  "order": 7,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · も e domande con か",
+    "en": "Grammar · も & questions with か"
+  },
+  "description": {
+    "it": "Due strumenti che moltiplicano subito le tue frasi. も significa 'anche' e prende il posto di は: わたしもがくせいです = 'anch'io sono studente'. E per fare una domanda? Niente inversioni: basta aggiungere か alla fine. Con le parole interrogative なに (cosa) e だれ (chi) costruisci domande complete senza cambiare l'ordine.",
+    "en": "Two tools that instantly multiply your sentences. も means 'also' and takes は's place: わたしもがくせいです = 'I'm a student too'. And to ask a question? No inversions: just add か at the end. With the question words なに (what) and だれ (who) you build full questions without changing word order."
+  },
+  "grammarRefs": [
+    "gr-mo-also"
+  ],
+  "vocabRefs": [
+    "vocab-nani",
+    "vocab-dare"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gm-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "も prende il posto di quale particella?",
+        "en": "も takes the place of which particle?"
+      },
+      "options": [
+        {
+          "it": "は (e non si usano insieme)",
+          "en": "は (and they aren't used together)"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        },
+        {
+          "it": "です",
+          "en": "です"
+        },
+        {
+          "it": "か",
+          "en": "か"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gm-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come trasformi 'がくせいです' in una domanda?",
+        "en": "How do you turn 'がくせいです' into a question?"
+      },
+      "options": [
+        {
+          "it": "Aggiungi か alla fine: がくせいですか",
+          "en": "Add か at the end: がくせいですか"
+        },
+        {
+          "it": "Inverti l'ordine delle parole",
+          "en": "Invert the word order"
+        },
+        {
+          "it": "Aggiungi も",
+          "en": "Add も"
+        },
+        {
+          "it": "Cambi です in でした",
+          "en": "Change です to でした"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gm-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "これはなんですか significa...",
+        "en": "これはなんですか means..."
+      },
+      "options": [
+        {
+          "it": "Cos'è questo?",
+          "en": "What is this?"
+        },
+        {
+          "it": "Questo è un libro.",
+          "en": "This is a book."
+        },
+        {
+          "it": "Chi è questo?",
+          "en": "Who is this?"
+        },
+        {
+          "it": "Anche questo?",
+          "en": "This too?"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gm-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "わたしもがくせいです。",
+          "right": "Anch'io sono studente. / I'm a student too."
+        },
+        {
+          "left": "これはほんですか。",
+          "right": "Questo è un libro? / Is this a book?"
+        },
+        {
+          "left": "だれですか。",
+          "right": "Chi è? / Who is it?"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "も sostituisce は, non si sommano",
+      "en": "も replaces は, they don't stack"
+    },
+    {
+      "it": "Domande con か e parole interrogative",
+      "en": "Questions with か and question words"
+    }
+  ],
+  "id": "grammar-mo-question"
+}

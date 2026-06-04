@@ -1,0 +1,198 @@
+{
+  "level": 3,
+  "order": 9,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · Livello 3",
+    "en": "Review · Level 3"
+  },
+  "description": {
+    "it": "Che salto! Ora hai i verbi e quattro particelle nuove (を, に, で, へ) — gli ingredienti per dire chi fa cosa, dove e in che direzione. Questo ripasso mette tutto in tensione insieme, perché è proprio così che funziona una frase vera: 'A casa (に) leggo (verbo) un libro (を)'. Le particelle che si somigliano (に vs で, へ vs に) sono il cuore della prova.",
+    "en": "What a jump! You now have verbs and four new particles (を, に, で, へ) — the ingredients to say who does what, where and in which direction. This review stretches it all together, because that's exactly how a real sentence works: 'At home (に) I read (verb) a book (を)'. The lookalike particles (に vs で, へ vs に) are the heart of the test."
+  },
+  "kanjiRefs": [
+    "kanji-hito",
+    "kanji-dai",
+    "kanji-naka",
+    "kanji-ue",
+    "kanji-shita",
+    "kanji-ta"
+  ],
+  "grammarRefs": [
+    "gr-masu-verbs",
+    "gr-o-object",
+    "gr-ni-de-place",
+    "gr-e-ni-direction"
+  ],
+  "vocabRefs": [
+    "vocab-taberu",
+    "vocab-iku",
+    "vocab-gakkou",
+    "vocab-chichi"
+  ],
+  "reviewPoolRefs": [
+    "gr-masu-verbs",
+    "gr-o-object",
+    "gr-ni-de-place",
+    "gr-e-ni-direction",
+    "kanji-hito",
+    "kanji-dai",
+    "kanji-naka",
+    "vocab-taberu",
+    "vocab-iku",
+    "vocab-gakkou"
+  ],
+  "quizzes": [
+    {
+      "id": "q-l3r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "がっこう___べんきょうします ('studio a scuola', azione). Quale particella?",
+        "en": "がっこう___べんきょうします ('I study at school', action). Which particle?"
+      },
+      "options": [
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l3r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "うち___います ('sono a casa', esistenza). Quale particella?",
+        "en": "うち___います ('I'm at home', existence). Which particle?"
+      },
+      "options": [
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l3r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ほん___よみます. Quale particella per l'oggetto?",
+        "en": "ほん___よみます. Which particle for the object?"
+      },
+      "options": [
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l3r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come neghi 'いきます' (vado)?",
+        "en": "How do you negate 'いきます' (I go)?"
+      },
+      "options": [
+        {
+          "it": "いきません",
+          "en": "いきません"
+        },
+        {
+          "it": "いきました",
+          "en": "いきました"
+        },
+        {
+          "it": "いかます",
+          "en": "いかます"
+        },
+        {
+          "it": "いくない",
+          "en": "いくない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l3r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la particella alla sua funzione.",
+        "en": "Match particle to function."
+      },
+      "pairs": [
+        {
+          "left": "を",
+          "right": "oggetto diretto / direct object"
+        },
+        {
+          "left": "に",
+          "right": "esistenza/meta / existence/destination"
+        },
+        {
+          "left": "で",
+          "right": "luogo dell'azione / place of action"
+        },
+        {
+          "left": "へ",
+          "right": "direzione / direction"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Le quattro particelle a confronto を/に/で/へ",
+      "en": "The four particles compared を/に/で/へ"
+    },
+    {
+      "it": "Costruire frasi complete con verbo finale",
+      "en": "Building full sentences with the verb last"
+    }
+  ],
+  "id": "level3-review"
+}

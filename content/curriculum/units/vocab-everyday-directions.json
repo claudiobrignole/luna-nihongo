@@ -1,0 +1,157 @@
+{
+  "level": 5,
+  "order": 6,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · quotidiano e direzioni",
+    "en": "Vocabulary · everyday & directions"
+  },
+  "description": {
+    "it": "L'ultimo blocco di vocaboli N5: parole di tutti i giorni (comprare, aspettare, incontrare, tornare, lavorare, dormire, amico, lavoro, tempo atmosferico) e di posizione relativa (davanti, dietro, accanto, vicino). Con questi e tutta la grammatica del livello, ora puoi raccontare una giornata intera: dove sei, cosa fai, cosa hai fatto e cosa farai.",
+    "en": "The last block of N5 vocabulary: everyday words (buy, wait, meet, return, work, sleep, friend, job, weather) and relative position (front, behind, next to, near). With these and all the grammar of this level, you can now narrate a whole day: where you are, what you do, what you did and what you'll do."
+  },
+  "vocabRefs": [
+    "vocab-kau",
+    "vocab-matsu",
+    "vocab-au",
+    "vocab-kaeru",
+    "vocab-hataraku",
+    "vocab-neru",
+    "vocab-tomodachi",
+    "vocab-shigoto",
+    "vocab-tenki",
+    "vocab-mae",
+    "vocab-ushiro",
+    "vocab-tonari",
+    "vocab-michi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ved-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale verbo significa 'comprare'?",
+        "en": "Which verb means 'to buy'?"
+      },
+      "options": [
+        {
+          "it": "かう",
+          "en": "かう"
+        },
+        {
+          "it": "まつ",
+          "en": "まつ"
+        },
+        {
+          "it": "あう",
+          "en": "あう"
+        },
+        {
+          "it": "ねる",
+          "en": "ねる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-ved-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "まえ significa 'davanti'. Cosa significa うしろ?",
+        "en": "まえ means 'front'. What does うしろ mean?"
+      },
+      "options": [
+        {
+          "it": "dietro",
+          "en": "behind"
+        },
+        {
+          "it": "accanto",
+          "en": "next to"
+        },
+        {
+          "it": "sopra",
+          "en": "above"
+        },
+        {
+          "it": "dentro",
+          "en": "inside"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ved-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "てんき (天気) significa...",
+        "en": "てんき (天気) means..."
+      },
+      "options": [
+        {
+          "it": "tempo atmosferico",
+          "en": "weather"
+        },
+        {
+          "it": "orario",
+          "en": "timetable"
+        },
+        {
+          "it": "telefono",
+          "en": "telephone"
+        },
+        {
+          "it": "strada",
+          "en": "road"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ved-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina parola e significato.",
+        "en": "Match word to meaning."
+      },
+      "pairs": [
+        {
+          "left": "まつ",
+          "right": "aspettare / wait"
+        },
+        {
+          "left": "あう",
+          "right": "incontrare / meet"
+        },
+        {
+          "left": "ともだち",
+          "right": "amico / friend"
+        },
+        {
+          "left": "まえ",
+          "right": "davanti / front"
+        },
+        {
+          "left": "となり",
+          "right": "accanto / next to"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Verbi quotidiani con tutte le forme",
+      "en": "Everyday verbs in all forms"
+    },
+    {
+      "it": "Posizione relativa まえ/うしろ/となり",
+      "en": "Relative position まえ/うしろ/となり"
+    }
+  ],
+  "id": "vocab-everyday-directions"
+}

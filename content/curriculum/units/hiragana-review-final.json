@@ -1,0 +1,190 @@
+{
+  "level": 0,
+  "order": 12,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso finale · Hiragana completo",
+    "en": "Final review · Full hiragana"
+  },
+  "description": {
+    "it": "Ci sei. Tutto l'hiragana — base, dakuten, handakuten, combinazioni, っ — in un'unica prova. Se superi questa unità sai leggere qualsiasi parola scritta in hiragana. Da qui in poi i romaji ti servono sempre meno. Respira e vai: hai costruito tutto questo da zero.",
+    "en": "You're here. All of hiragana — base, dakuten, handakuten, combinations, っ — in one test. Pass this unit and you can read any word written in hiragana. From here on, romaji matters less and less. Take a breath and go: you built all of this from scratch."
+  },
+  "reviewPoolRefs": [
+    "hira-a",
+    "hira-ka",
+    "hira-shi",
+    "hira-tsu",
+    "hira-no",
+    "hira-fu",
+    "hira-me",
+    "hira-ru",
+    "hira-wo",
+    "hira-n",
+    "hira-ga",
+    "hira-ji",
+    "hira-da",
+    "hira-ba",
+    "hira-pa",
+    "hira-kya",
+    "hira-sha",
+    "hira-cho",
+    "hira-ja",
+    "hira-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hrf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge にほんご (lingua giapponese)?",
+        "en": "How do you read にほんご (Japanese language)?"
+      },
+      "options": [
+        {
+          "it": "nihongo",
+          "en": "nihongo"
+        },
+        {
+          "it": "nihonko",
+          "en": "nihonko"
+        },
+        {
+          "it": "ninhongo",
+          "en": "ninhongo"
+        },
+        {
+          "it": "nibongo",
+          "en": "nibongo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hrf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge きっぷ (biglietto)?",
+        "en": "How do you read きっぷ (ticket)?"
+      },
+      "options": [
+        {
+          "it": "kippu",
+          "en": "kippu"
+        },
+        {
+          "it": "kitsupu",
+          "en": "kitsupu"
+        },
+        {
+          "it": "kibu",
+          "en": "kibu"
+        },
+        {
+          "it": "kipu",
+          "en": "kipu"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hrf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge でんしゃ (treno)?",
+        "en": "How do you read でんしゃ (train)?"
+      },
+      "options": [
+        {
+          "it": "densha",
+          "en": "densha"
+        },
+        {
+          "it": "denshiya",
+          "en": "denshiya"
+        },
+        {
+          "it": "tensha",
+          "en": "tensha"
+        },
+        {
+          "it": "denja",
+          "en": "denja"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hrf-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ぎゅ",
+        "en": "Type the romaji for: ぎゅ"
+      },
+      "answer": "gyu",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hrf-spell-2",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji la parola: がっこう",
+        "en": "Type the romaji for the word: がっこう"
+      },
+      "answer": "gakkou",
+      "acceptedAnswers": [
+        "gakko",
+        "gakkō"
+      ],
+      "requiresRomaji": false,
+      "xp": 20
+    },
+    {
+      "id": "q-hrf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Prova finale: abbina parola e lettura.",
+        "en": "Final test: match word to reading."
+      },
+      "pairs": [
+        {
+          "left": "みず",
+          "right": "mizu"
+        },
+        {
+          "left": "ちゃ",
+          "right": "cha"
+        },
+        {
+          "left": "ぱん",
+          "right": "pan"
+        },
+        {
+          "left": "じかん",
+          "right": "jikan"
+        },
+        {
+          "left": "しゃしん",
+          "right": "shashin"
+        }
+      ],
+      "xp": 25
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Lettura fluente di parole intere",
+      "en": "Fluent reading of whole words"
+    },
+    {
+      "it": "Dakuten + yōon + っ combinati",
+      "en": "Dakuten + yōon + っ combined"
+    }
+  ],
+  "id": "hiragana-review-final"
+}

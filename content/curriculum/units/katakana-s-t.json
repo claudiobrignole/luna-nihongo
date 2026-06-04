@@ -1,0 +1,121 @@
+{
+  "level": 1,
+  "order": 1,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · righe S e T",
+    "en": "Katakana · S & T lines"
+  },
+  "description": {
+    "it": "サ・シ・ス・セ・ソ e タ・チ・ツ・テ・ト. Stesse eccezioni dell'hiragana: シ='shi', チ='chi', ツ='tsu'. E qui arriva la coppia più temuta del katakana: シ (shi) e ツ (tsu) si somigliano tantissimo. Trucco: i tratti di シ 'guardano' in alto, quelli di ツ scendono.",
+    "en": "サ・シ・ス・セ・ソ and タ・チ・ツ・テ・ト. Same exceptions as hiragana: シ='shi', チ='chi', ツ='tsu'. And here comes katakana's most feared pair: シ (shi) and ツ (tsu) look almost identical. Trick: シ's strokes point up, ツ's strokes point down."
+  },
+  "kanaRefs": [
+    "kata-sa",
+    "kata-shi",
+    "kata-su",
+    "kata-se",
+    "kata-so",
+    "kata-ta",
+    "kata-chi",
+    "kata-tsu",
+    "kata-te",
+    "kata-to"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kst-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La coppia difficile: quale è ツ (tsu)? Suggerimento: i tratti scendono.",
+        "en": "The hard pair: which is ツ (tsu)? Hint: strokes point down."
+      },
+      "options": [
+        {
+          "it": "ツ",
+          "en": "ツ"
+        },
+        {
+          "it": "シ",
+          "en": "シ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kst-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale è シ (shi)? Suggerimento: i tratti guardano in alto.",
+        "en": "Which is シ (shi)? Hint: strokes point up."
+      },
+      "options": [
+        {
+          "it": "シ",
+          "en": "シ"
+        },
+        {
+          "it": "ツ",
+          "en": "ツ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kst-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: テ",
+        "en": "Type the romaji for: テ"
+      },
+      "answer": "te",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-kst-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la riga S.",
+        "en": "Match the S-line."
+      },
+      "pairs": [
+        {
+          "left": "サ",
+          "right": "sa"
+        },
+        {
+          "left": "シ",
+          "right": "shi"
+        },
+        {
+          "left": "ス",
+          "right": "su"
+        },
+        {
+          "left": "セ",
+          "right": "se"
+        },
+        {
+          "left": "ソ",
+          "right": "so"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "シ vs ツ: su vs giù",
+      "en": "シ vs ツ: up vs down"
+    },
+    {
+      "it": "ソ vs ン a confronto",
+      "en": "ソ vs ン"
+    }
+  ],
+  "id": "katakana-s-t"
+}

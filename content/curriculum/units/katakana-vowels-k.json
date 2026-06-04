@@ -1,0 +1,137 @@
+{
+  "level": 1,
+  "order": 0,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · vocali e riga K",
+    "en": "Katakana · vowels & K-line"
+  },
+  "description": {
+    "it": "Benvenuto nel secondo alfabeto! Il katakana ha gli STESSI suoni dell'hiragana, ma forme più angolari e rigide. Si usa per parole straniere, nomi e onomatopee. Partiamo da ア・イ・ウ・エ・オ e カ・キ・ク・ケ・コ. Buona notizia: già conosci i suoni, devi solo imparare i nuovi tratti.",
+    "en": "Welcome to the second alphabet! Katakana has the SAME sounds as hiragana, but sharper, more rigid shapes. It's used for foreign words, names and onomatopoeia. We start with ア・イ・ウ・エ・オ and カ・キ・ク・ケ・コ. Good news: you already know the sounds — you only need the new shapes."
+  },
+  "kanaRefs": [
+    "kata-a",
+    "kata-i",
+    "kata-u",
+    "kata-e",
+    "kata-o",
+    "kata-ka",
+    "kata-ki",
+    "kata-ku",
+    "kata-ke",
+    "kata-ko"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kvk-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere katakana si legge 'a'?",
+        "en": "Which katakana character reads 'a'?"
+      },
+      "options": [
+        {
+          "it": "ア",
+          "en": "ア"
+        },
+        {
+          "it": "オ",
+          "en": "オ"
+        },
+        {
+          "it": "ウ",
+          "en": "ウ"
+        },
+        {
+          "it": "カ",
+          "en": "カ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-kvk-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Il katakana si usa soprattutto per...",
+        "en": "Katakana is used mainly for..."
+      },
+      "options": [
+        {
+          "it": "parole straniere e nomi",
+          "en": "foreign words and names"
+        },
+        {
+          "it": "i verbi giapponesi",
+          "en": "Japanese verbs"
+        },
+        {
+          "it": "i numeri",
+          "en": "numbers"
+        },
+        {
+          "it": "la grammatica",
+          "en": "grammar"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kvk-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ケ",
+        "en": "Type the romaji for: ケ"
+      },
+      "answer": "ke",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-kvk-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina katakana e lettura.",
+        "en": "Match katakana to reading."
+      },
+      "pairs": [
+        {
+          "left": "ア",
+          "right": "a"
+        },
+        {
+          "left": "イ",
+          "right": "i"
+        },
+        {
+          "left": "ウ",
+          "right": "u"
+        },
+        {
+          "left": "エ",
+          "right": "e"
+        },
+        {
+          "left": "オ",
+          "right": "o"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "A cosa serve il katakana",
+      "en": "What katakana is for"
+    },
+    {
+      "it": "Forme angolari vs hiragana morbido",
+      "en": "Angular shapes vs soft hiragana"
+    }
+  ],
+  "id": "katakana-vowels-k"
+}

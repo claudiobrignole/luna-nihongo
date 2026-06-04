@@ -1,0 +1,153 @@
+{
+  "level": 2,
+  "order": 1,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · numeri 6–10 + 百千万円",
+    "en": "Kanji · numbers 6–10 + 100/1000/10000/yen"
+  },
+  "description": {
+    "it": "Completiamo i numeri: 六七八九十, poi i 'grandi' 百 (cento), 千 (mille), 万 (diecimila) e 円 (yen, la valuta). Nota la composizione: 千 assomiglia a 十 con un tratto in più, 百 contiene 一. Con questi puoi già leggere prezzi e date.",
+    "en": "Let's complete the numbers: 六七八九十, then the 'big' ones 百 (hundred), 千 (thousand), 万 (ten thousand) and 円 (yen, the currency). Notice the composition: 千 looks like 十 with an extra stroke, 百 contains 一. With these you can already read prices and dates."
+  },
+  "kanjiRefs": [
+    "kanji-roku",
+    "kanji-shichi",
+    "kanji-hachi",
+    "kanji-kyuu",
+    "kanji-juu",
+    "kanji-hyaku",
+    "kanji-sen",
+    "kanji-man",
+    "kanji-en"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'dieci'?",
+        "en": "Which kanji means 'ten'?"
+      },
+      "options": [
+        {
+          "it": "十",
+          "en": "十"
+        },
+        {
+          "it": "千",
+          "en": "千"
+        },
+        {
+          "it": "七",
+          "en": "七"
+        },
+        {
+          "it": "九",
+          "en": "九"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-kn2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "千 (mille) si costruisce a partire da quale kanji?",
+        "en": "千 (thousand) is built from which kanji?"
+      },
+      "options": [
+        {
+          "it": "十 (dieci)",
+          "en": "十 (ten)"
+        },
+        {
+          "it": "一 (uno)",
+          "en": "一 (one)"
+        },
+        {
+          "it": "百 (cento)",
+          "en": "百 (hundred)"
+        },
+        {
+          "it": "円 (yen)",
+          "en": "円 (yen)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "円 indica...",
+        "en": "円 indicates..."
+      },
+      "options": [
+        {
+          "it": "lo yen (valuta) e l'idea di 'tondo'",
+          "en": "the yen (currency) and the idea of 'round'"
+        },
+        {
+          "it": "un numero",
+          "en": "a number"
+        },
+        {
+          "it": "un giorno",
+          "en": "a day"
+        },
+        {
+          "it": "il fuoco",
+          "en": "fire"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e valore.",
+        "en": "Match kanji to value."
+      },
+      "pairs": [
+        {
+          "left": "六",
+          "right": "6"
+        },
+        {
+          "left": "八",
+          "right": "8"
+        },
+        {
+          "left": "十",
+          "right": "10"
+        },
+        {
+          "left": "百",
+          "right": "100"
+        },
+        {
+          "left": "千",
+          "right": "1000"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "I numeri grandi 百千万",
+      "en": "Big numbers 百千万"
+    },
+    {
+      "it": "Leggere prezzi in 円",
+      "en": "Reading prices in 円"
+    }
+  ],
+  "id": "kanji-numbers-2"
+}

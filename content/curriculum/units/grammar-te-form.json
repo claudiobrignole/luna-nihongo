@@ -1,0 +1,166 @@
+{
+  "level": 5,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · la forma -て",
+    "en": "Grammar · the -te form"
+  },
+  "description": {
+    "it": "Ecco il pezzo più importante dell'N5: la forma -て. Da sola non significa nulla di preciso, ma è la chiave che apre richieste, azioni in corso, permessi, divieti e concatenazioni. Le regole dipendono dal gruppo del verbo: i verbi in -る sono facilissimi (たべる→たべて), i godan seguono schemi per terminazione (-う/-つ/-る→-って, -む/-ぶ/-ぬ→-んで, -く→-いて...). Solo due irregolari: する→して, くる→きて. È l'investimento grammaticale più redditizio che farai.",
+    "en": "Here's the most important piece of N5: the -te form. On its own it means nothing specific, but it's the key that unlocks requests, ongoing actions, permission, prohibition and chaining. The rules depend on the verb group: -る verbs are super easy (たべる→たべて), godan verbs follow ending-based patterns (-う/-つ/-る→-って, -む/-ぶ/-ぬ→-んで, -く→-いて...). Only two irregulars: する→して, くる→きて. It's the highest-return grammar investment you'll make."
+  },
+  "grammarRefs": [
+    "gr-te-form"
+  ],
+  "vocabRefs": [
+    "vocab-kau",
+    "vocab-matsu",
+    "vocab-asobu",
+    "vocab-okiru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gtf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -て di たべる (verbo in -る)?",
+        "en": "-te form of たべる (-ru verb)?"
+      },
+      "options": [
+        {
+          "it": "たべて",
+          "en": "たべて"
+        },
+        {
+          "it": "たべって",
+          "en": "たべって"
+        },
+        {
+          "it": "たべんで",
+          "en": "たべんで"
+        },
+        {
+          "it": "たべいて",
+          "en": "たべいて"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -て di のむ (-む)?",
+        "en": "-te form of のむ (-mu)?"
+      },
+      "options": [
+        {
+          "it": "のんで",
+          "en": "のんで"
+        },
+        {
+          "it": "のって",
+          "en": "のって"
+        },
+        {
+          "it": "のみて",
+          "en": "のみて"
+        },
+        {
+          "it": "のいで",
+          "en": "のいで"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "I due verbi irregolari する e くる diventano...",
+        "en": "The two irregular verbs する and くる become..."
+      },
+      "options": [
+        {
+          "it": "して e きて",
+          "en": "して and きて"
+        },
+        {
+          "it": "すて e くて",
+          "en": "すて and くて"
+        },
+        {
+          "it": "しって e きって",
+          "en": "しって and きって"
+        },
+        {
+          "it": "さて e こて",
+          "en": "さて and こて"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtf-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi la forma -て di かく (in hiragana, romaji): かく → ___",
+        "en": "Write the -te form of かく (in romaji): かく → ___"
+      },
+      "answer": "kaite",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-gtf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma -て.",
+        "en": "Match verb to -te form."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべて"
+        },
+        {
+          "left": "かう",
+          "right": "かって"
+        },
+        {
+          "left": "のむ",
+          "right": "のんで"
+        },
+        {
+          "left": "はなす",
+          "right": "はなして"
+        },
+        {
+          "left": "いく",
+          "right": "いって"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Regole -て per gruppo di verbo",
+      "en": "-te rules by verb group"
+    },
+    {
+      "it": "Eccezione いく→いって",
+      "en": "Exception いく→いって"
+    },
+    {
+      "it": "Irregolari する/くる",
+      "en": "Irregulars する/くる"
+    }
+  ],
+  "id": "grammar-te-form"
+}

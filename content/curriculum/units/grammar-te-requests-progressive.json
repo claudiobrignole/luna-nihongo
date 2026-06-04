@@ -1,0 +1,141 @@
+{
+  "level": 5,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · ～てください／～ています",
+    "en": "Grammar · ~te kudasai / ~te imasu"
+  },
+  "description": {
+    "it": "La forma -て entra in azione. Con ～てください chiedi gentilmente: みてください ('guarda, per favore'). Con ～ています esprimi un'azione in corso o uno stato continuo: たべています ('sto mangiando'), とうきょうにすんでいます ('vivo a Tokyo'). È il present continuous giapponese — e finalmente le tue frasi possono descrivere ciò che accade adesso.",
+    "en": "The -te form springs into action. With ～てください you ask politely: みてください ('please look'). With ～ています you express an ongoing action or continuous state: たべています ('I'm eating'), とうきょうにすんでいます ('I live in Tokyo'). It's the Japanese present continuous — and at last your sentences can describe what's happening right now."
+  },
+  "grammarRefs": [
+    "gr-te-requests-progressive"
+  ],
+  "vocabRefs": [
+    "vocab-matsu",
+    "vocab-hataraku"
+  ],
+  "quizzes": [
+    {
+      "id": "q-trp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'aspetta, per favore'?",
+        "en": "How do you say 'please wait'?"
+      },
+      "options": [
+        {
+          "it": "まってください",
+          "en": "まってください"
+        },
+        {
+          "it": "まっています",
+          "en": "まっています"
+        },
+        {
+          "it": "まちます",
+          "en": "まちます"
+        },
+        {
+          "it": "まってはいけません",
+          "en": "まってはいけません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-trp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "たべています esprime...",
+        "en": "たべています expresses..."
+      },
+      "options": [
+        {
+          "it": "un'azione in corso ('sto mangiando')",
+          "en": "an ongoing action ('I'm eating')"
+        },
+        {
+          "it": "un divieto",
+          "en": "a prohibition"
+        },
+        {
+          "it": "il passato",
+          "en": "the past"
+        },
+        {
+          "it": "una richiesta",
+          "en": "a request"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-trp-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "とうきょうにすんでいます significa...",
+        "en": "とうきょうにすんでいます means..."
+      },
+      "options": [
+        {
+          "it": "Vivo a Tokyo (stato continuo)",
+          "en": "I live in Tokyo (continuous state)"
+        },
+        {
+          "it": "Sto andando a Tokyo ora",
+          "en": "I'm going to Tokyo now"
+        },
+        {
+          "it": "Ho vissuto a Tokyo",
+          "en": "I lived in Tokyo"
+        },
+        {
+          "it": "Vivrò a Tokyo",
+          "en": "I'll live in Tokyo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-trp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "みてください。",
+          "right": "Guarda, per favore. / Please look."
+        },
+        {
+          "left": "たべています。",
+          "right": "Sto mangiando. / I'm eating."
+        },
+        {
+          "left": "はたらいています。",
+          "right": "Sto lavorando. / I'm working."
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "～てください richieste",
+      "en": "～てください requests"
+    },
+    {
+      "it": "～ています azione vs stato",
+      "en": "～ています action vs state"
+    }
+  ],
+  "id": "grammar-te-requests-progressive"
+}

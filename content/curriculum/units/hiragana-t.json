@@ -1,0 +1,156 @@
+{
+  "level": 0,
+  "order": 3,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga T",
+    "en": "Hiragana · T-line"
+  },
+  "description": {
+    "it": "た・ち・つ・て・と. Due eccezioni in una riga sola: ち si legge 'chi' (non 'ti') e つ si legge 'tsu' (non 'tu'). Sono i due suoni che gli italiani sbagliano più spesso, quindi vale la pena fissarli bene. て (mano) tornerà tantissimo più avanti.",
+    "en": "た・ち・つ・て・と. Two exceptions in one row: ち reads 'chi' (not 'ti') and つ reads 'tsu' (not 'tu'). These are the two sounds learners trip on most, so it's worth nailing them. て (hand) will come back a lot later on."
+  },
+  "kanaRefs": [
+    "hira-ta",
+    "hira-chi",
+    "hira-tsu",
+    "hira-te",
+    "hira-to"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ht-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge つ?",
+        "en": "How do you read つ?"
+      },
+      "options": [
+        {
+          "it": "tsu",
+          "en": "tsu"
+        },
+        {
+          "it": "tu",
+          "en": "tu"
+        },
+        {
+          "it": "su",
+          "en": "su"
+        },
+        {
+          "it": "chi",
+          "en": "chi"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ht-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ち si legge...",
+        "en": "ち is read..."
+      },
+      "options": [
+        {
+          "it": "chi",
+          "en": "chi"
+        },
+        {
+          "it": "ti",
+          "en": "ti"
+        },
+        {
+          "it": "shi",
+          "en": "shi"
+        },
+        {
+          "it": "ni",
+          "en": "ni"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ht-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge くち (bocca)?",
+        "en": "How do you read くち (mouth)?"
+      },
+      "options": [
+        {
+          "it": "kuchi",
+          "en": "kuchi"
+        },
+        {
+          "it": "kuti",
+          "en": "kuti"
+        },
+        {
+          "it": "kutsu",
+          "en": "kutsu"
+        },
+        {
+          "it": "kushi",
+          "en": "kushi"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ht-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: た",
+        "en": "Type the romaji for: た"
+      },
+      "answer": "ta",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-ht-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "た",
+          "right": "ta"
+        },
+        {
+          "left": "ち",
+          "right": "chi"
+        },
+        {
+          "left": "つ",
+          "right": "tsu"
+        },
+        {
+          "left": "て",
+          "right": "te"
+        },
+        {
+          "left": "と",
+          "right": "to"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "ち='chi' e つ='tsu', i suoni più insidiosi",
+      "en": "ち='chi' and つ='tsu', the trickiest sounds"
+    }
+  ],
+  "id": "hiragana-t"
+}

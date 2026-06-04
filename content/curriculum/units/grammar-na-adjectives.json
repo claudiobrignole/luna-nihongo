@@ -1,0 +1,152 @@
+{
+  "level": 4,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · aggettivi in -な",
+    "en": "Grammar · na-adjectives"
+  },
+  "description": {
+    "it": "La seconda famiglia di aggettivi, che si comporta come i nomi. Quando precedono un nome chiedono un な di collegamento: しずかなまち ('città tranquilla'). Come predicato, il な sparisce: このまちはしずかです. Si negano come i nomi (ではありません), NON con -くない. La trappola classica: きれい (bello) e ゆうめい (famoso) finiscono in -い ma sono di tipo -な — si dice きれいなはな!",
+    "en": "The second family of adjectives, behaving like nouns. When they come before a noun they need a linking な: しずかなまち ('quiet town'). As a predicate, the な vanishes: このまちはしずかです. They negate like nouns (ではありません), NOT with -くない. The classic trap: きれい (pretty) and ゆうめい (famous) end in -い but are na-type — you say きれいなはな!"
+  },
+  "grammarRefs": [
+    "gr-na-adjectives"
+  ],
+  "vocabRefs": [
+    "vocab-shizuka",
+    "vocab-genki",
+    "vocab-yuumei",
+    "vocab-kirei",
+    "vocab-benri"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gna-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'una città tranquilla'?",
+        "en": "How do you say 'a quiet town'?"
+      },
+      "options": [
+        {
+          "it": "しずかなまち",
+          "en": "しずかなまち"
+        },
+        {
+          "it": "しずかまち",
+          "en": "しずかまち"
+        },
+        {
+          "it": "しずかいまち",
+          "en": "しずかいまち"
+        },
+        {
+          "it": "まちしずか",
+          "en": "まちしずか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché きれい è un aggettivo in -な anche se finisce in -い?",
+        "en": "Why is きれい a na-adjective even though it ends in -い?"
+      },
+      "options": [
+        {
+          "it": "È un'eccezione: si dice きれいなはな",
+          "en": "It's an exception: you say きれいなはな"
+        },
+        {
+          "it": "Non lo è, è in -い",
+          "en": "It isn't, it's an i-adjective"
+        },
+        {
+          "it": "Perché è katakana",
+          "en": "Because it's katakana"
+        },
+        {
+          "it": "Perché è un nome",
+          "en": "Because it's a noun"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come neghi un aggettivo in -な (es. しずか)?",
+        "en": "How do you negate a na-adjective (e.g. しずか)?"
+      },
+      "options": [
+        {
+          "it": "しずかではありません",
+          "en": "しずかではありません"
+        },
+        {
+          "it": "しずかくない",
+          "en": "しずかくない"
+        },
+        {
+          "it": "しずかない",
+          "en": "しずかない"
+        },
+        {
+          "it": "しずかません",
+          "en": "しずかません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina aggettivo -な e significato.",
+        "en": "Match na-adjective to meaning."
+      },
+      "pairs": [
+        {
+          "left": "しずか",
+          "right": "tranquillo / quiet"
+        },
+        {
+          "left": "げんき",
+          "right": "in forma / lively"
+        },
+        {
+          "left": "ゆうめい",
+          "right": "famoso / famous"
+        },
+        {
+          "left": "きれい",
+          "right": "bello/pulito / pretty/clean"
+        },
+        {
+          "left": "べんり",
+          "right": "comodo / convenient"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "な di collegamento col nome",
+      "en": "Linking な with the noun"
+    },
+    {
+      "it": "Trappole きれい/ゆうめい",
+      "en": "Traps きれい/ゆうめい"
+    }
+  ],
+  "id": "grammar-na-adjectives"
+}

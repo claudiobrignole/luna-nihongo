@@ -1,0 +1,229 @@
+{
+  "level": 6,
+  "order": 3,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Simulazione esame N5",
+    "en": "N5 mock exam"
+  },
+  "description": {
+    "it": "Ci siamo. L'ultima unità del percorso: una simulazione in stile esame che mescola tutto — kana, kanji, vocabolario tematico, grammatica — in domande integrate, proprio come il vero JLPT N5. Non ci sono aiuti per argomento: ogni domanda può toccare qualsiasi cosa tu abbia imparato. Quando la superi, hai completato il percorso. Sono fiera di te: hai iniziato da あ e sei arrivato qui. 頑張って!",
+    "en": "This is it. The final unit of the path: an exam-style mock test that mixes everything — kana, kanji, thematic vocabulary, grammar — in integrated questions, just like the real JLPT N5. There are no topic-by-topic hints: any question can touch anything you've learned. When you pass it, you've completed the path. I'm proud of you: you started at あ and made it here. 頑張って!"
+  },
+  "reviewPoolRefs": [
+    "hira-a",
+    "kata-a",
+    "kanji-hito",
+    "kanji-hi",
+    "kanji-miru-k",
+    "gr-wa-topic",
+    "gr-masu-verbs",
+    "gr-o-object",
+    "gr-te-form",
+    "gr-past-tense",
+    "vocab-konnichiwa",
+    "vocab-taberu",
+    "vocab-tenki",
+    "vocab-tomodachi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-mock-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "きのう、ともだち___えいが___みました。 Particelle? (passato)",
+        "en": "きのう、ともだち___えいが___みました。 Particles? (past)"
+      },
+      "options": [
+        {
+          "it": "と … を",
+          "en": "と … を"
+        },
+        {
+          "it": "を … と",
+          "en": "を … と"
+        },
+        {
+          "it": "に … で",
+          "en": "に … で"
+        },
+        {
+          "it": "が … は",
+          "en": "が … は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-mock-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "きょうは てんき___いいです。 Quale particella?",
+        "en": "きょうは てんき___いいです。 Which particle?"
+      },
+      "options": [
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-mock-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici cortesemente 'aspetti qui, per favore'?",
+        "en": "How do you politely say 'please wait here'?"
+      },
+      "options": [
+        {
+          "it": "ここでまってください",
+          "en": "ここでまってください"
+        },
+        {
+          "it": "ここにまちます",
+          "en": "ここにまちます"
+        },
+        {
+          "it": "ここをまってもいい",
+          "en": "ここをまってもいい"
+        },
+        {
+          "it": "ここでまってはいけません",
+          "en": "ここでまってはいけません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-mock-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "このりょうりは ___です ('questo piatto era buono', passato)。",
+        "en": "このりょうりは ___です ('this dish was delicious', past)。"
+      },
+      "options": [
+        {
+          "it": "おいしかった",
+          "en": "おいしかった"
+        },
+        {
+          "it": "おいしいでした",
+          "en": "おいしいでした"
+        },
+        {
+          "it": "おいしでした",
+          "en": "おいしでした"
+        },
+        {
+          "it": "おいしました",
+          "en": "おいしました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-mock-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Leggi e capisci: 三人の ともだちが きました。 Cosa significa?",
+        "en": "Read and understand: 三人の ともだちが きました。 What does it mean?"
+      },
+      "options": [
+        {
+          "it": "Sono venuti tre amici.",
+          "en": "Three friends came."
+        },
+        {
+          "it": "Tre amici se ne sono andati.",
+          "en": "Three friends left."
+        },
+        {
+          "it": "Ho tre amici.",
+          "en": "I have three friends."
+        },
+        {
+          "it": "Vengo con tre amici.",
+          "en": "I'm coming with three friends."
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-mock-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Comprensione: abbina la frase al significato.",
+        "en": "Comprehension: match sentence to meaning."
+      },
+      "pairs": [
+        {
+          "left": "がっこうへいきます。",
+          "right": "Vado a scuola. / I go to school."
+        },
+        {
+          "left": "ほんをよんでいます。",
+          "right": "Sto leggendo un libro. / I'm reading a book."
+        },
+        {
+          "left": "みずがほしいです。",
+          "right": "Voglio dell'acqua. / I want water."
+        },
+        {
+          "left": "たべませんでした。",
+          "right": "Non ho mangiato. / I didn't eat."
+        }
+      ],
+      "xp": 25
+    },
+    {
+      "id": "q-mock-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: にほんごをべんきょうします",
+        "en": "Type the romaji for: にほんごをべんきょうします"
+      },
+      "answer": "nihongo o benkyou shimasu",
+      "acceptedAnswers": [
+        "nihongo wo benkyou shimasu",
+        "nihongo o benkyoushimasu"
+      ],
+      "requiresRomaji": false,
+      "xp": 25
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Domande integrate stile esame",
+      "en": "Integrated exam-style questions"
+    },
+    {
+      "it": "Punti deboli emersi dalla simulazione",
+      "en": "Weak spots revealed by the mock test"
+    },
+    {
+      "it": "Prossimo passo: verso N4",
+      "en": "Next step: toward N4"
+    }
+  ],
+  "id": "n5-mock-exam"
+}

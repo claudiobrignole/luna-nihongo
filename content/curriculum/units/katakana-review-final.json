@@ -1,0 +1,173 @@
+{
+  "level": 1,
+  "order": 7,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso finale · Katakana completo",
+    "en": "Final review · Full katakana"
+  },
+  "description": {
+    "it": "Doppio traguardo: ora conosci ENTRAMBI gli alfabeti giapponesi! Questa prova mescola tutto il katakana — base, dakuten, combinazioni, barretta lunga, ッ — più la lettura di parole straniere reali. Superala e sei pronto per entrare nel mondo dei kanji.",
+    "en": "Double milestone: you now know BOTH Japanese alphabets! This test mixes all of katakana — base, dakuten, combinations, long-vowel bar, ッ — plus reading real loanwords. Pass it and you're ready to step into the world of kanji."
+  },
+  "reviewPoolRefs": [
+    "kata-a",
+    "kata-ka",
+    "kata-shi",
+    "kata-tsu",
+    "kata-so",
+    "kata-n",
+    "kata-fu",
+    "kata-he",
+    "kata-ru",
+    "kata-ga",
+    "kata-ji",
+    "kata-ba",
+    "kata-pa",
+    "kata-kya",
+    "kata-sha",
+    "kata-cho",
+    "kata-chouon",
+    "kata-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-krf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge レストラン (in katakana)?",
+        "en": "How do you read レストラン (in katakana)?"
+      },
+      "options": [
+        {
+          "it": "resutoran (restaurant)",
+          "en": "resutoran (restaurant)"
+        },
+        {
+          "it": "restaurant esatto",
+          "en": "exact 'restaurant'"
+        },
+        {
+          "it": "resotoran",
+          "en": "resotoran"
+        },
+        {
+          "it": "rasutoran",
+          "en": "rasutoran"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-krf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge コンピューター?",
+        "en": "How do you read コンピューター?"
+      },
+      "options": [
+        {
+          "it": "konpyuutaa (computer)",
+          "en": "konpyuutaa (computer)"
+        },
+        {
+          "it": "konpyuta",
+          "en": "konpyuta"
+        },
+        {
+          "it": "kompyuta",
+          "en": "kompyuta"
+        },
+        {
+          "it": "konbyuutaa",
+          "en": "konbyuutaa"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-krf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Coppia killer finale: quale è 'so'?",
+        "en": "Final killer pair: which is 'so'?"
+      },
+      "options": [
+        {
+          "it": "ソ",
+          "en": "ソ"
+        },
+        {
+          "it": "ン",
+          "en": "ン"
+        },
+        {
+          "it": "シ",
+          "en": "シ"
+        },
+        {
+          "it": "ツ",
+          "en": "ツ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-krf-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ギョ",
+        "en": "Type the romaji for: ギョ"
+      },
+      "answer": "gyo",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-krf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Prova finale: parola katakana → originale.",
+        "en": "Final test: katakana word → original."
+      },
+      "pairs": [
+        {
+          "left": "バス",
+          "right": "bus"
+        },
+        {
+          "left": "カメラ",
+          "right": "camera"
+        },
+        {
+          "left": "ジュース",
+          "right": "juice"
+        },
+        {
+          "left": "ホテル",
+          "right": "hotel"
+        },
+        {
+          "left": "ニュース",
+          "right": "news"
+        }
+      ],
+      "xp": 25
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Lettura fluente di loanword lunghi",
+      "en": "Fluent reading of long loanwords"
+    },
+    {
+      "it": "Tutte le coppie confondibili insieme",
+      "en": "All confusable pairs together"
+    }
+  ],
+  "id": "katakana-review-final"
+}

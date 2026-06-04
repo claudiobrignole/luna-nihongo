@@ -16,7 +16,8 @@ dist-ssr
 !.env.example
 public/api/bootstrap.local.php
 public/api/gemini-secret.php
-hostinger/private/luna-gemini.php
+# Generated curriculum bundle (rebuilt by hydrate.mjs)
+content/curriculum/build/
 
 # Editor directories and files
 .vscode/*

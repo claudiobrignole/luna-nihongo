@@ -1,0 +1,135 @@
+{
+  "level": 1,
+  "order": 4,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · M, Y, R, W + ン",
+    "en": "Katakana · M, Y, R, W + n"
+  },
+  "description": {
+    "it": "L'ultimo blocco base del katakana: マ・ミ・ム・メ・モ, ヤ・ユ・ヨ, ラ・リ・ル・レ・ロ, ワ・ヲ e infine ン. Ora occhio: ン (n) è l'altra metà della coppia killer con ソ. ン sale, ソ scende. Completato questo, conosci tutto il katakana base.",
+    "en": "The last base block of katakana: マ・ミ・ム・メ・モ, ヤ・ユ・ヨ, ラ・リ・ル・レ・ロ, ワ・ヲ and finally ン. Now watch out: ン (n) is the other half of the killer pair with ソ. ン goes up, ソ goes down. Finish this and you know all of base katakana."
+  },
+  "kanaRefs": [
+    "kata-ma",
+    "kata-mi",
+    "kata-mu",
+    "kata-me",
+    "kata-mo",
+    "kata-ya",
+    "kata-yu",
+    "kata-yo",
+    "kata-ra",
+    "kata-ri",
+    "kata-ru",
+    "kata-re",
+    "kata-ro",
+    "kata-wa",
+    "kata-wo",
+    "kata-n"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kmy-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ン (n) e ソ (so): quale SALE verso l'alto?",
+        "en": "ン (n) and ソ (so): which one points UP?"
+      },
+      "options": [
+        {
+          "it": "ン",
+          "en": "ン"
+        },
+        {
+          "it": "ソ",
+          "en": "ソ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kmy-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'ru'?",
+        "en": "Which character reads 'ru'?"
+      },
+      "options": [
+        {
+          "it": "ル",
+          "en": "ル"
+        },
+        {
+          "it": "レ",
+          "en": "レ"
+        },
+        {
+          "it": "ロ",
+          "en": "ロ"
+        },
+        {
+          "it": "ラ",
+          "en": "ラ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-kmy-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ヨ",
+        "en": "Type the romaji for: ヨ"
+      },
+      "answer": "yo",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-kmy-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la riga M.",
+        "en": "Match the M-line."
+      },
+      "pairs": [
+        {
+          "left": "マ",
+          "right": "ma"
+        },
+        {
+          "left": "ミ",
+          "right": "mi"
+        },
+        {
+          "left": "ム",
+          "right": "mu"
+        },
+        {
+          "left": "メ",
+          "right": "me"
+        },
+        {
+          "left": "モ",
+          "right": "mo"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "ン vs ソ: su vs giù",
+      "en": "ン vs ソ: up vs down"
+    },
+    {
+      "it": "ラ行 katakana",
+      "en": "The katakana R-line"
+    }
+  ],
+  "id": "katakana-m-yrw"
+}

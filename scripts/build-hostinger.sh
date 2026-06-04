@@ -16,6 +16,9 @@ else
   echo "→ GEMINI_API_KEY trovata — verrà inclusa nel build."
 fi
 
+echo "→ Validating curriculum..."
+npm run curriculum:check
+
 echo "→ Generating Gemini secret file..."
 node scripts/generate-gemini-secret.mjs
 

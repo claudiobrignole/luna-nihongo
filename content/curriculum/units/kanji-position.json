@@ -1,0 +1,150 @@
+{
+  "level": 3,
+  "order": 4,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · posizione e direzione",
+    "en": "Kanji · position & direction"
+  },
+  "description": {
+    "it": "Kanji che ti orientano nello spazio: 上 (sopra), 下 (sotto), 中 (in mezzo/dentro), 右 (destra), 左 (sinistra), 田 (campo di riso). 上 e 下 sono specchio l'uno dell'altro — qualcosa che spunta sopra o pende sotto una linea. 中 è una linea che trafigge un riquadro nel mezzo. E 田 è una risaia vista dall'alto: ora capisci da dove nasce 男!",
+    "en": "Kanji that orient you in space: 上 (above), 下 (below), 中 (middle/inside), 右 (right), 左 (left), 田 (rice field). 上 and 下 mirror each other — something poking above or hanging below a line. 中 is a line piercing a box through its middle. And 田 is a paddy seen from above: now you see where 男 comes from!"
+  },
+  "kanjiRefs": [
+    "kanji-ue",
+    "kanji-shita",
+    "kanji-naka",
+    "kanji-migi",
+    "kanji-hidari",
+    "kanji-ta"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kpos-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'in mezzo / dentro'?",
+        "en": "Which kanji means 'middle / inside'?"
+      },
+      "options": [
+        {
+          "it": "中",
+          "en": "中"
+        },
+        {
+          "it": "上",
+          "en": "上"
+        },
+        {
+          "it": "下",
+          "en": "下"
+        },
+        {
+          "it": "田",
+          "en": "田"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-kpos-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "上 e 下 sono...",
+        "en": "上 and 下 are..."
+      },
+      "options": [
+        {
+          "it": "specchio l'uno dell'altro (sopra/sotto)",
+          "en": "mirror images (above/below)"
+        },
+        {
+          "it": "lo stesso kanji",
+          "en": "the same kanji"
+        },
+        {
+          "it": "numeri",
+          "en": "numbers"
+        },
+        {
+          "it": "verbi",
+          "en": "verbs"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kpos-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "田 (campo di riso) compare dentro quale kanji già visto?",
+        "en": "田 (rice field) appears inside which kanji you've seen?"
+      },
+      "options": [
+        {
+          "it": "男 (uomo)",
+          "en": "男 (man)"
+        },
+        {
+          "it": "女 (donna)",
+          "en": "女 (woman)"
+        },
+        {
+          "it": "本 (libro)",
+          "en": "本 (book)"
+        },
+        {
+          "it": "小 (piccolo)",
+          "en": "小 (small)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kpos-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "上",
+          "right": "sopra / above"
+        },
+        {
+          "left": "下",
+          "right": "sotto / below"
+        },
+        {
+          "left": "中",
+          "right": "mezzo / middle"
+        },
+        {
+          "left": "右",
+          "right": "destra / right"
+        },
+        {
+          "left": "左",
+          "right": "sinistra / left"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "上/下 specchiati",
+      "en": "上/下 mirrored"
+    },
+    {
+      "it": "田 dentro 男",
+      "en": "田 inside 男"
+    }
+  ],
+  "id": "kanji-position"
+}

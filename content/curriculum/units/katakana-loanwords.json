@@ -1,0 +1,182 @@
+{
+  "level": 1,
+  "order": 6,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · parole straniere",
+    "en": "Katakana · loanwords"
+  },
+  "description": {
+    "it": "Ecco la parte divertente: leggere parole che già conosci! Tantissime parole giapponesi vengono dall'inglese (e qualcuna dall'italiano e dal portoghese). Una volta che leggi il katakana, le riconosci al volo: コーヒー (coffee), パン (pane, dal portoghese!), テレビ (television), ピザ (pizza). Allena l'occhio a 'sentire' la parola originale dietro i suoni giapponesi.",
+    "en": "Here's the fun part: reading words you already know! Tons of Japanese words come from English (and some from Italian and Portuguese). Once you can read katakana, you spot them instantly: コーヒー (coffee), パン (bread, from Portuguese!), テレビ (television), ピザ (pizza). Train your ear to 'hear' the original word behind the Japanese sounds."
+  },
+  "kanaRefs": [
+    "kata-ko",
+    "kata-chouon",
+    "kata-hi",
+    "kata-pa",
+    "kata-te",
+    "kata-re",
+    "kata-bi",
+    "kata-pi",
+    "kata-za",
+    "kata-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-klw-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "コーヒー corrisponde a quale parola?",
+        "en": "コーヒー corresponds to which word?"
+      },
+      "options": [
+        {
+          "it": "coffee (caffè)",
+          "en": "coffee"
+        },
+        {
+          "it": "copy",
+          "en": "copy"
+        },
+        {
+          "it": "cocoa",
+          "en": "cocoa"
+        },
+        {
+          "it": "coffee shop",
+          "en": "coffee shop"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-klw-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "テレビ è l'abbreviazione giapponese di...",
+        "en": "テレビ is the Japanese shortening of..."
+      },
+      "options": [
+        {
+          "it": "television (TV)",
+          "en": "television (TV)"
+        },
+        {
+          "it": "telephone",
+          "en": "telephone"
+        },
+        {
+          "it": "terrace",
+          "en": "terrace"
+        },
+        {
+          "it": "terrible",
+          "en": "terrible"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-klw-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge ピザ?",
+        "en": "How do you read ピザ?"
+      },
+      "options": [
+        {
+          "it": "piza (pizza)",
+          "en": "piza (pizza)"
+        },
+        {
+          "it": "biza",
+          "en": "biza"
+        },
+        {
+          "it": "pizza con doppia z",
+          "en": "pizza with double z"
+        },
+        {
+          "it": "piso",
+          "en": "piso"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-klw-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la parola katakana al suo originale.",
+        "en": "Match the katakana word to its original."
+      },
+      "pairs": [
+        {
+          "left": "コーヒー",
+          "right": "coffee"
+        },
+        {
+          "left": "テレビ",
+          "right": "television"
+        },
+        {
+          "left": "ピザ",
+          "right": "pizza"
+        },
+        {
+          "left": "パン",
+          "right": "bread (pão)"
+        },
+        {
+          "left": "ホテル",
+          "right": "hotel"
+        }
+      ],
+      "xp": 25
+    },
+    {
+      "id": "q-klw-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché パン (pane) NON viene dall'inglese?",
+        "en": "Why does パン (bread) NOT come from English?"
+      },
+      "options": [
+        {
+          "it": "Viene dal portoghese 'pão'",
+          "en": "It comes from Portuguese 'pão'"
+        },
+        {
+          "it": "È una parola giapponese originale",
+          "en": "It's a native Japanese word"
+        },
+        {
+          "it": "Viene dal cinese",
+          "en": "It comes from Chinese"
+        },
+        {
+          "it": "Viene dal francese",
+          "en": "It comes from French"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Riconoscere l'inglese dietro il katakana",
+      "en": "Spotting English behind katakana"
+    },
+    {
+      "it": "Parole non inglesi: パン, テンプラ",
+      "en": "Non-English loanwords: パン, テンプラ"
+    }
+  ],
+  "id": "katakana-loanwords"
+}

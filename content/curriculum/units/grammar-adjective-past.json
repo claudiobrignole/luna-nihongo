@@ -1,0 +1,147 @@
+{
+  "level": 5,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · passato degli aggettivi",
+    "en": "Grammar · adjective past tense"
+  },
+  "description": {
+    "it": "Anche gli aggettivi hanno un passato, e le due famiglie si comportano diversamente. Aggettivi in -い: la -い diventa -かった (たかい → たかかった, 'era caro'); negativo -くなかった. Aggettivi in -な (e nomi): usano でした (しずか → しずかでした, 'era tranquillo'). Errore da evitare a tutti i costi: たかいでした è SBAGLIATO — l'aggettivo in -い cambia la radice, non aggiunge でした. でした è solo per -な e nomi.",
+    "en": "Adjectives have a past tense too, and the two families behave differently. i-adjectives: -い becomes -かった (たかい → たかかった, 'was expensive'); negative -くなかった. na-adjectives (and nouns): they use でした (しずか → しずかでした, 'was quiet'). A mistake to avoid at all costs: たかいでした is WRONG — the i-adjective changes its stem, it doesn't add でした. でした is only for na-adjectives and nouns."
+  },
+  "grammarRefs": [
+    "gr-adjective-past"
+  ],
+  "vocabRefs": [
+    "vocab-takai",
+    "vocab-omoshiroi",
+    "vocab-shizuka",
+    "vocab-genki"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gap-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato di たかい (aggettivo -い)?",
+        "en": "Past of たかい (i-adjective)?"
+      },
+      "options": [
+        {
+          "it": "たかかった",
+          "en": "たかかった"
+        },
+        {
+          "it": "たかいでした",
+          "en": "たかいでした"
+        },
+        {
+          "it": "たかでした",
+          "en": "たかでした"
+        },
+        {
+          "it": "たかました",
+          "en": "たかました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gap-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché たかいでした è sbagliato?",
+        "en": "Why is たかいでした wrong?"
+      },
+      "options": [
+        {
+          "it": "L'aggettivo -い cambia radice (たかかった), non aggiunge でした",
+          "en": "The i-adjective changes its stem (たかかった), it doesn't add でした"
+        },
+        {
+          "it": "È giusto in realtà",
+          "en": "It's actually correct"
+        },
+        {
+          "it": "Manca un kanji",
+          "en": "It's missing a kanji"
+        },
+        {
+          "it": "でした non esiste",
+          "en": "でした doesn't exist"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gap-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato di しずか (aggettivo -な)?",
+        "en": "Past of しずか (na-adjective)?"
+      },
+      "options": [
+        {
+          "it": "しずかでした",
+          "en": "しずかでした"
+        },
+        {
+          "it": "しずかかった",
+          "en": "しずかかった"
+        },
+        {
+          "it": "しずいでした",
+          "en": "しずいでした"
+        },
+        {
+          "it": "しずかました",
+          "en": "しずかました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gap-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina aggettivo e passato.",
+        "en": "Match adjective to past."
+      },
+      "pairs": [
+        {
+          "left": "たかい",
+          "right": "たかかった (era caro)"
+        },
+        {
+          "left": "おもしろい",
+          "right": "おもしろかった (era interessante)"
+        },
+        {
+          "left": "しずか",
+          "right": "しずかでした (era tranquillo)"
+        },
+        {
+          "left": "げんき",
+          "right": "げんきでした (stava bene)"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "-い → -かった (mai でした)",
+      "en": "-i → -かった (never でした)"
+    },
+    {
+      "it": "-な → でした",
+      "en": "-na → でした"
+    }
+  ],
+  "id": "grammar-adjective-past"
+}

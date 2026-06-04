@@ -1,0 +1,208 @@
+{
+  "level": 0,
+  "order": 9,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · riga N → ん",
+    "en": "Review · N-line → n"
+  },
+  "description": {
+    "it": "Hai completato tutti i 46 caratteri base dell'hiragana — un traguardo enorme! Questo ripasso copre il secondo blocco (da な a ん) e insiste sulle coppie che ingannano l'occhio. Leggere parole vere, non solo caratteri singoli, è il salto che conta adesso.",
+    "en": "You've completed all 46 base hiragana characters — a huge milestone! This review covers the second block (な through ん) and drills the lookalike pairs. Reading real words, not just single characters, is the leap that matters now."
+  },
+  "reviewPoolRefs": [
+    "hira-na",
+    "hira-ni",
+    "hira-nu",
+    "hira-ne",
+    "hira-no",
+    "hira-ha",
+    "hira-hi",
+    "hira-fu",
+    "hira-he",
+    "hira-ho",
+    "hira-ma",
+    "hira-mi",
+    "hira-mu",
+    "hira-me",
+    "hira-mo",
+    "hira-ya",
+    "hira-yu",
+    "hira-yo",
+    "hira-ra",
+    "hira-ri",
+    "hira-ru",
+    "hira-re",
+    "hira-ro",
+    "hira-wa",
+    "hira-wo",
+    "hira-n"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hr2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Coppia insidiosa: quale è 'nu' e non 'me'?",
+        "en": "Tricky pair: which is 'nu', not 'me'?"
+      },
+      "options": [
+        {
+          "it": "ぬ",
+          "en": "ぬ"
+        },
+        {
+          "it": "め",
+          "en": "め"
+        },
+        {
+          "it": "ね",
+          "en": "ね"
+        },
+        {
+          "it": "れ",
+          "en": "れ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hr2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge なまえ (nome)?",
+        "en": "How do you read なまえ (name)?"
+      },
+      "options": [
+        {
+          "it": "namae",
+          "en": "namae"
+        },
+        {
+          "it": "manae",
+          "en": "manae"
+        },
+        {
+          "it": "namee",
+          "en": "namee"
+        },
+        {
+          "it": "nemae",
+          "en": "nemae"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hr2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge ふね (barca)?",
+        "en": "How do you read ふね (boat)?"
+      },
+      "options": [
+        {
+          "it": "fune",
+          "en": "fune"
+        },
+        {
+          "it": "hune",
+          "en": "hune"
+        },
+        {
+          "it": "funo",
+          "en": "funo"
+        },
+        {
+          "it": "bune",
+          "en": "bune"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hr2-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ろ",
+        "en": "Type the romaji for: ろ"
+      },
+      "answer": "ro",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hr2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina le coppie confondibili alla lettura.",
+        "en": "Match the confusable pairs to their reading."
+      },
+      "pairs": [
+        {
+          "left": "ぬ",
+          "right": "nu"
+        },
+        {
+          "left": "め",
+          "right": "me"
+        },
+        {
+          "left": "ね",
+          "right": "ne"
+        },
+        {
+          "left": "れ",
+          "right": "re"
+        },
+        {
+          "left": "わ",
+          "right": "wa"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-hr2-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Leggi le parole.",
+        "en": "Read the words."
+      },
+      "pairs": [
+        {
+          "left": "やま",
+          "right": "yama"
+        },
+        {
+          "left": "みみ",
+          "right": "mimi"
+        },
+        {
+          "left": "よる",
+          "right": "yoru"
+        },
+        {
+          "left": "ほん",
+          "right": "hon"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Coppie ぬ/め/ね/れ/わ",
+      "en": "The ぬ/め/ね/れ/わ pairs"
+    },
+    {
+      "it": "Leggere parole con ん finale",
+      "en": "Reading words ending in ん"
+    }
+  ],
+  "id": "hiragana-review-2"
+}

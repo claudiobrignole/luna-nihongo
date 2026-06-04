@@ -119,7 +119,7 @@ export function Header({
           </div>
           <button type="button" onClick={onLanguageToggle} className="btn btn-secondary header-lang-btn">
             <Globe size={16} />
-            <span>{language === 'it' ? '🇮🇹 ITA' : '🇬🇧 ENG'}</span>
+            <span>{language === 'it' ? 'ITA' : 'ENG'}</span>
           </button>
         </div>
       </header>
@@ -153,7 +153,7 @@ export function Header({
           <div className="header-actions">
             <button type="button" onClick={onLanguageToggle} className="btn btn-secondary header-lang-btn">
               <Globe size={16} />
-              <span className="header-lang-label">{language === 'it' ? '🇮🇹 ITA' : '🇬🇧 ENG'}</span>
+              <span className="header-lang-label">{language === 'it' ? 'ITA' : 'ENG'}</span>
             </button>
 
             {currentUser && onLogout && (

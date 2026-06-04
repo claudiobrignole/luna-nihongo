@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run curriculum:build && vite",
     "dev:api": "php -S localhost:8080 -t public",
-    "build": "node scripts/generate-gemini-secret.mjs && tsc -b && vite build",
+    "build": "node scripts/generate-gemini-secret.mjs && npm run curriculum:build && tsc -b && vite build",
     "build:hostinger": "bash scripts/build-hostinger.sh",
+    "curriculum:check": "node content/curriculum/hydrate.mjs --check",
+    "curriculum:build": "node content/curriculum/hydrate.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "check:firebase": "node scripts/check-firebase-env.mjs"

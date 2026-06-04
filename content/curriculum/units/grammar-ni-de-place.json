@@ -1,0 +1,143 @@
+{
+  "level": 3,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · に e で (luogo)",
+    "en": "Grammar · に & de (place)"
+  },
+  "description": {
+    "it": "Due particelle di luogo che si assomigliano ma fanno cose diverse — e che gli studenti confondono per mesi. La regola d'oro, semplice: に per ESISTERE (con います/あります: 'sto a casa'), で per AGIRE (con verbi d'azione: 'mangio a scuola'). Se il verbo è 'essere/esserci' → に. Se fai qualcosa in un posto → で. Imparala bene ora e ti risparmi tanti errori.",
+    "en": "Two place particles that look similar but do different things — and that learners confuse for months. The simple golden rule: に for EXISTING (with います/あります: 'I'm at home'), で for ACTING (with action verbs: 'I eat at school'). If the verb is 'to be/exist' → に. If you do something somewhere → で. Nail it now and save yourself a lot of mistakes."
+  },
+  "grammarRefs": [
+    "gr-ni-de-place"
+  ],
+  "vocabRefs": [
+    "vocab-uchi",
+    "vocab-gakkou",
+    "vocab-mise",
+    "vocab-eki"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gnd-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "うち___います ('sono a casa'). Quale particella?",
+        "en": "うち___います ('I'm at home'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "がっこう___たべます ('mangio a scuola'). Quale particella?",
+        "en": "がっこう___たべます ('I eat at school'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La regola pratica è:",
+        "en": "The rule of thumb is:"
+      },
+      "options": [
+        {
+          "it": "に=esistere, で=agire",
+          "en": "に=exist, で=act"
+        },
+        {
+          "it": "に=agire, で=esistere",
+          "en": "に=act, で=exist"
+        },
+        {
+          "it": "sono intercambiabili",
+          "en": "they're interchangeable"
+        },
+        {
+          "it": "で solo per il tempo",
+          "en": "で only for time"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "うちにいます。",
+          "right": "Sono a casa. / I'm at home."
+        },
+        {
+          "left": "えきにあります。",
+          "right": "È alla stazione. / It's at the station."
+        },
+        {
+          "left": "みせでよみます。",
+          "right": "Leggo nel negozio. / I read in the shop."
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "に esistenza vs で azione",
+      "en": "に existence vs で action"
+    },
+    {
+      "it": "います (vivi) vs あります (oggetti)",
+      "en": "います (living) vs あります (objects)"
+    }
+  ],
+  "id": "grammar-ni-de-place"
+}

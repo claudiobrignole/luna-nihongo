@@ -1,0 +1,142 @@
+{
+  "level": 3,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · を (oggetto diretto)",
+    "en": "Grammar · を (direct object)"
+  },
+  "description": {
+    "it": "Ora che hai i verbi, ti serve dire SU COSA agiscono. を marca l'oggetto diretto: コーヒーをのみます = 'bevo un caffè'. Ricordi quel carattere strano を dell'hiragana, quello che si pronuncia come お? Eccolo al lavoro: è quasi esclusivamente questa particella. Struttura tipica: Tema は + Oggetto を + Verbo.",
+    "en": "Now that you have verbs, you need to say WHAT they act on. を marks the direct object: コーヒーをのみます = 'I drink coffee'. Remember that odd を from hiragana, the one pronounced like お? Here it is at work: it's almost exclusively this particle. Typical structure: Topic は + Object を + Verb."
+  },
+  "grammarRefs": [
+    "gr-o-object"
+  ],
+  "vocabRefs": [
+    "vocab-yomu",
+    "vocab-kaku",
+    "vocab-hanasu"
+  ],
+  "quizzes": [
+    {
+      "id": "q-go-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "を si pronuncia come...",
+        "en": "を is pronounced like..."
+      },
+      "options": [
+        {
+          "it": "お (o)",
+          "en": "お (o)"
+        },
+        {
+          "it": "を 'wo' distinto",
+          "en": "a distinct 'wo'"
+        },
+        {
+          "it": "は (wa)",
+          "en": "は (wa)"
+        },
+        {
+          "it": "へ (e)",
+          "en": "へ (e)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-go-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ほん___よみます ('leggo un libro'). Quale particella?",
+        "en": "ほん___よみます ('I read a book'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-go-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Qual è l'ordine tipico?",
+        "en": "What's the typical order?"
+      },
+      "options": [
+        {
+          "it": "Tema は + Oggetto を + Verbo",
+          "en": "Topic は + Object を + Verb"
+        },
+        {
+          "it": "Verbo + Oggetto を + Tema は",
+          "en": "Verb + Object を + Topic は"
+        },
+        {
+          "it": "Oggetto を + Verbo + Tema は",
+          "en": "Object を + Verb + Topic は"
+        },
+        {
+          "it": "Verbo + Tema は",
+          "en": "Verb + Topic は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-go-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "コーヒーをのみます。",
+          "right": "Bevo un caffè. / I drink coffee."
+        },
+        {
+          "left": "ほんをよみます。",
+          "right": "Leggo un libro. / I read a book."
+        },
+        {
+          "left": "にほんごをはなします。",
+          "right": "Parlo giapponese. / I speak Japanese."
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "を = particella oggetto, suono 'o'",
+      "en": "を = object particle, sounds 'o'"
+    },
+    {
+      "it": "NをVます",
+      "en": "NをVます"
+    }
+  ],
+  "id": "grammar-o-object"
+}

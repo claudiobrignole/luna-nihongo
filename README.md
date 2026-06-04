@@ -152,8 +152,30 @@ npm run build:hostinger
 
 | Comando | Descrizione |
 |---------|-------------|
-| `npm run dev` | Dev frontend |
+| `npm run dev` | Dev frontend (+ rigenera curriculum) |
 | `npm run dev:api` | Dev API PHP locale |
-| `npm run build` | Build Vite |
+| `npm run curriculum:check` | Valida JSON curriculum (CI) |
+| `npm run curriculum:build` | Valida + genera `build/curriculum.json` |
+| `npm run build` | Build Vite (include curriculum) |
 | `npm run build:hostinger` | Build + verifica deploy |
 | `npm run check:firebase` | Valida `.env` |
+
+## Curriculum didattico (N5)
+
+Sorgente in `content/curriculum/`:
+
+```
+content/curriculum/
+├── manifest.json       # unitOrder = sequenza canonica
+├── levels.json         # 7 macro-livelli
+├── repositories/       # kana, kanji, vocab, grammar (atomici)
+├── units/*.json        # 60 unità (un file per id)
+├── hydrate.mjs         # validatore + build bundle
+└── build/              # generato — curriculum.json per React
+```
+
+**Aggiungere o modificare lezioni:** edita JSON in `repositories/` o `units/`, aggiorna `manifest.unitOrder` se aggiungi unità, poi `npm run curriculum:check`.
+
+Il deploy Hostinger esegue la validazione automaticamente prima del build.
+
+Guida operativa (IT): [`content/curriculum/GUIDA-CONTENUTI.md`](content/curriculum/GUIDA-CONTENUTI.md)

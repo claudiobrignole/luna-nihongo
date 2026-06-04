@@ -1,0 +1,157 @@
+{
+  "level": 4,
+  "order": 3,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · cibo e colori",
+    "en": "Vocabulary · food & colors"
+  },
+  "description": {
+    "it": "Due campi tematici perfetti per usare gli aggettivi appena imparati: cibo (riso, pesce, carne, verdura, tè, pane) e colori (rosso, blu, bianco, nero, giallo, verde). Ora puoi dire あかいさかな ('un pesce rosso') o このごはんはおいしいです ('questo riso è buono'). Curiosità: あお copre sia il blu sia, tradizionalmente, certi verdi.",
+    "en": "Two themed fields perfect for the adjectives you just learned: food (rice, fish, meat, vegetables, tea, bread) and colors (red, blue, white, black, yellow, green). Now you can say あかいさかな ('a red fish') or このごはんはおいしいです ('this rice is delicious'). Fun fact: あお covers both blue and, traditionally, certain greens."
+  },
+  "vocabRefs": [
+    "vocab-gohan",
+    "vocab-sakana",
+    "vocab-niku",
+    "vocab-yasai",
+    "vocab-ocha",
+    "vocab-pan",
+    "vocab-kudamono",
+    "vocab-aka",
+    "vocab-ao",
+    "vocab-shiro",
+    "vocab-kuro",
+    "vocab-kiiro",
+    "vocab-midori"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vfc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale parola significa 'pesce'?",
+        "en": "Which word means 'fish'?"
+      },
+      "options": [
+        {
+          "it": "さかな",
+          "en": "さかな"
+        },
+        {
+          "it": "にく",
+          "en": "にく"
+        },
+        {
+          "it": "やさい",
+          "en": "やさい"
+        },
+        {
+          "it": "たまご",
+          "en": "たまご"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-vfc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "あお tradizionalmente copre...",
+        "en": "あお traditionally covers..."
+      },
+      "options": [
+        {
+          "it": "blu e alcuni verdi",
+          "en": "blue and some greens"
+        },
+        {
+          "it": "solo il rosso",
+          "en": "only red"
+        },
+        {
+          "it": "bianco e nero",
+          "en": "black and white"
+        },
+        {
+          "it": "solo il giallo",
+          "en": "only yellow"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vfc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'pane'? (Da quale lingua?)",
+        "en": "How do you say 'bread'? (From which language?)"
+      },
+      "options": [
+        {
+          "it": "パン, dal portoghese",
+          "en": "パン, from Portuguese"
+        },
+        {
+          "it": "ブレッド, dall'inglese",
+          "en": "ブレッド, from English"
+        },
+        {
+          "it": "ごはん, nativo",
+          "en": "ごはん, native"
+        },
+        {
+          "it": "パン, dall'inglese",
+          "en": "パン, from English"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vfc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina colore e significato.",
+        "en": "Match color to meaning."
+      },
+      "pairs": [
+        {
+          "left": "あか",
+          "right": "rosso / red"
+        },
+        {
+          "left": "あお",
+          "right": "blu / blue"
+        },
+        {
+          "left": "しろ",
+          "right": "bianco / white"
+        },
+        {
+          "left": "くろ",
+          "right": "nero / black"
+        },
+        {
+          "left": "みどり",
+          "right": "verde / green"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Aggettivo + cibo: あかいさかな",
+      "en": "Adjective + food: あかいさかな"
+    },
+    {
+      "it": "あお blu/verde tradizionale",
+      "en": "あお blue/green tradition"
+    }
+  ],
+  "id": "vocab-food-colors"
+}

@@ -1,0 +1,137 @@
+{
+  "level": 1,
+  "order": 2,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · righe N e H",
+    "en": "Katakana · N & H lines"
+  },
+  "description": {
+    "it": "ナ・ニ・ヌ・ネ・ノ e ハ・ヒ・フ・ヘ・ホ. Da notare: ノ è il carattere più semplice di tutto il katakana (un solo tratto), e ヘ è IDENTICO al suo gemello hiragana へ. Come sempre フ='fu'.",
+    "en": "ナ・ニ・ヌ・ネ・ノ and ハ・ヒ・フ・ヘ・ホ. Note: ノ is the simplest character in all of katakana (one stroke), and ヘ is IDENTICAL to its hiragana twin へ. As always フ='fu'."
+  },
+  "kanaRefs": [
+    "kata-na",
+    "kata-ni",
+    "kata-nu",
+    "kata-ne",
+    "kata-no",
+    "kata-ha",
+    "kata-hi",
+    "kata-fu",
+    "kata-he",
+    "kata-ho"
+  ],
+  "quizzes": [
+    {
+      "id": "q-knh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale katakana è identico al suo gemello hiragana?",
+        "en": "Which katakana is identical to its hiragana twin?"
+      },
+      "options": [
+        {
+          "it": "ヘ (he)",
+          "en": "ヘ (he)"
+        },
+        {
+          "it": "ナ (na)",
+          "en": "ナ (na)"
+        },
+        {
+          "it": "ホ (ho)",
+          "en": "ホ (ho)"
+        },
+        {
+          "it": "ニ (ni)",
+          "en": "ニ (ni)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-knh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge フ?",
+        "en": "How do you read フ?"
+      },
+      "options": [
+        {
+          "it": "fu",
+          "en": "fu"
+        },
+        {
+          "it": "hu",
+          "en": "hu"
+        },
+        {
+          "it": "nu",
+          "en": "nu"
+        },
+        {
+          "it": "bu",
+          "en": "bu"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-knh-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ノ",
+        "en": "Type the romaji for: ノ"
+      },
+      "answer": "no",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-knh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la riga H.",
+        "en": "Match the H-line."
+      },
+      "pairs": [
+        {
+          "left": "ハ",
+          "right": "ha"
+        },
+        {
+          "left": "ヒ",
+          "right": "hi"
+        },
+        {
+          "left": "フ",
+          "right": "fu"
+        },
+        {
+          "left": "ヘ",
+          "right": "he"
+        },
+        {
+          "left": "ホ",
+          "right": "ho"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "ヘ = へ identici",
+      "en": "ヘ = へ identical"
+    },
+    {
+      "it": "ヌ vs ク vs ス",
+      "en": "ヌ vs ク vs ス"
+    }
+  ],
+  "id": "katakana-n-h"
+}

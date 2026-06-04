@@ -1,0 +1,151 @@
+{
+  "level": 4,
+  "order": 0,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · tempo e quotidiano",
+    "en": "Kanji · time & daily life"
+  },
+  "description": {
+    "it": "Kanji per parlare del tempo e della vita di tutti i giorni: 年 (anno), 時 (ora), 間 (intervallo/fra), 半 (metà), 今 (ora/adesso), 食 (mangiare), 飲 (bere). Guarda la composizione: 時 nasce da 日 (sole) — il sole che scandisce le ore — e 飲 contiene 食 (mangiare), perché bere è cugino del mangiare. Con 時 e 半 dirai l'ora: 二時半 = le due e mezza.",
+    "en": "Kanji for talking about time and daily life: 年 (year), 時 (hour), 間 (interval/between), 半 (half), 今 (now), 食 (eat), 飲 (drink). Look at the composition: 時 grows from 日 (sun) — the sun marking the hours — and 飲 contains 食 (eat), because drinking is eating's cousin. With 時 and 半 you'll tell the time: 二時半 = half past two."
+  },
+  "kanjiRefs": [
+    "kanji-nen",
+    "kanji-ji-time",
+    "kanji-kan",
+    "kanji-han",
+    "kanji-kon",
+    "kanji-shoku",
+    "kanji-in"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ktd-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "時 (ora/tempo) deriva da quale kanji?",
+        "en": "時 (hour/time) derives from which kanji?"
+      },
+      "options": [
+        {
+          "it": "日 (sole)",
+          "en": "日 (sun)"
+        },
+        {
+          "it": "月 (luna)",
+          "en": "月 (moon)"
+        },
+        {
+          "it": "木 (albero)",
+          "en": "木 (tree)"
+        },
+        {
+          "it": "火 (fuoco)",
+          "en": "火 (fire)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ktd-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "飲 (bere) contiene quale kanji?",
+        "en": "飲 (drink) contains which kanji?"
+      },
+      "options": [
+        {
+          "it": "食 (mangiare)",
+          "en": "食 (eat)"
+        },
+        {
+          "it": "水 (acqua)",
+          "en": "水 (water)"
+        },
+        {
+          "it": "口 (bocca)",
+          "en": "口 (mouth)"
+        },
+        {
+          "it": "半 (metà)",
+          "en": "半 (half)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ktd-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "二時半 significa...",
+        "en": "二時半 means..."
+      },
+      "options": [
+        {
+          "it": "le due e mezza",
+          "en": "half past two"
+        },
+        {
+          "it": "le due in punto",
+          "en": "two o'clock sharp"
+        },
+        {
+          "it": "due ore",
+          "en": "two hours"
+        },
+        {
+          "it": "il 2 di metà mese",
+          "en": "the 2nd, mid-month"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ktd-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "年",
+          "right": "anno / year"
+        },
+        {
+          "left": "時",
+          "right": "ora / hour"
+        },
+        {
+          "left": "今",
+          "right": "adesso / now"
+        },
+        {
+          "left": "食",
+          "right": "mangiare / eat"
+        },
+        {
+          "left": "飲",
+          "right": "bere / drink"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "時 da 日, 飲 da 食",
+      "en": "時 from 日, 飲 from 食"
+    },
+    {
+      "it": "Dire l'ora con 時 e 半",
+      "en": "Telling time with 時 and 半"
+    }
+  ],
+  "id": "kanji-time-day"
+}

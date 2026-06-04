@@ -1,0 +1,143 @@
+{
+  "level": 3,
+  "order": 6,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · へ／に (direzione)",
+    "en": "Grammar · e / ni (direction)"
+  },
+  "description": {
+    "it": "Come dire dove VAI. Con verbi di movimento (いきます andare, きます venire, かえります tornare) usi へ o に per indicare la meta. Sorpresa: la particella へ si legge 'e', non 'he' — è la terza e ultima eccezione di lettura, insieme a は→wa e を→o. All'inizio へ e に per la direzione sono quasi intercambiabili: がっこうへいきます = がっこうにいきます = 'vado a scuola'.",
+    "en": "How to say where you GO. With movement verbs (いきます go, きます come, かえります return) you use へ or に to mark the destination. Surprise: the particle へ reads 'e', not 'he' — the third and final reading exception, alongside は→wa and を→o. At first へ and に for direction are nearly interchangeable: がっこうへいきます = がっこうにいきます = 'I go to school'."
+  },
+  "grammarRefs": [
+    "gr-e-ni-direction"
+  ],
+  "vocabRefs": [
+    "vocab-iku",
+    "vocab-kuru",
+    "vocab-eki",
+    "vocab-uchi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ged-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La particella へ si legge...",
+        "en": "The particle へ is read..."
+      },
+      "options": [
+        {
+          "it": "e",
+          "en": "e"
+        },
+        {
+          "it": "he",
+          "en": "he"
+        },
+        {
+          "it": "wa",
+          "en": "wa"
+        },
+        {
+          "it": "be",
+          "en": "be"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ged-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quante sono le eccezioni di lettura delle particelle?",
+        "en": "How many particle reading exceptions are there?"
+      },
+      "options": [
+        {
+          "it": "Tre: は→wa, を→o, へ→e",
+          "en": "Three: は→wa, を→o, へ→e"
+        },
+        {
+          "it": "Una sola: は→wa",
+          "en": "Just one: は→wa"
+        },
+        {
+          "it": "Cinque",
+          "en": "Five"
+        },
+        {
+          "it": "Nessuna",
+          "en": "None"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ged-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "がっこう___いきます ('vado a scuola'). Quale particella di direzione?",
+        "en": "がっこう___いきます ('I go to school'). Which direction particle?"
+      },
+      "options": [
+        {
+          "it": "へ (o に)",
+          "en": "へ (or に)"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ged-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "がっこうへいきます。",
+          "right": "Vado a scuola. / I go to school."
+        },
+        {
+          "left": "うちにかえります。",
+          "right": "Torno a casa. / I return home."
+        },
+        {
+          "left": "えきへいきます。",
+          "right": "Vado alla stazione. / I go to the station."
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "へ='e', la terza eccezione",
+      "en": "へ='e', the third exception"
+    },
+    {
+      "it": "へ/に con verbi di movimento",
+      "en": "へ/に with movement verbs"
+    }
+  ],
+  "id": "grammar-e-ni-direction"
+}

@@ -1,0 +1,131 @@
+{
+  "id": "hiragana-review-1",
+  "level": 0,
+  "order": 4,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · vocali → riga T",
+    "en": "Review · vowels → T-line"
+  },
+  "description": {
+    "it": "Ottimo lavoro! Hai imparato vocali, riga K, riga S e riga T — venti caratteri. Prima di andare avanti, fermiamoci a consolidare. Questo ripasso mescola tutto ciò che hai visto: se un carattere ti sfugge, è normale. Sbagliare qui è proprio il punto — è così che la memoria si fissa.",
+    "en": "Great work! You've learned the vowels, the K-line, the S-line and the T-line — twenty characters. Before moving on, let's pause and consolidate. This review mixes everything you've seen: if a character slips your mind, that's normal. Getting it wrong here is exactly the point — that's how memory locks in."
+  },
+  "reviewPoolRefs": [
+    "hira-a", "hira-i", "hira-u", "hira-e", "hira-o",
+    "hira-ka", "hira-ki", "hira-ku", "hira-ke", "hira-ko",
+    "hira-sa", "hira-shi", "hira-su", "hira-se", "hira-so",
+    "hira-ta", "hira-chi", "hira-tsu", "hira-te", "hira-to"
+  ],
+  "prerequisites": ["hiragana-vowels", "hiragana-k", "hiragana-s", "hiragana-t"],
+  "quizzes": [
+    {
+      "id": "q-hr1-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'shi'? (Attenzione: somiglia ad altri!)",
+        "en": "Which character reads 'shi'? (Careful — it looks like others!)"
+      },
+      "options": [
+        { "it": "し", "en": "し" },
+        { "it": "つ", "en": "つ" },
+        { "it": "ち", "en": "ち" },
+        { "it": "そ", "en": "そ" }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hr1-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge la parola すし?",
+        "en": "How do you read the word すし?"
+      },
+      "options": [
+        { "it": "sushi", "en": "sushi" },
+        { "it": "shisu", "en": "shisu" },
+        { "it": "susi", "en": "susi" },
+        { "it": "chishi", "en": "chishi" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hr1-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale riga di caratteri è scritta correttamente in ordine 'ka ki ku ke ko'?",
+        "en": "Which row is correctly written in the order 'ka ki ku ke ko'?"
+      },
+      "options": [
+        { "it": "か き く け こ", "en": "か き く け こ" },
+        { "it": "か く き こ け", "en": "か く き こ け" },
+        { "it": "き か け く こ", "en": "き か け く こ" },
+        { "it": "こ け く き か", "en": "こ け く き か" }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hr1-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ち",
+        "en": "Type the romaji for: ち"
+      },
+      "answer": "chi",
+      "acceptedAnswers": ["ti"],
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hr1-spell-2",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: つ",
+        "en": "Type the romaji for: つ"
+      },
+      "answer": "tsu",
+      "acceptedAnswers": ["tu"],
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hr1-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina i caratteri 'difficili' alla lettura giusta.",
+        "en": "Match the 'tricky' characters to the right reading."
+      },
+      "pairs": [
+        { "left": "し", "right": "shi" },
+        { "left": "ち", "right": "chi" },
+        { "left": "つ", "right": "tsu" },
+        { "left": "そ", "right": "so" },
+        { "left": "す", "right": "su" }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-hr1-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina ogni parola alla sua lettura.",
+        "en": "Match each word to its reading."
+      },
+      "pairs": [
+        { "left": "あき", "right": "aki" },
+        { "left": "いす", "right": "isu" },
+        { "left": "くち", "right": "kuchi" },
+        { "left": "した", "right": "shita" }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    { "it": "I caratteri che si confondono: し・つ・ち・そ", "en": "Easily confused characters: し・つ・ち・そ" },
+    { "it": "Leggere parole brevi mescolando le righe imparate", "en": "Reading short words mixing the learned rows" }
+  ]
+}

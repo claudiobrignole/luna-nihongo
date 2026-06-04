@@ -1,0 +1,172 @@
+{
+  "level": 6,
+  "order": 0,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Padronanza · tutto il Kana",
+    "en": "Mastery · all Kana"
+  },
+  "description": {
+    "it": "Sei arrivato all'ultimo livello: la sintesi. Questa prova mette alla frusta entrambi gli alfabeti insieme — hiragana e katakana, base, dakuten, yōon, っ e la barretta lunga ー. Niente più righe separate: solo lettura fluente, mescolando i due sistemi come in un testo reale. È il momento di dimostrare che il kana è ormai automatico.",
+    "en": "You've reached the final level: synthesis. This test drills both alphabets together — hiragana and katakana, base, dakuten, yōon, っ and the long-vowel bar ー. No more separate rows: just fluent reading, mixing the two systems as in a real text. Time to prove the kana is now automatic."
+  },
+  "reviewPoolRefs": [
+    "hira-a",
+    "hira-shi",
+    "hira-tsu",
+    "hira-n",
+    "hira-ga",
+    "hira-kya",
+    "hira-cho",
+    "hira-sokuon",
+    "kata-a",
+    "kata-shi",
+    "kata-tsu",
+    "kata-so",
+    "kata-n",
+    "kata-ji",
+    "kata-kya",
+    "kata-chouon",
+    "kata-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-nkm-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale coppia di caratteri ha lo stesso suono in hiragana e katakana?",
+        "en": "Which pair has the same sound in hiragana and katakana?"
+      },
+      "options": [
+        {
+          "it": "し / シ (shi)",
+          "en": "し / シ (shi)"
+        },
+        {
+          "it": "し / ツ",
+          "en": "し / ツ"
+        },
+        {
+          "it": "つ / シ",
+          "en": "つ / シ"
+        },
+        {
+          "it": "ち / ソ",
+          "en": "ち / ソ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkm-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge la frase mista わたしは コーヒー がすきです?",
+        "en": "How do you read the mixed sentence わたしは コーヒー がすきです?"
+      },
+      "options": [
+        {
+          "it": "watashi wa koohii ga suki desu",
+          "en": "watashi wa koohii ga suki desu"
+        },
+        {
+          "it": "watashi ha koohii ga suki desu",
+          "en": "watashi ha koohii ga suki desu"
+        },
+        {
+          "it": "watashi wa kohi ga suki desu",
+          "en": "watashi wa kohi ga suki desu"
+        },
+        {
+          "it": "watashi wa koohi ka suki desu",
+          "en": "watashi wa koohi ka suki desu"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 20
+    },
+    {
+      "id": "q-nkm-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La barretta ー in カレー fa...",
+        "en": "The bar ー in カレー does..."
+      },
+      "options": [
+        {
+          "it": "allunga la vocale: 'karee' (curry)",
+          "en": "lengthens the vowel: 'karee' (curry)"
+        },
+        {
+          "it": "raddoppia la consonante",
+          "en": "doubles the consonant"
+        },
+        {
+          "it": "si legge 'i'",
+          "en": "reads as 'i'"
+        },
+        {
+          "it": "nulla",
+          "en": "nothing"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nkm-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji la parola katakana: テレビ",
+        "en": "Type the romaji for the katakana word: テレビ"
+      },
+      "answer": "terebi",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-nkm-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Padronanza finale: abbina parola e lettura (mista).",
+        "en": "Final mastery: match word to reading (mixed)."
+      },
+      "pairs": [
+        {
+          "left": "がっこう",
+          "right": "gakkou"
+        },
+        {
+          "left": "コンピューター",
+          "right": "konpyuutaa"
+        },
+        {
+          "left": "しゃしん",
+          "right": "shashin"
+        },
+        {
+          "left": "パン",
+          "right": "pan"
+        },
+        {
+          "left": "でんしゃ",
+          "right": "densha"
+        }
+      ],
+      "xp": 25
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Lettura mista hiragana+katakana",
+      "en": "Mixed hiragana+katakana reading"
+    },
+    {
+      "it": "Coppie confondibili dei due sistemi",
+      "en": "Confusable pairs across both systems"
+    }
+  ],
+  "id": "n5-kana-mastery"
+}

@@ -1,0 +1,140 @@
+{
+  "level": 5,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · ～てもいい／～てはいけない",
+    "en": "Grammar · ~te mo ii / ~te wa ikenai"
+  },
+  "description": {
+    "it": "Permesso e divieto, ancora con la forma -て. ～てもいいです significa 'puoi / è permesso': みてもいいですか ('posso guardare?'). ～てはいけません significa 'non si deve / è vietato': ここでたべてはいけません ('non si può mangiare qui'). Due strutture e gestisci tutte le regole della vita quotidiana — cartelli, richieste educate, permessi.",
+    "en": "Permission and prohibition, still with the -te form. ～てもいいです means 'you may / it's allowed': みてもいいですか ('may I look?'). ～てはいけません means 'you must not / it's forbidden': ここでたべてはいけません ('you can't eat here'). Two structures and you handle all the rules of daily life — signs, polite requests, permissions."
+  },
+  "grammarRefs": [
+    "gr-te-permission"
+  ],
+  "vocabRefs": [
+    "vocab-kau"
+  ],
+  "quizzes": [
+    {
+      "id": "q-tpe-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come chiedi 'posso guardare?'",
+        "en": "How do you ask 'may I look?'"
+      },
+      "options": [
+        {
+          "it": "みてもいいですか",
+          "en": "みてもいいですか"
+        },
+        {
+          "it": "みてはいけませんか",
+          "en": "みてはいけませんか"
+        },
+        {
+          "it": "みています",
+          "en": "みています"
+        },
+        {
+          "it": "みてください",
+          "en": "みてください"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-tpe-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "～てはいけません esprime...",
+        "en": "～てはいけません expresses..."
+      },
+      "options": [
+        {
+          "it": "un divieto ('non si deve')",
+          "en": "a prohibition ('you must not')"
+        },
+        {
+          "it": "un permesso",
+          "en": "permission"
+        },
+        {
+          "it": "un'azione in corso",
+          "en": "an ongoing action"
+        },
+        {
+          "it": "il passato",
+          "en": "the past"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-tpe-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ここでたべてはいけません significa...",
+        "en": "ここでたべてはいけません means..."
+      },
+      "options": [
+        {
+          "it": "Non si può mangiare qui.",
+          "en": "You can't eat here."
+        },
+        {
+          "it": "Puoi mangiare qui.",
+          "en": "You may eat here."
+        },
+        {
+          "it": "Sto mangiando qui.",
+          "en": "I'm eating here."
+        },
+        {
+          "it": "Mangia qui, per favore.",
+          "en": "Please eat here."
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-tpe-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e significato.",
+        "en": "Match structure to meaning."
+      },
+      "pairs": [
+        {
+          "left": "～てもいいです",
+          "right": "permesso / permission"
+        },
+        {
+          "left": "～てはいけません",
+          "right": "divieto / prohibition"
+        },
+        {
+          "left": "～てください",
+          "right": "richiesta / request"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Permesso vs divieto",
+      "en": "Permission vs prohibition"
+    },
+    {
+      "it": "Contrazione ては→ちゃ (informale)",
+      "en": "Contraction ては→ちゃ (casual)"
+    }
+  ],
+  "id": "grammar-te-permission"
+}

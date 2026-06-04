@@ -1,0 +1,156 @@
+{
+  "level": 2,
+  "order": 2,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · saluti",
+    "en": "Vocabulary · greetings"
+  },
+  "description": {
+    "it": "Le prime parole che userai davvero! Saluti per ogni momento della giornata, ringraziamenti, scuse e le formule per presentarti. Piccola chicca: in こんにちは la は finale si legge 'wa' — è la stessa particella del tema che hai appena imparato, cristallizzata in un saluto.",
+    "en": "The first words you'll actually use! Greetings for every part of the day, thanks, apologies and the phrases to introduce yourself. Fun fact: in こんにちは the final は reads 'wa' — it's the very topic particle you just learned, frozen inside a greeting."
+  },
+  "vocabRefs": [
+    "vocab-ohayou",
+    "vocab-ohayou-gozaimasu",
+    "vocab-konnichiwa",
+    "vocab-konbanwa",
+    "vocab-sayounara",
+    "vocab-arigatou",
+    "vocab-arigatou-gozaimasu",
+    "vocab-sumimasen",
+    "vocab-hajimemashite",
+    "vocab-onegaishimasu",
+    "vocab-hai",
+    "vocab-iie"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vg-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si dice 'grazie'?",
+        "en": "How do you say 'thank you'?"
+      },
+      "options": [
+        {
+          "it": "ありがとう",
+          "en": "ありがとう"
+        },
+        {
+          "it": "すみません",
+          "en": "すみません"
+        },
+        {
+          "it": "さようなら",
+          "en": "さようなら"
+        },
+        {
+          "it": "こんにちは",
+          "en": "こんにちは"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-vg-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale saluto si usa la sera?",
+        "en": "Which greeting is used in the evening?"
+      },
+      "options": [
+        {
+          "it": "こんばんは",
+          "en": "こんばんは"
+        },
+        {
+          "it": "おはよう",
+          "en": "おはよう"
+        },
+        {
+          "it": "こんにちは",
+          "en": "こんにちは"
+        },
+        {
+          "it": "はじめまして",
+          "en": "はじめまして"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vg-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché la は di こんにちは si legge 'wa'?",
+        "en": "Why does the は in こんにちは read 'wa'?"
+      },
+      "options": [
+        {
+          "it": "È la particella del tema fossilizzata nel saluto",
+          "en": "It's the topic particle fossilized in the greeting"
+        },
+        {
+          "it": "È un errore di scrittura",
+          "en": "It's a spelling mistake"
+        },
+        {
+          "it": "È sempre 'wa' in ogni parola",
+          "en": "は is always 'wa' in every word"
+        },
+        {
+          "it": "È katakana",
+          "en": "It's katakana"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vg-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina saluto e significato.",
+        "en": "Match greeting to meaning."
+      },
+      "pairs": [
+        {
+          "left": "おはよう",
+          "right": "buongiorno (mattina) / good morning"
+        },
+        {
+          "left": "こんにちは",
+          "right": "salve / hello"
+        },
+        {
+          "left": "さようなら",
+          "right": "arrivederci / goodbye"
+        },
+        {
+          "left": "すみません",
+          "right": "scusi / excuse me"
+        },
+        {
+          "left": "はじめまして",
+          "right": "piacere / nice to meet you"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Saluti per momento della giornata",
+      "en": "Greetings by time of day"
+    },
+    {
+      "it": "Forme cortesi con ございます",
+      "en": "Polite forms with ございます"
+    }
+  ],
+  "id": "vocab-greetings"
+}

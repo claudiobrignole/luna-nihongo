@@ -1,0 +1,156 @@
+{
+  "level": 3,
+  "order": 8,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · luoghi e famiglia",
+    "en": "Vocabulary · places & family"
+  },
+  "description": {
+    "it": "Dove e con chi. Luoghi quotidiani (scuola, casa, stazione, negozio, ufficio) e i membri della famiglia. Attenzione a una particolarità giapponese: ci sono parole diverse per la PROPRIA famiglia e per quella altrui. ちち è 'mio padre', はは 'mia madre' — umili, per parlare dei propri. Per la famiglia di un'altra persona userai forme più rispettose (おとうさん, おかあさん).",
+    "en": "Where and with whom. Everyday places (school, home, station, shop, office) and family members. Watch a Japanese peculiarity: there are different words for YOUR OWN family and someone else's. ちち is 'my father', はは 'my mother' — humble, for talking about your own. For another person's family you'll use more respectful forms (おとうさん, おかあさん)."
+  },
+  "vocabRefs": [
+    "vocab-gakkou",
+    "vocab-uchi",
+    "vocab-eki",
+    "vocab-mise",
+    "vocab-kaisha",
+    "vocab-chichi",
+    "vocab-haha",
+    "vocab-ani",
+    "vocab-ane",
+    "vocab-otouto",
+    "vocab-imouto",
+    "vocab-kazoku"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vpf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ちち si usa per...",
+        "en": "ちち is used for..."
+      },
+      "options": [
+        {
+          "it": "il PROPRIO padre",
+          "en": "one's OWN father"
+        },
+        {
+          "it": "il padre di un'altra persona",
+          "en": "someone else's father"
+        },
+        {
+          "it": "qualsiasi uomo anziano",
+          "en": "any older man"
+        },
+        {
+          "it": "il nonno",
+          "en": "grandfather"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vpf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale parola significa 'scuola'?",
+        "en": "Which word means 'school'?"
+      },
+      "options": [
+        {
+          "it": "がっこう",
+          "en": "がっこう"
+        },
+        {
+          "it": "かいしゃ",
+          "en": "かいしゃ"
+        },
+        {
+          "it": "えき",
+          "en": "えき"
+        },
+        {
+          "it": "みせ",
+          "en": "みせ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-vpf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "あに e あね indicano fratelli/sorelle...",
+        "en": "あに and あね indicate siblings who are..."
+      },
+      "options": [
+        {
+          "it": "maggiori",
+          "en": "older"
+        },
+        {
+          "it": "minori",
+          "en": "younger"
+        },
+        {
+          "it": "gemelli",
+          "en": "twins"
+        },
+        {
+          "it": "acquisiti",
+          "en": "in-law"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vpf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina parola e significato.",
+        "en": "Match word to meaning."
+      },
+      "pairs": [
+        {
+          "left": "ちち",
+          "right": "(mio) padre / (my) father"
+        },
+        {
+          "left": "はは",
+          "right": "(mia) madre / (my) mother"
+        },
+        {
+          "left": "あに",
+          "right": "fratello maggiore / older brother"
+        },
+        {
+          "left": "いもうと",
+          "right": "sorella minore / younger sister"
+        },
+        {
+          "left": "かぞく",
+          "right": "famiglia / family"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Famiglia propria vs altrui",
+      "en": "Own family vs others'"
+    },
+    {
+      "it": "Maggiore/minore: あに/おとうと",
+      "en": "Older/younger: あに/おとうと"
+    }
+  ],
+  "id": "vocab-places-family"
+}

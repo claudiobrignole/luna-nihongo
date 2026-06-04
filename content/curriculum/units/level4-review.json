@@ -1,0 +1,205 @@
+{
+  "level": 4,
+  "order": 7,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · Livello 4",
+    "en": "Review · Level 4"
+  },
+  "description": {
+    "it": "Ora sai descrivere e collegare: due famiglie di aggettivi, gusti e desideri, congiunzioni per dare logica al discorso. Questo ripasso mette alla prova la distinzione che conta di più — aggettivi -い (negazione -くない) contro aggettivi -な (negazione ではありません) — più il が di すき/ほしい e i kanji di scuola e corpo. È il livello in cui le tue frasi smettono di essere telegrafiche.",
+    "en": "You can now describe and connect: two adjective families, likes and wants, conjunctions to add logic. This review tests the distinction that matters most — i-adjectives (negative -くない) versus na-adjectives (negative ではありません) — plus the が of すき/ほしい and the school and body kanji. This is the level where your sentences stop being telegraphic."
+  },
+  "kanjiRefs": [
+    "kanji-ji-time",
+    "kanji-shoku",
+    "kanji-gaku",
+    "kanji-sei",
+    "kanji-te-hand"
+  ],
+  "grammarRefs": [
+    "gr-i-adjectives",
+    "gr-na-adjectives",
+    "gr-suki-hoshii",
+    "gr-conjunctions"
+  ],
+  "vocabRefs": [
+    "vocab-takai",
+    "vocab-shizuka",
+    "vocab-suki",
+    "vocab-oishii"
+  ],
+  "reviewPoolRefs": [
+    "gr-i-adjectives",
+    "gr-na-adjectives",
+    "gr-suki-hoshii",
+    "gr-conjunctions",
+    "kanji-gaku",
+    "kanji-sei",
+    "kanji-shoku",
+    "vocab-takai",
+    "vocab-shizuka",
+    "vocab-suki"
+  ],
+  "quizzes": [
+    {
+      "id": "q-l4r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Negazione di たかい (aggettivo -い)?",
+        "en": "Negative of たかい (i-adjective)?"
+      },
+      "options": [
+        {
+          "it": "たかくない",
+          "en": "たかくない"
+        },
+        {
+          "it": "たかではない",
+          "en": "たかではない"
+        },
+        {
+          "it": "たかません",
+          "en": "たかません"
+        },
+        {
+          "it": "たかいではない",
+          "en": "たかいではない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l4r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Negazione di しずか (aggettivo -な)?",
+        "en": "Negative of しずか (na-adjective)?"
+      },
+      "options": [
+        {
+          "it": "しずかではありません",
+          "en": "しずかではありません"
+        },
+        {
+          "it": "しずかくない",
+          "en": "しずかくない"
+        },
+        {
+          "it": "しずかません",
+          "en": "しずかません"
+        },
+        {
+          "it": "しずかない",
+          "en": "しずかない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l4r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "コーヒー___すきです. Quale particella?",
+        "en": "コーヒー___すきです. Which particle?"
+      },
+      "options": [
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l4r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "きれい è un aggettivo di tipo...",
+        "en": "きれい is an adjective of type..."
+      },
+      "options": [
+        {
+          "it": "-な (eccezione)",
+          "en": "-na (exception)"
+        },
+        {
+          "it": "-い",
+          "en": "-i"
+        },
+        {
+          "it": "verbo",
+          "en": "verb"
+        },
+        {
+          "it": "nome",
+          "en": "noun"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-l4r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "学",
+          "right": "studio / study"
+        },
+        {
+          "left": "生",
+          "right": "vita/studente / life/student"
+        },
+        {
+          "left": "食",
+          "right": "mangiare / eat"
+        },
+        {
+          "left": "時",
+          "right": "ora / hour"
+        },
+        {
+          "left": "手",
+          "right": "mano / hand"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "-い vs -な: la distinzione chiave",
+      "en": "-i vs -na: the key distinction"
+    },
+    {
+      "it": "が con gusti e desideri",
+      "en": "が with likes and wants"
+    },
+    {
+      "it": "から alla fine del motivo",
+      "en": "から at the end of the reason"
+    }
+  ],
+  "id": "level4-review"
+}

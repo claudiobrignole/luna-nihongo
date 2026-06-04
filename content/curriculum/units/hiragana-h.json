@@ -1,0 +1,124 @@
+{
+  "level": 0,
+  "order": 6,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga H",
+    "en": "Hiragana · H-line"
+  },
+  "description": {
+    "it": "は・ひ・ふ・へ・ほ. Due cose da ricordare: ふ si legge 'fu' (non 'hu'), e は più avanti, come particella, si leggerà 'wa'. Per ora però, come carattere normale, è semplicemente 'ha'.",
+    "en": "は・ひ・ふ・へ・ほ. Two things to remember: ふ reads 'fu' (not 'hu'), and は will later read 'wa' as a particle. For now, as a plain character, it's simply 'ha'."
+  },
+  "kanaRefs": [
+    "hira-ha",
+    "hira-hi",
+    "hira-fu",
+    "hira-he",
+    "hira-ho"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge ふ?",
+        "en": "How do you read ふ?"
+      },
+      "options": [
+        {
+          "it": "fu",
+          "en": "fu"
+        },
+        {
+          "it": "hu",
+          "en": "hu"
+        },
+        {
+          "it": "bu",
+          "en": "bu"
+        },
+        {
+          "it": "pu",
+          "en": "pu"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "は e ほ si somigliano. Quale ha la traversa in più ('ho')?",
+        "en": "は and ほ look alike. Which has the extra top bar ('ho')?"
+      },
+      "options": [
+        {
+          "it": "ほ",
+          "en": "ほ"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hh-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: へ",
+        "en": "Type the romaji for: へ"
+      },
+      "answer": "he",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "は",
+          "right": "ha"
+        },
+        {
+          "left": "ひ",
+          "right": "hi"
+        },
+        {
+          "left": "ふ",
+          "right": "fu"
+        },
+        {
+          "left": "へ",
+          "right": "he"
+        },
+        {
+          "left": "ほ",
+          "right": "ho"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "ふ = 'fu' non 'hu'",
+      "en": "ふ = 'fu' not 'hu'"
+    },
+    {
+      "it": "は/ほ a confronto",
+      "en": "は vs ほ"
+    }
+  ],
+  "id": "hiragana-h"
+}

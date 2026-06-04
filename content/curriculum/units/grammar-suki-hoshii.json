@@ -1,0 +1,142 @@
+{
+  "level": 4,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · ～がすき／～がほしい",
+    "en": "Grammar · ~ga suki / ~ga hoshii"
+  },
+  "description": {
+    "it": "Come dire cosa ami e cosa vuoi — con una sorpresa. L'oggetto del tuo gradimento NON va con を ma con が! コーヒーがすきです = 'mi piace il caffè'. Stessa cosa per ほしい (volere oggetti): くるまがほしいです = 'voglio un'auto'. すき e きらい sono aggettivi in -な, ほしい è in -い. Ricorda が, non を: è l'errore numero uno qui.",
+    "en": "How to say what you love and what you want — with a twist. The object of your liking does NOT take を but が! コーヒーがすきです = 'I like coffee'. Same for ほしい (wanting objects): くるまがほしいです = 'I want a car'. すき and きらい are na-adjectives, ほしい is an i-adjective. Remember が, not を: it's the number-one mistake here."
+  },
+  "grammarRefs": [
+    "gr-suki-hoshii"
+  ],
+  "vocabRefs": [
+    "vocab-suki",
+    "vocab-kirai",
+    "vocab-hoshii"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gsh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "コーヒー___すきです ('mi piace il caffè'). Quale particella?",
+        "en": "コーヒー___すきです ('I like coffee'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ほしい si usa per...",
+        "en": "ほしい is used for..."
+      },
+      "options": [
+        {
+          "it": "oggetti che desideri",
+          "en": "objects you want"
+        },
+        {
+          "it": "azioni che vuoi fare",
+          "en": "actions you want to do"
+        },
+        {
+          "it": "luoghi",
+          "en": "places"
+        },
+        {
+          "it": "persone presenti",
+          "en": "people present"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Qual è l'errore tipico con すき/ほしい?",
+        "en": "What's the typical mistake with すき/ほしい?"
+      },
+      "options": [
+        {
+          "it": "usare を invece di が",
+          "en": "using を instead of が"
+        },
+        {
+          "it": "usare です",
+          "en": "using です"
+        },
+        {
+          "it": "metterli all'inizio",
+          "en": "putting them first"
+        },
+        {
+          "it": "non c'è errore comune",
+          "en": "there's no common mistake"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match sentence to translation."
+      },
+      "pairs": [
+        {
+          "left": "コーヒーがすきです。",
+          "right": "Mi piace il caffè. / I like coffee."
+        },
+        {
+          "left": "やさいがきらいです。",
+          "right": "Non mi piace la verdura. / I dislike vegetables."
+        },
+        {
+          "left": "くるまがほしいです。",
+          "right": "Voglio un'auto. / I want a car."
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "が (non を) con すき/きらい/ほしい",
+      "en": "が (not を) with すき/きらい/ほしい"
+    },
+    {
+      "it": "ほしい per oggetti",
+      "en": "ほしい for objects"
+    }
+  ],
+  "id": "grammar-suki-hoshii"
+}

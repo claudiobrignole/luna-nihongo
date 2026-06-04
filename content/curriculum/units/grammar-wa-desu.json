@@ -1,0 +1,118 @@
+{
+  "id": "grammar-wa-desu",
+  "level": 2,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · は (wa) e です",
+    "en": "Grammar · は (wa) & です"
+  },
+  "description": {
+    "it": "La tua prima vera frase giapponese! Con は e です puoi dire chi sei, cosa è una cosa, da dove vieni. È lo scheletro su cui costruirai tutto il resto del corso. Sembra semplice — e lo è — ma è anche fra le strutture più usate dell'intera lingua.",
+    "en": "Your first real Japanese sentence! With は and です you can say who you are, what something is, where you're from. It's the skeleton you'll build the whole course on. It looks simple — and it is — but it's also one of the most-used structures in the entire language."
+  },
+  "grammarRefs": ["gr-wa-topic"],
+  "prerequisites": ["vocab-greetings"],
+  "quizzes": [
+    {
+      "id": "q-wd-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Nella frase 'わたしは がくせいです', come si legge la particella は?",
+        "en": "In the sentence 'わたしは がくせいです', how is the particle は read?"
+      },
+      "options": [
+        { "it": "wa", "en": "wa" },
+        { "it": "ha", "en": "ha" },
+        { "it": "ba", "en": "ba" },
+        { "it": "pa", "en": "pa" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wd-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa fa la particella は in una frase?",
+        "en": "What does the particle は do in a sentence?"
+      },
+      "options": [
+        { "it": "Marca il tema (di cosa si parla)", "en": "Marks the topic (what you're talking about)" },
+        { "it": "Marca l'oggetto diretto", "en": "Marks the direct object" },
+        { "it": "Indica il possesso", "en": "Indicates possession" },
+        { "it": "Pone una domanda", "en": "Forms a question" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wd-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale frase significa 'Questo è un libro'?",
+        "en": "Which sentence means 'This is a book'?"
+      },
+      "options": [
+        { "it": "これは ほんです。", "en": "これは ほんです。" },
+        { "it": "ほんは これです。", "en": "ほんは これです。" },
+        { "it": "これは ほんか。", "en": "これは ほんか。" },
+        { "it": "ほんです これは。", "en": "ほんです これは。" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wd-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "です serve a...",
+        "en": "です is used to..."
+      },
+      "options": [
+        { "it": "Chiudere la frase con cortesia (≈ 'essere')", "en": "Close the sentence politely (≈ 'to be')" },
+        { "it": "Negare la frase", "en": "Negate the sentence" },
+        { "it": "Indicare il passato", "en": "Mark the past tense" },
+        { "it": "Marcare il luogo", "en": "Mark a location" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wd-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina ogni frase giapponese alla traduzione.",
+        "en": "Match each Japanese sentence to its translation."
+      },
+      "pairs": [
+        { "left": "わたしは がくせいです。", "right": "Io sono uno studente. / I am a student." },
+        { "left": "これは ほんです。", "right": "Questo è un libro. / This is a book." },
+        { "left": "せんせいは にほんじんです。", "right": "L'insegnante è giapponese. / The teacher is Japanese." }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-wd-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché 'がくせいです' (senza わたしは) è una frase corretta?",
+        "en": "Why is 'がくせいです' (without わたしは) a correct sentence?"
+      },
+      "options": [
+        { "it": "Il tema può essere omesso se è chiaro dal contesto", "en": "The topic can be dropped when it's clear from context" },
+        { "it": "です non richiede mai un tema", "en": "です never needs a topic" },
+        { "it": "È sbagliata, manca sempre わたしは", "en": "It's wrong — わたしは is always required" },
+        { "it": "Solo le domande possono omettere il tema", "en": "Only questions can drop the topic" }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    }
+  ],
+  "tutorReviewTopics": [
+    { "it": "Costruire frasi A は B です con vocaboli noti", "en": "Building A は B です sentences with known words" },
+    { "it": "L'eccezione di lettura は → 'wa'", "en": "The は → 'wa' reading exception" },
+    { "it": "Quando si può omettere il tema", "en": "When the topic can be dropped" }
+  ]
+}

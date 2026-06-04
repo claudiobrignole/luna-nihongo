@@ -1,0 +1,128 @@
+{
+  "level": 0,
+  "order": 7,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga M",
+    "en": "Hiragana · M-line"
+  },
+  "description": {
+    "it": "ま・み・む・め・も. Tutta regolare e morbida. め (occhio) e も (anche) torneranno spesso: め è un vocabolo a sé, も diventerà una particella.",
+    "en": "ま・み・む・め・も. All regular and soft. め (eye) and も (also) will come back often: め is a word on its own, も will become a particle."
+  },
+  "kanaRefs": [
+    "hira-ma",
+    "hira-mi",
+    "hira-mu",
+    "hira-me",
+    "hira-mo"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hm-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'mu'?",
+        "en": "Which character reads 'mu'?"
+      },
+      "options": [
+        {
+          "it": "む",
+          "en": "む"
+        },
+        {
+          "it": "ま",
+          "en": "ま"
+        },
+        {
+          "it": "め",
+          "en": "め"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hm-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: め",
+        "en": "Type the romaji for: め"
+      },
+      "answer": "me",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hm-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge la parola まめ (legume)?",
+        "en": "How do you read the word まめ (bean)?"
+      },
+      "options": [
+        {
+          "it": "mame",
+          "en": "mame"
+        },
+        {
+          "it": "meme",
+          "en": "meme"
+        },
+        {
+          "it": "mumu",
+          "en": "mumu"
+        },
+        {
+          "it": "momo",
+          "en": "momo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hm-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "ま",
+          "right": "ma"
+        },
+        {
+          "left": "み",
+          "right": "mi"
+        },
+        {
+          "left": "む",
+          "right": "mu"
+        },
+        {
+          "left": "め",
+          "right": "me"
+        },
+        {
+          "left": "も",
+          "right": "mo"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "め e も come parole/particelle future",
+      "en": "め and も as future words/particles"
+    }
+  ],
+  "id": "hiragana-m"
+}

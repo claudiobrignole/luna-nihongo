@@ -1,0 +1,160 @@
+{
+  "level": 1,
+  "order": 5,
+  "type": "katakana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Katakana · dakuten, combinazioni e ー",
+    "en": "Katakana · dakuten, combinations & ー"
+  },
+  "description": {
+    "it": "Stessa logica dell'hiragana: dakuten (゛) e handakuten (゜) trasformano i suoni (カ→ガ, ハ→バ→パ), e gli yōon piccoli si fondono (キャ='kya'). Una novità tutta katakana: la barretta ー allunga la vocale. コーヒー = 'koohii' (caffè). È fondamentale per le parole straniere.",
+    "en": "Same logic as hiragana: dakuten (゛) and handakuten (゜) transform sounds (カ→ガ, ハ→バ→パ), and small yōon fuse (キャ='kya'). One katakana-only novelty: the ー bar lengthens the vowel. コーヒー = 'koohii' (coffee). It's essential for foreign words."
+  },
+  "kanaRefs": [
+    "kata-ga",
+    "kata-gi",
+    "kata-gu",
+    "kata-ge",
+    "kata-go",
+    "kata-za",
+    "kata-ji",
+    "kata-zu",
+    "kata-ze",
+    "kata-zo",
+    "kata-da",
+    "kata-de",
+    "kata-do",
+    "kata-ba",
+    "kata-bi",
+    "kata-bu",
+    "kata-be",
+    "kata-bo",
+    "kata-pa",
+    "kata-pi",
+    "kata-pu",
+    "kata-pe",
+    "kata-po",
+    "kata-kya",
+    "kata-kyu",
+    "kata-kyo",
+    "kata-sha",
+    "kata-shu",
+    "kata-sho",
+    "kata-cha",
+    "kata-chu",
+    "kata-cho",
+    "kata-ja",
+    "kata-ju",
+    "kata-jo",
+    "kata-chouon",
+    "kata-sokuon"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kdc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa fa la barretta ー in コーヒー?",
+        "en": "What does the ー bar do in コーヒー?"
+      },
+      "options": [
+        {
+          "it": "Allunga la vocale precedente",
+          "en": "Lengthens the preceding vowel"
+        },
+        {
+          "it": "Raddoppia la consonante",
+          "en": "Doubles the consonant"
+        },
+        {
+          "it": "Si legge 'i'",
+          "en": "It's read 'i'"
+        },
+        {
+          "it": "Separa due parole",
+          "en": "Separates two words"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kdc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ハ con handakuten (゜) diventa...",
+        "en": "ハ with handakuten (゜) becomes..."
+      },
+      "options": [
+        {
+          "it": "パ (pa)",
+          "en": "パ (pa)"
+        },
+        {
+          "it": "バ (ba)",
+          "en": "バ (ba)"
+        },
+        {
+          "it": "ガ (ga)",
+          "en": "ガ (ga)"
+        },
+        {
+          "it": "ザ (za)",
+          "en": "ザ (za)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kdc-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ジョ",
+        "en": "Type the romaji for: ジョ"
+      },
+      "answer": "jo",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-kdc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina base → dakuten/handakuten.",
+        "en": "Match base → dakuten/handakuten."
+      },
+      "pairs": [
+        {
+          "left": "カ → ?",
+          "right": "ガ"
+        },
+        {
+          "left": "ハ → ? (゛)",
+          "right": "バ"
+        },
+        {
+          "left": "ハ → ? (゜)",
+          "right": "パ"
+        },
+        {
+          "left": "サ → ?",
+          "right": "ザ"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "La barretta ー per allungare",
+      "en": "The ー lengthening bar"
+    },
+    {
+      "it": "Dakuten/handakuten anche in katakana",
+      "en": "Dakuten/handakuten in katakana too"
+    }
+  ],
+  "id": "katakana-dakuten-combos"
+}

@@ -1,0 +1,124 @@
+{
+  "level": 0,
+  "order": 5,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga N",
+    "en": "Hiragana · N-line"
+  },
+  "description": {
+    "it": "Cinque suoni morbidi: な・に・ぬ・ね・の. Buone notizie — niente eccezioni di lettura in questa riga, tutto regolare. の in particolare lo rivedrai presto come particella importantissima.",
+    "en": "Five soft sounds: な・に・ぬ・ね・の. Good news — no reading exceptions in this row, all regular. You'll soon meet の again as a very important particle."
+  },
+  "kanaRefs": [
+    "hira-na",
+    "hira-ni",
+    "hira-nu",
+    "hira-ne",
+    "hira-no"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hn-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'ne'?",
+        "en": "Which character reads 'ne'?"
+      },
+      "options": [
+        {
+          "it": "ね",
+          "en": "ね"
+        },
+        {
+          "it": "ぬ",
+          "en": "ぬ"
+        },
+        {
+          "it": "れ",
+          "en": "れ"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hn-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ぬ e ね si somigliano. Quale è 'nu'?",
+        "en": "ぬ and ね look alike. Which one is 'nu'?"
+      },
+      "options": [
+        {
+          "it": "ぬ",
+          "en": "ぬ"
+        },
+        {
+          "it": "ね",
+          "en": "ね"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hn-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: に",
+        "en": "Type the romaji for: に"
+      },
+      "answer": "ni",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hn-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "な",
+          "right": "na"
+        },
+        {
+          "left": "に",
+          "right": "ni"
+        },
+        {
+          "left": "ぬ",
+          "right": "nu"
+        },
+        {
+          "left": "ね",
+          "right": "ne"
+        },
+        {
+          "left": "の",
+          "right": "no"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Distinguere ぬ da ね",
+      "en": "Telling ぬ from ね"
+    },
+    {
+      "it": "の anticipo come particella",
+      "en": "の as a preview particle"
+    }
+  ],
+  "id": "hiragana-n"
+}

@@ -1,0 +1,149 @@
+{
+  "level": 2,
+  "order": 0,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · numeri 1–5",
+    "en": "Kanji · numbers 1–5"
+  },
+  "description": {
+    "it": "I tuoi primi kanji! Iniziamo dal più facile in assoluto: i numeri. 一二三 sono letteralmente uno, due, tre tratti — non si può sbagliare. Poi 四 e 五 cambiano logica. Ogni kanji ha più letture: una 'on' (di origine cinese) e una 'kun' (giapponese). Per ora concentrati sul significato e sulla forma.",
+    "en": "Your first kanji! Let's start with the easiest of all: numbers. 一二三 are literally one, two, three strokes — impossible to get wrong. Then 四 and 五 switch logic. Each kanji has multiple readings: an 'on' (Chinese-origin) and a 'kun' (native Japanese). For now, focus on meaning and shape."
+  },
+  "kanjiRefs": [
+    "kanji-ichi",
+    "kanji-ni",
+    "kanji-san",
+    "kanji-shi",
+    "kanji-go"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn1-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'tre'?",
+        "en": "Which kanji means 'three'?"
+      },
+      "options": [
+        {
+          "it": "三",
+          "en": "三"
+        },
+        {
+          "it": "二",
+          "en": "二"
+        },
+        {
+          "it": "五",
+          "en": "五"
+        },
+        {
+          "it": "四",
+          "en": "四"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-kn1-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché 四 (quattro) rompe lo schema 一二三?",
+        "en": "Why does 四 (four) break the 一二三 pattern?"
+      },
+      "options": [
+        {
+          "it": "Non sono quattro tratti orizzontali: è un riquadro",
+          "en": "It isn't four horizontal strokes — it's a box"
+        },
+        {
+          "it": "Ha quattro tratti orizzontali",
+          "en": "It has four horizontal strokes"
+        },
+        {
+          "it": "Si scrive come 三 + uno",
+          "en": "It's written as 三 plus one"
+        },
+        {
+          "it": "Non è un numero",
+          "en": "It isn't a number"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn1-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e numero.",
+        "en": "Match kanji to number."
+      },
+      "pairs": [
+        {
+          "left": "一",
+          "right": "1"
+        },
+        {
+          "left": "二",
+          "right": "2"
+        },
+        {
+          "left": "三",
+          "right": "3"
+        },
+        {
+          "left": "四",
+          "right": "4"
+        },
+        {
+          "left": "五",
+          "right": "5"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-kn1-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge 五 (lettura on)?",
+        "en": "How is 五 read (on reading)?"
+      },
+      "options": [
+        {
+          "it": "go",
+          "en": "go"
+        },
+        {
+          "it": "san",
+          "en": "san"
+        },
+        {
+          "it": "ichi",
+          "en": "ichi"
+        },
+        {
+          "it": "yon",
+          "en": "yon"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Lo schema 一二三 e perché 四五 cambiano",
+      "en": "The 一二三 pattern and why 四五 differ"
+    },
+    {
+      "it": "On'yomi vs kun'yomi: prima idea",
+      "en": "On'yomi vs kun'yomi: first idea"
+    }
+  ],
+  "id": "kanji-numbers-1"
+}

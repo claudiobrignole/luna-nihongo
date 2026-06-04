@@ -1,0 +1,1358 @@
+{
+  "$comment": "Kanji repository. N5 set, introduced by composition. components[] references prior kanji ids used as building blocks. readings: onyomi in katakana, kunyomi in hiragana with . marking okurigana.",
+  "kanji": [
+    {
+      "id": "kanji-ichi",
+      "japanese": "一",
+      "meaning": {
+        "it": "uno",
+        "en": "one"
+      },
+      "readingOnyomi": [
+        "イチ",
+        "イツ"
+      ],
+      "readingKunyomi": [
+        "ひと",
+        "ひと.つ"
+      ],
+      "strokeCount": 1,
+      "mnemonic": {
+        "it": "Un solo tratto orizzontale: un dito alzato, 'uno'.",
+        "en": "A single horizontal stroke — one finger up, 'one'."
+      }
+    },
+    {
+      "id": "kanji-ni",
+      "japanese": "二",
+      "meaning": {
+        "it": "due",
+        "en": "two"
+      },
+      "readingOnyomi": [
+        "ニ"
+      ],
+      "readingKunyomi": [
+        "ふた",
+        "ふた.つ"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Due tratti: due dita, 'due'.",
+        "en": "Two strokes — two fingers, 'two'."
+      }
+    },
+    {
+      "id": "kanji-san",
+      "japanese": "三",
+      "meaning": {
+        "it": "tre",
+        "en": "three"
+      },
+      "readingOnyomi": [
+        "サン"
+      ],
+      "readingKunyomi": [
+        "み",
+        "み.つ",
+        "みっ.つ"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Tre tratti impilati: 'tre'. Lo schema 一二三 è limpido.",
+        "en": "Three stacked strokes — 'three'. The 一二三 pattern is crystal clear."
+      }
+    },
+    {
+      "id": "kanji-shi",
+      "japanese": "四",
+      "meaning": {
+        "it": "quattro",
+        "en": "four"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "よ",
+        "よ.つ",
+        "よん"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Una scatola con due gambe dentro: dopo tre tratti, il giapponese 'chiude' il numero in un riquadro.",
+        "en": "A box with two legs inside — after three strokes, Japanese 'boxes up' the number."
+      }
+    },
+    {
+      "id": "kanji-go",
+      "japanese": "五",
+      "meaning": {
+        "it": "cinque",
+        "en": "five"
+      },
+      "readingOnyomi": [
+        "ゴ"
+      ],
+      "readingKunyomi": [
+        "いつ",
+        "いつ.つ"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Tratti incrociati come una mano che conta fino a cinque.",
+        "en": "Crossing strokes like a hand counting to five."
+      }
+    },
+    {
+      "id": "kanji-roku",
+      "japanese": "六",
+      "meaning": {
+        "it": "sei",
+        "en": "six"
+      },
+      "readingOnyomi": [
+        "ロク"
+      ],
+      "readingKunyomi": [
+        "む",
+        "む.つ",
+        "むっ.つ"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un cappello con due gambe: immagina un omino che fa sei salti.",
+        "en": "A hat with two legs — picture a figure hopping six times."
+      }
+    },
+    {
+      "id": "kanji-shichi",
+      "japanese": "七",
+      "meaning": {
+        "it": "sette",
+        "en": "seven"
+      },
+      "readingOnyomi": [
+        "シチ"
+      ],
+      "readingKunyomi": [
+        "なな",
+        "なな.つ"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Un sette stilizzato e capovolto: due soli tratti.",
+        "en": "A stylized, flipped seven — just two strokes."
+      }
+    },
+    {
+      "id": "kanji-hachi",
+      "japanese": "八",
+      "meaning": {
+        "it": "otto",
+        "en": "eight"
+      },
+      "readingOnyomi": [
+        "ハチ"
+      ],
+      "readingKunyomi": [
+        "や",
+        "やっ.つ",
+        "よう"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Due tratti che si aprono verso il basso: 'otto' si allarga.",
+        "en": "Two strokes opening downward — 'eight' spreads out."
+      }
+    },
+    {
+      "id": "kanji-kyuu",
+      "japanese": "九",
+      "meaning": {
+        "it": "nove",
+        "en": "nine"
+      },
+      "readingOnyomi": [
+        "キュウ",
+        "ク"
+      ],
+      "readingKunyomi": [
+        "ここの",
+        "ここの.つ"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Un gancio che si curva: quasi dieci, ma non ancora.",
+        "en": "A hook that curves — almost ten, but not quite."
+      }
+    },
+    {
+      "id": "kanji-juu",
+      "japanese": "十",
+      "meaning": {
+        "it": "dieci",
+        "en": "ten"
+      },
+      "readingOnyomi": [
+        "ジュウ"
+      ],
+      "readingKunyomi": [
+        "とお",
+        "と"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Una croce perfetta: due tratti che si incrociano, 'dieci'.",
+        "en": "A perfect cross — two strokes meeting, 'ten'."
+      }
+    },
+    {
+      "id": "kanji-hyaku",
+      "japanese": "百",
+      "meaning": {
+        "it": "cento",
+        "en": "hundred"
+      },
+      "readingOnyomi": [
+        "ヒャク"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 6,
+      "components": [
+        "kanji-ichi"
+      ],
+      "mnemonic": {
+        "it": "一 (uno) sopra un riquadro: un 'uno' moltiplicato, cento.",
+        "en": "一 (one) atop a box — a multiplied 'one', a hundred."
+      }
+    },
+    {
+      "id": "kanji-sen",
+      "japanese": "千",
+      "meaning": {
+        "it": "mille",
+        "en": "thousand"
+      },
+      "readingOnyomi": [
+        "セン"
+      ],
+      "readingKunyomi": [
+        "ち"
+      ],
+      "strokeCount": 3,
+      "components": [
+        "kanji-juu"
+      ],
+      "mnemonic": {
+        "it": "Come 十 (dieci) con un tratto in più in cima: dieci che diventa enorme, mille.",
+        "en": "Like 十 (ten) with an extra stroke on top — ten grown huge, a thousand."
+      }
+    },
+    {
+      "id": "kanji-man",
+      "japanese": "万",
+      "meaning": {
+        "it": "diecimila",
+        "en": "ten thousand"
+      },
+      "readingOnyomi": [
+        "マン",
+        "バン"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Tre tratti per un numero enorme: 万 = diecimila (e figurativamente 'innumerevole').",
+        "en": "Three strokes for a giant number: 万 = ten thousand (and figuratively 'countless')."
+      }
+    },
+    {
+      "id": "kanji-en",
+      "japanese": "円",
+      "meaning": {
+        "it": "yen / cerchio",
+        "en": "yen / circle"
+      },
+      "readingOnyomi": [
+        "エン"
+      ],
+      "readingKunyomi": [
+        "まる.い"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un riquadro che racchiude: la moneta giapponese, lo yen, e l'idea di 'tondo'.",
+        "en": "An enclosing box — the Japanese coin, the yen, and the idea of 'round'."
+      }
+    },
+    {
+      "id": "kanji-hi",
+      "japanese": "日",
+      "meaning": {
+        "it": "sole / giorno",
+        "en": "sun / day"
+      },
+      "readingOnyomi": [
+        "ニチ",
+        "ジツ"
+      ],
+      "readingKunyomi": [
+        "ひ",
+        "か"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un riquadro con una linea: il sole stilizzato, e quindi 'giorno'.",
+        "en": "A box with a line — a stylized sun, hence 'day'."
+      }
+    },
+    {
+      "id": "kanji-tsuki",
+      "japanese": "月",
+      "meaning": {
+        "it": "luna / mese",
+        "en": "moon / month"
+      },
+      "readingOnyomi": [
+        "ゲツ",
+        "ガツ"
+      ],
+      "readingKunyomi": [
+        "つき"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Una falce di luna con due trattini dentro: la luna, e quindi 'mese'.",
+        "en": "A crescent moon with two marks inside — the moon, hence 'month'."
+      }
+    },
+    {
+      "id": "kanji-ka",
+      "japanese": "火",
+      "meaning": {
+        "it": "fuoco",
+        "en": "fire"
+      },
+      "readingOnyomi": [
+        "カ"
+      ],
+      "readingKunyomi": [
+        "ひ",
+        "ほ"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Una persona con due scintille ai lati: il fuoco che crepita.",
+        "en": "A figure with two sparks at its sides — crackling fire."
+      }
+    },
+    {
+      "id": "kanji-sui",
+      "japanese": "水",
+      "meaning": {
+        "it": "acqua",
+        "en": "water"
+      },
+      "readingOnyomi": [
+        "スイ"
+      ],
+      "readingKunyomi": [
+        "みず"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un fiume con gli schizzi laterali: l'acqua che scorre.",
+        "en": "A river with splashes at the sides — flowing water."
+      }
+    },
+    {
+      "id": "kanji-ki",
+      "japanese": "木",
+      "meaning": {
+        "it": "albero / legno",
+        "en": "tree / wood"
+      },
+      "readingOnyomi": [
+        "ボク",
+        "モク"
+      ],
+      "readingKunyomi": [
+        "き",
+        "こ"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un albero con tronco, rami e radici. RICORDA bene questa forma: la ritroverai dentro 林 e 森.",
+        "en": "A tree with trunk, branches and roots. REMEMBER this shape well: you'll see it inside 林 and 森."
+      }
+    },
+    {
+      "id": "kanji-kin",
+      "japanese": "金",
+      "meaning": {
+        "it": "oro / denaro",
+        "en": "gold / money"
+      },
+      "readingOnyomi": [
+        "キン",
+        "コン"
+      ],
+      "readingKunyomi": [
+        "かね",
+        "かな"
+      ],
+      "strokeCount": 8,
+      "mnemonic": {
+        "it": "Un tetto su preziosi nascosti sotto terra: oro, metallo, denaro.",
+        "en": "A roof over treasures buried in the earth — gold, metal, money."
+      }
+    },
+    {
+      "id": "kanji-do",
+      "japanese": "土",
+      "meaning": {
+        "it": "terra / suolo",
+        "en": "earth / soil"
+      },
+      "readingOnyomi": [
+        "ド",
+        "ト"
+      ],
+      "readingKunyomi": [
+        "つち"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Una croce piantata nel terreno: la terra, il suolo.",
+        "en": "A cross planted in the ground — earth, soil."
+      }
+    },
+    {
+      "id": "kanji-yama",
+      "japanese": "山",
+      "meaning": {
+        "it": "montagna",
+        "en": "mountain"
+      },
+      "readingOnyomi": [
+        "サン"
+      ],
+      "readingKunyomi": [
+        "やま"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Tre picchi che si stagliano: una catena di montagne.",
+        "en": "Three peaks rising — a mountain range."
+      }
+    },
+    {
+      "id": "kanji-kawa",
+      "japanese": "川",
+      "meaning": {
+        "it": "fiume",
+        "en": "river"
+      },
+      "readingOnyomi": [
+        "セン"
+      ],
+      "readingKunyomi": [
+        "かわ"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Tre linee che scorrono parallele: l'acqua di un fiume.",
+        "en": "Three lines flowing in parallel — the water of a river."
+      }
+    },
+    {
+      "id": "kanji-hayashi",
+      "japanese": "林",
+      "meaning": {
+        "it": "boschetto",
+        "en": "grove / woods"
+      },
+      "readingOnyomi": [
+        "リン"
+      ],
+      "readingKunyomi": [
+        "はやし"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-ki"
+      ],
+      "mnemonic": {
+        "it": "DUE 木 (alberi) affiancati: pochi alberi insieme fanno un boschetto.",
+        "en": "TWO 木 (trees) side by side — a few trees together make a grove."
+      }
+    },
+    {
+      "id": "kanji-mori",
+      "japanese": "森",
+      "meaning": {
+        "it": "foresta",
+        "en": "forest"
+      },
+      "readingOnyomi": [
+        "シン"
+      ],
+      "readingKunyomi": [
+        "もり"
+      ],
+      "strokeCount": 12,
+      "components": [
+        "kanji-ki"
+      ],
+      "mnemonic": {
+        "it": "TRE 木 (alberi) impilati: tanti alberi fanno una foresta fitta.",
+        "en": "THREE 木 (trees) stacked — many trees make a dense forest."
+      }
+    },
+    {
+      "id": "kanji-hito",
+      "japanese": "人",
+      "meaning": {
+        "it": "persona",
+        "en": "person"
+      },
+      "readingOnyomi": [
+        "ジン",
+        "ニン"
+      ],
+      "readingKunyomi": [
+        "ひと"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Due gambe che camminano: una persona vista di lato.",
+        "en": "Two walking legs — a person seen from the side."
+      }
+    },
+    {
+      "id": "kanji-dai",
+      "japanese": "大",
+      "meaning": {
+        "it": "grande",
+        "en": "big"
+      },
+      "readingOnyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "readingKunyomi": [
+        "おお.きい"
+      ],
+      "strokeCount": 3,
+      "components": [
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "一 persona (人) che allarga le braccia: 'grande così!'.",
+        "en": "A person (人) stretching arms wide: 'this big!'."
+      }
+    },
+    {
+      "id": "kanji-shou",
+      "japanese": "小",
+      "meaning": {
+        "it": "piccolo",
+        "en": "small"
+      },
+      "readingOnyomi": [
+        "ショウ"
+      ],
+      "readingKunyomi": [
+        "ちい.さい",
+        "こ",
+        "お"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Tre piccoli tratti che si rimpiccioliscono verso il basso.",
+        "en": "Three small strokes shrinking downward."
+      }
+    },
+    {
+      "id": "kanji-otoko",
+      "japanese": "男",
+      "meaning": {
+        "it": "uomo / maschio",
+        "en": "man / male"
+      },
+      "readingOnyomi": [
+        "ダン",
+        "ナン"
+      ],
+      "readingKunyomi": [
+        "おとこ"
+      ],
+      "strokeCount": 7,
+      "mnemonic": {
+        "it": "田 (campo) sopra 力 (forza): chi lavora con forza nei campi, l'uomo.",
+        "en": "田 (field) above 力 (power): the one who works the fields with strength, the man."
+      }
+    },
+    {
+      "id": "kanji-onna",
+      "japanese": "女",
+      "meaning": {
+        "it": "donna / femmina",
+        "en": "woman / female"
+      },
+      "readingOnyomi": [
+        "ジョ",
+        "ニョ"
+      ],
+      "readingKunyomi": [
+        "おんна"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Una figura aggraziata con le gambe incrociate: la donna.",
+        "en": "A graceful figure with crossed legs — the woman."
+      }
+    },
+    {
+      "id": "kanji-ko",
+      "japanese": "子",
+      "meaning": {
+        "it": "bambino / figlio",
+        "en": "child"
+      },
+      "readingOnyomi": [
+        "シ",
+        "ス"
+      ],
+      "readingKunyomi": [
+        "こ"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Un neonato in fasce con le braccia aperte: il bambino.",
+        "en": "A swaddled baby with open arms — the child."
+      }
+    },
+    {
+      "id": "kanji-hon",
+      "japanese": "本",
+      "meaning": {
+        "it": "libro / origine",
+        "en": "book / origin"
+      },
+      "readingOnyomi": [
+        "ホン"
+      ],
+      "readingKunyomi": [
+        "もと"
+      ],
+      "strokeCount": 5,
+      "components": [
+        "kanji-ki"
+      ],
+      "mnemonic": {
+        "it": "木 (albero) con un tratto alla base, alla radice: l'origine, e poi 'libro' (di carta-legno).",
+        "en": "木 (tree) with a stroke at its base, the root — origin, and then 'book' (made of wood-paper)."
+      }
+    },
+    {
+      "id": "kanji-ue",
+      "japanese": "上",
+      "meaning": {
+        "it": "sopra / su",
+        "en": "up / above"
+      },
+      "readingOnyomi": [
+        "ジョウ"
+      ],
+      "readingKunyomi": [
+        "うえ",
+        "あ.げる",
+        "のぼ.る"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Una linea con qualcosa che spunta sopra: 'sopra'.",
+        "en": "A line with something poking above it — 'up'."
+      }
+    },
+    {
+      "id": "kanji-shita",
+      "japanese": "下",
+      "meaning": {
+        "it": "sotto / giù",
+        "en": "down / below"
+      },
+      "readingOnyomi": [
+        "カ",
+        "ゲ"
+      ],
+      "readingKunyomi": [
+        "した",
+        "さ.げる",
+        "くだ.る"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Una linea con qualcosa che pende sotto: 'sotto'. Specchio di 上.",
+        "en": "A line with something hanging below — 'down'. The mirror of 上."
+      }
+    },
+    {
+      "id": "kanji-naka",
+      "japanese": "中",
+      "meaning": {
+        "it": "mezzo / dentro",
+        "en": "middle / inside"
+      },
+      "readingOnyomi": [
+        "チュウ"
+      ],
+      "readingKunyomi": [
+        "なか"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Una linea verticale che trafigge un riquadro al centro: 'in mezzo'.",
+        "en": "A vertical line piercing a box through its center — 'middle'."
+      }
+    },
+    {
+      "id": "kanji-migi",
+      "japanese": "右",
+      "meaning": {
+        "it": "destra",
+        "en": "right"
+      },
+      "readingOnyomi": [
+        "ウ",
+        "ユウ"
+      ],
+      "readingKunyomi": [
+        "みぎ"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Una mano sopra una bocca (口): la mano destra che porta il cibo.",
+        "en": "A hand over a mouth (口) — the right hand bringing food."
+      }
+    },
+    {
+      "id": "kanji-hidari",
+      "japanese": "左",
+      "meaning": {
+        "it": "sinistra",
+        "en": "left"
+      },
+      "readingOnyomi": [
+        "サ"
+      ],
+      "readingKunyomi": [
+        "ひだり"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Una mano sopra uno strumento: la sinistra che regge. Coppia con 右.",
+        "en": "A hand over a tool — the left that holds. Pairs with 右."
+      }
+    },
+    {
+      "id": "kanji-ta",
+      "japanese": "田",
+      "meaning": {
+        "it": "campo (di riso)",
+        "en": "rice field"
+      },
+      "readingOnyomi": [
+        "デン"
+      ],
+      "readingKunyomi": [
+        "た"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Un riquadro diviso in quattro: una risaia vista dall'alto.",
+        "en": "A box divided into four — a rice paddy seen from above."
+      }
+    },
+    {
+      "id": "kanji-nen",
+      "japanese": "年",
+      "meaning": {
+        "it": "anno",
+        "en": "year"
+      },
+      "readingOnyomi": [
+        "ネン"
+      ],
+      "readingKunyomi": [
+        "とし"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Tratti che si accumulano come stagioni: il passare di un anno.",
+        "en": "Strokes stacking like seasons — the passing of a year."
+      }
+    },
+    {
+      "id": "kanji-ji-time",
+      "japanese": "時",
+      "meaning": {
+        "it": "ora / tempo",
+        "en": "time / hour"
+      },
+      "readingOnyomi": [
+        "ジ"
+      ],
+      "readingKunyomi": [
+        "とき"
+      ],
+      "strokeCount": 10,
+      "components": [
+        "kanji-hi"
+      ],
+      "mnemonic": {
+        "it": "日 (sole) + un tempio: il sole che segna le ore, il tempo.",
+        "en": "日 (sun) + a temple: the sun marking the hours — time."
+      }
+    },
+    {
+      "id": "kanji-kan",
+      "japanese": "間",
+      "meaning": {
+        "it": "intervallo / fra",
+        "en": "interval / between"
+      },
+      "readingOnyomi": [
+        "カン",
+        "ケン"
+      ],
+      "readingKunyomi": [
+        "あいだ",
+        "ま"
+      ],
+      "strokeCount": 12,
+      "components": [
+        "kanji-hi"
+      ],
+      "mnemonic": {
+        "it": "Un cancello (門) con il sole (日) che filtra in mezzo: lo spazio 'fra', l'intervallo.",
+        "en": "A gate (門) with the sun (日) shining through the middle — the space 'between', the interval."
+      }
+    },
+    {
+      "id": "kanji-han",
+      "japanese": "半",
+      "meaning": {
+        "it": "metà",
+        "en": "half"
+      },
+      "readingOnyomi": [
+        "ハン"
+      ],
+      "readingKunyomi": [
+        "なか.ば"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Qualcosa diviso simmetricamente in due: la metà. 二時半 = le 2 e mezza.",
+        "en": "Something split symmetrically in two — half. 二時半 = half past two."
+      }
+    },
+    {
+      "id": "kanji-kon",
+      "japanese": "今",
+      "meaning": {
+        "it": "ora / adesso",
+        "en": "now"
+      },
+      "readingOnyomi": [
+        "コン",
+        "キン"
+      ],
+      "readingKunyomi": [
+        "いま"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Un tetto sul momento presente: 'adesso'. 今日 (oggi) e 今 (ora).",
+        "en": "A roof over the present moment — 'now'. 今日 (today) and 今 (now)."
+      }
+    },
+    {
+      "id": "kanji-shoku",
+      "japanese": "食",
+      "meaning": {
+        "it": "mangiare / cibo",
+        "en": "eat / food"
+      },
+      "readingOnyomi": [
+        "ショク"
+      ],
+      "readingKunyomi": [
+        "た.べる",
+        "く.う"
+      ],
+      "strokeCount": 9,
+      "mnemonic": {
+        "it": "Un coperchio su una ciotola di riso fumante: il cibo, il mangiare.",
+        "en": "A lid over a bowl of steaming rice — food, eating."
+      }
+    },
+    {
+      "id": "kanji-in",
+      "japanese": "飲",
+      "meaning": {
+        "it": "bere",
+        "en": "drink"
+      },
+      "readingOnyomi": [
+        "イン"
+      ],
+      "readingKunyomi": [
+        "の.む"
+      ],
+      "strokeCount": 12,
+      "components": [
+        "kanji-shoku"
+      ],
+      "mnemonic": {
+        "it": "食 (mangiare) + uno che spalanca la bocca: non mangiare ma bere.",
+        "en": "食 (eat) + a figure opening its mouth wide — not eating but drinking."
+      }
+    },
+    {
+      "id": "kanji-gaku",
+      "japanese": "学",
+      "meaning": {
+        "it": "studio / imparare",
+        "en": "study / learn"
+      },
+      "readingOnyomi": [
+        "ガク"
+      ],
+      "readingKunyomi": [
+        "まな.ぶ"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-ko"
+      ],
+      "mnemonic": {
+        "it": "Un bambino (子) sotto un tetto di conoscenza: imparare, lo studio.",
+        "en": "A child (子) under a roof of knowledge — to learn, study."
+      }
+    },
+    {
+      "id": "kanji-kou",
+      "japanese": "校",
+      "meaning": {
+        "it": "scuola",
+        "en": "school"
+      },
+      "readingOnyomi": [
+        "コウ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 10,
+      "components": [
+        "kanji-ki"
+      ],
+      "mnemonic": {
+        "it": "木 (legno) + un incrocio ordinato: l'edificio di legno dove ci si incontra, la scuola.",
+        "en": "木 (wood) + a tidy crossing: the wooden building where people meet — school."
+      }
+    },
+    {
+      "id": "kanji-sen-teacher",
+      "japanese": "先",
+      "meaning": {
+        "it": "precedente / prima",
+        "en": "previous / ahead"
+      },
+      "readingOnyomi": [
+        "セン"
+      ],
+      "readingKunyomi": [
+        "さき"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Qualcuno un passo avanti agli altri: 'prima', 'precedente'. Forma 先生 (insegnante).",
+        "en": "Someone a step ahead of others — 'before', 'ahead'. Forms 先生 (teacher)."
+      }
+    },
+    {
+      "id": "kanji-sei",
+      "japanese": "生",
+      "meaning": {
+        "it": "vita / nascere / studente",
+        "en": "life / birth / student"
+      },
+      "readingOnyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "readingKunyomi": [
+        "い.きる",
+        "う.まれる",
+        "なま"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Un germoglio che spunta dalla terra: la vita, il nascere. In 先生 e 学生.",
+        "en": "A sprout pushing up from the earth — life, birth. In 先生 and 学生."
+      }
+    },
+    {
+      "id": "kanji-me-eye",
+      "japanese": "目",
+      "meaning": {
+        "it": "occhio",
+        "en": "eye"
+      },
+      "readingOnyomi": [
+        "モク"
+      ],
+      "readingKunyomi": [
+        "め"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Un occhio in verticale con la pupilla: i due tratti interni sono l'iride.",
+        "en": "An eye stood upright with its pupil — the inner strokes are the iris."
+      }
+    },
+    {
+      "id": "kanji-mimi",
+      "japanese": "耳",
+      "meaning": {
+        "it": "orecchio",
+        "en": "ear"
+      },
+      "readingOnyomi": [
+        "ジ"
+      ],
+      "readingKunyomi": [
+        "みみ"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "La forma stilizzata di un orecchio visto di lato.",
+        "en": "The stylized shape of an ear seen from the side."
+      }
+    },
+    {
+      "id": "kanji-kuchi",
+      "japanese": "口",
+      "meaning": {
+        "it": "bocca",
+        "en": "mouth"
+      },
+      "readingOnyomi": [
+        "コウ",
+        "ク"
+      ],
+      "readingKunyomi": [
+        "くち"
+      ],
+      "strokeCount": 3,
+      "mnemonic": {
+        "it": "Un riquadro aperto: una bocca spalancata. Appare in tantissimi kanji.",
+        "en": "An open box — a wide-open mouth. It appears in countless kanji."
+      }
+    },
+    {
+      "id": "kanji-te-hand",
+      "japanese": "手",
+      "meaning": {
+        "it": "mano",
+        "en": "hand"
+      },
+      "readingOnyomi": [
+        "シュ"
+      ],
+      "readingKunyomi": [
+        "て"
+      ],
+      "strokeCount": 4,
+      "mnemonic": {
+        "it": "Una mano con le dita aperte e il polso: 手 = mano (come la て dell'hiragana!).",
+        "en": "A hand with open fingers and a wrist: 手 = hand (like hiragana て!)."
+      }
+    },
+    {
+      "id": "kanji-ashi",
+      "japanese": "足",
+      "meaning": {
+        "it": "piede / gamba / bastare",
+        "en": "foot / leg / suffice"
+      },
+      "readingOnyomi": [
+        "ソク"
+      ],
+      "readingKunyomi": [
+        "あし",
+        "た.りる"
+      ],
+      "strokeCount": 7,
+      "mnemonic": {
+        "it": "Una gamba con il piede in basso: 足 = piede. Significa anche 'bastare'.",
+        "en": "A leg with the foot at the bottom: 足 = foot. It also means 'to suffice'."
+      }
+    },
+    {
+      "id": "kanji-deru",
+      "japanese": "出",
+      "meaning": {
+        "it": "uscire / tirare fuori",
+        "en": "exit / put out"
+      },
+      "readingOnyomi": [
+        "シュツ"
+      ],
+      "readingKunyomi": [
+        "で.る",
+        "だ.す"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Qualcosa che spunta fuori da un'apertura, verso l'alto: uscire.",
+        "en": "Something pushing out of an opening, upward — to exit."
+      }
+    },
+    {
+      "id": "kanji-hairu",
+      "japanese": "入",
+      "meaning": {
+        "it": "entrare",
+        "en": "enter"
+      },
+      "readingOnyomi": [
+        "ニュウ"
+      ],
+      "readingKunyomi": [
+        "はい.る",
+        "い.れる"
+      ],
+      "strokeCount": 2,
+      "mnemonic": {
+        "it": "Due tratti che convergono come un imbuto: entrare dentro.",
+        "en": "Two strokes converging like a funnel — to enter."
+      }
+    },
+    {
+      "id": "kanji-iku-k",
+      "japanese": "行",
+      "meaning": {
+        "it": "andare",
+        "en": "go"
+      },
+      "readingOnyomi": [
+        "コウ",
+        "ギョウ"
+      ],
+      "readingKunyomi": [
+        "い.く",
+        "おこな.う"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Un incrocio di strade: dove si va, l'andare.",
+        "en": "A crossroads — where one goes, to go."
+      }
+    },
+    {
+      "id": "kanji-kuru-k",
+      "japanese": "来",
+      "meaning": {
+        "it": "venire",
+        "en": "come"
+      },
+      "readingOnyomi": [
+        "ライ"
+      ],
+      "readingKunyomi": [
+        "く.る",
+        "き.ます"
+      ],
+      "strokeCount": 7,
+      "mnemonic": {
+        "it": "Spighe di grano che 'arrivano' a maturazione: venire.",
+        "en": "Ears of grain 'coming' to ripeness — to come."
+      }
+    },
+    {
+      "id": "kanji-miru-k",
+      "japanese": "見",
+      "meaning": {
+        "it": "vedere",
+        "en": "see"
+      },
+      "readingOnyomi": [
+        "ケン"
+      ],
+      "readingKunyomi": [
+        "み.る"
+      ],
+      "strokeCount": 7,
+      "components": [
+        "kanji-me-eye"
+      ],
+      "mnemonic": {
+        "it": "目 (occhio) su due gambe: l'occhio che si muove a guardare. Vedere.",
+        "en": "目 (eye) on two legs — the eye moving to look. To see."
+      }
+    },
+    {
+      "id": "kanji-kiku-k",
+      "japanese": "聞",
+      "meaning": {
+        "it": "ascoltare / sentire",
+        "en": "hear / listen"
+      },
+      "readingOnyomi": [
+        "ブン",
+        "モン"
+      ],
+      "readingKunyomi": [
+        "き.く"
+      ],
+      "strokeCount": 14,
+      "components": [
+        "kanji-mimi"
+      ],
+      "mnemonic": {
+        "it": "Un orecchio (耳) dentro un cancello (門): tendere l'orecchio per sentire.",
+        "en": "An ear (耳) inside a gate (門) — leaning in to listen."
+      }
+    },
+    {
+      "id": "kanji-iu",
+      "japanese": "言",
+      "meaning": {
+        "it": "dire",
+        "en": "say"
+      },
+      "readingOnyomi": [
+        "ゲン",
+        "ゴン"
+      ],
+      "readingKunyomi": [
+        "い.う",
+        "こと"
+      ],
+      "strokeCount": 7,
+      "mnemonic": {
+        "it": "Una bocca da cui escono parole, a livelli: il dire.",
+        "en": "A mouth with words coming out in layers — to say."
+      }
+    },
+    {
+      "id": "kanji-hanasu-k",
+      "japanese": "話",
+      "meaning": {
+        "it": "parlare / discorso",
+        "en": "speak / talk"
+      },
+      "readingOnyomi": [
+        "ワ"
+      ],
+      "readingKunyomi": [
+        "はな.す",
+        "はなし"
+      ],
+      "strokeCount": 13,
+      "components": [
+        "kanji-iu"
+      ],
+      "mnemonic": {
+        "it": "言 (dire) + lingua: parlare, conversare.",
+        "en": "言 (say) + tongue — to speak, to converse."
+      }
+    },
+    {
+      "id": "kanji-yomu-k",
+      "japanese": "読",
+      "meaning": {
+        "it": "leggere",
+        "en": "read"
+      },
+      "readingOnyomi": [
+        "ドク"
+      ],
+      "readingKunyomi": [
+        "よ.む"
+      ],
+      "strokeCount": 14,
+      "components": [
+        "kanji-iu"
+      ],
+      "mnemonic": {
+        "it": "言 (parola) + vendere: leggere ad alta voce le parole.",
+        "en": "言 (word) + sell — reading the words aloud."
+      }
+    },
+    {
+      "id": "kanji-kaku-k",
+      "japanese": "書",
+      "meaning": {
+        "it": "scrivere",
+        "en": "write"
+      },
+      "readingOnyomi": [
+        "ショ"
+      ],
+      "readingKunyomi": [
+        "か.く"
+      ],
+      "strokeCount": 10,
+      "mnemonic": {
+        "it": "Una mano con un pennello che traccia su carta: scrivere.",
+        "en": "A hand with a brush tracing on paper — to write."
+      }
+    },
+    {
+      "id": "kanji-ten",
+      "japanese": "天",
+      "meaning": {
+        "it": "cielo",
+        "en": "sky / heaven"
+      },
+      "readingOnyomi": [
+        "テン"
+      ],
+      "readingKunyomi": [
+        "あめ",
+        "あま"
+      ],
+      "strokeCount": 4,
+      "components": [
+        "kanji-dai"
+      ],
+      "mnemonic": {
+        "it": "大 (grande persona) con una linea sopra: ciò che sta oltre, il cielo.",
+        "en": "大 (a big person) with a line above — what lies beyond, the sky."
+      }
+    },
+    {
+      "id": "kanji-ki-spirit",
+      "japanese": "気",
+      "meaning": {
+        "it": "aria / spirito / energia",
+        "en": "air / spirit / energy"
+      },
+      "readingOnyomi": [
+        "キ",
+        "ケ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Vapore che sale: l'aria, l'energia, lo 'spirito' delle cose. In 天気 (tempo atmosferico) e 元気 (in forma).",
+        "en": "Rising vapor — air, energy, the 'spirit' of things. In 天気 (weather) and 元気 (lively)."
+      }
+    }
+  ]
+}

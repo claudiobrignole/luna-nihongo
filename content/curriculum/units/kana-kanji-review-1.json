@@ -1,0 +1,208 @@
+{
+  "level": 2,
+  "order": 8,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · Livello 2",
+    "en": "Review · Level 2"
+  },
+  "description": {
+    "it": "Hai fatto un salto enorme: dai semplici alfabeti ai primi kanji e alle prime vere frasi. Questo ripasso intreccia tutto — numeri e natura coi kanji, は/の/も nella grammatica, i saluti — perché in giapponese reale queste cose arrivano insieme. Mescolare è proprio ciò che ti prepara alle frasi vere.",
+    "en": "You've made a huge leap: from simple alphabets to your first kanji and first real sentences. This review weaves it all together — number and nature kanji, は/の/も in grammar, the greetings — because in real Japanese these come bundled. Mixing them is exactly what readies you for real sentences."
+  },
+  "kanjiRefs": [
+    "kanji-ichi",
+    "kanji-go",
+    "kanji-juu",
+    "kanji-hi",
+    "kanji-ki",
+    "kanji-hayashi",
+    "kanji-mori",
+    "kanji-en"
+  ],
+  "grammarRefs": [
+    "gr-wa-topic",
+    "gr-no-possessive",
+    "gr-mo-also"
+  ],
+  "vocabRefs": [
+    "vocab-konnichiwa",
+    "vocab-arigatou",
+    "vocab-hitori"
+  ],
+  "reviewPoolRefs": [
+    "kanji-ichi",
+    "kanji-go",
+    "kanji-juu",
+    "kanji-hi",
+    "kanji-ki",
+    "kanji-hayashi",
+    "kanji-mori",
+    "gr-wa-topic",
+    "gr-no-possessive",
+    "gr-mo-also",
+    "vocab-konnichiwa",
+    "vocab-arigatou"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kkr-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "わたし___がくせいです ('anch'io sono studente'). Quale particella?",
+        "en": "わたし___がくせいです ('I'm a student too'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "も",
+          "en": "も"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        },
+        {
+          "it": "か",
+          "en": "か"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kkr-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "森 si scompone in...",
+        "en": "森 breaks down into..."
+      },
+      "options": [
+        {
+          "it": "tre 木 (alberi)",
+          "en": "three 木 (trees)"
+        },
+        {
+          "it": "due 木",
+          "en": "two 木"
+        },
+        {
+          "it": "木 + 火",
+          "en": "木 + 火"
+        },
+        {
+          "it": "un 山",
+          "en": "one 山"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kkr-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "せんせい___くるま ('l'auto dell'insegnante'). Quale particella?",
+        "en": "せんせい___くるま ('the teacher's car'). Which particle?"
+      },
+      "options": [
+        {
+          "it": "の",
+          "en": "の"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kkr-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "一",
+          "right": "uno / one"
+        },
+        {
+          "left": "十",
+          "right": "dieci / ten"
+        },
+        {
+          "left": "日",
+          "right": "sole/giorno / sun/day"
+        },
+        {
+          "left": "円",
+          "right": "yen"
+        },
+        {
+          "left": "林",
+          "right": "boschetto / grove"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-kkr-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per fare una domanda, cosa aggiungi alla fine?",
+        "en": "To make a question, what do you add at the end?"
+      },
+      "options": [
+        {
+          "it": "か",
+          "en": "か"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "は/の/も a confronto",
+      "en": "は/の/も compared"
+    },
+    {
+      "it": "Composizione dei kanji natura",
+      "en": "Composition of nature kanji"
+    },
+    {
+      "it": "Costruire AはBです con i numeri",
+      "en": "Building AはBです with numbers"
+    }
+  ],
+  "id": "kana-kanji-review-1"
+}

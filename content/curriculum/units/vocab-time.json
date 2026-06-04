@@ -1,0 +1,155 @@
+{
+  "level": 3,
+  "order": 7,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · tempo",
+    "en": "Vocabulary · time"
+  },
+  "description": {
+    "it": "Quando? Le parole per collocare le azioni nel tempo: oggi, domani, ieri, ora, e i momenti della giornata (mattina, mezzogiorno, notte). Più due contatori utilissimi: 〜時 per le ore e 〜曜日 per i giorni della settimana — che si costruiscono coi kanji elemento che già conosci (月曜日 lunedì, dalla luna 月).",
+    "en": "When? The words to place actions in time: today, tomorrow, yesterday, now, and the parts of the day (morning, noon, night). Plus two handy counters: 〜時 for hours and 〜曜日 for days of the week — built from the element kanji you already know (月曜日 Monday, from the moon 月)."
+  },
+  "vocabRefs": [
+    "vocab-kyou",
+    "vocab-ashita",
+    "vocab-kinou",
+    "vocab-ima",
+    "vocab-asa",
+    "vocab-hiru",
+    "vocab-yoru",
+    "vocab-ji",
+    "vocab-youbi",
+    "vocab-getsuyoubi",
+    "vocab-nichiyoubi"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vt-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si dice 'oggi'?",
+        "en": "How do you say 'today'?"
+      },
+      "options": [
+        {
+          "it": "きょう",
+          "en": "きょう"
+        },
+        {
+          "it": "あした",
+          "en": "あした"
+        },
+        {
+          "it": "きのう",
+          "en": "きのう"
+        },
+        {
+          "it": "いま",
+          "en": "いま"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-vt-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "月曜日 (lunedì) contiene il kanji della...",
+        "en": "月曜日 (Monday) contains the kanji for..."
+      },
+      "options": [
+        {
+          "it": "luna (月)",
+          "en": "moon (月)"
+        },
+        {
+          "it": "sole (日)",
+          "en": "sun (日)"
+        },
+        {
+          "it": "fuoco (火)",
+          "en": "fire (火)"
+        },
+        {
+          "it": "acqua (水)",
+          "en": "water (水)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vt-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜時 serve a contare...",
+        "en": "〜時 is used to count..."
+      },
+      "options": [
+        {
+          "it": "le ore",
+          "en": "hours / o'clock"
+        },
+        {
+          "it": "i giorni",
+          "en": "days"
+        },
+        {
+          "it": "le persone",
+          "en": "people"
+        },
+        {
+          "it": "gli oggetti",
+          "en": "objects"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vt-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina parola e significato.",
+        "en": "Match word to meaning."
+      },
+      "pairs": [
+        {
+          "left": "きょう",
+          "right": "oggi / today"
+        },
+        {
+          "left": "あした",
+          "right": "domani / tomorrow"
+        },
+        {
+          "left": "きのう",
+          "right": "ieri / yesterday"
+        },
+        {
+          "left": "あさ",
+          "right": "mattina / morning"
+        },
+        {
+          "left": "よる",
+          "right": "notte / night"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "oggi/domani/ieri",
+      "en": "today/tomorrow/yesterday"
+    },
+    {
+      "it": "〜曜日 dai kanji elemento",
+      "en": "〜曜日 from element kanji"
+    }
+  ],
+  "id": "vocab-time"
+}

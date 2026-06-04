@@ -1,0 +1,148 @@
+{
+  "level": 3,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · verbi in -ます",
+    "en": "Grammar · -masu verbs"
+  },
+  "description": {
+    "it": "I verbi! Finalmente le frasi prendono vita con un'azione. La forma -ます è cortese e sempre sicura: usala con tutti. Due belle sorprese per chi viene dall'italiano: la stessa forma vale per presente E futuro (たべます = 'mangio' o 'mangerò'), e la negazione è regolarissima (-ます → -ません). Zero coniugazioni irregolari da memorizzare qui.",
+    "en": "Verbs! At last sentences come alive with an action. The -masu form is polite and always safe: use it with everyone. Two pleasant surprises: the same form covers present AND future (たべます = 'I eat' or 'I'll eat'), and the negative is utterly regular (-ます → -ません). No irregular conjugations to memorize here."
+  },
+  "grammarRefs": [
+    "gr-masu-verbs"
+  ],
+  "vocabRefs": [
+    "vocab-taberu",
+    "vocab-nomu",
+    "vocab-miru",
+    "vocab-iku",
+    "vocab-suru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gmv-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "たべます può significare...",
+        "en": "たべます can mean..."
+      },
+      "options": [
+        {
+          "it": "'mangio' o 'mangerò'",
+          "en": "'I eat' or 'I'll eat'"
+        },
+        {
+          "it": "solo 'mangiavo'",
+          "en": "only 'I ate'"
+        },
+        {
+          "it": "'non mangio'",
+          "en": "'I don't eat'"
+        },
+        {
+          "it": "'mangia!'",
+          "en": "'eat!'"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gmv-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come neghi のみます (bevo)?",
+        "en": "How do you negate のみます (I drink)?"
+      },
+      "options": [
+        {
+          "it": "のみません",
+          "en": "のみません"
+        },
+        {
+          "it": "のみました",
+          "en": "のみました"
+        },
+        {
+          "it": "のみます",
+          "en": "のみます"
+        },
+        {
+          "it": "のまない",
+          "en": "のまない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gmv-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Dove va il verbo nella frase giapponese?",
+        "en": "Where does the verb go in a Japanese sentence?"
+      },
+      "options": [
+        {
+          "it": "alla fine",
+          "en": "at the end"
+        },
+        {
+          "it": "all'inizio",
+          "en": "at the start"
+        },
+        {
+          "it": "dopo il soggetto",
+          "en": "right after the subject"
+        },
+        {
+          "it": "ovunque",
+          "en": "anywhere"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-gmv-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e significato.",
+        "en": "Match verb to meaning."
+      },
+      "pairs": [
+        {
+          "left": "たべます",
+          "right": "mangio / I eat"
+        },
+        {
+          "left": "のみます",
+          "right": "bevo / I drink"
+        },
+        {
+          "left": "みます",
+          "right": "guardo / I watch"
+        },
+        {
+          "left": "いきます",
+          "right": "vado / I go"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "-ます presente=futuro",
+      "en": "-masu present=future"
+    },
+    {
+      "it": "Negazione -ません",
+      "en": "Negative -masen"
+    }
+  ],
+  "id": "grammar-masu-verbs"
+}

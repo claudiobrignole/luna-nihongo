@@ -1,0 +1,154 @@
+{
+  "level": 3,
+  "order": 3,
+  "type": "vocab",
+  "contentVersion": 1,
+  "title": {
+    "it": "Vocabolario · verbi base",
+    "en": "Vocabulary · basic verbs"
+  },
+  "description": {
+    "it": "Una scorta di verbi quotidiani da usare subito con -ます e を: mangiare, bere, vedere, andare, venire, fare, scrivere, leggere, ascoltare, parlare. Con questi dieci verbi e le particelle che conosci puoi già costruire decine di frasi reali. する ('fare') è speciale: si attacca a tantissimi nomi per creare nuovi verbi.",
+    "en": "A stash of everyday verbs to use right away with -masu and を: eat, drink, see, go, come, do, write, read, listen, speak. With these ten verbs and the particles you know, you can already build dozens of real sentences. する ('to do') is special: it attaches to many nouns to create new verbs."
+  },
+  "vocabRefs": [
+    "vocab-taberu",
+    "vocab-nomu",
+    "vocab-miru",
+    "vocab-iku",
+    "vocab-kuru",
+    "vocab-suru",
+    "vocab-kaku",
+    "vocab-yomu",
+    "vocab-kiku",
+    "vocab-hanasu"
+  ],
+  "quizzes": [
+    {
+      "id": "q-vvb-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale verbo significa 'leggere'?",
+        "en": "Which verb means 'to read'?"
+      },
+      "options": [
+        {
+          "it": "よむ",
+          "en": "よむ"
+        },
+        {
+          "it": "かく",
+          "en": "かく"
+        },
+        {
+          "it": "きく",
+          "en": "きく"
+        },
+        {
+          "it": "みる",
+          "en": "みる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-vvb-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "きく ha due significati. Quali?",
+        "en": "きく has two meanings. Which?"
+      },
+      "options": [
+        {
+          "it": "ascoltare / chiedere",
+          "en": "to listen / to ask"
+        },
+        {
+          "it": "scrivere / leggere",
+          "en": "to write / to read"
+        },
+        {
+          "it": "andare / venire",
+          "en": "to go / to come"
+        },
+        {
+          "it": "vedere / fare",
+          "en": "to see / to do"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vvb-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché する è 'speciale'?",
+        "en": "Why is する 'special'?"
+      },
+      "options": [
+        {
+          "it": "Si combina coi nomi per creare nuovi verbi",
+          "en": "It combines with nouns to make new verbs"
+        },
+        {
+          "it": "Non si coniuga mai",
+          "en": "It never conjugates"
+        },
+        {
+          "it": "Significa 'essere'",
+          "en": "It means 'to be'"
+        },
+        {
+          "it": "È un nome",
+          "en": "It's a noun"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-vvb-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e significato.",
+        "en": "Match verb to meaning."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "mangiare / eat"
+        },
+        {
+          "left": "いく",
+          "right": "andare / go"
+        },
+        {
+          "left": "くる",
+          "right": "venire / come"
+        },
+        {
+          "left": "はなす",
+          "right": "parlare / speak"
+        },
+        {
+          "left": "する",
+          "right": "fare / do"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "I dieci verbi base con -ます",
+      "en": "The ten basic verbs with -masu"
+    },
+    {
+      "it": "する + nome",
+      "en": "する + noun"
+    }
+  ],
+  "id": "vocab-verbs-base"
+}

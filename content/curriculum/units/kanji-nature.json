@@ -1,0 +1,178 @@
+{
+  "level": 2,
+  "order": 5,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · natura (giorni, elementi)",
+    "en": "Kanji · nature (days, elements)"
+  },
+  "description": {
+    "it": "Sette kanji che sono anche i giorni della settimana: 日(sole/dom) 月(luna/lun) 火(fuoco/mar) 水(acqua/mer) 木(legno/gio) 金(oro/ven) 土(terra/sab), più 山(montagna) e 川(fiume). E qui vedi la magia della composizione: ricordi 木 (albero)? Due alberi fanno 林 (boschetto), tre alberi fanno 森 (foresta). Una volta capito il mattone, i kanji complessi si 'leggono' da soli.",
+    "en": "Seven kanji that are also the days of the week: 日(sun/Sun) 月(moon/Mon) 火(fire/Tue) 水(water/Wed) 木(wood/Thu) 金(gold/Fri) 土(earth/Sat), plus 山(mountain) and 川(river). And here you see the magic of composition: remember 木 (tree)? Two trees make 林 (grove), three trees make 森 (forest). Once you grasp the building block, complex kanji 'read' themselves."
+  },
+  "kanjiRefs": [
+    "kanji-hi",
+    "kanji-tsuki",
+    "kanji-ka",
+    "kanji-sui",
+    "kanji-ki",
+    "kanji-kin",
+    "kanji-do",
+    "kanji-yama",
+    "kanji-kawa",
+    "kanji-hayashi",
+    "kanji-mori"
+  ],
+  "quizzes": [
+    {
+      "id": "q-knat-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "林 (boschetto) è composto da quanti 木 (alberi)?",
+        "en": "林 (grove) is made of how many 木 (trees)?"
+      },
+      "options": [
+        {
+          "it": "Due",
+          "en": "Two"
+        },
+        {
+          "it": "Tre",
+          "en": "Three"
+        },
+        {
+          "it": "Uno",
+          "en": "One"
+        },
+        {
+          "it": "Quattro",
+          "en": "Four"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-knat-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "森 (foresta) è composto da quanti 木?",
+        "en": "森 (forest) is made of how many 木?"
+      },
+      "options": [
+        {
+          "it": "Tre",
+          "en": "Three"
+        },
+        {
+          "it": "Due",
+          "en": "Two"
+        },
+        {
+          "it": "Cinque",
+          "en": "Five"
+        },
+        {
+          "it": "Uno",
+          "en": "One"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-knat-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'acqua'?",
+        "en": "Which kanji means 'water'?"
+      },
+      "options": [
+        {
+          "it": "水",
+          "en": "水"
+        },
+        {
+          "it": "火",
+          "en": "火"
+        },
+        {
+          "it": "木",
+          "en": "木"
+        },
+        {
+          "it": "金",
+          "en": "金"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-knat-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji ed elemento.",
+        "en": "Match kanji to element."
+      },
+      "pairs": [
+        {
+          "left": "日",
+          "right": "sole / sun"
+        },
+        {
+          "left": "月",
+          "right": "luna / moon"
+        },
+        {
+          "left": "火",
+          "right": "fuoco / fire"
+        },
+        {
+          "left": "水",
+          "right": "acqua / water"
+        },
+        {
+          "left": "木",
+          "right": "albero / tree"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-knat-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Composizione: abbina alla descrizione.",
+        "en": "Composition: match to description."
+      },
+      "pairs": [
+        {
+          "left": "木",
+          "right": "un albero / one tree"
+        },
+        {
+          "left": "林",
+          "right": "due alberi / two trees"
+        },
+        {
+          "left": "森",
+          "right": "tre alberi / three trees"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "I giorni della settimana coi kanji elemento",
+      "en": "Days of the week via element kanji"
+    },
+    {
+      "it": "Composizione 木→林→森",
+      "en": "Composition 木→林→森"
+    }
+  ],
+  "id": "kanji-nature"
+}

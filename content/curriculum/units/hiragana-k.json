@@ -1,0 +1,128 @@
+{
+  "level": 0,
+  "order": 1,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · riga K",
+    "en": "Hiragana · K-line"
+  },
+  "description": {
+    "it": "Cinque suoni 'duri': か・き・く・け・こ. Aggiungi una consonante alle vocali che già conosci e hai subito venti parole nuove a portata di mano. Tutta la riga è regolare, nessuna sorpresa di lettura.",
+    "en": "Five 'hard' sounds: か・き・く・け・こ. Add a consonant to the vowels you already know and dozens of new words open up. The whole row is regular — no reading surprises."
+  },
+  "kanaRefs": [
+    "hira-ka",
+    "hira-ki",
+    "hira-ku",
+    "hira-ke",
+    "hira-ko"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hk-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale carattere si legge 'ku'?",
+        "en": "Which character reads 'ku'?"
+      },
+      "options": [
+        {
+          "it": "く",
+          "en": "く"
+        },
+        {
+          "it": "こ",
+          "en": "こ"
+        },
+        {
+          "it": "か",
+          "en": "か"
+        },
+        {
+          "it": "き",
+          "en": "き"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-hk-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge la parola かき (cachi/ostrica)?",
+        "en": "How do you read the word かき (persimmon/oyster)?"
+      },
+      "options": [
+        {
+          "it": "kaki",
+          "en": "kaki"
+        },
+        {
+          "it": "kiki",
+          "en": "kiki"
+        },
+        {
+          "it": "kuko",
+          "en": "kuko"
+        },
+        {
+          "it": "keke",
+          "en": "keke"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hk-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: け",
+        "en": "Type the romaji for: け"
+      },
+      "answer": "ke",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hk-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina carattere e lettura.",
+        "en": "Match character to reading."
+      },
+      "pairs": [
+        {
+          "left": "か",
+          "right": "ka"
+        },
+        {
+          "left": "き",
+          "right": "ki"
+        },
+        {
+          "left": "く",
+          "right": "ku"
+        },
+        {
+          "left": "け",
+          "right": "ke"
+        },
+        {
+          "left": "こ",
+          "right": "ko"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Comporre parole vocale + riga K",
+      "en": "Building words from vowels + K-line"
+    }
+  ],
+  "id": "hiragana-k"
+}

@@ -1,0 +1,137 @@
+{
+  "level": 2,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · の (possessivo)",
+    "en": "Grammar · の (possession)"
+  },
+  "description": {
+    "it": "Una sola particella, infiniti usi. Con の puoi dire 'il mio libro', 'l'auto dell'insegnante', 'un libro di giapponese'. La regola d'oro: il possessore va PRIMA, poi の, poi la cosa posseduta. È l'opposto dell'ordine italiano, quindi all'inizio fai attenzione.",
+    "en": "One particle, endless uses. With の you can say 'my book', 'the teacher's car', 'a Japanese-language book'. The golden rule: the possessor comes FIRST, then の, then the thing possessed. It's the reverse of English word order, so watch it at first."
+  },
+  "grammarRefs": [
+    "gr-no-possessive"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gn-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si dice 'il mio libro'?",
+        "en": "How do you say 'my book'?"
+      },
+      "options": [
+        {
+          "it": "わたしのほん",
+          "en": "わたしのほん"
+        },
+        {
+          "it": "ほんのわたし",
+          "en": "ほんのわたし"
+        },
+        {
+          "it": "わたしほんの",
+          "en": "わたしほんの"
+        },
+        {
+          "it": "のわたしほん",
+          "en": "のわたしほん"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gn-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "In A の B, quale elemento possiede?",
+        "en": "In A の B, which element is the possessor?"
+      },
+      "options": [
+        {
+          "it": "A (viene prima)",
+          "en": "A (comes first)"
+        },
+        {
+          "it": "B (viene dopo)",
+          "en": "B (comes after)"
+        },
+        {
+          "it": "の stessa",
+          "en": "の itself"
+        },
+        {
+          "it": "Nessuno",
+          "en": "Neither"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gn-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "にほんごのほん significa...",
+        "en": "にほんごのほん means..."
+      },
+      "options": [
+        {
+          "it": "un libro di giapponese",
+          "en": "a Japanese-language book"
+        },
+        {
+          "it": "il giapponese di un libro",
+          "en": "the Japanese of a book"
+        },
+        {
+          "it": "un libro giapponese e basta",
+          "en": "just a Japanese book"
+        },
+        {
+          "it": "due libri",
+          "en": "two books"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gn-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e traduzione.",
+        "en": "Match phrase to translation."
+      },
+      "pairs": [
+        {
+          "left": "わたしのほん",
+          "right": "il mio libro / my book"
+        },
+        {
+          "left": "せんせいのくるま",
+          "right": "l'auto dell'insegnante / the teacher's car"
+        },
+        {
+          "left": "にほんごのほん",
+          "right": "libro di giapponese / Japanese book"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine A の B (possessore prima)",
+      "en": "A の B order (possessor first)"
+    },
+    {
+      "it": "の oltre il possesso (origine, tipo)",
+      "en": "の beyond possession (origin, type)"
+    }
+  ],
+  "id": "grammar-no-possessive"
+}

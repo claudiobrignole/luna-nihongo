@@ -1,0 +1,180 @@
+{
+  "level": 0,
+  "order": 10,
+  "type": "hiragana",
+  "contentVersion": 1,
+  "title": {
+    "it": "Hiragana · dakuten e handakuten",
+    "en": "Hiragana · dakuten & handakuten"
+  },
+  "description": {
+    "it": "Due trattini (゛ dakuten) o un pallino (゜ handakuten) cambiano il suono di un carattere che già conosci. か→が, さ→ざ, た→だ, は→ば, は→ぱ. Non sono caratteri nuovi da zero: sono i tuoi vecchi amici con un accessorio. Nota: じ='ji' e ず='zu' sono molto più comuni delle varianti ぢ/づ.",
+    "en": "Two ticks (゛ dakuten) or a small circle (゜ handakuten) change the sound of a character you already know. か→が, さ→ざ, た→だ, は→ば, は→ぱ. These aren't brand-new shapes: they're your old friends with an accessory. Note: じ='ji' and ず='zu' are far more common than the ぢ/づ variants."
+  },
+  "kanaRefs": [
+    "hira-ga",
+    "hira-gi",
+    "hira-gu",
+    "hira-ge",
+    "hira-go",
+    "hira-za",
+    "hira-ji",
+    "hira-zu",
+    "hira-ze",
+    "hira-zo",
+    "hira-da",
+    "hira-dji",
+    "hira-dzu",
+    "hira-de",
+    "hira-do",
+    "hira-ba",
+    "hira-bi",
+    "hira-bu",
+    "hira-be",
+    "hira-bo",
+    "hira-pa",
+    "hira-pi",
+    "hira-pu",
+    "hira-pe",
+    "hira-po"
+  ],
+  "quizzes": [
+    {
+      "id": "q-hd-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "か con il dakuten (゛) diventa...",
+        "en": "か with dakuten (゛) becomes..."
+      },
+      "options": [
+        {
+          "it": "が (ga)",
+          "en": "が (ga)"
+        },
+        {
+          "it": "ぱ (pa)",
+          "en": "ぱ (pa)"
+        },
+        {
+          "it": "きゃ (kya)",
+          "en": "きゃ (kya)"
+        },
+        {
+          "it": "こ (ko)",
+          "en": "こ (ko)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hd-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa distingue ば (ba) da ぱ (pa)?",
+        "en": "What distinguishes ば (ba) from ぱ (pa)?"
+      },
+      "options": [
+        {
+          "it": "ば ha due trattini, ぱ un pallino",
+          "en": "ば has two ticks, ぱ has a small circle"
+        },
+        {
+          "it": "Sono identici",
+          "en": "They're identical"
+        },
+        {
+          "it": "ぱ ha due trattini",
+          "en": "ぱ has two ticks"
+        },
+        {
+          "it": "ば è un carattere base",
+          "en": "ば is a base character"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hd-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si legge でんわ (telefono)?",
+        "en": "How do you read でんわ (telephone)?"
+      },
+      "options": [
+        {
+          "it": "denwa",
+          "en": "denwa"
+        },
+        {
+          "it": "tenwa",
+          "en": "tenwa"
+        },
+        {
+          "it": "denba",
+          "en": "denba"
+        },
+        {
+          "it": "tenba",
+          "en": "tenba"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-hd-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji: ご",
+        "en": "Type the romaji for: ご"
+      },
+      "answer": "go",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-hd-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina base → versione con dakuten.",
+        "en": "Match base → dakuten version."
+      },
+      "pairs": [
+        {
+          "left": "か → ?",
+          "right": "が"
+        },
+        {
+          "left": "さ → ?",
+          "right": "ざ"
+        },
+        {
+          "left": "た → ?",
+          "right": "だ"
+        },
+        {
+          "left": "は → ? (゛)",
+          "right": "ば"
+        },
+        {
+          "left": "は → ? (゜)",
+          "right": "ぱ"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "La logica dakuten/handakuten",
+      "en": "The dakuten/handakuten logic"
+    },
+    {
+      "it": "じ/ず comuni vs ぢ/づ rari",
+      "en": "Common じ/ず vs rare ぢ/づ"
+    }
+  ],
+  "id": "hiragana-dakuten"
+}

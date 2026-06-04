@@ -1,0 +1,1721 @@
+{
+  "$comment": "Vocab repository. tags drive thematic filtering & tutor recall. usesKanjiRefs gates vocab so words only appear once their kanji are taught.",
+  "vocab": [
+    {
+      "id": "vocab-ohayou",
+      "japanese": "おはよう",
+      "kana": "おはよう",
+      "romaji": "ohayou",
+      "meaning": {
+        "it": "buongiorno (informale)",
+        "en": "good morning (casual)"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-ohayou-gozaimasu",
+      "japanese": "おはようございます",
+      "kana": "おはようございます",
+      "romaji": "ohayou gozaimasu",
+      "meaning": {
+        "it": "buongiorno (cortese)",
+        "en": "good morning (polite)"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-konnichiwa",
+      "japanese": "こんにちは",
+      "kana": "こんにちは",
+      "romaji": "konnichiwa",
+      "meaning": {
+        "it": "buongiorno / salve",
+        "en": "hello / good afternoon"
+      },
+      "tags": [
+        "greetings"
+      ],
+      "mnemonic": {
+        "it": "Letteralmente 'oggi è...': la は finale si legge 'wa' (è una particella!).",
+        "en": "Literally 'as for today...': the final は reads 'wa' (it's a particle!)."
+      }
+    },
+    {
+      "id": "vocab-konbanwa",
+      "japanese": "こんばんは",
+      "kana": "こんばんは",
+      "romaji": "konbanwa",
+      "meaning": {
+        "it": "buonasera",
+        "en": "good evening"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-sayounara",
+      "japanese": "さようなら",
+      "kana": "さようなら",
+      "romaji": "sayounara",
+      "meaning": {
+        "it": "arrivederci",
+        "en": "goodbye"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-arigatou",
+      "japanese": "ありがとう",
+      "kana": "ありがとう",
+      "romaji": "arigatou",
+      "meaning": {
+        "it": "grazie",
+        "en": "thank you"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-arigatou-gozaimasu",
+      "japanese": "ありがとうございます",
+      "kana": "ありがとうございます",
+      "romaji": "arigatou gozaimasu",
+      "meaning": {
+        "it": "grazie (cortese)",
+        "en": "thank you (polite)"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-sumimasen",
+      "japanese": "すみません",
+      "kana": "すみません",
+      "romaji": "sumimasen",
+      "meaning": {
+        "it": "scusi / mi scusi",
+        "en": "excuse me / sorry"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-hajimemashite",
+      "japanese": "はじめまして",
+      "kana": "はじめまして",
+      "romaji": "hajimemashite",
+      "meaning": {
+        "it": "piacere (al primo incontro)",
+        "en": "nice to meet you"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-onegaishimasu",
+      "japanese": "おねがいします",
+      "kana": "おねがいします",
+      "romaji": "onegaishimasu",
+      "meaning": {
+        "it": "per favore / la prego",
+        "en": "please"
+      },
+      "tags": [
+        "greetings"
+      ]
+    },
+    {
+      "id": "vocab-hai",
+      "japanese": "はい",
+      "kana": "はい",
+      "romaji": "hai",
+      "meaning": {
+        "it": "sì",
+        "en": "yes"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-iie",
+      "japanese": "いいえ",
+      "kana": "いいえ",
+      "romaji": "iie",
+      "meaning": {
+        "it": "no",
+        "en": "no"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-ichi",
+      "japanese": "一",
+      "kana": "いち",
+      "romaji": "ichi",
+      "meaning": {
+        "it": "uno",
+        "en": "one"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ichi"
+      ]
+    },
+    {
+      "id": "vocab-ni-num",
+      "japanese": "二",
+      "kana": "に",
+      "romaji": "ni",
+      "meaning": {
+        "it": "due",
+        "en": "two"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ni"
+      ]
+    },
+    {
+      "id": "vocab-san-num",
+      "japanese": "三",
+      "kana": "さん",
+      "romaji": "san",
+      "meaning": {
+        "it": "tre",
+        "en": "three"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-san"
+      ]
+    },
+    {
+      "id": "vocab-yon",
+      "japanese": "四",
+      "kana": "よん",
+      "romaji": "yon",
+      "meaning": {
+        "it": "quattro",
+        "en": "four"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-shi"
+      ]
+    },
+    {
+      "id": "vocab-go-num",
+      "japanese": "五",
+      "kana": "ご",
+      "romaji": "go",
+      "meaning": {
+        "it": "cinque",
+        "en": "five"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-go"
+      ]
+    },
+    {
+      "id": "vocab-roku-num",
+      "japanese": "六",
+      "kana": "ろく",
+      "romaji": "roku",
+      "meaning": {
+        "it": "sei",
+        "en": "six"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-roku"
+      ]
+    },
+    {
+      "id": "vocab-nana",
+      "japanese": "七",
+      "kana": "なな",
+      "romaji": "nana",
+      "meaning": {
+        "it": "sette",
+        "en": "seven"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-shichi"
+      ]
+    },
+    {
+      "id": "vocab-hachi-num",
+      "japanese": "八",
+      "kana": "はち",
+      "romaji": "hachi",
+      "meaning": {
+        "it": "otto",
+        "en": "eight"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-hachi"
+      ]
+    },
+    {
+      "id": "vocab-kyuu-num",
+      "japanese": "九",
+      "kana": "きゅう",
+      "romaji": "kyuu",
+      "meaning": {
+        "it": "nove",
+        "en": "nine"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-kyuu"
+      ]
+    },
+    {
+      "id": "vocab-juu-num",
+      "japanese": "十",
+      "kana": "じゅう",
+      "romaji": "juu",
+      "meaning": {
+        "it": "dieci",
+        "en": "ten"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-juu"
+      ]
+    },
+    {
+      "id": "vocab-hyaku-num",
+      "japanese": "百",
+      "kana": "ひゃく",
+      "romaji": "hyaku",
+      "meaning": {
+        "it": "cento",
+        "en": "hundred"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-hyaku"
+      ]
+    },
+    {
+      "id": "vocab-sen-num",
+      "japanese": "千",
+      "kana": "せん",
+      "romaji": "sen",
+      "meaning": {
+        "it": "mille",
+        "en": "thousand"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-sen"
+      ]
+    },
+    {
+      "id": "vocab-man-num",
+      "japanese": "万",
+      "kana": "まん",
+      "romaji": "man",
+      "meaning": {
+        "it": "diecimila",
+        "en": "ten thousand"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-man"
+      ]
+    },
+    {
+      "id": "vocab-en-money",
+      "japanese": "円",
+      "kana": "えん",
+      "romaji": "en",
+      "meaning": {
+        "it": "yen",
+        "en": "yen"
+      },
+      "tags": [
+        "numbers",
+        "everyday"
+      ],
+      "usesKanjiRefs": [
+        "kanji-en"
+      ]
+    },
+    {
+      "id": "vocab-zero",
+      "japanese": "ゼロ",
+      "kana": "ゼロ",
+      "romaji": "zero",
+      "meaning": {
+        "it": "zero",
+        "en": "zero"
+      },
+      "tags": [
+        "numbers"
+      ],
+      "mnemonic": {
+        "it": "Scritto in katakana perché preso dall'inglese 'zero'. Esiste anche れい (零).",
+        "en": "Written in katakana because borrowed from English 'zero'. れい (零) also exists."
+      }
+    },
+    {
+      "id": "vocab-hitotsu",
+      "japanese": "一つ",
+      "kana": "ひとつ",
+      "romaji": "hitotsu",
+      "meaning": {
+        "it": "una cosa (1)",
+        "en": "one thing"
+      },
+      "tags": [
+        "counters",
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ichi"
+      ],
+      "mnemonic": {
+        "it": "Conteggio nativo per oggetti generici: usa la lettura kun di 一.",
+        "en": "Native counting for general objects: uses the kun reading of 一."
+      }
+    },
+    {
+      "id": "vocab-futatsu",
+      "japanese": "二つ",
+      "kana": "ふたつ",
+      "romaji": "futatsu",
+      "meaning": {
+        "it": "due cose (2)",
+        "en": "two things"
+      },
+      "tags": [
+        "counters",
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ni"
+      ]
+    },
+    {
+      "id": "vocab-mittsu",
+      "japanese": "三つ",
+      "kana": "みっつ",
+      "romaji": "mittsu",
+      "meaning": {
+        "it": "tre cose (3)",
+        "en": "three things"
+      },
+      "tags": [
+        "counters",
+        "numbers"
+      ],
+      "usesKanjiRefs": [
+        "kanji-san"
+      ]
+    },
+    {
+      "id": "vocab-hitori",
+      "japanese": "一人",
+      "kana": "ひとり",
+      "romaji": "hitori",
+      "meaning": {
+        "it": "una persona",
+        "en": "one person"
+      },
+      "tags": [
+        "counters",
+        "people"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ichi"
+      ],
+      "mnemonic": {
+        "it": "一 + 人 (persona): contatore per persone, lettura irregolare ひとり.",
+        "en": "一 + 人 (person): the people counter, with irregular reading ひとり. "
+      }
+    },
+    {
+      "id": "vocab-futari",
+      "japanese": "二人",
+      "kana": "ふたり",
+      "romaji": "futari",
+      "meaning": {
+        "it": "due persone",
+        "en": "two people"
+      },
+      "tags": [
+        "counters",
+        "people"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ni"
+      ]
+    },
+    {
+      "id": "vocab-nani",
+      "japanese": "何",
+      "kana": "なに",
+      "romaji": "nani",
+      "meaning": {
+        "it": "cosa",
+        "en": "what"
+      },
+      "tags": [
+        "question-words"
+      ],
+      "mnemonic": {
+        "it": "Anche letto 'nan' davanti a certi suoni: なに/なん.",
+        "en": "Also read 'nan' before certain sounds: なに/なん."
+      }
+    },
+    {
+      "id": "vocab-dare",
+      "japanese": "誰",
+      "kana": "だれ",
+      "romaji": "dare",
+      "meaning": {
+        "it": "chi",
+        "en": "who"
+      },
+      "tags": [
+        "question-words"
+      ]
+    },
+    {
+      "id": "vocab-taberu",
+      "japanese": "食べる",
+      "kana": "たべる",
+      "romaji": "taberu",
+      "meaning": {
+        "it": "mangiare",
+        "en": "to eat"
+      },
+      "tags": [
+        "verbs",
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-nomu",
+      "japanese": "飲む",
+      "kana": "のむ",
+      "romaji": "nomu",
+      "meaning": {
+        "it": "bere",
+        "en": "to drink"
+      },
+      "tags": [
+        "verbs",
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-miru",
+      "japanese": "見る",
+      "kana": "みる",
+      "romaji": "miru",
+      "meaning": {
+        "it": "vedere / guardare",
+        "en": "to see / watch"
+      },
+      "tags": [
+        "verbs"
+      ]
+    },
+    {
+      "id": "vocab-iku",
+      "japanese": "行く",
+      "kana": "いく",
+      "romaji": "iku",
+      "meaning": {
+        "it": "andare",
+        "en": "to go"
+      },
+      "tags": [
+        "verbs",
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-kuru",
+      "japanese": "来る",
+      "kana": "くる",
+      "romaji": "kuru",
+      "meaning": {
+        "it": "venire",
+        "en": "to come"
+      },
+      "tags": [
+        "verbs",
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-suru",
+      "japanese": "する",
+      "kana": "する",
+      "romaji": "suru",
+      "meaning": {
+        "it": "fare",
+        "en": "to do"
+      },
+      "tags": [
+        "verbs"
+      ],
+      "mnemonic": {
+        "it": "Verbo irregolare fondamentale: 'fare'. Si combina con tantissimi nomi.",
+        "en": "A key irregular verb: 'to do'. Combines with countless nouns."
+      }
+    },
+    {
+      "id": "vocab-kaku",
+      "japanese": "書く",
+      "kana": "かく",
+      "romaji": "kaku",
+      "meaning": {
+        "it": "scrivere",
+        "en": "to write"
+      },
+      "tags": [
+        "verbs"
+      ]
+    },
+    {
+      "id": "vocab-yomu",
+      "japanese": "読む",
+      "kana": "よむ",
+      "romaji": "yomu",
+      "meaning": {
+        "it": "leggere",
+        "en": "to read"
+      },
+      "tags": [
+        "verbs"
+      ]
+    },
+    {
+      "id": "vocab-kiku",
+      "japanese": "聞く",
+      "kana": "きく",
+      "romaji": "kiku",
+      "meaning": {
+        "it": "ascoltare / chiedere",
+        "en": "to listen / ask"
+      },
+      "tags": [
+        "verbs"
+      ]
+    },
+    {
+      "id": "vocab-hanasu",
+      "japanese": "話す",
+      "kana": "はなす",
+      "romaji": "hanasu",
+      "meaning": {
+        "it": "parlare",
+        "en": "to speak"
+      },
+      "tags": [
+        "verbs"
+      ]
+    },
+    {
+      "id": "vocab-kyou",
+      "japanese": "今日",
+      "kana": "きょう",
+      "romaji": "kyou",
+      "meaning": {
+        "it": "oggi",
+        "en": "today"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-ashita",
+      "japanese": "明日",
+      "kana": "あした",
+      "romaji": "ashita",
+      "meaning": {
+        "it": "domani",
+        "en": "tomorrow"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-kinou",
+      "japanese": "昨日",
+      "kana": "きのう",
+      "romaji": "kinou",
+      "meaning": {
+        "it": "ieri",
+        "en": "yesterday"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-ima",
+      "japanese": "今",
+      "kana": "いま",
+      "romaji": "ima",
+      "meaning": {
+        "it": "ora / adesso",
+        "en": "now"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-asa",
+      "japanese": "朝",
+      "kana": "あさ",
+      "romaji": "asa",
+      "meaning": {
+        "it": "mattina",
+        "en": "morning"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-hiru",
+      "japanese": "昼",
+      "kana": "ひる",
+      "romaji": "hiru",
+      "meaning": {
+        "it": "mezzogiorno / pranzo",
+        "en": "noon / midday"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-yoru",
+      "japanese": "夜",
+      "kana": "よる",
+      "romaji": "yoru",
+      "meaning": {
+        "it": "notte / sera",
+        "en": "night"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-ji",
+      "japanese": "〜時",
+      "kana": "〜じ",
+      "romaji": "~ji",
+      "meaning": {
+        "it": "ore (contatore)",
+        "en": "o'clock (counter)"
+      },
+      "tags": [
+        "time",
+        "counters"
+      ]
+    },
+    {
+      "id": "vocab-youbi",
+      "japanese": "〜曜日",
+      "kana": "〜ようび",
+      "romaji": "~youbi",
+      "meaning": {
+        "it": "giorno della settimana",
+        "en": "day of the week"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-getsuyoubi",
+      "japanese": "月曜日",
+      "kana": "げつようび",
+      "romaji": "getsuyoubi",
+      "meaning": {
+        "it": "lunedì",
+        "en": "Monday"
+      },
+      "tags": [
+        "time"
+      ],
+      "usesKanjiRefs": [
+        "kanji-tsuki"
+      ]
+    },
+    {
+      "id": "vocab-nichiyoubi",
+      "japanese": "日曜日",
+      "kana": "にちようび",
+      "romaji": "nichiyoubi",
+      "meaning": {
+        "it": "domenica",
+        "en": "Sunday"
+      },
+      "tags": [
+        "time"
+      ],
+      "usesKanjiRefs": [
+        "kanji-hi"
+      ]
+    },
+    {
+      "id": "vocab-gakkou",
+      "japanese": "学校",
+      "kana": "がっこう",
+      "romaji": "gakkou",
+      "meaning": {
+        "it": "scuola",
+        "en": "school"
+      },
+      "tags": [
+        "places",
+        "school"
+      ]
+    },
+    {
+      "id": "vocab-uchi",
+      "japanese": "家",
+      "kana": "うち",
+      "romaji": "uchi",
+      "meaning": {
+        "it": "casa",
+        "en": "home / house"
+      },
+      "tags": [
+        "places"
+      ]
+    },
+    {
+      "id": "vocab-eki",
+      "japanese": "駅",
+      "kana": "えき",
+      "romaji": "eki",
+      "meaning": {
+        "it": "stazione",
+        "en": "station"
+      },
+      "tags": [
+        "places"
+      ]
+    },
+    {
+      "id": "vocab-mise",
+      "japanese": "店",
+      "kana": "みせ",
+      "romaji": "mise",
+      "meaning": {
+        "it": "negozio",
+        "en": "shop / store"
+      },
+      "tags": [
+        "places"
+      ]
+    },
+    {
+      "id": "vocab-kaisha",
+      "japanese": "会社",
+      "kana": "かいしゃ",
+      "romaji": "kaisha",
+      "meaning": {
+        "it": "azienda / ufficio",
+        "en": "company / office"
+      },
+      "tags": [
+        "places"
+      ]
+    },
+    {
+      "id": "vocab-chichi",
+      "japanese": "父",
+      "kana": "ちち",
+      "romaji": "chichi",
+      "meaning": {
+        "it": "(mio) padre",
+        "en": "(my) father"
+      },
+      "tags": [
+        "family",
+        "people"
+      ],
+      "mnemonic": {
+        "it": "ちち = il PROPRIO padre. Per il padre altrui si usa おとうさん.",
+        "en": "ちち = one's OWN father. For someone else's father, use おとうさん."
+      }
+    },
+    {
+      "id": "vocab-haha",
+      "japanese": "母",
+      "kana": "はは",
+      "romaji": "haha",
+      "meaning": {
+        "it": "(mia) madre",
+        "en": "(my) mother"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-ani",
+      "japanese": "兄",
+      "kana": "あに",
+      "romaji": "ani",
+      "meaning": {
+        "it": "(mio) fratello maggiore",
+        "en": "(my) older brother"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-ane",
+      "japanese": "姉",
+      "kana": "あね",
+      "romaji": "ane",
+      "meaning": {
+        "it": "(mia) sorella maggiore",
+        "en": "(my) older sister"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-otouto",
+      "japanese": "弟",
+      "kana": "おとうと",
+      "romaji": "otouto",
+      "meaning": {
+        "it": "(mio) fratello minore",
+        "en": "(my) younger brother"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-imouto",
+      "japanese": "妹",
+      "kana": "いもうと",
+      "romaji": "imouto",
+      "meaning": {
+        "it": "(mia) sorella minore",
+        "en": "(my) younger sister"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-kazoku",
+      "japanese": "家族",
+      "kana": "かぞく",
+      "romaji": "kazoku",
+      "meaning": {
+        "it": "famiglia",
+        "en": "family"
+      },
+      "tags": [
+        "family",
+        "people"
+      ]
+    },
+    {
+      "id": "vocab-gohan",
+      "japanese": "ご飯",
+      "kana": "ごはん",
+      "romaji": "gohan",
+      "meaning": {
+        "it": "riso cotto / pasto",
+        "en": "cooked rice / meal"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-sakana",
+      "japanese": "魚",
+      "kana": "さかな",
+      "romaji": "sakana",
+      "meaning": {
+        "it": "pesce",
+        "en": "fish"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-niku",
+      "japanese": "肉",
+      "kana": "にく",
+      "romaji": "niku",
+      "meaning": {
+        "it": "carne",
+        "en": "meat"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-yasai",
+      "japanese": "野菜",
+      "kana": "やさい",
+      "romaji": "yasai",
+      "meaning": {
+        "it": "verdura",
+        "en": "vegetables"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-tamago",
+      "japanese": "卵",
+      "kana": "たまご",
+      "romaji": "tamago",
+      "meaning": {
+        "it": "uovo",
+        "en": "egg"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-mizu-food",
+      "japanese": "水",
+      "kana": "みず",
+      "romaji": "mizu",
+      "meaning": {
+        "it": "acqua",
+        "en": "water"
+      },
+      "tags": [
+        "food",
+        "nature"
+      ],
+      "usesKanjiRefs": [
+        "kanji-sui"
+      ]
+    },
+    {
+      "id": "vocab-ocha",
+      "japanese": "お茶",
+      "kana": "おちゃ",
+      "romaji": "ocha",
+      "meaning": {
+        "it": "tè",
+        "en": "tea"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-pan",
+      "japanese": "パン",
+      "kana": "パン",
+      "romaji": "pan",
+      "meaning": {
+        "it": "pane",
+        "en": "bread"
+      },
+      "tags": [
+        "food"
+      ],
+      "mnemonic": {
+        "it": "Dal portoghese 'pão', scritto in katakana.",
+        "en": "From Portuguese 'pão', written in katakana."
+      }
+    },
+    {
+      "id": "vocab-kudamono",
+      "japanese": "果物",
+      "kana": "くだもの",
+      "romaji": "kudamono",
+      "meaning": {
+        "it": "frutta",
+        "en": "fruit"
+      },
+      "tags": [
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-aka",
+      "japanese": "赤",
+      "kana": "あか",
+      "romaji": "aka",
+      "meaning": {
+        "it": "rosso",
+        "en": "red"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-ao",
+      "japanese": "青",
+      "kana": "あお",
+      "romaji": "ao",
+      "meaning": {
+        "it": "blu / azzurro",
+        "en": "blue"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-shiro",
+      "japanese": "白",
+      "kana": "しろ",
+      "romaji": "shiro",
+      "meaning": {
+        "it": "bianco",
+        "en": "white"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-kuro",
+      "japanese": "黒",
+      "kana": "くろ",
+      "romaji": "kuro",
+      "meaning": {
+        "it": "nero",
+        "en": "black"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-kiiro",
+      "japanese": "黄色",
+      "kana": "きいろ",
+      "romaji": "kiiro",
+      "meaning": {
+        "it": "giallo",
+        "en": "yellow"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-midori",
+      "japanese": "緑",
+      "kana": "みどり",
+      "romaji": "midori",
+      "meaning": {
+        "it": "verde",
+        "en": "green"
+      },
+      "tags": [
+        "colors"
+      ]
+    },
+    {
+      "id": "vocab-ookii",
+      "japanese": "大きい",
+      "kana": "おおきい",
+      "romaji": "ookii",
+      "meaning": {
+        "it": "grande",
+        "en": "big"
+      },
+      "tags": [
+        "adjectives"
+      ],
+      "usesKanjiRefs": [
+        "kanji-dai"
+      ]
+    },
+    {
+      "id": "vocab-chiisai",
+      "japanese": "小さい",
+      "kana": "ちいさい",
+      "romaji": "chiisai",
+      "meaning": {
+        "it": "piccolo",
+        "en": "small"
+      },
+      "tags": [
+        "adjectives"
+      ],
+      "usesKanjiRefs": [
+        "kanji-shou"
+      ]
+    },
+    {
+      "id": "vocab-atarashii",
+      "japanese": "新しい",
+      "kana": "あたらしい",
+      "romaji": "atarashii",
+      "meaning": {
+        "it": "nuovo",
+        "en": "new"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-furui",
+      "japanese": "古い",
+      "kana": "ふるい",
+      "romaji": "furui",
+      "meaning": {
+        "it": "vecchio (cose)",
+        "en": "old (things)"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-takai",
+      "japanese": "高い",
+      "kana": "たかい",
+      "romaji": "takai",
+      "meaning": {
+        "it": "alto / caro",
+        "en": "tall / expensive"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-yasui",
+      "japanese": "安い",
+      "kana": "やすい",
+      "romaji": "yasui",
+      "meaning": {
+        "it": "economico",
+        "en": "cheap"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-oishii",
+      "japanese": "おいしい",
+      "kana": "おいしい",
+      "romaji": "oishii",
+      "meaning": {
+        "it": "buono (di gusto)",
+        "en": "delicious"
+      },
+      "tags": [
+        "adjectives",
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-omoshiroi",
+      "japanese": "面白い",
+      "kana": "おもしろい",
+      "romaji": "omoshiroi",
+      "meaning": {
+        "it": "interessante / divertente",
+        "en": "interesting / fun"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-atsui",
+      "japanese": "暑い",
+      "kana": "あつい",
+      "romaji": "atsui",
+      "meaning": {
+        "it": "caldo (clima)",
+        "en": "hot (weather)"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-samui",
+      "japanese": "寒い",
+      "kana": "さむい",
+      "romaji": "samui",
+      "meaning": {
+        "it": "freddo (clima)",
+        "en": "cold (weather)"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-suki",
+      "japanese": "好き",
+      "kana": "すき",
+      "romaji": "suki",
+      "meaning": {
+        "it": "che piace / amato",
+        "en": "liked / favorite"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-kirai",
+      "japanese": "嫌い",
+      "kana": "きらい",
+      "romaji": "kirai",
+      "meaning": {
+        "it": "sgradito / odiato",
+        "en": "disliked"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-genki",
+      "japanese": "元気",
+      "kana": "げんき",
+      "romaji": "genki",
+      "meaning": {
+        "it": "in forma / energico",
+        "en": "healthy / lively"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-yuumei",
+      "japanese": "有名",
+      "kana": "ゆうめい",
+      "romaji": "yuumei",
+      "meaning": {
+        "it": "famoso",
+        "en": "famous"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-shizuka",
+      "japanese": "静か",
+      "kana": "しずか",
+      "romaji": "shizuka",
+      "meaning": {
+        "it": "tranquillo / silenzioso",
+        "en": "quiet"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-kirei",
+      "japanese": "きれい",
+      "kana": "きれい",
+      "romaji": "kirei",
+      "meaning": {
+        "it": "bello / pulito",
+        "en": "pretty / clean"
+      },
+      "tags": [
+        "adjectives"
+      ],
+      "mnemonic": {
+        "it": "Aggettivo in -な NONostante finisca in -い: きれいな (eccezione classica).",
+        "en": "A na-adjective DESPITE ending in -i: きれいな (a classic trap)."
+      }
+    },
+    {
+      "id": "vocab-benri",
+      "japanese": "便利",
+      "kana": "べんり",
+      "romaji": "benri",
+      "meaning": {
+        "it": "comodo / pratico",
+        "en": "convenient"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-hoshii",
+      "japanese": "欲しい",
+      "kana": "ほしい",
+      "romaji": "hoshii",
+      "meaning": {
+        "it": "desiderato / volere",
+        "en": "wanted"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-migi-d",
+      "japanese": "右",
+      "kana": "みぎ",
+      "romaji": "migi",
+      "meaning": {
+        "it": "destra",
+        "en": "right"
+      },
+      "tags": [
+        "directions"
+      ],
+      "usesKanjiRefs": [
+        "kanji-migi"
+      ]
+    },
+    {
+      "id": "vocab-hidari-d",
+      "japanese": "左",
+      "kana": "ひだり",
+      "romaji": "hidari",
+      "meaning": {
+        "it": "sinistra",
+        "en": "left"
+      },
+      "tags": [
+        "directions"
+      ],
+      "usesKanjiRefs": [
+        "kanji-hidari"
+      ]
+    },
+    {
+      "id": "vocab-mae",
+      "japanese": "前",
+      "kana": "まえ",
+      "romaji": "mae",
+      "meaning": {
+        "it": "davanti / prima",
+        "en": "front / before"
+      },
+      "tags": [
+        "directions",
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-ushiro",
+      "japanese": "後ろ",
+      "kana": "うしろ",
+      "romaji": "ushiro",
+      "meaning": {
+        "it": "dietro",
+        "en": "behind"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-tonari",
+      "japanese": "となり",
+      "kana": "となり",
+      "romaji": "tonari",
+      "meaning": {
+        "it": "accanto / vicino",
+        "en": "next to"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-soba",
+      "japanese": "そば",
+      "kana": "そば",
+      "romaji": "soba",
+      "meaning": {
+        "it": "vicino / accanto",
+        "en": "near / beside"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-kau",
+      "japanese": "買う",
+      "kana": "かう",
+      "romaji": "kau",
+      "meaning": {
+        "it": "comprare",
+        "en": "to buy"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-matsu",
+      "japanese": "待つ",
+      "kana": "まつ",
+      "romaji": "matsu",
+      "meaning": {
+        "it": "aspettare",
+        "en": "to wait"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-au",
+      "japanese": "会う",
+      "kana": "あう",
+      "romaji": "au",
+      "meaning": {
+        "it": "incontrare",
+        "en": "to meet"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-kaeru",
+      "japanese": "帰る",
+      "kana": "かえる",
+      "romaji": "kaeru",
+      "meaning": {
+        "it": "tornare (a casa)",
+        "en": "to return home"
+      },
+      "tags": [
+        "verbs",
+        "everyday",
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-asobu",
+      "japanese": "遊ぶ",
+      "kana": "あそぶ",
+      "romaji": "asobu",
+      "meaning": {
+        "it": "giocare / divertirsi",
+        "en": "to play / have fun"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-hataraku",
+      "japanese": "働く",
+      "kana": "はたらく",
+      "romaji": "hataraku",
+      "meaning": {
+        "it": "lavorare",
+        "en": "to work"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-okiru",
+      "japanese": "起きる",
+      "kana": "おきる",
+      "romaji": "okiru",
+      "meaning": {
+        "it": "alzarsi / svegliarsi",
+        "en": "to get up / wake"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-neru",
+      "japanese": "寝る",
+      "kana": "ねる",
+      "romaji": "neru",
+      "meaning": {
+        "it": "dormire / coricarsi",
+        "en": "to sleep / go to bed"
+      },
+      "tags": [
+        "verbs",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-tomodachi",
+      "japanese": "友達",
+      "kana": "ともだち",
+      "romaji": "tomodachi",
+      "meaning": {
+        "it": "amico",
+        "en": "friend"
+      },
+      "tags": [
+        "people",
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-shigoto",
+      "japanese": "仕事",
+      "kana": "しごと",
+      "romaji": "shigoto",
+      "meaning": {
+        "it": "lavoro",
+        "en": "work / job"
+      },
+      "tags": [
+        "everyday",
+        "places"
+      ]
+    },
+    {
+      "id": "vocab-tenki",
+      "japanese": "天気",
+      "kana": "てんき",
+      "romaji": "tenki",
+      "meaning": {
+        "it": "tempo (atmosferico)",
+        "en": "weather"
+      },
+      "tags": [
+        "everyday",
+        "nature"
+      ],
+      "usesKanjiRefs": [
+        "kanji-ten",
+        "kanji-ki-spirit"
+      ]
+    },
+    {
+      "id": "vocab-denwa",
+      "japanese": "電話",
+      "kana": "でんわ",
+      "romaji": "denwa",
+      "meaning": {
+        "it": "telefono / telefonata",
+        "en": "telephone / call"
+      },
+      "tags": [
+        "everyday"
+      ],
+      "usesKanjiRefs": [
+        "kanji-hanasu-k"
+      ]
+    },
+    {
+      "id": "vocab-kuruma",
+      "japanese": "車",
+      "kana": "くるま",
+      "romaji": "kuruma",
+      "meaning": {
+        "it": "auto / macchina",
+        "en": "car"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-michi",
+      "japanese": "道",
+      "kana": "みち",
+      "romaji": "michi",
+      "meaning": {
+        "it": "strada / via",
+        "en": "road / way"
+      },
+      "tags": [
+        "places",
+        "directions"
+      ]
+    }
+  ]
+}
