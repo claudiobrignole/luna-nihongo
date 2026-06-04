@@ -43,15 +43,29 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
     setActiveMicItemId(null);
   }, []);
 
-  const speakJapanese = useCallback(async (text: string) => {
+  const speakJapanese = useCallback(async (text: string, itemId = '_audio') => {
     setIsSpeaking(true);
+    clearSpeechFeedback();
     try {
-      const source = await speakJapaneseText(text);
-      setLastTtsSource(source);
+      const result = await speakJapaneseText(text);
+      if ('source' in result) {
+        setLastTtsSource(result.source);
+      } else {
+        setLastTtsSource(null);
+        const detail = result.detail ? ` (${result.detail})` : '';
+        setSpeechFeedback({
+          itemId,
+          status: 'fail',
+          text:
+            language === 'en'
+              ? `Audio unavailable.${detail} Run "npm run dev:api" locally or check GEMINI_API_KEY on the server.`
+              : `Audio non disponibile.${detail} In locale avvia "npm run dev:api" o verifica GEMINI_API_KEY sul server.`,
+        });
+      }
     } finally {
       setIsSpeaking(false);
     }
-  }, []);
+  }, [language, clearSpeechFeedback]);
 
   const startSpeechRecognition = useCallback(
     (itemId: string, targetJa: string, targetRomaji: string) => {

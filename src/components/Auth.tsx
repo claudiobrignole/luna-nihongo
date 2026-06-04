@@ -5,11 +5,12 @@ import { isFirebaseConfigured } from '../lib/firebase';
 
 interface AuthProps {
   language: 'en' | 'it';
+  initialSignup?: boolean;
 }
 
-export const Auth: React.FC<AuthProps> = ({ language }) => {
+export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) => {
   const { signIn, signUp } = useAuth();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(!initialSignup);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

@@ -5,21 +5,52 @@ import { TeacherProfile } from './components/TeacherProfile';
 import { BookingCalendar } from './components/BookingCalendar';
 import { StudentDashboard } from './components/StudentDashboard';
 import { AdminPanel } from './components/AdminPanel';
-import { Auth } from './components/Auth';
 import { AITutor } from './components/AITutor';
 import { Header, type TabType, type LanguageType } from './components/Header';
+import { HomeLanding } from './components/HomeLanding';
+import { Onboarding } from './components/Onboarding';
+import { PublicLanding } from './components/PublicLanding';
+import { AuthPage } from './components/AuthPage';
+import { RegisterPrompt } from './components/RegisterPrompt';
+import { BookingPreview } from './components/BookingPreview';
+import { GuestTutorPreview } from './components/GuestTutorPreview';
+import { GuestFlashcardsPreview } from './components/GuestFlashcardsPreview';
 import { useAuth } from './contexts/AuthContext';
 import { isAdminRole } from './types/user';
 import type { LunaUser } from './types/user';
+import { logStudyActivity } from './services/studyActivityService';
+import { CURRICULUM_LEVELS } from './data/curriculum';
+
+type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
 function App() {
   const { currentUser, loading, signOut, updateUser } = useAuth();
-  const [activeTab, setActiveTab] = useState<TabType>('path');
+  const [activeTab, setActiveTab] = useState<TabType>('home');
   const [language, setLanguage] = useState<LanguageType>('it');
+  const [authSignupMode, setAuthSignupMode] = useState(true);
+  const [registerPromptOpen, setRegisterPromptOpen] = useState(false);
+  const [registerReason, setRegisterReason] = useState<RegisterReason>('study');
+
+  const openRegister = (reason: RegisterReason = 'study') => {
+    setRegisterReason(reason);
+    setAuthSignupMode(true);
+    setActiveTab('auth');
+    setRegisterPromptOpen(false);
+  };
+
+  const openLogin = () => {
+    setAuthSignupMode(false);
+    setActiveTab('auth');
+  };
+
+  const promptRegister = (reason: RegisterReason) => {
+    setRegisterReason(reason);
+    setRegisterPromptOpen(true);
+  };
 
   const handleLogout = async () => {
     await signOut();
-    setActiveTab('path');
+    setActiveTab('home');
   };
 
   const handleCompleteUnit = async (unitId: string) => {
@@ -30,6 +61,37 @@ function App() {
       completedUnits: [...currentUser.completedUnits, unitId],
       xp: (currentUser.xp || 0) + 10,
     });
+
+    void logStudyActivity(currentUser.id, {
+      type: 'unit_completed',
+      label: unitId,
+      unitId,
+    });
+  };
+
+  const handleUnitOpen = (unitId: string, level: number) => {
+    if (!currentUser) return;
+    void logStudyActivity(currentUser.id, {
+      type: 'unit_opened',
+      label: unitId,
+      unitId,
+      level,
+    });
+  };
+
+  const handleOnboardingComplete = async (preferredStartLevel: number) => {
+    if (!currentUser) return;
+    const levelMeta = CURRICULUM_LEVELS.find((l) => l.level === preferredStartLevel);
+    await updateUser({
+      onboardingCompleted: true,
+      preferredStartLevel,
+    });
+    void logStudyActivity(currentUser.id, {
+      type: 'level_selected',
+      label: levelMeta?.title[language] ?? `Level ${preferredStartLevel}`,
+      level: preferredStartLevel,
+    });
+    setActiveTab('path');
   };
 
   const handleUserUpdate = async (updates: Partial<LunaUser>) => {
@@ -37,7 +99,7 @@ function App() {
   };
 
   const handleLanguageToggle = () => {
-    setLanguage(prev => (prev === 'it' ? 'en' : 'it'));
+    setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
 
   if (loading) {
@@ -56,10 +118,79 @@ function App() {
       <div className="app-container">
         <div className="bg-glow-1" />
         <div className="bg-glow-2" />
-        <Header variant="public" language={language} onLanguageToggle={handleLanguageToggle} />
+        <Header
+          variant="guest"
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          language={language}
+          onLanguageToggle={handleLanguageToggle}
+          onRegister={() => openRegister('study')}
+          onLogin={openLogin}
+        />
         <main className="main-content">
-          <Auth language={language} />
+          {activeTab === 'home' && (
+            <PublicLanding
+              language={language}
+              onRegister={() => openRegister('study')}
+              onExploreStudy={() => setActiveTab('path')}
+            />
+          )}
+
+          {activeTab === 'path' && (
+            <LearningPath
+              language={language}
+              completedUnits={[]}
+              onCompleteUnit={() => {}}
+              guestMode
+              onRequireAuth={() => promptRegister('study')}
+            />
+          )}
+
+          {activeTab === 'flashcards' && (
+            <GuestFlashcardsPreview
+              language={language}
+              onRequireAuth={() => promptRegister('flashcards')}
+            />
+          )}
+
+          {activeTab === 'tutor' && (
+            <GuestTutorPreview
+              language={language}
+              onRequireAuth={() => promptRegister('tutor')}
+            />
+          )}
+
+          {activeTab === 'teacher' && (
+            <TeacherProfile
+              language={language}
+              onNavigateToBooking={() => promptRegister('booking')}
+            />
+          )}
+
+          {activeTab === 'booking' && (
+            <BookingPreview
+              language={language}
+              onRegister={() => openRegister('booking')}
+            />
+          )}
+
+          {activeTab === 'auth' && (
+            <AuthPage
+              language={language}
+              initialSignup={authSignupMode}
+              onBack={() => setActiveTab('home')}
+            />
+          )}
         </main>
+
+        <RegisterPrompt
+          language={language}
+          open={registerPromptOpen}
+          reason={registerReason}
+          onClose={() => setRegisterPromptOpen(false)}
+          onRegister={() => openRegister(registerReason)}
+        />
+
         <footer className="main-footer">
           <div className="footer-content">
             <div>© {new Date().getFullYear()} <strong>Luna Nihongo</strong>. All rights reserved.</div>
@@ -68,6 +199,8 @@ function App() {
       </div>
     );
   }
+
+  const showOnboarding = !currentUser.onboardingCompleted;
 
   return (
     <div className="app-container">
@@ -85,35 +218,59 @@ function App() {
       />
 
       <main className="main-content">
-        {activeTab === 'path' && (
+        {showOnboarding && (
+          <Onboarding
+            language={language}
+            username={currentUser.username}
+            onComplete={(level) => void handleOnboardingComplete(level)}
+          />
+        )}
+
+        {!showOnboarding && activeTab === 'home' && (
+          <HomeLanding
+            language={language}
+            currentUser={currentUser}
+            onNavigate={setActiveTab}
+          />
+        )}
+
+        {!showOnboarding && activeTab === 'path' && (
           <LearningPath
             language={language}
             completedUnits={currentUser.completedUnits}
             onCompleteUnit={handleCompleteUnit}
+            initialLevel={currentUser.preferredStartLevel}
+            onUnitOpen={handleUnitOpen}
           />
         )}
 
-        {activeTab === 'flashcards' && (
+        {!showOnboarding && activeTab === 'flashcards' && (
           <Flashcards language={language} userId={currentUser.id} />
         )}
 
-        {activeTab === 'tutor' && (
+        {!showOnboarding && activeTab === 'tutor' && (
           <AITutor
             language={language}
             currentUser={currentUser}
             onUserUpdate={handleUserUpdate}
             onNavigateToDashboard={() => setActiveTab('dashboard')}
+            onTutorMessage={(label) => {
+              void logStudyActivity(currentUser.id, {
+                type: 'tutor_message',
+                label,
+              });
+            }}
           />
         )}
 
-        {activeTab === 'teacher' && (
+        {!showOnboarding && activeTab === 'teacher' && (
           <TeacherProfile
             language={language}
             onNavigateToBooking={() => setActiveTab('booking')}
           />
         )}
 
-        {activeTab === 'booking' && (
+        {!showOnboarding && activeTab === 'booking' && (
           <BookingCalendar
             language={language}
             userId={currentUser.id}
@@ -121,7 +278,7 @@ function App() {
           />
         )}
 
-        {activeTab === 'dashboard' && (
+        {!showOnboarding && activeTab === 'dashboard' && (
           <StudentDashboard
             language={language}
             onNavigateToBooking={() => setActiveTab('booking')}
@@ -131,7 +288,7 @@ function App() {
           />
         )}
 
-        {activeTab === 'admin' && isAdminRole(currentUser.role) && (
+        {!showOnboarding && activeTab === 'admin' && isAdminRole(currentUser.role) && (
           <AdminPanel language={language} currentUser={currentUser} />
         )}
       </main>

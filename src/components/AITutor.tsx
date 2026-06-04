@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight
+  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
+import { FREE_TUTOR_TURN_LIMIT } from '../types/user';
+import { extractJapaneseForSpeech, speakJapaneseText } from '../services/ttsService';
 
 interface AITutorProps {
   language: 'en' | 'it';
   currentUser: LunaUser;
   onUserUpdate: (updates: Partial<LunaUser>) => Promise<void>;
   onNavigateToDashboard: () => void;
+  onTutorMessage?: (label: string) => void;
 }
-
-const FREE_MESSAGE_LIMIT = 5;
 
 // Smart local fallback (used when PHP proxy is unavailable in dev)
 const FALLBACK_RESPONSES_EN = [
@@ -54,6 +55,7 @@ export const AITutor: React.FC<AITutorProps> = ({
   currentUser,
   onUserUpdate,
   onNavigateToDashboard,
+  onTutorMessage,
 }) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>(currentUser.chatHistory || []);
@@ -61,12 +63,27 @@ export const AITutor: React.FC<AITutorProps> = ({
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [memoryText, setMemoryText] = useState(currentUser.memory);
   const [isEditingMemory, setIsEditingMemory] = useState(false);
+  const [voiceEnabled, setVoiceEnabled] = useState(currentUser.tutorVoiceEnabled);
+  const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   const isFree = currentUser.tier === 'free';
   const msgCount = currentUser.messagesCount || 0;
-  const remaining = FREE_MESSAGE_LIMIT - msgCount;
-  const isBlocked = isFree && msgCount >= FREE_MESSAGE_LIMIT;
+  const remaining = FREE_TUTOR_TURN_LIMIT - msgCount;
+  const isBlocked = isFree && msgCount >= FREE_TUTOR_TURN_LIMIT;
+
+  const speakReply = async (text: string, index?: number) => {
+    const toSpeak = extractJapaneseForSpeech(text);
+    if (index !== undefined) setSpeakingIndex(index);
+    await speakJapaneseText(toSpeak);
+    setSpeakingIndex(null);
+  };
+
+  const toggleVoice = async () => {
+    const next = !voiceEnabled;
+    setVoiceEnabled(next);
+    await onUserUpdate({ tutorVoiceEnabled: next });
+  };
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -80,7 +97,7 @@ export const AITutor: React.FC<AITutorProps> = ({
     const text = input.trim();
     if (!text || isLoading || isBlocked) return;
 
-    if (isFree && msgCount >= FREE_MESSAGE_LIMIT) {
+    if (isFree && msgCount >= FREE_TUTOR_TURN_LIMIT) {
       setShowUpgradeModal(true);
       return;
     }
@@ -126,16 +143,22 @@ export const AITutor: React.FC<AITutorProps> = ({
 
     const assistantMsg: ChatMessage = { role: 'assistant', content: replyText };
     const finalMessages = [...newMessages, assistantMsg];
+    const assistantIndex = finalMessages.length - 1;
     setMessages(finalMessages);
     setIsLoading(false);
 
-    // Persist updates
+    onTutorMessage?.(text.slice(0, 80));
+
     saveUser({
       messagesCount: newCount,
       chatHistory: finalMessages,
     });
 
-    if (isFree && newCount >= FREE_MESSAGE_LIMIT) {
+    if (voiceEnabled) {
+      void speakReply(replyText, assistantIndex);
+    }
+
+    if (isFree && newCount >= FREE_TUTOR_TURN_LIMIT) {
       setTimeout(() => setShowUpgradeModal(true), 800);
     }
   };
@@ -146,17 +169,10 @@ export const AITutor: React.FC<AITutorProps> = ({
   };
 
   return (
-    <div style={{ display: 'flex', gap: '1.5rem', height: 'calc(100vh - 160px)', maxHeight: '750px' }}>
+    <div className="tutor-layout">
 
       {/* ── Left Panel: Memory & Info ── */}
-      <div style={{
-        width: '280px',
-        minWidth: '240px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-        flexShrink: 0,
-      }}>
+      <div className="tutor-sidebar">
         {/* Tier Badge */}
         <div className="glass-panel" style={{
           padding: '1.2rem',
@@ -178,7 +194,7 @@ export const AITutor: React.FC<AITutorProps> = ({
               <strong style={{ color: remaining > 1 ? 'var(--success)' : 'var(--error)' }}>
                 {Math.max(0, remaining)}
               </strong>
-              {' '}{language === 'en' ? 'messages remaining today' : 'messaggi rimanenti oggi'}
+              {' '}{language === 'en' ? 'Q&A turns left (free)' : 'turni Q&A rimasti (free)'}
               <div style={{
                 height: '4px',
                 backgroundColor: 'var(--border)',
@@ -188,7 +204,7 @@ export const AITutor: React.FC<AITutorProps> = ({
               }}>
                 <div style={{
                   height: '100%',
-                  width: `${Math.max(0, (remaining / FREE_MESSAGE_LIMIT)) * 100}%`,
+                  width: `${Math.max(0, (remaining / FREE_TUTOR_TURN_LIMIT)) * 100}%`,
                   backgroundColor: remaining > 2 ? 'var(--success)' : 'var(--error)',
                   borderRadius: '2px',
                   transition: 'width 0.4s ease'
@@ -328,12 +344,30 @@ export const AITutor: React.FC<AITutorProps> = ({
                 width: '7px', height: '7px', borderRadius: '50%',
                 backgroundColor: 'var(--success)', display: 'inline-block'
               }} />
-              {language === 'en' ? 'Online • AI Japanese Tutor' : 'Online • Tutor AI di Giapponese'}
+              {language === 'en' ? 'Online • Text & voice' : 'Online • Testo e voce'}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => void toggleVoice()}
+            className="btn btn-secondary"
+            style={{
+              marginLeft: 'auto',
+              padding: '0.45rem 0.75rem',
+              fontSize: '0.78rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+            }}
+            title={language === 'en' ? 'Toggle voice replies' : 'Attiva/disattiva voce'}
+          >
+            {voiceEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+            {voiceEnabled
+              ? (language === 'en' ? 'Voice on' : 'Voce attiva')
+              : (language === 'en' ? 'Voice off' : 'Voce spenta')}
+          </button>
           {isBlocked && (
             <div style={{
-              marginLeft: 'auto',
               fontSize: '0.78rem',
               color: 'var(--error)',
               fontWeight: 600,
@@ -395,17 +429,38 @@ export const AITutor: React.FC<AITutorProps> = ({
                   color: 'white', fontSize: '0.9rem', fontWeight: '700'
                 }}>月</div>
               )}
-              <div style={{
-                maxWidth: '75%',
-                padding: '0.75rem 1rem',
-                borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                backgroundColor: msg.role === 'user' ? 'var(--primary)' : 'var(--bg-input)',
-                color: msg.role === 'user' ? 'white' : 'var(--text-main)',
-                fontSize: '0.9rem',
-                lineHeight: '1.5',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-              }}>
-                {msg.content}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: msg.role === 'user' ? 'flex-end' : 'flex-start', gap: '0.35rem', maxWidth: '75%' }}>
+                <div style={{
+                  padding: '0.75rem 1rem',
+                  borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                  backgroundColor: msg.role === 'user' ? 'var(--primary)' : 'var(--bg-input)',
+                  color: msg.role === 'user' ? 'white' : 'var(--text-main)',
+                  fontSize: '0.9rem',
+                  lineHeight: '1.5',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                }}>
+                  {msg.content}
+                </div>
+                {msg.role === 'assistant' && (
+                  <button
+                    type="button"
+                    onClick={() => void speakReply(msg.content, i)}
+                    disabled={speakingIndex === i}
+                    style={{
+                      fontSize: '0.75rem',
+                      color: 'var(--text-muted)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.25rem',
+                      padding: '2px 6px',
+                    }}
+                  >
+                    <Volume2 size={14} />
+                    {speakingIndex === i
+                      ? (language === 'en' ? 'Playing…' : 'Riproduzione…')
+                      : (language === 'en' ? 'Listen' : 'Ascolta')}
+                  </button>
+                )}
               </div>
               {msg.role === 'user' && (
                 <div style={{
@@ -555,8 +610,8 @@ export const AITutor: React.FC<AITutorProps> = ({
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
               {language === 'en'
-                ? "You've used all your 5 free messages. Upgrade to Premium to chat without limits, access long-term AI memory, and accelerate your Japanese learning!"
-                : "Hai usato tutti i 5 messaggi gratuiti. Passa a Premium per chattare senza limiti, accedere alla memoria AI e accelerare il tuo apprendimento del giapponese!"}
+                ? `You've used all ${FREE_TUTOR_TURN_LIMIT} free Q&A turns. Upgrade to Premium for unlimited conversations, voice, and long-term AI memory.`
+                : `Hai usato tutti i ${FREE_TUTOR_TURN_LIMIT} turni Q&A gratuiti. Passa a Premium per conversazioni illimitate, voce e memoria AI.`}
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
               <button

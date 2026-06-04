@@ -15,9 +15,15 @@ export interface LunaUser {
   completedUnits: string[];
   xp: number;
   joinedDate: string;
+  /** Tutor user turns (each user message in chat). Free tier cap applies here. */
   messagesCount: number;
   memory: string;
   chatHistory: ChatMessage[];
+  onboardingCompleted: boolean;
+  /** Macro curriculum level (0–6) the student chose at onboarding. */
+  preferredStartLevel: number;
+  showRomaji: boolean;
+  tutorVoiceEnabled: boolean;
 }
 
 export interface UserProfileDocument {
@@ -31,9 +37,15 @@ export interface UserProfileDocument {
   messagesCount: number;
   memory: string;
   chatHistory: ChatMessage[];
+  onboardingCompleted?: boolean;
+  preferredStartLevel?: number;
+  showRomaji?: boolean;
+  tutorVoiceEnabled?: boolean;
   createdAt: string;
   updatedAt: string;
 }
+
+export const FREE_TUTOR_TURN_LIMIT = 10;
 
 export const SUPER_ADMIN_EMAIL = 'claudio@brignole.ch';
 

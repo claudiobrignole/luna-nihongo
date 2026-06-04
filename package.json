@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npm run curriculum:build && vite",
     "dev:api": "php -S localhost:8080 -t public",
+    "dev:all": "npm run curriculum:build && npm run dev:api & npm run dev",
     "build": "node scripts/generate-gemini-secret.mjs && npm run curriculum:build && tsc -b && vite build",
     "build:hostinger": "bash scripts/build-hostinger.sh",
     "curriculum:check": "node content/curriculum/hydrate.mjs --check",

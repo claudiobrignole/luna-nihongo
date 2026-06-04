@@ -9,6 +9,8 @@ import {
   AlertCircle,
   GraduationCap,
   Sparkles,
+  History,
+  X,
 } from 'lucide-react';
 import type { LunaUser, UserRole } from '../types/user';
 import {
@@ -18,6 +20,8 @@ import {
   roleLabel,
 } from '../types/user';
 import { listAllUsers, setUserRole, setUserTier } from '../services/userService';
+import { listStudyActivity } from '../services/studyActivityService';
+import type { StudyActivity } from '../types/study';
 
 interface AdminPanelProps {
   language: 'en' | 'it';
@@ -31,6 +35,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   const [search, setSearch] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [activityUser, setActivityUser] = useState<LunaUser | null>(null);
+  const [activityLog, setActivityLog] = useState<StudyActivity[]>([]);
+  const [activityLoading, setActivityLoading] = useState(false);
 
   const isSuperAdmin = currentUser.role === 'super_admin';
 
@@ -93,6 +100,36 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
     } finally {
       setBusyId(null);
     }
+  };
+
+  const openActivity = async (target: LunaUser) => {
+    setActivityUser(target);
+    setActivityLoading(true);
+    setActivityLog([]);
+    try {
+      const items = await listStudyActivity(target.id, 60);
+      setActivityLog(items);
+    } catch {
+      setError(
+        language === 'en'
+          ? 'Could not load study history.'
+          : 'Impossibile caricare lo storico studio.'
+      );
+    } finally {
+      setActivityLoading(false);
+    }
+  };
+
+  const activityTypeLabel = (type: StudyActivity['type']) => {
+    const labels: Record<StudyActivity['type'], { en: string; it: string }> = {
+      unit_opened: { en: 'Unit opened', it: 'Unità aperta' },
+      unit_completed: { en: 'Unit completed', it: 'Unità completata' },
+      quiz_completed: { en: 'Quiz done', it: 'Quiz fatto' },
+      flashcard_session: { en: 'Flashcards', it: 'Flashcard' },
+      tutor_message: { en: 'Tutor chat', it: 'Chat tutor' },
+      level_selected: { en: 'Level chosen', it: 'Livello scelto' },
+    };
+    return labels[type][language];
   };
 
   const handleTierToggle = async (target: LunaUser) => {
@@ -233,7 +270,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid var(--border)', textAlign: 'left' }}>
-                  {[language === 'en' ? 'User' : 'Utente', 'Email', language === 'en' ? 'Role' : 'Ruolo', language === 'en' ? 'Plan' : 'Piano', 'XP', language === 'en' ? 'Actions' : 'Azioni'].map((h) => (
+                  {[language === 'en' ? 'User' : 'Utente', 'Email', language === 'en' ? 'Role' : 'Ruolo', language === 'en' ? 'Plan' : 'Piano', 'XP', language === 'en' ? 'Lessons' : 'Lezioni', language === 'en' ? 'Actions' : 'Azioni'].map((h) => (
                     <th key={h} style={{ padding: '0.9rem 1rem', color: 'var(--text-light)', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase' }}>{h}</th>
                   ))}
                 </tr>
@@ -303,21 +340,33 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                           <Sparkles size={13} /> {user.xp}
                         </span>
                       </td>
+                      <td style={{ padding: '0.9rem 1rem', fontWeight: 600 }}>
+                        {user.completedUnits.length}
+                      </td>
                       <td style={{ padding: '0.9rem 1rem' }}>
-                        {canTier ? (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                           <button
-                            onClick={() => void handleTierToggle(user)}
-                            disabled={isBusy}
+                            type="button"
+                            onClick={() => void openActivity(user)}
                             className="btn btn-secondary"
-                            style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', opacity: isBusy ? 0.6 : 1 }}
+                            style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
                           >
-                            {isBusy ? '...' : user.tier === 'premium'
-                              ? (language === 'en' ? '→ Free' : '→ Free')
-                              : (language === 'en' ? '→ Premium' : '→ Premium')}
+                            <History size={14} />
+                            {language === 'en' ? 'History' : 'Storico'}
                           </button>
-                        ) : (
-                          <span style={{ color: 'var(--text-light)', fontSize: '0.78rem' }}>—</span>
-                        )}
+                          {canTier ? (
+                            <button
+                              onClick={() => void handleTierToggle(user)}
+                              disabled={isBusy}
+                              className="btn btn-secondary"
+                              style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', opacity: isBusy ? 0.6 : 1 }}
+                            >
+                              {isBusy ? '...' : user.tier === 'premium'
+                                ? (language === 'en' ? '→ Free' : '→ Free')
+                                : (language === 'en' ? '→ Premium' : '→ Premium')}
+                            </button>
+                          ) : null}
+                        </div>
                       </td>
                     </tr>
                   );
@@ -327,6 +376,60 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
           </div>
         )}
       </div>
+
+      {activityUser && (
+        <div className="glass-panel admin-activity-panel">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <History size={20} style={{ color: 'var(--primary)' }} />
+            <div style={{ flex: 1 }}>
+              <h3 style={{ margin: 0, fontSize: '1.1rem' }}>
+                {language === 'en' ? 'Study history' : 'Storico studio'} — {activityUser.username}
+              </h3>
+              <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                {activityUser.email} · {activityUser.completedUnits.length}{' '}
+                {language === 'en' ? 'units completed' : 'unità completate'}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActivityUser(null)}
+              className="btn btn-secondary"
+              style={{ padding: '0.4rem' }}
+              aria-label="Close"
+            >
+              <X size={18} />
+            </button>
+          </div>
+
+          {activityLoading ? (
+            <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+              <Loader2 size={28} style={{ margin: '0 auto 0.75rem' }} />
+              {language === 'en' ? 'Loading activity…' : 'Caricamento attività…'}
+            </div>
+          ) : activityLog.length === 0 ? (
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+              {language === 'en'
+                ? 'No logged activity yet. Events appear when the student opens units, completes lessons, or chats with the tutor.'
+                : 'Nessuna attività registrata. Gli eventi compaiono quando lo studente apre unità, completa lezioni o usa il tutor.'}
+            </p>
+          ) : (
+            <div className="admin-activity-list">
+              {activityLog.map((item) => (
+                <div key={item.id} className="admin-activity-item">
+                  <span className="admin-activity-type">{activityTypeLabel(item.type)}</span>
+                  <span>{item.label}</span>
+                  {item.unitId && (
+                    <span style={{ color: 'var(--text-light)', fontSize: '0.75rem' }}>{item.unitId}</span>
+                  )}
+                  <time className="admin-activity-time">
+                    {new Date(item.createdAt).toLocaleString(language === 'en' ? 'en-US' : 'it-IT')}
+                  </time>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {isSuperAdmin && (
         <div className="glass-panel" style={{ padding: '1rem 1.2rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>

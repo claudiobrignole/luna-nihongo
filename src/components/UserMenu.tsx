@@ -3,7 +3,7 @@ import { ChevronDown, LayoutDashboard, LogOut, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
 import { isAdminRole, roleLabel } from '../types/user';
 
-type TabType = 'path' | 'flashcards' | 'teacher' | 'booking' | 'dashboard' | 'tutor' | 'admin';
+type TabType = 'home' | 'path' | 'flashcards' | 'teacher' | 'booking' | 'dashboard' | 'tutor' | 'admin' | 'auth';
 type LanguageType = 'en' | 'it';
 
 interface UserMenuProps {

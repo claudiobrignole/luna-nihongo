@@ -1,0 +1,78 @@
+import { useState } from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import type { LanguageType } from './Header';
+
+interface OnboardingProps {
+  language: LanguageType;
+  username: string;
+  onComplete: (preferredStartLevel: number) => void;
+}
+
+export function Onboarding({ language, username, onComplete }: OnboardingProps) {
+  const [step, setStep] = useState(0);
+  const [level, setLevel] = useState(0);
+
+  const unitCountForLevel = (lvl: number) => SYLLABUS.filter((u) => u.level === lvl).length;
+
+  if (step === 0) {
+    return (
+      <div className="onboarding-overlay">
+        <div className="onboarding-panel glass-panel">
+          <div className="onboarding-icon">月</div>
+          <h2>
+            {language === 'en' ? `Welcome, ${username}!` : `Benvenuto, ${username}!`}
+          </h2>
+          <p>
+            {language === 'en'
+              ? 'Luna Nihongo is a guided path to JLPT N5. You can start from any level — we recommend beginners start at Hiragana.'
+              : 'Luna Nihongo è un percorso guidato verso il JLPT N5. Puoi iniziare da qualsiasi livello — per i principianti consigliamo Hiragana.'}
+          </p>
+          <ul className="onboarding-list">
+            <li>{language === 'en' ? 'All levels are open — no locks.' : 'Tutti i livelli sono aperti — nessun blocco.'}</li>
+            <li>{language === 'en' ? 'AI tutor with voice after free signup.' : 'Tutor AI con voce dopo la registrazione gratuita.'}</li>
+            <li>{language === 'en' ? 'Live lessons with Luna (booking).' : 'Lezioni live con Luna (prenotazione).'}</li>
+          </ul>
+          <button type="button" className="btn btn-primary" onClick={() => setStep(1)}>
+            {language === 'en' ? 'Choose my level' : 'Scegli il mio livello'}
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="onboarding-overlay">
+      <div className="onboarding-panel glass-panel onboarding-panel-wide">
+        <h2>
+          <Sparkles size={20} style={{ verticalAlign: 'middle', marginRight: 8 }} />
+          {language === 'en' ? 'Where do you want to start?' : 'Da dove vuoi iniziare?'}
+        </h2>
+        <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>
+          {language === 'en'
+            ? 'You can change level anytime in Studio. Units within a level are all accessible.'
+            : 'Puoi cambiare livello quando vuoi in Studio. Le unità del livello sono tutte accessibili.'}
+        </p>
+        <div className="onboarding-level-grid">
+          {CURRICULUM_LEVELS.map((lvl) => (
+            <button
+              key={lvl.level}
+              type="button"
+              className={`onboarding-level-card ${level === lvl.level ? 'selected' : ''}`}
+              onClick={() => setLevel(lvl.level)}
+            >
+              <strong>{lvl.title[language]}</strong>
+              <span>{unitCountForLevel(lvl.level)} {language === 'en' ? 'units' : 'unità'}</span>
+              <small>{lvl.description[language]}</small>
+            </button>
+          ))}
+        </div>
+        <button type="button" className="btn btn-primary" onClick={() => onComplete(level)}>
+          {language === 'en' ? 'Start learning' : 'Inizia a studiare'}
+          <ArrowRight size={18} />
+        </button>
+      </div>
+    </div>
+  );
+}

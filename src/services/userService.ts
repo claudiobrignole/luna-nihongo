@@ -63,6 +63,10 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     messagesCount: data.messagesCount ?? 0,
     memory: data.memory ?? '',
     chatHistory: data.chatHistory ?? [],
+    onboardingCompleted: data.onboardingCompleted ?? false,
+    preferredStartLevel: typeof data.preferredStartLevel === 'number' ? data.preferredStartLevel : 0,
+    showRomaji: data.showRomaji !== false,
+    tutorVoiceEnabled: data.tutorVoiceEnabled !== false,
   };
 }
 
@@ -111,6 +115,10 @@ export async function ensureUserProfile(
     messagesCount: 0,
     memory: defaultMemory(normalizedEmail, username, language),
     chatHistory: [],
+    onboardingCompleted: false,
+    preferredStartLevel: 0,
+    showRomaji: true,
+    tutorVoiceEnabled: true,
     createdAt: now,
     updatedAt: now,
   };
@@ -132,6 +140,10 @@ export async function updateUserProfile(
       | 'messagesCount'
       | 'memory'
       | 'chatHistory'
+      | 'onboardingCompleted'
+      | 'preferredStartLevel'
+      | 'showRomaji'
+      | 'tutorVoiceEnabled'
     >
   >
 ): Promise<LunaUser> {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
 import type { HydratedUnit, Quiz } from '../types/curriculum';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
@@ -9,17 +9,15 @@ import {
   getQuizOptionLabel,
   unitTypeLabel,
 } from '../utils/curriculumDisplay';
-import { 
-  BookOpen, 
-  CheckCircle, 
-  Lock, 
-  Trophy, 
-  X, 
-  ArrowRight, 
-  Award, 
-  Volume2, 
-  Mic, 
-  Check, 
+import {
+  BookOpen,
+  CheckCircle,
+  Trophy,
+  X,
+  Award,
+  Volume2,
+  Mic,
+  Check,
   AlertCircle,
   Loader2,
 } from 'lucide-react';
@@ -28,13 +26,26 @@ interface LearningPathProps {
   language: 'en' | 'it';
   onCompleteUnit: (unitId: string) => void;
   completedUnits: string[];
+  initialLevel?: number;
+  onUnitOpen?: (unitId: string, level: number) => void;
+  guestMode?: boolean;
+  onRequireAuth?: () => void;
 }
 
 export const LearningPath: React.FC<LearningPathProps> = ({
   language,
   onCompleteUnit,
   completedUnits,
+  initialLevel = 0,
+  onUnitOpen,
+  guestMode = false,
+  onRequireAuth,
 }) => {
+  const [activeLevel, setActiveLevel] = useState(initialLevel);
+
+  useEffect(() => {
+    setActiveLevel(initialLevel);
+  }, [initialLevel]);
   const [selectedUnit, setSelectedUnit] = useState<HydratedUnit | null>(null);
   const [quizActive, setQuizActive] = useState<boolean>(false);
   const [currentQuizIndex, setCurrentQuizIndex] = useState<number>(0);
@@ -53,13 +64,15 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     clearSpeechFeedback,
   } = useJapaneseSpeech({ language });
 
-  const isUnlocked = (index: number) => {
-    if (index === 0) return true;
-    return completedUnits.includes(SYLLABUS[index - 1].id);
-  };
+  const levelUnits = SYLLABUS.filter((u) => u.level === activeLevel);
+  const completedInLevel = levelUnits.filter((u) => completedUnits.includes(u.id)).length;
 
-  const handleUnitClick = (unit: HydratedUnit, index: number) => {
-    if (!isUnlocked(index)) return;
+  const handleUnitClick = (unit: HydratedUnit) => {
+    if (guestMode) {
+      onRequireAuth?.();
+      return;
+    }
+    onUnitOpen?.(unit.id, unit.level);
     setSelectedUnit(unit);
     setQuizActive(false);
     setShowResult(false);
@@ -122,140 +135,70 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     return true;
   };
 
+  const activeLevelMeta = CURRICULUM_LEVELS.find((l) => l.level === activeLevel);
+
   return (
-    <div className="learning-path-view">
-      <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <h2 style={{ fontSize: '2.2rem', marginBottom: '0.5rem' }}>
-          {language === 'en' ? 'Your Japanese Journey' : 'Il Tuo Viaggio Giapponese'}
-        </h2>
-        <p style={{ color: 'var(--text-muted)' }}>
-          {language === 'en' 
-            ? 'Complete levels sequentially, practice pronunciation, and climb your way to advanced vocabulary!'
-            : 'Completa i livelli in sequenza, esercita la pronuncia e scala la vetta verso il giapponese fluente!'}
-        </p>
+    <div className="study-hub">
+      <header className="study-hub-header">
+        <div>
+          <h2>{language === 'en' ? 'Studio' : 'Studio'}</h2>
+          <p>
+            {guestMode
+              ? (language === 'en'
+                ? 'Browse all levels freely. Open a unit after free registration to study with audio.'
+                : 'Sfoglia tutti i livelli. Apri un\'unità dopo la registrazione gratuita per studiare con l\'audio.')
+              : (language === 'en'
+                ? 'Pick a level — every unit is open. Practice with audio on each card.'
+                : 'Scegli un livello — tutte le unità sono aperte. Esercitati con l\'audio su ogni scheda.')}
+          </p>
+        </div>
+        <div className="study-hub-progress glass-panel">
+          <strong>{completedInLevel}/{levelUnits.length}</strong>
+          <span>{language === 'en' ? 'units in this level' : 'unità in questo livello'}</span>
+        </div>
+      </header>
+
+      <div className="study-level-tabs" role="tablist">
+        {CURRICULUM_LEVELS.map((lvl) => (
+          <button
+            key={lvl.level}
+            type="button"
+            role="tab"
+            aria-selected={activeLevel === lvl.level}
+            className={`study-level-tab ${activeLevel === lvl.level ? 'active' : ''}`}
+            onClick={() => setActiveLevel(lvl.level)}
+          >
+            {lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, '')}
+          </button>
+        ))}
       </div>
 
-      {/* Grouped Levels Display */}
-      <div className="levels-container" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '3rem',
-        width: '100%',
-        padding: '1rem 0'
-      }}>
-        {CURRICULUM_LEVELS.map((levelObj) => {
-          const levelUnits = SYLLABUS.filter(u => u.level === levelObj.level);
-          
+      {activeLevelMeta && (
+        <p className="study-level-desc">{activeLevelMeta.description[language]}</p>
+      )}
+
+      <div className="study-unit-grid">
+        {levelUnits.map((unit) => {
+          const completed = completedUnits.includes(unit.id);
           return (
-            <div key={levelObj.level} style={{ width: '100%', maxWidth: '550px' }}>
-              {/* Level Header Banner */}
-              <div className="glass-panel" style={{
-                padding: '1.2rem',
-                borderRadius: '18px',
-                borderLeft: '5px solid var(--primary)',
-                marginBottom: '1.5rem',
-                background: 'var(--bg-panel)',
-                boxShadow: 'var(--glass-shadow)'
-              }}>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '0.3rem' }}>
-                  {levelObj.title[language]}
-                </h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-                  {levelObj.description[language]}
-                </p>
-              </div>
-
-              {/* Units within this Level */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.2rem',
-                position: 'relative',
-                paddingLeft: '1rem',
-                borderLeft: '2px dashed var(--border)'
-              }}>
-                {levelUnits.map((unit) => {
-                  const globalIndex = SYLLABUS.findIndex(u => u.id === unit.id);
-                  const unlocked = isUnlocked(globalIndex);
-                  const completed = completedUnits.includes(unit.id);
-                  
-                  return (
-                    <div 
-                      key={unit.id}
-                      onClick={() => handleUnitClick(unit, globalIndex)}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '1.2rem',
-                        cursor: unlocked ? 'pointer' : 'not-allowed',
-                        width: '100%',
-                        padding: '1rem',
-                        transform: unlocked ? 'scale(1)' : 'scale(0.97)',
-                        opacity: unlocked ? 1 : 0.65,
-                        transition: 'all var(--transition-normal)'
-                      }}
-                      className="glass-panel path-node-card"
-                    >
-                      {/* Circle Index Indicator */}
-                      <div style={{
-                        width: '50px',
-                        height: '50px',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: completed 
-                          ? 'linear-gradient(135deg, var(--success), #2ecc71)' 
-                          : unlocked 
-                            ? 'linear-gradient(135deg, var(--primary), var(--secondary))'
-                            : 'var(--border)',
-                        color: 'white',
-                        fontSize: '1.1rem',
-                        fontWeight: '700',
-                        flexShrink: 0,
-                        boxShadow: unlocked ? '0 4px 12px rgba(0,0,0,0.1)' : 'none'
-                      }}>
-                        {completed ? <CheckCircle size={24} /> : !unlocked ? <Lock size={18} /> : globalIndex + 1}
-                      </div>
-
-                      {/* Unit Content */}
-                      <div style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.2rem' }}>
-                          <span style={{
-                            fontSize: '0.7rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.05em',
-                            fontWeight: 700,
-                            color: unit.type === 'grammar' ? 'var(--secondary)' : unit.type === 'review' ? 'var(--accent)' : 'var(--primary)',
-                            background: unit.type === 'grammar' ? 'rgba(155, 89, 182, 0.1)' : unit.type === 'review' ? 'rgba(243, 156, 18, 0.12)' : 'var(--primary-glow)',
-                            padding: '2px 6px',
-                            borderRadius: '4px'
-                          }}>
-                            {unitTypeLabel(unit.type, language)}
-                          </span>
-                          {completed && (
-                            <span style={{ fontSize: '0.7rem', color: 'var(--success)', fontWeight: 600 }}>
-                              {language === 'en' ? 'Completed' : 'Completato'}
-                            </span>
-                          )}
-                        </div>
-                        <h3 style={{ fontSize: '1.05rem', color: 'var(--text-main)', marginBottom: '0.2rem' }}>
-                          {unit.title[language]}
-                        </h3>
-                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.3' }}>
-                          {unit.description[language]}
-                        </p>
-                      </div>
-
-                      {unlocked && (
-                        <ArrowRight size={18} style={{ color: 'var(--text-light)', marginLeft: 'auto' }} />
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <button
+              key={unit.id}
+              type="button"
+              className={`study-unit-card glass-panel ${completed ? 'completed' : ''}`}
+              onClick={() => handleUnitClick(unit)}
+            >
+              <span className={`study-unit-type type-${unit.type}`}>
+                {unitTypeLabel(unit.type, language)}
+              </span>
+              <h3>{unit.title[language]}</h3>
+              <p>{unit.description[language]}</p>
+              {completed && (
+                <span className="study-unit-done">
+                  <CheckCircle size={14} />
+                  {language === 'en' ? 'Done' : 'Fatto'}
+                </span>
+              )}
+            </button>
           );
         })}
       </div>
@@ -355,7 +298,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             {/* Vocal Controls */}
                             <div style={{ display: 'flex', gap: '0.4rem' }}>
                               <button 
-                                onClick={() => void speakJapanese(item.japanese)}
+                                onClick={() => void speakJapanese(item.japanese, item.id)}
                                 disabled={isSpeaking}
                                 style={{
                                   padding: '8px',
@@ -464,7 +407,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                               {example.japanese}
                             </div>
                             <button 
-                              onClick={() => void speakJapanese(example.japanese)}
+                              onClick={() => void speakJapanese(example.japanese, `ex-${i}`)}
                               disabled={isSpeaking}
                               style={{
                                 padding: '6px',

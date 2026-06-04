@@ -94,6 +94,7 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
 {
     $models = [
         'gemini-2.5-flash-preview-tts',
+        'gemini-2.5-pro-preview-tts',
         'gemini-2.5-flash-tts',
     ];
 
@@ -133,8 +134,12 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
         curl_close($ch);
 
         if ($response === false || $httpCode !== 200) {
+            $decoded = is_string($response) ? json_decode($response, true) : null;
+            $apiMessage = is_array($decoded)
+                ? ($decoded['error']['message'] ?? $decoded['error'] ?? null)
+                : null;
             $lastError = [
-                'error' => 'Gemini TTS call failed.',
+                'error' => $apiMessage ? (string) $apiMessage : 'Gemini TTS call failed.',
                 'status' => $httpCode,
                 'model' => $model,
             ];

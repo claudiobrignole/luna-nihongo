@@ -97,6 +97,12 @@ service cloud.firestore {
         allow read: if isOwner(userId) || isAdmin();
         allow create, update, delete: if isOwner(userId);
       }
+
+      match /activity/{activityId} {
+        allow read: if isOwner(userId) || isAdmin();
+        allow create: if isOwner(userId);
+        allow update, delete: if false;
+      }
     }
   }
 }
