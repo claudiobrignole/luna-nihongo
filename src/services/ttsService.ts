@@ -50,8 +50,48 @@ function playBase64Audio(base64: string, mimeType: string): Promise<void> {
 
 export type SpeakResult = { source: TTSSource } | { error: string; detail?: string };
 
+type TtsErrorPayload = {
+  error?: string;
+  status?: number;
+  model?: string;
+};
+
+/** Human-readable TTS failure (proxy down, missing API key, Gemini error). */
+export function formatTtsFailure(
+  response: Response,
+  data: TtsErrorPayload,
+  language: 'en' | 'it' = 'it',
+): string {
+  if (data.error) {
+    const extra = [
+      data.model ? `model: ${data.model}` : '',
+      data.status ? `[${data.status}]` : '',
+    ]
+      .filter(Boolean)
+      .join(' ');
+    return extra ? `${data.error} ${extra}` : data.error;
+  }
+
+  if (response.status === 500) {
+    return language === 'en'
+      ? 'API key not configured on server (GEMINI_API_KEY).'
+      : 'Chiave API non configurata sul server (GEMINI_API_KEY).';
+  }
+
+  if (response.status === 502 || response.status === 503 || response.status === 504) {
+    return language === 'en'
+      ? 'Voice server unreachable. Locally run "npm run dev:api" in a second terminal; on Hostinger check GEMINI_API_KEY and redeploy.'
+      : 'Server voce non raggiungibile. In locale avvia "npm run dev:api" in un secondo terminale; su Hostinger verifica GEMINI_API_KEY e rifai il deploy.';
+  }
+
+  return `HTTP ${response.status}`;
+}
+
 /** Japanese speech via Gemini TTS only (no browser fallback). */
-export async function speakJapaneseText(text: string): Promise<SpeakResult> {
+export async function speakJapaneseText(
+  text: string,
+  language: 'en' | 'it' = 'it',
+): Promise<SpeakResult> {
   const trimmed = text.trim();
   if (!trimmed) return { error: 'Empty text' };
 
@@ -64,12 +104,9 @@ export async function speakJapaneseText(text: string): Promise<SpeakResult> {
       body: JSON.stringify({ text: trimmed, language: 'ja-JP' }),
     });
 
-    const data = await response.json().catch(() => ({})) as {
+    const data = (await response.json().catch(() => ({}))) as TtsErrorPayload & {
       audioBase64?: string;
       mimeType?: string;
-      error?: string;
-      status?: number;
-      model?: string;
     };
 
     if (response.ok && data.audioBase64) {
@@ -77,11 +114,7 @@ export async function speakJapaneseText(text: string): Promise<SpeakResult> {
       return { source: 'gemini' };
     }
 
-    const detail = data.error
-      ? `${data.error}${data.model ? ` (${data.model})` : ''}${data.status ? ` [${data.status}]` : ''}`
-      : `HTTP ${response.status}`;
-
-    return { error: 'Gemini audio unavailable', detail };
+    return { error: 'Gemini audio unavailable', detail: formatTtsFailure(response, data, language) };
   } catch (err) {
     const detail = err instanceof Error ? err.message : 'Network error';
     return { error: 'Gemini audio unavailable', detail };

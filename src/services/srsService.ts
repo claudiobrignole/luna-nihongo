@@ -6,11 +6,8 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 import { getFirebaseDb } from '../lib/firebase';
-import {
-  INITIAL_CARDS,
-  type CardProgress,
-  type SRSCard,
-} from '../utils/srs';
+import { buildCurriculumDeckCatalog } from '../utils/curriculumDeck';
+import type { CardProgress, SRSCard } from '../utils/srs';
 
 function srsCollection(userId: string) {
   return collection(getFirebaseDb(), 'users', userId, 'srs');
@@ -21,11 +18,13 @@ function localStorageKey(userId: string): string {
 }
 
 function buildCardsFromProgress(
-  progressMap: Record<string, CardProgress>
+  progressMap: Record<string, CardProgress>,
+  locale: 'en' | 'it' = 'it',
 ): SRSCard[] {
   const todayStr = new Date().toISOString().split('T')[0];
+  const catalog = buildCurriculumDeckCatalog(locale);
 
-  return INITIAL_CARDS.map((card) => {
+  return catalog.map((card) => {
     const progress = progressMap[card.id];
     return {
       ...card,
@@ -62,7 +61,7 @@ async function migrateSRSFromLocalStorage(userId: string): Promise<boolean> {
   }
 }
 
-export async function loadSRSCards(userId: string): Promise<SRSCard[]> {
+export async function loadSRSCards(userId: string, locale: 'en' | 'it' = 'it'): Promise<SRSCard[]> {
   const snap = await getDocs(srsCollection(userId));
   const progressMap: Record<string, CardProgress> = {};
 
@@ -80,11 +79,11 @@ export async function loadSRSCards(userId: string): Promise<SRSCard[]> {
   if (snap.empty) {
     const migrated = await migrateSRSFromLocalStorage(userId);
     if (migrated) {
-      return loadSRSCards(userId);
+      return loadSRSCards(userId, locale);
     }
   }
 
-  return buildCardsFromProgress(progressMap);
+  return buildCardsFromProgress(progressMap, locale);
 }
 
 export async function saveSRSCardProgress(

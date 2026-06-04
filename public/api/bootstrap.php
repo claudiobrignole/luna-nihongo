@@ -90,12 +90,37 @@ function luna_parse_pcm_sample_rate(?string $mimeType): int
     return 24000;
 }
 
+function luna_gemini_error_message(?array $decoded): string
+{
+    if (!is_array($decoded)) {
+        return 'Gemini TTS call failed.';
+    }
+
+    if (!empty($decoded['error']['message'])) {
+        return (string) $decoded['error']['message'];
+    }
+
+    if (!empty($decoded['error']) && is_string($decoded['error'])) {
+        return $decoded['error'];
+    }
+
+    $feedback = $decoded['promptFeedback']['blockReason'] ?? null;
+    if ($feedback) {
+        return 'Request blocked: ' . $feedback;
+    }
+
+    return 'Gemini TTS call failed.';
+}
+
+/**
+ * @return array{audioBase64: string, mimeType: string, source: string, model: string, sampleRate: int}|array{error: string, status: int, model?: string}
+ */
 function luna_call_gemini_tts(string $apiKey, string $text, string $language = 'ja-JP'): array
 {
     $models = [
+        'gemini-3.1-flash-tts-preview',
         'gemini-2.5-flash-preview-tts',
         'gemini-2.5-pro-preview-tts',
-        'gemini-2.5-flash-tts',
     ];
 
     $prompt = "Read the following Japanese text aloud naturally, clearly, and at a moderate pace for a language learner:\n\n" . $text;
@@ -107,7 +132,6 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
         'generationConfig' => [
             'responseModalities' => ['AUDIO'],
             'speechConfig' => [
-                'languageCode' => $language,
                 'voiceConfig' => [
                     'prebuiltVoiceConfig' => [
                         'voiceName' => 'Kore',
@@ -120,38 +144,59 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
     $lastError = ['error' => 'Gemini TTS call failed.', 'status' => 0];
 
     foreach ($models as $model) {
-        $apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}";
+        $apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent";
 
         $ch = curl_init($apiUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'x-goog-api-key: ' . $apiKey,
+        ]);
         curl_setopt($ch, CURLOPT_TIMEOUT, 45);
 
         $response = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
 
-        if ($response === false || $httpCode !== 200) {
-            $decoded = is_string($response) ? json_decode($response, true) : null;
-            $apiMessage = is_array($decoded)
-                ? ($decoded['error']['message'] ?? $decoded['error'] ?? null)
-                : null;
+        if ($response === false) {
             $lastError = [
-                'error' => $apiMessage ? (string) $apiMessage : 'Gemini TTS call failed.',
-                'status' => $httpCode,
+                'error' => $curlError !== '' ? $curlError : 'Network error calling Gemini TTS.',
+                'status' => 0,
                 'model' => $model,
             ];
             continue;
         }
 
         $data = json_decode($response, true);
-        $part = $data['candidates'][0]['content']['parts'][0] ?? null;
+
+        if ($httpCode !== 200) {
+            $lastError = [
+                'error' => luna_gemini_error_message(is_array($data) ? $data : null),
+                'status' => $httpCode,
+                'model' => $model,
+            ];
+            continue;
+        }
+
+        if (!is_array($data)) {
+            $lastError = [
+                'error' => 'Invalid JSON from Gemini TTS.',
+                'status' => 502,
+                'model' => $model,
+            ];
+            continue;
+        }
+
+        $candidate = $data['candidates'][0] ?? null;
+        $part = $candidate['content']['parts'][0] ?? null;
 
         if (!$part || empty($part['inlineData']['data'])) {
+            $finish = $candidate['finishReason'] ?? 'unknown';
             $lastError = [
-                'error' => 'No audio returned from Gemini.',
+                'error' => 'No audio returned from Gemini (finish: ' . $finish . ').',
                 'status' => 502,
                 'model' => $model,
             ];
@@ -159,7 +204,7 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
         }
 
         $mimeType = $part['inlineData']['mimeType'] ?? 'audio/L16;codec=pcm;rate=24000';
-        $pcm = base64_decode($part['inlineData']['data']);
+        $pcm = base64_decode($part['inlineData']['data'], true);
 
         if ($pcm === false) {
             $lastError = [
@@ -182,7 +227,5 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
         ];
     }
 
-    http_response_code(502);
-    echo json_encode($lastError);
-    exit;
+    return $lastError;
 }

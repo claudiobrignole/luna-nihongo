@@ -47,7 +47,7 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
     setIsSpeaking(true);
     clearSpeechFeedback();
     try {
-      const result = await speakJapaneseText(text);
+      const result = await speakJapaneseText(text, language);
       if ('source' in result) {
         setLastTtsSource(result.source);
       } else {

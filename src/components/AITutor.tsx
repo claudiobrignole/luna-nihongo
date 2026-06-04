@@ -76,12 +76,12 @@ export const AITutor: React.FC<AITutorProps> = ({
     if (!toSpeak.trim()) return;
     if (index !== undefined) setSpeakingIndex(index);
     setTtsError(null);
-    const result = await speakJapaneseText(toSpeak);
+    const result = await speakJapaneseText(toSpeak, language);
     setSpeakingIndex(null);
     if ('error' in result) {
       setTtsError(
         language === 'en'
-          ? `Voice failed: ${result.detail ?? result.error}`
+          ? `Voice unavailable: ${result.detail ?? result.error}`
           : `Voce non disponibile: ${result.detail ?? result.error}`
       );
     }

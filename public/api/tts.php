@@ -41,4 +41,16 @@ if (mb_strlen($text) > 120) {
 }
 
 $result = luna_call_gemini_tts($apiKey, $text, $language);
+
+if (empty($result['audioBase64'])) {
+    $status = isset($result['status']) && (int) $result['status'] > 0 ? (int) $result['status'] : 502;
+    http_response_code($status >= 400 && $status < 600 ? $status : 502);
+    echo json_encode([
+        'error' => $result['error'] ?? 'Gemini TTS unavailable.',
+        'status' => $status,
+        'model' => $result['model'] ?? null,
+    ]);
+    exit;
+}
+
 echo json_encode($result);

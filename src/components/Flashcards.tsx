@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { loadSRSCards, saveSRSCardProgress } from '../services/srsService';
 import { scheduleCard } from '../utils/srs';
-import type { SRSCard } from '../utils/srs';
+import type { SRSCard, SRSCardType } from '../utils/srs';
+import { CURRICULUM_LEVELS } from '../data/curriculum';
 import { RotateCw, RefreshCw, Layers, Smile, BookOpen, AlertCircle, Loader2, Volume2 } from 'lucide-react';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
 
@@ -12,7 +13,8 @@ interface FlashcardsProps {
 
 export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   const [cards, setCards] = useState<SRSCard[]>([]);
-  const [activeDeck, setActiveDeck] = useState<'all' | 'hiragana' | 'katakana' | 'kanji'>('all');
+  const [activeLevel, setActiveLevel] = useState<number | 'all'>('all');
+  const [activeType, setActiveType] = useState<SRSCardType | 'all'>('all');
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
   const [isCramming, setIsCramming] = useState<boolean>(false);
@@ -24,7 +26,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     setIsLoading(true);
     setLoadError(null);
     try {
-      const loaded = await loadSRSCards(userId);
+      const loaded = await loadSRSCards(userId, language);
       setCards(loaded);
     } catch {
       setLoadError(
@@ -49,12 +51,32 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
 
   const todayStr = new Date().toISOString().split('T')[0];
 
-  // Filter cards based on tab and whether they are due
-  const filteredCards = cards.filter(card => {
-    const matchesTab = activeDeck === 'all' || card.type === activeDeck;
-    if (isCramming) return matchesTab; // In cram mode, return all cards in this tab
-    return matchesTab && card.dueDate <= todayStr; // Otherwise, only due cards
-  });
+  const filteredCards = useMemo(() => {
+    return cards.filter((card) => {
+      const matchesLevel = activeLevel === 'all' || card.level === activeLevel;
+      const matchesType = activeType === 'all' || card.type === activeType;
+      if (!matchesLevel || !matchesType) return false;
+      if (isCramming) return true;
+      return card.dueDate <= todayStr;
+    });
+  }, [cards, activeLevel, activeType, isCramming, todayStr]);
+
+  const deckTotalInFilter = useMemo(() => {
+    return cards.filter((card) => {
+      const matchesLevel = activeLevel === 'all' || card.level === activeLevel;
+      const matchesType = activeType === 'all' || card.type === activeType;
+      return matchesLevel && matchesType;
+    }).length;
+  }, [cards, activeLevel, activeType]);
+
+  const typeLabels: Record<SRSCardType | 'all', { en: string; it: string }> = {
+    all: { en: 'All types', it: 'Tutti i tipi' },
+    hiragana: { en: 'Hiragana', it: 'Hiragana' },
+    katakana: { en: 'Katakana', it: 'Katakana' },
+    kanji: { en: 'Kanji', it: 'Kanji' },
+    vocab: { en: 'Vocab', it: 'Vocaboli' },
+    grammar: { en: 'Grammar', it: 'Grammatica' },
+  };
 
   const activeCard = filteredCards[currentCardIndex];
 
@@ -132,7 +154,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   };
 
   return (
-    <div className="flashcards-view" style={{ maxWidth: '600px', margin: '0 auto' }}>
+    <div className="flashcards-view deck-hub">
 
       {isLoading && (
         <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
@@ -155,45 +177,58 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
       {!isLoading && (
       <>
       
-      {/* Deck Selector Tabs */}
-      <div className="deck-selector" style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '0.5rem',
-        marginBottom: '2rem',
-        backgroundColor: 'var(--bg-panel)',
-        padding: '0.4rem',
-        borderRadius: '16px',
-        border: '1px solid var(--border)'
-      }}>
-        {(['all', 'hiragana', 'katakana', 'kanji'] as const).map(tab => (
+      <header className="deck-hub-header">
+        <div>
+          <h2>{language === 'en' ? 'Decks' : 'Deck'}</h2>
+          <p>
+            {language === 'en'
+              ? `${cards.length} cards from all 60 Studio units — spaced repetition by level.`
+              : `${cards.length} carte dalle 60 unità di Studio — ripasso spaziato per livello.`}
+          </p>
+        </div>
+      </header>
+
+      <div className="deck-level-tabs" role="tablist">
+        <button
+          type="button"
+          role="tab"
+          className={`deck-level-tab ${activeLevel === 'all' ? 'active' : ''}`}
+          onClick={() => { setActiveLevel('all'); setCurrentCardIndex(0); setIsFlipped(false); }}
+        >
+          {language === 'en' ? 'All levels' : 'Tutti i livelli'}
+        </button>
+        {CURRICULUM_LEVELS.map((lvl) => (
           <button
-            key={tab}
-            onClick={() => {
-              setActiveDeck(tab);
-              setCurrentCardIndex(0);
-              setIsFlipped(false);
-            }}
-            style={{
-              flex: 1,
-              padding: '0.6rem 1rem',
-              borderRadius: '12px',
-              fontSize: '0.9rem',
-              fontWeight: 600,
-              textTransform: 'capitalize',
-              color: activeDeck === tab ? 'var(--primary)' : 'var(--text-muted)',
-              backgroundColor: activeDeck === tab ? 'var(--primary-glow)' : 'transparent',
-              boxShadow: activeDeck === tab ? 'inset 0 0 0 1px var(--border-glow)' : 'none',
-              transition: 'all var(--transition-fast)'
-            }}
+            key={lvl.level}
+            type="button"
+            role="tab"
+            aria-selected={activeLevel === lvl.level}
+            className={`deck-level-tab ${activeLevel === lvl.level ? 'active' : ''}`}
+            onClick={() => { setActiveLevel(lvl.level); setCurrentCardIndex(0); setIsFlipped(false); }}
           >
-            {tab === 'all' && (language === 'en' ? 'All' : 'Tutti')}
-            {tab === 'hiragana' && 'Hiragana'}
-            {tab === 'katakana' && 'Katakana'}
-            {tab === 'kanji' && 'Kanji'}
+            {lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, '')}
           </button>
         ))}
       </div>
+
+      <div className="deck-type-tabs">
+        {(['all', 'hiragana', 'katakana', 'kanji', 'vocab', 'grammar'] as const).map((tab) => (
+          <button
+            key={tab}
+            type="button"
+            className={`deck-type-tab ${activeType === tab ? 'active' : ''}`}
+            onClick={() => { setActiveType(tab); setCurrentCardIndex(0); setIsFlipped(false); }}
+          >
+            {typeLabels[tab][language]}
+          </button>
+        ))}
+      </div>
+
+      <p className="deck-filter-meta">
+        {language === 'en'
+          ? `${deckTotalInFilter} cards in filter · ${filteredCards.length} ${isCramming ? 'to study' : 'due today'}`
+          : `${deckTotalInFilter} carte nel filtro · ${filteredCards.length} ${isCramming ? 'da studiare' : 'in scadenza oggi'}`}
+      </p>
 
       {/* Due Info Alert */}
       {!isCramming && filteredCards.length > 0 && (
@@ -309,13 +344,19 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                   </button>
                 </span>
 
-                <div className="ja-text" style={{
-                  fontSize: '6rem',
-                  fontWeight: '700',
-                  color: 'var(--text-main)',
-                  lineHeight: '1',
-                  marginBottom: '1rem'
-                }}>
+                <div
+                  className="ja-text"
+                  style={{
+                    fontSize: activeCard.type === 'grammar' || activeCard.front.length > 8 ? '2.2rem' : '6rem',
+                    fontWeight: '700',
+                    color: 'var(--text-main)',
+                    lineHeight: 1.25,
+                    marginBottom: '1rem',
+                    textAlign: 'center',
+                    maxWidth: '100%',
+                    wordBreak: 'break-word',
+                  }}
+                >
                   {activeCard.front}
                 </div>
 
@@ -366,23 +407,39 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                   {activeCard.type}
                 </span>
 
-                <div className="ja-text" style={{
-                  fontSize: '3.5rem',
-                  fontWeight: '700',
-                  color: 'var(--primary)',
-                  marginBottom: '0.5rem'
-                }}>
-                  {activeCard.front}
-                </div>
+                {activeCard.type !== 'grammar' && (
+                  <div className="ja-text" style={{
+                    fontSize: activeCard.front.length > 4 ? '2.5rem' : '3.5rem',
+                    fontWeight: '700',
+                    color: 'var(--primary)',
+                    marginBottom: '0.5rem'
+                  }}>
+                    {activeCard.front}
+                  </div>
+                )}
 
-                <div style={{
-                  fontSize: '1.8rem',
-                  fontWeight: 700,
-                  color: 'var(--text-main)',
-                  marginBottom: '0.5rem'
-                }}>
-                  /{activeCard.romaji}/
-                </div>
+                {activeCard.romaji && activeCard.type !== 'kanji' && (
+                  <div style={{
+                    fontSize: '1.4rem',
+                    fontWeight: 700,
+                    color: 'var(--text-main)',
+                    marginBottom: '0.5rem'
+                  }}>
+                    /{activeCard.romaji}/
+                  </div>
+                )}
+
+                {activeCard.type === 'kanji' && activeCard.back && (
+                  <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
+                    {activeCard.back}
+                  </div>
+                )}
+
+                {activeCard.type === 'grammar' && (
+                  <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--secondary)', marginBottom: '0.5rem' }}>
+                    {activeCard.back}
+                  </div>
+                )}
 
                 <div style={{
                   fontSize: '1.1rem',
