@@ -9,6 +9,7 @@ import {
   int16ToBase64,
 } from '../utils/liveAudio';
 import { requestLiveSession, reportLiveSessionEnd, liveSessionErrorMessage } from '../services/liveSessionService';
+import type { LunaUser } from '../types/user';
 
 export type LiveSessionStatus =
   | 'idle'
@@ -28,6 +29,7 @@ const WS_BASE =
 
 interface UseGeminiLiveOptions {
   language: 'en' | 'it';
+  user: LunaUser;
   onSessionEnded?: (result: { durationSeconds: number; billedMinutes: number }) => void;
 }
 
@@ -39,7 +41,7 @@ function parseServerMessage(raw: string): Record<string, unknown> | null {
   }
 }
 
-export function useGeminiLive({ language, onSessionEnded }: UseGeminiLiveOptions) {
+export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveOptions) {
   const [status, setStatus] = useState<LiveSessionStatus>('idle');
   const [error, setError] = useState<string | null>(null);
   const [transcript, setTranscript] = useState<LiveTranscriptLine[]>([]);
@@ -102,7 +104,7 @@ export function useGeminiLive({ language, onSessionEnded }: UseGeminiLiveOptions
     if (started) {
       const durationSeconds = Math.round((Date.now() - started) / 1000);
       try {
-        const result = await reportLiveSessionEnd(durationSeconds);
+        const result = await reportLiveSessionEnd(user, durationSeconds);
         setMinutesRemaining(result.minutesRemaining);
         onSessionEndedRef.current?.({
           durationSeconds,
@@ -110,9 +112,11 @@ export function useGeminiLive({ language, onSessionEnded }: UseGeminiLiveOptions
         });
       } catch (err) {
         console.error('endLiveSession failed', err);
+        const billedMinutes = Math.max(1, Math.ceil(durationSeconds / 60));
+        onSessionEndedRef.current?.({ durationSeconds, billedMinutes });
       }
     }
-  }, [cleanupMedia]);
+  }, [cleanupMedia, user]);
 
   const handleServerMessage = useCallback((data: Record<string, unknown>) => {
     const serverContent = data.serverContent as Record<string, unknown> | undefined;
@@ -192,7 +196,7 @@ export function useGeminiLive({ language, onSessionEnded }: UseGeminiLiveOptions
     setStatus('connecting');
 
     try {
-      const session = await requestLiveSession(language);
+      const session = await requestLiveSession(user, language);
       setMinutesRemaining(session.minutesRemaining);
       maxSessionSecondsRef.current = session.maxSessionSeconds;
 
@@ -261,7 +265,7 @@ export function useGeminiLive({ language, onSessionEnded }: UseGeminiLiveOptions
       setError(liveSessionErrorMessage(err, language));
       setStatus('error');
     }
-  }, [handleServerMessage, language, startMicStreaming, stopSession]);
+  }, [handleServerMessage, language, startMicStreaming, stopSession, user]);
 
   useEffect(() => {
     return () => {

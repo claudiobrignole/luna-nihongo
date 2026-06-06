@@ -9,7 +9,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions",
-    "deploy": "firebase deploy --only functions"
+    "deploy": "firebase deploy --only functions",
+    "allow-public": "node ../scripts/allow-live-callables-public.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",

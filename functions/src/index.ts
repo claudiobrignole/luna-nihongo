@@ -1,15 +1,14 @@
 import { initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
-import { GoogleGenAI, Modality } from '@google/genai';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import { buildLiveSystemPrompt } from './tutorPrompt';
 import {
-  LIVE_MODEL,
   MAX_LIVE_SESSION_MINUTES,
   monthlyLimit,
   normalizeLiveUsage,
 } from './liveLimits';
+import { createLiveSessionToken } from './liveToken';
 
 initializeApp();
 
@@ -86,51 +85,24 @@ export const createLiveSession = onCall(
     );
 
     const apiKey = geminiApiKey.value();
-    const client = new GoogleGenAI({
-      apiKey,
-      httpOptions: { apiVersion: 'v1alpha' },
-    });
-
-    const expireTime = new Date(Date.now() + 30 * 60 * 1000).toISOString();
-    const newSessionExpireTime = new Date(Date.now() + 2 * 60 * 1000).toISOString();
-
-    let tokenName: string;
-    try {
-      const token = await client.authTokens.create({
-        config: {
-          expireTime,
-          newSessionExpireTime,
-          uses: 1,
-          liveConnectConstraints: {
-            model: LIVE_MODEL,
-            config: {
-              responseModalities: [Modality.AUDIO],
-              systemInstruction: {
-                parts: [{ text: systemInstruction }],
-              },
-              inputAudioTranscription: {},
-              outputAudioTranscription: {},
-              speechConfig: {
-                voiceConfig: {
-                  prebuiltVoiceConfig: { voiceName: 'Kore' },
-                },
-              },
-              contextWindowCompression: {
-                slidingWindow: { targetTokens: '20000' },
-              },
-            },
-          },
-          httpOptions: { apiVersion: 'v1alpha' },
-        },
-      });
-      tokenName = token.name ?? '';
-    } catch (err) {
-      console.error('authTokens.create failed', err);
-      throw new HttpsError('internal', 'Could not create live session token.');
+    if (!apiKey?.trim()) {
+      throw new HttpsError(
+        'failed-precondition',
+        'GEMINI_API_KEY secret is missing. Run: firebase functions:secrets:set GEMINI_API_KEY',
+      );
     }
 
-    if (!tokenName) {
-      throw new HttpsError('internal', 'Empty live session token.');
+    let tokenName: string;
+    let liveModel: string;
+    try {
+      const created = await createLiveSessionToken(apiKey, systemInstruction);
+      tokenName = created.token;
+      liveModel = created.model;
+    } catch (err) {
+      const detail = err instanceof Error ? err.message : 'Could not create live session token.';
+      console.error('createLiveSessionToken failed', detail);
+      // Use failed-precondition so the client receives the message (internal hides it).
+      throw new HttpsError('failed-precondition', detail);
     }
 
     if (user.liveMinutesPeriod !== period) {
@@ -143,7 +115,7 @@ export const createLiveSession = onCall(
 
     return {
       token: tokenName,
-      model: LIVE_MODEL,
+      model: liveModel,
       maxSessionSeconds,
       minutesRemaining,
       minutesLimit: limit,

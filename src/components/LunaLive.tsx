@@ -75,7 +75,7 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
     startSession,
     stopSession,
     isActive,
-  } = useGeminiLive({ language, onSessionEnded: handleSessionEnded });
+  } = useGeminiLive({ language, user: currentUser, onSessionEnded: handleSessionEnded });
 
   const displayRemaining = minutesRemaining ?? remaining;
 

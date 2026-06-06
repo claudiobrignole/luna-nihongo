@@ -4,6 +4,12 @@ export const MAX_LIVE_SESSION_MINUTES = 10;
 
 export const LIVE_MODEL = 'gemini-2.5-flash-native-audio-preview-12-2025';
 
+/** Tried in order if the primary model rejects token creation. */
+export const LIVE_MODEL_FALLBACKS = [
+  'gemini-2.5-flash-native-audio-preview-12-2025',
+  'gemini-2.0-flash-live-001',
+];
+
 export function currentPeriod(): string {
   const now = new Date();
   const month = String(now.getUTCMonth() + 1).padStart(2, '0');
