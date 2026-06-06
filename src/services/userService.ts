@@ -72,6 +72,8 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     preferredStartLevel: typeof data.preferredStartLevel === 'number' ? data.preferredStartLevel : 0,
     showRomaji: data.showRomaji !== false,
     tutorVoiceEnabled: data.tutorVoiceEnabled !== false,
+    liveMinutesUsed: data.liveMinutesUsed ?? 0,
+    liveMinutesPeriod: data.liveMinutesPeriod ?? '',
   };
 }
 
@@ -124,6 +126,8 @@ export async function ensureUserProfile(
     preferredStartLevel: 0,
     showRomaji: true,
     tutorVoiceEnabled: true,
+    liveMinutesUsed: 0,
+    liveMinutesPeriod: '',
     createdAt: now,
     updatedAt: now,
   };
@@ -149,6 +153,8 @@ export async function updateUserProfile(
       | 'preferredStartLevel'
       | 'showRomaji'
       | 'tutorVoiceEnabled'
+      | 'liveMinutesUsed'
+      | 'liveMinutesPeriod'
     >
   >
 ): Promise<LunaUser> {
@@ -236,6 +242,7 @@ export async function setUserTier(
 
   if (tier === 'premium') {
     updates.messagesCount = 0;
+    updates.liveMinutesUsed = 0;
   }
 
   await updateDoc(doc(getFirebaseDb(), USERS_COLLECTION, targetUid), updates);

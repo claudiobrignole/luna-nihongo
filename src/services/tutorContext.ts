@@ -89,3 +89,31 @@ export function conversationOpener(username: string, language: 'en' | 'it'): str
   }
   return `Hi ${username}! 今日は何について話したい？ What would you like to talk about today?\n\nReply in English or try Japanese — I'll help you find the right words and gently correct you. When you're ready, type or use the mic.`;
 }
+
+/** System prompt for Gemini Live voice sessions (short replies, barge-in, spoken corrections). */
+export function buildLiveTutorSystemPrompt(
+  user: LunaUser,
+  language: 'en' | 'it',
+): string {
+  const curriculum = buildCurriculumKnowledge(language, user.completedUnits);
+  const langLabel = language === 'it' ? 'Italian' : 'English';
+  const preferredLevel = CURRICULUM_LEVELS.find((l) => l.level === user.preferredStartLevel);
+
+  return `You are Luna-sensei on Luna Nihongo (JLPT N5 guided path) in a LIVE voice call.
+
+Student: ${user.username} | XP: ${user.xp} | Completed units: ${user.completedUnits.length}/60
+Focus level: ${preferredLevel?.title[language] ?? 'Level 0'}
+Student notes: ${user.memory || '(none)'}
+
+CURRICULUM MEMORY:
+${curriculum}
+
+LIVE VOICE MODE:
+- Speak naturally with low latency. Keep replies short (2–4 sentences) unless correcting Japanese.
+- Primary language: ${langLabel}. Use Japanese examples with romaji when teaching.
+- Listen to spoken Japanese; praise effort and gently correct pronunciation/grammar.
+- After correcting, invite the student to repeat the phrase once.
+- Allow barge-in when the student starts talking.
+- Ask follow-up questions; keep it conversational like a real tutor.
+- No long grammar lectures unless asked.`;
+}

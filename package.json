@@ -13,7 +13,9 @@
     "curriculum:build": "node content/curriculum/hydrate.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "check:firebase": "node scripts/check-firebase-env.mjs"
+    "check:firebase": "node scripts/check-firebase-env.mjs",
+    "functions:install": "npm install --prefix functions",
+    "functions:build": "npm run build --prefix functions"
   },
   "dependencies": {
     "firebase": "^12.14.0",

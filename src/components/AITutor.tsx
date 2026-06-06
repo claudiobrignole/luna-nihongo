@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic,
+  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic, Radio,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
 import { FREE_TUTOR_TURN_LIMIT } from '../types/user';
@@ -11,6 +11,8 @@ import {
   type TutorMode,
 } from '../services/tutorContext';
 import { fetchTutorReply } from '../services/tutorService';
+import { LunaLive } from './LunaLive';
+import { liveMinutesRemaining } from '../types/user';
 
 interface AITutorProps {
   language: 'en' | 'it';
@@ -18,6 +20,7 @@ interface AITutorProps {
   onUserUpdate: (updates: Partial<LunaUser>) => Promise<void>;
   onNavigateToDashboard: () => void;
   onTutorMessage?: (label: string) => void;
+  onLiveSession?: (durationSeconds: number) => void;
 }
 
 // Smart local fallback (used when PHP proxy is unavailable in dev)
@@ -49,6 +52,7 @@ export const AITutor: React.FC<AITutorProps> = ({
   onUserUpdate,
   onNavigateToDashboard,
   onTutorMessage,
+  onLiveSession,
 }) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>(currentUser.chatHistory || []);
@@ -59,6 +63,7 @@ export const AITutor: React.FC<AITutorProps> = ({
   const [voiceEnabled, setVoiceEnabled] = useState(currentUser.tutorVoiceEnabled);
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const [tutorMode, setTutorMode] = useState<TutorMode>('conversation');
+  const [tutorView, setTutorView] = useState<'chat' | 'live'>('live');
   const [ttsError, setTtsError] = useState<string | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -66,6 +71,7 @@ export const AITutor: React.FC<AITutorProps> = ({
   const msgCount = currentUser.messagesCount || 0;
   const remaining = FREE_TUTOR_TURN_LIMIT - msgCount;
   const isBlocked = isFree && msgCount >= FREE_TUTOR_TURN_LIMIT;
+  const liveRemaining = liveMinutesRemaining(currentUser);
 
   const saveUser = async (updates: Partial<LunaUser>) => {
     await onUserUpdate(updates);
@@ -214,8 +220,41 @@ export const AITutor: React.FC<AITutorProps> = ({
 
   return (
     <div className="tutor-layout">
+      <div className="tutor-view-tabs">
+        <button
+          type="button"
+          className={`tutor-view-tab ${tutorView === 'live' ? 'active' : ''}`}
+          onClick={() => setTutorView('live')}
+        >
+          <Radio size={16} />
+          {language === 'en' ? 'Live voice' : 'Voce live'}
+        </button>
+        <button
+          type="button"
+          className={`tutor-view-tab ${tutorView === 'chat' ? 'active' : ''}`}
+          onClick={() => setTutorView('chat')}
+        >
+          <MessageCircle size={16} />
+          {language === 'en' ? 'Text chat' : 'Chat testuale'}
+        </button>
+      </div>
 
-      {/* ── Left Panel: Memory & Info ── */}
+      {tutorView === 'live' ? (
+        <div className="tutor-live-wrap">
+          <LunaLive
+            language={language}
+            currentUser={currentUser}
+            onUserUpdate={onUserUpdate}
+            onNavigateToDashboard={onNavigateToDashboard}
+            onSessionLogged={(label, meta) => {
+              onTutorMessage?.(label);
+              const secs = meta?.durationSeconds;
+              if (typeof secs === 'number') onLiveSession?.(secs);
+            }}
+          />
+        </div>
+      ) : (
+        <>
       <div className="tutor-sidebar">
         {/* Tier Badge */}
         <div className="glass-panel" style={{
@@ -261,6 +300,11 @@ export const AITutor: React.FC<AITutorProps> = ({
               {language === 'en' ? 'Unlimited messages & full memory' : 'Messaggi illimitati e memoria completa'}
             </p>
           )}
+          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.65rem' }}>
+            {language === 'en'
+              ? `${liveRemaining} live min left this month`
+              : `${liveRemaining} min live rimasti questo mese`}
+          </p>
         </div>
 
         {/* Long-term Memory Panel */}
@@ -663,6 +707,8 @@ export const AITutor: React.FC<AITutorProps> = ({
           )}
         </div>
       </div>
+        </>
+      )}
 
       {/* Upgrade Modal */}
       {showUpgradeModal && (

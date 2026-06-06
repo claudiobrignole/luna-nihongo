@@ -24,6 +24,10 @@ export interface LunaUser {
   preferredStartLevel: number;
   showRomaji: boolean;
   tutorVoiceEnabled: boolean;
+  /** Live voice session minutes consumed in the current calendar month. */
+  liveMinutesUsed: number;
+  /** YYYY-MM period for liveMinutesUsed reset. */
+  liveMinutesPeriod: string;
 }
 
 export interface UserProfileDocument {
@@ -41,11 +45,38 @@ export interface UserProfileDocument {
   preferredStartLevel?: number;
   showRomaji?: boolean;
   tutorVoiceEnabled?: boolean;
+  liveMinutesUsed?: number;
+  liveMinutesPeriod?: string;
   createdAt: string;
   updatedAt: string;
 }
 
 export const FREE_TUTOR_TURN_LIMIT = 10;
+
+export const FREE_LIVE_MINUTES_MONTHLY = 5;
+export const PREMIUM_LIVE_MINUTES_MONTHLY = 120;
+export const MAX_LIVE_SESSION_MINUTES = 10;
+
+export function currentLiveMinutesPeriod(): string {
+  const now = new Date();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+  return `${now.getUTCFullYear()}-${month}`;
+}
+
+export function liveMinutesLimit(tier: SubscriptionTier): number {
+  return tier === 'premium' ? PREMIUM_LIVE_MINUTES_MONTHLY : FREE_LIVE_MINUTES_MONTHLY;
+}
+
+export function resolveLiveMinutesUsed(user: Pick<LunaUser, 'liveMinutesUsed' | 'liveMinutesPeriod'>): number {
+  const period = currentLiveMinutesPeriod();
+  if (user.liveMinutesPeriod !== period) return 0;
+  return user.liveMinutesUsed ?? 0;
+}
+
+export function liveMinutesRemaining(user: LunaUser): number {
+  const limit = liveMinutesLimit(user.tier);
+  return Math.max(0, limit - resolveLiveMinutesUsed(user));
+}
 
 export const SUPER_ADMIN_EMAIL = 'claudio@brignole.ch';
 

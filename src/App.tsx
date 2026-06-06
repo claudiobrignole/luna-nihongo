@@ -287,6 +287,13 @@ function App() {
                 label,
               });
             }}
+            onLiveSession={(durationSeconds) => {
+              void logStudyActivity(currentUser.id, {
+                type: 'live_session',
+                label: language === 'en' ? 'Luna Live session' : 'Sessione Luna Live',
+                meta: { durationSeconds },
+              });
+            }}
           />
         )}
 

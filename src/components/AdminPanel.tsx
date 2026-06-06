@@ -127,6 +127,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
       quiz_completed: { en: 'Quiz done', it: 'Quiz fatto' },
       flashcard_session: { en: 'Flashcards', it: 'Flashcard' },
       tutor_message: { en: 'Tutor chat', it: 'Chat tutor' },
+      live_session: { en: 'Luna Live', it: 'Luna Live' },
       level_selected: { en: 'Level chosen', it: 'Livello scelto' },
     };
     return labels[type][language];

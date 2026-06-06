@@ -4,6 +4,7 @@ export type StudyActivityType =
   | 'quiz_completed'
   | 'flashcard_session'
   | 'tutor_message'
+  | 'live_session'
   | 'level_selected';
 
 export interface StudyActivity {
