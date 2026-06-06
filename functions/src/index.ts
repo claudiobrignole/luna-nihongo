@@ -31,6 +31,8 @@ export const createLiveSession = onCall(
     secrets: [geminiApiKey],
     region: 'europe-west1',
     timeoutSeconds: 30,
+    // Callable clients send Firebase Auth in the request body; Cloud Run must allow the HTTP call.
+    invoker: 'public',
   },
   async (request) => {
     if (!request.auth?.uid) {
@@ -154,6 +156,7 @@ export const endLiveSession = onCall(
   {
     region: 'europe-west1',
     timeoutSeconds: 30,
+    invoker: 'public',
   },
   async (request) => {
     if (!request.auth?.uid) {

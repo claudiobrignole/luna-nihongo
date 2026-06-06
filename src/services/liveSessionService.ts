@@ -65,10 +65,20 @@ export function liveSessionErrorMessage(err: unknown, language: 'en' | 'it'): st
   if (code.includes('unauthenticated')) {
     return language === 'en' ? 'Please log in to use Luna Live.' : 'Accedi per usare Luna Live.';
   }
-  if (code.includes('functions/unavailable') || code.includes('internal')) {
+  if (code.includes('functions/unavailable')) {
     return language === 'en'
-      ? 'Live service unavailable. Deploy Firebase Functions (createLiveSession) and set GEMINI_API_KEY secret.'
-      : 'Servizio live non disponibile. Esegui il deploy delle Firebase Functions (createLiveSession) e imposta il secret GEMINI_API_KEY.';
+      ? 'Live service unreachable. Check network or redeploy Firebase Functions (createLiveSession).'
+      : 'Servizio live non raggiungibile. Controlla la rete o rifai il deploy delle Firebase Functions.';
+  }
+  if (code.includes('internal')) {
+    return language === 'en'
+      ? message || 'Live session failed on the server (check GEMINI_API_KEY in Firebase secrets).'
+      : message || 'Sessione live fallita sul server (verifica GEMINI_API_KEY nei secret Firebase).';
+  }
+  if (code.includes('not-found')) {
+    return language === 'en'
+      ? 'User profile not found. Log out and sign in again.'
+      : 'Profilo utente non trovato. Esci e accedi di nuovo.';
   }
   return message || (language === 'en' ? 'Could not start live session.' : 'Impossibile avviare la sessione live.');
 }
