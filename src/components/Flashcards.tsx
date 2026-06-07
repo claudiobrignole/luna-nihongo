@@ -5,6 +5,7 @@ import type { SRSCard, SRSCardType } from '../utils/srs';
 import { CURRICULUM_LEVELS } from '../data/curriculum';
 import { RotateCw, RefreshCw, Layers, Smile, BookOpen, AlertCircle, Loader2, Volume2 } from 'lucide-react';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
+import { HubFilterGrid, HubFilterStack } from './HubFilterGrid';
 
 interface FlashcardsProps {
   language: 'en' | 'it';
@@ -19,11 +20,16 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
   const [isCramming, setIsCramming] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const { speakJapanese, isSpeaking } = useJapaneseSpeech({ language });
 
-  const fetchCards = useCallback(async () => {
-    setIsLoading(true);
+  const fetchCards = useCallback(async (options?: { refresh?: boolean }) => {
+    if (options?.refresh) {
+      setIsRefreshing(true);
+    } else {
+      setIsLoading(true);
+    }
     setLoadError(null);
     try {
       const loaded = await loadSRSCards(userId, language);
@@ -35,7 +41,11 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
           : 'Impossibile caricare le flashcard. Controlla la connessione.'
       );
     } finally {
-      setIsLoading(false);
+      if (options?.refresh) {
+        setIsRefreshing(false);
+      } else {
+        setIsLoading(false);
+      }
     }
   }, [userId, language]);
 
@@ -44,7 +54,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   }, [fetchCards]);
 
   const refreshDeck = async () => {
-    await fetchCards();
+    await fetchCards({ refresh: true });
     setCurrentCardIndex(0);
     setIsFlipped(false);
   };
@@ -78,7 +88,19 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     grammar: { en: 'Grammar', it: 'Grammatica' },
   };
 
-  const activeCard = filteredCards[currentCardIndex];
+  useEffect(() => {
+    if (filteredCards.length === 0) {
+      if (currentCardIndex !== 0) setCurrentCardIndex(0);
+      return;
+    }
+    if (currentCardIndex >= filteredCards.length) {
+      setCurrentCardIndex(0);
+    }
+  }, [filteredCards.length, currentCardIndex]);
+
+  const safeCardIndex =
+    filteredCards.length === 0 ? 0 : Math.min(currentCardIndex, filteredCards.length - 1);
+  const activeCard = filteredCards[safeCardIndex];
 
   const handleRate = async (quality: number) => {
     if (!activeCard) return;
@@ -154,7 +176,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   };
 
   return (
-    <div className="flashcards-view deck-hub">
+    <div className="flashcards-view deck-hub page-view">
 
       {isLoading && (
         <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
@@ -182,47 +204,48 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
           <h2>{language === 'en' ? 'Decks' : 'Deck'}</h2>
           <p>
             {language === 'en'
-              ? `${cards.length} cards from all 60 Studio units — spaced repetition by level.`
-              : `${cards.length} carte dalle 60 unità di Studio — ripasso spaziato per livello.`}
+              ? `${cards.length} cards from all Studio units — spaced repetition by level.`
+              : `${cards.length} carte da tutte le unità di Studio — ripasso spaziato per livello.`}
           </p>
         </div>
       </header>
 
-      <div className="deck-level-tabs" role="tablist">
-        <button
-          type="button"
-          role="tab"
-          className={`deck-level-tab ${activeLevel === 'all' ? 'active' : ''}`}
-          onClick={() => { setActiveLevel('all'); setCurrentCardIndex(0); setIsFlipped(false); }}
-        >
-          {language === 'en' ? 'All levels' : 'Tutti i livelli'}
-        </button>
-        {CURRICULUM_LEVELS.map((lvl) => (
-          <button
-            key={lvl.level}
-            type="button"
-            role="tab"
-            aria-selected={activeLevel === lvl.level}
-            className={`deck-level-tab ${activeLevel === lvl.level ? 'active' : ''}`}
-            onClick={() => { setActiveLevel(lvl.level); setCurrentCardIndex(0); setIsFlipped(false); }}
-          >
-            {lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, '')}
-          </button>
-        ))}
-      </div>
-
-      <div className="deck-type-tabs">
-        {(['all', 'hiragana', 'katakana', 'kanji', 'vocab', 'grammar'] as const).map((tab) => (
-          <button
-            key={tab}
-            type="button"
-            className={`deck-type-tab ${activeType === tab ? 'active' : ''}`}
-            onClick={() => { setActiveType(tab); setCurrentCardIndex(0); setIsFlipped(false); }}
-          >
-            {typeLabels[tab][language]}
-          </button>
-        ))}
-      </div>
+      <HubFilterStack>
+        <HubFilterGrid<number | 'all'>
+          label={language === 'en' ? 'Level' : 'Livello'}
+          options={[
+            {
+              value: 'all',
+              label: language === 'en' ? 'All levels' : 'Tutti i livelli',
+            },
+            ...CURRICULUM_LEVELS.map((lvl) => ({
+              value: lvl.level,
+              label: lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, ''),
+            })),
+          ]}
+          value={activeLevel}
+          onChange={(level) => {
+            setActiveLevel(level);
+            setCurrentCardIndex(0);
+            setIsFlipped(false);
+          }}
+        />
+        <HubFilterGrid<SRSCardType | 'all'>
+          label={language === 'en' ? 'Card type' : 'Tipo di carta'}
+          options={(['all', 'hiragana', 'katakana', 'kanji', 'vocab', 'grammar'] as const).map((tab) => ({
+            value: tab,
+            label: typeLabels[tab][language],
+          }))}
+          value={activeType}
+          accent="secondary"
+          compact
+          onChange={(tab) => {
+            setActiveType(tab);
+            setCurrentCardIndex(0);
+            setIsFlipped(false);
+          }}
+        />
+      </HubFilterStack>
 
       <p className="deck-filter-meta">
         {language === 'en'
@@ -255,12 +278,12 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
       )}
 
       {/* Main Flashcard Display */}
-      {filteredCards.length > 0 && activeCard ? (
+      {filteredCards.length > 0 ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           {/* Progress Indicator */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            <span>{language === 'en' ? 'Progress' : 'Progresso'}: {currentCardIndex + 1} / {filteredCards.length}</span>
+            <span>{language === 'en' ? 'Progress' : 'Progresso'}: {safeCardIndex + 1} / {filteredCards.length}</span>
             <span>{isCramming ? (language === 'en' ? 'Cram Mode' : 'Modalità Cramming') : (language === 'en' ? 'Spaced Repetition' : 'Ripetizione Spaziata')}</span>
           </div>
 
@@ -602,19 +625,23 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
 
           <div style={{ display: 'flex', gap: '1rem', width: '100%', marginTop: '1rem' }}>
             <button 
-              onClick={refreshDeck}
+              type="button"
+              onClick={() => void refreshDeck()}
+              disabled={isRefreshing}
               className="btn btn-secondary"
               style={{ flex: 1 }}
             >
-              <RefreshCw size={18} />
+              {isRefreshing ? <Loader2 size={18} className="spin-icon" /> : <RefreshCw size={18} />}
               {language === 'en' ? 'Refresh Deck' : 'Ricarica Deck'}
             </button>
 
             {!isCramming ? (
               <button 
+                type="button"
                 onClick={() => {
                   setIsCramming(true);
                   setCurrentCardIndex(0);
+                  setIsFlipped(false);
                 }}
                 className="btn btn-primary"
                 style={{ flex: 1 }}
@@ -624,10 +651,12 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
               </button>
             ) : (
               <button 
+                type="button"
                 onClick={() => {
                   setIsCramming(false);
-                  refreshDeck();
+                  void refreshDeck();
                 }}
+                disabled={isRefreshing}
                 className="btn btn-primary"
                 style={{ flex: 1 }}
               >

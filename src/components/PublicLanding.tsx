@@ -19,7 +19,7 @@ interface PublicLandingProps {
 
 export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLandingProps) {
   return (
-    <div className="marketing-landing">
+    <div className="marketing-landing page-view">
       <section className="marketing-hero glass-panel">
         <div className="marketing-hero-badge">
           <Sparkles size={16} />

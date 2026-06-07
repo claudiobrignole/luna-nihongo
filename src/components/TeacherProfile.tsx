@@ -61,7 +61,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
   };
 
   return (
-    <div className="teacher-profile-view" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+    <div className="teacher-profile-view page-view" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
       
       {/* Hero Section */}
       <div 
@@ -218,8 +218,6 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           flexWrap: 'wrap',
           justifyContent: 'center',
           gap: '2rem',
-          maxWidth: '850px',
-          margin: '0 auto'
         }}>
           
           {/* Plan 1: Free trial */}

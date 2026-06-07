@@ -156,7 +156,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
   if (bookingCompleted) {
     return (
-      <div className="booking-view" style={{ maxWidth: '650px', margin: '0 auto' }}>
+      <div className="page-view booking-view">
         <div className="glass-panel" style={{ padding: '2.5rem', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1rem', border: '2px solid var(--success)' }}>
           <CheckCircle2 size={48} color="var(--success)" style={{ margin: '0 auto' }} />
           <h2>{language === 'en' ? 'Booking confirmed!' : 'Prenotazione confermata!'}</h2>
@@ -184,7 +184,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   }
 
   return (
-    <div className="booking-view" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div className="page-view booking-view" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       <div style={{ textAlign: 'center' }}>
         <h2 style={{ marginBottom: '0.4rem' }}>
           {mode === 'intro'

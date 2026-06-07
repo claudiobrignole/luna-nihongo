@@ -11,6 +11,7 @@ import {
 } from '../utils/curriculumDisplay';
 import { WritingQuizPanel } from './WritingQuizPanel';
 import { StrokeOrderQuizPanel } from './StrokeOrderQuizPanel';
+import { HubFilterStack, HubFilterGrid } from './HubFilterGrid';
 import type { WritingQuizExtended } from '../types/writingGrading';
 import {
   BookOpen,
@@ -171,7 +172,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
   const activeLevelMeta = CURRICULUM_LEVELS.find((l) => l.level === activeLevel);
 
   return (
-    <div className="study-hub">
+    <div className="study-hub page-view">
       <header className="study-hub-header">
         <div>
           <h2>{language === 'en' ? 'Studio' : 'Studio'}</h2>
@@ -198,20 +199,17 @@ export const LearningPath: React.FC<LearningPathProps> = ({
         </div>
       </header>
 
-      <div className="study-level-tabs" role="tablist">
-        {CURRICULUM_LEVELS.map((lvl) => (
-          <button
-            key={lvl.level}
-            type="button"
-            role="tab"
-            aria-selected={activeLevel === lvl.level}
-            className={`study-level-tab ${activeLevel === lvl.level ? 'active' : ''}`}
-            onClick={() => setActiveLevel(lvl.level)}
-          >
-            {lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, '')}
-          </button>
-        ))}
-      </div>
+      <HubFilterStack>
+        <HubFilterGrid
+          label={language === 'en' ? 'Level' : 'Livello'}
+          options={CURRICULUM_LEVELS.map((lvl) => ({
+            value: lvl.level,
+            label: lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, ''),
+          }))}
+          value={activeLevel}
+          onChange={setActiveLevel}
+        />
+      </HubFilterStack>
 
       {activeLevelMeta && (
         <p className="study-level-desc">{activeLevelMeta.description[language]}</p>
@@ -275,7 +273,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
           >
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <span style={{ textTransform: 'uppercase', color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>
+              <span className={`study-unit-type type-${selectedUnit.type}`}>
                 {unitTypeLabel(selectedUnit.type, language)}
               </span>
               <button onClick={() => setSelectedUnit(null)} style={{ color: 'var(--text-muted)' }}>

@@ -53,7 +53,7 @@ export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboardin
   ];
 
   return (
-    <div className="home-landing">
+    <div className="home-landing page-view">
       <section className="home-hero glass-panel">
         <div className="home-hero-badge">
           <Sparkles size={16} />

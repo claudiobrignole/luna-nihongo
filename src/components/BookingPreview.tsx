@@ -12,7 +12,7 @@ interface BookingPreviewProps {
  */
 export function BookingPreview({ language, onRegister }: BookingPreviewProps) {
   return (
-    <div className="booking-preview">
+    <div className="booking-preview page-view">
       <header className="booking-preview-header">
         <h2>{language === 'en' ? 'Book a lesson with Luna' : 'Prenota una lezione con Luna'}</h2>
         <p>

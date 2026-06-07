@@ -190,7 +190,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '960px', margin: '0 auto' }}>
+    <div className="page-view" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
       {/* Header */}
       <div className="glass-panel" style={{

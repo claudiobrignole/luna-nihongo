@@ -74,7 +74,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   const canToggleTier = canManageUsers(currentUser.role);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+    <div className="page-view" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
       {/* ── User Profile Hero ── */}
       <div className="glass-panel" style={{

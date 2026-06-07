@@ -303,7 +303,7 @@ export const AITutor: React.FC<AITutorProps> = ({
   }, []);
 
   return (
-    <div className="tutor-layout">
+    <div className="tutor-layout page-view">
       <div className="tutor-shell">
         <div className="tutor-view-tabs">
           <button

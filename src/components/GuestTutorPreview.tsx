@@ -8,7 +8,7 @@ interface GuestTutorPreviewProps {
 
 export function GuestTutorPreview({ language, onRequireAuth }: GuestTutorPreviewProps) {
   return (
-    <div className="guest-tutor-preview">
+    <div className="guest-tutor-preview page-view">
       <div className="guest-tutor-chat glass-panel">
         <div className="guest-tutor-header">
           <div className="logo-circle" style={{ width: 44, height: 44, fontSize: '1.2rem' }}>月</div>

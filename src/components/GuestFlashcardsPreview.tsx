@@ -8,7 +8,7 @@ interface GuestFlashcardsPreviewProps {
 
 export function GuestFlashcardsPreview({ language, onRequireAuth }: GuestFlashcardsPreviewProps) {
   return (
-    <div className="guest-flashcards-preview">
+    <div className="guest-flashcards-preview page-view">
       <header>
         <h2>{language === 'en' ? 'Decks' : 'Deck'}</h2>
         <p>
