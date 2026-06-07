@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
 import { Award, BookOpen, Clock, Globe, ArrowRight, MessageSquare, Star, ShieldCheck } from 'lucide-react';
+import type { LunaUser } from '../types/user';
+import { hasActiveSubscription, isTrialActive, trialDaysRemaining, includedLessonsRemaining, MONTHLY_SUBSCRIPTION_LABEL, EXTRA_LESSON_PRICE_LABEL, AI_MINUTES_WEEKLY } from '../types/user';
+import { FreeTrialButton } from './FreeTrialButton';
+import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 
 interface TeacherProfileProps {
   language: 'en' | 'it';
-  onNavigateToBooking: () => void;
+  currentUser?: LunaUser;
+  onNavigateToBooking: (mode: 'intro' | 'regular') => void;
+  onTrialRefresh?: () => void | Promise<void>;
+  onRequireAuth?: () => void;
 }
 
-export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavigateToBooking }) => {
+export const TeacherProfile: React.FC<TeacherProfileProps> = ({
+  language,
+  currentUser,
+  onNavigateToBooking,
+  onTrialRefresh,
+  onRequireAuth,
+}) => {
+  const subscribed = currentUser ? hasActiveSubscription(currentUser) : false;
+  const includedLeft = currentUser ? includedLessonsRemaining(currentUser) : 0;
+  const trialActive = currentUser ? isTrialActive(currentUser) : false;
+  const trialDays = currentUser ? trialDaysRemaining(currentUser) : 0;
   const [activeReviewIndex, setActiveReviewIndex] = useState<number>(0);
 
   const testimonials = [
@@ -179,11 +196,11 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
 
           <div className="glass-panel" style={{ padding: '1.5rem', borderTop: '4px solid var(--secondary)' }}>
             <div style={{ color: 'var(--secondary)', marginBottom: '0.8rem' }}><Clock size={28} /></div>
-            <h4 style={{ marginBottom: '0.5rem' }}>{language === 'en' ? 'Perfect Calendar Sync' : 'Calendario Integrato'}</h4>
+            <h4 style={{ marginBottom: '0.5rem' }}>{language === 'en' ? 'In-app scheduling' : 'Prenotazione integrata'}</h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {language === 'en'
-                ? "Book slots, process payments, and receive a Google Calendar invite with a Google Meet link. Everything is handled within the app."
-                : "Prenota gli orari, paga online in sicurezza e ricevi l'invito su Google Calendar con link Google Meet. Tutto gestito qui."}
+                ? 'Book intro calls and lessons from Luna\'s in-app calendar — no external Google Calendar needed.'
+                : 'Prenota call intro e lezioni dal calendario interno di Luna — senza Google Calendar esterno.'}
             </p>
           </div>
 
@@ -205,7 +222,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
           margin: '0 auto'
         }}>
           
-          {/* Plan 1: Single Lesson */}
+          {/* Plan 1: Free trial */}
           <div 
             className="glass-panel"
             style={{
@@ -216,20 +233,35 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
               alignItems: 'center',
               textAlign: 'center',
               gap: '1rem',
+              border: '2px solid var(--accent)',
               position: 'relative'
             }}
           >
-            <h4 style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>
-              {language === 'en' ? 'Single Lesson' : 'Lezione Singola'}
+            <div style={{
+              position: 'absolute',
+              top: '-15px',
+              backgroundColor: 'var(--accent)',
+              color: 'white',
+              padding: '4px 12px',
+              borderRadius: '20px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+            }}>
+              {language === 'en' ? 'NEW' : 'NOVITÀ'}
+            </div>
+
+            <h4 style={{ fontSize: '1.2rem', color: 'var(--accent)', fontWeight: 700 }}>
+              {language === 'en' ? '7 days free' : '7 giorni gratuiti'}
             </h4>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>CHF 35</span>
-              <span style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>/ hr</span>
+              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>
+                {language === 'en' ? '7 days' : '7 giorni'}
+              </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', minHeight: '60px' }}>
               {language === 'en'
-                ? 'Ideal for checking your progress, asking grammar doubts, or preparation for JLPT exams.'
-                : 'Ideale per chiarire dubbi grammaticali specifici, fare conversazione sporadica o ripasso pre-esami.'}
+                ? 'AI tutor and Luna Live (2 h/week rolling), plus one 30-minute intro group videocall with Luna (up to 5 participants). One trial per account.'
+                : 'Tutor AI e Luna Live (2 h/settimana rolling), più una videocall introduttiva di gruppo da 30 minuti con Luna (fino a 5 partecipanti). Una prova per account.'}
             </p>
             <div style={{
               width: '100%',
@@ -241,20 +273,35 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
               gap: '0.5rem',
               fontSize: '0.85rem'
             }}>
-              <div>✔️ 60-minute lesson (Google Meet)</div>
-              <div>✔️ Free lesson study summary</div>
-              <div>✔️ Customizable availability booking</div>
+              <div>✔️ {language === 'en' ? `AI tutor + Luna Live (${AI_MINUTES_WEEKLY / 60} h/week)` : `Tutor AI + Luna Live (${AI_MINUTES_WEEKLY / 60} h/settimana)`}</div>
+              <div>✔️ {language === 'en' ? '30-min intro videocall' : 'Videocall introduttiva 30 min'}</div>
+              <div>✔️ {language === 'en' ? 'Lessons & flashcards stay free after trial' : 'Lezioni e flashcard restano free dopo la prova'}</div>
             </div>
-            <button 
-              onClick={onNavigateToBooking}
-              className="btn btn-secondary" 
-              style={{ width: '100%', marginTop: 'auto' }}
-            >
-              {language === 'en' ? 'Book Single Lesson' : 'Prenota Singola'}
-            </button>
+            {trialActive && (
+              <p style={{ fontSize: '0.8rem', color: 'var(--primary)', margin: 0 }}>
+                {language === 'en'
+                  ? `${trialDays} day(s) left in your trial`
+                  : `${trialDays} giorno/i rimasti di prova`}
+              </p>
+            )}
+            {currentUser ? (
+              <FreeTrialButton
+                language={language}
+                trialUsed={currentUser.trialUsed}
+                hasPremium={subscribed}
+                onTrialStarted={() => onTrialRefresh?.()}
+                onBookIntro={() => onNavigateToBooking('intro')}
+                className="btn btn-accent"
+                style={{ width: '100%', marginTop: 'auto' }}
+              />
+            ) : (
+              <button type="button" className="btn btn-accent" style={{ width: '100%', marginTop: 'auto' }} onClick={onRequireAuth}>
+                {language === 'en' ? 'Register for free trial' : 'Registrati per la prova'}
+              </button>
+            )}
           </div>
 
-          {/* Plan 2: Subscription Package */}
+          {/* Plan 2: Monthly lesson package */}
           <div 
             className="glass-panel"
             style={{
@@ -287,13 +334,13 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
               {language === 'en' ? 'Monthly Sub' : 'Abbonamento Mensile'}
             </h4>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>CHF 119</span>
+              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>{MONTHLY_SUBSCRIPTION_LABEL}</span>
               <span style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>/ mo</span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', minHeight: '60px' }}>
               {language === 'en'
-                ? 'Best for students looking to make rapid progress and build consistent language study habits.'
-                : 'La scelta migliore per chi vuole fare progressi rapidi e mantenere un ritmo di studio costante.'}
+                ? 'AI tutor (2 h/week), Luna memory, 2 individual 60-min lessons per billing cycle. Unused lessons expire at cycle end. Extra lessons available.'
+                : 'Tutor AI (2 h/settimana), memoria Luna, 2 lezioni individuali da 60 min per ciclo di fatturazione. Le lezioni non usate scadono a fine ciclo. Lezioni extra disponibili.'}
             </p>
             <div style={{
               width: '100%',
@@ -305,18 +352,30 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({ language, onNavi
               gap: '0.5rem',
               fontSize: '0.85rem'
             }}>
-              <div>✔️ **4 x 60-min lessons** (1 per week)</div>
-              <div>✔️ Personalized study folder</div>
-              <div>✔️ Direct homework review via WhatsApp</div>
-              <div>✔️ Priority support for reschedule slots</div>
+              <div>✔️ {language === 'en' ? '2 × 60-min 1-on-1 lessons / cycle' : '2 lezioni individuali da 60 min / ciclo'}</div>
+              <div>✔️ {language === 'en' ? `AI tutor + Luna Live (${AI_MINUTES_WEEKLY / 60} h/week)` : `Tutor AI + Luna Live (${AI_MINUTES_WEEKLY / 60} h/settimana)`}</div>
+              <div>✔️ {language === 'en' ? `Extra lessons ${EXTRA_LESSON_PRICE_LABEL}/h` : `Lezioni extra ${EXTRA_LESSON_PRICE_LABEL}/h`}</div>
+              <div>✔️ {language === 'en' ? 'Unused included lessons do not roll over' : 'Le ore non usate non sono recuperabili il mese successivo'}</div>
             </div>
-            <button 
-              onClick={onNavigateToBooking}
-              className="btn btn-primary" 
-              style={{ width: '100%', marginTop: 'auto' }}
-            >
-              {language === 'en' ? 'Subscribe Now' : 'Abbonati Ora'}
-            </button>
+            {subscribed ? (
+              <button
+                type="button"
+                onClick={() => onNavigateToBooking('regular')}
+                className="btn btn-primary"
+                style={{ width: '100%', marginTop: 'auto' }}
+              >
+                {language === 'en'
+                  ? `Book lessons (${includedLeft} included left)`
+                  : `Prenota lezioni (${includedLeft} incluse rimaste)`}
+              </button>
+            ) : (
+              <PremiumUpgradeButton
+                language={language}
+                label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
+                className="btn btn-primary"
+                style={{ width: '100%', marginTop: 'auto' }}
+              />
+            )}
           </div>
 
         </div>

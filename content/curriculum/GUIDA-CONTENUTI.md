@@ -60,7 +60,8 @@ Non serve toccare le unità se l'id resta uguale.
 ## Scenario 2 — Aggiungere una nuova unità
 
 1. **Crea** `units/nome-unita.json` (copia struttura da un'unità simile).
-2. **Aggiungi** l'id in `manifest.json` → array `unitOrder` **nella posizione giusta**.
+2. **NON** editare `unitOrder` a mano — usa lo script:
+   `npm run curriculum:insert -- nome-unita` (oppure `node content/curriculum/insert-units.mjs nome-unita`).
 3. Assicurati che `id` nel JSON = nome file (`nome-unita.json`).
 4. Compila `title`, `description`, `quizzes` (IT + EN obbligatori).
 5. Referenzia item esistenti o aggiungi prima i record in `repositories/`.
@@ -130,7 +131,7 @@ Se `curriculum:check` fallisce, leggi l'errore: di solito è un ref mancante, un
 ## Cosa non fare
 
 - Non editare `build/curriculum.json` a mano (viene rigenerato).
-- Non mettere contenuto didattico in `src/data/lessons.ts` (legacy, non più usato).
+- Non mettere contenuto didattico in `src/` — tutto vive in `content/curriculum/`.
 - Non duplicare lo stesso kana/kanji in più repository.
 - Non committare senza passare `npm run curriculum:check`.
 

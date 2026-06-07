@@ -1,9 +1,9 @@
 // ============================================================
 // Luna Nihongo — Syllabus content schema
-// schemaVersion: 1.0.0
+// schemaVersion: 1.1.0  (additive over 1.0.0)
 // ------------------------------------------------------------
 // Design notes:
-// - Atomic content (kana / kanji / vocab / grammar) lives in
+// - Atomic content (kana / kanji / vocab / grammar / dialogues) lives in
 //   reference repositories and is keyed by stable `id`.
 // - Units do NOT embed content; they REFERENCE it via *Refs[].
 //   A build-time hydration step inlines the referenced records
@@ -12,6 +12,9 @@
 //   (settings.showRomaji), never a content concern.
 // - Quizzes that would become trivial/incoherent when romaji is
 //   shown carry `requiresRomaji` so the quiz engine can adapt.
+// - v1.1.0: situational layer (dialogues, Can-do) + writing /
+//   stroke-order quizzes. strokeData holds KanjiVG id only — path
+//   data resolved at runtime from an external CC-BY-SA asset bundle.
 // ============================================================
 
 /** Bilingual string. Both locales are mandatory everywhere. */
@@ -21,6 +24,20 @@ export interface Bilingual {
 }
 
 export type Locale = "it" | "en";
+
+// ------------------------------------------------------------
+// STROKE DATA (KanjiVG reference — no path geometry in JSON)
+// ------------------------------------------------------------
+
+/**
+ * Reference to KanjiVG stroke data resolved at runtime.
+ * `kanjiVgId` = Unicode codepoint as 5-digit hex (e.g. あ → "03042").
+ * Path data stays in an external CC-BY-SA 3.0 asset bundle; not embedded here.
+ */
+export interface StrokeData {
+  kanjiVgId: string;
+  strokeCount: number;
+}
 
 // ------------------------------------------------------------
 // ATOMIC CONTENT ENTITIES
@@ -37,6 +54,7 @@ export interface KanaItem {
   /** Row/group for pedagogical grouping, e.g. "k-line", "vowels". */
   group: string;
   mnemonic?: Bilingual;    // memory hook, optional
+  strokeData?: StrokeData;
 }
 
 /** A single N5 kanji. id e.g. "kanji-ichi" (一). */
@@ -52,6 +70,7 @@ export interface KanjiItem {
   mnemonic?: Bilingual;
   /** Vocab ids that exemplify this kanji (only using prior kanji). */
   exampleVocabRefs?: string[];
+  strokeData?: StrokeData;
 }
 
 /** A vocabulary entry. id e.g. "vocab-mizu" (水). */
@@ -93,10 +112,63 @@ export interface GrammarExample {
 }
 
 // ------------------------------------------------------------
+// DIALOGUES (v1.1.0 situational layer)
+// ------------------------------------------------------------
+
+/** One line in a situational dialogue scene. id e.g. "dlg-cafe-order". */
+export interface DialogueLine {
+  speaker: Bilingual;
+  japanese: string;
+  kana: string;
+  romaji: string;
+  translation: Bilingual;
+  note?: Bilingual;
+}
+
+export interface DialogueScene {
+  id: string;              // dlg-<slug>
+  title: Bilingual;
+  /** Setting / communicative goal of the scene. */
+  context: Bilingual;
+  lines: DialogueLine[];
+  vocabRefs?: string[];
+  grammarRefs?: string[];
+}
+
+/** Can-do statement (CEFR-style communicative outcome). */
+export interface CanDo {
+  statement: Bilingual;
+  id?: string;
+  level?: string;
+  skill?: string;
+}
+
+/** Tags for filtering situational units & tutor recall. */
+export type SituationTag =
+  | "greeting"
+  | "introduction"
+  | "shopping"
+  | "restaurant"
+  | "travel"
+  | "directions"
+  | "school"
+  | "health"
+  | "daily-routine"
+  | "phone"
+  | "housing"
+  | "work"
+  | "social";
+
+// ------------------------------------------------------------
 // QUIZZES
 // ------------------------------------------------------------
 
-export type QuizType = "multiple-choice" | "spelling" | "matching";
+export type QuizType =
+  | "multiple-choice"
+  | "spelling"
+  | "matching"
+  | "writing"
+  | "stroke-order";
 
 export interface QuizBase {
   id: string;
@@ -132,14 +204,43 @@ export interface MatchingQuiz extends QuizBase {
   pairs: { left: string; right: string }[];
 }
 
-export type Quiz = MultipleChoiceQuiz | SpellingQuiz | MatchingQuiz;
+/** Free production graded by AI tutor (Gemini) using task + rubric. */
+export interface WritingQuiz extends QuizBase {
+  type: "writing";
+  task: Bilingual;
+  /** Checklist of criteria for AI grading. */
+  rubric: Bilingual[];
+  modelAnswer: string;
+}
+
+/** Character tracing on canvas; target must have strokeData (KanjiVG id). */
+export interface StrokeOrderQuiz extends QuizBase {
+  type: "stroke-order";
+  /** id of a kana or kanji record with strokeData. */
+  targetItemId: string;
+  japanese: string;
+  enforceOrder?: boolean;
+}
+
+export type Quiz =
+  | MultipleChoiceQuiz
+  | SpellingQuiz
+  | MatchingQuiz
+  | WritingQuiz
+  | StrokeOrderQuiz;
 
 // ------------------------------------------------------------
 // UNITS & LEVELS
 // ------------------------------------------------------------
 
 export type UnitType =
-  | "hiragana" | "katakana" | "kanji" | "grammar" | "vocab" | "review";
+  | "hiragana"
+  | "katakana"
+  | "kanji"
+  | "grammar"
+  | "vocab"
+  | "review"
+  | "situation";
 
 export interface SyllabusUnit {
   id: string;                 // slug, e.g. "hiragana-vowels"
@@ -155,12 +256,18 @@ export interface SyllabusUnit {
   kanjiRefs?: string[];
   vocabRefs?: string[];
   grammarRefs?: string[];
+  dialogueRefs?: string[];
 
   /**
    * For type "review": ids of items/points pulled from EARLIER units
    * to be re-tested. May mix kana/kanji/vocab/grammar refs above.
    */
   reviewPoolRefs?: string[];
+
+  /** v1.1.0 — communicative outcomes (required for type "situation"). */
+  canDo?: CanDo[];
+  /** v1.1.0 — situational filtering tags. */
+  situationTags?: SituationTag[];
 
   quizzes: Quiz[];
 
@@ -177,12 +284,23 @@ export interface SyllabusLevel {
   description: Bilingual;
 }
 
+/** Optional documentation map in manifest.json (not used by hydrate output). */
+export interface ManifestUnitMapEntry {
+  id: string;
+  level: number;
+  type: UnitType;
+  title: Bilingual;
+  contains?: string;
+  isReview?: boolean;
+}
+
 export interface Manifest {
-  schemaVersion: string;      // "1.0.0"
+  schemaVersion: string;      // "1.1.0"
   targetLevel: "N5";
   /** Ordered list of unit ids = the canonical learning path. */
   unitOrder: string[];
-  levels: SyllabusLevel[];
+  /** Human-readable index; levels live in levels.json, not here. */
+  unitMap?: ManifestUnitMapEntry[];
 }
 
 // ------------------------------------------------------------
@@ -192,11 +310,17 @@ export interface Manifest {
 /** A unit with its refs resolved to full records. */
 export interface HydratedUnit extends Omit<
   SyllabusUnit,
-  "kanaRefs" | "kanjiRefs" | "vocabRefs" | "grammarRefs" | "reviewPoolRefs"
+  | "kanaRefs"
+  | "kanjiRefs"
+  | "vocabRefs"
+  | "grammarRefs"
+  | "reviewPoolRefs"
+  | "dialogueRefs"
 > {
   kana?: KanaItem[];
   kanji?: KanjiItem[];
   vocab?: VocabItem[];
   grammar?: GrammarPoint[];
   reviewPool?: (KanaItem | KanjiItem | VocabItem | GrammarPoint)[];
+  dialogues?: DialogueScene[];
 }

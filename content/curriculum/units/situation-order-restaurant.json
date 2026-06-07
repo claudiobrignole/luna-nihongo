@@ -1,0 +1,183 @@
+{
+  "id": "situation-order-restaurant",
+  "level": 3,
+  "order": 33,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Ordinare al ristorante",
+    "en": "Situation · Ordering at a restaurant"
+  },
+  "description": {
+    "it": "Una delle situazioni più utili: ordinare cibo e bevande. Con を per l'oggetto e おねがいします/ください per la cortesia, gestisci un'ordinazione completa. Ascolta lo scambio cliente-cameriere e poi scrivi il tuo ordine.",
+    "en": "One of the most useful situations: ordering food and drinks. With を for the object and おねがいします/ください for politeness, you handle a full order. Listen to the customer-waiter exchange, then write your own order."
+  },
+  "dialogueRefs": [
+    "dlg-order-restaurant"
+  ],
+  "canDo": [
+    {
+      "id": "cando-order-food",
+      "level": "A2",
+      "statement": {
+        "it": "So ordinare cibo e bevande al ristorante.",
+        "en": "I can order food and drinks at a restaurant."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-order",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere un ordine semplice.",
+        "en": "I can write a simple order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "restaurant"
+  ],
+  "prerequisites": [
+    "grammar-masu-verbs",
+    "grammar-o-object",
+    "vocab-verbs-base"
+  ],
+  "grammarRefs": [
+    "gr-o-object"
+  ],
+  "vocabRefs": [
+    "vocab-chuumon",
+    "vocab-onegaishimasu",
+    "vocab-ocha",
+    "vocab-kudasai"
+  ],
+  "quizzes": [
+    {
+      "id": "q-or-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per ordinare 'udon, per favore':",
+        "en": "To order 'udon, please':"
+      },
+      "options": [
+        {
+          "it": "うどんを おねがいします",
+          "en": "うどんを おねがいします"
+        },
+        {
+          "it": "うどんは おねがいします",
+          "en": "うどんは おねがいします"
+        },
+        {
+          "it": "うどんの おねがいします",
+          "en": "うどんの おねがいします"
+        },
+        {
+          "it": "うどんに おねがいします",
+          "en": "うどんに おねがいします"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-or-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale particella marca ciò che ordini?",
+        "en": "Which particle marks what you order?"
+      },
+      "options": [
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "の",
+          "en": "の"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-or-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Sei al ristorante. Ordina un piatto e una bevanda in due frasi, usando を e una formula cortese.",
+        "en": "You're at a restaurant. Order a dish and a drink in two sentences, using を and a polite phrase."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Ordina un piatto con を.",
+          "en": "Orders a dish with を."
+        },
+        {
+          "it": "Ordina una bevanda.",
+          "en": "Orders a drink."
+        },
+        {
+          "it": "Usa おねがいします o ください.",
+          "en": "Uses おねがいします or ください."
+        }
+      ],
+      "modelAnswer": "うどんを おねがいします。おちゃを ください。",
+      "modelAnswerKana": "うどんを おねがいします。おちゃを ください。",
+      "modelAnswerRomaji": "udon o onegaishimasu. ocha o kudasai.",
+      "modelAnswerTranslation": {
+        "it": "Udon, per favore. E del tè.",
+        "en": "Udon, please. And some tea."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-o-object"
+      ],
+      "expectsVocabRefs": [
+        "vocab-onegaishimasu",
+        "vocab-ocha",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "q-or-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la frase alla funzione.",
+        "en": "Match the phrase to its function."
+      },
+      "pairs": [
+        {
+          "left": "ごちゅうもんは?",
+          "right": "chiedere l'ordine / asking the order"
+        },
+        {
+          "left": "おねがいします",
+          "right": "ordinare cortese / polite ordering"
+        },
+        {
+          "left": "おのみものは?",
+          "right": "chiedere da bere / asking about drinks"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

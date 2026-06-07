@@ -1,0 +1,181 @@
+{
+  "id": "situation-ask-directions",
+  "level": 3,
+  "order": 36,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Chiedere indicazioni",
+    "en": "Situation · Asking directions"
+  },
+  "description": {
+    "it": "Perso in città? Con すみません per attirare l'attenzione, どこ per chiedere dove, e に/で per il luogo, trovi quello che cerchi. Impara anche ここ/そこ/あそこ (qui/lì/là). Poi scrivi una richiesta di indicazioni.",
+    "en": "Lost in town? With すみません to get attention, どこ to ask where, and に/で for place, you find what you need. Learn ここ/そこ/あそこ (here/there/over there) too. Then write a request for directions."
+  },
+  "dialogueRefs": [
+    "dlg-ask-directions"
+  ],
+  "canDo": [
+    {
+      "id": "cando-ask-where",
+      "level": "A2",
+      "statement": {
+        "it": "So chiedere dove si trova un luogo.",
+        "en": "I can ask where a place is."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-directions",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere una richiesta di indicazioni.",
+        "en": "I can write a request for directions."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "directions"
+  ],
+  "prerequisites": [
+    "grammar-ni-de-place",
+    "kanji-position",
+    "vocab-places-family"
+  ],
+  "grammarRefs": [
+    "gr-ni-de-place",
+    "gr-wa-topic"
+  ],
+  "vocabRefs": [
+    "vocab-sumimasen",
+    "vocab-eki",
+    "vocab-doko",
+    "vocab-asoko",
+    "vocab-koko"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ad-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come chiedi 'dov'è la stazione?'",
+        "en": "How do you ask 'where's the station?'"
+      },
+      "options": [
+        {
+          "it": "えきは どこですか",
+          "en": "えきは どこですか"
+        },
+        {
+          "it": "えきは なんですか",
+          "en": "えきは なんですか"
+        },
+        {
+          "it": "えきは いくらですか",
+          "en": "えきは いくらですか"
+        },
+        {
+          "it": "えきは だれですか",
+          "en": "えきは だれですか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ad-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "あそこ significa...",
+        "en": "あそこ means..."
+      },
+      "options": [
+        {
+          "it": "là (lontano) / over there",
+          "en": "là (lontano) / over there"
+        },
+        {
+          "it": "qui / here",
+          "en": "qui / here"
+        },
+        {
+          "it": "lì (vicino a te) / there",
+          "en": "lì (vicino a te) / there"
+        },
+        {
+          "it": "dove / where",
+          "en": "dove / where"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ad-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Sei per strada e cerchi la stazione. Scrivi come fermi qualcuno e chiedi dov'è.",
+        "en": "You're on the street looking for the station. Write how you stop someone and ask where it is."
+      },
+      "targetLength": {
+        "min": 12,
+        "max": 35
+      },
+      "rubric": [
+        {
+          "it": "Apre con すみません.",
+          "en": "Opens with すみません."
+        },
+        {
+          "it": "Chiede la posizione con どこ.",
+          "en": "Asks location with どこ."
+        }
+      ],
+      "modelAnswer": "すみません、えきは どこですか。",
+      "modelAnswerKana": "すみません、えきは どこですか。",
+      "modelAnswerRomaji": "sumimasen, eki wa doko desu ka.",
+      "modelAnswerTranslation": {
+        "it": "Scusi, dov'è la stazione?",
+        "en": "Excuse me, where's the station?"
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-wa-topic"
+      ],
+      "expectsVocabRefs": [
+        "vocab-sumimasen",
+        "vocab-eki",
+        "vocab-doko"
+      ]
+    },
+    {
+      "id": "q-ad-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina i deittici di luogo.",
+        "en": "Match the place words."
+      },
+      "pairs": [
+        {
+          "left": "ここ",
+          "right": "qui / here"
+        },
+        {
+          "left": "そこ",
+          "right": "lì / there"
+        },
+        {
+          "left": "あそこ",
+          "right": "là / over there"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

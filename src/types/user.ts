@@ -1,14 +1,20 @@
 export type UserRole = 'super_admin' | 'admin' | 'user';
 export type SubscriptionTier = 'free' | 'premium';
 
+export const TRIAL_DAYS = 7;
+export const AI_MINUTES_WEEKLY = 120;
+export const AI_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+export const MAX_LIVE_SESSION_MINUTES = 10;
+export const INCLUDED_LESSONS_PER_CYCLE = 2;
+export const EXTRA_LESSON_PRICE_LABEL = '49 EUR/CHF';
+export const MONTHLY_SUBSCRIPTION_LABEL = '119 EUR/CHF';
+
 export interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
-  /** chat = text tutor; live = voice session line */
   source?: 'chat' | 'live';
   liveSessionId?: string;
   createdAt?: string;
-  /** Marks the start of a saved live session in unified chatHistory */
   sessionDivider?: boolean;
 }
 
@@ -21,21 +27,34 @@ export interface LunaUser {
   completedUnits: string[];
   xp: number;
   joinedDate: string;
-  /** Tutor user turns (each user message in chat). Free tier cap applies here. */
   messagesCount: number;
+  /** @deprecated synced from study profile for legacy server prompts */
   memory: string;
+  studyGoal?: string;
+  studyWeaknesses?: string;
+  studyPreferences?: string;
   chatHistory: ChatMessage[];
   onboardingCompleted: boolean;
-  /** Macro curriculum level (0–6) the student chose at onboarding. */
   preferredStartLevel: number;
   showRomaji: boolean;
   tutorVoiceEnabled: boolean;
-  /** Live voice session minutes consumed in the current calendar month. */
+  /** AI voice minutes used in the current 7-day window. */
   liveMinutesUsed: number;
-  /** YYYY-MM period for liveMinutesUsed reset. */
-  liveMinutesPeriod: string;
-  /** Set when Premium ends; live history purged 90 days after this date. */
+  /** ISO start of the current 7-day AI window (from first session). */
+  liveMinutesWindowStart?: string | null;
+  /** @deprecated legacy calendar month — ignored when liveMinutesWindowStart is set */
+  liveMinutesPeriod?: string;
   premiumEndedAt?: string | null;
+  stripeCustomerId?: string | null;
+  stripeSubscriptionId?: string | null;
+  subscriptionStatus?: string | null;
+  subscriptionPeriodStart?: string | null;
+  subscriptionPeriodEnd?: string | null;
+  includedLessonsUsed?: number;
+  trialStartedAt?: string | null;
+  trialEndsAt?: string | null;
+  trialUsed?: boolean;
+  introCallBookedAt?: string | null;
 }
 
 export interface UserProfileDocument {
@@ -48,43 +67,107 @@ export interface UserProfileDocument {
   joinedDate: string;
   messagesCount: number;
   memory: string;
+  studyGoal?: string;
+  studyWeaknesses?: string;
+  studyPreferences?: string;
   chatHistory: ChatMessage[];
   onboardingCompleted?: boolean;
   preferredStartLevel?: number;
   showRomaji?: boolean;
   tutorVoiceEnabled?: boolean;
   liveMinutesUsed?: number;
+  liveMinutesWindowStart?: string | null;
   liveMinutesPeriod?: string;
   premiumEndedAt?: string | null;
+  stripeCustomerId?: string | null;
+  stripeSubscriptionId?: string | null;
+  subscriptionStatus?: string | null;
+  subscriptionPeriodStart?: string | null;
+  subscriptionPeriodEnd?: string | null;
+  includedLessonsUsed?: number;
+  trialStartedAt?: string | null;
+  trialEndsAt?: string | null;
+  trialUsed?: boolean;
+  introCallBookedAt?: string | null;
   createdAt: string;
   updatedAt: string;
 }
 
-export const FREE_TUTOR_TURN_LIMIT = 10;
-
-export const FREE_LIVE_MINUTES_MONTHLY = 5;
-export const PREMIUM_LIVE_MINUTES_MONTHLY = 120;
-export const MAX_LIVE_SESSION_MINUTES = 10;
-
-export function currentLiveMinutesPeriod(): string {
-  const now = new Date();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-  return `${now.getUTCFullYear()}-${month}`;
+export function isTrialActive(
+  user: Pick<LunaUser, 'trialEndsAt'>,
+  now = Date.now(),
+): boolean {
+  if (!user.trialEndsAt) return false;
+  return new Date(user.trialEndsAt).getTime() > now;
 }
 
-export function liveMinutesLimit(tier: SubscriptionTier): number {
-  return tier === 'premium' ? PREMIUM_LIVE_MINUTES_MONTHLY : FREE_LIVE_MINUTES_MONTHLY;
+export function hasActiveSubscription(
+  user: Pick<LunaUser, 'tier' | 'subscriptionStatus' | 'role'>,
+): boolean {
+  if (user.tier !== 'premium') return false;
+  if (user.role === 'super_admin') return true;
+  const status = user.subscriptionStatus ?? '';
+  return status === 'active' || status === 'trialing';
 }
 
-export function resolveLiveMinutesUsed(user: Pick<LunaUser, 'liveMinutesUsed' | 'liveMinutesPeriod'>): number {
-  const period = currentLiveMinutesPeriod();
-  if (user.liveMinutesPeriod !== period) return 0;
-  return user.liveMinutesUsed ?? 0;
+export function hasPremiumAccess(
+  user: Pick<LunaUser, 'tier' | 'trialEndsAt' | 'subscriptionStatus' | 'role'>,
+  now = Date.now(),
+): boolean {
+  if (hasActiveSubscription(user)) return true;
+  return isTrialActive(user, now);
 }
 
+export function canUseAiTutor(
+  user: Pick<LunaUser, 'tier' | 'trialEndsAt' | 'subscriptionStatus' | 'role'>,
+  now = Date.now(),
+): boolean {
+  return hasPremiumAccess(user, now);
+}
+
+export function trialDaysRemaining(user: Pick<LunaUser, 'trialEndsAt'>, now = Date.now()): number {
+  if (!user.trialEndsAt) return 0;
+  const ms = new Date(user.trialEndsAt).getTime() - now;
+  return ms > 0 ? Math.ceil(ms / (24 * 60 * 60 * 1000)) : 0;
+}
+
+export function normalizeWeeklyAiUsage(
+  liveMinutesUsed: number | undefined,
+  liveMinutesWindowStart: string | undefined | null,
+  now = Date.now(),
+): { used: number; windowStart: string; reset: boolean } {
+  if (!liveMinutesWindowStart) {
+    return { used: 0, windowStart: new Date(now).toISOString(), reset: true };
+  }
+  const startMs = new Date(liveMinutesWindowStart).getTime();
+  if (Number.isNaN(startMs) || now - startMs >= AI_WEEK_MS) {
+    return { used: 0, windowStart: new Date(now).toISOString(), reset: true };
+  }
+  return { used: liveMinutesUsed ?? 0, windowStart: liveMinutesWindowStart, reset: false };
+}
+
+export function aiMinutesRemaining(user: LunaUser, now = Date.now()): number {
+  if (!canUseAiTutor(user, now)) return 0;
+  const { used } = normalizeWeeklyAiUsage(user.liveMinutesUsed, user.liveMinutesWindowStart, now);
+  return Math.max(0, AI_MINUTES_WEEKLY - used);
+}
+
+export function includedLessonsRemaining(user: LunaUser, now = Date.now()): number {
+  if (!hasActiveSubscription(user)) return 0;
+  const start = user.subscriptionPeriodStart ? new Date(user.subscriptionPeriodStart).getTime() : NaN;
+  const end = user.subscriptionPeriodEnd ? new Date(user.subscriptionPeriodEnd).getTime() : NaN;
+  if (Number.isNaN(start) || Number.isNaN(end) || now < start || now > end) return 0;
+  const used = user.includedLessonsUsed ?? 0;
+  return Math.max(0, INCLUDED_LESSONS_PER_CYCLE - used);
+}
+
+/** @deprecated use aiMinutesRemaining */
 export function liveMinutesRemaining(user: LunaUser): number {
-  const limit = liveMinutesLimit(user.tier);
-  return Math.max(0, limit - resolveLiveMinutesUsed(user));
+  return aiMinutesRemaining(user);
+}
+
+export function liveMinutesLimitForUser(_user: LunaUser): number {
+  return AI_MINUTES_WEEKLY;
 }
 
 export const SUPER_ADMIN_EMAIL = 'claudio@brignole.ch';
@@ -117,6 +200,13 @@ export function canManageTier(actor: LunaUser, target: LunaUser): boolean {
   if (actor.role === 'super_admin') return !isProtectedSuperAdmin(target.email) || actor.id === target.id;
   if (actor.role === 'admin') return target.role === 'user';
   return false;
+}
+
+export function canDeleteUser(actor: LunaUser, target: LunaUser): boolean {
+  if (actor.role !== 'super_admin') return false;
+  if (actor.id === target.id) return false;
+  if (isProtectedSuperAdmin(target.email)) return false;
+  return true;
 }
 
 export function assignableRoles(actor: LunaUser, target: LunaUser): UserRole[] {

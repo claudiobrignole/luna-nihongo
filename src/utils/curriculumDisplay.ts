@@ -63,6 +63,10 @@ function vocabCard(v: VocabItem, language: Locale): DisplayCard {
   };
 }
 
+function isGrammarPoint(item: unknown): item is GrammarPoint {
+  return typeof item === 'object' && item !== null && 'explanation' in item && 'examples' in item;
+}
+
 function poolItemToCard(item: KanaItem | KanjiItem | VocabItem | GrammarPoint, language: Locale): DisplayCard | null {
   if (isKanaItem(item)) return kanaCard(item);
   if (isKanjiItem(item)) return kanjiCard(item, language);
@@ -85,7 +89,19 @@ export function getDisplayCards(unit: HydratedUnit, language: Locale): DisplayCa
 }
 
 export function getGrammarPoints(unit: HydratedUnit): GrammarPoint[] {
-  return unit.grammar ?? [];
+  const fromRefs = unit.grammar ?? [];
+  const fromPool = (unit.reviewPool ?? []).filter(isGrammarPoint);
+  if (fromPool.length === 0) return fromRefs;
+
+  const seen = new Set(fromRefs.map((g) => g.id));
+  const merged = [...fromRefs];
+  for (const point of fromPool) {
+    if (!seen.has(point.id)) {
+      merged.push(point);
+      seen.add(point.id);
+    }
+  }
+  return merged;
 }
 
 export function getQuizOptionLabel(option: { it: string; en: string }, language: Locale): string {
@@ -124,6 +140,7 @@ export function unitTypeLabel(type: HydratedUnit['type'], language: Locale): str
     grammar: { it: 'grammatica', en: 'grammar' },
     vocab: { it: 'vocabolario', en: 'vocab' },
     review: { it: 'ripasso', en: 'review' },
+    situation: { it: 'situazione', en: 'situation' },
   };
   return labels[type][language];
 }

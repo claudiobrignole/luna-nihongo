@@ -39,42 +39,71 @@ export function resolveTierForEmail(email: string): SubscriptionTier {
     : 'free';
 }
 
-function defaultMemory(email: string, username: string, language: 'en' | 'it'): string {
-  if (normalizeEmail(email) === normalizeEmail(SUPER_ADMIN_EMAIL)) {
-    return language === 'en'
-      ? 'Platform owner and super administrator.'
-      : 'Proprietario della piattaforma e super amministratore.';
+function defaultMemory(_email: string, _username: string, _language: 'en' | 'it'): string {
+  return '';
+}
+
+function normalizeSuperAdminPremiumFields(data: DocumentData): DocumentData {
+  const email = normalizeEmail(String(data.email ?? ''));
+  if (email !== normalizeEmail(SUPER_ADMIN_EMAIL) || data.tier !== 'premium') {
+    return data;
   }
-  return language === 'en'
-    ? `User ${username} started learning Japanese.`
-    : `L'utente ${username} ha iniziato a studiare il giapponese.`;
+
+  const now = new Date();
+  const periodEnd = new Date(now);
+  periodEnd.setUTCDate(periodEnd.getUTCDate() + 30);
+
+  return {
+    ...data,
+    role: data.role ?? 'super_admin',
+    subscriptionStatus: data.subscriptionStatus ?? 'active',
+    subscriptionPeriodStart: data.subscriptionPeriodStart ?? now.toISOString(),
+    subscriptionPeriodEnd: data.subscriptionPeriodEnd ?? periodEnd.toISOString(),
+    includedLessonsUsed: typeof data.includedLessonsUsed === 'number' ? data.includedLessonsUsed : 0,
+    liveMinutesWindowStart: data.liveMinutesWindowStart ?? null,
+  };
 }
 
 function docToUser(uid: string, data: DocumentData): LunaUser {
+  const normalized = normalizeSuperAdminPremiumFields(data);
   return {
     id: uid,
-    email: data.email ?? '',
-    username: data.username ?? '',
-    role: data.role ?? 'user',
-    tier: data.tier ?? 'free',
-    completedUnits: data.completedUnits ?? [],
-    xp: data.xp ?? 0,
-    joinedDate: data.joinedDate ?? '',
-    messagesCount: data.messagesCount ?? 0,
-    memory: data.memory ?? '',
-    chatHistory: data.chatHistory ?? [],
+    email: normalized.email ?? '',
+    username: normalized.username ?? '',
+    role: normalized.role ?? 'user',
+    tier: normalized.tier ?? 'free',
+    completedUnits: normalized.completedUnits ?? [],
+    xp: normalized.xp ?? 0,
+    joinedDate: normalized.joinedDate ?? '',
+    messagesCount: normalized.messagesCount ?? 0,
+    memory: normalized.memory ?? '',
+    studyGoal: normalized.studyGoal ?? undefined,
+    studyWeaknesses: normalized.studyWeaknesses ?? undefined,
+    studyPreferences: normalized.studyPreferences ?? undefined,
+    chatHistory: normalized.chatHistory ?? [],
     onboardingCompleted:
-      data.onboardingCompleted === true
+      normalized.onboardingCompleted === true
         ? true
-        : data.onboardingCompleted === false
+        : normalized.onboardingCompleted === false
           ? false
-          : (data.completedUnits?.length ?? 0) > 0,
-    preferredStartLevel: typeof data.preferredStartLevel === 'number' ? data.preferredStartLevel : 0,
-    showRomaji: data.showRomaji !== false,
-    tutorVoiceEnabled: data.tutorVoiceEnabled !== false,
-    liveMinutesUsed: data.liveMinutesUsed ?? 0,
-    liveMinutesPeriod: data.liveMinutesPeriod ?? '',
-    premiumEndedAt: data.premiumEndedAt ?? null,
+          : (normalized.completedUnits?.length ?? 0) > 0,
+    preferredStartLevel: typeof normalized.preferredStartLevel === 'number' ? normalized.preferredStartLevel : 0,
+    showRomaji: normalized.showRomaji !== false,
+    tutorVoiceEnabled: normalized.tutorVoiceEnabled !== false,
+    liveMinutesUsed: normalized.liveMinutesUsed ?? 0,
+    liveMinutesWindowStart: normalized.liveMinutesWindowStart ?? null,
+    liveMinutesPeriod: normalized.liveMinutesPeriod ?? '',
+    premiumEndedAt: normalized.premiumEndedAt ?? null,
+    stripeCustomerId: normalized.stripeCustomerId ?? null,
+    stripeSubscriptionId: normalized.stripeSubscriptionId ?? null,
+    subscriptionStatus: normalized.subscriptionStatus ?? null,
+    subscriptionPeriodStart: normalized.subscriptionPeriodStart ?? null,
+    subscriptionPeriodEnd: normalized.subscriptionPeriodEnd ?? null,
+    includedLessonsUsed: typeof normalized.includedLessonsUsed === 'number' ? normalized.includedLessonsUsed : 0,
+    trialStartedAt: normalized.trialStartedAt ?? null,
+    trialEndsAt: normalized.trialEndsAt ?? null,
+    trialUsed: normalized.trialUsed === true,
+    introCallBookedAt: normalized.introCallBookedAt ?? null,
   };
 }
 
@@ -149,6 +178,9 @@ export async function updateUserProfile(
       | 'xp'
       | 'messagesCount'
       | 'memory'
+      | 'studyGoal'
+      | 'studyWeaknesses'
+      | 'studyPreferences'
       | 'chatHistory'
       | 'onboardingCompleted'
       | 'preferredStartLevel'
@@ -230,6 +262,16 @@ export async function setUserRole(
   return docToUser(targetUid, updated.data()!);
 }
 
+function adminPremiumPeriod(now = new Date()) {
+  const start = new Date(now);
+  const end = new Date(now);
+  end.setUTCDate(end.getUTCDate() + 30);
+  return {
+    subscriptionPeriodStart: start.toISOString(),
+    subscriptionPeriodEnd: end.toISOString(),
+  };
+}
+
 export async function setUserTier(
   actor: LunaUser,
   targetUid: string,
@@ -246,17 +288,25 @@ export async function setUserTier(
     throw new Error('Permessi insufficienti per modificare il piano.');
   }
 
+  const now = new Date().toISOString();
   const updates: Record<string, unknown> = {
     tier,
-    updatedAt: new Date().toISOString(),
+    updatedAt: now,
   };
 
   if (tier === 'premium') {
+    const period = adminPremiumPeriod();
     updates.messagesCount = 0;
     updates.liveMinutesUsed = 0;
+    updates.liveMinutesWindowStart = null;
     updates.premiumEndedAt = null;
+    updates.subscriptionStatus = 'active';
+    updates.subscriptionPeriodStart = period.subscriptionPeriodStart;
+    updates.subscriptionPeriodEnd = period.subscriptionPeriodEnd;
+    updates.includedLessonsUsed = 0;
   } else if (target.tier === 'premium') {
-    updates.premiumEndedAt = new Date().toISOString();
+    updates.premiumEndedAt = now;
+    updates.subscriptionStatus = 'canceled';
   }
 
   await updateDoc(doc(getFirebaseDb(), USERS_COLLECTION, targetUid), updates);

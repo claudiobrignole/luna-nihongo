@@ -1716,6 +1716,232 @@
         "places",
         "directions"
       ]
+    },
+    {
+      "id": "vocab-kudasai",
+      "japanese": "ください",
+      "kana": "ください",
+      "romaji": "kudasai",
+      "meaning": {
+        "it": "per favore (chiedendo qcs)",
+        "en": "please (requesting)"
+      },
+      "tags": [
+        "everyday",
+        "particles"
+      ]
+    },
+    {
+      "id": "vocab-ikura",
+      "japanese": "いくら",
+      "kana": "いくら",
+      "romaji": "ikura",
+      "meaning": {
+        "it": "quanto (costa)",
+        "en": "how much"
+      },
+      "tags": [
+        "shopping",
+        "question-words"
+      ]
+    },
+    {
+      "id": "vocab-doko",
+      "japanese": "どこ",
+      "kana": "どこ",
+      "romaji": "doko",
+      "meaning": {
+        "it": "dove",
+        "en": "where"
+      },
+      "tags": [
+        "directions",
+        "question-words"
+      ]
+    },
+    {
+      "id": "vocab-koko",
+      "japanese": "ここ",
+      "kana": "ここ",
+      "romaji": "koko",
+      "meaning": {
+        "it": "qui",
+        "en": "here"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-soko",
+      "japanese": "そこ",
+      "kana": "そこ",
+      "romaji": "soko",
+      "meaning": {
+        "it": "lì",
+        "en": "there"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-asoko",
+      "japanese": "あそこ",
+      "kana": "あそこ",
+      "romaji": "asoko",
+      "meaning": {
+        "it": "là (lontano)",
+        "en": "over there"
+      },
+      "tags": [
+        "directions"
+      ]
+    },
+    {
+      "id": "vocab-itsu",
+      "japanese": "いつ",
+      "kana": "いつ",
+      "romaji": "itsu",
+      "meaning": {
+        "it": "quando",
+        "en": "when"
+      },
+      "tags": [
+        "time",
+        "question-words"
+      ]
+    },
+    {
+      "id": "vocab-menu",
+      "japanese": "メニュー",
+      "kana": "メニュー",
+      "romaji": "menyuu",
+      "meaning": {
+        "it": "menù",
+        "en": "menu"
+      },
+      "tags": [
+        "restaurant",
+        "food"
+      ]
+    },
+    {
+      "id": "vocab-chuumon",
+      "japanese": "注文",
+      "kana": "ちゅうもん",
+      "romaji": "chuumon",
+      "meaning": {
+        "it": "ordine / ordinazione",
+        "en": "order"
+      },
+      "tags": [
+        "restaurant"
+      ]
+    },
+    {
+      "id": "vocab-onegai",
+      "japanese": "お願い",
+      "kana": "おねがい",
+      "romaji": "onegai",
+      "meaning": {
+        "it": "richiesta / per favore",
+        "en": "request / please"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-shuumatsu",
+      "japanese": "週末",
+      "kana": "しゅうまつ",
+      "romaji": "shuumatsu",
+      "meaning": {
+        "it": "fine settimana",
+        "en": "weekend"
+      },
+      "tags": [
+        "time"
+      ]
+    },
+    {
+      "id": "vocab-messeeji",
+      "japanese": "メッセージ",
+      "kana": "メッセージ",
+      "romaji": "messeeji",
+      "meaning": {
+        "it": "messaggio",
+        "en": "message"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-yakusoku",
+      "japanese": "約束",
+      "kana": "やくそく",
+      "romaji": "yakusoku",
+      "meaning": {
+        "it": "appuntamento / promessa",
+        "en": "appointment / promise"
+      },
+      "tags": [
+        "appointments"
+      ]
+    },
+    {
+      "id": "vocab-eega",
+      "japanese": "映画",
+      "kana": "えいが",
+      "romaji": "eiga",
+      "meaning": {
+        "it": "film",
+        "en": "movie"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-ii",
+      "japanese": "いい",
+      "kana": "いい",
+      "romaji": "ii",
+      "meaning": {
+        "it": "buono / va bene",
+        "en": "good / fine"
+      },
+      "tags": [
+        "adjectives"
+      ]
+    },
+    {
+      "id": "vocab-onamae",
+      "japanese": "お名前",
+      "kana": "おなまえ",
+      "romaji": "onamae",
+      "meaning": {
+        "it": "(il Suo) nome",
+        "en": "(your) name"
+      },
+      "tags": [
+        "everyday"
+      ]
+    },
+    {
+      "id": "vocab-shusshin",
+      "japanese": "出身",
+      "kana": "しゅっしん",
+      "romaji": "shusshin",
+      "meaning": {
+        "it": "provenienza / origine",
+        "en": "origin / where from"
+      },
+      "tags": [
+        "people"
+      ]
     }
   ]
 }

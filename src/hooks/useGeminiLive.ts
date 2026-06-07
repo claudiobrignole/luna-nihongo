@@ -35,6 +35,7 @@ interface UseGeminiLiveOptions {
     billedMinutes: number;
     chatHistory?: ChatMessage[];
     liveSessionId?: string;
+    historySaved?: boolean;
   }) => void;
 }
 
@@ -88,6 +89,7 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
   const [transcript, setTranscript] = useState<LiveTranscriptLine[]>([]);
   const [sessionSeconds, setSessionSeconds] = useState(0);
   const [minutesRemaining, setMinutesRemaining] = useState<number | null>(null);
+  const [playbackStream, setPlaybackStream] = useState<MediaStream | null>(null);
 
   const wsRef = useRef<WebSocket | null>(null);
   const mediaStreamRef = useRef<MediaStream | null>(null);
@@ -103,7 +105,10 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
   const maxSessionSecondsRef = useRef(600);
   const timerRef = useRef<number | null>(null);
   const onSessionEndedRef = useRef(onSessionEnded);
-  onSessionEndedRef.current = onSessionEnded;
+
+  useEffect(() => {
+    onSessionEndedRef.current = onSessionEnded;
+  }, [onSessionEnded]);
 
   const appendTranscript = useCallback((role: 'user' | 'assistant', text: string) => {
     const trimmed = text.trim();
@@ -131,6 +136,7 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
     }
     audioContextRef.current = null;
     playbackRef.current = null;
+    setPlaybackStream(null);
     micStartedRef.current = false;
   }, []);
 
@@ -175,6 +181,7 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
           billedMinutes: result.billedMinutes,
           chatHistory: result.chatHistory,
           liveSessionId: result.liveSessionId,
+          historySaved: result.historySaved,
         });
       } catch (err) {
         console.error('endLiveSession failed', err);
@@ -239,6 +246,7 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
       await ctx.resume();
     }
     playbackRef.current = new PcmPlaybackQueue(ctx);
+    setPlaybackStream(playbackRef.current.getOutputStream());
 
     const source = ctx.createMediaStreamSource(stream);
     const processor = ctx.createScriptProcessor(4096, 1, 1);
@@ -398,5 +406,6 @@ export function useGeminiLive({ language, user, onSessionEnded }: UseGeminiLiveO
     startSession,
     stopSession,
     isActive: status !== 'idle' && status !== 'error',
+    playbackStream,
   };
 };

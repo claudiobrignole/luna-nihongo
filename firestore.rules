@@ -43,25 +43,58 @@ service cloud.firestore {
     function ownerLiveQuotaUpdateAllowed(uid) {
       return isOwner(uid)
         && request.resource.data.diff(resource.data).affectedKeys()
-          .hasOnly(['liveMinutesUsed', 'liveMinutesPeriod', 'updatedAt'])
+          .hasOnly(['liveMinutesUsed', 'liveMinutesWindowStart', 'liveMinutesPeriod', 'updatedAt'])
         && request.resource.data.liveMinutesUsed >= resource.data.liveMinutesUsed
         && request.resource.data.liveMinutesUsed <= resource.data.liveMinutesUsed + 10;
     }
 
-    function ownerCannotChangeLiveQuota(uid) {
-      return !ownerLiveQuotaUpdateAllowed(uid)
-        && request.resource.data.diff(resource.data).affectedKeys()
-          .hasAny(['liveMinutesUsed', 'liveMinutesPeriod']);
+    function ownerLiveQuotaChangeOk(uid) {
+      return !request.resource.data.diff(resource.data).affectedKeys()
+          .hasAny(['liveMinutesUsed', 'liveMinutesWindowStart', 'liveMinutesPeriod'])
+        || ownerLiveQuotaUpdateAllowed(uid);
+    }
+
+    function ownerCannotChangeStripeFields() {
+      return !request.resource.data.diff(resource.data).affectedKeys()
+        .hasAny([
+          'stripeCustomerId',
+          'stripeSubscriptionId',
+          'subscriptionStatus',
+          'subscriptionPeriodStart',
+          'subscriptionPeriodEnd',
+          'includedLessonsUsed',
+        ]);
+    }
+
+    function ownerCannotChangeTrialFields() {
+      return !request.resource.data.diff(resource.data).affectedKeys()
+        .hasAny(['trialStartedAt', 'trialEndsAt', 'trialUsed', 'introCallBookedAt']);
+    }
+
+    function adminTierManagedKeys() {
+      return [
+        'tier',
+        'updatedAt',
+        'messagesCount',
+        'liveMinutesUsed',
+        'liveMinutesPeriod',
+        'liveMinutesWindowStart',
+        'premiumEndedAt',
+        'subscriptionStatus',
+        'subscriptionPeriodStart',
+        'subscriptionPeriodEnd',
+        'includedLessonsUsed',
+      ];
     }
 
     function onlyTierChanged() {
       return request.resource.data.diff(resource.data).affectedKeys()
-        .hasOnly(['tier', 'updatedAt', 'messagesCount', 'liveMinutesUsed', 'liveMinutesPeriod']);
+        .hasOnly(adminTierManagedKeys());
     }
 
     function onlyRoleOrTierChanged() {
       return request.resource.data.diff(resource.data).affectedKeys()
-        .hasOnly(['role', 'tier', 'updatedAt', 'messagesCount']);
+        .hasOnly(['role'].concat(adminTierManagedKeys()));
     }
 
     match /users/{userId} {
@@ -75,7 +108,9 @@ service cloud.firestore {
         );
 
       allow update: if isOwner(userId)
-        && ownerCannotChangeLiveQuota(userId)
+        && ownerLiveQuotaChangeOk(userId)
+        && ownerCannotChangeStripeFields()
+        && ownerCannotChangeTrialFields()
         && (
           !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role'])
           || isSuperAdmin()
@@ -123,6 +158,15 @@ service cloud.firestore {
         allow read: if isOwner(userId) || isAdmin();
         allow write: if false;
       }
+    }
+
+    match /availabilitySlots/{slotId} {
+      allow read: if isSignedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /trialIpClaims/{claimId} {
+      allow read, write: if false;
     }
   }
 }

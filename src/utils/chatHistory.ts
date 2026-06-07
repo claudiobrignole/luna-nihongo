@@ -120,3 +120,40 @@ export function trimChatHistory(chatHistory: ChatMessage[]): ChatMessage[] {
   if (chatHistory.length <= MAX_CHAT_HISTORY) return chatHistory;
   return chatHistory.slice(-MAX_CHAT_HISTORY);
 }
+
+export function mergeLiveTranscriptIntoChatHistory(
+  existing: ChatMessage[],
+  sessionId: string,
+  transcript: Array<{ role: 'user' | 'assistant'; text: string }>,
+  language: 'en' | 'it',
+  sessionStartedAt: Date = new Date(),
+): ChatMessage[] {
+  const lines = transcript
+    .map((line) => ({
+      role: line.role,
+      content: line.text.trim(),
+    }))
+    .filter((line) => line.content.length > 0);
+
+  if (lines.length === 0) return existing;
+
+  const createdAt = sessionStartedAt.toISOString();
+  const divider: ChatMessage = {
+    role: 'assistant',
+    content: formatLiveSessionDivider(language, sessionStartedAt),
+    source: 'live',
+    liveSessionId: sessionId,
+    createdAt,
+    sessionDivider: true,
+  };
+
+  const liveMessages: ChatMessage[] = lines.map((line) => ({
+    role: line.role,
+    content: line.content,
+    source: 'live',
+    liveSessionId: sessionId,
+    createdAt,
+  }));
+
+  return trimChatHistory([...existing, divider, ...liveMessages]);
+}

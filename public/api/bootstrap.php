@@ -7,7 +7,7 @@ function luna_send_cors_headers(): void
 {
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization');
     header('Content-Type: application/json; charset=utf-8');
 
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -228,4 +228,76 @@ function luna_call_gemini_tts(string $apiKey, string $text, string $language = '
     }
 
     return $lastError;
+}
+
+function luna_get_firebase_web_api_key(): string
+{
+    $key = getenv('FIREBASE_WEB_API_KEY') ?: getenv('VITE_FIREBASE_API_KEY') ?: '';
+    return $key !== false ? (string) $key : '';
+}
+
+function luna_get_bearer_token(): string
+{
+    $header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '';
+    if (preg_match('/Bearer\s+(\S+)/i', $header, $matches)) {
+        return $matches[1];
+    }
+    return '';
+}
+
+/**
+ * @return array{uid: string, email: string}|null
+ */
+function luna_verify_firebase_id_token(string $idToken): ?array
+{
+    if ($idToken === '') {
+        return null;
+    }
+
+    $webApiKey = luna_get_firebase_web_api_key();
+    if ($webApiKey === '') {
+        return null;
+    }
+
+    $url = 'https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=' . urlencode($webApiKey);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['idToken' => $idToken]));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+
+    $response = curl_exec($ch);
+    $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($response === false || $httpCode !== 200) {
+        return null;
+    }
+
+    $data = json_decode($response, true);
+    $user = $data['users'][0] ?? null;
+    if (!is_array($user) || empty($user['localId'])) {
+        return null;
+    }
+
+    return [
+        'uid' => (string) $user['localId'],
+        'email' => (string) ($user['email'] ?? ''),
+    ];
+}
+
+/**
+ * @return array{uid: string, email: string}
+ */
+function luna_require_firebase_auth(): array
+{
+    $token = luna_get_bearer_token();
+    $user = luna_verify_firebase_id_token($token);
+    if ($user === null) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Login required. Send Firebase ID token as Authorization Bearer.']);
+        exit;
+    }
+    return $user;
 }

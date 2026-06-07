@@ -28,7 +28,13 @@ function docToBooking(id: string, data: Record<string, unknown>): BookedLesson {
     notes: data.notes ? String(data.notes) : undefined,
     date: String(data.date ?? ''),
     time: String(data.time ?? ''),
-    plan: data.plan === 'subscription' ? 'subscription' : 'single',
+    plan: (['trial_intro', 'included', 'extra'].includes(String(data.plan))
+      ? String(data.plan)
+      : data.plan === 'subscription'
+        ? 'included'
+        : 'extra') as BookedLesson['plan'],
+    slotId: data.slotId ? String(data.slotId) : undefined,
+    slotType: data.slotType === 'intro' ? 'intro' : data.slotType === 'regular' ? 'regular' : undefined,
     meetLink: String(data.meetLink ?? ''),
     price: String(data.price ?? ''),
     timestamp: String(data.timestamp ?? new Date().toISOString()),
@@ -104,6 +110,8 @@ export async function createBooking(
     date: record.date,
     time: record.time,
     plan: record.plan,
+    slotId: record.slotId ?? '',
+    slotType: record.slotType ?? '',
     meetLink: record.meetLink,
     price: record.price,
     timestamp: record.timestamp,

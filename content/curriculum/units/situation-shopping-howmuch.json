@@ -1,0 +1,182 @@
+{
+  "id": "situation-shopping-howmuch",
+  "level": 4,
+  "order": 42,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Fare acquisti",
+    "en": "Situation · Shopping"
+  },
+  "description": {
+    "it": "Ora che conosci gli aggettivi in -い, puoi descrivere ciò che compri: 'la borsa rossa', 'è caro'. Unisci la richiesta del prezzo a un commento (ちょっと たかいですね). Scrivi una frase su un oggetto che vuoi comprare.",
+    "en": "Now that you know i-adjectives, you can describe what you buy: 'the red bag', 'it's expensive'. Combine asking the price with a comment (ちょっと たかいですね). Write a sentence about something you want to buy."
+  },
+  "dialogueRefs": [
+    "dlg-shopping-howmuch"
+  ],
+  "canDo": [
+    {
+      "id": "cando-describe-buy",
+      "level": "A2",
+      "statement": {
+        "it": "So descrivere e commentare ciò che compro.",
+        "en": "I can describe and comment on what I buy."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-shopping",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere una frase su un acquisto.",
+        "en": "I can write a sentence about a purchase."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "shopping"
+  ],
+  "prerequisites": [
+    "grammar-i-adjectives",
+    "vocab-food-colors"
+  ],
+  "grammarRefs": [
+    "gr-i-adjectives"
+  ],
+  "vocabRefs": [
+    "vocab-aka",
+    "vocab-ikura",
+    "vocab-takai",
+    "vocab-en-money"
+  ],
+  "quizzes": [
+    {
+      "id": "q-sh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come dici 'questa borsa rossa'?",
+        "en": "How do you say 'this red bag'?"
+      },
+      "options": [
+        {
+          "it": "この あかい かばん",
+          "en": "この あかい かばん"
+        },
+        {
+          "it": "この かばん あかい",
+          "en": "この かばん あかい"
+        },
+        {
+          "it": "この あかな かばん",
+          "en": "この あかな かばん"
+        },
+        {
+          "it": "かばんの あかい",
+          "en": "かばんの あかい"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'È un po' caro' si dice...",
+        "en": "'It's a bit expensive' is..."
+      },
+      "options": [
+        {
+          "it": "ちょっと たかいです",
+          "en": "ちょっと たかいです"
+        },
+        {
+          "it": "ちょっと たかでした",
+          "en": "ちょっと たかでした"
+        },
+        {
+          "it": "ちょっと たかな です",
+          "en": "ちょっと たかな です"
+        },
+        {
+          "it": "ちょっと たかます",
+          "en": "ちょっと たかます"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sh-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi una frase su qualcosa che vuoi comprare, usando un aggettivo in -い e un colore.",
+        "en": "Write a sentence about something you want to buy, using an i-adjective and a color."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Usa un colore davanti al nome.",
+          "en": "Uses a color before the noun."
+        },
+        {
+          "it": "Usa un aggettivo in -い.",
+          "en": "Uses an i-adjective."
+        },
+        {
+          "it": "Frase corretta e leggibile.",
+          "en": "Correct, readable sentence."
+        }
+      ],
+      "modelAnswer": "この あかい かばんが ほしいです。",
+      "modelAnswerKana": "この あかい かばんが ほしいです。",
+      "modelAnswerRomaji": "kono akai kaban ga hoshii desu.",
+      "modelAnswerTranslation": {
+        "it": "Voglio questa borsa rossa.",
+        "en": "I want this red bag."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-i-adjectives",
+        "gr-suki-hoshii"
+      ],
+      "expectsVocabRefs": [
+        "vocab-aka",
+        "vocab-takai"
+      ]
+    },
+    {
+      "id": "q-sh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina aggettivo e significato.",
+        "en": "Match adjective to meaning."
+      },
+      "pairs": [
+        {
+          "left": "たかい",
+          "right": "caro / expensive"
+        },
+        {
+          "left": "やすい",
+          "right": "economico / cheap"
+        },
+        {
+          "left": "あかい",
+          "right": "rosso / red"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

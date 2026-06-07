@@ -1,0 +1,12 @@
+<?php
+/**
+ * RINOMINA questo file in: luna-gemini.php
+ * POSIZIONALO in: private/ (UN LIVELLO SOPRA public_html)
+ *
+ * Percorso Hostinger tipico:
+ *   domains/tuodominio.com/private/luna-gemini.php
+ *
+ * Questo file NON viene mai cancellato dai redeploy GitHub
+ * perché sta fuori dalla cartella public_html.
+ */
+define('LUNA_GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY_HERE');

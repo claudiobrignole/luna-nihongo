@@ -1,7 +1,7 @@
 {
   "build": {
-    "command": "npm ci && npm run build",
+    "command": "npm ci && npm run build:hostinger",
     "output": "dist"
   },
-  "note": "In hPanel → Git → set Node 20+, output directory dist. Add VITE_FIREBASE_* and GEMINI_API_KEY env vars before build."
+  "note": "In hPanel → Git → set Node 22+, output directory dist. Add VITE_FIREBASE_*, GEMINI_API_KEY, and FIREBASE_WEB_API_KEY env vars before build."
 }

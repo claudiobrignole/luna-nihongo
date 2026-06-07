@@ -51,9 +51,22 @@ export class PcmPlaybackQueue {
 
   private nextTime = 0;
 
+  private outputGain: GainNode;
+
+  private simliDestination: MediaStreamAudioDestinationNode;
+
   constructor(ctx: AudioContext) {
     this.ctx = ctx;
     this.nextTime = ctx.currentTime;
+    this.outputGain = ctx.createGain();
+    this.outputGain.gain.value = 1;
+    this.outputGain.connect(ctx.destination);
+    this.simliDestination = ctx.createMediaStreamDestination();
+    this.outputGain.connect(this.simliDestination);
+  }
+
+  getOutputStream(): MediaStream {
+    return this.simliDestination.stream;
   }
 
   enqueuePcm16(pcm: Int16Array, sampleRate: number): void {
@@ -65,7 +78,7 @@ export class PcmPlaybackQueue {
     buffer.copyToChannel(float, 0);
     const source = this.ctx.createBufferSource();
     source.buffer = buffer;
-    source.connect(this.ctx.destination);
+    source.connect(this.outputGain);
     const start = Math.max(this.ctx.currentTime, this.nextTime);
     source.start(start);
     this.nextTime = start + buffer.duration;

@@ -1,0 +1,185 @@
+{
+  "id": "situation-going-places",
+  "level": 3,
+  "order": 38,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Dove vai e quando",
+    "en": "Situation · Where & when you go"
+  },
+  "description": {
+    "it": "Dire dove vai con へ/に e i verbi di movimento è il cuore della conversazione quotidiana. Aggiungi parole di tempo (oggi, domani) e racconti i tuoi spostamenti. Scrivi dove andrai e quando.",
+    "en": "Saying where you go with へ/に and movement verbs is at the heart of everyday talk. Add time words (today, tomorrow) and you describe your movements. Write where you'll go and when."
+  },
+  "dialogueRefs": [
+    "dlg-going-places"
+  ],
+  "canDo": [
+    {
+      "id": "cando-say-going",
+      "level": "A2",
+      "statement": {
+        "it": "So dire dove vado e quando.",
+        "en": "I can say where I'm going and when."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-going",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere i miei spostamenti.",
+        "en": "I can write about my movements."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "transport",
+    "appointments"
+  ],
+  "prerequisites": [
+    "grammar-e-ni-direction",
+    "vocab-time"
+  ],
+  "grammarRefs": [
+    "gr-e-ni-direction",
+    "gr-masu-verbs"
+  ],
+  "vocabRefs": [
+    "vocab-doko",
+    "vocab-iku",
+    "vocab-gakkou",
+    "vocab-kyou",
+    "vocab-ashita"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Vado a scuola' — quale particella di direzione?",
+        "en": "'I go to school' — which direction particle?"
+      },
+      "options": [
+        {
+          "it": "へ (o に)",
+          "en": "へ (o に)"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "で",
+          "en": "で"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La particella へ in questa funzione si legge...",
+        "en": "The particle へ in this role reads..."
+      },
+      "options": [
+        {
+          "it": "e",
+          "en": "e"
+        },
+        {
+          "it": "he",
+          "en": "he"
+        },
+        {
+          "it": "wa",
+          "en": "wa"
+        },
+        {
+          "it": "be",
+          "en": "be"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gp-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi dove andrai domani, usando una parola di tempo e へ o に.",
+        "en": "Write where you'll go tomorrow, using a time word and へ or に."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Usa una parola di tempo (es. あした).",
+          "en": "Uses a time word (e.g. あした)."
+        },
+        {
+          "it": "Indica la meta con へ o に.",
+          "en": "Marks the destination with へ or に."
+        },
+        {
+          "it": "Usa un verbo di movimento in -ます.",
+          "en": "Uses a movement verb in -ます."
+        }
+      ],
+      "modelAnswer": "あした、がっこうへ いきます。",
+      "modelAnswerKana": "あした、がっこうへ いきます。",
+      "modelAnswerRomaji": "ashita, gakkou e ikimasu.",
+      "modelAnswerTranslation": {
+        "it": "Domani vado a scuola.",
+        "en": "Tomorrow I'm going to school."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-e-ni-direction"
+      ],
+      "expectsVocabRefs": [
+        "vocab-ashita",
+        "vocab-gakkou",
+        "vocab-iku"
+      ]
+    },
+    {
+      "id": "q-gp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina parola di tempo e significato.",
+        "en": "Match time word to meaning."
+      },
+      "pairs": [
+        {
+          "left": "きょう",
+          "right": "oggi / today"
+        },
+        {
+          "left": "あした",
+          "right": "domani / tomorrow"
+        },
+        {
+          "left": "いつ",
+          "right": "quando / when"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

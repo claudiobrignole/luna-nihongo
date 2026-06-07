@@ -1,143 +1,1029 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "targetLevel": "N5",
   "$comment": "Canonical learning path. unitOrder is the single source of truth for sequence. unitMap below documents what each unit contains and where review-units fall — this is the deliverable to validate before card-filling.",
-
   "unitOrder": [
     "hiragana-vowels",
+    "writing-hiragana-vowels",
     "hiragana-k",
+    "writing-hiragana-k",
     "hiragana-s",
+    "writing-hiragana-s",
     "hiragana-t",
+    "writing-hiragana-t",
     "hiragana-review-1",
     "hiragana-n",
+    "writing-hiragana-n",
     "hiragana-h",
+    "writing-hiragana-h",
     "hiragana-m",
+    "writing-hiragana-m",
     "hiragana-yrw",
+    "writing-hiragana-yrw",
     "hiragana-review-2",
     "hiragana-dakuten",
     "hiragana-combos",
     "hiragana-review-final",
-
     "katakana-vowels-k",
+    "writing-katakana-vowels-k",
     "katakana-s-t",
+    "writing-katakana-s-t",
     "katakana-n-h",
+    "writing-katakana-n-h",
     "katakana-review-1",
     "katakana-m-yrw",
+    "writing-katakana-m-yrw",
     "katakana-dakuten-combos",
     "katakana-loanwords",
     "katakana-review-final",
-
     "kanji-numbers-1",
     "kanji-numbers-2",
     "vocab-greetings",
     "grammar-wa-desu",
+    "situation-greetings-intro",
     "grammar-no-possessive",
+    "situation-where-from",
     "kanji-nature",
     "vocab-numbers-counters",
+    "situation-numbers-prices",
     "grammar-mo-question",
     "kana-kanji-review-1",
-
     "kanji-people",
     "grammar-masu-verbs",
     "grammar-o-object",
     "vocab-verbs-base",
+    "situation-order-restaurant",
     "kanji-position",
     "grammar-ni-de-place",
     "grammar-e-ni-direction",
     "vocab-time",
+    "situation-daily-routine",
+    "situation-going-places",
     "vocab-places-family",
+    "situation-ask-directions",
     "level3-review",
-
     "kanji-time-day",
     "grammar-i-adjectives",
     "grammar-na-adjectives",
     "vocab-food-colors",
+    "situation-shopping-howmuch",
     "grammar-suki-hoshii",
+    "situation-likes-hobbies",
     "grammar-conjunctions",
     "kanji-school-body",
+    "situation-describe-people",
     "level4-review",
-
     "grammar-te-form",
     "grammar-te-requests-progressive",
+    "situation-make-request",
     "grammar-te-permission",
+    "situation-rules-permission",
     "grammar-past-tense",
     "grammar-adjective-past",
     "kanji-final-set",
     "vocab-everyday-directions",
+    "situation-talk-past",
     "level5-review",
-
     "n5-kana-mastery",
     "n5-kanji-mastery",
     "n5-grammar-mastery",
     "n5-mock-exam"
   ],
-
   "unitMap": [
-    { "id": "hiragana-vowels", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · le vocali", "en": "Hiragana · vowels" }, "contains": "あいうえお", "isReview": false },
-    { "id": "hiragana-k", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga K", "en": "Hiragana · K-line" }, "contains": "かきくけこ", "isReview": false },
-    { "id": "hiragana-s", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga S", "en": "Hiragana · S-line" }, "contains": "さしすせそ (shi)", "isReview": false },
-    { "id": "hiragana-t", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga T", "en": "Hiragana · T-line" }, "contains": "たちつてと (chi, tsu)", "isReview": false },
-    { "id": "hiragana-review-1", "level": 0, "type": "review", "title": { "it": "Ripasso · vocali → T", "en": "Review · vowels → T" }, "contains": "あ–と mixed recall", "isReview": true },
-    { "id": "hiragana-n", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga N", "en": "Hiragana · N-line" }, "contains": "なにぬねの", "isReview": false },
-    { "id": "hiragana-h", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga H", "en": "Hiragana · H-line" }, "contains": "はひふへほ (fu)", "isReview": false },
-    { "id": "hiragana-m", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · riga M", "en": "Hiragana · M-line" }, "contains": "まみむめも", "isReview": false },
-    { "id": "hiragana-yrw", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · Y, R, W + ん", "en": "Hiragana · Y, R, W + n" }, "contains": "やゆよ らりるれろ わをん", "isReview": false },
-    { "id": "hiragana-review-2", "level": 0, "type": "review", "title": { "it": "Ripasso · N → ん", "en": "Review · N → n" }, "contains": "な–ん mixed recall", "isReview": true },
-    { "id": "hiragana-dakuten", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · dakuten e handakuten", "en": "Hiragana · dakuten & handakuten" }, "contains": "が ざ だ ば ぱ rows", "isReview": false },
-    { "id": "hiragana-combos", "level": 0, "type": "hiragana", "title": { "it": "Hiragana · combinazioni (yōon)", "en": "Hiragana · combinations (yōon)" }, "contains": "きゃ しゅ ちょ etc. + small っ", "isReview": false },
-    { "id": "hiragana-review-final", "level": 0, "type": "review", "title": { "it": "Ripasso finale · Hiragana completo", "en": "Final review · Full hiragana" }, "contains": "all hiragana incl. dakuten/yōon", "isReview": true },
-
-    { "id": "katakana-vowels-k", "level": 1, "type": "katakana", "title": { "it": "Katakana · vocali e riga K", "en": "Katakana · vowels & K-line" }, "contains": "アイウエオ カキクケコ", "isReview": false },
-    { "id": "katakana-s-t", "level": 1, "type": "katakana", "title": { "it": "Katakana · righe S e T", "en": "Katakana · S & T lines" }, "contains": "サ–ソ タ–ト", "isReview": false },
-    { "id": "katakana-n-h", "level": 1, "type": "katakana", "title": { "it": "Katakana · righe N e H", "en": "Katakana · N & H lines" }, "contains": "ナ–ノ ハ–ホ", "isReview": false },
-    { "id": "katakana-review-1", "level": 1, "type": "review", "title": { "it": "Ripasso · Katakana ア → ホ", "en": "Review · Katakana A → ho" }, "contains": "mixed recall", "isReview": true },
-    { "id": "katakana-m-yrw", "level": 1, "type": "katakana", "title": { "it": "Katakana · M, Y, R, W + ン", "en": "Katakana · M, Y, R, W + n" }, "contains": "マ–モ ヤユヨ ラ–ロ ワヲン", "isReview": false },
-    { "id": "katakana-dakuten-combos", "level": 1, "type": "katakana", "title": { "it": "Katakana · dakuten e combinazioni", "en": "Katakana · dakuten & combinations" }, "contains": "ガ ザ etc. + ャュョ + ー long mark", "isReview": false },
-    { "id": "katakana-loanwords", "level": 1, "type": "katakana", "title": { "it": "Katakana · parole straniere", "en": "Katakana · loanwords" }, "contains": "コーヒー パン テレビ etc. reading practice", "isReview": false },
-    { "id": "katakana-review-final", "level": 1, "type": "review", "title": { "it": "Ripasso finale · Katakana completo", "en": "Final review · Full katakana" }, "contains": "all katakana + loanword reading", "isReview": true },
-
-    { "id": "kanji-numbers-1", "level": 2, "type": "kanji", "title": { "it": "Kanji · numeri 1–5", "en": "Kanji · numbers 1–5" }, "contains": "一二三四五", "isReview": false },
-    { "id": "kanji-numbers-2", "level": 2, "type": "kanji", "title": { "it": "Kanji · numeri 6–10 + 百千万円", "en": "Kanji · numbers 6–10 + 100/1000/10000/yen" }, "contains": "六七八九十 百千万円", "isReview": false },
-    { "id": "vocab-greetings", "level": 2, "type": "vocab", "title": { "it": "Vocabolario · saluti", "en": "Vocabulary · greetings" }, "contains": "おはよう こんにちは ありがとう etc.", "isReview": false },
-    { "id": "grammar-wa-desu", "level": 2, "type": "grammar", "title": { "it": "Grammatica · は e です", "en": "Grammar · wa & desu" }, "contains": "AはBです / topic particle", "isReview": false },
-    { "id": "grammar-no-possessive", "level": 2, "type": "grammar", "title": { "it": "Grammatica · の possessivo", "en": "Grammar · no (possession)" }, "contains": "AのB", "isReview": false },
-    { "id": "kanji-nature", "level": 2, "type": "kanji", "title": { "it": "Kanji · natura (giorni, elementi)", "en": "Kanji · nature (days, elements)" }, "contains": "日月火水木金土 山川 + 林森 (composition)", "isReview": false },
-    { "id": "vocab-numbers-counters", "level": 2, "type": "vocab", "title": { "it": "Vocabolario · numeri e contatori", "en": "Vocabulary · numbers & counters" }, "contains": "ひとつ〜 〜人 〜歳 etc.", "isReview": false },
-    { "id": "grammar-mo-question", "level": 2, "type": "grammar", "title": { "it": "Grammatica · も e domande con か", "en": "Grammar · mo & questions with ka" }, "contains": "Bも / 〜か？ / question words だれ なに", "isReview": false },
-    { "id": "kana-kanji-review-1", "level": 2, "type": "review", "title": { "it": "Ripasso · Livello 2", "en": "Review · Level 2" }, "contains": "numbers/nature kanji + は/の/も + greetings", "isReview": true },
-
-    { "id": "kanji-people", "level": 3, "type": "kanji", "title": { "it": "Kanji · persone e dimensioni", "en": "Kanji · people & size" }, "contains": "人大小 + 男女子 + 本", "isReview": false },
-    { "id": "grammar-masu-verbs", "level": 3, "type": "grammar", "title": { "it": "Grammatica · verbi in -ます", "en": "Grammar · -masu verbs" }, "contains": "polite present/future, affirmative & negative", "isReview": false },
-    { "id": "grammar-o-object", "level": 3, "type": "grammar", "title": { "it": "Grammatica · を (oggetto diretto)", "en": "Grammar · o (direct object)" }, "contains": "NをVます", "isReview": false },
-    { "id": "vocab-verbs-base", "level": 3, "type": "vocab", "title": { "it": "Vocabolario · verbi base", "en": "Vocabulary · basic verbs" }, "contains": "たべる のむ みる いく etc. (-masu)", "isReview": false },
-    { "id": "kanji-position", "level": 3, "type": "kanji", "title": { "it": "Kanji · posizione e direzione", "en": "Kanji · position & direction" }, "contains": "上下中 + 右左 + 田", "isReview": false },
-    { "id": "grammar-ni-de-place", "level": 3, "type": "grammar", "title": { "it": "Grammatica · に e で (luogo)", "en": "Grammar · ni & de (place)" }, "contains": "existence/location vs action location", "isReview": false },
-    { "id": "grammar-e-ni-direction", "level": 3, "type": "grammar", "title": { "it": "Grammatica · へ／に (direzione)", "en": "Grammar · e / ni (direction)" }, "contains": "movement toward, with いく/くる", "isReview": false },
-    { "id": "vocab-time", "level": 3, "type": "vocab", "title": { "it": "Vocabolario · tempo", "en": "Vocabulary · time" }, "contains": "きょう あした 〜時 〜曜日 etc.", "isReview": false },
-    { "id": "vocab-places-family", "level": 3, "type": "vocab", "title": { "it": "Vocabolario · luoghi e famiglia", "en": "Vocabulary · places & family" }, "contains": "がっこう うち + ちち はは あに etc.", "isReview": false },
-    { "id": "level3-review", "level": 3, "type": "review", "title": { "it": "Ripasso · Livello 3", "en": "Review · Level 3" }, "contains": "-masu + を/に/で/へ + people/position kanji + time/place vocab", "isReview": true },
-
-    { "id": "kanji-time-day", "level": 4, "type": "kanji", "title": { "it": "Kanji · tempo e quotidiano", "en": "Kanji · time & daily life" }, "contains": "年時間半 + 今 + 食飲", "isReview": false },
-    { "id": "grammar-i-adjectives", "level": 4, "type": "grammar", "title": { "it": "Grammatica · aggettivi in -い", "en": "Grammar · i-adjectives" }, "contains": "present affirmative/negative, attributive", "isReview": false },
-    { "id": "grammar-na-adjectives", "level": 4, "type": "grammar", "title": { "it": "Grammatica · aggettivi in -な", "en": "Grammar · na-adjectives" }, "contains": "な linking, です predicate", "isReview": false },
-    { "id": "vocab-food-colors", "level": 4, "type": "vocab", "title": { "it": "Vocabolario · cibo e colori", "en": "Vocabulary · food & colors" }, "contains": "ごはん みず さかな + あかい あおい etc.", "isReview": false },
-    { "id": "grammar-suki-hoshii", "level": 4, "type": "grammar", "title": { "it": "Grammatica · ～がすき／～がほしい", "en": "Grammar · ~ga suki / ~ga hoshii" }, "contains": "likes & wants with が", "isReview": false },
-    { "id": "grammar-conjunctions", "level": 4, "type": "grammar", "title": { "it": "Grammatica · congiunzioni (そして・でも・から)", "en": "Grammar · conjunctions (soshite / demo / kara)" }, "contains": "linking sentences, reason with から", "isReview": false },
-    { "id": "kanji-school-body", "level": 4, "type": "kanji", "title": { "it": "Kanji · scuola e corpo", "en": "Kanji · school & body" }, "contains": "学校先生 + 目耳口手足", "isReview": false },
-    { "id": "level4-review", "level": 4, "type": "review", "title": { "it": "Ripasso · Livello 4", "en": "Review · Level 4" }, "contains": "i/na adjectives + suki/hoshii + conjunctions + school/body kanji", "isReview": true },
-
-    { "id": "grammar-te-form", "level": 5, "type": "grammar", "title": { "it": "Grammatica · la forma -て", "en": "Grammar · the -te form" }, "contains": "te-form conjugation rules", "isReview": false },
-    { "id": "grammar-te-requests-progressive", "level": 5, "type": "grammar", "title": { "it": "Grammatica · ～てください／～ています", "en": "Grammar · ~te kudasai / ~te imasu" }, "contains": "requests & ongoing actions", "isReview": false },
-    { "id": "grammar-te-permission", "level": 5, "type": "grammar", "title": { "it": "Grammatica · ～てもいい／～てはいけない", "en": "Grammar · ~te mo ii / ~te wa ikenai" }, "contains": "permission & prohibition", "isReview": false },
-    { "id": "grammar-past-tense", "level": 5, "type": "grammar", "title": { "it": "Grammatica · passato dei verbi (-ました／-ませんでした)", "en": "Grammar · verb past (-mashita / -masen deshita)" }, "contains": "polite past affirmative/negative", "isReview": false },
-    { "id": "grammar-adjective-past", "level": 5, "type": "grammar", "title": { "it": "Grammatica · passato degli aggettivi", "en": "Grammar · adjective past tense" }, "contains": "i-adj かった / na-adj でした", "isReview": false },
-    { "id": "kanji-final-set", "level": 5, "type": "kanji", "title": { "it": "Kanji · set finale N5", "en": "Kanji · final N5 set" }, "contains": "出入 行来 見聞 言話読書 + 天気 (remaining N5)", "isReview": false },
-    { "id": "vocab-everyday-directions", "level": 5, "type": "vocab", "title": { "it": "Vocabolario · quotidiano e direzioni", "en": "Vocabulary · everyday & directions" }, "contains": "common everyday words + migi/hidari/mae/ushiro", "isReview": false },
-    { "id": "level5-review", "level": 5, "type": "review", "title": { "it": "Ripasso · Livello 5", "en": "Review · Level 5" }, "contains": "te-form family + past tenses + final kanji", "isReview": true },
-
-    { "id": "n5-kana-mastery", "level": 6, "type": "review", "title": { "it": "Padronanza · tutto il Kana", "en": "Mastery · all Kana" }, "contains": "full hiragana + katakana stress test", "isReview": true },
-    { "id": "n5-kanji-mastery", "level": 6, "type": "review", "title": { "it": "Padronanza · ~80 Kanji N5", "en": "Mastery · ~80 N5 Kanji" }, "contains": "all N5 kanji readings & meanings", "isReview": true },
-    { "id": "n5-grammar-mastery", "level": 6, "type": "review", "title": { "it": "Padronanza · grammatica N5", "en": "Mastery · N5 grammar" }, "contains": "all particles, verb/adj forms, te-form, past", "isReview": true },
-    { "id": "n5-mock-exam", "level": 6, "type": "review", "title": { "it": "Simulazione esame N5", "en": "N5 mock exam" }, "contains": "mixed exam-style: kana+kanji+vocab+grammar", "isReview": true }
+    {
+      "id": "hiragana-vowels",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · le vocali",
+        "en": "Hiragana · vowels"
+      },
+      "contains": "あいうえお",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-vowels",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare le vocali",
+        "en": "Writing · tracing the vowels"
+      },
+      "contains": "Sapere riconoscere un carattere è una cosa, saperlo scrivere è un'altra — e la mano aiuta la memoria. In questa unità tr",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-k",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga K",
+        "en": "Hiragana · K-line"
+      },
+      "contains": "かきくけこ",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-k",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga K",
+        "en": "Writing · K row"
+      },
+      "contains": "Ora che riconosci か き く け こ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-s",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga S",
+        "en": "Hiragana · S-line"
+      },
+      "contains": "さしすせそ (shi)",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-s",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga S",
+        "en": "Writing · S row"
+      },
+      "contains": "Ora che riconosci さ し す せ そ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-t",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga T",
+        "en": "Hiragana · T-line"
+      },
+      "contains": "たちつてと (chi, tsu)",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-t",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga T",
+        "en": "Writing · T row"
+      },
+      "contains": "Ora che riconosci た ち つ て と, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-review-1",
+      "level": 0,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · vocali → T",
+        "en": "Review · vowels → T"
+      },
+      "contains": "あ–と mixed recall",
+      "isReview": true
+    },
+    {
+      "id": "hiragana-n",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga N",
+        "en": "Hiragana · N-line"
+      },
+      "contains": "なにぬねの",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-n",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga N",
+        "en": "Writing · N row"
+      },
+      "contains": "Ora che riconosci な に ぬ ね の, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-h",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga H",
+        "en": "Hiragana · H-line"
+      },
+      "contains": "はひふへほ (fu)",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-h",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga H",
+        "en": "Writing · H row"
+      },
+      "contains": "Ora che riconosci は ひ ふ へ ほ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-m",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · riga M",
+        "en": "Hiragana · M-line"
+      },
+      "contains": "まみむめも",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-m",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · riga M",
+        "en": "Writing · M row"
+      },
+      "contains": "Ora che riconosci ま み む め も, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-yrw",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · Y, R, W + ん",
+        "en": "Hiragana · Y, R, W + n"
+      },
+      "contains": "やゆよ らりるれろ わをん",
+      "isReview": false
+    },
+    {
+      "id": "writing-hiragana-yrw",
+      "level": 0,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · Y · R · W e ん",
+        "en": "Writing · Y · R · W and ん"
+      },
+      "contains": "Ora che riconosci や ゆ よ ら り る れ ろ わ を ん, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrive",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-review-2",
+      "level": 0,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · N → ん",
+        "en": "Review · N → n"
+      },
+      "contains": "な–ん mixed recall",
+      "isReview": true
+    },
+    {
+      "id": "hiragana-dakuten",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · dakuten e handakuten",
+        "en": "Hiragana · dakuten & handakuten"
+      },
+      "contains": "が ざ だ ば ぱ rows",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-combos",
+      "level": 0,
+      "type": "hiragana",
+      "title": {
+        "it": "Hiragana · combinazioni (yōon)",
+        "en": "Hiragana · combinations (yōon)"
+      },
+      "contains": "きゃ しゅ ちょ etc. + small っ",
+      "isReview": false
+    },
+    {
+      "id": "hiragana-review-final",
+      "level": 0,
+      "type": "review",
+      "title": {
+        "it": "Ripasso finale · Hiragana completo",
+        "en": "Final review · Full hiragana"
+      },
+      "contains": "all hiragana incl. dakuten/yōon",
+      "isReview": true
+    },
+    {
+      "id": "katakana-vowels-k",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · vocali e riga K",
+        "en": "Katakana · vowels & K-line"
+      },
+      "contains": "アイウエオ カキクケコ",
+      "isReview": false
+    },
+    {
+      "id": "writing-katakana-vowels-k",
+      "level": 1,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · vocali e riga K",
+        "en": "Writing · vowels & K row"
+      },
+      "contains": "Ora che riconosci ア〜オ, カ〜コ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la m",
+      "isReview": false
+    },
+    {
+      "id": "katakana-s-t",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · righe S e T",
+        "en": "Katakana · S & T lines"
+      },
+      "contains": "サ–ソ タ–ト",
+      "isReview": false
+    },
+    {
+      "id": "writing-katakana-s-t",
+      "level": 1,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · righe S e T",
+        "en": "Writing · S & T rows"
+      },
+      "contains": "Ora che riconosci サ〜ソ, タ〜ト, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la m",
+      "isReview": false
+    },
+    {
+      "id": "katakana-n-h",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · righe N e H",
+        "en": "Katakana · N & H lines"
+      },
+      "contains": "ナ–ノ ハ–ホ",
+      "isReview": false
+    },
+    {
+      "id": "writing-katakana-n-h",
+      "level": 1,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · righe N e H",
+        "en": "Writing · N & H rows"
+      },
+      "contains": "Ora che riconosci ナ〜ノ, ハ〜ホ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la m",
+      "isReview": false
+    },
+    {
+      "id": "katakana-review-1",
+      "level": 1,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · Katakana ア → ホ",
+        "en": "Review · Katakana A → ho"
+      },
+      "contains": "mixed recall",
+      "isReview": true
+    },
+    {
+      "id": "katakana-m-yrw",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · M, Y, R, W + ン",
+        "en": "Katakana · M, Y, R, W + n"
+      },
+      "contains": "マ–モ ヤユヨ ラ–ロ ワヲン",
+      "isReview": false
+    },
+    {
+      "id": "writing-katakana-m-yrw",
+      "level": 1,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · righe M, Y, R, W e ン",
+        "en": "Writing · M, Y, R, W rows and ン"
+      },
+      "contains": "Ora che riconosci マ〜モ, ヤ〜ヨ, ラ〜ロ, ワ・ヲ・ン, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scriver",
+      "isReview": false
+    },
+    {
+      "id": "katakana-dakuten-combos",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · dakuten e combinazioni",
+        "en": "Katakana · dakuten & combinations"
+      },
+      "contains": "ガ ザ etc. + ャュョ + ー long mark",
+      "isReview": false
+    },
+    {
+      "id": "katakana-loanwords",
+      "level": 1,
+      "type": "katakana",
+      "title": {
+        "it": "Katakana · parole straniere",
+        "en": "Katakana · loanwords"
+      },
+      "contains": "コーヒー パン テレビ etc. reading practice",
+      "isReview": false
+    },
+    {
+      "id": "katakana-review-final",
+      "level": 1,
+      "type": "review",
+      "title": {
+        "it": "Ripasso finale · Katakana completo",
+        "en": "Final review · Full katakana"
+      },
+      "contains": "all katakana + loanword reading",
+      "isReview": true
+    },
+    {
+      "id": "kanji-numbers-1",
+      "level": 2,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · numeri 1–5",
+        "en": "Kanji · numbers 1–5"
+      },
+      "contains": "一二三四五",
+      "isReview": false
+    },
+    {
+      "id": "kanji-numbers-2",
+      "level": 2,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · numeri 6–10 + 百千万円",
+        "en": "Kanji · numbers 6–10 + 100/1000/10000/yen"
+      },
+      "contains": "六七八九十 百千万円",
+      "isReview": false
+    },
+    {
+      "id": "vocab-greetings",
+      "level": 2,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · saluti",
+        "en": "Vocabulary · greetings"
+      },
+      "contains": "おはよう こんにちは ありがとう etc.",
+      "isReview": false
+    },
+    {
+      "id": "grammar-wa-desu",
+      "level": 2,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · は e です",
+        "en": "Grammar · wa & desu"
+      },
+      "contains": "AはBです / topic particle",
+      "isReview": false
+    },
+    {
+      "id": "situation-greetings-intro",
+      "level": 2,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Salutare e presentarsi",
+        "en": "Situation · Greeting & introducing yourself"
+      },
+      "contains": "Mettiamo in pratica ciò che sai! Hai imparato i saluti e la frase con です: ora li usi in una situazione vera, il primo gi",
+      "isReview": false
+    },
+    {
+      "id": "grammar-no-possessive",
+      "level": 2,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · の possessivo",
+        "en": "Grammar · no (possession)"
+      },
+      "contains": "AのB",
+      "isReview": false
+    },
+    {
+      "id": "situation-where-from",
+      "level": 2,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Da dove vieni",
+        "en": "Situation · Where you're from"
+      },
+      "contains": "Una domanda che ti faranno spessissimo in Giappone: di dove sei. Con は, です e の possessivo costruisci risposte naturali —",
+      "isReview": false
+    },
+    {
+      "id": "kanji-nature",
+      "level": 2,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · natura (giorni, elementi)",
+        "en": "Kanji · nature (days, elements)"
+      },
+      "contains": "日月火水木金土 山川 + 林森 (composition)",
+      "isReview": false
+    },
+    {
+      "id": "vocab-numbers-counters",
+      "level": 2,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · numeri e contatori",
+        "en": "Vocabulary · numbers & counters"
+      },
+      "contains": "ひとつ〜 〜人 〜歳 etc.",
+      "isReview": false
+    },
+    {
+      "id": "situation-numbers-prices",
+      "level": 2,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Numeri e prezzi",
+        "en": "Situation · Numbers & prices"
+      },
+      "contains": "Al mercato o al negozio ti serve capire i prezzi e ordinare quantità. Con いくら chiedi quanto costa, e col conteggio nativ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-mo-question",
+      "level": 2,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · も e domande con か",
+        "en": "Grammar · mo & questions with ka"
+      },
+      "contains": "Bも / 〜か？ / question words だれ なに",
+      "isReview": false
+    },
+    {
+      "id": "kana-kanji-review-1",
+      "level": 2,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · Livello 2",
+        "en": "Review · Level 2"
+      },
+      "contains": "numbers/nature kanji + は/の/も + greetings",
+      "isReview": true
+    },
+    {
+      "id": "kanji-people",
+      "level": 3,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · persone e dimensioni",
+        "en": "Kanji · people & size"
+      },
+      "contains": "人大小 + 男女子 + 本",
+      "isReview": false
+    },
+    {
+      "id": "grammar-masu-verbs",
+      "level": 3,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · verbi in -ます",
+        "en": "Grammar · -masu verbs"
+      },
+      "contains": "polite present/future, affirmative & negative",
+      "isReview": false
+    },
+    {
+      "id": "grammar-o-object",
+      "level": 3,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · を (oggetto diretto)",
+        "en": "Grammar · o (direct object)"
+      },
+      "contains": "NをVます",
+      "isReview": false
+    },
+    {
+      "id": "vocab-verbs-base",
+      "level": 3,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · verbi base",
+        "en": "Vocabulary · basic verbs"
+      },
+      "contains": "たべる のむ みる いく etc. (-masu)",
+      "isReview": false
+    },
+    {
+      "id": "situation-order-restaurant",
+      "level": 3,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Ordinare al ristorante",
+        "en": "Situation · Ordering at a restaurant"
+      },
+      "contains": "Una delle situazioni più utili: ordinare cibo e bevande. Con を per l'oggetto e おねがいします/ください per la cortesia, gestisci un",
+      "isReview": false
+    },
+    {
+      "id": "kanji-position",
+      "level": 3,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · posizione e direzione",
+        "en": "Kanji · position & direction"
+      },
+      "contains": "上下中 + 右左 + 田",
+      "isReview": false
+    },
+    {
+      "id": "grammar-ni-de-place",
+      "level": 3,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · に e で (luogo)",
+        "en": "Grammar · ni & de (place)"
+      },
+      "contains": "existence/location vs action location",
+      "isReview": false
+    },
+    {
+      "id": "grammar-e-ni-direction",
+      "level": 3,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · へ／に (direzione)",
+        "en": "Grammar · e / ni (direction)"
+      },
+      "contains": "movement toward, with いく/くる",
+      "isReview": false
+    },
+    {
+      "id": "vocab-time",
+      "level": 3,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · tempo",
+        "en": "Vocabulary · time"
+      },
+      "contains": "きょう あした 〜時 〜曜日 etc.",
+      "isReview": false
+    },
+    {
+      "id": "situation-daily-routine",
+      "level": 3,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · La mia giornata",
+        "en": "Situation · My daily routine"
+      },
+      "contains": "Raccontare la propria routine usa verbi quotidiani in -ます, を per gli oggetti e そして per concatenare. È perfetto per conso",
+      "isReview": false
+    },
+    {
+      "id": "situation-going-places",
+      "level": 3,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Dove vai e quando",
+        "en": "Situation · Where & when you go"
+      },
+      "contains": "Dire dove vai con へ/に e i verbi di movimento è il cuore della conversazione quotidiana. Aggiungi parole di tempo (oggi, ",
+      "isReview": false
+    },
+    {
+      "id": "vocab-places-family",
+      "level": 3,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · luoghi e famiglia",
+        "en": "Vocabulary · places & family"
+      },
+      "contains": "がっこう うち + ちち はは あに etc.",
+      "isReview": false
+    },
+    {
+      "id": "situation-ask-directions",
+      "level": 3,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Chiedere indicazioni",
+        "en": "Situation · Asking directions"
+      },
+      "contains": "Perso in città? Con すみません per attirare l'attenzione, どこ per chiedere dove, e に/で per il luogo, trovi quello che cerchi. ",
+      "isReview": false
+    },
+    {
+      "id": "level3-review",
+      "level": 3,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · Livello 3",
+        "en": "Review · Level 3"
+      },
+      "contains": "-masu + を/に/で/へ + people/position kanji + time/place vocab",
+      "isReview": true
+    },
+    {
+      "id": "kanji-time-day",
+      "level": 4,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · tempo e quotidiano",
+        "en": "Kanji · time & daily life"
+      },
+      "contains": "年時間半 + 今 + 食飲",
+      "isReview": false
+    },
+    {
+      "id": "grammar-i-adjectives",
+      "level": 4,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · aggettivi in -い",
+        "en": "Grammar · i-adjectives"
+      },
+      "contains": "present affirmative/negative, attributive",
+      "isReview": false
+    },
+    {
+      "id": "grammar-na-adjectives",
+      "level": 4,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · aggettivi in -な",
+        "en": "Grammar · na-adjectives"
+      },
+      "contains": "な linking, です predicate",
+      "isReview": false
+    },
+    {
+      "id": "vocab-food-colors",
+      "level": 4,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · cibo e colori",
+        "en": "Vocabulary · food & colors"
+      },
+      "contains": "ごはん みず さかな + あかい あおい etc.",
+      "isReview": false
+    },
+    {
+      "id": "situation-shopping-howmuch",
+      "level": 4,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Fare acquisti",
+        "en": "Situation · Shopping"
+      },
+      "contains": "Ora che conosci gli aggettivi in -い, puoi descrivere ciò che compri: 'la borsa rossa', 'è caro'. Unisci la richiesta del",
+      "isReview": false
+    },
+    {
+      "id": "grammar-suki-hoshii",
+      "level": 4,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · ～がすき／～がほしい",
+        "en": "Grammar · ~ga suki / ~ga hoshii"
+      },
+      "contains": "likes & wants with が",
+      "isReview": false
+    },
+    {
+      "id": "situation-likes-hobbies",
+      "level": 4,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Gusti e tempo libero",
+        "en": "Situation · Likes & free time"
+      },
+      "contains": "Parlare di hobby è il modo migliore per fare amicizia. Con しゅみ (hobby), すき (+が!) e も ('anche') scambi preferenze: 'mi pi",
+      "isReview": false
+    },
+    {
+      "id": "grammar-conjunctions",
+      "level": 4,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · congiunzioni (そして・でも・から)",
+        "en": "Grammar · conjunctions (soshite / demo / kara)"
+      },
+      "contains": "linking sentences, reason with から",
+      "isReview": false
+    },
+    {
+      "id": "kanji-school-body",
+      "level": 4,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · scuola e corpo",
+        "en": "Kanji · school & body"
+      },
+      "contains": "学校先生 + 目耳口手足",
+      "isReview": false
+    },
+    {
+      "id": "situation-describe-people",
+      "level": 4,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Descrivere persone",
+        "en": "Situation · Describing people"
+      },
+      "contains": "Con どんな chiedi 'che tipo di...', e con gli aggettivi in -な (col な davanti al nome) descrivi le persone: しんせつな ひと, げんきな ひ",
+      "isReview": false
+    },
+    {
+      "id": "level4-review",
+      "level": 4,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · Livello 4",
+        "en": "Review · Level 4"
+      },
+      "contains": "i/na adjectives + suki/hoshii + conjunctions + school/body kanji",
+      "isReview": true
+    },
+    {
+      "id": "grammar-te-form",
+      "level": 5,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · la forma -て",
+        "en": "Grammar · the -te form"
+      },
+      "contains": "te-form conjugation rules",
+      "isReview": false
+    },
+    {
+      "id": "grammar-te-requests-progressive",
+      "level": 5,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · ～てください／～ています",
+        "en": "Grammar · ~te kudasai / ~te imasu"
+      },
+      "contains": "requests & ongoing actions",
+      "isReview": false
+    },
+    {
+      "id": "situation-make-request",
+      "level": 5,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Fare richieste cortesi",
+        "en": "Situation · Making polite requests"
+      },
+      "contains": "Con la forma -て appena imparata, ～てください ti permette di chiedere gentilmente: 'aspetti', 'legga questo'. È utilissimo al ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-te-permission",
+      "level": 5,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · ～てもいい／～てはいけない",
+        "en": "Grammar · ~te mo ii / ~te wa ikenai"
+      },
+      "contains": "permission & prohibition",
+      "isReview": false
+    },
+    {
+      "id": "situation-rules-permission",
+      "level": 5,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Regole e permessi",
+        "en": "Situation · Rules & permission"
+      },
+      "contains": "In Giappone i cartelli e le regole sono ovunque. Con ～てもいいですか chiedi se puoi, e riconosci ～てはいけません ('è vietato'). Saperl",
+      "isReview": false
+    },
+    {
+      "id": "grammar-past-tense",
+      "level": 5,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · passato dei verbi (-ました／-ませんでした)",
+        "en": "Grammar · verb past (-mashita / -masen deshita)"
+      },
+      "contains": "polite past affirmative/negative",
+      "isReview": false
+    },
+    {
+      "id": "grammar-adjective-past",
+      "level": 5,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · passato degli aggettivi",
+        "en": "Grammar · adjective past tense"
+      },
+      "contains": "i-adj かった / na-adj でした",
+      "isReview": false
+    },
+    {
+      "id": "kanji-final-set",
+      "level": 5,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · set finale N5",
+        "en": "Kanji · final N5 set"
+      },
+      "contains": "出入 行来 見聞 言話読書 + 天気 (remaining N5)",
+      "isReview": false
+    },
+    {
+      "id": "vocab-everyday-directions",
+      "level": 5,
+      "type": "vocab",
+      "title": {
+        "it": "Vocabolario · quotidiano e direzioni",
+        "en": "Vocabulary · everyday & directions"
+      },
+      "contains": "common everyday words + migi/hidari/mae/ushiro",
+      "isReview": false
+    },
+    {
+      "id": "situation-talk-past",
+      "level": 5,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · Raccontare il weekend",
+        "en": "Situation · Talking about your weekend"
+      },
+      "contains": "L'ultima situazione del percorso N5 mette tutto insieme: il passato dei verbi (しました) e degli aggettivi (たのしかった) per racc",
+      "isReview": false
+    },
+    {
+      "id": "level5-review",
+      "level": 5,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · Livello 5",
+        "en": "Review · Level 5"
+      },
+      "contains": "te-form family + past tenses + final kanji",
+      "isReview": true
+    },
+    {
+      "id": "n5-kana-mastery",
+      "level": 6,
+      "type": "review",
+      "title": {
+        "it": "Padronanza · tutto il Kana",
+        "en": "Mastery · all Kana"
+      },
+      "contains": "full hiragana + katakana stress test",
+      "isReview": true
+    },
+    {
+      "id": "n5-kanji-mastery",
+      "level": 6,
+      "type": "review",
+      "title": {
+        "it": "Padronanza · ~80 Kanji N5",
+        "en": "Mastery · ~80 N5 Kanji"
+      },
+      "contains": "all N5 kanji readings & meanings",
+      "isReview": true
+    },
+    {
+      "id": "n5-grammar-mastery",
+      "level": 6,
+      "type": "review",
+      "title": {
+        "it": "Padronanza · grammatica N5",
+        "en": "Mastery · N5 grammar"
+      },
+      "contains": "all particles, verb/adj forms, te-form, past",
+      "isReview": true
+    },
+    {
+      "id": "n5-mock-exam",
+      "level": 6,
+      "type": "review",
+      "title": {
+        "it": "Simulazione esame N5",
+        "en": "N5 mock exam"
+      },
+      "contains": "mixed exam-style: kana+kanji+vocab+grammar",
+      "isReview": true
+    }
   ]
 }

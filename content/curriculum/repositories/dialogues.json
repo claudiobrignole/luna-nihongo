@@ -1,0 +1,930 @@
+{
+  "$comment": "Dialogues repository. ORIGINAL scenes written for Luna, inspired by the Can-do communicative method (JF Standard / CEFR), NOT transcribed from any copyrighted coursebook. Referenced by situation units via dialogueRefs.",
+  "dialogues": [
+    {
+      "id": "dlg-self-intro",
+      "title": {
+        "it": "Il primo giorno di lavoro",
+        "en": "First day at work"
+      },
+      "setting": {
+        "it": "Aoi è appena arrivata in un nuovo ufficio. Saluta un collega che non ha mai incontrato.",
+        "en": "Aoi has just arrived at a new office. She greets a coworker she's never met."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aoi",
+            "en": "Aoi"
+          },
+          "japanese": "おはようございます。",
+          "kana": "おはようございます。",
+          "romaji": "ohayou gozaimasu.",
+          "translation": {
+            "it": "Buongiorno.",
+            "en": "Good morning."
+          },
+          "note": {
+            "it": "Saluto cortese del mattino, adatto a un primo incontro di lavoro.",
+            "en": "Polite morning greeting, right for a first work meeting."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Kenji",
+            "en": "Kenji"
+          },
+          "japanese": "おはようございます。",
+          "kana": "おはようございます。",
+          "romaji": "ohayou gozaimasu.",
+          "translation": {
+            "it": "Buongiorno.",
+            "en": "Good morning."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aoi",
+            "en": "Aoi"
+          },
+          "japanese": "はじめまして。アオイです。",
+          "kana": "はじめまして。アオイです。",
+          "romaji": "hajimemashite. aoi desu.",
+          "translation": {
+            "it": "Piacere. Sono Aoi.",
+            "en": "Nice to meet you. I'm Aoi."
+          },
+          "note": {
+            "it": "はじめまして apre il primo incontro; 〜です presenta il nome (A は B です con tema omesso).",
+            "en": "はじめまして opens a first meeting; 〜です states the name (A は B です with the topic dropped)."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Kenji",
+            "en": "Kenji"
+          },
+          "japanese": "ケンジです。よろしくおねがいします。",
+          "kana": "ケンジです。よろしくおねがいします。",
+          "romaji": "kenji desu. yoroshiku onegaishimasu.",
+          "translation": {
+            "it": "Sono Kenji. Piacere di conoscerti.",
+            "en": "I'm Kenji. Pleased to meet you."
+          },
+          "note": {
+            "it": "よろしくおねがいします chiude le presentazioni; non ha un equivalente esatto in italiano, vale 'conto su di te / piacere'.",
+            "en": "よろしくおねがいします closes an introduction; it has no exact English match — roughly 'I look forward to working with you'."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aoi",
+            "en": "Aoi"
+          },
+          "japanese": "よろしくおねがいします。",
+          "kana": "よろしくおねがいします。",
+          "romaji": "yoroshiku onegaishimasu.",
+          "translation": {
+            "it": "Piacere di conoscerti.",
+            "en": "Pleased to meet you."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-wa-topic"
+      ],
+      "usesVocabRefs": [
+        "vocab-ohayou-gozaimasu",
+        "vocab-hajimemashite",
+        "vocab-onegaishimasu"
+      ]
+    },
+    {
+      "id": "dlg-where-from",
+      "title": {
+        "it": "Da dove vieni?",
+        "en": "Where are you from?"
+      },
+      "setting": {
+        "it": "Due persone si conoscono a una festa.",
+        "en": "Two people meet at a party."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "ごしゅっしんは どこですか。",
+          "kana": "ごしゅっしんは どこですか。",
+          "romaji": "goshusshin wa doko desu ka.",
+          "translation": {
+            "it": "Di dov'è (Lei)?",
+            "en": "Where are you from?"
+          },
+          "note": {
+            "it": "ご- è un prefisso di cortesia su しゅっしん.",
+            "en": "ご- is a polite prefix on しゅっしん."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Leo",
+            "en": "Leo"
+          },
+          "japanese": "イタリアです。ミラノの しゅっしんです。",
+          "kana": "イタリアです。ミラノの しゅっしんです。",
+          "romaji": "itaria desu. mirano no shusshin desu.",
+          "translation": {
+            "it": "Italia. Sono di Milano.",
+            "en": "ミラノの しゅっしん usa の per legare luogo e origine."
+          },
+          "note": {
+            "it": "ミラノの しゅっしん uses の to link place and origin.",
+            "en": null
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "そうですか。",
+          "kana": "そうですか。",
+          "romaji": "sou desu ka.",
+          "translation": {
+            "it": "Ah, davvero?",
+            "en": "Oh, is that so?"
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-wa-topic",
+        "gr-no-possessive"
+      ],
+      "usesVocabRefs": [
+        "vocab-doko",
+        "vocab-shusshin"
+      ]
+    },
+    {
+      "id": "dlg-numbers-prices",
+      "title": {
+        "it": "Quanto costa?",
+        "en": "How much is it?"
+      },
+      "setting": {
+        "it": "Al mercato, davanti a della frutta.",
+        "en": "At the market, in front of some fruit."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "これは いくらですか。",
+          "kana": "これは いくらですか。",
+          "romaji": "kore wa ikura desu ka.",
+          "translation": {
+            "it": "Quanto costa questo?",
+            "en": "How much is this?"
+          },
+          "note": {
+            "it": "いくら = 'quanto (prezzo)'.",
+            "en": "いくら = 'how much (price)'."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Negoziante",
+            "en": "Shopkeeper"
+          },
+          "japanese": "さんびゃくえんです。",
+          "kana": "さんびゃくえんです。",
+          "romaji": "sanbyaku en desu.",
+          "translation": {
+            "it": "Trecento yen.",
+            "en": "Three hundred yen."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "じゃあ、ふたつ ください。",
+          "kana": "じゃあ、ふたつ ください。",
+          "romaji": "jaa, futatsu kudasai.",
+          "translation": {
+            "it": "Allora, due, per favore.",
+            "en": "Then, two please."
+          },
+          "note": {
+            "it": "ふたつ (conteggio nativo) + ください per chiedere.",
+            "en": "ふたつ (native counting) + ください to request."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-wa-topic"
+      ],
+      "usesVocabRefs": [
+        "vocab-ikura",
+        "vocab-en-money",
+        "vocab-futatsu",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "dlg-order-restaurant",
+      "title": {
+        "it": "Al ristorante",
+        "en": "At the restaurant"
+      },
+      "setting": {
+        "it": "Un cliente ordina a un cameriere.",
+        "en": "A customer orders from a waiter."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cameriere",
+            "en": "Waiter"
+          },
+          "japanese": "ごちゅうもんは?",
+          "kana": "ごちゅうもんは?",
+          "romaji": "gochuumon wa?",
+          "translation": {
+            "it": "Cosa ordina?",
+            "en": "What would you like to order?"
+          },
+          "note": {
+            "it": "Frase ellittica: 'quanto all'ordine?'.",
+            "en": "Elliptical: 'as for your order?'."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "うどんを おねがいします。",
+          "kana": "うどんを おねがいします。",
+          "romaji": "udon o onegaishimasu.",
+          "translation": {
+            "it": "Udon, per favore.",
+            "en": "Udon, please."
+          },
+          "note": {
+            "it": "を marca l'oggetto; おねがいします cortese per ordinare.",
+            "en": "を marks the object; おねがいします polite for ordering."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cameriere",
+            "en": "Waiter"
+          },
+          "japanese": "おのみものは?",
+          "kana": "おのみものは?",
+          "romaji": "onomimono wa?",
+          "translation": {
+            "it": "Da bere?",
+            "en": "Anything to drink?"
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "おちゃを ください。",
+          "kana": "おちゃを ください。",
+          "romaji": "ocha o kudasai.",
+          "translation": {
+            "it": "Del tè, per favore.",
+            "en": "Tea, please."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-o-object"
+      ],
+      "usesVocabRefs": [
+        "vocab-chuumon",
+        "vocab-onegaishimasu",
+        "vocab-ocha",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "dlg-ask-directions",
+      "title": {
+        "it": "Dov'è la stazione?",
+        "en": "Where's the station?"
+      },
+      "setting": {
+        "it": "Qualcuno chiede indicazioni per strada.",
+        "en": "Someone asks for directions on the street."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Turista",
+            "en": "Tourist"
+          },
+          "japanese": "すみません、えきは どこですか。",
+          "kana": "すみません、えきは どこですか。",
+          "romaji": "sumimasen, eki wa doko desu ka.",
+          "translation": {
+            "it": "Scusi, dov'è la stazione?",
+            "en": "Excuse me, where's the station?"
+          },
+          "note": {
+            "it": "すみません apre cortesemente la richiesta.",
+            "en": "すみません politely opens the request."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Passante",
+            "en": "Passer-by"
+          },
+          "japanese": "えきは あそこです。",
+          "kana": "えきは あそこです。",
+          "romaji": "eki wa asoko desu.",
+          "translation": {
+            "it": "La stazione è là.",
+            "en": "The station is over there."
+          },
+          "note": {
+            "it": "あそこ = 'là (lontano)'.",
+            "en": "あそこ = 'over there (far)'."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Turista",
+            "en": "Tourist"
+          },
+          "japanese": "ありがとうございます。",
+          "kana": "ありがとうございます。",
+          "romaji": "arigatou gozaimasu.",
+          "translation": {
+            "it": "Grazie mille.",
+            "en": "Thank you very much."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-wa-topic",
+        "gr-ni-de-place"
+      ],
+      "usesVocabRefs": [
+        "vocab-sumimasen",
+        "vocab-eki",
+        "vocab-doko",
+        "vocab-asoko"
+      ]
+    },
+    {
+      "id": "dlg-going-places",
+      "title": {
+        "it": "Dove vai?",
+        "en": "Where are you going?"
+      },
+      "setting": {
+        "it": "Due colleghi si incrociano in corridoio.",
+        "en": "Two coworkers cross paths in the hallway."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yuki",
+            "en": "Yuki"
+          },
+          "japanese": "きょう、どこへ いきますか。",
+          "kana": "きょう、どこへ いきますか。",
+          "romaji": "kyou, doko e ikimasu ka.",
+          "translation": {
+            "it": "Oggi dove vai?",
+            "en": "Where are you going today?"
+          },
+          "note": {
+            "it": "へ (letta 'e') = direzione.",
+            "en": "へ (read 'e') = direction."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Tom",
+            "en": "Tom"
+          },
+          "japanese": "がっこうへ いきます。",
+          "kana": "がっこうへ いきます。",
+          "romaji": "gakkou e ikimasu.",
+          "translation": {
+            "it": "Vado a scuola.",
+            "en": "I'm going to school."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yuki",
+            "en": "Yuki"
+          },
+          "japanese": "いってらっしゃい。",
+          "kana": "いってらっしゃい。",
+          "romaji": "itterasshai.",
+          "translation": {
+            "it": "Buona giornata! (a chi esce)",
+            "en": "Have a good day! (to someone leaving)"
+          },
+          "note": {
+            "it": "Espressione fissa per chi parte.",
+            "en": "A set phrase for someone heading out."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-e-ni-direction",
+        "gr-masu-verbs"
+      ],
+      "usesVocabRefs": [
+        "vocab-doko",
+        "vocab-iku",
+        "vocab-gakkou",
+        "vocab-kyou"
+      ]
+    },
+    {
+      "id": "dlg-daily-routine",
+      "title": {
+        "it": "La mia giornata",
+        "en": "My daily routine"
+      },
+      "setting": {
+        "it": "Un'amica chiede della tua routine.",
+        "en": "A friend asks about your routine."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Hana",
+            "en": "Hana"
+          },
+          "japanese": "あさ、なにを しますか。",
+          "kana": "あさ、なにを しますか。",
+          "romaji": "asa, nani o shimasu ka.",
+          "translation": {
+            "it": "La mattina cosa fai?",
+            "en": "What do you do in the morning?"
+          },
+          "note": {
+            "it": "なに + を + する: 'fare cosa'.",
+            "en": "なに + を + する: 'do what'."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sam",
+            "en": "Sam"
+          },
+          "japanese": "コーヒーを のみます。そして、しごとを します。",
+          "kana": "コーヒーを のみます。そして、しごとを します。",
+          "romaji": "koohii o nomimasu. soshite, shigoto o shimasu.",
+          "translation": {
+            "it": "Bevo un caffè. E poi lavoro.",
+            "en": "I drink coffee. And then I work."
+          },
+          "note": {
+            "it": "そして collega le due azioni.",
+            "en": "そして links the two actions."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-masu-verbs",
+        "gr-o-object"
+      ],
+      "usesVocabRefs": [
+        "vocab-asa",
+        "vocab-nani",
+        "vocab-nomu",
+        "vocab-suru",
+        "vocab-shigoto"
+      ]
+    },
+    {
+      "id": "dlg-shopping-howmuch",
+      "title": {
+        "it": "Com'è? / Quanto?",
+        "en": "How is it? / How much?"
+      },
+      "setting": {
+        "it": "In un negozio di abbigliamento.",
+        "en": "In a clothing shop."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "この あかい かばんは いくらですか。",
+          "kana": "この あかい かばんは いくらですか。",
+          "romaji": "kono akai kaban wa ikura desu ka.",
+          "translation": {
+            "it": "Quanto costa questa borsa rossa?",
+            "en": "How much is this red bag?"
+          },
+          "note": {
+            "it": "あかい (agg. -い) davanti al nome.",
+            "en": "あかい (i-adjective) before the noun."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Commessa",
+            "en": "Clerk"
+          },
+          "japanese": "ごせんえんです。",
+          "kana": "ごせんえんです。",
+          "romaji": "gosen en desu.",
+          "translation": {
+            "it": "Cinquemila yen.",
+            "en": "Five thousand yen."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "ちょっと たかいですね。",
+          "kana": "ちょっと たかいですね。",
+          "romaji": "chotto takai desu ne.",
+          "translation": {
+            "it": "È un po' caro, eh.",
+            "en": "That's a bit expensive, isn't it."
+          },
+          "note": {
+            "it": "ね cerca conferma/empatia.",
+            "en": "ね seeks agreement/empathy."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-i-adjectives"
+      ],
+      "usesVocabRefs": [
+        "vocab-aka",
+        "vocab-ikura",
+        "vocab-takai",
+        "vocab-en-money"
+      ]
+    },
+    {
+      "id": "dlg-describe-people",
+      "title": {
+        "it": "Com'è quella persona?",
+        "en": "What's that person like?"
+      },
+      "setting": {
+        "it": "Si parla di un nuovo collega.",
+        "en": "Talking about a new coworker."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Rio",
+            "en": "Rio"
+          },
+          "japanese": "あたらしい せんせいは どんな ひとですか。",
+          "kana": "あたらしい せんせいは どんな ひとですか。",
+          "romaji": "atarashii sensei wa donna hito desu ka.",
+          "translation": {
+            "it": "Com'è il nuovo insegnante?",
+            "en": "What's the new teacher like?"
+          },
+          "note": {
+            "it": "どんな = 'che tipo di'.",
+            "en": "どんな = 'what kind of'."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Ken",
+            "en": "Ken"
+          },
+          "japanese": "しんせつな ひとです。それに、げんきです。",
+          "kana": "しんせつな ひとです。それに、げんきです。",
+          "romaji": "shinsetsu na hito desu. soreni, genki desu.",
+          "translation": {
+            "it": "È una persona gentile. E anche energica.",
+            "en": "A kind person. And lively too."
+          },
+          "note": {
+            "it": "しんせつな + ひと: agg. -な col な.",
+            "en": "しんせつな + ひと: na-adjective with な."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-na-adjectives"
+      ],
+      "usesVocabRefs": [
+        "vocab-genki",
+        "vocab-atarashii"
+      ]
+    },
+    {
+      "id": "dlg-likes-hobbies",
+      "title": {
+        "it": "Cosa ti piace fare?",
+        "en": "What do you like to do?"
+      },
+      "setting": {
+        "it": "Conversazione sul tempo libero.",
+        "en": "A chat about free time."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "しゅみは なんですか。",
+          "kana": "しゅみは なんですか。",
+          "romaji": "shumi wa nan desu ka.",
+          "translation": {
+            "it": "Qual è il tuo hobby?",
+            "en": "What's your hobby?"
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Dan",
+            "en": "Dan"
+          },
+          "japanese": "えいがが すきです。",
+          "kana": "えいがが すきです。",
+          "romaji": "eiga ga suki desu.",
+          "translation": {
+            "it": "Mi piacciono i film.",
+            "en": "I like movies."
+          },
+          "note": {
+            "it": "すき regge l'oggetto con が, non を.",
+            "en": "すき takes its object with が, not を."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "わたしも すきです。",
+          "kana": "わたしも すきです。",
+          "romaji": "watashi mo suki desu.",
+          "translation": {
+            "it": "Anche a me piacciono.",
+            "en": "I like them too."
+          },
+          "note": {
+            "it": "も = 'anche', al posto di は.",
+            "en": "も = 'too', replacing は."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-suki-hoshii",
+        "gr-mo-also"
+      ],
+      "usesVocabRefs": [
+        "vocab-suki",
+        "vocab-eega",
+        "vocab-nani"
+      ]
+    },
+    {
+      "id": "dlg-make-request",
+      "title": {
+        "it": "Una richiesta cortese",
+        "en": "A polite request"
+      },
+      "setting": {
+        "it": "Si chiede aiuto a un collega.",
+        "en": "Asking a coworker for help."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mio",
+            "en": "Mio"
+          },
+          "japanese": "すみません、ちょっと まってください。",
+          "kana": "すみません、ちょっと まってください。",
+          "romaji": "sumimasen, chotto matte kudasai.",
+          "translation": {
+            "it": "Scusi, aspetti un attimo per favore.",
+            "en": "Excuse me, please wait a moment."
+          },
+          "note": {
+            "it": "まって (forma -て di まつ) + ください.",
+            "en": "まって (-te form of まつ) + ください."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Joe",
+            "en": "Joe"
+          },
+          "japanese": "はい、わかりました。",
+          "kana": "はい、わかりました。",
+          "romaji": "hai, wakarimashita.",
+          "translation": {
+            "it": "Sì, ho capito.",
+            "en": "Yes, understood."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mio",
+            "en": "Mio"
+          },
+          "japanese": "これを よんでください。",
+          "kana": "これを よんでください。",
+          "romaji": "kore o yonde kudasai.",
+          "translation": {
+            "it": "Legga questo, per favore.",
+            "en": "Please read this."
+          },
+          "note": {
+            "it": "よんで (forma -て di よむ).",
+            "en": "よんで (-te form of よむ)."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-te-requests-progressive"
+      ],
+      "usesVocabRefs": [
+        "vocab-sumimasen",
+        "vocab-matsu",
+        "vocab-yomu",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "dlg-rules-permission",
+      "title": {
+        "it": "Si può? È vietato?",
+        "en": "May I? Is it forbidden?"
+      },
+      "setting": {
+        "it": "Davanti a un cartello in un edificio.",
+        "en": "In front of a sign in a building."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Visitatore",
+            "en": "Visitor"
+          },
+          "japanese": "ここで しゃしんを とってもいいですか。",
+          "kana": "ここで しゃしんを とってもいいですか。",
+          "romaji": "koko de shashin o totte mo ii desu ka.",
+          "translation": {
+            "it": "Posso fare foto qui?",
+            "en": "May I take photos here?"
+          },
+          "note": {
+            "it": "～てもいいですか chiede permesso.",
+            "en": "～てもいいですか asks permission."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Guardia",
+            "en": "Guard"
+          },
+          "japanese": "すみません、ここでは とってはいけません。",
+          "kana": "すみません、ここでは とってはいけません。",
+          "romaji": "sumimasen, koko dewa totte wa ikemasen.",
+          "translation": {
+            "it": "Mi dispiace, qui non si può.",
+            "en": "Sorry, you can't here."
+          },
+          "note": {
+            "it": "～てはいけません = divieto.",
+            "en": "～てはいけません = prohibition."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-te-permission"
+      ],
+      "usesVocabRefs": [
+        "vocab-koko",
+        "vocab-sumimasen"
+      ]
+    },
+    {
+      "id": "dlg-talk-past",
+      "title": {
+        "it": "Com'è andato il weekend?",
+        "en": "How was your weekend?"
+      },
+      "setting": {
+        "it": "Lunedì mattina, due amici.",
+        "en": "Monday morning, two friends."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Emi",
+            "en": "Emi"
+          },
+          "japanese": "しゅうまつ、なにを しましたか。",
+          "kana": "しゅうまつ、なにを しましたか。",
+          "romaji": "shuumatsu, nani o shimashita ka.",
+          "translation": {
+            "it": "Cosa hai fatto nel weekend?",
+            "en": "What did you do on the weekend?"
+          },
+          "note": {
+            "it": "しました = passato di します.",
+            "en": "しました = past of します."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Max",
+            "en": "Max"
+          },
+          "japanese": "ともだちに あいました。たのしかったです。",
+          "kana": "ともだちに あいました。たのしかったです。",
+          "romaji": "tomodachi ni aimashita. tanoshikatta desu.",
+          "translation": {
+            "it": "Ho incontrato un amico. È stato divertente.",
+            "en": "I met a friend. It was fun."
+          },
+          "note": {
+            "it": "たのしかった = passato di たのしい (agg. -い).",
+            "en": "たのしかった = past of たのしい (i-adjective)."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-past-tense",
+        "gr-adjective-past"
+      ],
+      "usesVocabRefs": [
+        "vocab-shuumatsu",
+        "vocab-nani",
+        "vocab-tomodachi",
+        "vocab-au"
+      ]
+    }
+  ]
+}

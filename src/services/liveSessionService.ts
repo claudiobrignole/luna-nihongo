@@ -1,13 +1,18 @@
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions';
 import { getFirebaseApp } from '../lib/firebase';
+import { authHeaders } from './authHeaders';
 import { buildLiveSystemPrompt } from './livePrompt';
+import { updateUserProfile } from './userService';
 import type { ChatMessage, LunaUser } from '../types/user';
 import {
-  liveMinutesLimit,
+  liveMinutesLimitForUser,
   liveMinutesRemaining,
   MAX_LIVE_SESSION_MINUTES,
-  resolveLiveMinutesUsed,
+  normalizeWeeklyAiUsage,
+  hasPremiumAccess,
+  canUseAiTutor,
 } from '../types/user';
+import { mergeLiveTranscriptIntoChatHistory } from '../utils/chatHistory';
 
 export interface CreateLiveSessionResult {
   token: string;
@@ -25,11 +30,23 @@ export interface EndLiveSessionResult {
   minutesLimit: number;
   liveSessionId?: string;
   chatHistory?: ChatMessage[];
+  /** False when callable failed and transcript was not persisted server-side. */
+  historySaved?: boolean;
 }
 
 export interface LiveTranscriptLine {
   role: 'user' | 'assistant';
   text: string;
+}
+
+class LiveSessionApiError extends Error {
+  readonly status: number;
+
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = 'LiveSessionApiError';
+    this.status = status;
+  }
 }
 
 let functionsInstance: ReturnType<typeof getFunctions> | null = null;
@@ -47,14 +64,26 @@ function getFunctionsInstance() {
 }
 
 function sessionQuota(user: LunaUser): Pick<CreateLiveSessionResult, 'maxSessionSeconds' | 'minutesRemaining' | 'minutesLimit' | 'minutesUsed'> {
-  const limit = liveMinutesLimit(user.tier);
-  const used = resolveLiveMinutesUsed(user);
+  const limit = liveMinutesLimitForUser(user);
+  const { used } = normalizeWeeklyAiUsage(user.liveMinutesUsed, user.liveMinutesWindowStart);
   const minutesRemaining = liveMinutesRemaining(user);
   const maxSessionSeconds = Math.min(
     MAX_LIVE_SESSION_MINUTES * 60,
     Math.floor(minutesRemaining * 60),
   );
   return { maxSessionSeconds, minutesRemaining, minutesLimit: limit, minutesUsed: used };
+}
+
+/** When local PHP/Node API fails, Firebase callable is the reliable fallback (auth + quota server-side). */
+function shouldFallbackFromPhp(err: unknown): boolean {
+  if (err instanceof TypeError) return true;
+  if (err instanceof LiveSessionApiError) {
+    return err.status === 401 || err.status === 500 || err.status === 502 || err.status === 503 || err.status === 504;
+  }
+  if (err instanceof Error) {
+    return /failed to fetch|network|ECONNREFUSED|ECONNRESET|Live session API failed \(50/i.test(err.message);
+  }
+  return false;
 }
 
 async function requestLiveSessionViaPhp(
@@ -64,14 +93,17 @@ async function requestLiveSessionViaPhp(
   const systemPrompt = buildLiveSystemPrompt(user, language, user.chatHistory ?? []);
   const response = await fetch('/api/live-session.php', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: await authHeaders(),
     body: JSON.stringify({ systemPrompt, language }),
   });
 
   const data = await response.json().catch(() => ({})) as { token?: string; model?: string; error?: string };
 
   if (!response.ok || !data.token || !data.model) {
-    throw new Error(data.error || `Live session API failed (${response.status})`);
+    throw new LiveSessionApiError(
+      data.error || `Live session API failed (${response.status})`,
+      response.status,
+    );
   }
 
   return { token: data.token, model: data.model };
@@ -94,6 +126,13 @@ async function requestLiveSessionViaFirebase(
 }
 
 export async function requestLiveSession(user: LunaUser, language: 'en' | 'it'): Promise<CreateLiveSessionResult> {
+  if (!canUseAiTutor(user)) {
+    throw Object.assign(
+      new Error('AI tutor and Luna Live require an active trial or subscription.'),
+      { code: 'functions/permission-denied' },
+    );
+  }
+
   const quota = sessionQuota(user);
 
   if (quota.maxSessionSeconds < 30) {
@@ -107,12 +146,10 @@ export async function requestLiveSession(user: LunaUser, language: 'en' | 'it'):
       const php = await requestLiveSessionViaPhp(user, language);
       return { ...php, ...quota };
     } catch (phpErr) {
-      const unreachable = phpErr instanceof TypeError
-        || (phpErr instanceof Error && /failed to fetch|network|ECONNREFUSED/i.test(phpErr.message));
-      if (!unreachable) {
+      if (!shouldFallbackFromPhp(phpErr)) {
         throw phpErr;
       }
-      console.warn('live-session.php unreachable, trying Firebase callable', phpErr);
+      console.warn('live-session.php unavailable or errored, trying Firebase callable', phpErr);
     }
   }
 
@@ -122,6 +159,29 @@ export async function requestLiveSession(user: LunaUser, language: 'en' | 'it'):
 export function computeBilledMinutes(durationSeconds: number): number {
   const cappedSeconds = Math.min(Math.round(durationSeconds), MAX_LIVE_SESSION_MINUTES * 60);
   return Math.max(1, Math.ceil(cappedSeconds / 60));
+}
+
+async function persistLiveTranscriptClientSide(
+  user: LunaUser,
+  transcript: LiveTranscriptLine[],
+  language: 'en' | 'it',
+  sessionStartedAt?: string,
+  liveSessionId?: string,
+): Promise<{ chatHistory: ChatMessage[]; liveSessionId: string } | null> {
+  if (!hasPremiumAccess(user) || transcript.length === 0) return null;
+
+  const sessionId = liveSessionId ?? `live-${Date.now()}`;
+  const startedAt = sessionStartedAt ? new Date(sessionStartedAt) : new Date();
+  const chatHistory = mergeLiveTranscriptIntoChatHistory(
+    user.chatHistory ?? [],
+    sessionId,
+    transcript,
+    language,
+    startedAt,
+  );
+
+  await updateUserProfile(user.id, { chatHistory });
+  return { chatHistory, liveSessionId: sessionId };
 }
 
 export async function reportLiveSessionEnd(
@@ -134,11 +194,11 @@ export async function reportLiveSessionEnd(
   },
 ): Promise<EndLiveSessionResult> {
   const billedMinutes = computeBilledMinutes(durationSeconds);
-  const limit = liveMinutesLimit(user.tier);
-  const used = resolveLiveMinutesUsed(user);
+  const limit = liveMinutesLimitForUser(user);
+  const { used } = normalizeWeeklyAiUsage(user.liveMinutesUsed, user.liveMinutesWindowStart);
   const newUsed = Math.min(limit, used + billedMinutes);
   const language = options?.language ?? 'it';
-  const transcript = user.tier === 'premium' ? options?.transcript ?? [] : [];
+  const transcript = hasPremiumAccess(user) ? options?.transcript ?? [] : [];
 
   try {
     const fn = httpsCallable<
@@ -159,14 +219,62 @@ export async function reportLiveSessionEnd(
       language,
       sessionStartedAt: options?.sessionStartedAt,
     });
-    return result.data;
+
+    const serverSaved = result.data.historySaved ?? Boolean(result.data.chatHistory?.length);
+    if (serverSaved) {
+      return { ...result.data, historySaved: true };
+    }
+
+    const clientSaved = await persistLiveTranscriptClientSide(
+      user,
+      transcript,
+      language,
+      options?.sessionStartedAt,
+      result.data.liveSessionId,
+    );
+    if (clientSaved) {
+      return {
+        ...result.data,
+        chatHistory: clientSaved.chatHistory,
+        liveSessionId: clientSaved.liveSessionId,
+        historySaved: true,
+      };
+    }
+
+    return { ...result.data, historySaved: false };
   } catch (err) {
-    console.warn('endLiveSession callable failed, using client-side quota', err);
+    console.warn('endLiveSession callable failed, trying client-side history save', err);
+
+    if (hasPremiumAccess(user) && transcript.length > 0) {
+      try {
+        const clientSaved = await persistLiveTranscriptClientSide(
+          user,
+          transcript,
+          language,
+          options?.sessionStartedAt,
+        );
+        if (clientSaved) {
+          return {
+            billedMinutes,
+            minutesUsed: newUsed,
+            minutesRemaining: Math.max(0, limit - newUsed),
+            minutesLimit: limit,
+            chatHistory: clientSaved.chatHistory,
+            liveSessionId: clientSaved.liveSessionId,
+            historySaved: true,
+          };
+        }
+      } catch (saveErr) {
+        console.warn('Client live history save failed', saveErr);
+      }
+    }
+
     return {
       billedMinutes,
       minutesUsed: newUsed,
       minutesRemaining: Math.max(0, limit - newUsed),
       minutesLimit: limit,
+      historySaved: false,
     };
   }
 }
@@ -174,12 +282,22 @@ export async function reportLiveSessionEnd(
 export async function deleteLiveSessionRecord(
   liveSessionId: string,
 ): Promise<{ chatHistory: ChatMessage[] }> {
-  const fn = httpsCallable<{ liveSessionId: string }, { chatHistory: ChatMessage[] }>(
-    getFunctionsInstance(),
-    'deleteLiveSession',
-  );
-  const result = await fn({ liveSessionId });
-  return result.data;
+  try {
+    const fn = httpsCallable<{ liveSessionId: string }, { chatHistory: ChatMessage[] }>(
+      getFunctionsInstance(),
+      'deleteLiveSession',
+    );
+    const result = await fn({ liveSessionId });
+    return result.data;
+  } catch (err) {
+    const code = typeof err === 'object' && err !== null && 'code' in err
+      ? String((err as { code: string }).code)
+      : '';
+    if (code.includes('unavailable') || code.includes('internal') || code.includes('not-found')) {
+      throw Object.assign(new Error('DELETE_SERVICE_UNAVAILABLE'), { cause: err });
+    }
+    throw err;
+  }
 }
 
 export function liveSessionErrorMessage(err: unknown, language: 'en' | 'it'): string {
@@ -194,10 +312,15 @@ export function liveSessionErrorMessage(err: unknown, language: 'en' | 'it'): st
     : undefined;
   const detailText = typeof details === 'string' ? details : '';
 
+  if (code.includes('permission-denied')) {
+    return message || (language === 'en'
+      ? 'Luna Live requires an active trial or Premium subscription.'
+      : 'Luna Live richiede prova attiva o abbonamento Premium.');
+  }
   if (code.includes('resource-exhausted')) {
     return language === 'en'
-      ? message || 'Live minutes limit reached for this month.'
-      : message || 'Limite minuti live del mese raggiunto.';
+      ? message || 'Live minutes limit reached for this week.'
+      : message || 'Limite minuti live della settimana raggiunto.';
   }
   if (code.includes('unauthenticated')) {
     return language === 'en' ? 'Please log in to use Luna Live.' : 'Accedi per usare Luna Live.';
@@ -216,6 +339,11 @@ export function liveSessionErrorMessage(err: unknown, language: 'en' | 'it'): st
     return language === 'en'
       ? 'Live service unavailable (Firebase Functions). Local dev: run npm run dev:all with GEMINI_API_KEY in .env.'
       : 'Servizio live non disponibile (Firebase Functions). In locale: npm run dev:all con GEMINI_API_KEY in .env.';
+  }
+  if (message.includes('Live session API failed (502)')) {
+    return language === 'en'
+      ? 'Local live API not running. Start the full dev stack: npm run dev:all (API on port 8080).'
+      : 'API live locale non avviata. Avvia lo stack completo: npm run dev:all (API sulla porta 8080).';
   }
   if (message && message !== 'internal') {
     return message;

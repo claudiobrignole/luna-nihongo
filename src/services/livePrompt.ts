@@ -1,6 +1,8 @@
 import type { LunaUser, ChatMessage } from '../types/user';
+import type { StudyActivity } from '../types/study';
 import { buildCurriculumKnowledge } from './tutorContext';
 import { buildChatContextForPrompt } from '../utils/chatHistory';
+import { buildStudyContextForPrompt } from './lunaMemoryService';
 
 const LEVEL_TITLES: Record<number, { en: string; it: string }> = {
   0: { en: 'Level 0 · Foundations', it: 'Livello 0 · Fondamenta' },
@@ -13,20 +15,23 @@ const LEVEL_TITLES: Record<number, { en: string; it: string }> = {
 };
 
 export function buildLiveSystemPrompt(
-  user: Pick<LunaUser, 'username' | 'xp' | 'completedUnits' | 'preferredStartLevel' | 'memory' | 'tier'>,
+  user: LunaUser,
   language: 'en' | 'it',
   chatHistory: ChatMessage[] = [],
+  activities: StudyActivity[] = [],
 ): string {
   const langLabel = language === 'it' ? 'Italian' : 'English';
   const focus = LEVEL_TITLES[user.preferredStartLevel] ?? LEVEL_TITLES[0];
   const curriculum = buildCurriculumKnowledge(language, user.completedUnits);
   const conversationMemory = buildChatContextForPrompt(chatHistory);
+  const studyContext = buildStudyContextForPrompt(user, language, activities);
 
   return `You are Luna-sensei on Luna Nihongo — a warm, human-like Japanese tutor in a LIVE voice session.
 
 Student: ${user.username} | XP: ${user.xp} | Completed: ${user.completedUnits.length}/60 units
 Focus level: ${focus[language]}
-Student notes: ${user.memory || '(none)'}
+
+${studyContext}
 
 FULL CURRICULUM (all 7 levels, 60 units — your teaching memory):
 ${curriculum}

@@ -19,6 +19,10 @@ public/api/gemini-secret.php
 # Generated curriculum bundle (rebuilt by hydrate.mjs)
 content/curriculum/build/
 
+# KanjiVG release archives (bundled SVGs live in public/kanjivg/)
+kanjivg-*.zip
+**/kanjivg-*-main.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

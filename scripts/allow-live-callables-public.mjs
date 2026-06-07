@@ -14,7 +14,16 @@ const { GoogleAuth } = require('google-auth-library');
 
 const PROJECT = 'luna-nihongo';
 const REGION = 'europe-west1';
-const SERVICES = ['createlivesession', 'endlivesession', 'deletelivesession'];
+const SERVICES = [
+  'createlivesession',
+  'endlivesession',
+  'deletelivesession',
+  'createstripecheckout',
+  'createstripeportal',
+  'stripewebhook',
+  'startfreetrial',
+  'bookavailabilityslot',
+];
 
 async function getAccessToken() {
   const auth = new GoogleAuth({
@@ -83,9 +92,13 @@ async function main() {
 
 main().catch((err) => {
   console.error(err.message ?? err);
-  console.error('\nManual fix (Google Cloud Console):');
-  console.error('  Cloud Run → createlivesession → Security → Allow public access');
-  console.error('  Cloud Run → endlivesession → Security → Allow public access');
-  console.error('  Cloud Run → deletelivesession → Security → Allow public access');
+  console.error('\nOption A — gcloud (recommended if you use Firebase CLI):');
+  console.error('  gcloud auth application-default login');
+  console.error('  bash scripts/allow-public-gcloud.sh');
+  console.error('\nOption B — Google Cloud Console → Cloud Run → each service → Security → Allow public access:');
+  for (const service of SERVICES) {
+    console.error(`  https://console.cloud.google.com/run/detail/${REGION}/${service}/security?project=${PROJECT}`);
+  }
+  console.error('\nIf IAM still fails, your account may need roles/run.admin or roles/owner on the project.');
   process.exit(1);
 });

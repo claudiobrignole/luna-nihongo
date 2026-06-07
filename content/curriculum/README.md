@@ -16,9 +16,11 @@ curriculum/
 │  ├─ kana.json           # 211 record (hiragana + katakana)
 │  ├─ kanji.json          # 66 kanji N5, ordinati per composizione
 │  ├─ vocab.json          # 120 vocaboli con tag tematici
-│  └─ grammar.json        # 16 punti grammaticali
+│  ├─ grammar.json        # 16 punti grammaticali
+│  └─ dialogues.json      # (v1.1.0) scene dialogo — opzionale finché vuoto
 ├─ units/                 # 60 file, uno per unità (units/{id}.json)
 ├─ hydrate.mjs            # build + validatore (Node 18+)
+├─ insert-units.mjs       # inserisce nuove unità in unitOrder (v1.1.0+)
 └─ build/
    └─ curriculum.json     # OUTPUT generato: bundle idratato per React
 ```
@@ -42,11 +44,48 @@ che lo usano (incluse le review-unit, che pescano dal pool già visto).
 | kanji    | `kanji-<lettura>`   | `kanji-ichi`, `kanji-ki`, `kanji-miru-k` |
 | vocab    | `vocab-<romaji>`    | `vocab-arigatou`, `vocab-taberu` |
 | grammar  | `gr-<slug>`         | `gr-wa-topic`, `gr-te-form`     |
+| dialogue | `dlg-<slug>`        | `dlg-cafe-order`, `dlg-station-ask` |
 | unit     | slug descrittivo    | `hiragana-vowels`, `grammar-te-form` |
 | quiz     | `q-<unit-abbr>-<tipo>-<n>` | `q-hv-mc-1`, `q-l5r-match-1` |
 
 Gli id sono il contratto con lo stato utente salvato in Firestore
 (`completedUnits`, XP). Rinominare un id pubblicato fa perdere il progresso.
+
+## Schema 1.1.0 — layer situazionale + scrittura
+
+Aggiunte **additive** rispetto alla 1.0.0 (i 60 file esistenti restano validi):
+
+| Novità | Dettaglio |
+|--------|-----------|
+| `UnitType: "situation"` | Dialogo + Can-do + tag situazionali |
+| `repositories/dialogues.json` | Scene referenziate via `dialogueRefs` |
+| Campi unità | `dialogueRefs[]`, `canDo[]`, `situationTags[]` |
+| Quiz `writing` | Produzione libera — `task`, `rubric`, `modelAnswer` (grading AI) |
+| Quiz `stroke-order` | Tracciamento carattere — `targetItemId` + `japanese` |
+| `strokeData` (opz.) | Su kana/kanji: `{ kanjiVgId, strokeCount }` — vedi KanjiVG sotto |
+
+Inserimento nuove unità: **non modificare `unitOrder` a mano**. Creare il file in
+`units/`, poi:
+
+```bash
+node content/curriculum/insert-units.mjs <unit-id> [unit-id...]
+npm run curriculum:check
+```
+
+### KanjiVG e `strokeData` (licenza)
+
+I JSON del curriculum contengono **solo un riferimento** KanjiVG:
+
+```json
+"strokeData": { "kanjiVgId": "03042", "strokeCount": 3 }
+```
+
+- `kanjiVgId` = codepoint Unicode a 5 cifre esadecimali (あ → `"03042"`).
+- **Nessun path geometry** nei JSON del curriculum: così i file restano contenuto
+  didattico proprio e non diventano opera derivata CC-BY-SA.
+- I dati vettoriali KanjiVG (licenza **CC-BY-SA 3.0**) vivono in un **bundle
+  asset esterno**, risolto a runtime dal componente canvas, con attribuzione
+  visibile in app.
 
 ## Romaji + toggle utente
 
@@ -70,7 +109,7 @@ Catene principali: 一二三 → numeri grandi · 木→林→森 · 目→見 �
 
 ## Tipi di unità
 
-`hiragana` · `katakana` · `kanji` · `grammar` · `vocab` · `review`.
+`hiragana` · `katakana` · `kanji` · `grammar` · `vocab` · `review` · `situation` (v1.1.0).
 
 Le **review-unit** (13 in totale, distribuite ogni 3–5 unità) hanno
 `reviewPoolRefs` che pescano da contenuto di unità precedenti, e almeno un quiz
@@ -102,17 +141,34 @@ Collegalo alla CI **prima del deploy** su Hostinger.
   item o quiz. Salvare in Firestore l'id unità + `contentVersion` completata,
   così si sa se un utente ha finito una versione superata del contenuto.
 
-## Nota sullo schema legacy dell'app
+## Schema app (migrazione completata)
 
-L'app usava item embedded e quiz con `question`/`correctAnswer`. Il nuovo schema
-usa refs + `prompt`/`correctIndex`. Il build mappa verso `HydratedUnit`
-(vedi `schema/syllabus.types.ts`); `LearningPath` va aggiornato di conseguenza,
-oppure si aggiunge un piccolo adattatore in lettura del bundle.
+La migrazione al nuovo schema è **completata**. L'app non usa più item embedded né
+quiz con `question`/`correctAnswer`.
+
+Flusso attuale:
+
+1. `hydrate.mjs` valida i JSON sorgente e genera `build/curriculum.json`.
+2. `src/data/curriculum.ts` importa il bundle come `CurriculumBundle`
+   (`schemaVersion`, `targetLevel`, `builtAt`, `levels`, `units`).
+3. `LearningPath` consuma `SYLLABUS` (`HydratedUnit[]`) e i quiz
+   `prompt` / `correctIndex` / `spelling` / `matching`, con
+   `curriculumDisplay.checkQuizAnswer()`.
+
+Tipi in `schema/syllabus.types.ts` (re-esportati da `src/types/curriculum.ts`).
 
 ## Stato
 
-60 unità · 7 livelli · 211 kana · 66 kanji · 120 vocaboli · 16 punti grammaticali.
+schemaVersion **1.1.0** · 60 unità · 7 livelli · 211 kana · 66 kanji · 120 vocaboli · 16 punti grammaticali · 0 dialoghi (layer pronto).
 Copertura completa hiragana, katakana, kanji/vocab/grammatica N5.
+
+## TODO app (v1.1.0 — non ancora implementati)
+
+Integrazioni UI richieste per i nuovi tipi quiz:
+
+1. **`writing`** — chiamata a Gemini per grading usando `task` + `rubric` + risposta studente vs `modelAnswer`.
+2. **`stroke-order`** — componente canvas + risoluzione asset KanjiVG da `strokeData.kanjiVgId` + attribuzione CC-BY-SA in UI.
+3. **`situation`** — pannello dialogo (linee da `dialogues[]`) + Can-do in sidebar/unit header.
 
 ## Estensioni future segnalate (non bloccanti)
 

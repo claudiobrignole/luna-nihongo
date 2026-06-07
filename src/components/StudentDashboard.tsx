@@ -4,6 +4,9 @@ import type { LunaUser } from '../types/user';
 import { canManageUsers, isAdminRole, roleLabel } from '../types/user';
 import type { BookedLesson } from '../types/booking';
 import { loadBookings, deleteBooking as deleteBookingFromDb } from '../services/bookingService';
+import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { PremiumRetentionNotice } from './PremiumRetentionNotice';
+import { openPremiumPortal } from '../services/stripeService';
 
 interface StudentDashboardProps {
   language: 'en' | 'it';
@@ -211,12 +214,21 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               </p>
             </div>
             <button
-              onClick={() => canToggleTier && setShowUpgradeConfirm(true)}
+              onClick={() => void openPremiumPortal().then((url) => { window.location.href = url; }).catch(console.error)}
               className="btn btn-secondary"
-              style={{ fontSize: '0.8rem', visibility: canToggleTier ? 'visible' : 'hidden' }}
+              style={{ fontSize: '0.8rem' }}
             >
-              {language === 'en' ? 'Downgrade to Free' : 'Torna al Piano Free'}
+              {language === 'en' ? 'Manage subscription' : 'Gestisci abbonamento'}
             </button>
+            {canToggleTier && (
+            <button
+              onClick={() => setShowUpgradeConfirm(true)}
+              className="btn btn-secondary"
+              style={{ fontSize: '0.8rem' }}
+            >
+              {language === 'en' ? 'Admin: Downgrade' : 'Admin: Torna Free'}
+            </button>
+            )}
           </div>
         ) : (
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
@@ -230,23 +242,12 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
                   : 'Chat AI illimitata, memoria a lungo termine e prenotazione prioritaria.'}
               </p>
             </div>
-            {canToggleTier ? (
-              <button
-                onClick={() => setShowUpgradeConfirm(true)}
-                className="btn btn-primary"
-                style={{ display: 'flex', gap: '0.5rem' }}
-              >
-                <Crown size={16} />
-                {language === 'en' ? 'Upgrade Now' : 'Passa a Premium'}
-              </button>
-            ) : (
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
-                {language === 'en' ? 'Payments coming soon' : 'Pagamenti in arrivo'}
-              </span>
-            )}
+            <PremiumUpgradeButton language={language} />
           </div>
         )}
       </div>
+
+      <PremiumRetentionNotice language={language} currentUser={currentUser} />
 
       {/* ── Private Lessons Section ── */}
       <div>

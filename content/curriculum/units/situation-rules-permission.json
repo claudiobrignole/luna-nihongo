@@ -1,0 +1,174 @@
+{
+  "id": "situation-rules-permission",
+  "level": 5,
+  "order": 50,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Regole e permessi",
+    "en": "Situation · Rules & permission"
+  },
+  "description": {
+    "it": "In Giappone i cartelli e le regole sono ovunque. Con ～てもいいですか chiedi se puoi, e riconosci ～てはいけません ('è vietato'). Saperli usare ti evita figuracce. Scrivi una domanda per chiedere il permesso di fare qualcosa.",
+    "en": "In Japan, signs and rules are everywhere. With ～てもいいですか you ask if you may, and you recognize ～てはいけません ('it's forbidden'). Knowing these saves you embarrassment. Write a question asking permission to do something."
+  },
+  "dialogueRefs": [
+    "dlg-rules-permission"
+  ],
+  "canDo": [
+    {
+      "id": "cando-ask-permission",
+      "level": "A2",
+      "statement": {
+        "it": "So chiedere il permesso di fare qualcosa.",
+        "en": "I can ask permission to do something."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-understand-prohibition",
+      "level": "A2",
+      "statement": {
+        "it": "Capisco quando qualcosa è vietato.",
+        "en": "I understand when something is forbidden."
+      },
+      "skill": "reading"
+    }
+  ],
+  "situationTags": [
+    "work",
+    "transport"
+  ],
+  "prerequisites": [
+    "grammar-te-permission"
+  ],
+  "grammarRefs": [
+    "gr-te-permission"
+  ],
+  "vocabRefs": [
+    "vocab-koko",
+    "vocab-sumimasen"
+  ],
+  "quizzes": [
+    {
+      "id": "q-rp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per chiedere 'posso fare foto qui?':",
+        "en": "To ask 'may I take photos here?':"
+      },
+      "options": [
+        {
+          "it": "ここで しゃしんを とってもいいですか",
+          "en": "ここで しゃしんを とってもいいですか"
+        },
+        {
+          "it": "ここで しゃしんを とってはいけません",
+          "en": "ここで しゃしんを とってはいけません"
+        },
+        {
+          "it": "ここで しゃしんを とります",
+          "en": "ここで しゃしんを とります"
+        },
+        {
+          "it": "ここで しゃしんを とってください",
+          "en": "ここで しゃしんを とってください"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-rp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "～てはいけません esprime...",
+        "en": "～てはいけません expresses..."
+      },
+      "options": [
+        {
+          "it": "un divieto / a prohibition",
+          "en": "un divieto / a prohibition"
+        },
+        {
+          "it": "un permesso / permission",
+          "en": "un permesso / permission"
+        },
+        {
+          "it": "una richiesta / a request",
+          "en": "una richiesta / a request"
+        },
+        {
+          "it": "il passato / the past",
+          "en": "il passato / the past"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-rp-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi una domanda per chiedere se puoi fare qualcosa in un posto, usando ～てもいいですか.",
+        "en": "Write a question asking if you may do something somewhere, using ～てもいいですか."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Usa la forma -て + もいいですか.",
+          "en": "Uses the -te form + もいいですか."
+        },
+        {
+          "it": "La domanda è chiara e cortese.",
+          "en": "The question is clear and polite."
+        }
+      ],
+      "modelAnswer": "ここで たべてもいいですか。",
+      "modelAnswerKana": "ここで たべてもいいですか。",
+      "modelAnswerRomaji": "koko de tabete mo ii desu ka.",
+      "modelAnswerTranslation": {
+        "it": "Posso mangiare qui?",
+        "en": "May I eat here?"
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-te-permission"
+      ],
+      "expectsVocabRefs": [
+        "vocab-koko"
+      ]
+    },
+    {
+      "id": "q-rp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e significato.",
+        "en": "Match structure to meaning."
+      },
+      "pairs": [
+        {
+          "left": "～てもいいです",
+          "right": "permesso / permission"
+        },
+        {
+          "left": "～てはいけません",
+          "right": "divieto / prohibition"
+        },
+        {
+          "left": "～てください",
+          "right": "richiesta / request"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

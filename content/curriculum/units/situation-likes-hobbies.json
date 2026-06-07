@@ -1,0 +1,180 @@
+{
+  "id": "situation-likes-hobbies",
+  "level": 4,
+  "order": 45,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Gusti e tempo libero",
+    "en": "Situation · Likes & free time"
+  },
+  "description": {
+    "it": "Parlare di hobby è il modo migliore per fare amicizia. Con しゅみ (hobby), すき (+が!) e も ('anche') scambi preferenze: 'mi piacciono i film', 'anche a me'. Scrivi cosa ti piace fare nel tempo libero.",
+    "en": "Talking about hobbies is the best way to make friends. With しゅみ (hobby), すき (+が!) and も ('too') you swap preferences: 'I like movies', 'me too'. Write what you like to do in your free time."
+  },
+  "dialogueRefs": [
+    "dlg-likes-hobbies"
+  ],
+  "canDo": [
+    {
+      "id": "cando-talk-hobbies",
+      "level": "A2",
+      "statement": {
+        "it": "So parlare dei miei gusti e hobby.",
+        "en": "I can talk about my likes and hobbies."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-hobbies",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere cosa mi piace fare.",
+        "en": "I can write what I like to do."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "hobbies-invitation"
+  ],
+  "prerequisites": [
+    "grammar-suki-hoshii"
+  ],
+  "grammarRefs": [
+    "gr-suki-hoshii",
+    "gr-mo-also"
+  ],
+  "vocabRefs": [
+    "vocab-suki",
+    "vocab-eega",
+    "vocab-nani"
+  ],
+  "quizzes": [
+    {
+      "id": "q-lh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Mi piacciono i film' — quale particella regge l'oggetto?",
+        "en": "'I like movies' — which particle takes the object?"
+      },
+      "options": [
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-lh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per dire 'anche a me piace':",
+        "en": "To say 'I like it too':"
+      },
+      "options": [
+        {
+          "it": "わたしも すきです",
+          "en": "わたしも すきです"
+        },
+        {
+          "it": "わたしは すきを",
+          "en": "わたしは すきを"
+        },
+        {
+          "it": "わたしの すきです",
+          "en": "わたしの すきです"
+        },
+        {
+          "it": "わたしを すきです",
+          "en": "わたしを すきです"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-lh-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi qual è il tuo hobby e una cosa che ti piace, usando が con すき.",
+        "en": "Write what your hobby is and one thing you like, using が with すき."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Indica un hobby/gusto.",
+          "en": "States a hobby/like."
+        },
+        {
+          "it": "Usa が (non を) con すき.",
+          "en": "Uses が (not を) with すき."
+        },
+        {
+          "it": "Frase corretta.",
+          "en": "Correct sentence."
+        }
+      ],
+      "modelAnswer": "しゅみは えいがです。えいがが すきです。",
+      "modelAnswerKana": "しゅみは えいがです。えいがが すきです。",
+      "modelAnswerRomaji": "shumi wa eiga desu. eiga ga suki desu.",
+      "modelAnswerTranslation": {
+        "it": "Il mio hobby sono i film. Mi piacciono i film.",
+        "en": "My hobby is movies. I like movies."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-suki-hoshii"
+      ],
+      "expectsVocabRefs": [
+        "vocab-suki",
+        "vocab-eega"
+      ]
+    },
+    {
+      "id": "q-lh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e funzione.",
+        "en": "Match phrase to function."
+      },
+      "pairs": [
+        {
+          "left": "しゅみは なんですか",
+          "right": "chiedere l'hobby / asking the hobby"
+        },
+        {
+          "left": "すきです",
+          "right": "esprimere gusto / expressing a like"
+        },
+        {
+          "left": "わたしも",
+          "right": "'anch'io' / 'me too'"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

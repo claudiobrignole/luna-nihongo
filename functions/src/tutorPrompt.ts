@@ -5,8 +5,21 @@ export interface LiveUserProfile {
   xp: number;
   completedUnits: string[];
   preferredStartLevel: number;
-  memory: string;
+  memory?: string;
+  studyGoal?: string;
+  studyWeaknesses?: string;
+  studyPreferences?: string;
   tier: 'free' | 'premium';
+}
+
+function formatStudyProfile(user: LiveUserProfile, language: 'en' | 'it'): string {
+  const none = language === 'en' ? '(not set)' : '(non impostato)';
+  const goal = user.studyGoal?.trim() || user.memory?.trim() || none;
+  const weaknesses = user.studyWeaknesses?.trim() || none;
+  const preferences = user.studyPreferences?.trim() || none;
+  return `Goal: ${goal}
+Weak points: ${weaknesses}
+Teaching preferences: ${preferences}`;
 }
 
 const LEVEL_TITLES: Record<number, { en: string; it: string }> = {
@@ -23,13 +36,16 @@ export function buildLiveSystemPrompt(user: LiveUserProfile, language: 'en' | 'i
   const langLabel = language === 'it' ? 'Italian' : 'English';
   const focus = LEVEL_TITLES[user.preferredStartLevel] ?? LEVEL_TITLES[0];
   const completedSample = user.completedUnits.slice(-8).join(', ') || '(none yet)';
+  const studyProfile = formatStudyProfile(user, language);
 
   return `You are Luna-sensei on Luna Nihongo — a warm, human-like Japanese tutor in a LIVE voice session.
 
 Student: ${user.username} | XP: ${user.xp} | Completed: ${user.completedUnits.length}/60 units
 Focus level: ${focus[language]}
 Recent units: ${completedSample}
-Student notes: ${user.memory || '(none)'}
+
+STUDENT PROFILE:
+${studyProfile}
 
 LIVE VOICE RULES:
 - At the START of each new live session, greet the student briefly and ask what topic or unit they want to practice today before teaching.

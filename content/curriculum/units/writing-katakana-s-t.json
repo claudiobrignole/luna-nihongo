@@ -1,0 +1,202 @@
+{
+  "id": "writing-katakana-s-t",
+  "level": 1,
+  "order": 1,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · righe S e T",
+    "en": "Writing · S & T rows"
+  },
+  "description": {
+    "it": "Ora che riconosci サ〜ソ, タ〜ト, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la memoria molto meglio del solo riconoscere — e in giapponese l'ordine non è mai casuale.",
+    "en": "Now that you recognize サ〜ソ, タ〜ト, move to the hand: trace each character following the stroke order. Writing fixes memory far better than recognition alone — and in Japanese the order is never random."
+  },
+  "situationTags": [],
+  "prerequisites": [
+    "katakana-s-t"
+  ],
+  "kanaRefs": [
+    "kata-sa",
+    "kata-shi",
+    "kata-su",
+    "kata-se",
+    "kata-so",
+    "kata-ta",
+    "kata-chi",
+    "kata-tsu",
+    "kata-te",
+    "kata-to"
+  ],
+  "canDo": [
+    {
+      "id": "cando-write-katakana-s-t",
+      "level": "A1",
+      "statement": {
+        "it": "So scrivere a mano i caratteri della righe S e T rispettando l'ordine dei tratti.",
+        "en": "I can hand-write the S & T rows characters with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wktkn-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia サ seguendo l'ordine dei tratti.",
+        "en": "Trace サ following the stroke order."
+      },
+      "targetItemId": "kata-sa",
+      "japanese": "サ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia シ seguendo l'ordine dei tratti.",
+        "en": "Trace シ following the stroke order."
+      },
+      "targetItemId": "kata-shi",
+      "japanese": "シ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ス seguendo l'ordine dei tratti.",
+        "en": "Trace ス following the stroke order."
+      },
+      "targetItemId": "kata-su",
+      "japanese": "ス",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia セ seguendo l'ordine dei tratti.",
+        "en": "Trace セ following the stroke order."
+      },
+      "targetItemId": "kata-se",
+      "japanese": "セ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ソ seguendo l'ordine dei tratti.",
+        "en": "Trace ソ following the stroke order."
+      },
+      "targetItemId": "kata-so",
+      "japanese": "ソ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-6",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia タ seguendo l'ordine dei tratti.",
+        "en": "Trace タ following the stroke order."
+      },
+      "targetItemId": "kata-ta",
+      "japanese": "タ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-7",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia チ seguendo l'ordine dei tratti.",
+        "en": "Trace チ following the stroke order."
+      },
+      "targetItemId": "kata-chi",
+      "japanese": "チ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-8",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ツ seguendo l'ordine dei tratti.",
+        "en": "Trace ツ following the stroke order."
+      },
+      "targetItemId": "kata-tsu",
+      "japanese": "ツ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-9",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia テ seguendo l'ordine dei tratti.",
+        "en": "Trace テ following the stroke order."
+      },
+      "targetItemId": "kata-te",
+      "japanese": "テ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-stroke-10",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ト seguendo l'ordine dei tratti.",
+        "en": "Trace ト following the stroke order."
+      },
+      "targetItemId": "kata-to",
+      "japanese": "ト",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-wktkn-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciando questi caratteri, cosa conta di più?",
+        "en": "When tracing these characters, what matters most?"
+      },
+      "options": [
+        {
+          "it": "L'ordine e la direzione dei tratti",
+          "en": "The order and direction of the strokes"
+        },
+        {
+          "it": "Solo la forma finale",
+          "en": "Only the final shape"
+        },
+        {
+          "it": "La velocità",
+          "en": "Speed"
+        },
+        {
+          "it": "Il colore",
+          "en": "The color"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine dei tratti",
+      "en": "Stroke order"
+    },
+    {
+      "it": "Scrittura righe S e T",
+      "en": "Writing S & T rows"
+    }
+  ]
+}

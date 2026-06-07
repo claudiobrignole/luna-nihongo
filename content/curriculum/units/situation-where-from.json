@@ -1,0 +1,179 @@
+{
+  "id": "situation-where-from",
+  "level": 2,
+  "order": 36,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Da dove vieni",
+    "en": "Situation · Where you're from"
+  },
+  "description": {
+    "it": "Una domanda che ti faranno spessissimo in Giappone: di dove sei. Con は, です e の possessivo costruisci risposte naturali — 'sono di Milano', 'l'Italia'. Ascolta lo scambio, poi scrivi la tua provenienza.",
+    "en": "A question you'll be asked constantly in Japan: where you're from. With は, です and possessive の you build natural answers — 'I'm from Milan', 'Italy'. Listen to the exchange, then write where you're from."
+  },
+  "dialogueRefs": [
+    "dlg-where-from"
+  ],
+  "canDo": [
+    {
+      "id": "cando-say-origin",
+      "level": "A1",
+      "statement": {
+        "it": "So dire da dove vengo.",
+        "en": "I can say where I'm from."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-origin",
+      "level": "A1",
+      "statement": {
+        "it": "So scrivere la mia provenienza.",
+        "en": "I can write where I'm from."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "self-introduction"
+  ],
+  "prerequisites": [
+    "grammar-no-possessive",
+    "vocab-greetings"
+  ],
+  "grammarRefs": [
+    "gr-wa-topic",
+    "gr-no-possessive"
+  ],
+  "vocabRefs": [
+    "vocab-doko",
+    "vocab-shusshin"
+  ],
+  "quizzes": [
+    {
+      "id": "q-wf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come chiedi 'di dove sei?'",
+        "en": "How do you ask 'where are you from?'"
+      },
+      "options": [
+        {
+          "it": "ごしゅっしんは どこですか",
+          "en": "ごしゅっしんは どこですか"
+        },
+        {
+          "it": "なにを しますか",
+          "en": "なにを しますか"
+        },
+        {
+          "it": "いくらですか",
+          "en": "いくらですか"
+        },
+        {
+          "it": "だれですか",
+          "en": "だれですか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Sono di Milano' — quale particella lega ミラノ e しゅっしん?",
+        "en": "'I'm from Milan' — which particle links ミラノ and しゅっしん?"
+      },
+      "options": [
+        {
+          "it": "の",
+          "en": "の"
+        },
+        {
+          "it": "は",
+          "en": "は"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "も",
+          "en": "も"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-wf-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi una frase per dire la tua provenienza, città e paese (es. 'Sono di Milano, in Italia'). Usa の.",
+        "en": "Write a sentence saying where you're from, city and country (e.g. 'I'm from Milan, Italy'). Use の."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Indica città e/o paese.",
+          "en": "States city and/or country."
+        },
+        {
+          "it": "Usa の per legare luogo e provenienza.",
+          "en": "Uses の to link place and origin."
+        },
+        {
+          "it": "Chiude con です.",
+          "en": "Ends with です."
+        }
+      ],
+      "modelAnswer": "イタリアの ミラノの しゅっしんです。",
+      "modelAnswerKana": "イタリアの ミラノの しゅっしんです。",
+      "modelAnswerRomaji": "itaria no mirano no shusshin desu.",
+      "modelAnswerTranslation": {
+        "it": "Sono di Milano, in Italia.",
+        "en": "I'm from Milan, Italy."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-no-possessive"
+      ],
+      "expectsVocabRefs": [
+        "vocab-shusshin"
+      ]
+    },
+    {
+      "id": "q-wf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la parola interrogativa al significato.",
+        "en": "Match the question word to its meaning."
+      },
+      "pairs": [
+        {
+          "left": "どこ",
+          "right": "dove / where"
+        },
+        {
+          "left": "だれ",
+          "right": "chi / who"
+        },
+        {
+          "left": "なに",
+          "right": "cosa / what"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

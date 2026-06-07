@@ -1,0 +1,179 @@
+{
+  "id": "situation-describe-people",
+  "level": 4,
+  "order": 43,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Descrivere persone",
+    "en": "Situation · Describing people"
+  },
+  "description": {
+    "it": "Con どんな chiedi 'che tipo di...', e con gli aggettivi in -な (col な davanti al nome) descrivi le persone: しんせつな ひと, げんきな ひと. Aggiungi それに ('e inoltre'). Scrivi una descrizione di qualcuno che conosci.",
+    "en": "With どんな you ask 'what kind of...', and with na-adjectives (な before the noun) you describe people: しんせつな ひと, げんきな ひと. Add それに ('moreover'). Write a description of someone you know."
+  },
+  "dialogueRefs": [
+    "dlg-describe-people"
+  ],
+  "canDo": [
+    {
+      "id": "cando-describe-person",
+      "level": "A2",
+      "statement": {
+        "it": "So descrivere com'è una persona.",
+        "en": "I can describe what a person is like."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-person",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere una descrizione di una persona.",
+        "en": "I can write a description of a person."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "greetings-social"
+  ],
+  "prerequisites": [
+    "grammar-na-adjectives",
+    "kanji-school-body"
+  ],
+  "grammarRefs": [
+    "gr-na-adjectives"
+  ],
+  "vocabRefs": [
+    "vocab-genki",
+    "vocab-shizuka",
+    "vocab-yuumei"
+  ],
+  "quizzes": [
+    {
+      "id": "q-dp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "どんな significa...",
+        "en": "どんな means..."
+      },
+      "options": [
+        {
+          "it": "che tipo di / what kind of",
+          "en": "che tipo di / what kind of"
+        },
+        {
+          "it": "quanto / how much",
+          "en": "quanto / how much"
+        },
+        {
+          "it": "dove / where",
+          "en": "dove / where"
+        },
+        {
+          "it": "quando / when",
+          "en": "quando / when"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-dp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Una persona gentile' (agg. -な):",
+        "en": "'A kind person' (na-adjective):"
+      },
+      "options": [
+        {
+          "it": "しんせつな ひと",
+          "en": "しんせつな ひと"
+        },
+        {
+          "it": "しんせつ ひと",
+          "en": "しんせつ ひと"
+        },
+        {
+          "it": "しんせつい ひと",
+          "en": "しんせつい ひと"
+        },
+        {
+          "it": "ひとの しんせつ",
+          "en": "ひとの しんせつ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-dp-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Descrivi una persona che conosci con due aggettivi in -な, collegati con それに.",
+        "en": "Describe someone you know with two na-adjectives, linked with それに."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Usa un aggettivo -な col な davanti al nome.",
+          "en": "Uses a na-adjective with な before the noun."
+        },
+        {
+          "it": "Aggiunge un secondo tratto con それに.",
+          "en": "Adds a second trait with それに."
+        },
+        {
+          "it": "Frase corretta.",
+          "en": "Correct sentence."
+        }
+      ],
+      "modelAnswer": "しんせつな ひとです。それに、げんきです。",
+      "modelAnswerKana": "しんせつな ひとです。それに、げんきです。",
+      "modelAnswerRomaji": "shinsetsu na hito desu. soreni, genki desu.",
+      "modelAnswerTranslation": {
+        "it": "È una persona gentile. E inoltre energica.",
+        "en": "A kind person. And lively too."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-na-adjectives"
+      ],
+      "expectsVocabRefs": [
+        "vocab-genki"
+      ]
+    },
+    {
+      "id": "q-dp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina aggettivo -な e significato.",
+        "en": "Match na-adjective to meaning."
+      },
+      "pairs": [
+        {
+          "left": "げんき",
+          "right": "energico / lively"
+        },
+        {
+          "left": "しずか",
+          "right": "tranquillo / quiet"
+        },
+        {
+          "left": "ゆうめい",
+          "right": "famoso / famous"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

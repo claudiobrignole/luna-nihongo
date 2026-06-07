@@ -152,7 +152,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         );
       } catch (err: unknown) {
         const code = (err as { code?: string }).code ?? '';
-        throw new Error(mapFirebaseAuthError(code, language));
+        const message = err instanceof Error ? err.message : '';
+        if (code.includes('permission-denied') || message.includes('Missing or insufficient permissions')) {
+          throw new Error(
+            language === 'en'
+              ? 'Could not load your profile. Check Firestore rules or try again.'
+              : 'Impossibile caricare il profilo. Controlla le regole Firestore o riprova.',
+            { cause: err },
+          );
+        }
+        throw new Error(mapFirebaseAuthError(code, language), { cause: err });
       }
     },
     []
@@ -183,7 +192,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setCurrentUser(profile);
       } catch (err: unknown) {
         const code = (err as { code?: string }).code ?? '';
-        throw new Error(mapFirebaseAuthError(code, language));
+        throw new Error(mapFirebaseAuthError(code, language), { cause: err });
       }
     },
     []
@@ -225,6 +234,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
+// Hook exported alongside provider — standard React context pattern.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth(): AuthContextValue {
   const ctx = useContext(AuthContext);
   if (!ctx) {

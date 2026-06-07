@@ -1,12 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { Search, Trash2, Radio, Lock, Calendar, ChevronRight } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
+import { hasPremiumAccess } from '../types/user';
 import {
   filterLiveSessions,
   getLiveSessionMessages,
   listLiveSessions,
 } from '../utils/chatHistory';
 import { deleteLiveSessionRecord } from '../services/liveSessionService';
+import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 
 interface LiveHistoryPanelProps {
   language: 'en' | 'it';
@@ -30,9 +32,8 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
   currentUser,
   chatHistory,
   onChatHistoryChange,
-  onNavigateToDashboard,
 }) => {
-  const isPremium = currentUser.tier === 'premium';
+  const isPremium = hasPremiumAccess(currentUser);
   const [month, setMonth] = useState('');
   const [day, setDay] = useState('');
   const [textQuery, setTextQuery] = useState('');
@@ -73,11 +74,15 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
       if (selectedId === liveSessionId) setSelectedId(null);
     } catch (err) {
       console.error('deleteLiveSession failed', err);
-      alert(
-        language === 'en'
-          ? 'Could not delete session. Try again.'
-          : 'Impossibile eliminare la sessione. Riprova.',
-      );
+      const msg =
+        err instanceof Error && err.message === 'DELETE_SERVICE_UNAVAILABLE'
+          ? language === 'en'
+            ? 'Delete service unavailable. Deploy deleteLiveSession and allow public Cloud Run access.'
+            : 'Servizio eliminazione non disponibile. Deploy deleteLiveSession e accesso pubblico Cloud Run.'
+          : language === 'en'
+            ? 'Could not delete session. Try again.'
+            : 'Impossibile eliminare la sessione. Riprova.';
+      alert(msg);
     } finally {
       setDeletingId(null);
     }
@@ -98,9 +103,7 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
               ? 'Premium saves live transcripts and lets Luna remember your voice sessions.'
               : 'Premium salva le trascrizioni live e permette a Luna di ricordare le sessioni vocali.'}
           </p>
-          <button type="button" className="btn btn-primary live-history-upgrade" onClick={onNavigateToDashboard}>
-            {language === 'en' ? 'Upgrade' : 'Passa a Premium'}
-          </button>
+          <PremiumUpgradeButton language={language} className="btn btn-primary live-history-upgrade" />
         </div>
       ) : (
         <>

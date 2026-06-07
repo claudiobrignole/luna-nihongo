@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $apiKey = luna_get_gemini_api_key();
+luna_require_firebase_auth();
 $body = json_decode(file_get_contents('php://input'), true);
 
 if (!is_array($body) || empty($body['systemPrompt']) || !is_string($body['systemPrompt'])) {

@@ -27,7 +27,7 @@ function run(name, script) {
 console.log('Starting Luna Nihongo dev stack (Ctrl+C to stop both)…\n');
 
 const api = run('api', 'dev:api');
-const vite = run('vite', 'dev');
+const vite = run('vite', 'dev:vite');
 
 function shutdown() {
   api.kill('SIGTERM');

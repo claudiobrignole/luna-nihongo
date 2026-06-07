@@ -1,0 +1,137 @@
+{
+  "id": "writing-hiragana-vowels",
+  "level": 0,
+  "order": 13,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare le vocali",
+    "en": "Writing · tracing the vowels"
+  },
+  "description": {
+    "it": "Sapere riconoscere un carattere è una cosa, saperlo scrivere è un'altra — e la mano aiuta la memoria. In questa unità tracci le cinque vocali rispettando l'ordine dei tratti, che in giapponese non è mai casuale: c'è una sequenza giusta che rende il carattere equilibrato e veloce da scrivere. Segui la guida e prendi il ritmo.",
+    "en": "Recognizing a character is one thing, writing it is another — and the hand helps memory. In this unit you trace the five vowels following the stroke order, which in Japanese is never random: there's a correct sequence that makes the character balanced and quick to write. Follow the guide and find the rhythm."
+  },
+  "situationTags": [],
+  "prerequisites": [
+    "hiragana-vowels"
+  ],
+  "kanaRefs": [
+    "hira-a",
+    "hira-i",
+    "hira-u",
+    "hira-e",
+    "hira-o"
+  ],
+  "canDo": [
+    {
+      "id": "cando-write-kana-vowels",
+      "level": "A1",
+      "statement": {
+        "it": "So scrivere a mano le cinque vocali rispettando l'ordine dei tratti.",
+        "en": "I can hand-write the five vowels with the correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-whv-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia あ seguendo l'ordine dei tratti.",
+        "en": "Trace あ following the stroke order."
+      },
+      "targetItemId": "hira-a",
+      "japanese": "あ",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-whv-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia い seguendo l'ordine dei tratti.",
+        "en": "Trace い following the stroke order."
+      },
+      "targetItemId": "hira-i",
+      "japanese": "い",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-whv-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia う seguendo l'ordine dei tratti.",
+        "en": "Trace う following the stroke order."
+      },
+      "targetItemId": "hira-u",
+      "japanese": "う",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-whv-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia え seguendo l'ordine dei tratti.",
+        "en": "Trace え following the stroke order."
+      },
+      "targetItemId": "hira-e",
+      "japanese": "え",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-whv-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia お seguendo l'ordine dei tratti.",
+        "en": "Trace お following the stroke order."
+      },
+      "targetItemId": "hira-o",
+      "japanese": "お",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-whv-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Perché in giapponese l'ordine dei tratti è importante?",
+        "en": "Why does stroke order matter in Japanese?"
+      },
+      "options": [
+        {
+          "it": "Rende il carattere equilibrato e più veloce da scrivere",
+          "en": "It makes the character balanced and faster to write"
+        },
+        {
+          "it": "Non è importante, conta solo la forma finale",
+          "en": "It doesn't matter, only the final shape counts"
+        },
+        {
+          "it": "Cambia il significato del carattere",
+          "en": "It changes the meaning of the character"
+        },
+        {
+          "it": "Serve solo per i kanji",
+          "en": "It only applies to kanji"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine dei tratti delle vocali",
+      "en": "Stroke order of the vowels"
+    },
+    {
+      "it": "Perché l'ordine conta (equilibrio, velocità)",
+      "en": "Why order matters (balance, speed)"
+    }
+  ]
+}

@@ -6,6 +6,9 @@
 import { createServer } from 'node:http';
 import { loadDotEnv, getGeminiApiKeyFromEnv, geminiKeyDiagnostics } from './load-env.mjs';
 import { createLiveSessionToken as createLiveToken } from './gemini-live-token.mjs';
+import { gradeWritingSubmission } from './writing-grade-lib.mjs';
+
+loadDotEnv();
 
 const PORT = Number(process.env.LUNA_DEV_API_PORT || 8080);
 
@@ -32,7 +35,7 @@ function sendJson(res, status, body) {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   });
   res.end(JSON.stringify(body));
 }
@@ -242,6 +245,8 @@ const routes = {
     return createLiveSessionToken(systemPrompt);
   },
   '/api/tutor.php': (body) => fetchTutorReply(body),
+  '/api/writing-grade.php': (body) =>
+    gradeWritingSubmission(body, { geminiFetch, getApiKey: getGeminiApiKey }),
   '/api/tts.php': (body) => synthesizeTts(body),
 };
 
@@ -250,7 +255,7 @@ const server = createServer(async (req, res) => {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     });
     res.end();
     return;

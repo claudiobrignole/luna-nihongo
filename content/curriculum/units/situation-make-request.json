@@ -1,0 +1,182 @@
+{
+  "id": "situation-make-request",
+  "level": 5,
+  "order": 49,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Fare richieste cortesi",
+    "en": "Situation · Making polite requests"
+  },
+  "description": {
+    "it": "Con la forma -て appena imparata, ～てください ti permette di chiedere gentilmente: 'aspetti', 'legga questo'. È utilissimo al lavoro e nella vita quotidiana. Scrivi una richiesta cortese a un collega.",
+    "en": "With the -te form you just learned, ～てください lets you ask politely: 'please wait', 'please read this'. It's invaluable at work and in daily life. Write a polite request to a coworker."
+  },
+  "dialogueRefs": [
+    "dlg-make-request"
+  ],
+  "canDo": [
+    {
+      "id": "cando-make-request",
+      "level": "A2",
+      "statement": {
+        "it": "So fare una richiesta cortese.",
+        "en": "I can make a polite request."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-request",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere una richiesta cortese.",
+        "en": "I can write a polite request."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "work",
+    "home-daily"
+  ],
+  "prerequisites": [
+    "grammar-te-requests-progressive"
+  ],
+  "grammarRefs": [
+    "gr-te-requests-progressive"
+  ],
+  "vocabRefs": [
+    "vocab-sumimasen",
+    "vocab-matsu",
+    "vocab-yomu",
+    "vocab-kudasai"
+  ],
+  "quizzes": [
+    {
+      "id": "q-mr-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Aspetti un attimo per favore' si dice...",
+        "en": "'Please wait a moment' is..."
+      },
+      "options": [
+        {
+          "it": "ちょっと まってください",
+          "en": "ちょっと まってください"
+        },
+        {
+          "it": "ちょっと まちます",
+          "en": "ちょっと まちます"
+        },
+        {
+          "it": "ちょっと まってもいい",
+          "en": "ちょっと まってもいい"
+        },
+        {
+          "it": "ちょっと まってはいけません",
+          "en": "ちょっと まってはいけません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-mr-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "～てください si forma con...",
+        "en": "～てください is formed with..."
+      },
+      "options": [
+        {
+          "it": "forma -て + ください",
+          "en": "forma -て + ください"
+        },
+        {
+          "it": "forma -ます + ください",
+          "en": "forma -ます + ください"
+        },
+        {
+          "it": "forma base + ください",
+          "en": "forma base + ください"
+        },
+        {
+          "it": "です + ください",
+          "en": "です + ください"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-mr-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi una richiesta cortese a un collega usando la forma -て + ください.",
+        "en": "Write a polite request to a coworker using the -te form + ください."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Usa la forma -て corretta di un verbo.",
+          "en": "Uses the correct -te form of a verb."
+        },
+        {
+          "it": "Aggiunge ください.",
+          "en": "Adds ください."
+        },
+        {
+          "it": "Opzionale: apre con すみません.",
+          "en": "Optional: opens with すみません."
+        }
+      ],
+      "modelAnswer": "すみません、これを よんでください。",
+      "modelAnswerKana": "すみません、これを よんでください。",
+      "modelAnswerRomaji": "sumimasen, kore o yonde kudasai.",
+      "modelAnswerTranslation": {
+        "it": "Scusi, legga questo per favore.",
+        "en": "Excuse me, please read this."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-te-requests-progressive"
+      ],
+      "expectsVocabRefs": [
+        "vocab-sumimasen",
+        "vocab-yomu",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "q-mr-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma -て.",
+        "en": "Match verb to -te form."
+      },
+      "pairs": [
+        {
+          "left": "まつ",
+          "right": "まって"
+        },
+        {
+          "left": "よむ",
+          "right": "よんで"
+        },
+        {
+          "left": "みる",
+          "right": "みて"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

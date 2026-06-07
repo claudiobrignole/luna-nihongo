@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import {
   Send, Bot, User, Crown, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic, Radio,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
-import { FREE_TUTOR_TURN_LIMIT, currentLiveMinutesPeriod } from '../types/user';
+import { canUseAiTutor } from '../types/user';
+import { trimChatHistory } from '../utils/chatHistory';
 import {
   buildTutorSystemPrompt,
   conversationOpener,
@@ -13,7 +14,17 @@ import { fetchTutorReply } from '../services/tutorService';
 import { LunaLive } from './LunaLive';
 import { TutorSidebar } from './TutorSidebar';
 import { LiveHistoryPanel } from './LiveHistoryPanel';
+import { PremiumRetentionNotice } from './PremiumRetentionNotice';
+import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { useAuth } from '../contexts/AuthContext';
 import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
+import { listStudyActivity } from '../services/studyActivityService';
+import type { StudyActivity } from '../types/study';
+import {
+  buildAutoMemoryLines,
+  resolveStudyProfile,
+  studyProfileToLegacyMemory,
+} from '../services/lunaMemoryService';
 
 interface AITutorProps {
   language: 'en' | 'it';
@@ -55,25 +66,51 @@ export const AITutor: React.FC<AITutorProps> = ({
   onTutorMessage,
   onLiveSession,
 }) => {
+  const { refreshUser } = useAuth();
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>(currentUser.chatHistory || []);
   const [isLoading, setIsLoading] = useState(false);
+  const initialProfile = resolveStudyProfile(currentUser);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-  const [memoryText, setMemoryText] = useState(currentUser.memory);
-  const [isEditingMemory, setIsEditingMemory] = useState(false);
+  const [studyGoal, setStudyGoal] = useState(initialProfile.studyGoal);
+  const [studyWeaknesses, setStudyWeaknesses] = useState(initialProfile.studyWeaknesses);
+  const [studyPreferences, setStudyPreferences] = useState(initialProfile.studyPreferences);
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [studyActivities, setStudyActivities] = useState<StudyActivity[]>([]);
   const [voiceEnabled, setVoiceEnabled] = useState(currentUser.tutorVoiceEnabled);
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const [tutorMode, setTutorMode] = useState<TutorMode>('conversation');
   const [tutorView, setTutorView] = useState<'chat' | 'live'>('live');
   const [ttsError, setTtsError] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  const isFree = currentUser.tier === 'free';
+  const hasAccess = canUseAiTutor(currentUser);
+  const isBlocked = !hasAccess;
   const msgCount = currentUser.messagesCount || 0;
-  const isBlocked = isFree && msgCount >= FREE_TUTOR_TURN_LIMIT;
 
   const saveUser = async (updates: Partial<LunaUser>) => {
-    await onUserUpdate(updates);
+    try {
+      setSaveError(null);
+      const payload = { ...updates };
+      if (payload.chatHistory) {
+        payload.chatHistory = trimChatHistory(
+          payload.chatHistory.map((msg) => ({
+            ...msg,
+            source: msg.source ?? (msg.sessionDivider || msg.liveSessionId ? 'live' : 'chat'),
+            createdAt: msg.createdAt ?? new Date().toISOString(),
+          })),
+        );
+      }
+      await onUserUpdate(payload);
+    } catch (err) {
+      console.error('Failed to save tutor state', err);
+      setSaveError(
+        language === 'en'
+          ? 'Could not save conversation. Check your connection and try again.'
+          : 'Impossibile salvare la conversazione. Controlla la connessione e riprova.',
+      );
+    }
   };
 
   const speakReply = async (text: string, index?: number) => {
@@ -97,6 +134,8 @@ export const AITutor: React.FC<AITutorProps> = ({
       const opener: ChatMessage = {
         role: 'assistant',
         content: conversationOpener(currentUser.username, language),
+        source: 'chat',
+        createdAt: new Date().toISOString(),
       };
       setMessages([opener]);
       void saveUser({ chatHistory: [opener] });
@@ -129,30 +168,69 @@ export const AITutor: React.FC<AITutorProps> = ({
   }, [currentUser.chatHistory]);
 
   useEffect(() => {
-    if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
-      seedConversation(false);
-    }
-  }, []);
+    void listStudyActivity(currentUser.id, 20)
+      .then(setStudyActivities)
+      .catch(() => setStudyActivities([]));
+  }, [currentUser.id]);
+
+  useEffect(() => {
+    const profile = resolveStudyProfile(currentUser);
+    setStudyGoal(profile.studyGoal);
+    setStudyWeaknesses(profile.studyWeaknesses);
+    setStudyPreferences(profile.studyPreferences);
+  }, [currentUser.studyGoal, currentUser.studyWeaknesses, currentUser.studyPreferences, currentUser.memory]);
+
+  const autoMemoryLines = useMemo(
+    () => buildAutoMemoryLines(currentUser, language, studyActivities),
+    [currentUser, language, studyActivities],
+  );
+
+  const saveStudyProfile = async () => {
+    setIsEditingProfile(false);
+    const profile = { studyGoal, studyWeaknesses, studyPreferences };
+    await saveUser({
+      studyGoal,
+      studyWeaknesses,
+      studyPreferences,
+      memory: studyProfileToLegacyMemory(profile),
+    });
+  };
+
+  const sidebarProps = {
+    language,
+    currentUser,
+    autoMemoryLines,
+    studyGoal,
+    studyWeaknesses,
+    studyPreferences,
+    isEditingProfile,
+    onStudyGoalChange: setStudyGoal,
+    onStudyWeaknessesChange: setStudyWeaknesses,
+    onStudyPreferencesChange: setStudyPreferences,
+    onToggleEditProfile: () => setIsEditingProfile(!isEditingProfile),
+    onSaveProfile: () => void saveStudyProfile(),
+    onNavigateToDashboard,
+  };
 
   const sendMessage = async (textOverride?: string) => {
     const text = (textOverride ?? input).trim();
     if (!text || isLoading || isBlocked) return;
 
-    if (isFree && msgCount >= FREE_TUTOR_TURN_LIMIT) {
-      setShowUpgradeModal(true);
-      return;
-    }
-
-    const userMsg: ChatMessage = { role: 'user', content: text };
+    const userMsg: ChatMessage = {
+      role: 'user',
+      content: text,
+      source: 'chat',
+      createdAt: new Date().toISOString(),
+    };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     if (!textOverride) setInput('');
     setIsLoading(true);
 
     const newCount = msgCount + 1;
-    const systemPrompt = buildTutorSystemPrompt(currentUser, language, tutorMode);
+    const systemPrompt = buildTutorSystemPrompt(currentUser, language, tutorMode, studyActivities);
 
-    let replyText = '';
+    let replyText: string;
 
     try {
       const messagesForApi = newMessages.filter((m) => !m.sessionDivider);
@@ -165,7 +243,12 @@ export const AITutor: React.FC<AITutorProps> = ({
       replyText = replyText.replace('you', currentUser.username);
     }
 
-    const assistantMsg: ChatMessage = { role: 'assistant', content: replyText };
+    const assistantMsg: ChatMessage = {
+      role: 'assistant',
+      content: replyText,
+      source: 'chat',
+      createdAt: new Date().toISOString(),
+    };
     const finalMessages = [...newMessages, assistantMsg];
     const assistantIndex = finalMessages.length - 1;
     setMessages(finalMessages);
@@ -173,17 +256,13 @@ export const AITutor: React.FC<AITutorProps> = ({
 
     onTutorMessage?.(text.slice(0, 80));
 
-    void saveUser({
+    await saveUser({
       messagesCount: newCount,
       chatHistory: finalMessages,
     });
 
     if (voiceEnabled) {
       void speakReply(replyText, assistantIndex);
-    }
-
-    if (isFree && newCount >= FREE_TUTOR_TURN_LIMIT) {
-      setTimeout(() => setShowUpgradeModal(true), 800);
     }
   };
 
@@ -217,10 +296,11 @@ export const AITutor: React.FC<AITutorProps> = ({
     recognition.start();
   };
 
-  const saveMemory = async () => {
-    setIsEditingMemory(false);
-    await saveUser({ memory: memoryText });
-  };
+  useEffect(() => {
+    if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
+      seedConversation(false);
+    }
+  }, []);
 
   return (
     <div className="tutor-layout">
@@ -247,61 +327,41 @@ export const AITutor: React.FC<AITutorProps> = ({
         <div className="tutor-content">
           {tutorView === 'live' ? (
             <div className="tutor-chat-wrap">
-              <TutorSidebar
-                language={language}
-                currentUser={currentUser}
-                memoryText={memoryText}
-                isEditingMemory={isEditingMemory}
-                onMemoryTextChange={setMemoryText}
-                onToggleEditMemory={() => setIsEditingMemory(!isEditingMemory)}
-                onSaveMemory={() => void saveMemory()}
-                onNavigateToDashboard={onNavigateToDashboard}
-              >
+              <TutorSidebar {...sidebarProps}>
                 <LiveHistoryPanel
                   language={language}
                   currentUser={currentUser}
                   chatHistory={currentUser.chatHistory ?? []}
-                  onChatHistoryChange={(chatHistory) => {
-                    setMessages(chatHistory);
-                    void saveUser({ chatHistory });
+                  onChatHistoryChange={(history) => {
+                    void onUserUpdate({ chatHistory: history });
                   }}
                   onNavigateToDashboard={onNavigateToDashboard}
                 />
+                <PremiumRetentionNotice language={language} currentUser={currentUser} />
               </TutorSidebar>
               <div className="tutor-live-main glass-panel">
                 <LunaLive
                   language={language}
                   currentUser={currentUser}
-                  onUserUpdate={onUserUpdate}
                   onNavigateToDashboard={onNavigateToDashboard}
                   onSessionLogged={(label, meta) => {
                     onTutorMessage?.(label);
                     const secs = meta?.durationSeconds;
                     if (typeof secs === 'number') onLiveSession?.(secs);
                   }}
-                  onChatHistoryUpdated={(chatHistory, liveMinutesUsed) => {
-                    setMessages(chatHistory);
-                    void saveUser({
-                      chatHistory,
-                      liveMinutesUsed,
-                      liveMinutesPeriod: currentLiveMinutesPeriod(),
-                    });
+                  onSessionSaved={(chatHistory) => {
+                    if (chatHistory?.length) {
+                      void onUserUpdate({ chatHistory });
+                    } else {
+                      void refreshUser();
+                    }
                   }}
                 />
               </div>
             </div>
           ) : (
             <div className="tutor-chat-wrap">
-      <TutorSidebar
-        language={language}
-        currentUser={currentUser}
-        memoryText={memoryText}
-        isEditingMemory={isEditingMemory}
-        onMemoryTextChange={setMemoryText}
-        onToggleEditMemory={() => setIsEditingMemory(!isEditingMemory)}
-        onSaveMemory={() => void saveMemory()}
-        onNavigateToDashboard={onNavigateToDashboard}
-      />
+      <TutorSidebar {...sidebarProps} />
 
       {/* ── Right Panel: Chat ── */}
       <div className="glass-panel tutor-chat-panel">
@@ -393,10 +453,13 @@ export const AITutor: React.FC<AITutorProps> = ({
         {ttsError && (
           <p className="tutor-tts-error">{ttsError}</p>
         )}
+        {saveError && (
+          <p className="tutor-tts-error">{saveError}</p>
+        )}
 
         {/* Messages list */}
         <div className="tutor-messages">
-          {messages.length === 0 && tutorMode === 'qa' && (
+          {messages.filter((m) => !m.sessionDivider && m.source !== 'live').length === 0 && tutorMode === 'qa' && (
             <div className="tutor-empty-hint">
               <Bot size={30} style={{ color: 'var(--primary)' }} />
               <p>
@@ -407,17 +470,9 @@ export const AITutor: React.FC<AITutorProps> = ({
             </div>
           )}
 
-          {messages.map((msg, i) => {
-            if (msg.sessionDivider) {
-              return (
-                <div key={`divider-${i}`} className="tutor-session-divider">
-                  <Radio size={14} />
-                  <span>{msg.content}</span>
-                </div>
-              );
-            }
-
-            return (
+          {messages
+            .filter((m) => !m.sessionDivider && m.source !== 'live')
+            .map((msg, i) => (
             <div key={i} style={{
               display: 'flex',
               justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start',
@@ -480,8 +535,7 @@ export const AITutor: React.FC<AITutorProps> = ({
                 </div>
               )}
             </div>
-            );
-          })}
+          ))}
 
           {isLoading && (
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
@@ -526,12 +580,12 @@ export const AITutor: React.FC<AITutorProps> = ({
               <Crown size={24} style={{ color: 'var(--secondary)', flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
                 <p style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.2rem' }}>
-                  {language === 'en' ? "You've reached the Free limit" : 'Hai raggiunto il limite gratuito'}
+                  {language === 'en' ? 'AI tutor requires Premium or trial' : 'Il tutor AI richiede Premium o prova'}
                 </p>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                   {language === 'en'
-                    ? 'Upgrade to Premium for unlimited conversations and AI memory.'
-                    : 'Passa a Premium per conversazioni illimitate e memoria AI.'}
+                    ? 'Start your 7-day free trial or subscribe to chat with Luna and use Luna Live.'
+                    : 'Inizia la prova gratuita di 7 giorni o abbonati per chattare con Luna e usare Luna Live.'}
                 </p>
               </div>
               <button
@@ -636,18 +690,15 @@ export const AITutor: React.FC<AITutorProps> = ({
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
               {language === 'en'
-                ? `You've used all ${FREE_TUTOR_TURN_LIMIT} free Q&A turns. Upgrade to Premium for unlimited conversations, voice, and long-term AI memory.`
-                : `Hai usato tutti i ${FREE_TUTOR_TURN_LIMIT} turni Q&A gratuiti. Passa a Premium per conversazioni illimitate, voce e memoria AI.`}
+                ? 'Your trial has ended or you are on the free plan. Subscribe for AI chat, Luna Live (2 h/week), memory, and 2 monthly lessons with Luna.'
+                : 'La prova è terminata o sei sul piano free. Abbonati per chat AI, Luna Live (2 h/settimana), memoria e 2 lezioni mensili con Luna.'}
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
-              <button
-                className="btn btn-primary"
-                style={{ width: '100%', display: 'flex', gap: '0.5rem' }}
-                onClick={() => { setShowUpgradeModal(false); onNavigateToDashboard(); }}
-              >
-                <Crown size={18} />
-                {language === 'en' ? 'Upgrade to Premium' : 'Passa a Premium'}
-              </button>
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', alignItems: 'stretch' }}>
+              <PremiumUpgradeButton
+                language={language}
+                style={{ width: '100%' }}
+                label={language === 'en' ? 'Upgrade to Premium' : 'Passa a Premium'}
+              />
               <button
                 style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}
                 onClick={() => setShowUpgradeModal(false)}

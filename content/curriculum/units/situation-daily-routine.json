@@ -1,0 +1,186 @@
+{
+  "id": "situation-daily-routine",
+  "level": 3,
+  "order": 38,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · La mia giornata",
+    "en": "Situation · My daily routine"
+  },
+  "description": {
+    "it": "Raccontare la propria routine usa verbi quotidiani in -ます, を per gli oggetti e そして per concatenare. È perfetto per consolidare tutto ciò che hai imparato sui verbi. Scrivi tre cose che fai ogni mattina.",
+    "en": "Describing your routine uses everyday -ます verbs, を for objects and そして to chain actions. It's perfect to consolidate everything you've learned about verbs. Write three things you do every morning."
+  },
+  "dialogueRefs": [
+    "dlg-daily-routine"
+  ],
+  "canDo": [
+    {
+      "id": "cando-describe-routine",
+      "level": "A2",
+      "statement": {
+        "it": "So descrivere la mia routine quotidiana.",
+        "en": "I can describe my daily routine."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-routine",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere cosa faccio in una giornata.",
+        "en": "I can write what I do in a day."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "home-daily"
+  ],
+  "prerequisites": [
+    "vocab-time",
+    "grammar-masu-verbs"
+  ],
+  "grammarRefs": [
+    "gr-masu-verbs",
+    "gr-o-object",
+    "gr-conjunctions"
+  ],
+  "vocabRefs": [
+    "vocab-asa",
+    "vocab-nani",
+    "vocab-nomu",
+    "vocab-suru",
+    "vocab-shigoto"
+  ],
+  "quizzes": [
+    {
+      "id": "q-dr-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale congiunzione concatena due azioni ('e poi')?",
+        "en": "Which conjunction chains two actions ('and then')?"
+      },
+      "options": [
+        {
+          "it": "そして",
+          "en": "そして"
+        },
+        {
+          "it": "でも",
+          "en": "でも"
+        },
+        {
+          "it": "から",
+          "en": "から"
+        },
+        {
+          "it": "か",
+          "en": "か"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-dr-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'La mattina cosa fai?' — come si dice?",
+        "en": "'What do you do in the morning?' — how do you say it?"
+      },
+      "options": [
+        {
+          "it": "あさ、なにを しますか",
+          "en": "あさ、なにを しますか"
+        },
+        {
+          "it": "あさ、どこへ いきますか",
+          "en": "あさ、どこへ いきますか"
+        },
+        {
+          "it": "あさ、いくらですか",
+          "en": "あさ、いくらですか"
+        },
+        {
+          "it": "あさ、だれですか",
+          "en": "あさ、だれですか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-dr-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi due azioni che fai ogni mattina, collegandole con そして.",
+        "en": "Write two things you do every morning, linking them with そして."
+      },
+      "targetLength": {
+        "min": 20,
+        "max": 50
+      },
+      "rubric": [
+        {
+          "it": "Due azioni con verbi in -ます.",
+          "en": "Two actions with -ます verbs."
+        },
+        {
+          "it": "Usa を per gli oggetti.",
+          "en": "Uses を for objects."
+        },
+        {
+          "it": "Collega con そして.",
+          "en": "Links with そして."
+        }
+      ],
+      "modelAnswer": "コーヒーを のみます。そして、しごとを します。",
+      "modelAnswerKana": "コーヒーを のみます。そして、しごとを します。",
+      "modelAnswerRomaji": "koohii o nomimasu. soshite, shigoto o shimasu.",
+      "modelAnswerTranslation": {
+        "it": "Bevo un caffè. E poi lavoro.",
+        "en": "I drink coffee. And then I work."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-masu-verbs",
+        "gr-conjunctions"
+      ],
+      "expectsVocabRefs": [
+        "vocab-nomu",
+        "vocab-suru",
+        "vocab-shigoto"
+      ]
+    },
+    {
+      "id": "q-dr-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e significato.",
+        "en": "Match verb to meaning."
+      },
+      "pairs": [
+        {
+          "left": "のみます",
+          "right": "bevo / I drink"
+        },
+        {
+          "left": "します",
+          "right": "faccio / I do"
+        },
+        {
+          "left": "たべます",
+          "right": "mangio / I eat"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

@@ -9,6 +9,9 @@ import {
   getQuizOptionLabel,
   unitTypeLabel,
 } from '../utils/curriculumDisplay';
+import { WritingQuizPanel } from './WritingQuizPanel';
+import { StrokeOrderQuizPanel } from './StrokeOrderQuizPanel';
+import type { WritingQuizExtended } from '../types/writingGrading';
 import {
   BookOpen,
   CheckCircle,
@@ -31,6 +34,9 @@ interface LearningPathProps {
   guestMode?: boolean;
   onRequireAuth?: () => void;
   onOpenOnboarding?: () => void;
+  showRomaji?: boolean;
+  onEarnQuizXp?: (xp: number) => void;
+  onOpenCredits?: () => void;
 }
 
 export const LearningPath: React.FC<LearningPathProps> = ({
@@ -42,6 +48,9 @@ export const LearningPath: React.FC<LearningPathProps> = ({
   guestMode = false,
   onRequireAuth,
   onOpenOnboarding,
+  showRomaji = true,
+  onEarnQuizXp,
+  onOpenCredits,
 }) => {
   const [activeLevel, setActiveLevel] = useState(initialLevel);
 
@@ -94,6 +103,28 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     resetQuizInputs();
   };
 
+  const advanceAfterCorrectQuiz = () => {
+    if (!selectedUnit) return;
+    if (currentQuizIndex + 1 < selectedUnit.quizzes.length) {
+      setTimeout(() => {
+        setCurrentQuizIndex((prev) => prev + 1);
+        resetQuizInputs();
+      }, 600);
+    } else {
+      setTimeout(() => {
+        setShowResult(true);
+        onCompleteUnit(selectedUnit.id);
+      }, 600);
+    }
+  };
+
+  const goToPreviousQuiz = () => {
+    if (currentQuizIndex > 0) {
+      setCurrentQuizIndex((prev) => prev - 1);
+      resetQuizInputs();
+    }
+  };
+
   const handleAnswerSubmit = () => {
     if (!selectedUnit) return;
     const currentQuestion = selectedUnit.quizzes[currentQuizIndex];
@@ -106,21 +137,19 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     );
 
     if (isCorrect) {
-      if (currentQuizIndex + 1 < selectedUnit.quizzes.length) {
-        setTimeout(() => {
-          setCurrentQuizIndex(prev => prev + 1);
-          resetQuizInputs();
-        }, 600);
-      } else {
-        setTimeout(() => {
-          setShowResult(true);
-          onCompleteUnit(selectedUnit.id);
-        }, 600);
-      }
+      advanceAfterCorrectQuiz();
     } else {
       setShakeQuiz(true);
       setTimeout(() => setShakeQuiz(false), 500);
     }
+  };
+
+  const handleWritingQuizPassed = () => {
+    advanceAfterCorrectQuiz();
+  };
+
+  const handleStrokeQuizPassed = () => {
+    advanceAfterCorrectQuiz();
   };
 
   const currentQuiz: Quiz | undefined = selectedUnit?.quizzes[currentQuizIndex];
@@ -134,6 +163,8 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     if (currentQuiz.type === 'matching') {
       return !currentQuiz.pairs.every((pair) => matchingAnswers[pair.left]);
     }
+    if (currentQuiz.type === 'writing') return true;
+    if (currentQuiz.type === 'stroke-order') return true;
     return true;
   };
 
@@ -554,7 +585,29 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                       {currentQuiz?.prompt[language]}
                     </h3>
 
-                    {currentQuiz?.type === 'multiple-choice' ? (
+                    {currentQuiz?.type === 'stroke-order' && selectedUnit ? (
+                      <StrokeOrderQuizPanel
+                        key={currentQuiz.id}
+                        quiz={currentQuiz}
+                        unit={selectedUnit}
+                        language={language}
+                        onPassed={handleStrokeQuizPassed}
+                        onEarnXp={guestMode ? undefined : onEarnQuizXp}
+                        onCancel={() => setQuizActive(false)}
+                        onPrevious={currentQuizIndex > 0 ? goToPreviousQuiz : undefined}
+                        onOpenCredits={onOpenCredits ?? (() => {})}
+                      />
+                    ) : currentQuiz?.type === 'writing' ? (
+                      <WritingQuizPanel
+                        key={currentQuiz.id}
+                        quiz={currentQuiz as WritingQuizExtended}
+                        language={language}
+                        showRomaji={showRomaji}
+                        onPassed={handleWritingQuizPassed}
+                        onEarnXp={guestMode ? undefined : onEarnQuizXp}
+                        onCancel={() => setQuizActive(false)}
+                      />
+                    ) : currentQuiz?.type === 'multiple-choice' ? (
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginBottom: '2rem' }}>
                         {currentQuiz.options.map((option, index) => (
                           <button
@@ -632,24 +685,25 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                       </div>
                     )}
 
-                    {/* Submit Buttons */}
-                    <div style={{ marginTop: 'auto', display: 'flex', gap: '1rem' }}>
-                      <button 
-                        onClick={() => setQuizActive(false)}
-                        className="btn btn-secondary"
-                        style={{ flex: 1 }}
-                      >
-                        {language === 'en' ? 'Cancel' : 'Annulla'}
-                      </button>
-                      <button 
-                        onClick={handleAnswerSubmit}
-                        className="btn btn-primary"
-                        style={{ flex: 1 }}
-                        disabled={isSubmitDisabled()}
-                      >
-                        {language === 'en' ? 'Submit Answer' : 'Invia Risposta'}
-                      </button>
-                    </div>
+                    {currentQuiz?.type !== 'writing' && currentQuiz?.type !== 'stroke-order' && (
+                      <div style={{ marginTop: 'auto', display: 'flex', gap: '1rem' }}>
+                        <button
+                          onClick={() => setQuizActive(false)}
+                          className="btn btn-secondary"
+                          style={{ flex: 1 }}
+                        >
+                          {language === 'en' ? 'Cancel' : 'Annulla'}
+                        </button>
+                        <button
+                          onClick={handleAnswerSubmit}
+                          className="btn btn-primary"
+                          style={{ flex: 1 }}
+                          disabled={isSubmitDisabled()}
+                        >
+                          {language === 'en' ? 'Submit Answer' : 'Invia Risposta'}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

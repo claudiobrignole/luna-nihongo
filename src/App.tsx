@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { LearningPath } from './components/LearningPath';
 import { Flashcards } from './components/Flashcards';
 import { TeacherProfile } from './components/TeacherProfile';
-import { BookingCalendar } from './components/BookingCalendar';
+import { BookingCalendar, type BookingMode } from './components/BookingCalendar';
 import { StudentDashboard } from './components/StudentDashboard';
 import { AdminPanel } from './components/AdminPanel';
 import { AITutor } from './components/AITutor';
@@ -12,25 +12,30 @@ import { Onboarding } from './components/Onboarding';
 import { PublicLanding } from './components/PublicLanding';
 import { AuthPage } from './components/AuthPage';
 import { RegisterPrompt } from './components/RegisterPrompt';
+import { CreditsModal, FooterKanjiVgLine } from './components/CreditsModal';
 import { BookingPreview } from './components/BookingPreview';
 import { GuestTutorPreview } from './components/GuestTutorPreview';
 import { GuestFlashcardsPreview } from './components/GuestFlashcardsPreview';
 import { useAuth } from './contexts/AuthContext';
-import { isAdminRole } from './types/user';
+import { isAdminRole, hasActiveSubscription } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
+import { startFreeTrial } from './services/trialService';
 import { CURRICULUM_LEVELS } from './data/curriculum';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
 function App() {
-  const { currentUser, loading, signOut, updateUser } = useAuth();
+  const { currentUser, loading, signOut, updateUser, refreshUser } = useAuth();
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [language, setLanguage] = useState<LanguageType>('it');
+  const [bookingMode, setBookingMode] = useState<BookingMode>('intro');
   const [authSignupMode, setAuthSignupMode] = useState(true);
   const [registerPromptOpen, setRegisterPromptOpen] = useState(false);
   const [registerReason, setRegisterReason] = useState<RegisterReason>('study');
   const [onboardingOpen, setOnboardingOpen] = useState(false);
+  const [creditsOpen, setCreditsOpen] = useState(false);
+  const [subscribeBookOpen, setSubscribeBookOpen] = useState(false);
   const onboardingAutoOpened = useRef(false);
 
   const openRegister = (reason: RegisterReason = 'study') => {
@@ -71,6 +76,11 @@ function App() {
     });
   };
 
+  const handleEarnQuizXp = async (xp: number) => {
+    if (!currentUser || xp <= 0) return;
+    await updateUser({ xp: (currentUser.xp || 0) + xp });
+  };
+
   const handleUnitOpen = (unitId: string, level: number) => {
     if (!currentUser) return;
     void logStudyActivity(currentUser.id, {
@@ -93,8 +103,22 @@ function App() {
       label: levelMeta?.title[language] ?? `Level ${preferredStartLevel}`,
       level: preferredStartLevel,
     });
-    setActiveTab('path');
     setOnboardingOpen(false);
+
+    const shouldStartTrial = !currentUser.trialUsed && !hasActiveSubscription(currentUser);
+    if (shouldStartTrial) {
+      try {
+        await startFreeTrial();
+        await refreshUser();
+      } catch (err) {
+        console.warn('Auto trial start skipped', err);
+      }
+      setBookingMode('intro');
+      setActiveTab('booking');
+      return;
+    }
+
+    setActiveTab('path');
   };
 
   const openOnboarding = () => setOnboardingOpen(true);
@@ -115,6 +139,8 @@ function App() {
       return;
     }
 
+    setActiveTab((tab) => (tab === 'auth' ? 'path' : tab));
+
     if (!currentUser.onboardingCompleted && !onboardingAutoOpened.current) {
       setOnboardingOpen(true);
       onboardingAutoOpened.current = true;
@@ -124,6 +150,30 @@ function App() {
       setActiveTab((tab) => (tab === 'auth' || tab === 'home' ? 'path' : tab));
     }
   }, [currentUser?.id, currentUser?.onboardingCompleted]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const checkout = params.get('checkout');
+    if (!checkout || !currentUser) return;
+
+    if (checkout === 'success') {
+      void refreshUser();
+      if (params.get('book') === '1') {
+        setSubscribeBookOpen(true);
+      }
+    }
+
+    if (checkout === 'extra') {
+      void refreshUser();
+    }
+
+    params.delete('checkout');
+    params.delete('book');
+    params.delete('slotId');
+    params.delete('lang');
+    const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
+    window.history.replaceState({}, '', next);
+  }, [currentUser, refreshUser]);
 
   if (loading) {
     return (
@@ -187,6 +237,7 @@ function App() {
             <TeacherProfile
               language={language}
               onNavigateToBooking={() => promptRegister('booking')}
+              onRequireAuth={() => promptRegister('booking')}
             />
           )}
 
@@ -214,9 +265,12 @@ function App() {
           onRegister={() => openRegister(registerReason)}
         />
 
+        <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
+
         <footer className="main-footer">
           <div className="footer-content">
             <div>© {new Date().getFullYear()} <strong>Luna Nihongo</strong>. All rights reserved.</div>
+            <FooterKanjiVgLine language={language} onOpenCredits={() => setCreditsOpen(true)} />
           </div>
         </footer>
       </div>
@@ -268,6 +322,9 @@ function App() {
             initialLevel={currentUser.preferredStartLevel}
             onUnitOpen={handleUnitOpen}
             onOpenOnboarding={openOnboarding}
+            showRomaji={currentUser.showRomaji}
+            onEarnQuizXp={handleEarnQuizXp}
+            onOpenCredits={() => setCreditsOpen(true)}
           />
         )}
 
@@ -300,22 +357,37 @@ function App() {
         {activeTab === 'teacher' && (
           <TeacherProfile
             language={language}
-            onNavigateToBooking={() => setActiveTab('booking')}
+            currentUser={currentUser}
+            onNavigateToBooking={(mode) => {
+              setBookingMode(mode);
+              setActiveTab('booking');
+            }}
+            onTrialRefresh={() => refreshUser()}
           />
         )}
 
         {activeTab === 'booking' && (
           <BookingCalendar
             language={language}
-            userId={currentUser.id}
-            onBookingSuccess={() => setActiveTab('dashboard')}
+            userEmail={currentUser.email}
+            userName={currentUser.username}
+            currentUser={currentUser}
+            mode={bookingMode}
+            defaultPlan={bookingMode === 'regular' ? 'included' : 'trial_intro'}
+            onBookingSuccess={() => {
+              void refreshUser();
+              setActiveTab('dashboard');
+            }}
           />
         )}
 
         {activeTab === 'dashboard' && (
           <StudentDashboard
             language={language}
-            onNavigateToBooking={() => setActiveTab('booking')}
+            onNavigateToBooking={() => {
+              setBookingMode('regular');
+              setActiveTab('booking');
+            }}
             currentUser={currentUser}
             onLogout={handleLogout}
             onUserUpdate={handleUserUpdate}
@@ -327,6 +399,37 @@ function App() {
         )}
       </main>
 
+      {subscribeBookOpen && (
+        <div className="onboarding-overlay">
+          <div className="onboarding-panel glass-panel" style={{ maxWidth: 480 }}>
+            <h2>{language === 'en' ? 'Welcome to Premium!' : 'Benvenuto in Premium!'}</h2>
+            <p style={{ color: 'var(--text-muted)' }}>
+              {language === 'en'
+                ? 'Your subscription is active. Book your 2 included 60-minute lessons for this billing cycle. Extra lessons are available at 49 EUR/CHF each.'
+                : 'Il tuo abbonamento è attivo. Prenota le 2 lezioni incluse da 60 minuti per questo ciclo. Lezioni extra disponibili a 49 EUR/CHF ciascuna.'}
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  setSubscribeBookOpen(false);
+                  setBookingMode('regular');
+                  setActiveTab('booking');
+                }}
+              >
+                {language === 'en' ? 'Book included lessons' : 'Prenota lezioni incluse'}
+              </button>
+              <button type="button" className="btn btn-secondary" onClick={() => setSubscribeBookOpen(false)}>
+                {language === 'en' ? 'Later' : 'Più tardi'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
+
       <footer className="main-footer">
         <div className="footer-content">
           <div>
@@ -337,6 +440,7 @@ function App() {
               ? 'Empowering Japanese learners through spaced repetition and AI tutoring.'
               : 'Aiutiamo gli studenti a imparare il giapponese con AI e ripasso spaziato.'}
           </div>
+          <FooterKanjiVgLine language={language} onOpenCredits={() => setCreditsOpen(true)} />
         </div>
       </footer>
     </div>

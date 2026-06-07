@@ -10,6 +10,10 @@
       "mnemonic": {
         "it": "Una signora con un'acconciatura elaborata: il cerchietto in basso a destra è il fiocco.",
         "en": "A lady with a fancy hairdo — the little loop bottom-right is her bow."
+      },
+      "strokeData": {
+        "kanjiVgId": "03042",
+        "strokeCount": 3
       }
     },
     {
@@ -21,6 +25,10 @@
       "mnemonic": {
         "it": "Due gocce in piedi una accanto all'altra, come una doppia 'i'.",
         "en": "Two strokes standing side by side, like a pair of 'i' beans."
+      },
+      "strokeData": {
+        "kanjiVgId": "03044",
+        "strokeCount": 2
       }
     },
     {
@@ -32,6 +40,10 @@
       "mnemonic": {
         "it": "Un naso di profilo che fa 'uh?': il trattino in alto è la fronte sorpresa.",
         "en": "A nose in profile going 'ooh?' — the top stroke is a surprised brow."
+      },
+      "strokeData": {
+        "kanjiVgId": "03046",
+        "strokeCount": 2
       }
     },
     {
@@ -43,6 +55,10 @@
       "mnemonic": {
         "it": "Una persona che s'inchina dicendo 'eh, grazie!': testa su, schiena curva.",
         "en": "Someone bowing 'eh, thanks!' — head up, back curving down."
+      },
+      "strokeData": {
+        "kanjiVgId": "03048",
+        "strokeCount": 2
       }
     },
     {
@@ -54,6 +70,10 @@
       "mnemonic": {
         "it": "Come あ ma con una palla in più: la goccia in alto a destra è la palla lanciata.",
         "en": "Like あ but tossing a ball — the dot top-right is the ball mid-air."
+      },
+      "strokeData": {
+        "kanjiVgId": "0304a",
+        "strokeCount": 3
       }
     },
     {
@@ -65,6 +85,10 @@
       "mnemonic": {
         "it": "Un coltello (knife) che taglia: la linea diagonale è la lama, il puntino la goccia.",
         "en": "A 'ka'-rate chop: the diagonal slash is the cutting motion, the dot flying off."
+      },
+      "strokeData": {
+        "kanjiVgId": "0304b",
+        "strokeCount": 3
       }
     },
     {
@@ -76,6 +100,10 @@
       "mnemonic": {
         "it": "Una chiave (key) appesa: due trattini orizzontali e il gancio sotto.",
         "en": "A 'key' hanging on a hook — two crossbars and the curl below."
+      },
+      "strokeData": {
+        "kanjiVgId": "0304d",
+        "strokeCount": 4
       }
     },
     {
@@ -87,6 +115,10 @@
       "mnemonic": {
         "it": "Un becco aperto che fa 'ku-ku': l'angolo è il becco di un cucù.",
         "en": "An open beak going 'coo-coo' — the angle is a cuckoo's mouth."
+      },
+      "strokeData": {
+        "kanjiVgId": "0304f",
+        "strokeCount": 1
       }
     },
     {
@@ -98,6 +130,10 @@
       "mnemonic": {
         "it": "Una caffettiera (Ke-ttle) di profilo, con il manico a sinistra.",
         "en": "A 'ke'-ttle in profile, handle on the left."
+      },
+      "strokeData": {
+        "kanjiVgId": "03051",
+        "strokeCount": 3
       }
     },
     {
@@ -109,6 +145,10 @@
       "mnemonic": {
         "it": "Due trattini come due corde: pensa a 'co-llegare'.",
         "en": "Two short cords, side by side — think 'co-nnect'."
+      },
+      "strokeData": {
+        "kanjiVgId": "03053",
+        "strokeCount": 2
       }
     },
     {
@@ -120,6 +160,10 @@
       "mnemonic": {
         "it": "Quasi uguale a き ma con un trattino in meno: 'sa' ha meno linee.",
         "en": "Almost like き but one stroke fewer — 'sa' is the simpler twin."
+      },
+      "strokeData": {
+        "kanjiVgId": "03055",
+        "strokeCount": 3
       }
     },
     {
@@ -131,6 +175,10 @@
       "mnemonic": {
         "it": "Un amo da pesca che scende e risale: pesca un pesce e fa 'shhh' (shi).",
         "en": "A fishing hook curving down then up — hooking a 'she'-fish quietly."
+      },
+      "strokeData": {
+        "kanjiVgId": "03057",
+        "strokeCount": 1
       }
     },
     {
@@ -142,6 +190,10 @@
       "mnemonic": {
         "it": "Un cappio con la coda lunga: 'su'-spende qualcosa dal gancio.",
         "en": "A loop with a long tail — it 'su'-spends from the hook."
+      },
+      "strokeData": {
+        "kanjiVgId": "03059",
+        "strokeCount": 2
       }
     },
     {
@@ -153,6 +205,10 @@
       "mnemonic": {
         "it": "Simile a sa/ki ma con la gamba che scende: 'se' si siede.",
         "en": "Like sa/ki but with a leg dropping down — 'se' sits down."
+      },
+      "strokeData": {
+        "kanjiVgId": "0305b",
+        "strokeCount": 3
       }
     },
     {
@@ -164,6 +220,10 @@
       "mnemonic": {
         "it": "Un filo che zigzaga: pensa a cucire ('so' come 'to sew').",
         "en": "A zig-zag thread — think 'so' as in 'to sew'."
+      },
+      "strokeData": {
+        "kanjiVgId": "0305d",
+        "strokeCount": 1
       }
     },
     {
@@ -175,6 +235,10 @@
       "mnemonic": {
         "it": "Un 'ta'volo con una gamba: la croce in alto, il piedino sotto.",
         "en": "A little 'ta'-ble: the cross on top, a single leg below."
+      },
+      "strokeData": {
+        "kanjiVgId": "0305f",
+        "strokeCount": 4
       }
     },
     {
@@ -186,6 +250,10 @@
       "mnemonic": {
         "it": "Un numero 5 al contrario, o una guancia ('chi'-guancia) che sorride.",
         "en": "A backwards 5 — or a cheery 'chee'-k curving out."
+      },
+      "strokeData": {
+        "kanjiVgId": "03061",
+        "strokeCount": 2
       }
     },
     {
@@ -197,6 +265,10 @@
       "mnemonic": {
         "it": "Un'onda (tsu-nami) che si arriccia da destra a sinistra.",
         "en": "A 'tsu'-nami wave curling from right to left."
+      },
+      "strokeData": {
+        "kanjiVgId": "03064",
+        "strokeCount": 1
       }
     },
     {
@@ -208,6 +280,10 @@
       "mnemonic": {
         "it": "Una mano (te = mano in giapponese!) che si tende: trattino e curva.",
         "en": "A hand reaching out — 'te' literally means 'hand' in Japanese."
+      },
+      "strokeData": {
+        "kanjiVgId": "03066",
+        "strokeCount": 1
       }
     },
     {
@@ -219,6 +295,10 @@
       "mnemonic": {
         "it": "Un dito del piede (toe) con una spina: la linea verticale e il puntino.",
         "en": "A 'to'-e with a thorn poking it — the vertical line and the little jab."
+      },
+      "strokeData": {
+        "kanjiVgId": "03068",
+        "strokeCount": 2
       }
     },
     {
@@ -230,6 +310,10 @@
       "mnemonic": {
         "it": "Una persona che prega in ginocchio: 'na'maste.",
         "en": "Someone kneeling in prayer — 'na'maste."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306a",
+        "strokeCount": 4
       }
     },
     {
@@ -241,6 +325,10 @@
       "mnemonic": {
         "it": "Due ginocchia ('ni' come 'knee'): la linea e la curva accanto.",
         "en": "A 'knee' bent — the upright and the little curl beside it."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306b",
+        "strokeCount": 3
       }
     },
     {
@@ -252,6 +340,10 @@
       "mnemonic": {
         "it": "Un nodo (knot) con due lacci che pendono: 'nu' si annoda.",
         "en": "A 'noo'-se with two dangling laces — all knotted up."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306c",
+        "strokeCount": 2
       }
     },
     {
@@ -263,6 +355,10 @@
       "mnemonic": {
         "it": "Un gatto ('neko') con la coda arricciata sulla destra.",
         "en": "A 'ne'-ko (cat) with its tail curling on the right."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306d",
+        "strokeCount": 2
       }
     },
     {
@@ -274,6 +370,10 @@
       "mnemonic": {
         "it": "Una chiocciola/spirale: pensa a 'no' come un dito che ruota.",
         "en": "A swirl, like a finger tracing 'no'-thing in a loop."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306e",
+        "strokeCount": 1
       }
     },
     {
@@ -285,6 +385,10 @@
       "mnemonic": {
         "it": "Una persona accanto a una colonna: 'ha' come una risata HA!.",
         "en": "A figure beside a tall post — like a hearty 'HA!' laugh."
+      },
+      "strokeData": {
+        "kanjiVgId": "0306f",
+        "strokeCount": 3
       }
     },
     {
@@ -296,6 +400,10 @@
       "mnemonic": {
         "it": "Un sorriso largo ('hi!' come ciao in inglese): la curva sorridente.",
         "en": "A wide smile saying 'hi!' — the curving grin."
+      },
+      "strokeData": {
+        "kanjiVgId": "03072",
+        "strokeCount": 1
       }
     },
     {
@@ -307,6 +415,10 @@
       "mnemonic": {
         "it": "Una montagna soffiata dal vento: 'fu' come un soffio (Fuji!).",
         "en": "Mount 'Fu'-ji catching the wind — a puff of breath, 'fu'."
+      },
+      "strokeData": {
+        "kanjiVgId": "03075",
+        "strokeCount": 4
       }
     },
     {
@@ -318,6 +430,10 @@
       "mnemonic": {
         "it": "Una collina semplice: una sola linea che sale e scende, 'he'.",
         "en": "A simple hill — one stroke up and down, that's 'he'."
+      },
+      "strokeData": {
+        "kanjiVgId": "03078",
+        "strokeCount": 1
       }
     },
     {
@@ -329,6 +445,10 @@
       "mnemonic": {
         "it": "Come は ma con una traversa in più: 'ho' ha il cappello.",
         "en": "Like は but with an extra bar on top — 'ho' wears a hat."
+      },
+      "strokeData": {
+        "kanjiVgId": "0307b",
+        "strokeCount": 4
       }
     },
     {
@@ -340,6 +460,10 @@
       "mnemonic": {
         "it": "Una mamma ('ma') con un nodo: la curva e il cappio in basso.",
         "en": "A 'ma'-ma with a bow — the curve and the loop below."
+      },
+      "strokeData": {
+        "kanjiVgId": "0307e",
+        "strokeCount": 3
       }
     },
     {
@@ -351,6 +475,10 @@
       "mnemonic": {
         "it": "Il numero 21, o una persona che si guarda ('mi'rarsi).",
         "en": "Looks like '21' — or someone catching their reflection, 'mi'."
+      },
+      "strokeData": {
+        "kanjiVgId": "0307f",
+        "strokeCount": 2
       }
     },
     {
@@ -362,6 +490,10 @@
       "mnemonic": {
         "it": "Una mucca ('mu'!) con un codino: il verso della mucca, muu.",
         "en": "A cow going 'muu' — note the little tail flick."
+      },
+      "strokeData": {
+        "kanjiVgId": "03080",
+        "strokeCount": 3
       }
     },
     {
@@ -373,6 +505,10 @@
       "mnemonic": {
         "it": "Un occhio ('me' = occhio in giapponese!) con la ciglia arricciata.",
         "en": "An eye — 'me' literally means 'eye' in Japanese — with a curling lash."
+      },
+      "strokeData": {
+        "kanjiVgId": "03081",
+        "strokeCount": 2
       }
     },
     {
@@ -384,6 +520,10 @@
       "mnemonic": {
         "it": "Un amo con due esche: 'mo' pesca ancora di più (mo = anche).",
         "en": "A hook with two worms — 'mo' means 'also', so it catches more."
+      },
+      "strokeData": {
+        "kanjiVgId": "03082",
+        "strokeCount": 3
       }
     },
     {
@@ -395,6 +535,10 @@
       "mnemonic": {
         "it": "Una freccia (yari = lancia) scoccata di lato.",
         "en": "A 'ya'-ri (spear) thrown sideways."
+      },
+      "strokeData": {
+        "kanjiVgId": "03084",
+        "strokeCount": 3
       }
     },
     {
@@ -406,6 +550,10 @@
       "mnemonic": {
         "it": "Un pesce stilizzato che nuota: 'yu' scivola nell'acqua calda.",
         "en": "A fish gliding — 'yu' slips into warm water (a hot spring)."
+      },
+      "strokeData": {
+        "kanjiVgId": "03086",
+        "strokeCount": 2
       }
     },
     {
@@ -417,6 +565,10 @@
       "mnemonic": {
         "it": "Un amo con un'asta lunga: 'yo!' lo chiami da lontano.",
         "en": "A hook on a long pole — 'yo!' you call out from afar."
+      },
+      "strokeData": {
+        "kanjiVgId": "03088",
+        "strokeCount": 2
       }
     },
     {
@@ -428,6 +580,10 @@
       "mnemonic": {
         "it": "Una persona seduta che alza un braccio: 'ra' rilassato.",
         "en": "Someone seated raising an arm — a relaxed 'ra'."
+      },
+      "strokeData": {
+        "kanjiVgId": "03089",
+        "strokeCount": 2
       }
     },
     {
@@ -439,6 +595,10 @@
       "mnemonic": {
         "it": "Due linee parallele che scendono: pensa a un fiume ('ri'-o).",
         "en": "Two parallel strokes flowing down — like a 'ri'-ver."
+      },
+      "strokeData": {
+        "kanjiVgId": "0308a",
+        "strokeCount": 2
       }
     },
     {
@@ -450,6 +610,10 @@
       "mnemonic": {
         "it": "Come ろ ma con un cappio in fondo: 'ru' fa il nodo, ろ no.",
         "en": "Like ろ but with a loop at the bottom — 'ru' ties the knot, ろ doesn't."
+      },
+      "strokeData": {
+        "kanjiVgId": "0308b",
+        "strokeCount": 1
       }
     },
     {
@@ -461,6 +625,10 @@
       "mnemonic": {
         "it": "Una persona in piedi con la schiena dritta: 're' resta su.",
         "en": "A figure standing tall — 're' stays upright."
+      },
+      "strokeData": {
+        "kanjiVgId": "0308c",
+        "strokeCount": 2
       }
     },
     {
@@ -472,6 +640,10 @@
       "mnemonic": {
         "it": "Come る ma SENZA cappio: 'ro' resta aperto.",
         "en": "Like る but WITHOUT the loop — 'ro' stays open."
+      },
+      "strokeData": {
+        "kanjiVgId": "0308d",
+        "strokeCount": 1
       }
     },
     {
@@ -483,6 +655,10 @@
       "mnemonic": {
         "it": "Simile a れ ma con un cappio: 'wa' fa il giro (come un cerchio, wa).",
         "en": "Like れ but with a loop — 'wa' comes full circle (wa = ring)."
+      },
+      "strokeData": {
+        "kanjiVgId": "0308f",
+        "strokeCount": 2
       }
     },
     {
@@ -494,6 +670,10 @@
       "mnemonic": {
         "it": "Una persona con le braccia larghe che dice 'wo!': raro, segna l'oggetto.",
         "en": "A figure with arms wide saying 'wo!' — rare, it marks the object."
+      },
+      "strokeData": {
+        "kanjiVgId": "03092",
+        "strokeCount": 3
       }
     },
     {
@@ -505,6 +685,10 @@
       "mnemonic": {
         "it": "Un singolo gancio morbido: l'unico suono che chiude, 'n'.",
         "en": "A single soft hook — the only standalone consonant, 'n'."
+      },
+      "strokeData": {
+        "kanjiVgId": "03093",
+        "strokeCount": 1
       }
     },
     {
@@ -973,6 +1157,10 @@
       "mnemonic": {
         "it": "Un'accetta (Ascia) che colpisce: due tratti netti e angolari.",
         "en": "An 'A'xe striking — two sharp angular strokes."
+      },
+      "strokeData": {
+        "kanjiVgId": "030a2",
+        "strokeCount": 2
       }
     },
     {
@@ -984,6 +1172,10 @@
       "mnemonic": {
         "it": "Due trattini inclinati, come due 'i' che cadono.",
         "en": "Two slanted strokes, like a pair of falling 'i' marks."
+      },
+      "strokeData": {
+        "kanjiVgId": "030a4",
+        "strokeCount": 2
       }
     },
     {
@@ -995,6 +1187,10 @@
       "mnemonic": {
         "it": "Un tetto spiovente: la 'U' sta sotto a una piccola punta.",
         "en": "A pointed roof — 'oo' sheltering underneath."
+      },
+      "strokeData": {
+        "kanjiVgId": "030a6",
+        "strokeCount": 3
       }
     },
     {
@@ -1006,6 +1202,10 @@
       "mnemonic": {
         "it": "Una scala stilizzata che sale: 'E' come 'elevarsi'.",
         "en": "A little staircase going up — 'e' for 'elevate'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030a8",
+        "strokeCount": 3
       }
     },
     {
@@ -1017,6 +1217,10 @@
       "mnemonic": {
         "it": "Una persona che fa il saluto militare 'O!': tratto deciso.",
         "en": "A sharp salute, 'O!' — a crisp angular stroke."
+      },
+      "strokeData": {
+        "kanjiVgId": "030aa",
+        "strokeCount": 3
       }
     },
     {
@@ -1028,6 +1232,10 @@
       "mnemonic": {
         "it": "Come la か hiragana ma più spigolosa: una lama (knife) netta.",
         "en": "Like hiragana か but sharper — a clean 'ka'-rate slash."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ab",
+        "strokeCount": 2
       }
     },
     {
@@ -1039,6 +1247,10 @@
       "mnemonic": {
         "it": "Tre tratti come le punte di una chiave (key) di metallo.",
         "en": "Three strokes like the teeth of a metal 'key'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ad",
+        "strokeCount": 3
       }
     },
     {
@@ -1050,6 +1262,10 @@
       "mnemonic": {
         "it": "Un angolo aperto, lo stesso 'becco' del cucù.",
         "en": "An open angle — the same cuckoo 'coo' beak."
+      },
+      "strokeData": {
+        "kanjiVgId": "030af",
+        "strokeCount": 2
       }
     },
     {
@@ -1061,6 +1277,10 @@
       "mnemonic": {
         "it": "Tre tratti come una caffettiera (Kettle) spigolosa.",
         "en": "Three strokes forming an angular 'ke'-ttle."
+      },
+      "strokeData": {
+        "kanjiVgId": "030b1",
+        "strokeCount": 3
       }
     },
     {
@@ -1072,6 +1292,10 @@
       "mnemonic": {
         "it": "Due tratti che formano un angolo: un contenitore (container).",
         "en": "Two strokes making a corner — a 'co'-ntainer box."
+      },
+      "strokeData": {
+        "kanjiVgId": "030b3",
+        "strokeCount": 2
       }
     },
     {
@@ -1083,6 +1307,10 @@
       "mnemonic": {
         "it": "Tre tratti netti: pensa a 'sa' come a una stella (star) spigolosa.",
         "en": "Three crisp strokes — think 'sa' as a sharp 'sta'r."
+      },
+      "strokeData": {
+        "kanjiVgId": "030b5",
+        "strokeCount": 3
       }
     },
     {
@@ -1094,6 +1322,10 @@
       "mnemonic": {
         "it": "Tre tratti che 'guardano' in alto: occhio, somiglia molto a ツ!",
         "en": "Three strokes 'looking' upward — careful, it resembles ツ!"
+      },
+      "strokeData": {
+        "kanjiVgId": "030b7",
+        "strokeCount": 3
       }
     },
     {
@@ -1105,6 +1337,10 @@
       "mnemonic": {
         "it": "Un gancio con coda: 'su'-spende qualcosa, versione angolare.",
         "en": "A hook with a tail — angular 'su'-spension."
+      },
+      "strokeData": {
+        "kanjiVgId": "030b9",
+        "strokeCount": 2
       }
     },
     {
@@ -1116,6 +1352,10 @@
       "mnemonic": {
         "it": "Come una sedia di profilo: 'se' si siede, spigoloso.",
         "en": "Like a chair in profile — angular 'se' sitting down."
+      },
+      "strokeData": {
+        "kanjiVgId": "030bb",
+        "strokeCount": 2
       }
     },
     {
@@ -1127,6 +1367,10 @@
       "mnemonic": {
         "it": "Due tratti diagonali: occhio, somiglia molto a ン!",
         "en": "Two diagonal strokes — careful, it looks a lot like ン!"
+      },
+      "strokeData": {
+        "kanjiVgId": "030bd",
+        "strokeCount": 2
       }
     },
     {
@@ -1138,6 +1382,10 @@
       "mnemonic": {
         "it": "Tre tratti come un 'ta'volo capovolto e spigoloso.",
         "en": "Three strokes like an upturned angular 'ta'-ble."
+      },
+      "strokeData": {
+        "kanjiVgId": "030bf",
+        "strokeCount": 3
       }
     },
     {
@@ -1149,6 +1397,10 @@
       "mnemonic": {
         "it": "Due tratti che si incrociano: pensa a 'chi' come a una croce.",
         "en": "Two crossing strokes — picture 'chee' as a little cross."
+      },
+      "strokeData": {
+        "kanjiVgId": "030c1",
+        "strokeCount": 3
       }
     },
     {
@@ -1160,6 +1412,10 @@
       "mnemonic": {
         "it": "Tre tratti che scendono: occhio, si confonde con シ! ツ scende, シ sale.",
         "en": "Three downward strokes — confused with シ! ツ points down, シ points up."
+      },
+      "strokeData": {
+        "kanjiVgId": "030c4",
+        "strokeCount": 3
       }
     },
     {
@@ -1171,6 +1427,10 @@
       "mnemonic": {
         "it": "Tre tratti come una mano (te) tesa e rigida.",
         "en": "Three strokes like a stiff outstretched hand (te)."
+      },
+      "strokeData": {
+        "kanjiVgId": "030c6",
+        "strokeCount": 3
       }
     },
     {
@@ -1182,6 +1442,10 @@
       "mnemonic": {
         "it": "Un tratto verticale con una punta: un 'to'-tem.",
         "en": "A vertical stroke with a barb — a 'to'-tem pole."
+      },
+      "strokeData": {
+        "kanjiVgId": "030c8",
+        "strokeCount": 2
       }
     },
     {
@@ -1193,6 +1457,10 @@
       "mnemonic": {
         "it": "Due tratti a croce inclinata: 'na' come un coltello e un taglio.",
         "en": "A slanted cross — 'na' like a blade and a cut."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ca",
+        "strokeCount": 2
       }
     },
     {
@@ -1204,6 +1472,10 @@
       "mnemonic": {
         "it": "Due trattini orizzontali: 'ni' come due (il numero due ha due linee).",
         "en": "Two horizontal strokes — 'ni' like the number two."
+      },
+      "strokeData": {
+        "kanjiVgId": "030cb",
+        "strokeCount": 2
       }
     },
     {
@@ -1215,6 +1487,10 @@
       "mnemonic": {
         "it": "Due tratti incrociati con coda: occhio, somiglia a ク e ス.",
         "en": "Two crossing strokes with a tail — careful, near ク and ス."
+      },
+      "strokeData": {
+        "kanjiVgId": "030cc",
+        "strokeCount": 2
       }
     },
     {
@@ -1226,6 +1502,10 @@
       "mnemonic": {
         "it": "Più tratti spigolosi: un gatto (neko) stilizzato e duro.",
         "en": "Several angular strokes — a stylized, edgy 'ne'-ko (cat)."
+      },
+      "strokeData": {
+        "kanjiVgId": "030cd",
+        "strokeCount": 4
       }
     },
     {
@@ -1237,6 +1517,10 @@
       "mnemonic": {
         "it": "Un solo tratto diagonale: il più semplice di tutti, 'no'.",
         "en": "A single diagonal stroke — the simplest of all, 'no'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ce",
+        "strokeCount": 1
       }
     },
     {
@@ -1248,6 +1532,10 @@
       "mnemonic": {
         "it": "Due tratti a 'V' rovesciata: 'ha' come una risata aperta.",
         "en": "Two strokes like an inverted V — 'ha', an open laugh."
+      },
+      "strokeData": {
+        "kanjiVgId": "030cf",
+        "strokeCount": 2
       }
     },
     {
@@ -1259,6 +1547,10 @@
       "mnemonic": {
         "it": "Due tratti che formano un sorriso angolare: 'hi!'.",
         "en": "Two strokes forming an angular grin — 'hi!'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030d2",
+        "strokeCount": 2
       }
     },
     {
@@ -1270,6 +1562,10 @@
       "mnemonic": {
         "it": "Un solo tratto curvo-spigoloso: un soffio (fu) di vento.",
         "en": "A single angular curve — a puff of wind, 'fu'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030d5",
+        "strokeCount": 1
       }
     },
     {
@@ -1281,6 +1577,10 @@
       "mnemonic": {
         "it": "Identico all'hiragana へ! Una collina: stessa forma in entrambi.",
         "en": "Identical to hiragana へ! A hill — same shape in both scripts."
+      },
+      "strokeData": {
+        "kanjiVgId": "030d8",
+        "strokeCount": 1
       }
     },
     {
@@ -1292,6 +1592,10 @@
       "mnemonic": {
         "it": "Più tratti con una base larga: 'ho' come una casa (house).",
         "en": "Several strokes on a wide base — 'ho' like a 'ho'-use."
+      },
+      "strokeData": {
+        "kanjiVgId": "030db",
+        "strokeCount": 4
       }
     },
     {
@@ -1303,6 +1607,10 @@
       "mnemonic": {
         "it": "Tre tratti con un gancio: una mamma (ma) spigolosa.",
         "en": "Three strokes with a hook — an angular 'ma'-ma."
+      },
+      "strokeData": {
+        "kanjiVgId": "030de",
+        "strokeCount": 2
       }
     },
     {
@@ -1314,6 +1622,10 @@
       "mnemonic": {
         "it": "Tre tratti paralleli inclinati: tre linee per 'mi'.",
         "en": "Three slanted parallel strokes — three lines for 'mi'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030df",
+        "strokeCount": 3
       }
     },
     {
@@ -1325,6 +1637,10 @@
       "mnemonic": {
         "it": "Tre tratti con punta: una mucca (mu) che abbassa le corna.",
         "en": "Three strokes with a point — a 'moo'-cow lowering its horns."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e0",
+        "strokeCount": 2
       }
     },
     {
@@ -1336,6 +1652,10 @@
       "mnemonic": {
         "it": "Due tratti incrociati: occhio (me), versione angolare.",
         "en": "Two crossing strokes — an eye (me), angular version."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e1",
+        "strokeCount": 2
       }
     },
     {
@@ -1347,6 +1667,10 @@
       "mnemonic": {
         "it": "Tre tratti come un amo rigido: 'mo' pesca ancora.",
         "en": "Three strokes like a stiff hook — 'mo' still catches more."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e2",
+        "strokeCount": 3
       }
     },
     {
@@ -1358,6 +1682,10 @@
       "mnemonic": {
         "it": "Due tratti come una lancia (yari) scagliata.",
         "en": "Two strokes like a thrown spear (yari)."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e4",
+        "strokeCount": 2
       }
     },
     {
@@ -1369,6 +1697,10 @@
       "mnemonic": {
         "it": "Due tratti come un contenitore: 'yu' dell'acqua calda.",
         "en": "Two strokes like a vessel — 'yu' of hot water."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e6",
+        "strokeCount": 2
       }
     },
     {
@@ -1380,6 +1712,10 @@
       "mnemonic": {
         "it": "Tre tratti con una base: 'yo!' chiamato con forza.",
         "en": "Three strokes on a base — 'yo!' called out firmly."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e8",
+        "strokeCount": 3
       }
     },
     {
@@ -1391,6 +1727,10 @@
       "mnemonic": {
         "it": "Due tratti, uno corto uno lungo: 'ra' rilassato e angolare.",
         "en": "Two strokes, one short one long — angular relaxed 'ra'."
+      },
+      "strokeData": {
+        "kanjiVgId": "030e9",
+        "strokeCount": 2
       }
     },
     {
@@ -1402,6 +1742,10 @@
       "mnemonic": {
         "it": "Due tratti verticali: un fiume (river) che scende dritto.",
         "en": "Two vertical strokes — a 'ri'-ver running straight down."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ea",
+        "strokeCount": 2
       }
     },
     {
@@ -1413,6 +1757,10 @@
       "mnemonic": {
         "it": "Due tratti con gancio: 'ru' fa una piccola curva finale.",
         "en": "Two strokes with a hook — 'ru' makes a small final turn."
+      },
+      "strokeData": {
+        "kanjiVgId": "030eb",
+        "strokeCount": 2
       }
     },
     {
@@ -1424,6 +1772,10 @@
       "mnemonic": {
         "it": "Un tratto verticale che si piega: 're' resta dritto e poi gira.",
         "en": "A vertical stroke that bends — 're' stays straight, then turns."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ec",
+        "strokeCount": 1
       }
     },
     {
@@ -1435,6 +1787,10 @@
       "mnemonic": {
         "it": "Un quadrato aperto: 'ro' come una stanza (room) squadrata.",
         "en": "An open square — 'ro' like a boxy 'ro'-om."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ed",
+        "strokeCount": 3
       }
     },
     {
@@ -1446,6 +1802,10 @@
       "mnemonic": {
         "it": "Due tratti aperti: 'wa' come un anello angolare.",
         "en": "Two open strokes — 'wa' like an angular ring."
+      },
+      "strokeData": {
+        "kanjiVgId": "030ef",
+        "strokeCount": 2
       }
     },
     {
@@ -1457,6 +1817,10 @@
       "mnemonic": {
         "it": "Tre tratti, raro: 'wo' quasi solo nei testi formali.",
         "en": "Three strokes, rare — 'wo' mostly in formal text."
+      },
+      "strokeData": {
+        "kanjiVgId": "030f2",
+        "strokeCount": 3
       }
     },
     {
@@ -1468,6 +1832,10 @@
       "mnemonic": {
         "it": "Due tratti che salgono: occhio, ン (sale) si confonde con ソ (scende).",
         "en": "Two upward strokes — careful, ン (up) vs ソ (down)."
+      },
+      "strokeData": {
+        "kanjiVgId": "030f3",
+        "strokeCount": 2
       }
     },
     {

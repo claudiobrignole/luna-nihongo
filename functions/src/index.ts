@@ -3,11 +3,10 @@ import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
-import { buildLiveSystemPrompt } from './tutorPrompt';
 import {
   MAX_LIVE_SESSION_MINUTES,
-  monthlyLimit,
-  normalizeLiveUsage,
+  weeklyAiLimit,
+  normalizeWeeklyAiUsage,
 } from './liveLimits';
 import { createLiveSessionToken } from './liveToken';
 import {
@@ -17,6 +16,7 @@ import {
   removeLiveSessionFromChatHistory,
   stripAllLiveHistory,
 } from './chatHistory';
+import { hasPremiumAccess } from './access';
 
 initializeApp();
 
@@ -24,15 +24,20 @@ const geminiApiKey = defineSecret('GEMINI_API_KEY');
 
 interface UserDoc {
   username?: string;
+  role?: string;
   xp?: number;
   completedUnits?: string[];
   preferredStartLevel?: number;
   memory?: string;
   tier?: 'free' | 'premium';
   liveMinutesUsed?: number;
+  liveMinutesWindowStart?: string | null;
   liveMinutesPeriod?: string;
-  premiumEndedAt?: string | null;
+  subscriptionStatus?: string | null;
   chatHistory?: ChatMessageDoc[];
+  premiumEndedAt?: string | null;
+  trialEndsAt?: string | null;
+  trialUsed?: boolean;
 }
 
 function asTranscript(raw: unknown): Array<{ role: 'user' | 'assistant'; text: string }> {
@@ -60,10 +65,15 @@ export const createLiveSession = onCall(
       throw new HttpsError('unauthenticated', 'Login required for Luna Live.');
     }
 
-    const language = request.data?.language === 'en' ? 'en' : 'it';
     const clientPrompt = typeof request.data?.systemPrompt === 'string'
       ? request.data.systemPrompt.trim()
       : '';
+    if (!clientPrompt) {
+      throw new HttpsError(
+        'invalid-argument',
+        'systemPrompt is required. Client must send the full live prompt.',
+      );
+    }
     const uid = request.auth.uid;
     const db = getFirestore();
     const userRef = db.collection('users').doc(uid);
@@ -74,16 +84,23 @@ export const createLiveSession = onCall(
     }
 
     const user = snap.data() as UserDoc;
-    const tier = user.tier === 'premium' ? 'premium' : 'free';
-    const limit = monthlyLimit(tier);
-    const { used, period } = normalizeLiveUsage(user.liveMinutesUsed, user.liveMinutesPeriod);
+    if (!hasPremiumAccess(user)) {
+      throw new HttpsError(
+        'permission-denied',
+        'AI tutor and Luna Live require an active trial or subscription.',
+      );
+    }
+
+    const limit = weeklyAiLimit('premium');
+    const { used, windowStart, reset } = normalizeWeeklyAiUsage(
+      user.liveMinutesUsed,
+      user.liveMinutesWindowStart,
+    );
 
     if (used >= limit) {
       throw new HttpsError(
         'resource-exhausted',
-        tier === 'free'
-          ? 'Free live minutes used this month. Upgrade to Premium for more Luna Live time.'
-          : 'Live minutes limit reached for this month.',
+        'Weekly AI time limit reached (2 hours). Unused minutes do not roll over.',
       );
     }
 
@@ -97,17 +114,7 @@ export const createLiveSession = onCall(
       throw new HttpsError('resource-exhausted', 'Not enough live minutes remaining.');
     }
 
-    const systemInstruction = clientPrompt || buildLiveSystemPrompt(
-      {
-        username: user.username ?? 'Student',
-        xp: user.xp ?? 0,
-        completedUnits: user.completedUnits ?? [],
-        preferredStartLevel: typeof user.preferredStartLevel === 'number' ? user.preferredStartLevel : 0,
-        memory: user.memory ?? '',
-        tier,
-      },
-      language,
-    );
+    const systemInstruction = clientPrompt;
 
     const apiKey = geminiApiKey.value();
     if (!apiKey?.trim()) {
@@ -129,9 +136,9 @@ export const createLiveSession = onCall(
       throw new HttpsError('failed-precondition', detail);
     }
 
-    if (user.liveMinutesPeriod !== period) {
+    if (reset || !user.liveMinutesWindowStart) {
       await userRef.update({
-        liveMinutesPeriod: period,
+        liveMinutesWindowStart: windowStart,
         liveMinutesUsed: 0,
         updatedAt: new Date().toISOString(),
       });
@@ -187,16 +194,19 @@ export const endLiveSession = onCall(
     }
 
     const user = snap.data() as UserDoc;
-    const tier = user.tier === 'premium' ? 'premium' : 'free';
-    const limit = monthlyLimit(tier);
-    const { used, period } = normalizeLiveUsage(user.liveMinutesUsed, user.liveMinutesPeriod);
-    const newUsed = Math.min(limit, used + billedMinutes);
+    const limit = weeklyAiLimit('premium');
+    const { used, windowStart, reset } = normalizeWeeklyAiUsage(
+      user.liveMinutesUsed,
+      user.liveMinutesWindowStart,
+    );
+    const baseUsed = reset ? 0 : used;
+    const newUsed = Math.min(limit, baseUsed + billedMinutes);
 
     const existingHistory = user.chatHistory ?? [];
     let liveSessionId: string | null = null;
     let chatHistory = existingHistory;
 
-    if (tier === 'premium' && transcript.length > 0) {
+    if (hasPremiumAccess(user) && transcript.length > 0) {
       liveSessionId = db.collection('users').doc(uid).collection('liveSessions').doc().id;
       chatHistory = mergeLiveTranscriptIntoChatHistory(
         existingHistory,
@@ -209,8 +219,8 @@ export const endLiveSession = onCall(
 
     await userRef.update({
       liveMinutesUsed: newUsed,
-      liveMinutesPeriod: period,
-      ...(tier === 'premium' && liveSessionId ? { chatHistory } : {}),
+      liveMinutesWindowStart: reset || !user.liveMinutesWindowStart ? windowStart : user.liveMinutesWindowStart,
+      ...(hasPremiumAccess(user) && liveSessionId ? { chatHistory } : {}),
       updatedAt: new Date().toISOString(),
     });
 
@@ -238,7 +248,8 @@ export const endLiveSession = onCall(
       minutesRemaining: Math.max(0, limit - newUsed),
       minutesLimit: limit,
       liveSessionId: liveSessionId ?? undefined,
-      chatHistory: tier === 'premium' && liveSessionId ? chatHistory : undefined,
+      chatHistory: hasPremiumAccess(user) && liveSessionId ? chatHistory : undefined,
+      historySaved: Boolean(hasPremiumAccess(user) && liveSessionId),
     };
   },
 );
@@ -271,7 +282,7 @@ export const deleteLiveSession = onCall(
     }
 
     const user = snap.data() as UserDoc;
-    if (user.tier !== 'premium') {
+    if (!hasPremiumAccess(user)) {
       throw new HttpsError('permission-denied', 'Premium required to manage live history.');
     }
 
@@ -317,3 +328,7 @@ export const purgeExpiredLiveHistory = onSchedule(
     }
   },
 );
+
+export { createStripeCheckout, createExtraLessonCheckout, createStripePortal, stripeWebhook } from './stripe';
+export { startFreeTrial, bookAvailabilitySlot } from './scheduling';
+export { adminDeleteUser } from './adminUsers';

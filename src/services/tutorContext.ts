@@ -1,6 +1,8 @@
 import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
 import type { HydratedUnit } from '../types/curriculum';
+import type { StudyActivity } from '../types/study';
 import type { LunaUser } from '../types/user';
+import { buildStudyContextForPrompt } from './lunaMemoryService';
 
 export type TutorMode = 'qa' | 'conversation';
 
@@ -46,15 +48,18 @@ export function buildTutorSystemPrompt(
   user: LunaUser,
   language: 'en' | 'it',
   mode: TutorMode,
+  activities: StudyActivity[] = [],
 ): string {
   const curriculum = buildCurriculumKnowledge(language, user.completedUnits);
   const langLabel = language === 'it' ? 'Italian' : 'English';
   const preferredLevel = CURRICULUM_LEVELS.find((l) => l.level === user.preferredStartLevel);
+  const studyContext = buildStudyContextForPrompt(user, language, activities);
 
   const shared = `You are Luna-sensei on Luna Nihongo (JLPT N5 guided path).
 Student: ${user.username} | XP: ${user.xp} | Completed units: ${user.completedUnits.length}/60
 Focus level: ${preferredLevel?.title[language] ?? 'Level 0'}
-Student notes: ${user.memory || '(none)'}
+
+${studyContext}
 
 FULL CURRICULUM (all 7 levels, 60 units — use this as your teaching memory):
 ${curriculum}
@@ -94,16 +99,19 @@ export function conversationOpener(username: string, language: 'en' | 'it'): str
 export function buildLiveTutorSystemPrompt(
   user: LunaUser,
   language: 'en' | 'it',
+  activities: StudyActivity[] = [],
 ): string {
   const curriculum = buildCurriculumKnowledge(language, user.completedUnits);
   const langLabel = language === 'it' ? 'Italian' : 'English';
   const preferredLevel = CURRICULUM_LEVELS.find((l) => l.level === user.preferredStartLevel);
+  const studyContext = buildStudyContextForPrompt(user, language, activities);
 
   return `You are Luna-sensei on Luna Nihongo (JLPT N5 guided path) in a LIVE voice call.
 
 Student: ${user.username} | XP: ${user.xp} | Completed units: ${user.completedUnits.length}/60
 Focus level: ${preferredLevel?.title[language] ?? 'Level 0'}
-Student notes: ${user.memory || '(none)'}
+
+${studyContext}
 
 CURRICULUM MEMORY:
 ${curriculum}

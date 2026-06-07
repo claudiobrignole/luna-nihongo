@@ -11,17 +11,21 @@ import {
   Sparkles,
   History,
   X,
+  Trash2,
 } from 'lucide-react';
 import type { LunaUser, UserRole } from '../types/user';
 import {
   assignableRoles,
+  canDeleteUser,
   canManageTier,
   isAdminRole,
   roleLabel,
 } from '../types/user';
 import { listAllUsers, setUserRole, setUserTier } from '../services/userService';
+import { adminDeleteUser } from '../services/adminUserService';
 import { listStudyActivity } from '../services/studyActivityService';
 import type { StudyActivity } from '../types/study';
+import { AdminAvailabilityPanel } from './AdminAvailabilityPanel';
 
 interface AdminPanelProps {
   language: 'en' | 'it';
@@ -35,9 +39,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   const [search, setSearch] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [adminSection, setAdminSection] = useState<'users' | 'availability'>('users');
   const [activityUser, setActivityUser] = useState<LunaUser | null>(null);
   const [activityLog, setActivityLog] = useState<StudyActivity[]>([]);
   const [activityLoading, setActivityLoading] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<LunaUser | null>(null);
 
   const isSuperAdmin = currentUser.role === 'super_admin';
 
@@ -133,8 +139,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
     return labels[type][language];
   };
 
-  const handleTierToggle = async (target: LunaUser) => {
-    const newTier = target.tier === 'premium' ? 'free' : 'premium';
+  const handleSetTier = async (target: LunaUser, newTier: 'free' | 'premium') => {
+    if (target.tier === newTier) return;
     setBusyId(target.id);
     try {
       const updated = await setUserTier(currentUser, target.id, newTier);
@@ -144,6 +150,29 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
           ? `${target.username} is now ${newTier}`
           : `${target.username} è ora ${newTier === 'premium' ? 'Premium' : 'Free'}`
       );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error');
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    if (!deleteTarget) return;
+    setBusyId(deleteTarget.id);
+    try {
+      await adminDeleteUser(deleteTarget.id);
+      setUsers((prev) => prev.filter((u) => u.id !== deleteTarget.id));
+      if (activityUser?.id === deleteTarget.id) {
+        setActivityUser(null);
+        setActivityLog([]);
+      }
+      showSuccess(
+        language === 'en'
+          ? `${deleteTarget.username} deleted`
+          : `${deleteTarget.username} eliminato`
+      );
+      setDeleteTarget(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error');
     } finally {
@@ -202,6 +231,27 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
         ))}
       </div>
 
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <button
+          type="button"
+          className={adminSection === 'users' ? 'btn btn-primary' : 'btn btn-secondary'}
+          onClick={() => setAdminSection('users')}
+        >
+          {language === 'en' ? 'Users' : 'Utenti'}
+        </button>
+        <button
+          type="button"
+          className={adminSection === 'availability' ? 'btn btn-primary' : 'btn btn-secondary'}
+          onClick={() => setAdminSection('availability')}
+        >
+          {language === 'en' ? 'Availability' : 'Disponibilità'}
+        </button>
+      </div>
+
+      {adminSection === 'availability' ? (
+        <AdminAvailabilityPanel language={language} />
+      ) : (
+        <>
       {/* Toolbar */}
       <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', alignItems: 'center' }}>
         <div style={{ position: 'relative', flex: 1, minWidth: '200px' }}>
@@ -282,6 +332,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                   const isBusy = busyId === user.id;
                   const roles = assignableRoles(currentUser, user);
                   const canTier = canManageTier(currentUser, user);
+                  const canDelete = canDeleteUser(currentUser, user);
 
                   return (
                     <tr key={user.id} style={{ borderBottom: '1px solid var(--border)' }}>
@@ -356,15 +407,46 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                             {language === 'en' ? 'History' : 'Storico'}
                           </button>
                           {canTier ? (
+                            <>
+                              {user.tier !== 'premium' && (
+                                <button
+                                  type="button"
+                                  onClick={() => void handleSetTier(user, 'premium')}
+                                  disabled={isBusy}
+                                  className="btn btn-secondary"
+                                  style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', opacity: isBusy ? 0.6 : 1 }}
+                                >
+                                  {isBusy ? '...' : (language === 'en' ? '→ Premium' : '→ Premium')}
+                                </button>
+                              )}
+                              {user.tier === 'premium' && (
+                                <button
+                                  type="button"
+                                  onClick={() => void handleSetTier(user, 'free')}
+                                  disabled={isBusy}
+                                  className="btn btn-secondary"
+                                  style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', opacity: isBusy ? 0.6 : 1 }}
+                                >
+                                  {isBusy ? '...' : (language === 'en' ? '→ Free' : '→ Free')}
+                                </button>
+                              )}
+                            </>
+                          ) : null}
+                          {canDelete ? (
                             <button
-                              onClick={() => void handleTierToggle(user)}
+                              type="button"
+                              onClick={() => setDeleteTarget(user)}
                               disabled={isBusy}
                               className="btn btn-secondary"
-                              style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', opacity: isBusy ? 0.6 : 1 }}
+                              style={{
+                                fontSize: '0.78rem',
+                                padding: '0.35rem 0.7rem',
+                                color: 'var(--error)',
+                                opacity: isBusy ? 0.6 : 1,
+                              }}
                             >
-                              {isBusy ? '...' : user.tier === 'premium'
-                                ? (language === 'en' ? '→ Free' : '→ Free')
-                                : (language === 'en' ? '→ Premium' : '→ Premium')}
+                              <Trash2 size={14} />
+                              {language === 'en' ? 'Delete' : 'Elimina'}
                             </button>
                           ) : null}
                         </div>
@@ -431,13 +513,60 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
           )}
         </div>
       )}
+        </>
+      )}
+
+      {deleteTarget && (
+        <div className="register-prompt-backdrop" onClick={() => setDeleteTarget(null)} role="presentation">
+          <div
+            className="register-prompt-panel glass-panel admin-delete-dialog"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              className="register-prompt-close"
+              onClick={() => setDeleteTarget(null)}
+              aria-label={language === 'en' ? 'Close' : 'Chiudi'}
+            >
+              <X size={20} />
+            </button>
+            <div className="register-prompt-icon" style={{ background: 'var(--error-glow)', color: 'var(--error)' }}>
+              <Trash2 size={28} />
+            </div>
+            <h2>{language === 'en' ? 'Delete user?' : 'Eliminare utente?'}</h2>
+            <p style={{ textAlign: 'left', fontSize: '0.9rem', lineHeight: 1.5 }}>
+              {language === 'en'
+                ? `This permanently removes ${deleteTarget.username} (${deleteTarget.email}), their profile, study data, and login account. This cannot be undone.`
+                : `Questo rimuove definitivamente ${deleteTarget.username} (${deleteTarget.email}), profilo, dati di studio e account di accesso. Operazione irreversibile.`}
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
+              <button type="button" className="btn btn-secondary" style={{ flex: 1 }} onClick={() => setDeleteTarget(null)}>
+                {language === 'en' ? 'Cancel' : 'Annulla'}
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                style={{ flex: 1, background: 'var(--error)', borderColor: 'var(--error)' }}
+                disabled={busyId === deleteTarget.id}
+                onClick={() => void handleDeleteUser()}
+              >
+                {busyId === deleteTarget.id
+                  ? (language === 'en' ? 'Deleting…' : 'Eliminazione…')
+                  : (language === 'en' ? 'Delete permanently' : 'Elimina definitivamente')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {isSuperAdmin && (
         <div className="glass-panel" style={{ padding: '1rem 1.2rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
           <strong>{language === 'en' ? 'Super Admin permissions:' : 'Permessi Super Admin:'}</strong>{' '}
           {language === 'en'
-            ? 'Promote users to Admin, change tiers, view all data. The primary super admin account cannot be modified.'
-            : 'Promuovi utenti ad Admin, cambia piani, visualizza tutti i dati. L\'account super admin principale non può essere modificato.'}
+            ? 'Promote users to Admin, grant or revoke Premium, delete users, view all data. The primary super admin account cannot be modified or deleted.'
+            : 'Promuovi utenti ad Admin, assegna o revoca Premium, elimina utenti, visualizza tutti i dati. L\'account super admin principale non può essere modificato o eliminato.'}
         </div>
       )}
     </div>

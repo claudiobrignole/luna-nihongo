@@ -1,0 +1,178 @@
+{
+  "id": "situation-numbers-prices",
+  "level": 2,
+  "order": 27,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Numeri e prezzi",
+    "en": "Situation · Numbers & prices"
+  },
+  "description": {
+    "it": "Al mercato o al negozio ti serve capire i prezzi e ordinare quantità. Con いくら chiedi quanto costa, e col conteggio nativo (ひとつ, ふたつ) più ください ordini. Pratica con una scena al mercato.",
+    "en": "At the market or shop you need to understand prices and order quantities. With いくら you ask how much, and with native counting (ひとつ, ふたつ) plus ください you order. Practice with a market scene."
+  },
+  "dialogueRefs": [
+    "dlg-numbers-prices"
+  ],
+  "canDo": [
+    {
+      "id": "cando-ask-price",
+      "level": "A2",
+      "statement": {
+        "it": "So chiedere quanto costa qualcosa.",
+        "en": "I can ask how much something costs."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-order-quantity",
+      "level": "A2",
+      "statement": {
+        "it": "So ordinare una quantità.",
+        "en": "I can order a quantity of something."
+      },
+      "skill": "speaking"
+    }
+  ],
+  "situationTags": [
+    "shopping"
+  ],
+  "prerequisites": [
+    "kanji-numbers-2",
+    "vocab-numbers-counters"
+  ],
+  "grammarRefs": [
+    "gr-wa-topic"
+  ],
+  "vocabRefs": [
+    "vocab-ikura",
+    "vocab-en-money",
+    "vocab-futatsu",
+    "vocab-kudasai"
+  ],
+  "quizzes": [
+    {
+      "id": "q-np-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come chiedi 'quanto costa questo?'",
+        "en": "How do you ask 'how much is this?'"
+      },
+      "options": [
+        {
+          "it": "これは いくらですか",
+          "en": "これは いくらですか"
+        },
+        {
+          "it": "これは どこですか",
+          "en": "これは どこですか"
+        },
+        {
+          "it": "これは なんですか",
+          "en": "これは なんですか"
+        },
+        {
+          "it": "これは だれですか",
+          "en": "これは だれですか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-np-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per ordinare 'due, per favore' (oggetti generici):",
+        "en": "To order 'two please' (general objects):"
+      },
+      "options": [
+        {
+          "it": "ふたつ ください",
+          "en": "ふたつ ください"
+        },
+        {
+          "it": "に ください",
+          "en": "に ください"
+        },
+        {
+          "it": "ふたり ください",
+          "en": "ふたり ください"
+        },
+        {
+          "it": "にこ ください",
+          "en": "にこ ください"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-np-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Sei al mercato. Scrivi come chiedi il prezzo di qualcosa e poi ne ordini tre.",
+        "en": "You're at the market. Write how you ask the price of something and then order three of them."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Chiede il prezzo con いくら.",
+          "en": "Asks the price with いくら."
+        },
+        {
+          "it": "Ordina con il conteggio nativo + ください.",
+          "en": "Orders with native counting + ください."
+        }
+      ],
+      "modelAnswer": "これは いくらですか。みっつ ください。",
+      "modelAnswerKana": "これは いくらですか。みっつ ください。",
+      "modelAnswerRomaji": "kore wa ikura desu ka. mittsu kudasai.",
+      "modelAnswerTranslation": {
+        "it": "Quanto costa questo? Tre, per favore.",
+        "en": "How much is this? Three, please."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-wa-topic"
+      ],
+      "expectsVocabRefs": [
+        "vocab-ikura",
+        "vocab-mittsu",
+        "vocab-kudasai"
+      ]
+    },
+    {
+      "id": "q-np-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina prezzo e lettura.",
+        "en": "Match price to reading."
+      },
+      "pairs": [
+        {
+          "left": "百円",
+          "right": "hyaku en (100 yen)"
+        },
+        {
+          "left": "千円",
+          "right": "sen en (1000 yen)"
+        },
+        {
+          "left": "五千円",
+          "right": "gosen en (5000 yen)"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}

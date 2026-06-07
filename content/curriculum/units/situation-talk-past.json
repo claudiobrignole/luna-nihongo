@@ -1,0 +1,186 @@
+{
+  "id": "situation-talk-past",
+  "level": 5,
+  "order": 52,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Raccontare il weekend",
+    "en": "Situation · Talking about your weekend"
+  },
+  "description": {
+    "it": "L'ultima situazione del percorso N5 mette tutto insieme: il passato dei verbi (しました) e degli aggettivi (たのしかった) per raccontare cosa hai fatto. È la conversazione del lunedì mattina in tutto il mondo. Scrivi cosa hai fatto nel weekend.",
+    "en": "The final situation of the N5 path brings it all together: the past of verbs (しました) and adjectives (たのしかった) to tell what you did. It's the Monday-morning conversation worldwide. Write what you did over the weekend."
+  },
+  "dialogueRefs": [
+    "dlg-talk-past"
+  ],
+  "canDo": [
+    {
+      "id": "cando-talk-past",
+      "level": "A2",
+      "statement": {
+        "it": "So raccontare cosa ho fatto nel weekend.",
+        "en": "I can talk about what I did over the weekend."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-past",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere un breve racconto al passato.",
+        "en": "I can write a short account in the past."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "weather-smalltalk",
+    "hobbies-invitation"
+  ],
+  "prerequisites": [
+    "grammar-past-tense",
+    "grammar-adjective-past",
+    "vocab-everyday-directions"
+  ],
+  "grammarRefs": [
+    "gr-past-tense",
+    "gr-adjective-past"
+  ],
+  "vocabRefs": [
+    "vocab-shuumatsu",
+    "vocab-nani",
+    "vocab-tomodachi",
+    "vocab-au"
+  ],
+  "quizzes": [
+    {
+      "id": "q-tp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Cosa hai fatto nel weekend?' si dice...",
+        "en": "'What did you do on the weekend?' is..."
+      },
+      "options": [
+        {
+          "it": "しゅうまつ、なにを しましたか",
+          "en": "しゅうまつ、なにを しましたか"
+        },
+        {
+          "it": "しゅうまつ、なにを しますか",
+          "en": "しゅうまつ、なにを しますか"
+        },
+        {
+          "it": "しゅうまつ、なにを してください",
+          "en": "しゅうまつ、なにを してください"
+        },
+        {
+          "it": "しゅうまつ、なにを しています",
+          "en": "しゅうまつ、なにを しています"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-tp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passato di たのしい (divertente):",
+        "en": "Past of たのしい (fun):"
+      },
+      "options": [
+        {
+          "it": "たのしかった",
+          "en": "たのしかった"
+        },
+        {
+          "it": "たのしいでした",
+          "en": "たのしいでした"
+        },
+        {
+          "it": "たのしでした",
+          "en": "たのしでした"
+        },
+        {
+          "it": "たのしました",
+          "en": "たのしました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-tp-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi due frasi su cosa hai fatto nel weekend: un'azione al passato e un commento con un aggettivo al passato.",
+        "en": "Write two sentences about what you did over the weekend: a past action and a comment with a past-tense adjective."
+      },
+      "targetLength": {
+        "min": 20,
+        "max": 55
+      },
+      "rubric": [
+        {
+          "it": "Un verbo al passato (-ました).",
+          "en": "A past-tense verb (-ました)."
+        },
+        {
+          "it": "Un aggettivo al passato (-かった o でした).",
+          "en": "A past-tense adjective (-かった or でした)."
+        },
+        {
+          "it": "Frasi corrette e coerenti.",
+          "en": "Correct, coherent sentences."
+        }
+      ],
+      "modelAnswer": "ともだちに あいました。たのしかったです。",
+      "modelAnswerKana": "ともだちに あいました。たのしかったです。",
+      "modelAnswerRomaji": "tomodachi ni aimashita. tanoshikatta desu.",
+      "modelAnswerTranslation": {
+        "it": "Ho incontrato un amico. È stato divertente.",
+        "en": "I met a friend. It was fun."
+      },
+      "xp": 30,
+      "expectsGrammarRefs": [
+        "gr-past-tense",
+        "gr-adjective-past"
+      ],
+      "expectsVocabRefs": [
+        "vocab-shuumatsu",
+        "vocab-tomodachi",
+        "vocab-au"
+      ]
+    },
+    {
+      "id": "q-tp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina presente e passato.",
+        "en": "Match present to past."
+      },
+      "pairs": [
+        {
+          "left": "します",
+          "right": "しました"
+        },
+        {
+          "left": "あいます",
+          "right": "あいました"
+        },
+        {
+          "left": "たのしいです",
+          "right": "たのしかったです"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": []
+}
