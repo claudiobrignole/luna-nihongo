@@ -1,0 +1,223 @@
+{
+  "id": "situation-greetings-intro",
+  "level": 2,
+  "order": 35,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · Salutare e presentarsi",
+    "en": "Situation · Greeting & introducing yourself"
+  },
+  "description": {
+    "it": "Mettiamo in pratica ciò che sai! Hai imparato i saluti e la frase con です: ora li usi in una situazione vera, il primo giorno in un nuovo posto. Ascolta il dialogo, nota come si incastrano le formule che già conosci, poi prova tu — prima parlando, poi scrivendo. Non serve nuova grammatica: serve usare con naturalezza quella che hai.",
+    "en": "Let's put what you know into practice! You've learned the greetings and the です sentence: now you use them in a real situation, your first day at a new place. Listen to the dialogue, notice how the phrases you already know fit together, then try yourself — first speaking, then writing. No new grammar needed: just using what you have, naturally."
+  },
+  "dialogueRefs": [
+    "dlg-self-intro"
+  ],
+  "canDo": [
+    {
+      "id": "cando-greet-firsttime",
+      "level": "A1",
+      "statement": {
+        "it": "So salutare e presentarmi a una persona che incontro per la prima volta.",
+        "en": "I can greet and introduce myself to someone I'm meeting for the first time."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-intro",
+      "level": "A1",
+      "statement": {
+        "it": "So scrivere una breve presentazione di me stesso.",
+        "en": "I can write a short self-introduction."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "self-introduction",
+    "greetings-social"
+  ],
+  "prerequisites": [
+    "vocab-greetings",
+    "grammar-wa-desu"
+  ],
+  "grammarRefs": [
+    "gr-wa-topic"
+  ],
+  "vocabRefs": [
+    "vocab-ohayou-gozaimasu",
+    "vocab-hajimemashite",
+    "vocab-onegaishimasu",
+    "vocab-konnichiwa"
+  ],
+  "quizzes": [
+    {
+      "id": "q-sgi-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Incontri qualcuno per la prima volta. Cosa dici per aprire?",
+        "en": "You're meeting someone for the first time. What do you say to open?"
+      },
+      "options": [
+        {
+          "it": "はじめまして",
+          "en": "はじめまして"
+        },
+        {
+          "it": "さようなら",
+          "en": "さようなら"
+        },
+        {
+          "it": "おやすみなさい",
+          "en": "おやすみなさい"
+        },
+        {
+          "it": "ただいま",
+          "en": "ただいま"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-sgi-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come presenti il tuo nome (es. 'Sono Aoi')?",
+        "en": "How do you state your name (e.g. 'I'm Aoi')?"
+      },
+      "options": [
+        {
+          "it": "アオイです",
+          "en": "アオイです"
+        },
+        {
+          "it": "アオイか",
+          "en": "アオイか"
+        },
+        {
+          "it": "アオイの",
+          "en": "アオイの"
+        },
+        {
+          "it": "アオイを",
+          "en": "アオイを"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    },
+    {
+      "id": "q-sgi-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale formula chiude le presentazioni in giapponese?",
+        "en": "Which phrase closes an introduction in Japanese?"
+      },
+      "options": [
+        {
+          "it": "よろしくおねがいします",
+          "en": "よろしくおねがいします"
+        },
+        {
+          "it": "ありがとうございます",
+          "en": "ありがとうございます"
+        },
+        {
+          "it": "いただきます",
+          "en": "いただきます"
+        },
+        {
+          "it": "おはようございます",
+          "en": "おはようございます"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sgi-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua presentazione.",
+        "en": "Write your self-introduction."
+      },
+      "task": {
+        "it": "Immagina il tuo primo giorno in un nuovo posto. Scrivi 2-3 frasi per presentarti: un saluto, il tuo nome, e la formula di chiusura. Usa はじめまして, 〜です e よろしくおねがいします.",
+        "en": "Imagine your first day at a new place. Write 2-3 sentences to introduce yourself: a greeting, your name, and the closing phrase. Use はじめまして, 〜です and よろしくおねがいします."
+      },
+      "targetLength": {
+        "min": 15,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Usa はじめまして per aprire.",
+          "en": "Uses はじめまして to open."
+        },
+        {
+          "it": "Presenta il nome con 〜です.",
+          "en": "States the name with 〜です."
+        },
+        {
+          "it": "Chiude con よろしくおねがいします.",
+          "en": "Closes with よろしくおねがいします."
+        },
+        {
+          "it": "Le frasi sono in kana corretto e leggibili.",
+          "en": "Sentences are in correct, readable kana."
+        }
+      ],
+      "modelAnswer": "はじめまして。ルナです。よろしくおねがいします。",
+      "modelAnswerKana": "はじめまして。ルナです。よろしくおねがいします。",
+      "modelAnswerRomaji": "hajimemashite. runa desu. yoroshiku onegaishimasu.",
+      "modelAnswerTranslation": {
+        "it": "Piacere. Sono Luna. Piacere di conoscerti.",
+        "en": "Nice to meet you. I'm Luna. Pleased to meet you."
+      },
+      "expectsGrammarRefs": [
+        "gr-wa-topic"
+      ],
+      "expectsVocabRefs": [
+        "vocab-hajimemashite",
+        "vocab-onegaishimasu"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-sgi-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina ogni formula al suo momento d'uso.",
+        "en": "Match each phrase to when you use it."
+      },
+      "pairs": [
+        {
+          "left": "はじめまして",
+          "right": "primo incontro / first meeting"
+        },
+        {
+          "left": "おはようございます",
+          "right": "saluto del mattino / morning greeting"
+        },
+        {
+          "left": "よろしくおねがいします",
+          "right": "chiusura presentazioni / closing an introduction"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Presentarsi in una situazione reale",
+      "en": "Introducing yourself in a real situation"
+    },
+    {
+      "it": "Incastrare saluti + です + よろしく",
+      "en": "Combining greetings + です + よろしく"
+    }
+  ]
+}
