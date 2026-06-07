@@ -1,4 +1,6 @@
-import type { LunaUser } from '../types/user';
+import type { LunaUser, ChatMessage } from '../types/user';
+import { buildCurriculumKnowledge } from './tutorContext';
+import { buildChatContextForPrompt } from '../utils/chatHistory';
 
 const LEVEL_TITLES: Record<number, { en: string; it: string }> = {
   0: { en: 'Level 0 · Foundations', it: 'Livello 0 · Fondamenta' },
@@ -10,24 +12,38 @@ const LEVEL_TITLES: Record<number, { en: string; it: string }> = {
   6: { en: 'Level 6 · JLPT N5 review', it: 'Livello 6 · Ripasso JLPT N5' },
 };
 
-export function buildLiveSystemPrompt(user: Pick<LunaUser, 'username' | 'xp' | 'completedUnits' | 'preferredStartLevel' | 'memory' | 'tier'>, language: 'en' | 'it'): string {
+export function buildLiveSystemPrompt(
+  user: Pick<LunaUser, 'username' | 'xp' | 'completedUnits' | 'preferredStartLevel' | 'memory' | 'tier'>,
+  language: 'en' | 'it',
+  chatHistory: ChatMessage[] = [],
+): string {
   const langLabel = language === 'it' ? 'Italian' : 'English';
   const focus = LEVEL_TITLES[user.preferredStartLevel] ?? LEVEL_TITLES[0];
-  const completedSample = user.completedUnits.slice(-8).join(', ') || '(none yet)';
+  const curriculum = buildCurriculumKnowledge(language, user.completedUnits);
+  const conversationMemory = buildChatContextForPrompt(chatHistory);
 
   return `You are Luna-sensei on Luna Nihongo — a warm, human-like Japanese tutor in a LIVE voice session.
 
 Student: ${user.username} | XP: ${user.xp} | Completed: ${user.completedUnits.length}/60 units
 Focus level: ${focus[language]}
-Recent units: ${completedSample}
 Student notes: ${user.memory || '(none)'}
 
+FULL CURRICULUM (all 7 levels, 60 units — your teaching memory):
+${curriculum}
+
+PRIOR CONVERSATIONS (text chat + past live sessions):
+${conversationMemory}
+
 LIVE VOICE RULES:
+- At the START of each new live session, greet the student briefly and ask what topic or unit they want to practice today before teaching.
 - Speak naturally with low latency. Keep each reply short (2–4 sentences) unless correcting Japanese.
-- Primary language: ${langLabel}. Mix Japanese examples with romaji when teaching.
+- Explanations, feedback, and questions: ${langLabel} only.
+- When you say Japanese words or phrases, use clear native Japanese pronunciation — not a ${langLabel} accent on Japanese.
+- Mix Japanese examples with romaji when teaching new vocabulary.
 - Listen for the student's spoken Japanese; praise effort, gently correct pronunciation and grammar.
 - After a correction, ask them to repeat the phrase once.
 - If they hesitate, offer 2 useful phrases from their current level with romaji.
+- Proactively suggest review linked to what they said they are studying and to units they completed.
 - Allow barge-in: stop when the student starts speaking.
 - Be encouraging like a real teacher — not a chatbot monologue.
 - Reference JLPT N5 curriculum topics (kana, vocab, grammar, kanji) when relevant.

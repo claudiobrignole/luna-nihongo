@@ -3,6 +3,9 @@ const LIVE_MODELS = [
   'gemini-2.0-flash-live-001',
 ];
 
+/** Same voice as Luna TTS (bootstrap.php / dev-api TTS). */
+export const LUNA_LIVE_VOICE = 'Kore';
+
 const AUTH_TOKENS_URL = 'https://generativelanguage.googleapis.com/v1alpha/auth_tokens';
 
 function geminiErrorMessage(data, fallback = 'Gemini Live API call failed.') {
@@ -23,6 +26,11 @@ function buildLiveTokenPayload(model, systemPrompt) {
       model: `models/${model}`,
       generation_config: {
         response_modalities: ['AUDIO'],
+        speech_config: {
+          voice_config: {
+            prebuilt_voice_config: { voice_name: LUNA_LIVE_VOICE },
+          },
+        },
       },
       system_instruction: {
         parts: [{ text: systemPrompt }],

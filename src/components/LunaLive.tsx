@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import {
-  Mic, MicOff, Phone, PhoneOff, Loader2, AlertCircle, Crown, Radio,
+  Mic, MicOff, Square, Loader2, AlertCircle, Crown, Radio,
 } from 'lucide-react';
-import type { LunaUser } from '../types/user';
+import type { ChatMessage, LunaUser } from '../types/user';
 import {
   liveMinutesLimit,
   liveMinutesRemaining,
@@ -18,6 +18,7 @@ interface LunaLiveProps {
   onUserUpdate: (updates: Partial<LunaUser>) => Promise<void>;
   onNavigateToDashboard: () => void;
   onSessionLogged?: (label: string, meta?: Record<string, string | number>) => void;
+  onChatHistoryUpdated?: (chatHistory: ChatMessage[], liveMinutesUsed: number) => void;
 }
 
 function formatTime(seconds: number): string {
@@ -44,6 +45,7 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
   onUserUpdate,
   onNavigateToDashboard,
   onSessionLogged,
+  onChatHistoryUpdated,
 }) => {
   const limit = liveMinutesLimit(currentUser.tier);
   const used = resolveLiveMinutesUsed(currentUser);
@@ -52,18 +54,30 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
   const noMinutesLeft = remaining <= 0;
 
   const handleSessionEnded = useCallback(
-    async ({ durationSeconds, billedMinutes }: { durationSeconds: number; billedMinutes: number }) => {
+    async ({
+      durationSeconds,
+      billedMinutes,
+      chatHistory,
+    }: {
+      durationSeconds: number;
+      billedMinutes: number;
+      chatHistory?: ChatMessage[];
+    }) => {
       const newUsed = Math.min(limit, used + billedMinutes);
-      await onUserUpdate({
-        liveMinutesUsed: newUsed,
-        liveMinutesPeriod: currentLiveMinutesPeriod(),
-      });
+      if (chatHistory) {
+        onChatHistoryUpdated?.(chatHistory, newUsed);
+      } else {
+        await onUserUpdate({
+          liveMinutesUsed: newUsed,
+          liveMinutesPeriod: currentLiveMinutesPeriod(),
+        });
+      }
       onSessionLogged?.(
         language === 'en' ? `Live session ${formatTime(durationSeconds)}` : `Sessione live ${formatTime(durationSeconds)}`,
         { durationSeconds, billedMinutes },
       );
     },
-    [language, limit, onSessionLogged, onUserUpdate, used],
+    [language, limit, onChatHistoryUpdated, onSessionLogged, onUserUpdate, used],
   );
 
   const {
@@ -83,11 +97,11 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
     <div className="luna-live">
       <header className="luna-live-header">
         <div>
-          <h2>{language === 'en' ? 'Talk with Luna' : 'Parla con Luna'}</h2>
+          <h2>{language === 'en' ? 'Talk with Luna AI' : 'Parla con Luna AI'}</h2>
           <p>
             {language === 'en'
-              ? 'Real-time voice conversation — speak naturally, get gentle corrections.'
-              : 'Conversazione vocale in tempo reale — parla liberamente, Luna ti corregge con dolcezza.'}
+              ? 'Real-time voice conversation — speak freely, the AI corrects you and lets you hear the right pronunciation.'
+              : 'Conversazione vocale in tempo reale — parla liberamente, la AI ti corregge e ti fa ascoltare la giusta pronuncia.'}
           </p>
         </div>
         <div className="luna-live-quota">
@@ -124,9 +138,9 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
               {status === 'connecting' ? (
                 <Loader2 size={20} className="spin" />
               ) : (
-                <Phone size={20} />
+                <Mic size={20} />
               )}
-              {language === 'en' ? 'Start live call' : 'Avvia chiamata live'}
+              {language === 'en' ? 'Start conversation' : 'Avvia conversazione'}
             </button>
           ) : (
             <button
@@ -134,7 +148,7 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
               className="luna-live-btn danger"
               onClick={() => void stopSession()}
             >
-              <PhoneOff size={20} />
+              <Square size={20} fill="currentColor" />
               {language === 'en' ? 'End call' : 'Termina'} ({formatTime(sessionSeconds)})
             </button>
           )}
@@ -207,8 +221,8 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
           <>
             <MicOff size={14} />{' '}
             {language === 'en'
-              ? 'Requires microphone permission and deployed Firebase Functions.'
-              : 'Richiede permesso microfono e Firebase Functions deployate.'}
+              ? 'Requires microphone permission. Speak after the status shows Listening.'
+              : 'Richiede permesso microfono. Parla quando lo stato mostra Ascolto.'}
           </>
         )}
       </p>

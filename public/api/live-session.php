@@ -43,6 +43,13 @@ foreach ($models as $model) {
             'model' => 'models/' . $model,
             'generation_config' => [
                 'response_modalities' => ['AUDIO'],
+                'speech_config' => [
+                    'voice_config' => [
+                        'prebuilt_voice_config' => [
+                            'voice_name' => 'Kore',
+                        ],
+                    ],
+                ],
             ],
             'system_instruction' => [
                 'parts' => [['text' => $systemPrompt]],

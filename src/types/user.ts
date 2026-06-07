@@ -4,6 +4,12 @@ export type SubscriptionTier = 'free' | 'premium';
 export interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
+  /** chat = text tutor; live = voice session line */
+  source?: 'chat' | 'live';
+  liveSessionId?: string;
+  createdAt?: string;
+  /** Marks the start of a saved live session in unified chatHistory */
+  sessionDivider?: boolean;
 }
 
 export interface LunaUser {
@@ -28,6 +34,8 @@ export interface LunaUser {
   liveMinutesUsed: number;
   /** YYYY-MM period for liveMinutesUsed reset. */
   liveMinutesPeriod: string;
+  /** Set when Premium ends; live history purged 90 days after this date. */
+  premiumEndedAt?: string | null;
 }
 
 export interface UserProfileDocument {
@@ -47,6 +55,7 @@ export interface UserProfileDocument {
   tutorVoiceEnabled?: boolean;
   liveMinutesUsed?: number;
   liveMinutesPeriod?: string;
+  premiumEndedAt?: string | null;
   createdAt: string;
   updatedAt: string;
 }

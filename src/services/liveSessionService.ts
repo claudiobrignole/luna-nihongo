@@ -1,7 +1,7 @@
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions';
 import { getFirebaseApp } from '../lib/firebase';
 import { buildLiveSystemPrompt } from './livePrompt';
-import type { LunaUser } from '../types/user';
+import type { ChatMessage, LunaUser } from '../types/user';
 import {
   liveMinutesLimit,
   liveMinutesRemaining,
@@ -23,6 +23,13 @@ export interface EndLiveSessionResult {
   minutesUsed: number;
   minutesRemaining: number;
   minutesLimit: number;
+  liveSessionId?: string;
+  chatHistory?: ChatMessage[];
+}
+
+export interface LiveTranscriptLine {
+  role: 'user' | 'assistant';
+  text: string;
 }
 
 let functionsInstance: ReturnType<typeof getFunctions> | null = null;
@@ -54,7 +61,7 @@ async function requestLiveSessionViaPhp(
   user: LunaUser,
   language: 'en' | 'it',
 ): Promise<Pick<CreateLiveSessionResult, 'token' | 'model'>> {
-  const systemPrompt = buildLiveSystemPrompt(user, language);
+  const systemPrompt = buildLiveSystemPrompt(user, language, user.chatHistory ?? []);
   const response = await fetch('/api/live-session.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -70,12 +77,19 @@ async function requestLiveSessionViaPhp(
   return { token: data.token, model: data.model };
 }
 
-async function requestLiveSessionViaFirebase(language: 'en' | 'it'): Promise<CreateLiveSessionResult> {
-  const fn = httpsCallable<{ language: 'en' | 'it' }, CreateLiveSessionResult>(
+async function requestLiveSessionViaFirebase(
+  user: LunaUser,
+  language: 'en' | 'it',
+): Promise<CreateLiveSessionResult> {
+  const fn = httpsCallable<
+    { language: 'en' | 'it'; systemPrompt: string },
+    CreateLiveSessionResult
+  >(
     getFunctionsInstance(),
     'createLiveSession',
   );
-  const result = await fn({ language });
+  const systemPrompt = buildLiveSystemPrompt(user, language, user.chatHistory ?? []);
+  const result = await fn({ language, systemPrompt });
   return result.data;
 }
 
@@ -102,7 +116,7 @@ export async function requestLiveSession(user: LunaUser, language: 'en' | 'it'):
     }
   }
 
-  return requestLiveSessionViaFirebase(language);
+  return requestLiveSessionViaFirebase(user, language);
 }
 
 export function computeBilledMinutes(durationSeconds: number): number {
@@ -113,18 +127,38 @@ export function computeBilledMinutes(durationSeconds: number): number {
 export async function reportLiveSessionEnd(
   user: LunaUser,
   durationSeconds: number,
+  options?: {
+    transcript?: LiveTranscriptLine[];
+    language?: 'en' | 'it';
+    sessionStartedAt?: string;
+  },
 ): Promise<EndLiveSessionResult> {
   const billedMinutes = computeBilledMinutes(durationSeconds);
   const limit = liveMinutesLimit(user.tier);
   const used = resolveLiveMinutesUsed(user);
   const newUsed = Math.min(limit, used + billedMinutes);
+  const language = options?.language ?? 'it';
+  const transcript = user.tier === 'premium' ? options?.transcript ?? [] : [];
 
   try {
-    const fn = httpsCallable<{ durationSeconds: number }, EndLiveSessionResult>(
+    const fn = httpsCallable<
+      {
+        durationSeconds: number;
+        transcript?: LiveTranscriptLine[];
+        language: 'en' | 'it';
+        sessionStartedAt?: string;
+      },
+      EndLiveSessionResult
+    >(
       getFunctionsInstance(),
       'endLiveSession',
     );
-    const result = await fn({ durationSeconds });
+    const result = await fn({
+      durationSeconds,
+      transcript,
+      language,
+      sessionStartedAt: options?.sessionStartedAt,
+    });
     return result.data;
   } catch (err) {
     console.warn('endLiveSession callable failed, using client-side quota', err);
@@ -135,6 +169,17 @@ export async function reportLiveSessionEnd(
       minutesLimit: limit,
     };
   }
+}
+
+export async function deleteLiveSessionRecord(
+  liveSessionId: string,
+): Promise<{ chatHistory: ChatMessage[] }> {
+  const fn = httpsCallable<{ liveSessionId: string }, { chatHistory: ChatMessage[] }>(
+    getFunctionsInstance(),
+    'deleteLiveSession',
+  );
+  const result = await fn({ liveSessionId });
+  return result.data;
 }
 
 export function liveSessionErrorMessage(err: unknown, language: 'en' | 'it'): string {

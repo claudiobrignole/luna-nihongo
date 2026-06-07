@@ -14,7 +14,7 @@ const { GoogleAuth } = require('google-auth-library');
 
 const PROJECT = 'luna-nihongo';
 const REGION = 'europe-west1';
-const SERVICES = ['createlivesession', 'endlivesession'];
+const SERVICES = ['createlivesession', 'endlivesession', 'deletelivesession'];
 
 async function getAccessToken() {
   const auth = new GoogleAuth({
@@ -86,5 +86,6 @@ main().catch((err) => {
   console.error('\nManual fix (Google Cloud Console):');
   console.error('  Cloud Run → createlivesession → Security → Allow public access');
   console.error('  Cloud Run → endlivesession → Security → Allow public access');
+  console.error('  Cloud Run → deletelivesession → Security → Allow public access');
   process.exit(1);
 });

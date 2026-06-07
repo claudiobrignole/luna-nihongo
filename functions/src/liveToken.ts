@@ -26,6 +26,11 @@ async function createTokenForModel(
         model,
         config: {
           responseModalities: [Modality.AUDIO],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: { voiceName: 'Kore' },
+            },
+          },
           systemInstruction: {
             parts: [{ text: systemInstruction }],
           },

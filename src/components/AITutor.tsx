@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
-  Send, Bot, User, Zap, Crown, Brain, Lock, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic, Radio,
+  Send, Bot, User, Crown, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic, Radio,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
-import { FREE_TUTOR_TURN_LIMIT } from '../types/user';
-import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
+import { FREE_TUTOR_TURN_LIMIT, currentLiveMinutesPeriod } from '../types/user';
 import {
   buildTutorSystemPrompt,
   conversationOpener,
@@ -12,7 +11,9 @@ import {
 } from '../services/tutorContext';
 import { fetchTutorReply } from '../services/tutorService';
 import { LunaLive } from './LunaLive';
-import { liveMinutesRemaining } from '../types/user';
+import { TutorSidebar } from './TutorSidebar';
+import { LiveHistoryPanel } from './LiveHistoryPanel';
+import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
 
 interface AITutorProps {
   language: 'en' | 'it';
@@ -69,9 +70,7 @@ export const AITutor: React.FC<AITutorProps> = ({
 
   const isFree = currentUser.tier === 'free';
   const msgCount = currentUser.messagesCount || 0;
-  const remaining = FREE_TUTOR_TURN_LIMIT - msgCount;
   const isBlocked = isFree && msgCount >= FREE_TUTOR_TURN_LIMIT;
-  const liveRemaining = liveMinutesRemaining(currentUser);
 
   const saveUser = async (updates: Partial<LunaUser>) => {
     await onUserUpdate(updates);
@@ -126,6 +125,10 @@ export const AITutor: React.FC<AITutorProps> = ({
   }, [messages, isLoading]);
 
   useEffect(() => {
+    setMessages(currentUser.chatHistory || []);
+  }, [currentUser.chatHistory]);
+
+  useEffect(() => {
     if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
       seedConversation(false);
     }
@@ -152,7 +155,8 @@ export const AITutor: React.FC<AITutorProps> = ({
     let replyText = '';
 
     try {
-      replyText = await fetchTutorReply(systemPrompt, newMessages, tutorMode);
+      const messagesForApi = newMessages.filter((m) => !m.sessionDivider);
+      replyText = await fetchTutorReply(systemPrompt, messagesForApi, tutorMode);
       if (!replyText) throw new Error('Empty reply');
     } catch {
       const pool = language === 'it' ? FALLBACK_RESPONSES_IT : FALLBACK_RESPONSES_EN;
@@ -220,199 +224,89 @@ export const AITutor: React.FC<AITutorProps> = ({
 
   return (
     <div className="tutor-layout">
-      <div className="tutor-view-tabs">
-        <button
-          type="button"
-          className={`tutor-view-tab ${tutorView === 'live' ? 'active' : ''}`}
-          onClick={() => setTutorView('live')}
-        >
-          <Radio size={16} />
-          {language === 'en' ? 'Live voice' : 'Voce live'}
-        </button>
-        <button
-          type="button"
-          className={`tutor-view-tab ${tutorView === 'chat' ? 'active' : ''}`}
-          onClick={() => setTutorView('chat')}
-        >
-          <MessageCircle size={16} />
-          {language === 'en' ? 'Text chat' : 'Chat testuale'}
-        </button>
-      </div>
-
-      {tutorView === 'live' ? (
-        <div className="tutor-live-wrap">
-          <LunaLive
-            language={language}
-            currentUser={currentUser}
-            onUserUpdate={onUserUpdate}
-            onNavigateToDashboard={onNavigateToDashboard}
-            onSessionLogged={(label, meta) => {
-              onTutorMessage?.(label);
-              const secs = meta?.durationSeconds;
-              if (typeof secs === 'number') onLiveSession?.(secs);
-            }}
-          />
+      <div className="tutor-shell">
+        <div className="tutor-view-tabs">
+          <button
+            type="button"
+            className={`tutor-view-tab ${tutorView === 'live' ? 'active' : ''}`}
+            onClick={() => setTutorView('live')}
+          >
+            <Radio size={16} />
+            {language === 'en' ? 'Live voice' : 'Voce live'}
+          </button>
+          <button
+            type="button"
+            className={`tutor-view-tab ${tutorView === 'chat' ? 'active' : ''}`}
+            onClick={() => setTutorView('chat')}
+          >
+            <MessageCircle size={16} />
+            {language === 'en' ? 'Text chat' : 'Chat testuale'}
+          </button>
         </div>
-      ) : (
-        <>
-      <div className="tutor-sidebar">
-        {/* Tier Badge */}
-        <div className="glass-panel" style={{
-          padding: '1.2rem',
-          background: currentUser.tier === 'premium'
-            ? 'linear-gradient(135deg, rgba(155,89,182,0.12), rgba(155,89,182,0.04))'
-            : 'var(--bg-panel)',
-          borderColor: currentUser.tier === 'premium' ? 'rgba(155,89,182,0.3)' : 'var(--border)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            {currentUser.tier === 'premium'
-              ? <Crown size={18} style={{ color: 'var(--secondary)' }} />
-              : <Zap size={18} style={{ color: 'var(--primary)' }} />}
-            <span style={{ fontWeight: 700, fontSize: '0.9rem' }}>
-              {currentUser.tier === 'premium' ? 'Premium' : 'Free Plan'}
-            </span>
-          </div>
-          {isFree && (
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              <strong style={{ color: remaining > 1 ? 'var(--success)' : 'var(--error)' }}>
-                {Math.max(0, remaining)}
-              </strong>
-              {' '}{language === 'en' ? 'Q&A turns left (free)' : 'turni Q&A rimasti (free)'}
-              <div style={{
-                height: '4px',
-                backgroundColor: 'var(--border)',
-                borderRadius: '2px',
-                marginTop: '0.5rem',
-                overflow: 'hidden'
-              }}>
-                <div style={{
-                  height: '100%',
-                  width: `${Math.max(0, (remaining / FREE_TUTOR_TURN_LIMIT)) * 100}%`,
-                  backgroundColor: remaining > 2 ? 'var(--success)' : 'var(--error)',
-                  borderRadius: '2px',
-                  transition: 'width 0.4s ease'
-                }} />
+
+        <div className="tutor-content">
+          {tutorView === 'live' ? (
+            <div className="tutor-chat-wrap">
+              <TutorSidebar
+                language={language}
+                currentUser={currentUser}
+                memoryText={memoryText}
+                isEditingMemory={isEditingMemory}
+                onMemoryTextChange={setMemoryText}
+                onToggleEditMemory={() => setIsEditingMemory(!isEditingMemory)}
+                onSaveMemory={() => void saveMemory()}
+                onNavigateToDashboard={onNavigateToDashboard}
+              >
+                <LiveHistoryPanel
+                  language={language}
+                  currentUser={currentUser}
+                  chatHistory={currentUser.chatHistory ?? []}
+                  onChatHistoryChange={(chatHistory) => {
+                    setMessages(chatHistory);
+                    void saveUser({ chatHistory });
+                  }}
+                  onNavigateToDashboard={onNavigateToDashboard}
+                />
+              </TutorSidebar>
+              <div className="tutor-live-main glass-panel">
+                <LunaLive
+                  language={language}
+                  currentUser={currentUser}
+                  onUserUpdate={onUserUpdate}
+                  onNavigateToDashboard={onNavigateToDashboard}
+                  onSessionLogged={(label, meta) => {
+                    onTutorMessage?.(label);
+                    const secs = meta?.durationSeconds;
+                    if (typeof secs === 'number') onLiveSession?.(secs);
+                  }}
+                  onChatHistoryUpdated={(chatHistory, liveMinutesUsed) => {
+                    setMessages(chatHistory);
+                    void saveUser({
+                      chatHistory,
+                      liveMinutesUsed,
+                      liveMinutesPeriod: currentLiveMinutesPeriod(),
+                    });
+                  }}
+                />
               </div>
             </div>
-          )}
-          {currentUser.tier === 'premium' && (
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              {language === 'en' ? 'Unlimited messages & full memory' : 'Messaggi illimitati e memoria completa'}
-            </p>
-          )}
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.65rem' }}>
-            {language === 'en'
-              ? `${liveRemaining} live min left this month`
-              : `${liveRemaining} min live rimasti questo mese`}
-          </p>
-        </div>
-
-        {/* Long-term Memory Panel */}
-        <div className="glass-panel" style={{ padding: '1.2rem', flex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.8rem' }}>
-            <Brain size={16} style={{ color: 'var(--secondary)' }} />
-            <span style={{ fontWeight: 700, fontSize: '0.85rem' }}>
-              {language === 'en' ? "Luna's Memory" : 'Memoria di Luna'}
-            </span>
-            {currentUser.tier === 'premium' && (
-              <button
-                onClick={() => setIsEditingMemory(!isEditingMemory)}
-                style={{ marginLeft: 'auto', fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}
-              >
-                {isEditingMemory ? (language === 'en' ? 'Cancel' : 'Annulla') : (language === 'en' ? 'Edit' : 'Modifica')}
-              </button>
-            )}
-          </div>
-
-          {currentUser.tier === 'free' ? (
-            <div style={{
-              fontSize: '0.8rem',
-              color: 'var(--text-muted)',
-              textAlign: 'center',
-              padding: '1.5rem 0',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.5rem'
-            }}>
-              <Lock size={28} style={{ color: 'var(--border)' }} />
-              <span>{language === 'en' ? 'Long-term memory available in Premium' : 'Memoria disponibile nel piano Premium'}</span>
-              <button
-                className="btn btn-primary"
-                style={{ fontSize: '0.75rem', padding: '0.4rem 0.9rem', marginTop: '0.5rem' }}
-                onClick={onNavigateToDashboard}
-              >
-                {language === 'en' ? 'Upgrade' : 'Passa a Premium'}
-              </button>
-            </div>
-          ) : isEditingMemory ? (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <textarea
-                value={memoryText}
-                onChange={(e) => setMemoryText(e.target.value)}
-                rows={6}
-                style={{
-                  width: '100%',
-                  padding: '0.6rem',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border)',
-                  backgroundColor: 'var(--bg-input)',
-                  color: 'var(--text-main)',
-                  fontSize: '0.8rem',
-                  resize: 'vertical',
-                  fontFamily: 'var(--font-body)'
-                }}
-              />
-              <button className="btn btn-primary" style={{ fontSize: '0.8rem', padding: '0.4rem' }} onClick={saveMemory}>
-                {language === 'en' ? 'Save' : 'Salva'}
-              </button>
-            </div>
           ) : (
-            <p style={{
-              fontSize: '0.82rem',
-              color: 'var(--text-muted)',
-              lineHeight: '1.5',
-              whiteSpace: 'pre-wrap'
-            }}>
-              {currentUser.memory || (language === 'en' ? 'No notes yet. Start chatting!' : 'Nessuna nota. Inizia a chattare!')}
-            </p>
-          )}
-        </div>
-
-        {/* Student stats */}
-        <div className="glass-panel" style={{ padding: '1.2rem' }}>
-          <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600, marginBottom: '0.6rem' }}>
-            {language === 'en' ? 'Your Progress' : 'I tuoi Progressi'}
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem' }}>
-            <span>✅ {language === 'en' ? 'Lessons' : 'Lezioni'}</span>
-            <strong>{currentUser.completedUnits.length}</strong>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginTop: '0.3rem' }}>
-            <span>⚡ XP</span>
-            <strong>{currentUser.xp}</strong>
-          </div>
-        </div>
-      </div>
+            <div className="tutor-chat-wrap">
+      <TutorSidebar
+        language={language}
+        currentUser={currentUser}
+        memoryText={memoryText}
+        isEditingMemory={isEditingMemory}
+        onMemoryTextChange={setMemoryText}
+        onToggleEditMemory={() => setIsEditingMemory(!isEditingMemory)}
+        onSaveMemory={() => void saveMemory()}
+        onNavigateToDashboard={onNavigateToDashboard}
+      />
 
       {/* ── Right Panel: Chat ── */}
-      <div className="glass-panel" style={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
-        padding: 0,
-      }}>
+      <div className="glass-panel tutor-chat-panel">
         {/* Chat Header */}
-        <div style={{
-          padding: '1.2rem 1.5rem',
-          borderBottom: '1px solid var(--border)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.8rem',
-          background: 'var(--bg-panel)',
-          backdropFilter: 'blur(12px)'
-        }}>
+        <div className="tutor-chat-header">
           <div style={{
             width: '44px',
             height: '44px',
@@ -501,14 +395,7 @@ export const AITutor: React.FC<AITutorProps> = ({
         )}
 
         {/* Messages list */}
-        <div style={{
-          flex: 1,
-          overflowY: 'auto',
-          padding: '1.5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem'
-        }}>
+        <div className="tutor-messages">
           {messages.length === 0 && tutorMode === 'qa' && (
             <div className="tutor-empty-hint">
               <Bot size={30} style={{ color: 'var(--primary)' }} />
@@ -520,7 +407,17 @@ export const AITutor: React.FC<AITutorProps> = ({
             </div>
           )}
 
-          {messages.map((msg, i) => (
+          {messages.map((msg, i) => {
+            if (msg.sessionDivider) {
+              return (
+                <div key={`divider-${i}`} className="tutor-session-divider">
+                  <Radio size={14} />
+                  <span>{msg.content}</span>
+                </div>
+              );
+            }
+
+            return (
             <div key={i} style={{
               display: 'flex',
               justifyContent: msg.role === 'user' ? 'flex-end' : 'flex-start',
@@ -546,8 +443,13 @@ export const AITutor: React.FC<AITutorProps> = ({
                   boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                 }}>
                   {msg.content}
+                  {msg.source === 'live' && (
+                    <span className="tutor-msg-live-badge">
+                      {language === 'en' ? 'live' : 'live'}
+                    </span>
+                  )}
                 </div>
-                {msg.role === 'assistant' && (
+                {msg.role === 'assistant' && !msg.sessionDivider && (
                   <button
                     type="button"
                     onClick={() => void speakReply(msg.content, i)}
@@ -578,7 +480,8 @@ export const AITutor: React.FC<AITutorProps> = ({
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
 
           {isLoading && (
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
@@ -609,11 +512,7 @@ export const AITutor: React.FC<AITutorProps> = ({
         </div>
 
         {/* Input bar */}
-        <div style={{
-          padding: '1rem 1.5rem',
-          borderTop: '1px solid var(--border)',
-          background: 'var(--bg-panel)'
-        }}>
+        <div className="tutor-chat-input">
           {isBlocked ? (
             <div style={{
               padding: '1rem',
@@ -707,8 +606,10 @@ export const AITutor: React.FC<AITutorProps> = ({
           )}
         </div>
       </div>
-        </>
-      )}
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Upgrade Modal */}
       {showUpgradeModal && (

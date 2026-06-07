@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { buildLiveSystemPrompt } from './tutorPrompt';
 import {
   MAX_LIVE_SESSION_MINUTES,
@@ -9,6 +10,13 @@ import {
   normalizeLiveUsage,
 } from './liveLimits';
 import { createLiveSessionToken } from './liveToken';
+import {
+  type ChatMessageDoc,
+  isPremiumHistoryExpired,
+  mergeLiveTranscriptIntoChatHistory,
+  removeLiveSessionFromChatHistory,
+  stripAllLiveHistory,
+} from './chatHistory';
 
 initializeApp();
 
@@ -23,6 +31,21 @@ interface UserDoc {
   tier?: 'free' | 'premium';
   liveMinutesUsed?: number;
   liveMinutesPeriod?: string;
+  premiumEndedAt?: string | null;
+  chatHistory?: ChatMessageDoc[];
+}
+
+function asTranscript(raw: unknown): Array<{ role: 'user' | 'assistant'; text: string }> {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((line) => {
+      if (!line || typeof line !== 'object') return null;
+      const role = (line as { role?: string }).role;
+      const text = (line as { text?: string }).text ?? (line as { content?: string }).content;
+      if ((role !== 'user' && role !== 'assistant') || typeof text !== 'string') return null;
+      return { role, text };
+    })
+    .filter((line): line is { role: 'user' | 'assistant'; text: string } => line !== null);
 }
 
 export const createLiveSession = onCall(
@@ -30,7 +53,6 @@ export const createLiveSession = onCall(
     secrets: [geminiApiKey],
     region: 'europe-west1',
     timeoutSeconds: 30,
-    // Callable clients send Firebase Auth in the request body; Cloud Run must allow the HTTP call.
     invoker: 'public',
   },
   async (request) => {
@@ -39,6 +61,9 @@ export const createLiveSession = onCall(
     }
 
     const language = request.data?.language === 'en' ? 'en' : 'it';
+    const clientPrompt = typeof request.data?.systemPrompt === 'string'
+      ? request.data.systemPrompt.trim()
+      : '';
     const uid = request.auth.uid;
     const db = getFirestore();
     const userRef = db.collection('users').doc(uid);
@@ -72,7 +97,7 @@ export const createLiveSession = onCall(
       throw new HttpsError('resource-exhausted', 'Not enough live minutes remaining.');
     }
 
-    const systemInstruction = buildLiveSystemPrompt(
+    const systemInstruction = clientPrompt || buildLiveSystemPrompt(
       {
         username: user.username ?? 'Student',
         xp: user.xp ?? 0,
@@ -101,7 +126,6 @@ export const createLiveSession = onCall(
     } catch (err) {
       const detail = err instanceof Error ? err.message : 'Could not create live session token.';
       console.error('createLiveSessionToken failed', detail);
-      // Use failed-precondition so the client receives the message (internal hides it).
       throw new HttpsError('failed-precondition', detail);
     }
 
@@ -127,7 +151,7 @@ export const createLiveSession = onCall(
 export const endLiveSession = onCall(
   {
     region: 'europe-west1',
-    timeoutSeconds: 30,
+    timeoutSeconds: 60,
     invoker: 'public',
   },
   async (request) => {
@@ -139,6 +163,13 @@ export const endLiveSession = onCall(
     if (!Number.isFinite(durationSeconds) || durationSeconds < 0) {
       throw new HttpsError('invalid-argument', 'Invalid session duration.');
     }
+
+    const language = request.data?.language === 'en' ? 'en' : 'it';
+    const transcript = asTranscript(request.data?.transcript);
+    const sessionStartedAtRaw = request.data?.sessionStartedAt;
+    const sessionStartedAt = typeof sessionStartedAtRaw === 'string'
+      ? new Date(sessionStartedAtRaw)
+      : new Date(Date.now() - durationSeconds * 1000);
 
     const cappedSeconds = Math.min(
       Math.round(durationSeconds),
@@ -161,23 +192,128 @@ export const endLiveSession = onCall(
     const { used, period } = normalizeLiveUsage(user.liveMinutesUsed, user.liveMinutesPeriod);
     const newUsed = Math.min(limit, used + billedMinutes);
 
+    const existingHistory = user.chatHistory ?? [];
+    let liveSessionId: string | null = null;
+    let chatHistory = existingHistory;
+
+    if (tier === 'premium' && transcript.length > 0) {
+      liveSessionId = db.collection('users').doc(uid).collection('liveSessions').doc().id;
+      chatHistory = mergeLiveTranscriptIntoChatHistory(
+        existingHistory,
+        liveSessionId,
+        transcript,
+        language,
+        sessionStartedAt,
+      );
+    }
+
     await userRef.update({
       liveMinutesUsed: newUsed,
       liveMinutesPeriod: period,
+      ...(tier === 'premium' && liveSessionId ? { chatHistory } : {}),
       updatedAt: new Date().toISOString(),
     });
 
-    await userRef.collection('liveSessions').add({
-      durationSeconds: cappedSeconds,
-      billedMinutes,
-      createdAt: FieldValue.serverTimestamp(),
-    });
+    if (liveSessionId) {
+      await userRef.collection('liveSessions').doc(liveSessionId).set({
+        durationSeconds: cappedSeconds,
+        billedMinutes,
+        transcript,
+        messageCount: transcript.length,
+        language,
+        createdAt: FieldValue.serverTimestamp(),
+        sessionStartedAt: sessionStartedAt.toISOString(),
+      });
+    } else {
+      await userRef.collection('liveSessions').add({
+        durationSeconds: cappedSeconds,
+        billedMinutes,
+        createdAt: FieldValue.serverTimestamp(),
+      });
+    }
 
     return {
       billedMinutes,
       minutesUsed: newUsed,
       minutesRemaining: Math.max(0, limit - newUsed),
       minutesLimit: limit,
+      liveSessionId: liveSessionId ?? undefined,
+      chatHistory: tier === 'premium' && liveSessionId ? chatHistory : undefined,
     };
+  },
+);
+
+export const deleteLiveSession = onCall(
+  {
+    region: 'europe-west1',
+    timeoutSeconds: 30,
+    invoker: 'public',
+  },
+  async (request) => {
+    if (!request.auth?.uid) {
+      throw new HttpsError('unauthenticated', 'Login required.');
+    }
+
+    const liveSessionId = typeof request.data?.liveSessionId === 'string'
+      ? request.data.liveSessionId.trim()
+      : '';
+    if (!liveSessionId) {
+      throw new HttpsError('invalid-argument', 'Missing liveSessionId.');
+    }
+
+    const uid = request.auth.uid;
+    const db = getFirestore();
+    const userRef = db.collection('users').doc(uid);
+    const snap = await userRef.get();
+
+    if (!snap.exists) {
+      throw new HttpsError('not-found', 'User profile not found.');
+    }
+
+    const user = snap.data() as UserDoc;
+    if (user.tier !== 'premium') {
+      throw new HttpsError('permission-denied', 'Premium required to manage live history.');
+    }
+
+    const chatHistory = removeLiveSessionFromChatHistory(user.chatHistory ?? [], liveSessionId);
+
+    await userRef.update({
+      chatHistory,
+      updatedAt: new Date().toISOString(),
+    });
+
+    await userRef.collection('liveSessions').doc(liveSessionId).delete().catch(() => undefined);
+
+    return { chatHistory, liveSessionId };
+  },
+);
+
+export const purgeExpiredLiveHistory = onSchedule(
+  {
+    schedule: 'every day 03:00',
+    region: 'europe-west1',
+    timeZone: 'Europe/Zurich',
+  },
+  async () => {
+    const db = getFirestore();
+    const snap = await db.collection('users').where('premiumEndedAt', '!=', null).get();
+
+    for (const userDoc of snap.docs) {
+      const data = userDoc.data() as UserDoc;
+      if (data.tier === 'premium') continue;
+      if (!isPremiumHistoryExpired(data.premiumEndedAt)) continue;
+
+      const chatHistory = stripAllLiveHistory(data.chatHistory ?? []);
+      await userDoc.ref.update({
+        chatHistory,
+        premiumEndedAt: null,
+        updatedAt: new Date().toISOString(),
+      });
+
+      const sessionsSnap = await userDoc.ref.collection('liveSessions').get();
+      const batch = db.batch();
+      sessionsSnap.docs.forEach((doc) => batch.delete(doc.ref));
+      await batch.commit();
+    }
   },
 );

@@ -74,6 +74,7 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     tutorVoiceEnabled: data.tutorVoiceEnabled !== false,
     liveMinutesUsed: data.liveMinutesUsed ?? 0,
     liveMinutesPeriod: data.liveMinutesPeriod ?? '',
+    premiumEndedAt: data.premiumEndedAt ?? null,
   };
 }
 
@@ -155,6 +156,7 @@ export async function updateUserProfile(
       | 'tutorVoiceEnabled'
       | 'liveMinutesUsed'
       | 'liveMinutesPeriod'
+      | 'premiumEndedAt'
     >
   >
 ): Promise<LunaUser> {
@@ -180,6 +182,15 @@ export async function updateUserProfile(
     ...updates,
     updatedAt: new Date().toISOString(),
   };
+
+  if (updates.tier !== undefined && updates.tier !== current.tier) {
+    if (updates.tier === 'free' && current.tier === 'premium') {
+      payload.premiumEndedAt = new Date().toISOString();
+    }
+    if (updates.tier === 'premium') {
+      payload.premiumEndedAt = null;
+    }
+  }
 
   await updateDoc(ref, payload);
   const updated = await getDoc(ref);
@@ -243,6 +254,9 @@ export async function setUserTier(
   if (tier === 'premium') {
     updates.messagesCount = 0;
     updates.liveMinutesUsed = 0;
+    updates.premiumEndedAt = null;
+  } else if (target.tier === 'premium') {
+    updates.premiumEndedAt = new Date().toISOString();
   }
 
   await updateDoc(doc(getFirebaseDb(), USERS_COLLECTION, targetUid), updates);
