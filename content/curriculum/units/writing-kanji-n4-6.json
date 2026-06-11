@@ -1,0 +1,197 @@
+{
+  "id": "writing-kanji-n4-6",
+  "level": 11,
+  "order": 11,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (6)",
+    "en": "Writing · tracing N4 kanji (6)"
+  },
+  "description": {
+    "it": "Traccia le quattro coppie di aggettivi opposti e i kanji della salute: 長短近遠強弱重軽病院. Tracciare gli opposti uno dopo l'altro aiuta a non confonderli.",
+    "en": "Trace the four pairs of opposite adjectives and the health kanji: 長短近遠強弱重軽病院. Tracing opposites one after the other helps avoid mixing them up."
+  },
+  "kanjiRefs": [
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "prerequisites": [
+    "kanji-n4-adjectives"
+  ],
+  "canDo": [
+    {
+      "id": "cando-writing-kanji-n4-6",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano questi kanji rispettando l'ordine dei tratti.",
+        "en": "I can hand-write these kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wk4-6-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 長 (lungo / capo) seguendo l'ordine dei tratti.",
+        "en": "Trace 長 (long / chief) following the stroke order."
+      },
+      "targetItemId": "kanji-nagai",
+      "japanese": "長",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 短 (corto) seguendo l'ordine dei tratti.",
+        "en": "Trace 短 (short) following the stroke order."
+      },
+      "targetItemId": "kanji-mijikai",
+      "japanese": "短",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 近 (vicino) seguendo l'ordine dei tratti.",
+        "en": "Trace 近 (near) following the stroke order."
+      },
+      "targetItemId": "kanji-chikai",
+      "japanese": "近",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 遠 (lontano) seguendo l'ordine dei tratti.",
+        "en": "Trace 遠 (far) following the stroke order."
+      },
+      "targetItemId": "kanji-tooi",
+      "japanese": "遠",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 強 (forte) seguendo l'ordine dei tratti.",
+        "en": "Trace 強 (strong) following the stroke order."
+      },
+      "targetItemId": "kanji-tsuyoi",
+      "japanese": "強",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-6",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 弱 (debole) seguendo l'ordine dei tratti.",
+        "en": "Trace 弱 (weak) following the stroke order."
+      },
+      "targetItemId": "kanji-yowai",
+      "japanese": "弱",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-7",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 重 (pesante) seguendo l'ordine dei tratti.",
+        "en": "Trace 重 (heavy) following the stroke order."
+      },
+      "targetItemId": "kanji-omoi",
+      "japanese": "重",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-8",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 軽 (leggero) seguendo l'ordine dei tratti.",
+        "en": "Trace 軽 (light) following the stroke order."
+      },
+      "targetItemId": "kanji-karui",
+      "japanese": "軽",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-9",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 病 (malattia) seguendo l'ordine dei tratti.",
+        "en": "Trace 病 (illness) following the stroke order."
+      },
+      "targetItemId": "kanji-byou",
+      "japanese": "病",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-stroke-10",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 院 (istituto / ospedale) seguendo l'ordine dei tratti.",
+        "en": "Trace 院 (institution) following the stroke order."
+      },
+      "targetItemId": "kanji-in2",
+      "japanese": "院",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-6-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta a...",
+        "en": "Tracing kanji helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più in fretta",
+          "en": "leggere più in fretta"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti kanji",
+      "en": "Kanji stroke order"
+    }
+  ]
+}

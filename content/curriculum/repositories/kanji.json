@@ -2241,6 +2241,198 @@
         "kanjiVgId": "05c11",
         "strokeCount": 4
       }
+    },
+    {
+      "id": "kanji-nagai",
+      "japanese": "長",
+      "meaning": {
+        "it": "lungo / capo",
+        "en": "long / chief"
+      },
+      "readingOnyomi": [
+        "チョウ"
+      ],
+      "readingKunyomi": [
+        "なが.い"
+      ],
+      "strokeCount": 8,
+      "strokeData": {
+        "kanjiVgId": "09577",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-mijikai",
+      "japanese": "短",
+      "meaning": {
+        "it": "corto",
+        "en": "short"
+      },
+      "readingOnyomi": [
+        "タン"
+      ],
+      "readingKunyomi": [
+        "みじか.い"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "077ed",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-chikai",
+      "japanese": "近",
+      "meaning": {
+        "it": "vicino",
+        "en": "near"
+      },
+      "readingOnyomi": [
+        "キン"
+      ],
+      "readingKunyomi": [
+        "ちか.い"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "08fd1",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-tooi",
+      "japanese": "遠",
+      "meaning": {
+        "it": "lontano",
+        "en": "far"
+      },
+      "readingOnyomi": [
+        "エン"
+      ],
+      "readingKunyomi": [
+        "とお.い"
+      ],
+      "strokeCount": 13,
+      "strokeData": {
+        "kanjiVgId": "09060",
+        "strokeCount": 13
+      }
+    },
+    {
+      "id": "kanji-tsuyoi",
+      "japanese": "強",
+      "meaning": {
+        "it": "forte",
+        "en": "strong"
+      },
+      "readingOnyomi": [
+        "キョウ"
+      ],
+      "readingKunyomi": [
+        "つよ.い"
+      ],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "05f37",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-yowai",
+      "japanese": "弱",
+      "meaning": {
+        "it": "debole",
+        "en": "weak"
+      },
+      "readingOnyomi": [
+        "ジャク"
+      ],
+      "readingKunyomi": [
+        "よわ.い"
+      ],
+      "strokeCount": 10,
+      "mnemonic": {
+        "it": "Due archi con le corde sfilacciate: deboli.",
+        "en": "Two bows with frayed strings: weak."
+      },
+      "strokeData": {
+        "kanjiVgId": "05f31",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-omoi",
+      "japanese": "重",
+      "meaning": {
+        "it": "pesante",
+        "en": "heavy"
+      },
+      "readingOnyomi": [
+        "ジュウ"
+      ],
+      "readingKunyomi": [
+        "おも.い"
+      ],
+      "strokeCount": 9,
+      "strokeData": {
+        "kanjiVgId": "091cd",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-karui",
+      "japanese": "軽",
+      "meaning": {
+        "it": "leggero",
+        "en": "light"
+      },
+      "readingOnyomi": [
+        "ケイ"
+      ],
+      "readingKunyomi": [
+        "かる.い"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "08efd",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-byou",
+      "japanese": "病",
+      "meaning": {
+        "it": "malattia",
+        "en": "illness"
+      },
+      "readingOnyomi": [
+        "ビョウ"
+      ],
+      "readingKunyomi": [
+        "やまい"
+      ],
+      "strokeCount": 10,
+      "strokeData": {
+        "kanjiVgId": "075c5",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-in2",
+      "japanese": "院",
+      "meaning": {
+        "it": "istituto / ospedale",
+        "en": "institution"
+      },
+      "readingOnyomi": [
+        "イン"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 10,
+      "strokeData": {
+        "kanjiVgId": "09662",
+        "strokeCount": 10
+      }
     }
   ]
 }

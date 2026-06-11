@@ -2,8 +2,8 @@
   "source": "KanjiVG",
   "release": "r20250816",
   "license": "CC-BY-SA-3.0",
-  "generatedAt": "2026-06-11T14:50:41.912Z",
-  "count": 132,
+  "generatedAt": "2026-06-11T15:13:27.265Z",
+  "count": 142,
   "characters": [
     {
       "kanjiVgId": "03042",
@@ -1314,6 +1314,30 @@
       ]
     },
     {
+      "kanjiVgId": "05f31",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "弱"
+      ],
+      "path": "/kanjivg/kanji/05f31.svg",
+      "kanjiIds": [
+        "kanji-yowai"
+      ]
+    },
+    {
+      "kanjiVgId": "05f37",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "強"
+      ],
+      "path": "/kanjivg/kanji/05f37.svg",
+      "kanjiIds": [
+        "kanji-tsuyoi"
+      ]
+    },
+    {
       "kanjiVgId": "05f85",
       "strokeCount": 9,
       "svgStrokeCount": 9,
@@ -1458,6 +1482,18 @@
       ]
     },
     {
+      "kanjiVgId": "075c5",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "病"
+      ],
+      "path": "/kanjivg/kanji/075c5.svg",
+      "kanjiIds": [
+        "kanji-byou"
+      ]
+    },
+    {
       "kanjiVgId": "077e5",
       "strokeCount": 8,
       "svgStrokeCount": 8,
@@ -1467,6 +1503,18 @@
       "path": "/kanjivg/kanji/077e5.svg",
       "kanjiIds": [
         "kanji-shiru"
+      ]
+    },
+    {
+      "kanjiVgId": "077ed",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "短"
+      ],
+      "path": "/kanjivg/kanji/077ed.svg",
+      "kanjiIds": [
+        "kanji-mijikai"
       ]
     },
     {
@@ -1542,6 +1590,30 @@
       ]
     },
     {
+      "kanjiVgId": "08efd",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "軽"
+      ],
+      "path": "/kanjivg/kanji/08efd.svg",
+      "kanjiIds": [
+        "kanji-karui"
+      ]
+    },
+    {
+      "kanjiVgId": "08fd1",
+      "strokeCount": 7,
+      "svgStrokeCount": 7,
+      "japanese": [
+        "近"
+      ],
+      "path": "/kanjivg/kanji/08fd1.svg",
+      "kanjiIds": [
+        "kanji-chikai"
+      ]
+    },
+    {
       "kanjiVgId": "09001",
       "strokeCount": 9,
       "svgStrokeCount": 9,
@@ -1566,6 +1638,42 @@
       ]
     },
     {
+      "kanjiVgId": "09060",
+      "strokeCount": 13,
+      "svgStrokeCount": 13,
+      "japanese": [
+        "遠"
+      ],
+      "path": "/kanjivg/kanji/09060.svg",
+      "kanjiIds": [
+        "kanji-tooi"
+      ]
+    },
+    {
+      "kanjiVgId": "091cd",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "重"
+      ],
+      "path": "/kanjivg/kanji/091cd.svg",
+      "kanjiIds": [
+        "kanji-omoi"
+      ]
+    },
+    {
+      "kanjiVgId": "09577",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "長"
+      ],
+      "path": "/kanjivg/kanji/09577.svg",
+      "kanjiIds": [
+        "kanji-nagai"
+      ]
+    },
+    {
       "kanjiVgId": "09589",
       "strokeCount": 11,
       "svgStrokeCount": 11,
@@ -1587,6 +1695,18 @@
       "path": "/kanjivg/kanji/0958b.svg",
       "kanjiIds": [
         "kanji-akeru"
+      ]
+    },
+    {
+      "kanjiVgId": "09662",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "院"
+      ],
+      "path": "/kanjivg/kanji/09662.svg",
+      "kanjiIds": [
+        "kanji-in2"
       ]
     }
   ]

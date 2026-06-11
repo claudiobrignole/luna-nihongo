@@ -1,0 +1,350 @@
+{
+  "id": "n4-grammar-synthesis",
+  "level": 12,
+  "order": 0,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Sintesi · tutta la grammatica N4",
+    "en": "Synthesis · all N4 grammar"
+  },
+  "description": {
+    "it": "Un ripasso trasversale di tutta la grammatica N4: forma piana, potenziale e volitivo, opinioni e supposizioni, i quattro condizionali, obblighi, dare/ricevere, causativo e passivo, keigo. Le domande mescolano i livelli per allenarti a scegliere la struttura giusta al volo — come all'esame.",
+    "en": "A cross-cutting review of all N4 grammar: plain form, potential and volitional, opinions and guesses, the four conditionals, obligations, giving/receiving, causative and passive, keigo. The questions mix levels to train you to pick the right structure on the fly — like in the exam."
+  },
+  "grammarRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses",
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison",
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks",
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru",
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics"
+  ],
+  "reviewPoolRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses",
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison",
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks",
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru",
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics"
+  ],
+  "prerequisites": [
+    "n4-level11-review"
+  ],
+  "quizzes": [
+    {
+      "id": "q-ngs-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma potenziale di はなす?",
+        "en": "Potential form of はなす?"
+      },
+      "options": [
+        {
+          "it": "はなせる",
+          "en": "はなせる"
+        },
+        {
+          "it": "はなそう",
+          "en": "はなそう"
+        },
+        {
+          "it": "はなした",
+          "en": "はなした"
+        },
+        {
+          "it": "はなされる",
+          "en": "はなされる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Penso che verrà':",
+        "en": "'I think he'll come':"
+      },
+      "options": [
+        {
+          "it": "くるとおもう",
+          "en": "くるとおもう"
+        },
+        {
+          "it": "くるそうだ",
+          "en": "くるそうだ"
+        },
+        {
+          "it": "こられる",
+          "en": "こられる"
+        },
+        {
+          "it": "こさせる",
+          "en": "こさせる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale condizionale per una conseguenza automatica?",
+        "en": "Which conditional for an automatic result?"
+      },
+      "options": [
+        {
+          "it": "〜と",
+          "en": "〜と"
+        },
+        {
+          "it": "〜たら",
+          "en": "〜たら"
+        },
+        {
+          "it": "〜なら",
+          "en": "〜なら"
+        },
+        {
+          "it": "〜ば",
+          "en": "〜ば"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Devo andare':",
+        "en": "'I must go':"
+      },
+      "options": [
+        {
+          "it": "いかなければならない",
+          "en": "いかなければならない"
+        },
+        {
+          "it": "いかなくてもいい",
+          "en": "いかなくてもいい"
+        },
+        {
+          "it": "いってはいけない",
+          "en": "いってはいけない"
+        },
+        {
+          "it": "いける",
+          "en": "いける"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Tanaka mi ha dato un libro':",
+        "en": "'Tanaka gave me a book':"
+      },
+      "options": [
+        {
+          "it": "たなかさんがほんをくれた",
+          "en": "たなかさんがほんをくれた"
+        },
+        {
+          "it": "たなかさんにほんをあげた",
+          "en": "たなかさんにほんをあげた"
+        },
+        {
+          "it": "たなかさんがほんをもらった",
+          "en": "たなかさんがほんをもらった"
+        },
+        {
+          "it": "たなかさんにほんをくれた",
+          "en": "たなかさんにほんをくれた"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-6",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Causativo-passivo di のむ (forma contratta)?",
+        "en": "Causative-passive of のむ (contracted)?"
+      },
+      "options": [
+        {
+          "it": "のまされる",
+          "en": "のまされる"
+        },
+        {
+          "it": "のませる",
+          "en": "のませる"
+        },
+        {
+          "it": "のまれる",
+          "en": "のまれる"
+        },
+        {
+          "it": "のもう",
+          "en": "のもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-mc-7",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Studio per saper parlare' (capacità):",
+        "en": "'I study so I can speak' (ability):"
+      },
+      "options": [
+        {
+          "it": "はなせるように",
+          "en": "はなせるように"
+        },
+        {
+          "it": "はなすために",
+          "en": "はなすために"
+        },
+        {
+          "it": "はなすので",
+          "en": "はなすので"
+        },
+        {
+          "it": "はなすのに",
+          "en": "はなすのに"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ngs-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "〜とおもう",
+          "right": "opinione / opinion"
+        },
+        {
+          "left": "〜たら",
+          "right": "condizione / condition"
+        },
+        {
+          "left": "〜させる",
+          "right": "far fare / make do"
+        },
+        {
+          "left": "〜られる",
+          "right": "passivo / passive"
+        },
+        {
+          "left": "〜なければならない",
+          "right": "obbligo / obligation"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-ngs-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina i quattro condizionali.",
+        "en": "Match the four conditionals."
+      },
+      "pairs": [
+        {
+          "left": "〜と",
+          "right": "automatico / automatic"
+        },
+        {
+          "left": "〜ば",
+          "right": "ipotetico / hypothetical"
+        },
+        {
+          "left": "〜なら",
+          "right": "contestuale / contextual"
+        },
+        {
+          "left": "〜たら",
+          "right": "versatile"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Scelta della struttura giusta",
+      "en": "Choosing the right structure"
+    },
+    {
+      "it": "Tutta la grammatica N4",
+      "en": "All N4 grammar"
+    }
+  ]
+}

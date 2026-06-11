@@ -1,0 +1,141 @@
+{
+  "id": "grammar-node-noni",
+  "level": 11,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜ので・〜のに",
+    "en": "Grammar · ~node / ~noni"
+  },
+  "description": {
+    "it": "Due connettivi che si attaccano alla forma piana. 〜ので = 'poiché, dato che' (causa, più morbido e oggettivo di から): あめがふっているので、いきません ('dato che piove, non vado'). 〜のに = 'nonostante, eppure' (contrasto con una sfumatura di sorpresa o disappunto): べんきょうしたのに、てんすうがわるかった ('nonostante abbia studiato, il voto era brutto'). のに porta spesso un'emozione: delusione, lamentela. Per nomi e aggettivi -な: な + ので/のに.",
+    "en": "Two connectives attaching to the plain form. 〜ので = 'because, since' (cause, softer and more objective than から): あめがふっているので、いきません ('since it's raining, I won't go'). 〜のに = 'although, even though' (contrast with a nuance of surprise or dismay): べんきょうしたのに、てんすうがわるかった ('even though I studied, the grade was bad'). のに often carries emotion: disappointment, complaint. For nouns and na-adjectives: な + ので/のに."
+  },
+  "grammarRefs": [
+    "gr-node-noni"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-causative-passive"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gnn2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ので esprime...",
+        "en": "〜ので expresses..."
+      },
+      "options": [
+        {
+          "it": "causa (dato che)",
+          "en": "causa (dato che)"
+        },
+        {
+          "it": "contrasto",
+          "en": "contrasto"
+        },
+        {
+          "it": "condizione",
+          "en": "condizione"
+        },
+        {
+          "it": "scopo",
+          "en": "scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜のに esprime...",
+        "en": "〜のに expresses..."
+      },
+      "options": [
+        {
+          "it": "contrasto (nonostante)",
+          "en": "contrasto (nonostante)"
+        },
+        {
+          "it": "causa",
+          "en": "causa"
+        },
+        {
+          "it": "condizione",
+          "en": "condizione"
+        },
+        {
+          "it": "obbligo",
+          "en": "obbligo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "のに porta spesso una sfumatura di...",
+        "en": "のに often carries a nuance of..."
+      },
+      "options": [
+        {
+          "it": "delusione/lamentela",
+          "en": "delusione/lamentela"
+        },
+        {
+          "it": "gioia",
+          "en": "gioia"
+        },
+        {
+          "it": "neutralità totale",
+          "en": "neutralità totale"
+        },
+        {
+          "it": "cortesia",
+          "en": "cortesia"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina connettivo e funzione.",
+        "en": "Match connective to function."
+      },
+      "pairs": [
+        {
+          "left": "〜ので",
+          "right": "causa morbida / soft cause"
+        },
+        {
+          "left": "〜のに",
+          "right": "contrasto+emozione / contrast+emotion"
+        },
+        {
+          "left": "〜から",
+          "right": "causa diretta / direct cause"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜ので causa",
+      "en": "〜ので cause"
+    },
+    {
+      "it": "〜のに contrasto",
+      "en": "〜のに contrast"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "grammar-keigo-basics",
+  "level": 11,
+  "order": 6,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · le basi del keigo",
+    "en": "Grammar · basic keigo"
+  },
+  "description": {
+    "it": "Il keigo è il sistema di cortesia giapponese — un registro che in italiano non esiste come grammatica. Per l'N4 bastano le fondamenta, e tu ne conosci già una parte: です/ます È keigo (teineigo, cortese neutro). Oltre a questo, due direzioni. Sonkeigo (onorifico, ELEVA l'altro): いらっしゃる (per いる/くる/いく di un superiore), めしあがる (per たべる/のむ), おっしゃる (per いう). Kenjōgo (umile, ABBASSA te stesso): いたす (per する), いただく (per もらう/たべる), まいる (per いく/くる). Regola pratica: parli delle azioni di un superiore? sonkeigo. Parli delle tue azioni verso un superiore? kenjōgo. A N4 si riconoscono le forme più comuni, non si padroneggiano tutte.",
+    "en": "Keigo is the Japanese politeness system — a register that doesn't exist as grammar in English. For N4 the foundations are enough, and you already know part of it: です/ます IS keigo (teineigo, neutral polite). Beyond that, two directions. Sonkeigo (honorific, RAISES the other): いらっしゃる (for いる/くる/いく of a superior), めしあがる (for たべる/のむ), おっしゃる (for いう). Kenjōgo (humble, LOWERS yourself): いたす (for する), いただく (for もらう/たべる), まいる (for いく/くる). Practical rule: talking about a superior's actions? sonkeigo. Talking about your own actions toward a superior? kenjōgo. At N4 you recognize the most common forms, you don't master them all."
+  },
+  "grammarRefs": [
+    "gr-keigo-basics"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-tame-ni-you-ni"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gke-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "です/ます è...",
+        "en": "です/ます is..."
+      },
+      "options": [
+        {
+          "it": "keigo (teineigo, cortese)",
+          "en": "keigo (teineigo, cortese)"
+        },
+        {
+          "it": "slang",
+          "en": "slang"
+        },
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "sonkeigo soltanto",
+          "en": "sonkeigo soltanto"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gke-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Il sonkeigo serve a...",
+        "en": "Sonkeigo is used to..."
+      },
+      "options": [
+        {
+          "it": "elevare l'altro (un superiore)",
+          "en": "elevare l'altro (un superiore)"
+        },
+        {
+          "it": "abbassare sé stessi",
+          "en": "abbassare sé stessi"
+        },
+        {
+          "it": "parlare tra amici",
+          "en": "parlare tra amici"
+        },
+        {
+          "it": "contare oggetti",
+          "en": "contare oggetti"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gke-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per le TUE azioni verso un superiore usi...",
+        "en": "For YOUR actions toward a superior you use..."
+      },
+      "options": [
+        {
+          "it": "kenjōgo (umile)",
+          "en": "kenjōgo (umile)"
+        },
+        {
+          "it": "sonkeigo (onorifico)",
+          "en": "sonkeigo (onorifico)"
+        },
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "volitivo",
+          "en": "volitivo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gke-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo normale e keigo.",
+        "en": "Match plain verb to keigo."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "めしあがる (sonkeigo)"
+        },
+        {
+          "left": "する",
+          "right": "いたす (kenjōgo)"
+        },
+        {
+          "left": "いる/くる/いく",
+          "right": "いらっしゃる (sonkeigo)"
+        },
+        {
+          "left": "もらう",
+          "right": "いただく (kenjōgo)"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Sonkeigo vs kenjōgo",
+      "en": "Sonkeigo vs kenjōgo"
+    },
+    {
+      "it": "です/ます è già keigo",
+      "en": "です/ます is already keigo"
+    }
+  ]
+}

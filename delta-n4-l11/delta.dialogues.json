@@ -1,0 +1,146 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-gifts",
+      "title": {
+        "it": "Il regalo",
+        "en": "The present"
+      },
+      "setting": {
+        "it": "Dopo un compleanno.",
+        "en": "After a birthday."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mio",
+            "en": "Mio"
+          },
+          "japanese": "すてきな かばんですね。",
+          "kana": "すてきな かばんですね。",
+          "romaji": "suteki na kaban desu ne.",
+          "translation": {
+            "it": "Che bella borsa!",
+            "en": "What a lovely bag!"
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Paolo",
+            "en": "Paolo"
+          },
+          "japanese": "ありがとう。姉が くれました。",
+          "kana": "ありがとう。あねが くれました。",
+          "romaji": "arigatou. ane ga kuremashita.",
+          "translation": {
+            "it": "Grazie. Me l'ha regalata mia sorella.",
+            "en": "Thanks. My older sister gave it to me."
+          },
+          "note": {
+            "it": "くれる = dare A ME.",
+            "en": "くれる = give TO ME."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mio",
+            "en": "Mio"
+          },
+          "japanese": "いいですね。私は 母に 時計を もらいました。",
+          "kana": "いいですね。わたしは ははに とけいを もらいました。",
+          "romaji": "ii desu ne. watashi wa haha ni tokei o moraimashita.",
+          "translation": {
+            "it": "Bello! Io ho ricevuto un orologio da mia madre.",
+            "en": "Nice! I got a watch from my mother."
+          },
+          "note": {
+            "it": "もらう = ricevere; donatore con に.",
+            "en": "もらう = receive; giver takes に."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-ageru-kureru-morau"
+      ],
+      "usesVocabRefs": [
+        "vocab-ane",
+        "vocab-morau",
+        "vocab-kureru"
+      ]
+    },
+    {
+      "id": "dlg-keigo-shop",
+      "title": {
+        "it": "Cortesia in negozio",
+        "en": "Politeness at a shop"
+      },
+      "setting": {
+        "it": "Un cliente e un commesso usano il keigo.",
+        "en": "A customer and a clerk use keigo."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Commesso",
+            "en": "Clerk"
+          },
+          "japanese": "いらっしゃいませ。なにかおさがしですか。",
+          "kana": "いらっしゃいませ。なにかおさがしですか。",
+          "romaji": "irasshaimase. nanika osagashi desu ka.",
+          "translation": {
+            "it": "Benvenuto. Sta cercando qualcosa?",
+            "en": "Welcome. Are you looking for something?"
+          },
+          "note": {
+            "it": "いらっしゃいませ = saluto onorifico in negozio.",
+            "en": "いらっしゃいませ = honorific shop greeting."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Cliente",
+            "en": "Customer"
+          },
+          "japanese": "はい、このシャツをみせていただけますか。",
+          "kana": "はい、このシャツをみせていただけますか。",
+          "romaji": "hai, kono shatsu o misete itadakemasu ka.",
+          "translation": {
+            "it": "Sì, potrei vedere questa camicia?",
+            "en": "Yes, may I see this shirt?"
+          },
+          "note": {
+            "it": "〜ていただけますか = richiesta cortese (kenjōgo).",
+            "en": "〜ていただけますか = polite request (kenjōgo)."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Commesso",
+            "en": "Clerk"
+          },
+          "japanese": "はい、どうぞ。ごゆっくりごらんください。",
+          "kana": "はい、どうぞ。ごゆっくりごらんください。",
+          "romaji": "hai, douzo. goyukkuri goran kudasai.",
+          "translation": {
+            "it": "Certo, prego. Guardi con calma.",
+            "en": "Of course. Please take your time looking."
+          },
+          "note": {
+            "it": "ごらんください = 'guardi' onorifico (sonkeigo).",
+            "en": "ごらんください = honorific 'please look' (sonkeigo)."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-keigo-basics"
+      ],
+      "usesVocabRefs": []
+    }
+  ]
+}

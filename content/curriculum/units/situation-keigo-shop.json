@@ -1,0 +1,159 @@
+{
+  "id": "situation-keigo-shop",
+  "level": 11,
+  "order": 9,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · cortesia in negozio (keigo)",
+    "en": "Situation · politeness at a shop (keigo)"
+  },
+  "description": {
+    "it": "Il keigo dove lo incontri davvero: in un negozio. Ascolta lo scambio tra commesso e cliente e nota le forme onorifiche (いらっしゃいませ, ごらんください) e umili (〜ていただけますか). Non devi produrre keigo perfetto a N4 — devi riconoscerlo e capirlo. Poi una breve verifica di comprensione.",
+    "en": "Keigo where you actually meet it: at a shop. Listen to the clerk-customer exchange and notice the honorific (いらっしゃいませ, ごらんください) and humble (〜ていただけますか) forms. You don't need to produce perfect keigo at N4 — you need to recognize and understand it. Then a short comprehension check."
+  },
+  "dialogueRefs": [
+    "dlg-keigo-shop"
+  ],
+  "canDo": [
+    {
+      "id": "cando-keigo-recognize",
+      "level": "A2",
+      "statement": {
+        "it": "So riconoscere e capire le forme base del keigo in negozio.",
+        "en": "I can recognize and understand basic keigo forms at a shop."
+      },
+      "skill": "reading"
+    }
+  ],
+  "situationTags": [
+    "shopping",
+    "greetings-social"
+  ],
+  "prerequisites": [
+    "situation-giving-receiving"
+  ],
+  "grammarRefs": [
+    "gr-keigo-basics"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-sks-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "いらっしゃいませ è...",
+        "en": "いらっしゃいませ is..."
+      },
+      "options": [
+        {
+          "it": "un saluto onorifico al cliente",
+          "en": "un saluto onorifico al cliente"
+        },
+        {
+          "it": "un modo informale di salutare",
+          "en": "un modo informale di salutare"
+        },
+        {
+          "it": "una domanda sul prezzo",
+          "en": "una domanda sul prezzo"
+        },
+        {
+          "it": "un congedo",
+          "en": "un congedo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sks-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ていただけますか è una richiesta...",
+        "en": "〜ていただけますか is a request that is..."
+      },
+      "options": [
+        {
+          "it": "molto cortese (umile)",
+          "en": "molto cortese (umile)"
+        },
+        {
+          "it": "informale",
+          "en": "informale"
+        },
+        {
+          "it": "scortese",
+          "en": "scortese"
+        },
+        {
+          "it": "neutra/piana",
+          "en": "neutra/piana"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sks-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per le azioni di un cliente/superiore, il negozio usa...",
+        "en": "For a customer's/superior's actions, the shop uses..."
+      },
+      "options": [
+        {
+          "it": "sonkeigo (onorifico)",
+          "en": "sonkeigo (onorifico)"
+        },
+        {
+          "it": "kenjōgo per il cliente",
+          "en": "kenjōgo per il cliente"
+        },
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "slang",
+          "en": "slang"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sks-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina espressione keigo e senso.",
+        "en": "Match keigo expression to meaning."
+      },
+      "pairs": [
+        {
+          "left": "いらっしゃいませ",
+          "right": "benvenuto / welcome"
+        },
+        {
+          "left": "ごらんください",
+          "right": "guardi (prego) / please look"
+        },
+        {
+          "left": "〜ていただけますか",
+          "right": "potrei...? / may I...?"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Keigo in negozio",
+      "en": "Keigo at a shop"
+    },
+    {
+      "it": "Riconoscere sonkeigo/kenjōgo",
+      "en": "Recognizing sonkeigo/kenjōgo"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "grammar-causative",
+  "level": 11,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il causativo (〜させる)",
+    "en": "Grammar · the causative"
+  },
+  "description": {
+    "it": "Il causativo esprime 'far fare' o 'lasciar fare': こどもにやさいをたべさせます ('faccio mangiare le verdure al bambino'). Formazione: gruppo 2, -る → -させる (たべる→たべさせる); gruppo 1, -a + せる (いく→いかせる, よむ→よませる); irregolari する→させる, くる→こさせる. Due sfumature dal contesto: costrizione ('costringo a') o permesso ('lascio fare'). La persona a cui si fa fare qualcosa si marca con に (o を per i verbi intransitivi).",
+    "en": "The causative expresses 'make do' or 'let do': こどもにやさいをたべさせます ('I make the child eat vegetables'). Formation: group 2, -る → -させる (たべる→たべさせる); group 1, -a + せる (いく→いかせる, よむ→よませる); irregulars する→させる, くる→こさせる. Two nuances from context: coercion ('force to') or permission ('let'). The person made to do something is marked with に (or を for intransitive verbs)."
+  },
+  "grammarRefs": [
+    "gr-causative"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-ageru-kureru-morau"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gca-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Causativo di たべる?",
+        "en": "Causative of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべさせる",
+          "en": "たべさせる"
+        },
+        {
+          "it": "たべられる",
+          "en": "たべられる"
+        },
+        {
+          "it": "たべさせられる",
+          "en": "たべさせられる"
+        },
+        {
+          "it": "たべさせられた",
+          "en": "たべさせられた"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gca-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Causativo di いく?",
+        "en": "Causative of いく?"
+      },
+      "options": [
+        {
+          "it": "いかせる",
+          "en": "いかせる"
+        },
+        {
+          "it": "いきさせる",
+          "en": "いきさせる"
+        },
+        {
+          "it": "いかれる",
+          "en": "いかれる"
+        },
+        {
+          "it": "いこう",
+          "en": "いこう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gca-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Il causativo può esprimere...",
+        "en": "The causative can express..."
+      },
+      "options": [
+        {
+          "it": "costrizione o permesso",
+          "en": "costrizione o permesso"
+        },
+        {
+          "it": "solo il passato",
+          "en": "solo il passato"
+        },
+        {
+          "it": "una capacità",
+          "en": "una capacità"
+        },
+        {
+          "it": "un'esperienza",
+          "en": "un'esperienza"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gca-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e causativo.",
+        "en": "Match verb to causative."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべさせる"
+        },
+        {
+          "left": "よむ",
+          "right": "よませる"
+        },
+        {
+          "left": "する",
+          "right": "させる"
+        },
+        {
+          "left": "くる",
+          "right": "こさせる"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Causativo per gruppo",
+      "en": "Causative by group"
+    },
+    {
+      "it": "Costrizione vs permesso",
+      "en": "Coercion vs permission"
+    }
+  ]
+}

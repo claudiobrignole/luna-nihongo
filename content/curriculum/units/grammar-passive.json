@@ -1,0 +1,145 @@
+{
+  "id": "grammar-passive",
+  "level": 11,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il passivo (〜られる)",
+    "en": "Grammar · the passive"
+  },
+  "description": {
+    "it": "Il passivo: 'essere + participio'. せんせいにほめられました ('sono stato lodato dall'insegnante'). Formazione: gruppo 2, -る → -られる (たべる→たべられる); gruppo 1, -a + れる (よむ→よまれる, いう→いわれる); irregolari する→される, くる→こられる. L'agente (chi compie l'azione) si marca con に. In giapponese esiste anche il 'passivo di disturbo': あめにふられた ('mi ha sorpreso la pioggia', lett. 'sono stato piovuto addosso'), che esprime un evento subito sgradevolmente — sfumatura assente in italiano.",
+    "en": "The passive: 'be + past participle'. せんせいにほめられました ('I was praised by the teacher'). Formation: group 2, -る → -られる (たべる→たべられる); group 1, -a + れる (よむ→よまれる, いう→いわれる); irregulars する→される, くる→こられる. The agent (who does the action) is marked with に. Japanese also has the 'suffering passive': あめにふられた ('I got caught in the rain', lit. 'I was rained on'), expressing an unpleasant event suffered — a nuance absent in English."
+  },
+  "grammarRefs": [
+    "gr-passive"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-causative"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gpa2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passivo di たべる?",
+        "en": "Passive of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべられる",
+          "en": "たべられる"
+        },
+        {
+          "it": "たべさせる",
+          "en": "たべさせる"
+        },
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpa2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "L'agente nel passivo si marca con...",
+        "en": "The agent in the passive is marked with..."
+      },
+      "options": [
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "が only",
+          "en": "が only"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpa2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "あめにふられた esprime...",
+        "en": "あめにふられた expresses..."
+      },
+      "options": [
+        {
+          "it": "un evento subito sgradevolmente",
+          "en": "un evento subito sgradevolmente"
+        },
+        {
+          "it": "una capacità",
+          "en": "una capacità"
+        },
+        {
+          "it": "un permesso",
+          "en": "un permesso"
+        },
+        {
+          "it": "il futuro",
+          "en": "il futuro"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpa2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e passivo.",
+        "en": "Match verb to passive."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべられる"
+        },
+        {
+          "left": "よむ",
+          "right": "よまれる"
+        },
+        {
+          "left": "いう",
+          "right": "いわれる"
+        },
+        {
+          "left": "する",
+          "right": "される"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Passivo per gruppo",
+      "en": "Passive by group"
+    },
+    {
+      "it": "Passivo di disturbo",
+      "en": "Suffering passive"
+    }
+  ]
+}

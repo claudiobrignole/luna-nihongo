@@ -1,0 +1,354 @@
+{
+  "grammar": [
+    {
+      "id": "gr-ageru-kureru-morau",
+      "title": {
+        "it": "あげる・くれる・もらう — dare e ricevere",
+        "en": "あげる・くれる・もらう — giving & receiving"
+      },
+      "explanation": {
+        "it": "Tre verbi, un sistema basato sul punto di vista. あげる = dare verso fuori (io→altri, altri→altri): 友だちに本をあげました. くれる = dare verso di me/i miei: 田中さんがチョコをくれました ('Tanaka MI ha dato la cioccolata'). もらう = ricevere: 田中さんにチョコをもらいました.\n\nCon la forma -て diventano favori: 〜てあげる (faccio per qualcuno), 〜てくれる (qualcuno fa per me: 手伝ってくれました 'mi ha aiutato'), 〜てもらう (ottengo che qualcuno faccia: 教えてもらいました 'mi sono fatto insegnare').\n\nIl giapponese marca SEMPRE la direzione del favore: dimenticare くれる quando qualcuno fa qualcosa per te suona freddo.",
+        "en": "Three verbs, one viewpoint-based system. あげる = give outward (me→others, others→others): 友だちに本をあげました. くれる = give toward me/mine: 田中さんがチョコをくれました ('Tanaka gave ME chocolate'). もらう = receive: 田中さんにチョコをもらいました.\n\nWith the -te form they become favors: 〜てあげる (I do for someone), 〜てくれる (someone does for me: 手伝ってくれました 'they helped me'), 〜てもらう (I get someone to do: 教えてもらいました 'I had it taught to me').\n\nJapanese ALWAYS marks the favor's direction: dropping くれる when someone does something for you sounds cold."
+      },
+      "examples": [
+        {
+          "japanese": "友だちに 本を あげました。",
+          "romaji": "tomodachi ni hon o agemashita.",
+          "translation": {
+            "it": "Ho dato un libro a un amico.",
+            "en": "I gave a friend a book."
+          }
+        },
+        {
+          "japanese": "田中さんが チョコを くれました。",
+          "romaji": "tanaka-san ga choko o kuremashita.",
+          "translation": {
+            "it": "Tanaka mi ha dato della cioccolata.",
+            "en": "Tanaka gave me chocolate."
+          }
+        },
+        {
+          "japanese": "先生に 教えてもらいました。",
+          "romaji": "sensei ni oshiete moraimashita.",
+          "translation": {
+            "it": "Me lo sono fatto spiegare dall'insegnante.",
+            "en": "I had the teacher explain it to me."
+          }
+        },
+        {
+          "japanese": "手伝ってくれて、ありがとう。",
+          "romaji": "tetsudatte kurete, arigatou.",
+          "translation": {
+            "it": "Grazie per avermi aiutato.",
+            "en": "Thanks for helping me."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form"
+      ]
+    },
+    {
+      "id": "gr-causative",
+      "title": {
+        "it": "La forma causativa — 〜させる",
+        "en": "The causative — 〜させる"
+      },
+      "explanation": {
+        "it": "Far fare o lasciar fare: gruppo 2, -る → -させる (たべさせる 'far mangiare'); gruppo 1, -a + せる (行かせる, 読ませる); irregolari させる, こさせる.\n\nDue letture, distinte dal contesto: costrizione ('il capo mi fa lavorare': 社長は私を働かせます) e permesso ('lasciami pagare': 私に払わせてください — il causativo + てください è il modo cortese di offrirsi di fare qualcosa).\n\nChi viene 'fatto fare' si marca con を (azioni) o に (quando c'è anche un oggetto): 子どもに野菜を食べさせます ('faccio mangiare le verdure al bambino').",
+        "en": "Make or let someone do: group 2, -る → -させる (たべさせる 'make eat'); group 1, -a + せる (行かせる, 読ませる); irregulars させる, こさせる.\n\nTwo readings by context: coercion ('the boss makes me work': 社長は私を働かせます) and permission ('let me pay': 私に払わせてください — causative + てください is the polite way to offer to do something).\n\nThe person made to act takes を (actions) or に (when there's also an object): 子どもに野菜を食べさせます ('I make the child eat vegetables')."
+      },
+      "examples": [
+        {
+          "japanese": "子どもに 野菜を 食べさせます。",
+          "romaji": "kodomo ni yasai o tabesasemasu.",
+          "translation": {
+            "it": "Faccio mangiare le verdure al bambino.",
+            "en": "I make the child eat vegetables."
+          }
+        },
+        {
+          "japanese": "社長は 私を 働かせます。",
+          "romaji": "shachou wa watashi o hatarakasemasu.",
+          "translation": {
+            "it": "Il capo mi fa lavorare.",
+            "en": "The boss makes me work."
+          }
+        },
+        {
+          "japanese": "私に 払わせてください。",
+          "romaji": "watashi ni harawasete kudasai.",
+          "translation": {
+            "it": "Lascia pagare a me.",
+            "en": "Let me pay."
+          },
+          "note": {
+            "it": "Causativo + てください = offrirsi.",
+            "en": "Causative + てください = offering."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-passive",
+      "title": {
+        "it": "La forma passiva — 〜られる",
+        "en": "The passive — 〜られる"
+      },
+      "explanation": {
+        "it": "Il passivo: gruppo 2, -る → -られる (たべられる); gruppo 1, -a + れる (読まれる, 言われる); irregolari される, こられる. L'agente si marca con に: 先生にほめられました ('sono stato lodato dall'insegnante').\n\nNota: per il gruppo 2 il passivo è identico al potenziale (たべられる può voler dire 'posso mangiare' o 'viene mangiato'); decide il contesto.\n\nIl giapponese ha anche il 'passivo di disturbo', usato per eventi subiti con fastidio: 雨にふられました ('mi sono preso la pioggia'), 弟にケーキを食べられました ('mio fratello mi ha mangiato la torta!'). È intraducibile alla lettera ma comunissimo.",
+        "en": "The passive: group 2, -る → -られる (たべられる); group 1, -a + れる (読まれる, 言われる); irregulars される, こられる. The agent takes に: 先生にほめられました ('I was praised by the teacher').\n\nNote: for group 2 the passive is identical to the potential (たべられる can mean 'can eat' or 'is eaten'); context decides.\n\nJapanese also has the 'suffering passive' for events endured with annoyance: 雨にふられました ('I got rained on'), 弟にケーキを食べられました ('my little brother ate my cake on me!'). Untranslatable literally but extremely common."
+      },
+      "examples": [
+        {
+          "japanese": "先生に ほめられました。",
+          "romaji": "sensei ni homeraremashita.",
+          "translation": {
+            "it": "Sono stato lodato dall'insegnante.",
+            "en": "I was praised by the teacher."
+          }
+        },
+        {
+          "japanese": "この本は 多くの人に 読まれています。",
+          "romaji": "kono hon wa ooku no hito ni yomarete imasu.",
+          "translation": {
+            "it": "Questo libro è letto da molte persone.",
+            "en": "This book is read by many people."
+          }
+        },
+        {
+          "japanese": "雨に ふられました。",
+          "romaji": "ame ni furaremashita.",
+          "translation": {
+            "it": "Mi sono preso la pioggia.",
+            "en": "I got rained on."
+          },
+          "note": {
+            "it": "Passivo di disturbo.",
+            "en": "Suffering passive."
+          }
+        },
+        {
+          "japanese": "弟に ケーキを 食べられました。",
+          "romaji": "otouto ni keeki o taberaremashita.",
+          "translation": {
+            "it": "Mio fratello (minore) mi ha mangiato la torta.",
+            "en": "My little brother ate my cake."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-potential",
+        "gr-causative"
+      ]
+    },
+    {
+      "id": "gr-causative-passive",
+      "title": {
+        "it": "Il causativo-passivo — 〜させられる",
+        "en": "The causative-passive — ~saserareru"
+      },
+      "explanation": {
+        "it": "Quando unisci causativo e passivo ottieni 'essere costretti a fare (controvoglia)': la persona è obbligata da qualcun altro e la subisce. こどものとき、やさいをたべさせられました ('da bambino mi facevano mangiare le verdure, e dovevo'). Si forma dal causativo (〜させる) reso passivo: たべる → たべさせる → たべさせられる. Per i verbi del gruppo 1 esiste anche la forma contratta 〜される (のむ → のまされる, invece di のませられる). L'agente che obbliga si marca con に: ぶちょうにおさけをのまされた ('il capo mi ha fatto bere, e non volevo'). È la sfumatura più 'emotiva' della grammatica N4: comunica fastidio, costrizione, mancanza di scelta.",
+        "en": "When you combine causative and passive you get 'to be made to do (unwillingly)': the person is forced by someone else and suffers it. こどものとき、やさいをたべさせられました ('as a child I was made to eat vegetables, and had to'). It's formed from the causative (〜させる) made passive: たべる → たべさせる → たべさせられる. For group 1 verbs there's also the contracted form 〜される (のむ → のまされる, instead of のませられる). The forcing agent is marked with に: ぶちょうにおさけをのまされた ('the boss made me drink, and I didn't want to'). It's the most 'emotional' nuance in N4 grammar: it conveys annoyance, coercion, lack of choice."
+      },
+      "examples": [
+        {
+          "japanese": "やさいをたべさせられました。",
+          "romaji": "yasai o tabesaseraremashita.",
+          "translation": {
+            "it": "Mi hanno fatto mangiare le verdure (controvoglia).",
+            "en": "I was made to eat vegetables (unwillingly)."
+          },
+          "note": {
+            "it": "Causativo + passivo.",
+            "en": "Causative + passive."
+          }
+        },
+        {
+          "japanese": "ぶちょうにおさけをのまされた。",
+          "romaji": "buchou ni osake o nomasareta.",
+          "translation": {
+            "it": "Il capo mi ha fatto bere (e non volevo).",
+            "en": "The boss made me drink (and I didn't want to)."
+          },
+          "note": {
+            "it": "Forma contratta gruppo 1: のまされる.",
+            "en": "Group 1 contracted form: のまされる."
+          }
+        },
+        {
+          "japanese": "いもうとにまたされた。",
+          "romaji": "imouto ni matasareta.",
+          "translation": {
+            "it": "Mia sorella mi ha fatto aspettare.",
+            "en": "My sister made me wait."
+          },
+          "note": {
+            "it": "まつ → またされる.",
+            "en": "まつ → またされる."
+          }
+        },
+        {
+          "japanese": "せんせいにかんじをかかせられた。",
+          "romaji": "sensei ni kanji o kakaseraremashita.",
+          "translation": {
+            "it": "Il maestro mi ha fatto scrivere i kanji.",
+            "en": "The teacher made me write kanji."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-causative",
+        "gr-passive"
+      ]
+    },
+    {
+      "id": "gr-node-noni",
+      "title": {
+        "it": "〜ので・〜のに — perché e benché",
+        "en": "〜ので・〜のに — because & although"
+      },
+      "explanation": {
+        "it": "Due congiunzioni sorelle dall'esito opposto.\n\n〜ので = 'poiché' (causa, più morbida e oggettiva di から): 雨がふっているので、うちにいます. Coi nomi e gli aggettivi -な: なので (びょうきなので 'siccome sono malato'). È la scelta cortese per giustificarsi.\n\n〜のに = 'benché / eppure', con una sfumatura di sorpresa o disappunto: 勉強したのに、テストはだめでした ('eppure avevo studiato, il test è andato male'). Coi nomi/-な: なのに.\n\nStessa costruzione, significati opposti: ので introduce l'effetto atteso, のに l'effetto contrario alle attese.",
+        "en": "Two sister conjunctions with opposite outcomes.\n\n〜ので = 'because' (cause, softer and more objective than から): 雨がふっているので、うちにいます. With nouns and na-adjectives: なので (びょうきなので 'since I'm sick'). It's the polite choice for justifying yourself.\n\n〜のに = 'although / and yet', with a nuance of surprise or disappointment: 勉強したのに、テストはだめでした ('even though I studied, the test went badly'). With nouns/na-adj: なのに.\n\nSame construction, opposite meanings: ので introduces the expected effect, のに the effect against expectations."
+      },
+      "examples": [
+        {
+          "japanese": "雨が ふっているので、うちに います。",
+          "romaji": "ame ga futte iru node, uchi ni imasu.",
+          "translation": {
+            "it": "Siccome piove, sto a casa.",
+            "en": "Since it's raining, I'm staying home."
+          }
+        },
+        {
+          "japanese": "びょうきなので、休みます。",
+          "romaji": "byouki na node, yasumimasu.",
+          "translation": {
+            "it": "Siccome sono malato, riposo.",
+            "en": "Since I'm sick, I'll rest."
+          }
+        },
+        {
+          "japanese": "勉強したのに、テストは だめでした。",
+          "romaji": "benkyou shita noni, tesuto wa dame deshita.",
+          "translation": {
+            "it": "Eppure avevo studiato, il test è andato male.",
+            "en": "Even though I studied, the test went badly."
+          }
+        },
+        {
+          "japanese": "高いのに、おいしくないです。",
+          "romaji": "takai noni, oishikunai desu.",
+          "translation": {
+            "it": "È caro eppure non è buono.",
+            "en": "It's expensive and yet not tasty."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-conjunctions"
+      ]
+    },
+    {
+      "id": "gr-tame-ni-you-ni",
+      "title": {
+        "it": "〜ために・〜ように — lo scopo",
+        "en": "〜ために・〜ように — purpose"
+      },
+      "explanation": {
+        "it": "Per esprimere lo scopo. 〜ために con verbi d'azione volontaria e stesso soggetto: 日本に行くために、お金をためています ('sto risparmiando per andare in Giappone'). Coi nomi: のために (家族のために 'per la famiglia').\n\n〜ように con verbi non volitivi (potenziali, なる, 分かる) o soggetto diverso: 日本語が話せるように、毎日勉強します ('studio ogni giorno per riuscire a parlare giapponese'); 忘れないように、メモします ('prendo nota per non dimenticare').\n\nRegola pratica: azione che CONTROLLI → ために; risultato che SPERI → ように.",
+        "en": "Expressing purpose. 〜ために with volitional action verbs and the same subject: 日本に行くために、お金をためています ('I'm saving money in order to go to Japan'). With nouns: のために (家族のために 'for my family').\n\n〜ように with non-volitional verbs (potentials, なる, 分かる) or a different subject: 日本語が話せるように、毎日勉強します ('I study every day so that I can speak Japanese'); 忘れないように、メモします ('I take notes so as not to forget').\n\nRule of thumb: an action you CONTROL → ために; an outcome you HOPE for → ように."
+      },
+      "examples": [
+        {
+          "japanese": "日本に 行くために、お金を ためています。",
+          "romaji": "nihon ni iku tame ni, okane o tamete imasu.",
+          "translation": {
+            "it": "Risparmio per andare in Giappone.",
+            "en": "I'm saving to go to Japan."
+          }
+        },
+        {
+          "japanese": "家族のために、働きます。",
+          "romaji": "kazoku no tame ni, hatarakimasu.",
+          "translation": {
+            "it": "Lavoro per la mia famiglia.",
+            "en": "I work for my family."
+          }
+        },
+        {
+          "japanese": "話せるように、毎日 勉強します。",
+          "romaji": "hanaseru you ni, mainichi benkyou shimasu.",
+          "translation": {
+            "it": "Studio ogni giorno per riuscire a parlare.",
+            "en": "I study daily so that I can speak."
+          }
+        },
+        {
+          "japanese": "忘れないように、メモします。",
+          "romaji": "wasurenai you ni, memo shimasu.",
+          "translation": {
+            "it": "Prendo nota per non dimenticare.",
+            "en": "I take notes so as not to forget."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-potential"
+      ]
+    },
+    {
+      "id": "gr-keigo-basics",
+      "title": {
+        "it": "Keigo di base — il linguaggio della cortesia",
+        "en": "Basic keigo — the language of respect"
+      },
+      "explanation": {
+        "it": "Il keigo è il sistema di cortesia del giapponese. Per l'N4 bastano le fondamenta.\n\nSonkeigo (onorifico, eleva l'altro): いらっしゃいます (per いる/行く/来る di un superiore: 先生はいらっしゃいますか 'c'è il professore?'), おっしゃいます (per 言う), めしあがります (per 食べる). Schema generale: お + radice + になります (お読みになります).\n\nKenjougo (umile, abbassa te): おります (per いる), まいります (per 行く/来る), いたします (per する), もうします (per 言う: 田中ともうします 'mi chiamo Tanaka', al telefono o in contesti formali).\n\nE le formule che senti ogni giorno in Giappone: いらっしゃいませ ('benvenuto!', nei negozi), 少々お待ちください ('attenda un momento'), 〜でございます (super-cortese di です). Per ora l'obiettivo è riconoscerle e usare le formule fisse: la produzione attiva completa è materia da N3.",
+        "en": "Keigo is Japanese's politeness system. For N4, the foundations suffice.\n\nSonkeigo (honorific, elevates the other): いらっしゃいます (for いる/行く/来る of a superior: 先生はいらっしゃいますか 'is the professor in?'), おっしゃいます (for 言う), めしあがります (for 食べる). General pattern: お + stem + になります (お読みになります).\n\nKenjougo (humble, lowers yourself): おります (for いる), まいります (for 行く/来る), いたします (for する), もうします (for 言う: 田中ともうします 'my name is Tanaka', on the phone or formally).\n\nAnd the everyday set phrases of Japan: いらっしゃいませ ('welcome!', in shops), 少々お待ちください ('one moment please'), 〜でございます (super-polite です). For now the goal is recognition plus the set phrases: full active production is N3 territory."
+      },
+      "examples": [
+        {
+          "japanese": "いらっしゃいませ。",
+          "romaji": "irasshaimase.",
+          "translation": {
+            "it": "Benvenuto! (nei negozi)",
+            "en": "Welcome! (in shops)"
+          }
+        },
+        {
+          "japanese": "田中と もうします。",
+          "romaji": "tanaka to moushimasu.",
+          "translation": {
+            "it": "Mi chiamo Tanaka. (umile)",
+            "en": "My name is Tanaka. (humble)"
+          }
+        },
+        {
+          "japanese": "先生は いらっしゃいますか。",
+          "romaji": "sensei wa irasshaimasu ka.",
+          "translation": {
+            "it": "C'è il professore? (onorifico)",
+            "en": "Is the professor in? (honorific)"
+          }
+        },
+        {
+          "japanese": "少々 お待ちください。",
+          "romaji": "shoushou omachi kudasai.",
+          "translation": {
+            "it": "Attenda un momento, prego.",
+            "en": "One moment, please."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-requests-progressive"
+      ]
+    }
+  ]
+}

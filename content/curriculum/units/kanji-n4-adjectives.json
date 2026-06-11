@@ -1,0 +1,157 @@
+{
+  "id": "kanji-n4-adjectives",
+  "level": 11,
+  "order": 7,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · aggettivi opposti e salute",
+    "en": "Kanji · opposite adjectives & health"
+  },
+  "description": {
+    "it": "Quattro coppie di aggettivi opposti più due kanji della salute: 長/短 (lungo/corto), 近/遠 (vicino/lontano), 強/弱 (forte/debole), 重/軽 (pesante/leggero), e 病/院 che insieme formano 病院 ('ospedale'). Imparare gli opposti in coppia li fissa meglio.",
+    "en": "Four pairs of opposite adjectives plus two health kanji: 長/短 (long/short), 近/遠 (near/far), 強/弱 (strong/weak), 重/軽 (heavy/light), and 病/院 which together form 病院 ('hospital'). Learning opposites in pairs fixes them better."
+  },
+  "kanjiRefs": [
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "prerequisites": [
+    "grammar-keigo-basics"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn4adj-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "病院 ('ospedale') è composto da...",
+        "en": "病院 ('hospital') is made of..."
+      },
+      "options": [
+        {
+          "it": "病 (malattia) + 院 (istituto)",
+          "en": "病 (malattia) + 院 (istituto)"
+        },
+        {
+          "it": "強 + 弱",
+          "en": "強 + 弱"
+        },
+        {
+          "it": "長 + 短",
+          "en": "長 + 短"
+        },
+        {
+          "it": "近 + 遠",
+          "en": "近 + 遠"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4adj-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "強 e 弱 significano...",
+        "en": "強 and 弱 mean..."
+      },
+      "options": [
+        {
+          "it": "forte / debole",
+          "en": "forte / debole"
+        },
+        {
+          "it": "lungo / corto",
+          "en": "lungo / corto"
+        },
+        {
+          "it": "pesante / leggero",
+          "en": "pesante / leggero"
+        },
+        {
+          "it": "vicino / lontano",
+          "en": "vicino / lontano"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4adj-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "近 e 遠 formano una coppia:",
+        "en": "近 and 遠 form a pair:"
+      },
+      "options": [
+        {
+          "it": "vicino / lontano",
+          "en": "vicino / lontano"
+        },
+        {
+          "it": "forte / debole",
+          "en": "forte / debole"
+        },
+        {
+          "it": "nuovo / vecchio",
+          "en": "nuovo / vecchio"
+        },
+        {
+          "it": "pesante / leggero",
+          "en": "pesante / leggero"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4adj-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "長",
+          "right": "lungo / long"
+        },
+        {
+          "left": "短",
+          "right": "corto / short"
+        },
+        {
+          "left": "重",
+          "right": "pesante / heavy"
+        },
+        {
+          "left": "軽",
+          "right": "leggero / light"
+        },
+        {
+          "left": "病",
+          "right": "malattia / illness"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Coppie di opposti",
+      "en": "Opposite pairs"
+    },
+    {
+      "it": "病院 ospedale",
+      "en": "病院 hospital"
+    }
+  ]
+}

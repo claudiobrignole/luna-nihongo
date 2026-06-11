@@ -1,0 +1,169 @@
+{
+  "id": "grammar-ageru-kureru-morau",
+  "level": 11,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · dare e ricevere (あげる・くれる・もらう)",
+    "en": "Grammar · giving & receiving"
+  },
+  "description": {
+    "it": "Uno dei punti più importanti — e più diversi dall'italiano — dell'N4. In italiano 'dare' è un verbo solo; in giapponese ne servono tre, scelti in base al PUNTO DI VISTA. あげる = dare verso l'esterno (io → altri, o altri → altri): ともだちにほんをあげました ('ho dato un libro all'amico'). くれる = dare verso di me o la mia cerchia: たなかさんがプレゼントをくれました ('Tanaka MI ha dato un regalo'). もらう = ricevere: せんせいにほんをもらいました ('ho ricevuto un libro dall'insegnante'). La domanda da farsi sempre: il favore va verso di me (くれる) o lontano da me (あげる)? Sbagliare verbo qui dice l'opposto di ciò che intendi.",
+    "en": "One of the most important — and most un-Italian — points of N4. In English 'give' is one verb; Japanese needs three, chosen by POINT OF VIEW. あげる = giving outward (I → others, or others → others): ともだちにほんをあげました ('I gave a book to my friend'). くれる = giving toward me or my circle: たなかさんがプレゼントをくれました ('Tanaka gave ME a present'). もらう = receiving: せんせいにほんをもらいました ('I received a book from the teacher'). The question to always ask: does the favor go toward me (くれる) or away from me (あげる)? Picking the wrong verb says the opposite of what you mean."
+  },
+  "grammarRefs": [
+    "gr-ageru-kureru-morau"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "n4-level10-review"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gak-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Tanaka MI ha dato un regalo' — quale verbo?",
+        "en": "'Tanaka gave ME a present' — which verb?"
+      },
+      "options": [
+        {
+          "it": "くれました",
+          "en": "くれました"
+        },
+        {
+          "it": "あげました",
+          "en": "あげました"
+        },
+        {
+          "it": "もらいました",
+          "en": "もらいました"
+        },
+        {
+          "it": "やりました",
+          "en": "やりました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gak-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Ho dato un libro all'amico':",
+        "en": "'I gave a book to my friend':"
+      },
+      "options": [
+        {
+          "it": "ともだちにほんをあげました",
+          "en": "ともだちにほんをあげました"
+        },
+        {
+          "it": "ともだちにほんをくれました",
+          "en": "ともだちにほんをくれました"
+        },
+        {
+          "it": "ともだちにほんをもらいました",
+          "en": "ともだちにほんをもらいました"
+        },
+        {
+          "it": "ともだちがほんをくれました",
+          "en": "ともだちがほんをくれました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gak-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "もらう significa...",
+        "en": "もらう means..."
+      },
+      "options": [
+        {
+          "it": "ricevere",
+          "en": "ricevere"
+        },
+        {
+          "it": "dare verso fuori",
+          "en": "dare verso fuori"
+        },
+        {
+          "it": "dare verso di me",
+          "en": "dare verso di me"
+        },
+        {
+          "it": "prestare",
+          "en": "prestare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gak-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La scelta tra あげる e くれる dipende da...",
+        "en": "The choice between あげる and くれる depends on..."
+      },
+      "options": [
+        {
+          "it": "la direzione del favore (verso di me o no)",
+          "en": "la direzione del favore (verso di me o no)"
+        },
+        {
+          "it": "il tempo verbale",
+          "en": "il tempo verbale"
+        },
+        {
+          "it": "la cortesia",
+          "en": "la cortesia"
+        },
+        {
+          "it": "il numero di oggetti",
+          "en": "il numero di oggetti"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gak-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e direzione.",
+        "en": "Match verb to direction."
+      },
+      "pairs": [
+        {
+          "left": "あげる",
+          "right": "io/altri → altri (verso fuori) / outward"
+        },
+        {
+          "left": "くれる",
+          "right": "altri → me (verso di me) / toward me"
+        },
+        {
+          "left": "もらう",
+          "right": "io ricevo / I receive"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Direzione del favore",
+      "en": "Direction of the favor"
+    },
+    {
+      "it": "くれる vs あげる",
+      "en": "くれる vs あげる"
+    }
+  ]
+}

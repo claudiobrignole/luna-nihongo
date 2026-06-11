@@ -1,0 +1,188 @@
+{
+  "id": "situation-n4-synthesis",
+  "level": 12,
+  "order": 2,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · sintesi N4",
+    "en": "Situation · N4 synthesis"
+  },
+  "description": {
+    "it": "Una conversazione che intreccia tutto l'N4: progetti (volitivo + とおもう), esperienze (〜たことがある), condizioni (〜たら), capacità (potenziale) e impressioni (〜そう). È così che le strutture vivono insieme nel parlato reale. Ascolta, poi scrivi un tuo progetto usando almeno due strutture N4 diverse.",
+    "en": "A conversation weaving all of N4: plans (volitional + とおもう), experiences (〜たことがある), conditions (〜たら), ability (potential) and impressions (〜そう). This is how the structures live together in real speech. Listen, then write a plan of your own using at least two different N4 structures."
+  },
+  "dialogueRefs": [
+    "dlg-n4-synthesis"
+  ],
+  "canDo": [
+    {
+      "id": "cando-n4-synthesis",
+      "level": "B1",
+      "statement": {
+        "it": "So sostenere una conversazione intrecciando più strutture N4.",
+        "en": "I can hold a conversation weaving several N4 structures."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-n4-synthesis",
+      "level": "B1",
+      "statement": {
+        "it": "So scrivere un progetto usando più strutture N4 insieme.",
+        "en": "I can write a plan using several N4 structures together."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "hobbies-invitation",
+    "transport",
+    "weather-smalltalk"
+  ],
+  "prerequisites": [
+    "n4-kanji-synthesis"
+  ],
+  "grammarRefs": [
+    "gr-volitional",
+    "gr-to-omou-to-iu",
+    "gr-ta-koto-ga-aru",
+    "gr-tara",
+    "gr-potential"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-sns-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Penso di andare a Okinawa' (volitivo + とおもう):",
+        "en": "'I'm thinking of going to Okinawa':"
+      },
+      "options": [
+        {
+          "it": "おきなわへいこうとおもう",
+          "en": "おきなわへいこうとおもう"
+        },
+        {
+          "it": "おきなわへいくとおもう",
+          "en": "おきなわへいくとおもう"
+        },
+        {
+          "it": "おきなわへいけるとおもう",
+          "en": "おきなわへいけるとおもう"
+        },
+        {
+          "it": "おきなわへいったとおもう",
+          "en": "おきなわへいったとおもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sns-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Se fa bel tempo, si può nuotare':",
+        "en": "'If the weather's nice, you can swim':"
+      },
+      "options": [
+        {
+          "it": "てんきがよかったら、およげる",
+          "en": "てんきがよかったら、およげる"
+        },
+        {
+          "it": "てんきがいいと、およぐ",
+          "en": "てんきがいいと、およぐ"
+        },
+        {
+          "it": "てんきがよければ、およいだ",
+          "en": "てんきがよければ、およいだ"
+        },
+        {
+          "it": "てんきがいいなら、およいでいる",
+          "en": "てんきがいいなら、およいでいる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sns-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi un tuo progetto (un viaggio, un obiettivo) usando ALMENO DUE strutture N4 diverse tra: volitivo, 〜とおもう, 〜たことがある, 〜たら, potenziale. 2-3 frasi.",
+        "en": "Write a plan of yours (a trip, a goal) using AT LEAST TWO different N4 structures among: volitional, 〜とおもう, 〜たことがある, 〜たら, potential. 2-3 sentences."
+      },
+      "targetLength": {
+        "min": 20,
+        "max": 70
+      },
+      "rubric": [
+        {
+          "it": "Usa almeno due strutture N4 diverse.",
+          "en": "Uses at least two different N4 structures."
+        },
+        {
+          "it": "Le strutture sono formate correttamente.",
+          "en": "The structures are formed correctly."
+        },
+        {
+          "it": "Il testo è coerente e leggibile.",
+          "en": "The text is coherent and readable."
+        }
+      ],
+      "modelAnswer": "なつにきょうとへいこうとおもいます。いったことがありませんが、てんきがよかったら、たくさんあるけるとおもいます。",
+      "modelAnswerKana": "なつにきょうとへいこうとおもいます。いったことがありませんが、てんきがよかったら、たくさんあるけるとおもいます。",
+      "modelAnswerRomaji": "natsu ni kyouto e ikou to omoimasu. itta koto ga arimasen ga, tenki ga yokattara, takusan arukeru to omoimasu.",
+      "modelAnswerTranslation": {
+        "it": "In estate penso di andare a Kyoto. Non ci sono mai stato, ma se fa bel tempo penso di poter camminare molto.",
+        "en": "In summer I'm thinking of going to Kyoto. I've never been, but if the weather's nice I think I'll be able to walk a lot."
+      },
+      "expectsGrammarRefs": [
+        "gr-volitional",
+        "gr-tara",
+        "gr-potential"
+      ],
+      "xp": 40
+    },
+    {
+      "id": "q-sns-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura ed esempio.",
+        "en": "Match structure to example."
+      },
+      "pairs": [
+        {
+          "left": "volitivo",
+          "right": "いこう / let's go"
+        },
+        {
+          "left": "〜たことがある",
+          "right": "いったことがある / have been"
+        },
+        {
+          "left": "potenziale",
+          "right": "およげる / can swim"
+        },
+        {
+          "left": "〜そう",
+          "right": "たのしそう / looks fun"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Intrecciare le strutture N4",
+      "en": "Weaving N4 structures"
+    }
+  ]
+}

@@ -128,7 +128,23 @@
     "kanji-n4-time-quantity",
     "writing-kanji-n4-5",
     "situation-plans-obligations",
-    "n4-level10-review"
+    "n4-level10-review",
+    "grammar-ageru-kureru-morau",
+    "grammar-causative",
+    "grammar-passive",
+    "grammar-causative-passive",
+    "grammar-node-noni",
+    "grammar-tame-ni-you-ni",
+    "grammar-keigo-basics",
+    "kanji-n4-adjectives",
+    "writing-kanji-n4-6",
+    "situation-giving-receiving",
+    "situation-keigo-shop",
+    "n4-level11-review",
+    "n4-grammar-synthesis",
+    "n4-kanji-synthesis",
+    "situation-n4-synthesis",
+    "n4-mock-exam"
   ],
   "unitMap": [
     {
@@ -1515,6 +1531,182 @@
         "en": "Review · conditions & obligations"
       },
       "contains": "Questo livello ti ha dato i quattro condizionali giapponesi — たら (versatile), と (automatico), ば (ipotetico), なら (contest",
+      "isReview": true
+    },
+    {
+      "id": "grammar-ageru-kureru-morau",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · dare e ricevere (あげる・くれる・もらう)",
+        "en": "Grammar · giving & receiving"
+      },
+      "contains": "Uno dei punti più importanti — e più diversi dall'italiano — dell'N4. In italiano 'dare' è un verbo solo; in giapponese ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-causative",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il causativo (〜させる)",
+        "en": "Grammar · the causative"
+      },
+      "contains": "Il causativo esprime 'far fare' o 'lasciar fare': こどもにやさいをたべさせます ('faccio mangiare le verdure al bambino'). Formazione: ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-passive",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il passivo (〜られる)",
+        "en": "Grammar · the passive"
+      },
+      "contains": "Il passivo: 'essere + participio'. せんせいにほめられました ('sono stato lodato dall'insegnante'). Formazione: gruppo 2, -る → -られる (",
+      "isReview": false
+    },
+    {
+      "id": "grammar-causative-passive",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il causativo-passivo (〜させられる)",
+        "en": "Grammar · the causative-passive"
+      },
+      "contains": "Unendo causativo e passivo si ottiene 'essere costretti a fare (controvoglia)': やさいをたべさせられました ('mi hanno fatto mangiare ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-node-noni",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜ので・〜のに",
+        "en": "Grammar · ~node / ~noni"
+      },
+      "contains": "Due connettivi che si attaccano alla forma piana. 〜ので = 'poiché, dato che' (causa, più morbido e oggettivo di から): あめがふっ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-tame-ni-you-ni",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜ために・〜ように (scopo)",
+        "en": "Grammar · ~tame ni / ~you ni (purpose)"
+      },
+      "contains": "Due modi di esprimere lo scopo, con una differenza chiave. 〜ために = 'per, allo scopo di' con verbi VOLITIVI (azioni contro",
+      "isReview": false
+    },
+    {
+      "id": "grammar-keigo-basics",
+      "level": 11,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · le basi del keigo",
+        "en": "Grammar · basic keigo"
+      },
+      "contains": "Il keigo è il sistema di cortesia giapponese — un registro che in italiano non esiste come grammatica. Per l'N4 bastano ",
+      "isReview": false
+    },
+    {
+      "id": "kanji-n4-adjectives",
+      "level": 11,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · aggettivi opposti e salute",
+        "en": "Kanji · opposite adjectives & health"
+      },
+      "contains": "Quattro coppie di aggettivi opposti più due kanji della salute: 長/短 (lungo/corto), 近/遠 (vicino/lontano), 強/弱 (forte/debo",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-6",
+      "level": 11,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (6)",
+        "en": "Writing · tracing N4 kanji (6)"
+      },
+      "contains": "Traccia le quattro coppie di aggettivi opposti e i kanji della salute: 長短近遠強弱重軽病院. Tracciare gli opposti uno dopo l'altr",
+      "isReview": false
+    },
+    {
+      "id": "situation-giving-receiving",
+      "level": 11,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · dare e ricevere regali",
+        "en": "Situation · giving & receiving gifts"
+      },
+      "contains": "Il sistema dare/ricevere in azione. Ascolta due amici parlare di un regalo: nota come usano くれる (verso di me) e あげる (ver",
+      "isReview": false
+    },
+    {
+      "id": "situation-keigo-shop",
+      "level": 11,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · cortesia in negozio (keigo)",
+        "en": "Situation · politeness at a shop (keigo)"
+      },
+      "contains": "Il keigo dove lo incontri davvero: in un negozio. Ascolta lo scambio tra commesso e cliente e nota le forme onorifiche (",
+      "isReview": false
+    },
+    {
+      "id": "n4-level11-review",
+      "level": 11,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · dare/ricevere, voci verbali e cortesia",
+        "en": "Review · giving/receiving, verb voices & politeness"
+      },
+      "contains": "Il livello più denso dell'N4. Hai affrontato il sistema dare/ricevere (あげる/くれる/もらう), le tre voci verbali (causativo, pas",
+      "isReview": true
+    },
+    {
+      "id": "n4-grammar-synthesis",
+      "level": 12,
+      "type": "review",
+      "title": {
+        "it": "Sintesi · tutta la grammatica N4",
+        "en": "Synthesis · all N4 grammar"
+      },
+      "contains": "Un ripasso trasversale di tutta la grammatica N4: forma piana, potenziale e volitivo, opinioni e supposizioni, i quattro",
+      "isReview": true
+    },
+    {
+      "id": "n4-kanji-synthesis",
+      "level": 12,
+      "type": "review",
+      "title": {
+        "it": "Sintesi · tutti i kanji N4",
+        "en": "Synthesis · all N4 kanji"
+      },
+      "contains": "Ripasso dei 50 kanji N4: i verbi (思知作使持…), il movimento (走歩動働…), la famiglia (家族兄弟姉妹), il tempo (朝昼夜曜週) e gli aggettivi ",
+      "isReview": true
+    },
+    {
+      "id": "situation-n4-synthesis",
+      "level": 12,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · sintesi N4",
+        "en": "Situation · N4 synthesis"
+      },
+      "contains": "Una conversazione che intreccia tutto l'N4: progetti (volitivo + とおもう), esperienze (〜たことがある), condizioni (〜たら), capacità",
+      "isReview": false
+    },
+    {
+      "id": "n4-mock-exam",
+      "level": 12,
+      "type": "review",
+      "title": {
+        "it": "Esame di prova N4",
+        "en": "N4 Mock Exam"
+      },
+      "contains": "Ci sei. Questo è l'esame di prova che chiude l'N4: domande di grammatica, kanji, lettura e comprensione che coprono tutt",
       "isReview": true
     }
   ]

@@ -1,0 +1,141 @@
+{
+  "id": "grammar-causative-passive",
+  "level": 11,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il causativo-passivo (〜させられる)",
+    "en": "Grammar · the causative-passive"
+  },
+  "description": {
+    "it": "Unendo causativo e passivo si ottiene 'essere costretti a fare (controvoglia)': やさいをたべさせられました ('mi hanno fatto mangiare le verdure, e dovevo'). Si forma rendendo passivo il causativo: たべる → たべさせる → たべさせられる. Per il gruppo 1 c'è la forma contratta 〜される (のむ→のまされる). L'agente che obbliga si marca con に. È la struttura più 'emotiva' dell'N4: comunica costrizione e fastidio. È anche la più difficile da costruire — vale la pena fare gli esercizi con calma.",
+    "en": "Combining causative and passive gives 'to be made to do (unwillingly)': やさいをたべさせられました ('I was made to eat vegetables, and had to'). Formed by making the causative passive: たべる → たべさせる → たべさせられる. Group 1 has the contracted form 〜される (のむ→のまされる). The forcing agent is marked with に. It's the most 'emotional' N4 structure: it conveys coercion and annoyance. It's also the hardest to build — worth doing the exercises slowly."
+  },
+  "grammarRefs": [
+    "gr-causative-passive"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-passive"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gcp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Causativo-passivo di たべる?",
+        "en": "Causative-passive of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべさせられる",
+          "en": "たべさせられる"
+        },
+        {
+          "it": "たべさせる",
+          "en": "たべさせる"
+        },
+        {
+          "it": "たべられる",
+          "en": "たべられる"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gcp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "のむ nella forma contratta del gruppo 1?",
+        "en": "のむ in the group 1 contracted form?"
+      },
+      "options": [
+        {
+          "it": "のまされる",
+          "en": "のまされる"
+        },
+        {
+          "it": "のませられる solo",
+          "en": "のませられる solo"
+        },
+        {
+          "it": "のまれる",
+          "en": "のまれる"
+        },
+        {
+          "it": "のませる",
+          "en": "のませる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gcp-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Il causativo-passivo comunica...",
+        "en": "The causative-passive conveys..."
+      },
+      "options": [
+        {
+          "it": "costrizione/fastidio (controvoglia)",
+          "en": "costrizione/fastidio (controvoglia)"
+        },
+        {
+          "it": "permesso",
+          "en": "permesso"
+        },
+        {
+          "it": "capacità",
+          "en": "capacità"
+        },
+        {
+          "it": "cortesia",
+          "en": "cortesia"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gcp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la catena di trasformazione.",
+        "en": "Match the transformation chain."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "base / base"
+        },
+        {
+          "left": "たべさせる",
+          "right": "causativo / causative"
+        },
+        {
+          "left": "たべさせられる",
+          "right": "causativo-passivo / causative-passive"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜させられる costruzione",
+      "en": "〜させられる construction"
+    },
+    {
+      "it": "Forma contratta 〜される",
+      "en": "Contracted form 〜される"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "grammar-tame-ni-you-ni",
+  "level": 11,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜ために・〜ように (scopo)",
+    "en": "Grammar · ~tame ni / ~you ni (purpose)"
+  },
+  "description": {
+    "it": "Due modi di esprimere lo scopo, con una differenza chiave. 〜ために = 'per, allo scopo di' con verbi VOLITIVI (azioni controllabili): にほんごをべんきょうするために、にほんへいきます ('vado in Giappone per studiare giapponese'). 〜ように = 'in modo che, affinché' con verbi NON volitivi (potenziale, negativi, stati): にほんごがはなせるように、まいにちべんきょうします ('studio ogni giorno in modo da saper parlare giapponese'). In breve: ために per obiettivi diretti che dipendono da te, ように per risultati o capacità che 'si spera' accadano.",
+    "en": "Two ways to express purpose, with a key difference. 〜ために = 'in order to' with VOLITIONAL verbs (controllable actions): にほんごをべんきょうするために、にほんへいきます ('I go to Japan in order to study Japanese'). 〜ように = 'so that' with NON-volitional verbs (potential, negatives, states): にほんごがはなせるように、まいにちべんきょうします ('I study every day so that I can speak Japanese'). In short: ために for direct goals that depend on you, ように for outcomes or abilities you 'hope' happen."
+  },
+  "grammarRefs": [
+    "gr-tame-ni-you-ni"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-node-noni"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gty-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ために si usa con verbi...",
+        "en": "〜ために is used with verbs that are..."
+      },
+      "options": [
+        {
+          "it": "volitivi (controllabili)",
+          "en": "volitivi (controllabili)"
+        },
+        {
+          "it": "potenziali",
+          "en": "potenziali"
+        },
+        {
+          "it": "negativi",
+          "en": "negativi"
+        },
+        {
+          "it": "di stato",
+          "en": "di stato"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gty-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Studio per saper parlare giapponese' (capacità) usa...",
+        "en": "'I study so I can speak Japanese' (ability) uses..."
+      },
+      "options": [
+        {
+          "it": "ように",
+          "en": "ように"
+        },
+        {
+          "it": "ために",
+          "en": "ために"
+        },
+        {
+          "it": "ので",
+          "en": "ので"
+        },
+        {
+          "it": "のに",
+          "en": "のに"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gty-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La differenza chiave tra ために e ように è...",
+        "en": "The key difference between ために and ように is..."
+      },
+      "options": [
+        {
+          "it": "azione controllabile vs risultato sperato",
+          "en": "azione controllabile vs risultato sperato"
+        },
+        {
+          "it": "passato vs presente",
+          "en": "passato vs presente"
+        },
+        {
+          "it": "formale vs informale",
+          "en": "formale vs informale"
+        },
+        {
+          "it": "singolare vs plurale",
+          "en": "singolare vs plurale"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gty-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina e nota il tipo di verbo.",
+        "en": "Match and note the verb type."
+      },
+      "pairs": [
+        {
+          "left": "べんきょうするために",
+          "right": "scopo + verbo volitivo / purpose + volitional"
+        },
+        {
+          "left": "はなせるように",
+          "right": "scopo + potenziale / purpose + potential"
+        },
+        {
+          "left": "わすれないように",
+          "right": "scopo + negativo / purpose + negative"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "ために vs ように",
+      "en": "ために vs ように"
+    },
+    {
+      "it": "Verbi volitivi vs non volitivi",
+      "en": "Volitional vs non-volitional"
+    }
+  ]
+}

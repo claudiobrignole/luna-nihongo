@@ -1,0 +1,588 @@
+{
+  "id": "n4-mock-exam",
+  "level": 12,
+  "order": 3,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Esame di prova N4",
+    "en": "N4 Mock Exam"
+  },
+  "description": {
+    "it": "Ci sei. Questo è l'esame di prova che chiude l'N4: domande di grammatica, kanji, lettura e comprensione che coprono tutto il livello, nello stile del JLPT N4 reale. Prenditi il tuo tempo, non guardare gli appunti, e vedi quanto sei arrivato lontano dai primi hiragana. Qualunque sia il risultato, hai costruito una base solida.",
+    "en": "Here you are. This is the mock exam that closes N4: grammar, kanji, reading and comprehension questions covering the whole level, in the style of the real JLPT N4. Take your time, don't look at your notes, and see how far you've come from those first hiragana. Whatever the result, you've built a solid foundation."
+  },
+  "grammarRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses",
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison",
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks",
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru",
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics"
+  ],
+  "kanjiRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu",
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru",
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru",
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto",
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai",
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "reviewPoolRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses",
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison",
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks",
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru",
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics",
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu",
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru",
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru",
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto",
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai",
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "prerequisites": [
+    "situation-n4-synthesis"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4mock-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "かのじょは__べんきょうします。('studiando ascoltando musica')",
+        "en": "She studies __ ('while listening to music')"
+      },
+      "options": [
+        {
+          "it": "おんがくをききながら",
+          "en": "おんがくをききながら"
+        },
+        {
+          "it": "おんがくをきくと",
+          "en": "おんがくをきくと"
+        },
+        {
+          "it": "おんがくをきいたら",
+          "en": "おんがくをきいたら"
+        },
+        {
+          "it": "おんがくをきくので",
+          "en": "おんがくをきくので"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "にほんへ__がありますか。('è mai stato')",
+        "en": "Have you ever __ to Japan?"
+      },
+      "options": [
+        {
+          "it": "いったこと",
+          "en": "いったこと"
+        },
+        {
+          "it": "いくこと",
+          "en": "いくこと"
+        },
+        {
+          "it": "いけること",
+          "en": "いけること"
+        },
+        {
+          "it": "いったの",
+          "en": "いったの"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "あした、あめが__。('forse pioverà')",
+        "en": "It __ rain tomorrow. ('maybe')"
+      },
+      "options": [
+        {
+          "it": "ふるかもしれません",
+          "en": "ふるかもしれません"
+        },
+        {
+          "it": "ふるはずです",
+          "en": "ふるはずです"
+        },
+        {
+          "it": "ふっています",
+          "en": "ふっています"
+        },
+        {
+          "it": "ふりました",
+          "en": "ふりました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "せんせい__ほめられました。('sono stato lodato dall'insegnante')",
+        "en": "I was praised __ the teacher."
+      },
+      "options": [
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "この__ほんはおもしろいです。('libro che ho comprato')",
+        "en": "This is the interesting book __. ('I bought')"
+      },
+      "options": [
+        {
+          "it": "かった",
+          "en": "かった"
+        },
+        {
+          "it": "かいます",
+          "en": "かいます"
+        },
+        {
+          "it": "かって",
+          "en": "かって"
+        },
+        {
+          "it": "かう",
+          "en": "かう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-6",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji per 'aspettare'?",
+        "en": "Which kanji for 'to wait'?"
+      },
+      "options": [
+        {
+          "it": "待",
+          "en": "待"
+        },
+        {
+          "it": "持",
+          "en": "持"
+        },
+        {
+          "it": "時",
+          "en": "時"
+        },
+        {
+          "it": "特",
+          "en": "特"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-7",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "ともだちがプレゼントを__。('mi ha dato')",
+        "en": "My friend __ me a present."
+      },
+      "options": [
+        {
+          "it": "くれました",
+          "en": "くれました"
+        },
+        {
+          "it": "あげました",
+          "en": "あげました"
+        },
+        {
+          "it": "もらいました",
+          "en": "もらいました"
+        },
+        {
+          "it": "やりました",
+          "en": "やりました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-8",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "おさけを__。('mi hanno fatto bere, controvoglia')",
+        "en": "I __ drink sake. ('was made to')"
+      },
+      "options": [
+        {
+          "it": "のまされました",
+          "en": "のまされました"
+        },
+        {
+          "it": "のませました",
+          "en": "のませました"
+        },
+        {
+          "it": "のみました",
+          "en": "のみました"
+        },
+        {
+          "it": "のめました",
+          "en": "のめました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-9",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'ospedale' in kanji:",
+        "en": "'hospital' in kanji:"
+      },
+      "options": [
+        {
+          "it": "病院",
+          "en": "病院"
+        },
+        {
+          "it": "医院",
+          "en": "医院"
+        },
+        {
+          "it": "病完",
+          "en": "病完"
+        },
+        {
+          "it": "医完",
+          "en": "医完"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-10",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "べんきょうした__、てんすうがわるかった。('nonostante')",
+        "en": "__ I studied, the grade was bad. ('even though')"
+      },
+      "options": [
+        {
+          "it": "のに",
+          "en": "のに"
+        },
+        {
+          "it": "ので",
+          "en": "ので"
+        },
+        {
+          "it": "から",
+          "en": "から"
+        },
+        {
+          "it": "なら",
+          "en": "なら"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-11",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma potenziale di みる?",
+        "en": "Potential of みる?"
+      },
+      "options": [
+        {
+          "it": "みられる",
+          "en": "みられる"
+        },
+        {
+          "it": "みよう",
+          "en": "みよう"
+        },
+        {
+          "it": "みた",
+          "en": "みた"
+        },
+        {
+          "it": "みさせる",
+          "en": "みさせる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-12",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "にほんへ__、きょうとがいいですよ。('se vai')",
+        "en": "__ to Japan, Kyoto is good. ('if you're going')"
+      },
+      "options": [
+        {
+          "it": "いくなら",
+          "en": "いくなら"
+        },
+        {
+          "it": "いくと",
+          "en": "いくと"
+        },
+        {
+          "it": "いったら",
+          "en": "いったら"
+        },
+        {
+          "it": "いけば",
+          "en": "いけば"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4mock-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la struttura al suo senso.",
+        "en": "Match structure to meaning."
+      },
+      "pairs": [
+        {
+          "left": "〜なければならない",
+          "right": "obbligo / must"
+        },
+        {
+          "left": "〜なくてもいい",
+          "right": "non serve / don't have to"
+        },
+        {
+          "left": "〜てみる",
+          "right": "provare / try"
+        },
+        {
+          "left": "〜ておく",
+          "right": "in anticipo / in advance"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-n4mock-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji N4 e lettura/senso.",
+        "en": "Match N4 kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "親",
+          "right": "genitore / parent"
+        },
+        {
+          "left": "強",
+          "right": "forte / strong"
+        },
+        {
+          "left": "売",
+          "right": "vendere / sell"
+        },
+        {
+          "left": "週",
+          "right": "settimana / week"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Esame N4 completo",
+      "en": "Full N4 exam"
+    },
+    {
+      "it": "Punti deboli da rivedere",
+      "en": "Weak points to review"
+    }
+  ]
+}

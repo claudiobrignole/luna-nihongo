@@ -1,0 +1,98 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-n4-synthesis",
+      "title": {
+        "it": "Programmi per le vacanze",
+        "en": "Holiday plans"
+      },
+      "setting": {
+        "it": "Due amici intrecciano opinioni, condizioni, esperienze e progetti.",
+        "en": "Two friends weave opinions, conditions, experiences and plans."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Ren",
+            "en": "Ren"
+          },
+          "japanese": "なつやすみに、おきなわへいこうとおもっているんだ。",
+          "kana": "なつやすみに、おきなわへいこうとおもっているんだ。",
+          "romaji": "natsuyasumi ni, okinawa e ikou to omotte iru n da.",
+          "translation": {
+            "it": "Per le vacanze estive penso di andare a Okinawa.",
+            "en": "For summer break I'm thinking of going to Okinawa."
+          },
+          "note": {
+            "it": "Volitivo + とおもう + んだ.",
+            "en": "Volitional + とおもう + んだ."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sora",
+            "en": "Sora"
+          },
+          "japanese": "いいね!おきなわへいったことがある?",
+          "kana": "いいね!おきなわへいったことがある?",
+          "romaji": "ii ne! okinawa e itta koto ga aru?",
+          "translation": {
+            "it": "Bello! Ci sei mai stato?",
+            "en": "Nice! Have you ever been there?"
+          },
+          "note": {
+            "it": "〜たことがある = esperienza.",
+            "en": "〜たことがある = experience."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Ren",
+            "en": "Ren"
+          },
+          "japanese": "ううん。でも、てんきがよかったら、うみでおよげるよ。",
+          "kana": "ううん。でも、てんきがよかったら、うみでおよげるよ。",
+          "romaji": "uun. demo, tenki ga yokattara, umi de oyogeru yo.",
+          "translation": {
+            "it": "No. Ma se fa bel tempo, si può nuotare in mare.",
+            "en": "No. But if the weather's nice, you can swim in the sea."
+          },
+          "note": {
+            "it": "〜たら + potenziale およげる.",
+            "en": "〜たら + potential およげる."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sora",
+            "en": "Sora"
+          },
+          "japanese": "たのしそう!わたしもいきたいなあ。",
+          "kana": "たのしそう!わたしもいきたいなあ。",
+          "romaji": "tanoshisou! watashi mo ikitai naa.",
+          "translation": {
+            "it": "Sembra divertente! Vorrei venire anch'io.",
+            "en": "Looks fun! I'd like to go too."
+          },
+          "note": {
+            "it": "〜そう (sembra) + たい.",
+            "en": "〜そう (looks) + たい."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-volitional",
+        "gr-to-omou-to-iu",
+        "gr-ta-koto-ga-aru",
+        "gr-tara",
+        "gr-potential",
+        "gr-sou-desu-looks"
+      ],
+      "usesVocabRefs": []
+    }
+  ]
+}

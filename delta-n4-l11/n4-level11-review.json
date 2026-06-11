@@ -1,0 +1,266 @@
+{
+  "id": "n4-level11-review",
+  "level": 11,
+  "order": 10,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · dare/ricevere, voci verbali e cortesia",
+    "en": "Review · giving/receiving, verb voices & politeness"
+  },
+  "description": {
+    "it": "Il livello più denso dell'N4. Hai affrontato il sistema dare/ricevere (あげる/くれる/もらう), le tre voci verbali (causativo, passivo, causativo-passivo), i connettivi ので/のni, lo scopo ために/ように e le basi del keigo. Questo ripasso intreccia i punti più ostici — prenditi il tempo che serve.",
+    "en": "The densest level of N4. You've tackled the giving/receiving system (あげる/くれる/もらう), the three verb voices (causative, passive, causative-passive), the connectives ので/のに, purpose ために/ように and basic keigo. This review weaves the hardest points — take all the time you need."
+  },
+  "grammarRefs": [
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics"
+  ],
+  "kanjiRefs": [
+    "kanji-nagai",
+    "kanji-tsuyoi",
+    "kanji-byou"
+  ],
+  "reviewPoolRefs": [
+    "gr-ageru-kureru-morau",
+    "gr-causative",
+    "gr-passive",
+    "gr-causative-passive",
+    "gr-node-noni",
+    "gr-tame-ni-you-ni",
+    "gr-keigo-basics",
+    "kanji-nagai",
+    "kanji-byou"
+  ],
+  "prerequisites": [
+    "situation-keigo-shop"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4l11r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Tanaka MI ha dato un regalo':",
+        "en": "'Tanaka gave ME a present':"
+      },
+      "options": [
+        {
+          "it": "たなかさんがプレゼントをくれました",
+          "en": "たなかさんがプレゼントをくれました"
+        },
+        {
+          "it": "たなかさんにプレゼントをあげました",
+          "en": "たなかさんにプレゼントをあげました"
+        },
+        {
+          "it": "たなかさんがプレゼントをもらいました",
+          "en": "たなかさんがプレゼントをもらいました"
+        },
+        {
+          "it": "たなかさんにプレゼントをくれました",
+          "en": "たなかさんにプレゼントをくれました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Causativo di よむ?",
+        "en": "Causative of よむ?"
+      },
+      "options": [
+        {
+          "it": "よませる",
+          "en": "よませる"
+        },
+        {
+          "it": "よまれる",
+          "en": "よまれる"
+        },
+        {
+          "it": "よませられる",
+          "en": "よませられる"
+        },
+        {
+          "it": "よもう",
+          "en": "よもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Passivo di いう?",
+        "en": "Passive of いう?"
+      },
+      "options": [
+        {
+          "it": "いわれる",
+          "en": "いわれる"
+        },
+        {
+          "it": "いわせる",
+          "en": "いわせる"
+        },
+        {
+          "it": "いえる",
+          "en": "いえる"
+        },
+        {
+          "it": "いおう",
+          "en": "いおう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Mi hanno fatto bere (controvoglia)':",
+        "en": "'I was made to drink (unwillingly)':"
+      },
+      "options": [
+        {
+          "it": "のまされました",
+          "en": "のまされました"
+        },
+        {
+          "it": "のませました",
+          "en": "のませました"
+        },
+        {
+          "it": "のみました",
+          "en": "のみました"
+        },
+        {
+          "it": "のめました",
+          "en": "のめました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Studio per saper parlare' (capacità) usa...",
+        "en": "'I study so I can speak' (ability) uses..."
+      },
+      "options": [
+        {
+          "it": "ように",
+          "en": "ように"
+        },
+        {
+          "it": "ために",
+          "en": "ために"
+        },
+        {
+          "it": "ので",
+          "en": "ので"
+        },
+        {
+          "it": "のに",
+          "en": "のに"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-mc-6",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per le tue azioni verso un superiore usi...",
+        "en": "For your actions toward a superior you use..."
+      },
+      "options": [
+        {
+          "it": "kenjōgo (umile)",
+          "en": "kenjōgo (umile)"
+        },
+        {
+          "it": "sonkeigo (onorifico)",
+          "en": "sonkeigo (onorifico)"
+        },
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "volitivo",
+          "en": "volitivo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l11r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "くれる",
+          "right": "dare verso di me / give toward me"
+        },
+        {
+          "left": "〜させる",
+          "right": "far fare / make do"
+        },
+        {
+          "left": "〜られる",
+          "right": "passivo / passive"
+        },
+        {
+          "left": "〜させられる",
+          "right": "costretti a / made to"
+        },
+        {
+          "left": "〜ので",
+          "right": "causa / because"
+        },
+        {
+          "left": "〜のに",
+          "right": "contrasto / although"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Dare/ricevere per direzione",
+      "en": "Giving/receiving by direction"
+    },
+    {
+      "it": "Causativo / passivo / causativo-passivo",
+      "en": "Causative / passive / causative-passive"
+    },
+    {
+      "it": "ので/のに, ために/ように",
+      "en": "ので/のに, ために/ように"
+    },
+    {
+      "it": "Basi del keigo",
+      "en": "Keigo basics"
+    }
+  ]
+}

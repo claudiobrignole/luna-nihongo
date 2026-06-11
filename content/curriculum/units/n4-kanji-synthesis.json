@@ -1,0 +1,332 @@
+{
+  "id": "n4-kanji-synthesis",
+  "level": 12,
+  "order": 1,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Sintesi · tutti i kanji N4",
+    "en": "Synthesis · all N4 kanji"
+  },
+  "description": {
+    "it": "Ripasso dei 50 kanji N4: i verbi (思知作使持…), il movimento (走歩動働…), la famiglia (家族兄弟姉妹), il tempo (朝昼夜曜週) e gli aggettivi opposti (長短強弱…). Riconoscerli con sicurezza è metà del lavoro per leggere il giapponese reale.",
+    "en": "Review of the 50 N4 kanji: verbs (思知作使持…), movement (走歩動働…), family (家族兄弟姉妹), time (朝昼夜曜週) and opposite adjectives (長短強弱…). Recognizing them confidently is half the work of reading real Japanese."
+  },
+  "kanjiRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu",
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru",
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru",
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto",
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai",
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "reviewPoolRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu",
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru",
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru",
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto",
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai",
+    "kanji-nagai",
+    "kanji-mijikai",
+    "kanji-chikai",
+    "kanji-tooi",
+    "kanji-tsuyoi",
+    "kanji-yowai",
+    "kanji-omoi",
+    "kanji-karui",
+    "kanji-byou",
+    "kanji-in2"
+  ],
+  "prerequisites": [
+    "n4-grammar-synthesis"
+  ],
+  "quizzes": [
+    {
+      "id": "q-nks-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'pensare'?",
+        "en": "Which kanji means 'to think'?"
+      },
+      "options": [
+        {
+          "it": "思",
+          "en": "思"
+        },
+        {
+          "it": "知",
+          "en": "知"
+        },
+        {
+          "it": "作",
+          "en": "作"
+        },
+        {
+          "it": "使",
+          "en": "使"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nks-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "働 (lavorare) contiene...",
+        "en": "働 (work) contains..."
+      },
+      "options": [
+        {
+          "it": "動 + 人",
+          "en": "動 + 人"
+        },
+        {
+          "it": "教 + 力",
+          "en": "教 + 力"
+        },
+        {
+          "it": "止 + 人",
+          "en": "止 + 人"
+        },
+        {
+          "it": "走 + 力",
+          "en": "走 + 力"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nks-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "家族 significa...",
+        "en": "家族 means..."
+      },
+      "options": [
+        {
+          "it": "famiglia",
+          "en": "famiglia"
+        },
+        {
+          "it": "scuola",
+          "en": "scuola"
+        },
+        {
+          "it": "ospedale",
+          "en": "ospedale"
+        },
+        {
+          "it": "settimana",
+          "en": "settimana"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nks-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale coppia significa 'forte / debole'?",
+        "en": "Which pair means 'strong / weak'?"
+      },
+      "options": [
+        {
+          "it": "強 / 弱",
+          "en": "強 / 弱"
+        },
+        {
+          "it": "長 / 短",
+          "en": "長 / 短"
+        },
+        {
+          "it": "重 / 軽",
+          "en": "重 / 軽"
+        },
+        {
+          "it": "新 / 古",
+          "en": "新 / 古"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nks-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "病院 significa...",
+        "en": "病院 means..."
+      },
+      "options": [
+        {
+          "it": "ospedale",
+          "en": "ospedale"
+        },
+        {
+          "it": "biblioteca",
+          "en": "biblioteca"
+        },
+        {
+          "it": "stazione",
+          "en": "stazione"
+        },
+        {
+          "it": "ufficio",
+          "en": "ufficio"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-nks-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "教",
+          "right": "insegnare / teach"
+        },
+        {
+          "left": "帰",
+          "right": "tornare / return"
+        },
+        {
+          "left": "朝",
+          "right": "mattina / morning"
+        },
+        {
+          "left": "週",
+          "right": "settimana / week"
+        },
+        {
+          "left": "遠",
+          "right": "lontano / far"
+        }
+      ],
+      "xp": 20
+    },
+    {
+      "id": "q-nks-match-2",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina le coppie di opposti.",
+        "en": "Match the opposite pairs."
+      },
+      "pairs": [
+        {
+          "left": "新",
+          "right": "古 (vecchio/old)"
+        },
+        {
+          "left": "多",
+          "right": "少 (pochi/few)"
+        },
+        {
+          "left": "近",
+          "right": "遠 (lontano/far)"
+        },
+        {
+          "left": "重",
+          "right": "軽 (leggero/light)"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Tutti i kanji N4",
+      "en": "All N4 kanji"
+    },
+    {
+      "it": "Coppie e composizioni",
+      "en": "Pairs and compositions"
+    }
+  ]
+}

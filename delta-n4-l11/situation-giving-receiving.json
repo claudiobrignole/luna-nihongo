@@ -1,0 +1,177 @@
+{
+  "id": "situation-giving-receiving",
+  "level": 11,
+  "order": 8,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · dare e ricevere regali",
+    "en": "Situation · giving & receiving gifts"
+  },
+  "description": {
+    "it": "Il sistema dare/ricevere in azione. Ascolta due amici parlare di un regalo: nota come usano くれる (verso di me) e あげる (verso fuori) a seconda di chi dà a chi. Poi scrivi di un regalo che hai ricevuto o dato, scegliendo il verbo giusto.",
+    "en": "The giving/receiving system in action. Listen to two friends talk about a gift: notice how they use くれる (toward me) and あげる (outward) depending on who gives to whom. Then write about a gift you received or gave, choosing the right verb."
+  },
+  "dialogueRefs": [
+    "dlg-gifts"
+  ],
+  "canDo": [
+    {
+      "id": "cando-giving",
+      "level": "A2",
+      "statement": {
+        "it": "So parlare di favori e regali con あげる/くれる/もらう.",
+        "en": "I can talk about favors and gifts with あげる/くれる/もらう."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-giving",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere di un regalo scegliendo il verbo di direzione giusto.",
+        "en": "I can write about a gift choosing the right directional verb."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "greetings-social",
+    "shopping"
+  ],
+  "prerequisites": [
+    "kanji-n4-adjectives"
+  ],
+  "grammarRefs": [
+    "gr-ageru-kureru-morau"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-sgr-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Me l'ha dato mio padre':",
+        "en": "'My dad gave it to me':"
+      },
+      "options": [
+        {
+          "it": "ちちがくれました",
+          "en": "ちちがくれました"
+        },
+        {
+          "it": "ちちにあげました",
+          "en": "ちちにあげました"
+        },
+        {
+          "it": "ちちがもらいました",
+          "en": "ちちがもらいました"
+        },
+        {
+          "it": "ちちにくれました",
+          "en": "ちちにくれました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sgr-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Ho dato un regalo a mia sorella':",
+        "en": "'I gave my sister a present':"
+      },
+      "options": [
+        {
+          "it": "いもうとにプレゼントをあげました",
+          "en": "いもうとにプレゼントをあげました"
+        },
+        {
+          "it": "いもうとがプレゼントをくれました",
+          "en": "いもうとがプレゼントをくれました"
+        },
+        {
+          "it": "いもうとにプレゼントをもらいました",
+          "en": "いもうとにプレゼントをもらいました"
+        },
+        {
+          "it": "いもうとがプレゼントをあげました",
+          "en": "いもうとがプレゼントをあげました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sgr-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi di un regalo che hai ricevuto o dato, usando くれる, あげる o もらう. Attento alla direzione! 1-2 frasi.",
+        "en": "Write about a gift you received or gave, using くれる, あげる or もらう. Mind the direction! 1-2 sentences."
+      },
+      "targetLength": {
+        "min": 12,
+        "max": 50
+      },
+      "rubric": [
+        {
+          "it": "Sceglie il verbo di direzione corretto (あげる/くれる/もらう).",
+          "en": "Chooses the correct directional verb."
+        },
+        {
+          "it": "La particella (に/が) è coerente col verbo.",
+          "en": "The particle (に/が) fits the verb."
+        },
+        {
+          "it": "Frase coerente e leggibile.",
+          "en": "Coherent, readable sentence."
+        }
+      ],
+      "modelAnswer": "たんじょうびに、ともだちがほんをくれました。",
+      "modelAnswerKana": "たんじょうびに、ともだちがほんをくれました。",
+      "modelAnswerRomaji": "tanjoubi ni, tomodachi ga hon o kuremashita.",
+      "modelAnswerTranslation": {
+        "it": "Per il compleanno, un amico mi ha dato un libro.",
+        "en": "For my birthday, a friend gave me a book."
+      },
+      "expectsGrammarRefs": [
+        "gr-ageru-kureru-morau"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-sgr-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e direzione.",
+        "en": "Match verb to direction."
+      },
+      "pairs": [
+        {
+          "left": "あげる",
+          "right": "verso fuori / outward"
+        },
+        {
+          "left": "くれる",
+          "right": "verso di me / toward me"
+        },
+        {
+          "left": "もらう",
+          "right": "io ricevo / I receive"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Direzione del favore in pratica",
+      "en": "Direction of favor in practice"
+    }
+  ]
+}
