@@ -3,7 +3,6 @@ import { X, ExternalLink } from 'lucide-react';
 import {
   KANJIVG_ATTRIBUTION,
   kanjiVgAttributionDetail,
-  kanjiVgAttributionLine,
 } from '../constants/kanjiVgAttribution';
 
 interface CreditsModalProps {
@@ -86,26 +85,5 @@ export function KanjiVgCreditLink({
         ? 'Stroke data: KanjiVG (CC-BY-SA 3.0)'
         : 'Dati tratti: KanjiVG (CC-BY-SA 3.0)'}
     </button>
-  );
-}
-
-export function FooterKanjiVgLine({
-  language,
-  onOpenCredits,
-}: {
-  language: 'it' | 'en';
-  onOpenCredits: () => void;
-}) {
-  return (
-    <p className="footer-kanjivg-line">
-      {kanjiVgAttributionLine(language)}{' '}
-      <a href={KANJIVG_ATTRIBUTION.repoUrl} target="_blank" rel="noopener noreferrer">
-        KanjiVG
-      </a>
-      {' · '}
-      <button type="button" className="footer-credits-link" onClick={onOpenCredits}>
-        {language === 'en' ? 'Credits' : 'Crediti'}
-      </button>
-    </p>
   );
 }

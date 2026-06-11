@@ -1,5 +1,5 @@
 import { ArrowRight, BookOpen, GraduationCap, MessageCircle, Sparkles, User } from 'lucide-react';
-import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import { CURRICULUM_LEVELS, CURRICULUM_META, SYLLABUS } from '../data/curriculum';
 import type { LunaUser } from '../types/user';
 import type { TabType, LanguageType } from './Header';
 
@@ -22,8 +22,8 @@ export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboardin
       title: language === 'en' ? 'Guided path' : 'Percorso guidato',
       desc:
         language === 'en'
-          ? '60 units from hiragana to N5 — choose your level and study at your pace.'
-          : '60 unità da hiragana a N5 — scegli il livello e studia al tuo ritmo.',
+          ? `${CURRICULUM_META.unitCount} units from hiragana through N5 and N4 — choose your level and study at your pace.`
+          : `${CURRICULUM_META.unitCount} unità da hiragana fino a N5 e N4 — scegli il livello e studia al tuo ritmo.`,
       action: () => onNavigate('path'),
       cta: language === 'en' ? 'Open Studio' : 'Apri Studio',
       color: 'var(--primary)',

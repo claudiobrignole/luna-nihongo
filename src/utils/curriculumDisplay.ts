@@ -132,7 +132,15 @@ export function checkQuizAnswer(
   return false;
 }
 
-export function unitTypeLabel(type: HydratedUnit['type'], language: Locale): string {
+export function unitTypeLabel(
+  type: HydratedUnit['type'],
+  language: Locale,
+  unitId?: string,
+): string {
+  if (unitId?.startsWith('writing-')) {
+    return language === 'it' ? 'scrittura' : 'writing';
+  }
+
   const labels: Record<HydratedUnit['type'], { it: string; en: string }> = {
     hiragana: { it: 'hiragana', en: 'hiragana' },
     katakana: { it: 'katakana', en: 'katakana' },

@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  CURRICULUM_LEVELS,
+  CURRICULUM_META,
+  getUnitsForLevel,
+  N5_MAX_LEVEL,
+} from '../data/curriculum';
 import type { HydratedUnit, Quiz } from '../types/curriculum';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
 import {
@@ -11,8 +16,8 @@ import {
 } from '../utils/curriculumDisplay';
 import { WritingQuizPanel } from './WritingQuizPanel';
 import { StrokeOrderQuizPanel } from './StrokeOrderQuizPanel';
-import { HubFilterStack, HubFilterGrid } from './HubFilterGrid';
 import type { WritingQuizExtended } from '../types/writingGrading';
+import type { SyllabusLevel } from '../types/curriculum';
 import {
   BookOpen,
   CheckCircle,
@@ -76,8 +81,27 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     clearSpeechFeedback,
   } = useJapaneseSpeech({ language });
 
-  const levelUnits = SYLLABUS.filter((u) => u.level === activeLevel);
+  const levelUnits = useMemo(() => getUnitsForLevel(activeLevel), [activeLevel]);
   const completedInLevel = levelUnits.filter((u) => completedUnits.includes(u.id)).length;
+
+  const levelGroups: { key: 'n5' | 'n4'; label: string; levels: SyllabusLevel[] }[] = useMemo(
+    () => [
+      {
+        key: 'n5',
+        label: language === 'en' ? 'JLPT N5' : 'JLPT N5',
+        levels: CURRICULUM_LEVELS.filter((lvl) => lvl.level <= N5_MAX_LEVEL),
+      },
+      {
+        key: 'n4',
+        label: language === 'en' ? 'JLPT N4' : 'JLPT N4',
+        levels: CURRICULUM_LEVELS.filter((lvl) => lvl.level > N5_MAX_LEVEL),
+      },
+    ],
+    [language],
+  );
+
+  const levelTabLabel = (lvl: SyllabusLevel) =>
+    lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, '');
 
   const handleUnitClick = (unit: HydratedUnit) => {
     if (guestMode) {
@@ -182,8 +206,8 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                 ? 'Browse all levels freely. Open a unit after free registration to study with audio.'
                 : 'Sfoglia tutti i livelli. Apri un\'unità dopo la registrazione gratuita per studiare con l\'audio.')
               : (language === 'en'
-                ? 'Pick a level — every unit is open. Practice with audio on each card.'
-                : 'Scegli un livello — tutte le unità sono aperte. Esercitati con l\'audio su ogni scheda.')}
+                ? `Pick a level — ${CURRICULUM_META.unitCount} units open (N5 + N4). Practice with audio on each card.`
+                : `Scegli un livello — ${CURRICULUM_META.unitCount} unità aperte (N5 + N4). Esercitati con l'audio su ogni scheda.`)}
           </p>
         </div>
         <div className="study-hub-header-actions">
@@ -199,24 +223,44 @@ export const LearningPath: React.FC<LearningPathProps> = ({
         </div>
       </header>
 
-      <HubFilterStack>
-        <HubFilterGrid
-          label={language === 'en' ? 'Level' : 'Livello'}
-          options={CURRICULUM_LEVELS.map((lvl) => ({
-            value: lvl.level,
-            label: lvl.title[language].replace(/^Livello \d+ · |^Level \d+ · /, ''),
-          }))}
-          value={activeLevel}
-          onChange={setActiveLevel}
-        />
-      </HubFilterStack>
+      <div className="study-level-groups glass-panel">
+        {levelGroups.map((group) => (
+          <div key={group.key} className="study-level-group">
+            <span className="study-level-group-label">{group.label}</span>
+            <div className="study-level-tabs" role="tablist" aria-label={group.label}>
+              {group.levels.map((lvl) => (
+                <button
+                  key={lvl.level}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeLevel === lvl.level}
+                  className={`study-level-tab ${activeLevel === lvl.level ? 'active' : ''}`}
+                  onClick={() => setActiveLevel(lvl.level)}
+                >
+                  {levelTabLabel(lvl)}
+                  <span className="study-level-tab-count">
+                    {getUnitsForLevel(lvl.level).length}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
       {activeLevelMeta && (
         <p className="study-level-desc">{activeLevelMeta.description[language]}</p>
       )}
 
       <div className="study-unit-grid">
-        {levelUnits.map((unit) => {
+        {levelUnits.length === 0 ? (
+          <p className="study-level-desc" style={{ gridColumn: '1 / -1' }}>
+            {language === 'en'
+              ? 'No units in this level. Run npm run curriculum:build and refresh.'
+              : 'Nessuna unità in questo livello. Esegui npm run curriculum:build e ricarica.'}
+          </p>
+        ) : null}
+        {levelUnits.map((unit, index) => {
           const completed = completedUnits.includes(unit.id);
           return (
             <button
@@ -225,8 +269,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({
               className={`study-unit-card glass-panel ${completed ? 'completed' : ''}`}
               onClick={() => handleUnitClick(unit)}
             >
+              <span className="study-unit-index">
+                {index + 1}/{levelUnits.length}
+              </span>
               <span className={`study-unit-type type-${unit.type}`}>
-                {unitTypeLabel(unit.type, language)}
+                {unitTypeLabel(unit.type, language, unit.id)}
               </span>
               <h3>{unit.title[language]}</h3>
               <p>{unit.description[language]}</p>
@@ -274,7 +321,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <span className={`study-unit-type type-${selectedUnit.type}`}>
-                {unitTypeLabel(selectedUnit.type, language)}
+                {unitTypeLabel(selectedUnit.type, language, selectedUnit.id)}
               </span>
               <button onClick={() => setSelectedUnit(null)} style={{ color: 'var(--text-muted)' }}>
                 <X size={24} />

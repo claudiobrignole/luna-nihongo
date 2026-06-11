@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Sparkles, X } from 'lucide-react';
-import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import { CURRICULUM_LEVELS, unitCountForLevel } from '../data/curriculum';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import type { LanguageType } from './Header';
 
@@ -28,8 +28,6 @@ export function Onboarding({
   const [step, setStep] = useState(startAtLevelStep ? 1 : 0);
   const [level, setLevel] = useState(initialLevel);
   const [marketingConsent, setMarketingConsent] = useState(false);
-
-  const unitCountForLevel = (lvl: number) => SYLLABUS.filter((u) => u.level === lvl).length;
 
   const closeButton = onClose ? (
     <button

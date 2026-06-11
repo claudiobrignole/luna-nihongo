@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { BookingPreview } from './BookingPreview';
 import type { LanguageType } from './Header';
+import { CURRICULUM_META } from '../data/curriculum';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import { formatEmailCallableError, subscribeNewsletter } from '../services/emailService';
 
@@ -92,11 +93,15 @@ export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLa
       <section className="marketing-features">
         <article className="glass-panel marketing-feature-card">
           <BookOpen size={22} style={{ color: 'var(--primary)' }} />
-          <h3>{language === 'en' ? '60 guided units' : '60 unità guidate'}</h3>
+          <h3>
+            {language === 'en'
+              ? `${CURRICULUM_META.unitCount} guided units`
+              : `${CURRICULUM_META.unitCount} unità guidate`}
+          </h3>
           <p>
             {language === 'en'
-              ? 'Hiragana, katakana, kanji, grammar & review — with audio and quizzes. Free with registration.'
-              : 'Hiragana, katakana, kanji, grammatica e ripasso — con audio e quiz. Gratuito con registrazione.'}
+              ? 'Hiragana through JLPT N5 and N4 — kanji, grammar, dialogues & review with audio and quizzes. Free with registration.'
+              : 'Hiragana fino a JLPT N5 e N4 — kanji, grammatica, dialoghi e ripasso con audio e quiz. Gratuito con registrazione.'}
           </p>
         </article>
         <article className="glass-panel marketing-feature-card">

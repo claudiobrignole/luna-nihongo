@@ -14,7 +14,7 @@ import { Onboarding } from './components/Onboarding';
 import { PublicLanding } from './components/PublicLanding';
 import { AuthPage } from './components/AuthPage';
 import { RegisterPrompt } from './components/RegisterPrompt';
-import { CreditsModal, FooterKanjiVgLine } from './components/CreditsModal';
+import { CreditsModal } from './components/CreditsModal';
 import { BookingPreview } from './components/BookingPreview';
 import { GuestTutorPreview } from './components/GuestTutorPreview';
 import { GuestFlashcardsPreview } from './components/GuestFlashcardsPreview';
@@ -332,7 +332,6 @@ function App() {
         <footer className="main-footer">
           <div className="footer-content">
             <div>© {new Date().getFullYear()} <strong>Luna Nihongo</strong>. All rights reserved.</div>
-            <FooterKanjiVgLine language={language} onOpenCredits={() => setCreditsOpen(true)} />
           </div>
         </footer>
       </div>
@@ -529,7 +528,6 @@ function App() {
               ? 'Empowering Japanese learners through spaced repetition and AI tutoring.'
               : 'Aiutiamo gli studenti a imparare il giapponese con AI e ripasso spaziato.'}
           </div>
-          <FooterKanjiVgLine language={language} onOpenCredits={() => setCreditsOpen(true)} />
         </div>
       </footer>
     </div>
