@@ -1,0 +1,141 @@
+{
+  "id": "grammar-toki",
+  "level": 9,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜とき (quando)",
+    "en": "Grammar · ~toki (when)"
+  },
+  "description": {
+    "it": "〜とき indica 'quando' / 'al momento di': にほんへいくとき、カメラをかいました ('quando sono andato in Giappone, ho comprato una macchina fotografica'). La frase prima di とき è in forma piana. Attenzione al tempo: いくとき (prima/durante l'andare) vs いったとき (dopo essere andato) cambiano il significato. È diverso dal 'when' inglese perché il tempo del verbo prima di とき indica la sequenza degli eventi.",
+    "en": "〜とき indicates 'when' / 'at the time of': にほんへいくとき、カメラをかいました ('when I went to Japan, I bought a camera'). The clause before とき is in plain form. Mind the tense: いくとき (before/during going) vs いったとき (after going) change the meaning. It differs from English 'when' because the tense of the verb before とき indicates the sequence of events."
+  },
+  "grammarRefs": [
+    "gr-toki"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-to-omou-to-iu"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gtk2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La frase prima di とき è in...",
+        "en": "The clause before とき is in..."
+      },
+      "options": [
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "forma -ます",
+          "en": "forma -ます"
+        },
+        {
+          "it": "forma -て",
+          "en": "forma -て"
+        },
+        {
+          "it": "forma cortese",
+          "en": "forma cortese"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "いくとき e いったとき differiscono per...",
+        "en": "いくとき and いったとき differ in..."
+      },
+      "options": [
+        {
+          "it": "il momento dell'azione (prima/dopo)",
+          "en": "il momento dell'azione (prima/dopo)"
+        },
+        {
+          "it": "il soggetto",
+          "en": "il soggetto"
+        },
+        {
+          "it": "la cortesia",
+          "en": "la cortesia"
+        },
+        {
+          "it": "il luogo",
+          "en": "il luogo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Quando ero bambino' (nome/aggettivo):",
+        "en": "'When I was a child':"
+      },
+      "options": [
+        {
+          "it": "こどものとき",
+          "en": "こどものとき"
+        },
+        {
+          "it": "こどもがとき",
+          "en": "こどもがとき"
+        },
+        {
+          "it": "こどもにとき",
+          "en": "こどもにとき"
+        },
+        {
+          "it": "こどもとき",
+          "en": "こどもとき"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina e nota il tempo.",
+        "en": "Match and note the tense."
+      },
+      "pairs": [
+        {
+          "left": "いくとき",
+          "right": "quando vado / when going"
+        },
+        {
+          "left": "いったとき",
+          "right": "quando sono andato / after going"
+        },
+        {
+          "left": "ひまなとき",
+          "right": "quando sono libero / when free"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜とき + forma piana",
+      "en": "〜とき + plain form"
+    },
+    {
+      "it": "Tempo: いくとき vs いったとき",
+      "en": "Tense: いくとき vs いったとき"
+    }
+  ]
+}

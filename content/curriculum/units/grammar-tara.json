@@ -1,0 +1,145 @@
+{
+  "id": "grammar-tara",
+  "level": 10,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il condizionale 〜たら",
+    "en": "Grammar · the 〜tara conditional"
+  },
+  "description": {
+    "it": "〜たら è il condizionale più versatile: 'se / quando' A, allora B. Si forma dalla forma -た + ら: たべたら, いったら, さむかったら. Vale per condizioni ipotetiche (おかねがあったら、かいます = 'se avessi soldi, comprerei') e per 'quando' con eventi futuri completati (うちにかえったら、でんわします = 'quando torno a casa, telefono'). A differenza di 〜と, dopo 〜たら puoi mettere richieste, inviti, comandi. È quello da usare se hai un dubbio su quale condizionale scegliere.",
+    "en": "〜たら is the most versatile conditional: 'if / when' A, then B. Formed from the -ta form + ら: たべたら, いったら, さむかったら. It works for hypothetical conditions (おかねがあったら、かいます = 'if I had money, I'd buy it') and for 'when' with completed future events (うちにかえったら、でんわします = 'when I get home, I'll call'). Unlike 〜と, after 〜たら you can put requests, invitations, commands. It's the one to use when unsure which conditional to pick."
+  },
+  "grammarRefs": [
+    "gr-tara"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "n4-level9-review"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gta-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Come si forma 〜たら?",
+        "en": "How is 〜たら formed?"
+      },
+      "options": [
+        {
+          "it": "forma -た + ら",
+          "en": "forma -た + ら"
+        },
+        {
+          "it": "forma del dizionario + ら",
+          "en": "forma del dizionario + ら"
+        },
+        {
+          "it": "forma -ない + ら",
+          "en": "forma -ない + ら"
+        },
+        {
+          "it": "radice -ます + ら",
+          "en": "radice -ます + ら"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gta-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Quando torno a casa, telefono':",
+        "en": "'When I get home, I'll call':"
+      },
+      "options": [
+        {
+          "it": "うちにかえったら、でんわします",
+          "en": "うちにかえったら、でんわします"
+        },
+        {
+          "it": "うちにかえると、でんわします",
+          "en": "うちにかえると、でんわします"
+        },
+        {
+          "it": "うちにかえれば、でんわします",
+          "en": "うちにかえれば、でんわします"
+        },
+        {
+          "it": "うちにかえるなら、でんわします",
+          "en": "うちにかえるなら、でんわします"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gta-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa puoi mettere dopo 〜たら ma NON dopo 〜と?",
+        "en": "What can follow 〜たら but NOT 〜と?"
+      },
+      "options": [
+        {
+          "it": "richieste/inviti/comandi",
+          "en": "richieste/inviti/comandi"
+        },
+        {
+          "it": "nomi",
+          "en": "nomi"
+        },
+        {
+          "it": "aggettivi",
+          "en": "aggettivi"
+        },
+        {
+          "it": "numeri",
+          "en": "numeri"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gta-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma たら.",
+        "en": "Match verb to tara form."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべたら"
+        },
+        {
+          "left": "いく",
+          "right": "いったら"
+        },
+        {
+          "left": "のむ",
+          "right": "のんだら"
+        },
+        {
+          "left": "する",
+          "right": "したら"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜たら versatile",
+      "en": "〜たら versatile"
+    },
+    {
+      "it": "〜たら + richieste/comandi",
+      "en": "〜たら + requests/commands"
+    }
+  ]
+}

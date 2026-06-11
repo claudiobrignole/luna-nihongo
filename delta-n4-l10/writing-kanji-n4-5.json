@@ -1,0 +1,197 @@
+{
+  "id": "writing-kanji-n4-5",
+  "level": 10,
+  "order": 10,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (5)",
+    "en": "Writing · tracing N4 kanji (5)"
+  },
+  "description": {
+    "it": "Traccia i kanji di tempo e quantità del Livello 10: 親朝昼夜曜週新古多少. Osserva i radicali ricorrenti (日 'sole' in 朝昼曜) — riconoscerli rende più facile scriverli.",
+    "en": "Trace the time-and-quantity kanji of Level 10: 親朝昼夜曜週新古多少. Notice the recurring radicals (日 'sun' in 朝昼曜) — spotting them makes writing easier."
+  },
+  "kanjiRefs": [
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai"
+  ],
+  "prerequisites": [
+    "kanji-n4-time-quantity"
+  ],
+  "canDo": [
+    {
+      "id": "cando-writing-kanji-n4-5",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano questi kanji rispettando l'ordine dei tratti.",
+        "en": "I can hand-write these kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wk4-5-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 親 (genitore) seguendo l'ordine dei tratti.",
+        "en": "Trace 親 (parent) following the stroke order."
+      },
+      "targetItemId": "kanji-oya",
+      "japanese": "親",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 朝 (mattina) seguendo l'ordine dei tratti.",
+        "en": "Trace 朝 (morning) following the stroke order."
+      },
+      "targetItemId": "kanji-asa-k",
+      "japanese": "朝",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 昼 (mezzogiorno / giorno) seguendo l'ordine dei tratti.",
+        "en": "Trace 昼 (noon / daytime) following the stroke order."
+      },
+      "targetItemId": "kanji-hiru",
+      "japanese": "昼",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 夜 (notte) seguendo l'ordine dei tratti.",
+        "en": "Trace 夜 (night) following the stroke order."
+      },
+      "targetItemId": "kanji-yoru",
+      "japanese": "夜",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 曜 (giorno della settimana) seguendo l'ordine dei tratti.",
+        "en": "Trace 曜 (day of week) following the stroke order."
+      },
+      "targetItemId": "kanji-you",
+      "japanese": "曜",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-6",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 週 (settimana) seguendo l'ordine dei tratti.",
+        "en": "Trace 週 (week) following the stroke order."
+      },
+      "targetItemId": "kanji-shuu",
+      "japanese": "週",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-7",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 新 (nuovo) seguendo l'ordine dei tratti.",
+        "en": "Trace 新 (new) following the stroke order."
+      },
+      "targetItemId": "kanji-atarashii-k",
+      "japanese": "新",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-8",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 古 (vecchio) seguendo l'ordine dei tratti.",
+        "en": "Trace 古 (old) following the stroke order."
+      },
+      "targetItemId": "kanji-furui",
+      "japanese": "古",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-9",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 多 (molti) seguendo l'ordine dei tratti.",
+        "en": "Trace 多 (many) following the stroke order."
+      },
+      "targetItemId": "kanji-ooi",
+      "japanese": "多",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-stroke-10",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 少 (pochi) seguendo l'ordine dei tratti.",
+        "en": "Trace 少 (few) following the stroke order."
+      },
+      "targetItemId": "kanji-sukunai",
+      "japanese": "少",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-5-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta a...",
+        "en": "Tracing kanji helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più in fretta",
+          "en": "leggere più in fretta"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti kanji",
+      "en": "Kanji stroke order"
+    }
+  ]
+}

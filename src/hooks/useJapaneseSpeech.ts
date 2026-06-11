@@ -35,7 +35,7 @@ interface SpeechRecognitionLike {
 export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
   const [speechFeedback, setSpeechFeedback] = useState<SpeechFeedback | null>(null);
   const [activeMicItemId, setActiveMicItemId] = useState<string | null>(null);
-  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [speakingItemId, setSpeakingItemId] = useState<string | null>(null);
   const [lastTtsSource, setLastTtsSource] = useState<TTSSource | null>(null);
 
   const clearSpeechFeedback = useCallback(() => {
@@ -44,7 +44,8 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
   }, []);
 
   const speakJapanese = useCallback(async (text: string, itemId = '_audio') => {
-    setIsSpeaking(true);
+    stopJapaneseSpeech();
+    setSpeakingItemId(itemId);
     clearSpeechFeedback();
     try {
       const result = await speakJapaneseText(text, language);
@@ -63,7 +64,7 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
         });
       }
     } finally {
-      setIsSpeaking(false);
+      setSpeakingItemId((current) => (current === itemId ? null : current));
     }
   }, [language, clearSpeechFeedback]);
 
@@ -200,7 +201,7 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
     startSpeechRecognition,
     speechFeedback,
     activeMicItemId,
-    isSpeaking,
+    speakingItemId,
     lastTtsSource,
     clearSpeechFeedback,
   };

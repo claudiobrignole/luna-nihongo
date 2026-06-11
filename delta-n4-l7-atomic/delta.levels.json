@@ -1,0 +1,70 @@
+{
+  "levels": [
+    {
+      "level": 7,
+      "title": {
+        "it": "Livello 7 · Forma piana e frasi complesse",
+        "en": "Level 7 · Plain form & complex sentences"
+      },
+      "description": {
+        "it": "Il primo grande passo dell'N4: la forma piana (dizionario, -ない, -た), il ～んです per spiegare, e le frasi relative per descrivere un nome con un'intera frase. È la base su cui poggia tutto il resto dell'N4.",
+        "en": "The first big step of N4: the plain form (dictionary, -nai, -ta), ～n desu for explaining, and relative clauses to describe a noun with a whole sentence. It's the base the rest of N4 rests on."
+      }
+    },
+    {
+      "level": 8,
+      "title": {
+        "it": "Livello 8 · Potenziale, esperienze e paragoni",
+        "en": "Level 8 · Potential, experiences & comparison"
+      },
+      "description": {
+        "it": "Saper fare qualcosa (forma potenziale), proporre (volitivo), raccontare esperienze (～たことがある), elencare azioni (～たり) e confrontare (より, ～のほうが, いちばん).",
+        "en": "Being able to do something (potential), suggesting (volitional), telling experiences (～たことがある), listing actions (～たり) and comparing (より, ～のほうが, いちばん)."
+      }
+    },
+    {
+      "level": 9,
+      "title": {
+        "it": "Livello 9 · Pensieri, opinioni e supposizioni",
+        "en": "Level 9 · Thoughts, opinions & guesses"
+      },
+      "description": {
+        "it": "Esprimere ciò che pensi e citare (～と思う, ～と言う), dire 'quando' (～とき), e fare supposizioni (～でしょう, ～かもしれません, ～そうです).",
+        "en": "Expressing what you think and quoting (～と思う, ～と言う), saying 'when' (～とき), and making guesses (～でしょう, ～かもしれません, ～そうです)."
+      }
+    },
+    {
+      "level": 10,
+      "title": {
+        "it": "Livello 10 · Condizioni e obblighi",
+        "en": "Level 10 · Conditions & obligations"
+      },
+      "description": {
+        "it": "I condizionali (～たら, ～と, ～ば, ～なら), il dovere e il non-dovere (～なければなりません, ～なくてもいいです), e le sfumature dell'azione (～てしまう, ～ておく, ～てみる).",
+        "en": "The conditionals (～たら, ～と, ～ば, ～なら), must and need-not (～なければなりません, ～なくてもいいです), and action nuances (～てしまう, ～ておく, ～てみる)."
+      }
+    },
+    {
+      "level": 11,
+      "title": {
+        "it": "Livello 11 · Dare, ricevere e cortesia",
+        "en": "Level 11 · Giving, receiving & politeness"
+      },
+      "description": {
+        "it": "Il sistema giapponese di dare e ricevere (あげる, くれる, もらう), il causativo (～させる), il passivo (～られる), causa e contrasto (～ので, ～のに), lo scopo (～ために, ～ように) e le basi del keigo.",
+        "en": "The Japanese giving-and-receiving system (あげる, くれる, もらう), the causative (～させる), the passive (～られる), cause and contrast (～ので, ～のに), purpose (～ために, ～ように) and the basics of keigo."
+      }
+    },
+    {
+      "level": 12,
+      "title": {
+        "it": "Livello 12 · Verso N4 — sintesi",
+        "en": "Level 12 · Toward N4 — synthesis"
+      },
+      "description": {
+        "it": "Ripasso integrale e simulazione N4: la forma piana, i condizionali, dare/ricevere, keigo, i kanji e il vocabolario N4 messi alla prova insieme, in stile esame.",
+        "en": "Full review and N4 mock test: plain form, conditionals, giving/receiving, keigo, N4 kanji and vocabulary tested together, exam style."
+      }
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "kanji-n4-time-quantity",
+  "level": 10,
+  "order": 7,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · tempo e quantità N4",
+    "en": "Kanji · time & quantity N4"
+  },
+  "description": {
+    "it": "Kanji del tempo e della quantità: 親 (genitore), 朝 (mattina), 昼 (mezzogiorno), 夜 (notte), 曜 (giorno della settimana), 週 (settimana), più due coppie di opposti: 新/古 (nuovo/vecchio) e 多/少 (molti/pochi). 朝昼夜 coprono le parti del giorno; 曜 lo trovi nei nomi dei giorni (げつようび ecc.).",
+    "en": "Kanji of time and quantity: 親 (parent), 朝 (morning), 昼 (noon), 夜 (night), 曜 (day of the week), 週 (week), plus two opposite pairs: 新/古 (new/old) and 多/少 (many/few). 朝昼夜 cover the parts of the day; 曜 appears in weekday names (げつようび etc.)."
+  },
+  "kanjiRefs": [
+    "kanji-oya",
+    "kanji-asa-k",
+    "kanji-hiru",
+    "kanji-yoru",
+    "kanji-you",
+    "kanji-shuu",
+    "kanji-atarashii-k",
+    "kanji-furui",
+    "kanji-ooi",
+    "kanji-sukunai"
+  ],
+  "prerequisites": [
+    "grammar-te-shimau-oku-miru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn4tq-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "朝, 昼, 夜 indicano...",
+        "en": "朝, 昼, 夜 indicate..."
+      },
+      "options": [
+        {
+          "it": "mattina, mezzogiorno, notte",
+          "en": "mattina, mezzogiorno, notte"
+        },
+        {
+          "it": "ieri, oggi, domani",
+          "en": "ieri, oggi, domani"
+        },
+        {
+          "it": "primavera, estate, inverno",
+          "en": "primavera, estate, inverno"
+        },
+        {
+          "it": "ora, minuto, secondo",
+          "en": "ora, minuto, secondo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4tq-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "新 e 古 sono una coppia. Cosa significano?",
+        "en": "新 and 古 are a pair. What do they mean?"
+      },
+      "options": [
+        {
+          "it": "nuovo / vecchio",
+          "en": "nuovo / vecchio"
+        },
+        {
+          "it": "molti / pochi",
+          "en": "molti / pochi"
+        },
+        {
+          "it": "mattina / notte",
+          "en": "mattina / notte"
+        },
+        {
+          "it": "genitore / figlio",
+          "en": "genitore / figlio"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4tq-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "多 e 少 significano...",
+        "en": "多 and 少 mean..."
+      },
+      "options": [
+        {
+          "it": "molti / pochi",
+          "en": "molti / pochi"
+        },
+        {
+          "it": "grande / piccolo",
+          "en": "grande / piccolo"
+        },
+        {
+          "it": "nuovo / vecchio",
+          "en": "nuovo / vecchio"
+        },
+        {
+          "it": "alto / basso",
+          "en": "alto / basso"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4tq-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "親",
+          "right": "genitore / parent"
+        },
+        {
+          "left": "週",
+          "right": "settimana / week"
+        },
+        {
+          "left": "曜",
+          "right": "giorno della settimana / weekday"
+        },
+        {
+          "left": "新",
+          "right": "nuovo / new"
+        },
+        {
+          "left": "多",
+          "right": "molti / many"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "朝昼夜 parti del giorno",
+      "en": "朝昼夜 parts of day"
+    },
+    {
+      "it": "Coppie 新/古, 多/少",
+      "en": "Pairs 新/古, 多/少"
+    }
+  ]
+}

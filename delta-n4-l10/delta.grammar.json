@@ -1,0 +1,400 @@
+{
+  "grammar": [
+    {
+      "id": "gr-tara",
+      "title": {
+        "it": "〜たら — 'se/quando' (la condizionale universale)",
+        "en": "〜たら — 'if/when' (the all-round conditional)"
+      },
+      "explanation": {
+        "it": "La condizionale più versatile: forma -た + ら. 雨がふったら、うちにいます = 'se piove, sto a casa'. Vale per ipotesi (se), e anche per sequenze certe (quando/una volta che): 日本に着いたら、電話します = 'quando arrivo in Giappone, ti chiamo'.\n\nFunziona con tutto: verbi (行ったら), aggettivi -い (安かったら 'se costa poco'), -な e nomi (ひまだったら, 雨だったら). Spesso accompagnata da もし in apertura per segnalare l'ipotesi: もし時間があったら... ('se avessi tempo...').\n\nSe devi scegliere UNA condizionale da padroneggiare per l'N4, è questa.",
+        "en": "The most versatile conditional: -ta form + ら. 雨がふったら、うちにいます = 'if it rains, I'll stay home'. It covers hypotheses (if) and certain sequences (when/once): 日本に着いたら、電話します = 'when I arrive in Japan, I'll call you'.\n\nIt works with everything: verbs (行ったら), i-adjectives (安かったら 'if it's cheap'), na-adjectives and nouns (ひまだったら, 雨だったら). Often paired with もし at the start to flag the hypothesis: もし時間があったら... ('if I had time...').\n\nIf you master ONE conditional for N4, make it this one."
+      },
+      "examples": [
+        {
+          "japanese": "雨が ふったら、うちに います。",
+          "romaji": "ame ga futtara, uchi ni imasu.",
+          "translation": {
+            "it": "Se piove, resto a casa.",
+            "en": "If it rains, I'll stay home."
+          }
+        },
+        {
+          "japanese": "日本に 着いたら、電話します。",
+          "romaji": "nihon ni tsuitara, denwa shimasu.",
+          "translation": {
+            "it": "Quando arrivo in Giappone, chiamo.",
+            "en": "When I arrive in Japan, I'll call."
+          }
+        },
+        {
+          "japanese": "安かったら、買います。",
+          "romaji": "yasukattara, kaimasu.",
+          "translation": {
+            "it": "Se costa poco, lo compro.",
+            "en": "If it's cheap, I'll buy it."
+          }
+        },
+        {
+          "japanese": "もし ひまだったら、来てください。",
+          "romaji": "moshi hima dattara, kite kudasai.",
+          "translation": {
+            "it": "Se sei libero, vieni.",
+            "en": "If you're free, please come."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-to-conditional",
+      "title": {
+        "it": "Il condizionale 〜と (conseguenza automatica)",
+        "en": "The 〜と conditional (automatic result)"
+      },
+      "explanation": {
+        "it": "〜と esprime una conseguenza naturale e automatica: ogni volta che A, allora B, senza eccezioni. はるになると、さくらがさきます ('quando arriva la primavera, fioriscono i ciliegi'). Si attacca alla forma piana presente. È tipico di leggi di natura, meccanismi, istruzioni e percorsi: このボタンをおすと、きっぷがでます ('se premi questo bottone, esce il biglietto'). Limite importante: dopo 〜と non si possono usare comandi, richieste o inviti — solo conseguenze fattuali. Per quelle usa 〜たら o 〜ば.",
+        "en": "〜と expresses a natural, automatic result: whenever A, then B, no exceptions. はるになると、さくらがさきます ('when spring comes, the cherry trees bloom'). It attaches to the plain present. It's typical of natural laws, mechanisms, instructions and directions: このボタンをおすと、きっぷがでます ('if you press this button, a ticket comes out'). Important limit: after 〜と you can't use commands, requests or invitations — only factual consequences. For those use 〜たら or 〜ば."
+      },
+      "examples": [
+        {
+          "japanese": "はるになると、さくらがさきます。",
+          "romaji": "haru ni naru to, sakura ga sakimasu.",
+          "translation": {
+            "it": "Quando arriva la primavera, fioriscono i ciliegi.",
+            "en": "When spring comes, cherry trees bloom."
+          },
+          "note": {
+            "it": "Conseguenza naturale.",
+            "en": "Natural result."
+          }
+        },
+        {
+          "japanese": "このボタンをおすと、きっぷがでます。",
+          "romaji": "kono botan o osu to, kippu ga demasu.",
+          "translation": {
+            "it": "Se premi questo bottone, esce il biglietto.",
+            "en": "Press this button and a ticket comes out."
+          },
+          "note": {
+            "it": "Meccanismo.",
+            "en": "Mechanism."
+          }
+        },
+        {
+          "japanese": "まっすぐいくと、えきがあります。",
+          "romaji": "massugu iku to, eki ga arimasu.",
+          "translation": {
+            "it": "Andando dritto, c'è la stazione.",
+            "en": "Go straight and there's the station."
+          },
+          "note": {
+            "it": "Indicazioni stradali.",
+            "en": "Directions."
+          }
+        },
+        {
+          "japanese": "べんきょうしないと、わかりません。",
+          "romaji": "benkyou shinai to, wakarimasen.",
+          "translation": {
+            "it": "Se non studi, non capisci.",
+            "en": "If you don't study, you won't understand."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-ba",
+        "gr-nara"
+      ]
+    },
+    {
+      "id": "gr-ba",
+      "title": {
+        "it": "Il condizionale 〜ば (se ipotetico)",
+        "en": "The 〜ば conditional (hypothetical if)"
+      },
+      "explanation": {
+        "it": "〜ば esprime una condizione ipotetica generale: 'se A, allora B'. やすければ、かいます ('se è economico, lo compro'). Formazione: verbi gruppo 1 cambiano la -u finale in -eba (いく → いけば, のむ → のめば); gruppo 2: -る → -れば (たべる → たべれば); aggettivi -い: -い → -ければ (やすい → やすければ); する → すれば, くる → くれば. È spesso usato per dare consigli (〜ばいい = 'basta che...') e per ipotesi. A differenza di 〜と, ammette anche conseguenze non automatiche.",
+        "en": "〜ば expresses a general hypothetical condition: 'if A, then B'. やすければ、かいます ('if it's cheap, I'll buy it'). Formation: group 1 verbs change final -u to -eba (いく → いけば, のむ → のめば); group 2: -る → -れば (たべる → たべれば); i-adjectives: -い → -ければ (やすい → やすければ); する → すれば, くる → くれば. Often used for advice (〜ばいい = 'you just have to...') and hypotheses. Unlike 〜と, it allows non-automatic results too."
+      },
+      "examples": [
+        {
+          "japanese": "やすければ、かいます。",
+          "romaji": "yasukereba, kaimasu.",
+          "translation": {
+            "it": "Se è economico, lo compro.",
+            "en": "If it's cheap, I'll buy it."
+          },
+          "note": {
+            "it": "Aggettivo -い: -ければ.",
+            "en": "i-adjective: -ければ."
+          }
+        },
+        {
+          "japanese": "いけば、わかります。",
+          "romaji": "ikeba, wakarimasu.",
+          "translation": {
+            "it": "Se vai, capisci.",
+            "en": "If you go, you'll understand."
+          },
+          "note": {
+            "it": "Verbo gruppo 1: -u → -eba.",
+            "en": "Group 1 verb: -u → -eba."
+          }
+        },
+        {
+          "japanese": "どうすればいいですか。",
+          "romaji": "dou sureba ii desu ka.",
+          "translation": {
+            "it": "Cosa dovrei fare? (lett. 'come facendo va bene?')",
+            "en": "What should I do?"
+          },
+          "note": {
+            "it": "〜ばいい per consigli/domande.",
+            "en": "〜ばいい for advice/questions."
+          }
+        },
+        {
+          "japanese": "やすければやすいほどいい。",
+          "romaji": "yasukereba yasui hodo ii.",
+          "translation": {
+            "it": "Più è economico, meglio è.",
+            "en": "The cheaper, the better."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-to-conditional",
+        "gr-nara"
+      ]
+    },
+    {
+      "id": "gr-nara",
+      "title": {
+        "it": "Il condizionale 〜なら (se è il caso che)",
+        "en": "The 〜なら conditional (if it's the case that)"
+      },
+      "explanation": {
+        "it": "〜なら introduce una condizione basata su un'informazione data o sul contesto: 'se (è vero che) A, allora...'. にほんへいくなら、きょうとがいいですよ ('se vai in Giappone, Kyoto è una buona idea'). Spesso risponde o reagisce a qualcosa che l'altro ha appena detto o a una premessa nota. Si attacca al nome o alla forma piana. La differenza chiave: 〜なら mette la condizione come 'dato/presupposto', mentre たら/ば/と guardano alla sequenza o all'automatismo degli eventi.",
+        "en": "〜なら introduces a condition based on given information or context: 'if (it's true that) A, then...'. にほんへいくなら、きょうとがいいですよ ('if you're going to Japan, Kyoto is a good idea'). It often responds to something the other person just said or to a known premise. It attaches to a noun or the plain form. The key difference: 〜なら frames the condition as 'given/assumed', while たら/ば/と look at the sequence or automatic nature of events."
+      },
+      "examples": [
+        {
+          "japanese": "にほんへいくなら、きょうとがいいですよ。",
+          "romaji": "nihon e iku nara, kyouto ga ii desu yo.",
+          "translation": {
+            "it": "Se vai in Giappone, Kyoto è una buona idea.",
+            "en": "If you're going to Japan, Kyoto is good."
+          },
+          "note": {
+            "it": "Reagisce a un'informazione data.",
+            "en": "Responds to given info."
+          }
+        },
+        {
+          "japanese": "さむいなら、まどをしめます。",
+          "romaji": "samui nara, mado o shimemasu.",
+          "translation": {
+            "it": "Se hai freddo, chiudo la finestra.",
+            "en": "If you're cold, I'll close the window."
+          }
+        },
+        {
+          "japanese": "くるまでいくなら、わたしものせてください。",
+          "romaji": "kuruma de iku nara, watashi mo nosete kudasai.",
+          "translation": {
+            "it": "Se vai in macchina, dai un passaggio anche a me.",
+            "en": "If you're going by car, give me a ride too."
+          },
+          "note": {
+            "it": "Condizione presupposta + richiesta.",
+            "en": "Assumed condition + request."
+          }
+        },
+        {
+          "japanese": "にほんごなら、すこしわかります。",
+          "romaji": "nihongo nara, sukoshi wakarimasu.",
+          "translation": {
+            "it": "Quanto al giapponese, ne capisco un po'.",
+            "en": "As for Japanese, I understand a little."
+          },
+          "note": {
+            "it": "Nome + なら (tema/contesto).",
+            "en": "Noun + なら (topic/context)."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-ba",
+        "gr-to-conditional"
+      ]
+    },
+    {
+      "id": "gr-nakereba-naranai",
+      "title": {
+        "it": "〜なければなりません — dovere / obbligo",
+        "en": "~nakereba narimasen — must / obligation"
+      },
+      "explanation": {
+        "it": "Per esprimere un obbligo ('devo, bisogna'): やくそくをまもらなければなりません ('devo mantenere la promessa'). Si parte dalla forma -ない, si toglie -ない e si aggiunge -なければなりません. のむ → のまない → のまなければなりません. Letteralmente 'se non lo faccio, non va bene', quindi 'devo'. Varianti comuni: 〜なきゃ (informale), 〜なければいけません. È lungo da dire ma frequentissimo: vale la pena automatizzarlo.",
+        "en": "To express obligation ('I must, one has to'): やくそくをまもらなければなりません ('I must keep the promise'). Start from the -nai form, drop -ない and add -なければなりません. のむ → のまない → のまなければなりません. Literally 'if I don't do it, it won't do', hence 'I must'. Common variants: 〜なきゃ (casual), 〜なければいけません. It's long to say but very frequent: worth automating."
+      },
+      "examples": [
+        {
+          "japanese": "くすりをのまなければなりません。",
+          "romaji": "kusuri o nomanakereba narimasen.",
+          "translation": {
+            "it": "Devo prendere la medicina.",
+            "en": "I must take the medicine."
+          },
+          "note": {
+            "it": "-ない → -なければなりません.",
+            "en": "-nai → -なければなりません."
+          }
+        },
+        {
+          "japanese": "いかなければなりません。",
+          "romaji": "ikanakereba narimasen.",
+          "translation": {
+            "it": "Devo andare.",
+            "en": "I have to go."
+          }
+        },
+        {
+          "japanese": "べんきょうしなければなりません。",
+          "romaji": "benkyou shinakereba narimasen.",
+          "translation": {
+            "it": "Devo studiare.",
+            "en": "I must study."
+          },
+          "note": {
+            "it": "する → しなければ.",
+            "en": "する → しなければ."
+          }
+        },
+        {
+          "japanese": "もう、いかなきゃ。",
+          "romaji": "mou, ikanakya.",
+          "translation": {
+            "it": "Devo andare ormai.",
+            "en": "I gotta go now."
+          },
+          "note": {
+            "it": "〜なきゃ informale.",
+            "en": "〜なきゃ casual."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-nakutemo-ii",
+        "gr-nai-form"
+      ]
+    },
+    {
+      "id": "gr-nakutemo-ii",
+      "title": {
+        "it": "〜なくてもいいです — non è necessario",
+        "en": "~nakutemo ii desu — don't have to"
+      },
+      "explanation": {
+        "it": "L'opposto dell'obbligo: 'non c'è bisogno di, non devi'. あした、こなくてもいいです ('domani non c'è bisogno che tu venga'). Si parte dalla forma -ない, si toglie -い e si aggiunge -くてもいいです. のむ → のまない → のまなくてもいいです. È la risposta naturale a 〜なければなりません: l'una dice 'devo', l'altra 'non devo / non serve'. Da non confondere con 〜てはいけません (divieto: 'non devi assolutamente').",
+        "en": "The opposite of obligation: 'you don't need to, you don't have to'. あした、こなくてもいいです ('you don't have to come tomorrow'). Start from the -nai form, drop -い and add -くてもいいです. のむ → のまない → のまなくてもいいです. It's the natural counterpart to 〜なければなりません: one says 'must', the other 'don't have to / no need'. Don't confuse it with 〜てはいけません (prohibition: 'you must not')."
+      },
+      "examples": [
+        {
+          "japanese": "こなくてもいいです。",
+          "romaji": "konakutemo ii desu.",
+          "translation": {
+            "it": "Non c'è bisogno che tu venga.",
+            "en": "You don't have to come."
+          },
+          "note": {
+            "it": "-ない → -なくてもいい.",
+            "en": "-nai → -なくてもいい."
+          }
+        },
+        {
+          "japanese": "いそがなくてもいいです。",
+          "romaji": "isoganakutemo ii desu.",
+          "translation": {
+            "it": "Non c'è bisogno di affrettarsi.",
+            "en": "No need to hurry."
+          }
+        },
+        {
+          "japanese": "ぜんぶたべなくてもいいです。",
+          "romaji": "zenbu tabenakutemo ii desu.",
+          "translation": {
+            "it": "Non devi mangiare tutto.",
+            "en": "You don't have to eat everything."
+          }
+        },
+        {
+          "japanese": "しんぱいしなくてもいいですよ。",
+          "romaji": "shinpai shinakutemo ii desu yo.",
+          "translation": {
+            "it": "Non c'è bisogno di preoccuparsi.",
+            "en": "No need to worry."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-nakereba-naranai",
+        "gr-te-permission"
+      ]
+    },
+    {
+      "id": "gr-te-shimau-oku-miru",
+      "title": {
+        "it": "〜てしまう・〜ておく・〜てみる — sfumature d'azione",
+        "en": "〜てしまう・〜ておく・〜てみる — action nuances"
+      },
+      "explanation": {
+        "it": "Tre estensioni della forma -て che danno sfumatura all'azione.\n\n〜てしまう: completamento totale o rammarico: 全部食べてしまいました ('ho finito di mangiare tutto' oppure 'ahimè, ho mangiato tutto'); さいふを忘れてしまいました ('ho dimenticato il portafoglio, accidenti'). Colloquiale: 〜ちゃう (食べちゃった).\n\n〜ておく: fare in anticipo, in preparazione: ホテルを予約しておきます ('prenoto l'hotel [per tempo]'). Colloquiale: 〜とく.\n\n〜てみる: provare a fare: 食べてみます ('assaggio / provo a mangiarlo'); 日本語で書いてみました ('ho provato a scriverlo in giapponese').",
+        "en": "Three -te extensions that add nuance to an action.\n\n〜てしまう: full completion or regret: 全部食べてしまいました ('I ate it all up' or 'oh no, I ate it all'); さいふを忘れてしまいました ('I went and forgot my wallet'). Casual: 〜ちゃう (食べちゃった).\n\n〜ておく: do in advance, in preparation: ホテルを予約しておきます ('I'll book the hotel [ahead of time]'). Casual: 〜とく.\n\n〜てみる: try doing: 食べてみます ('I'll try eating it / give it a taste'); 日本語で書いてみました ('I tried writing it in Japanese')."
+      },
+      "examples": [
+        {
+          "japanese": "さいふを 忘れてしまいました。",
+          "romaji": "saifu o wasurete shimaimashita.",
+          "translation": {
+            "it": "Ho dimenticato il portafoglio (ahimè).",
+            "en": "I went and forgot my wallet."
+          }
+        },
+        {
+          "japanese": "ホテルを 予約しておきます。",
+          "romaji": "hoteru o yoyaku shite okimasu.",
+          "translation": {
+            "it": "Prenoto l'hotel in anticipo.",
+            "en": "I'll book the hotel ahead."
+          }
+        },
+        {
+          "japanese": "食べてみてください。",
+          "romaji": "tabete mite kudasai.",
+          "translation": {
+            "it": "Assaggia, prova.",
+            "en": "Give it a try (taste it)."
+          }
+        },
+        {
+          "japanese": "全部 読んでしまいました。",
+          "romaji": "zenbu yonde shimaimashita.",
+          "translation": {
+            "it": "L'ho letto tutto.",
+            "en": "I read it all up."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "id": "writing-kanji-n4-4",
+  "level": 9,
+  "order": 9,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (4)",
+    "en": "Writing · tracing N4 kanji (4)"
+  },
+  "description": {
+    "it": "Traccia i kanji della famiglia e delle azioni del Livello 9: 家族兄弟姉妹 più 送借貸泳. I kanji della famiglia hanno forme che ricorrono spesso: scriverli a mano aiuta a distinguerli.",
+    "en": "Trace the family and action kanji of Level 9: 家族兄弟姉妹 plus 送借貸泳. Family kanji have recurring shapes: hand-writing them helps tell them apart."
+  },
+  "kanjiRefs": [
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto"
+  ],
+  "prerequisites": [
+    "kanji-n4-family"
+  ],
+  "canDo": [
+    {
+      "id": "cando-writing-kanji-n4-4",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano questi kanji rispettando l'ordine dei tratti.",
+        "en": "I can hand-write these kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wk4-4-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 送 (spedire / accompagnare) seguendo l'ordine dei tratti.",
+        "en": "Trace 送 (send) following the stroke order."
+      },
+      "targetItemId": "kanji-okuru",
+      "japanese": "送",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 借 (prendere in prestito) seguendo l'ordine dei tratti.",
+        "en": "Trace 借 (borrow) following the stroke order."
+      },
+      "targetItemId": "kanji-kariru",
+      "japanese": "借",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 貸 (prestare) seguendo l'ordine dei tratti.",
+        "en": "Trace 貸 (lend) following the stroke order."
+      },
+      "targetItemId": "kanji-kasu",
+      "japanese": "貸",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 泳 (nuotare) seguendo l'ordine dei tratti.",
+        "en": "Trace 泳 (swim) following the stroke order."
+      },
+      "targetItemId": "kanji-oyogu",
+      "japanese": "泳",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 家 (casa / famiglia) seguendo l'ordine dei tratti.",
+        "en": "Trace 家 (house / family) following the stroke order."
+      },
+      "targetItemId": "kanji-ie",
+      "japanese": "家",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-6",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 族 (famiglia / tribù) seguendo l'ordine dei tratti.",
+        "en": "Trace 族 (family / tribe) following the stroke order."
+      },
+      "targetItemId": "kanji-zoku",
+      "japanese": "族",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-7",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 兄 (fratello maggiore) seguendo l'ordine dei tratti.",
+        "en": "Trace 兄 (older brother) following the stroke order."
+      },
+      "targetItemId": "kanji-ani",
+      "japanese": "兄",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-8",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 弟 (fratello minore) seguendo l'ordine dei tratti.",
+        "en": "Trace 弟 (younger brother) following the stroke order."
+      },
+      "targetItemId": "kanji-otouto",
+      "japanese": "弟",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-9",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 姉 (sorella maggiore) seguendo l'ordine dei tratti.",
+        "en": "Trace 姉 (older sister) following the stroke order."
+      },
+      "targetItemId": "kanji-ane",
+      "japanese": "姉",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-stroke-10",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 妹 (sorella minore) seguendo l'ordine dei tratti.",
+        "en": "Trace 妹 (younger sister) following the stroke order."
+      },
+      "targetItemId": "kanji-imouto",
+      "japanese": "妹",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-4-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta a...",
+        "en": "Tracing kanji helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più in fretta",
+          "en": "leggere più in fretta"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti kanji",
+      "en": "Kanji stroke order"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "id": "grammar-potential",
+  "level": 8,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · la forma potenziale",
+    "en": "Grammar · the potential form"
+  },
+  "description": {
+    "it": "Ora puoi dire ciò che SAI fare: たべられる ('posso mangiare'), はなせる ('so parlare'). La forma potenziale esprime capacità e possibilità. Per i verbi gruppo 2: -る → -られる. Gruppo 1: la -u finale diventa -eru (はなす → はなせる, のむ → のめる). Irregolari: する → できる, くる → こられる. Attenzione: l'oggetto del potenziale spesso prende が invece di を.",
+    "en": "Now you can say what you CAN do: たべられる ('I can eat'), はなせる ('I can speak'). The potential form expresses ability and possibility. Group 2 verbs: -る → -られる. Group 1: the final -u becomes -eru (はなす → はなせる, のむ → のめる). Irregulars: する → できる, くる → こられる. Note: the object of a potential often takes が instead of を."
+  },
+  "grammarRefs": [
+    "gr-potential"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gpo-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma potenziale di たべる?",
+        "en": "Potential form of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべられる",
+          "en": "たべられる"
+        },
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        },
+        {
+          "it": "たべない",
+          "en": "たべない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpo-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "はなす diventa...",
+        "en": "はなす becomes..."
+      },
+      "options": [
+        {
+          "it": "はなせる",
+          "en": "はなせる"
+        },
+        {
+          "it": "はなされる",
+          "en": "はなされる"
+        },
+        {
+          "it": "はなした",
+          "en": "はなした"
+        },
+        {
+          "it": "はなさない",
+          "en": "はなさない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpo-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "する nel potenziale è...",
+        "en": "する in potential is..."
+      },
+      "options": [
+        {
+          "it": "できる",
+          "en": "できる"
+        },
+        {
+          "it": "showed",
+          "en": "showed"
+        },
+        {
+          "it": "すられる",
+          "en": "すられる"
+        },
+        {
+          "it": "しれる",
+          "en": "しれる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gpo-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji il potenziale di のむ: ___",
+        "en": "Type the romaji potential of のむ: ___"
+      },
+      "answer": "nomeru",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-gpo-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e potenziale.",
+        "en": "Match verb to potential."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべられる"
+        },
+        {
+          "left": "はなす",
+          "right": "はなせる"
+        },
+        {
+          "left": "のむ",
+          "right": "のめる"
+        },
+        {
+          "left": "する",
+          "right": "できる"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Forma potenziale per gruppo",
+      "en": "Potential form by group"
+    },
+    {
+      "it": "できる irregolare",
+      "en": "できる irregular"
+    }
+  ],
+  "prerequisites": [
+    "n4-level7-review"
+  ]
+}

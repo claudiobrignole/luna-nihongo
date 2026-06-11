@@ -1,0 +1,181 @@
+{
+  "id": "situation-travel-experiences",
+  "level": 8,
+  "order": 7,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · esperienze e capacità",
+    "en": "Situation · experiences & abilities"
+  },
+  "description": {
+    "it": "Metti insieme i nuovi strumenti: racconta dove sei stato (〜たことがある), cosa sai fare (potenziale) e cosa fai di solito (〜たり). Ascolta lo scambio su un viaggio in Giappone, poi scrivi una tua esperienza.",
+    "en": "Combine the new tools: tell where you've been (〜たことがある), what you can do (potential), and what you usually do (〜たり). Listen to the exchange about a trip to Japan, then write an experience of your own."
+  },
+  "dialogueRefs": [
+    "dlg-experiences"
+  ],
+  "canDo": [
+    {
+      "id": "cando-tell-experience",
+      "level": "A2",
+      "statement": {
+        "it": "So raccontare un'esperienza che ho avuto.",
+        "en": "I can talk about an experience I've had."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-experience",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere di un'esperienza usando 〜たことがある.",
+        "en": "I can write about an experience using 〜たことがある."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "hobbies-invitation",
+    "transport"
+  ],
+  "prerequisites": [
+    "grammar-potential",
+    "grammar-ta-koto-ga-aru",
+    "grammar-tari-tari"
+  ],
+  "grammarRefs": [
+    "gr-potential",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-ste-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'È mai stato in Giappone?':",
+        "en": "'Have you ever been to Japan?':"
+      },
+      "options": [
+        {
+          "it": "にほんへいったことがありますか",
+          "en": "にほんへいったことがありますか"
+        },
+        {
+          "it": "にほんへいきますか",
+          "en": "にほんへいきますか"
+        },
+        {
+          "it": "にほんへいけますか",
+          "en": "にほんへいけますか"
+        },
+        {
+          "it": "にほんへいったり しますか",
+          "en": "にほんへいったり しますか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ste-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'So parlare un po' di giapponese' — quale particella con はなせる?",
+        "en": "'I can speak a little Japanese' — which particle with はなせる?"
+      },
+      "options": [
+        {
+          "it": "が",
+          "en": "が"
+        },
+        {
+          "it": "を",
+          "en": "を"
+        },
+        {
+          "it": "に",
+          "en": "に"
+        },
+        {
+          "it": "へ",
+          "en": "へ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-ste-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Racconta un'esperienza che hai avuto (un viaggio, un cibo provato, un film visto) usando 〜たことがある. 1-2 frasi.",
+        "en": "Tell about an experience you've had (a trip, a food you tried, a movie you saw) using 〜たことがある. 1-2 sentences."
+      },
+      "targetLength": {
+        "min": 12,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Usa 〜たことがある correttamente.",
+          "en": "Uses 〜たことがある correctly."
+        },
+        {
+          "it": "La forma -た del verbo è corretta.",
+          "en": "The verb's -ta form is correct."
+        },
+        {
+          "it": "Frase coerente e leggibile.",
+          "en": "Coherent, readable sentence."
+        }
+      ],
+      "modelAnswer": "にほんへいったことがあります。おんせんにはいったことがあります。",
+      "modelAnswerKana": "にほんへいったことがあります。おんせんにはいったことがあります。",
+      "modelAnswerRomaji": "nihon e itta koto ga arimasu. onsen ni haitta koto ga arimasu.",
+      "modelAnswerTranslation": {
+        "it": "Sono stato in Giappone. Sono entrato in una terma.",
+        "en": "I've been to Japan. I've been to a hot spring."
+      },
+      "expectsGrammarRefs": [
+        "gr-ta-koto-ga-aru"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-ste-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "〜たことがある",
+          "right": "esperienza / experience"
+        },
+        {
+          "left": "potenziale (〜られる)",
+          "right": "capacità / ability"
+        },
+        {
+          "left": "〜たり〜たり",
+          "right": "elenco attività / listing"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Esperienze, capacità, elenchi",
+      "en": "Experiences, abilities, lists"
+    }
+  ]
+}

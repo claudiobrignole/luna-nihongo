@@ -55,6 +55,11 @@ export interface LunaUser {
   trialEndsAt?: string | null;
   trialUsed?: boolean;
   introCallBookedAt?: string | null;
+  preferredLanguage?: 'it' | 'en';
+  marketingConsent?: boolean;
+  marketingConsentAt?: string | null;
+  sendfoxSyncedAt?: string | null;
+  premiumWelcomeSentAt?: string | null;
 }
 
 export interface UserProfileDocument {
@@ -89,6 +94,11 @@ export interface UserProfileDocument {
   trialEndsAt?: string | null;
   trialUsed?: boolean;
   introCallBookedAt?: string | null;
+  preferredLanguage?: 'it' | 'en';
+  marketingConsent?: boolean;
+  marketingConsentAt?: string | null;
+  sendfoxSyncedAt?: string | null;
+  premiumWelcomeSentAt?: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -166,7 +176,7 @@ export function liveMinutesRemaining(user: LunaUser): number {
   return aiMinutesRemaining(user);
 }
 
-export function liveMinutesLimitForUser(_user: LunaUser): number {
+export function liveMinutesLimitForUser(): number {
   return AI_MINUTES_WEEKLY;
 }
 

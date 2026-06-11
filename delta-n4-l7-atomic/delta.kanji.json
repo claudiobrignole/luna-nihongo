@@ -1,0 +1,267 @@
+{
+  "kanji": [
+    {
+      "id": "kanji-omou",
+      "japanese": "思",
+      "meaning": {
+        "it": "pensare",
+        "en": "to think"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "おも.う"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-ta"
+      ],
+      "mnemonic": {
+        "it": "Il campo (田) sopra il cuore (心): ciò che coltivi nel cuore, il pensiero.",
+        "en": "A field (田) over the heart (心): what you cultivate in the heart — thought."
+      },
+      "strokeData": {
+        "kanjiVgId": "0601d",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-shiru",
+      "japanese": "知",
+      "meaning": {
+        "it": "sapere / conoscere",
+        "en": "to know"
+      },
+      "readingOnyomi": [
+        "チ"
+      ],
+      "readingKunyomi": [
+        "し.る"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-kuchi"
+      ],
+      "mnemonic": {
+        "it": "Una freccia (矢) e una bocca (口): dire le cose con prontezza, sapere.",
+        "en": "An arrow (矢) and a mouth (口): speaking swiftly and surely — to know."
+      },
+      "strokeData": {
+        "kanjiVgId": "077e5",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-tsukuru",
+      "japanese": "作",
+      "meaning": {
+        "it": "fare / creare",
+        "en": "to make"
+      },
+      "readingOnyomi": [
+        "サク",
+        "サ"
+      ],
+      "readingKunyomi": [
+        "つく.る"
+      ],
+      "strokeCount": 7,
+      "components": [
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (亻) accanto a ciò che costruisce: fare, creare.",
+        "en": "A person (亻) beside what they build — to make, to create."
+      },
+      "strokeData": {
+        "kanjiVgId": "04f5c",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-tsukau",
+      "japanese": "使",
+      "meaning": {
+        "it": "usare",
+        "en": "to use"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "つか.う"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (亻) che impiega un funzionario: mandare a usare, usare.",
+        "en": "A person (亻) employing an official — to send to use, to use."
+      },
+      "strokeData": {
+        "kanjiVgId": "04f7f",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-motsu",
+      "japanese": "持",
+      "meaning": {
+        "it": "tenere / possedere",
+        "en": "to hold"
+      },
+      "readingOnyomi": [
+        "ジ"
+      ],
+      "readingKunyomi": [
+        "も.つ"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-te-hand",
+        "kanji-ji-time"
+      ],
+      "mnemonic": {
+        "it": "La mano (扌) che trattiene nel tempo (寺): tenere, possedere.",
+        "en": "The hand (扌) keeping through time (寺) — to hold, to possess."
+      },
+      "strokeData": {
+        "kanjiVgId": "06301",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-matsu-k",
+      "japanese": "待",
+      "meaning": {
+        "it": "aspettare",
+        "en": "to wait"
+      },
+      "readingOnyomi": [
+        "タイ"
+      ],
+      "readingKunyomi": [
+        "ま.つ"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-ji-time"
+      ],
+      "mnemonic": {
+        "it": "Un passo (彳) fermo nel tempo (寺): restare ad aspettare.",
+        "en": "A step (彳) held still in time (寺) — to stay and wait."
+      },
+      "strokeData": {
+        "kanjiVgId": "05f85",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-hajimeru",
+      "japanese": "始",
+      "meaning": {
+        "it": "iniziare",
+        "en": "to begin"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "はじ.める",
+        "はじ.まる"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "mnemonic": {
+        "it": "Una donna (女) e l'origine: dare inizio, cominciare.",
+        "en": "A woman (女) and the origin — to give a start, to begin."
+      },
+      "strokeData": {
+        "kanjiVgId": "059cb",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-owaru",
+      "japanese": "終",
+      "meaning": {
+        "it": "finire",
+        "en": "to end"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [
+        "お.わる",
+        "お.える"
+      ],
+      "strokeCount": 11,
+      "mnemonic": {
+        "it": "Il filo (糸) che arriva all'ultima stagione: concludere, finire.",
+        "en": "The thread (糸) reaching the final season — to conclude, to end."
+      },
+      "strokeData": {
+        "kanjiVgId": "07d42",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-akeru",
+      "japanese": "開",
+      "meaning": {
+        "it": "aprire",
+        "en": "to open"
+      },
+      "readingOnyomi": [
+        "カイ"
+      ],
+      "readingKunyomi": [
+        "あ.ける",
+        "ひら.く"
+      ],
+      "strokeCount": 12,
+      "components": [
+        "kanji-kan"
+      ],
+      "mnemonic": {
+        "it": "Due mani che sollevano la sbarra dentro un cancello (門): aprire.",
+        "en": "Two hands lifting the bar inside a gate (門) — to open."
+      },
+      "strokeData": {
+        "kanjiVgId": "0958b",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-shimeru",
+      "japanese": "閉",
+      "meaning": {
+        "it": "chiudere",
+        "en": "to close"
+      },
+      "readingOnyomi": [
+        "ヘイ"
+      ],
+      "readingKunyomi": [
+        "し.める",
+        "と.じる"
+      ],
+      "strokeCount": 11,
+      "components": [
+        "kanji-kan"
+      ],
+      "mnemonic": {
+        "it": "Una sbarra che blocca il cancello (門): chiudere.",
+        "en": "A bar blocking the gate (門) — to close."
+      },
+      "strokeData": {
+        "kanjiVgId": "09589",
+        "strokeCount": 11
+      }
+    }
+  ]
+}

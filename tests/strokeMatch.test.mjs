@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -71,14 +71,15 @@ function refStroke(index, start, end) {
   };
 }
 
-test('kanjivg bundle ships 92 svg files and manifest', () => {
+test('kanjivg bundle ships svg files and manifest', () => {
   const manifest = JSON.parse(readFileSync(join(ROOT, 'public/kanjivg/manifest.json'), 'utf8'));
-  assert.equal(manifest.count, 92);
-  assert.equal(manifest.characters.length, 92);
+  const svgFiles = readdirSync(join(ROOT, 'public/kanjivg/kanji')).filter((f) => f.endsWith('.svg'));
+  assert.equal(manifest.count, manifest.characters.length);
+  assert.equal(svgFiles.length, manifest.count);
+  assert.ok(manifest.count >= 92, 'expected at least kana bundle (92)');
   assert.ok(existsSync(join(ROOT, 'public/kanjivg/COPYING')));
   assert.ok(existsSync(join(ROOT, 'public/kanjivg/kanji/03042.svg')));
-  assert.ok(existsSync(join(ROOT, 'public/kanjivg/kanji/03044.svg')));
-  assert.ok(existsSync(join(ROOT, 'public/kanjivg/kanji/03046.svg')));
+  assert.ok(existsSync(join(ROOT, 'public/kanjivg/kanji/0601d.svg')), 'N4 kanji 思 SVG');
 });
 
 test('evaluateStrokeOrder rejects too few strokes', () => {

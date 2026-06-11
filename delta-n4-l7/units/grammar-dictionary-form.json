@@ -1,0 +1,153 @@
+{
+  "id": "grammar-dictionary-form",
+  "level": 7,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · la forma del dizionario",
+    "en": "Grammar · dictionary form"
+  },
+  "description": {
+    "it": "Benvenuto nell'N4! Finora hai parlato in forma cortese (-ます). Ora impari la forma piana — quella del dizionario: たべる invece di たべます. Non è 'maleducata': è la forma base con cui si costruiscono moltissime strutture avanzate, e quella che senti in anime, film e tra amici. Padroneggiarla apre la porta a tutto il resto dell'N4.",
+    "en": "Welcome to N4! Until now you've spoken in the polite form (-masu). Now you learn the plain form — the dictionary one: たべる instead of たべます. It's not 'rude': it's the base form that builds countless advanced structures, and the one you hear in anime, films and among friends. Mastering it opens the door to the rest of N4."
+  },
+  "grammarRefs": [
+    "gr-dictionary-form"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gdf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma piana (dizionario) di たべます?",
+        "en": "Plain (dictionary) form of たべます?"
+      },
+      "options": [
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべ",
+          "en": "たべ"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        },
+        {
+          "it": "たべない",
+          "en": "たべない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gdf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma piana di いきます?",
+        "en": "Plain form of いきます?"
+      },
+      "options": [
+        {
+          "it": "いく",
+          "en": "いく"
+        },
+        {
+          "it": "いか",
+          "en": "いか"
+        },
+        {
+          "it": "いって",
+          "en": "いって"
+        },
+        {
+          "it": "います",
+          "en": "います"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gdf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La forma piana è quella che trovi...",
+        "en": "The plain form is the one you find..."
+      },
+      "options": [
+        {
+          "it": "nel dizionario",
+          "en": "nel dizionario"
+        },
+        {
+          "it": "solo nei testi formali",
+          "en": "solo nei testi formali"
+        },
+        {
+          "it": "solo nel keigo",
+          "en": "solo nel keigo"
+        },
+        {
+          "it": "mai nel parlato",
+          "en": "mai nel parlato"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gdf-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji la forma piana di のみます: ___",
+        "en": "Type the romaji plain form of のみます: ___"
+      },
+      "answer": "nomu",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-gdf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina cortese e piana.",
+        "en": "Match polite to plain."
+      },
+      "pairs": [
+        {
+          "left": "たべます",
+          "right": "たべる"
+        },
+        {
+          "left": "のみます",
+          "right": "のむ"
+        },
+        {
+          "left": "いきます",
+          "right": "いく"
+        },
+        {
+          "left": "みます",
+          "right": "みる"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Forma -ます vs piana",
+      "en": "-masu vs plain form"
+    },
+    {
+      "it": "Quando usare la forma piana",
+      "en": "When to use the plain form"
+    }
+  ]
+}

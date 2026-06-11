@@ -1,0 +1,141 @@
+{
+  "id": "grammar-sou-desu-hearsay",
+  "level": 9,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜そうです (ho sentito che)",
+    "en": "Grammar · ~sou desu (hearsay)"
+  },
+  "description": {
+    "it": "Questo 〜そうです riporta ciò che hai sentito ('ho sentito che, pare che'): あしたはあめだそうです. Si attacca alla forma piana COMPLETA (con だ per nomi/aggettivi -な). Non confonderlo con il そうです dell'apparenza: qui riporti un'informazione ricevuta, non ciò che vedi.",
+    "en": "This 〜そうです reports what you heard ('I heard that, apparently'): あしたはあめだそうです. It attaches to the FULL plain form (with だ for nouns/na-adjectives). Don't confuse it with the appearance そうです: here you report received information, not what you see."
+  },
+  "grammarRefs": [
+    "gr-sou-desu-hearsay"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-kamoshirenai"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gsh-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜そうです (sentito dire) si attacca a...",
+        "en": "hearsay 〜そうです attaches to..."
+      },
+      "options": [
+        {
+          "it": "forma piana completa (con だ)",
+          "en": "forma piana completa (con だ)"
+        },
+        {
+          "it": "la radice -ます",
+          "en": "la radice -ます"
+        },
+        {
+          "it": "l'aggettivo senza -い",
+          "en": "l'aggettivo senza -い"
+        },
+        {
+          "it": "la forma -て",
+          "en": "la forma -て"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Ho sentito che domani piove':",
+        "en": "'I heard it'll rain tomorrow':"
+      },
+      "options": [
+        {
+          "it": "あしたはあめだそうです",
+          "en": "あしたはあめだそうです"
+        },
+        {
+          "it": "あしたはあめそうです",
+          "en": "あしたはあめそうです"
+        },
+        {
+          "it": "あしたはあめになりそうです",
+          "en": "あしたはあめになりそうです"
+        },
+        {
+          "it": "あしたはあめでしょう",
+          "en": "あしたはあめでしょう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Questo そうです riporta...",
+        "en": "this そうです reports..."
+      },
+      "options": [
+        {
+          "it": "informazione sentita",
+          "en": "informazione sentita"
+        },
+        {
+          "it": "impressione visiva",
+          "en": "impressione visiva"
+        },
+        {
+          "it": "una capacità",
+          "en": "una capacità"
+        },
+        {
+          "it": "un obbligo",
+          "en": "un obbligo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsh-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina fonte e riferito.",
+        "en": "Match source to report."
+      },
+      "pairs": [
+        {
+          "left": "ニュースによると",
+          "right": "secondo le notizie / according to news"
+        },
+        {
+          "left": "〜だそうです",
+          "right": "si dice che / they say"
+        },
+        {
+          "left": "forma piana + そうです",
+          "right": "contenuto riferito / reported content"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜そうです sentito dire",
+      "en": "〜そうです hearsay"
+    },
+    {
+      "it": "Forma piana + だ + そうです",
+      "en": "Plain form + だ + そうです"
+    }
+  ]
+}

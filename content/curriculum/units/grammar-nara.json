@@ -1,0 +1,145 @@
+{
+  "id": "grammar-nara",
+  "level": 10,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il condizionale 〜なら",
+    "en": "Grammar · the 〜nara conditional"
+  },
+  "description": {
+    "it": "〜なら introduce una condizione basata su qualcosa di dato o appena detto: 'se (è il caso che) A, allora...'. にほんへいくなら、きょうとがいいですよ. Spesso reagisce a un'informazione dell'interlocutore. Si attacca al nome o alla forma piana. La differenza con gli altri: 〜なら prende A come premessa/contesto ('visto che A'), non come evento in sequenza.",
+    "en": "〜なら introduces a condition based on something given or just said: 'if (it's the case that) A, then...'. にほんへいくなら、きょうとがいいですよ. It often responds to the listener's information. It attaches to a noun or the plain form. The difference from the others: 〜なら takes A as premise/context ('since A'), not as an event in sequence."
+  },
+  "grammarRefs": [
+    "gr-nara"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-ba"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gna2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜なら si basa tipicamente su...",
+        "en": "〜なら is typically based on..."
+      },
+      "options": [
+        {
+          "it": "un'informazione data/contesto",
+          "en": "un'informazione data/contesto"
+        },
+        {
+          "it": "una legge naturale",
+          "en": "una legge naturale"
+        },
+        {
+          "it": "una sequenza temporale",
+          "en": "una sequenza temporale"
+        },
+        {
+          "it": "un meccanismo",
+          "en": "un meccanismo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Se vai in Giappone, Kyoto è una buona idea':",
+        "en": "'If you're going to Japan, Kyoto is good':"
+      },
+      "options": [
+        {
+          "it": "にほんへいくなら、きょうとがいいですよ",
+          "en": "にほんへいくなら、きょうとがいいですよ"
+        },
+        {
+          "it": "にほんへいくと、きょうとです",
+          "en": "にほんへいくと、きょうとです"
+        },
+        {
+          "it": "にほんへいったら、きょうとがいきます",
+          "en": "にほんへいったら、きょうとがいきます"
+        },
+        {
+          "it": "にほんへいけば、きょうとです",
+          "en": "にほんへいけば、きょうとです"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜なら può attaccarsi direttamente a...",
+        "en": "〜なら can attach directly to..."
+      },
+      "options": [
+        {
+          "it": "un nome",
+          "en": "un nome"
+        },
+        {
+          "it": "solo a verbi",
+          "en": "solo a verbi"
+        },
+        {
+          "it": "solo ad aggettivi",
+          "en": "solo ad aggettivi"
+        },
+        {
+          "it": "solo alla forma -た",
+          "en": "solo alla forma -た"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina condizionale e sfumatura.",
+        "en": "Match conditional to nuance."
+      },
+      "pairs": [
+        {
+          "left": "〜なら",
+          "right": "dato/contesto / given context"
+        },
+        {
+          "left": "〜たら",
+          "right": "sequenza/ipotesi / sequence/hypothesis"
+        },
+        {
+          "left": "〜と",
+          "right": "automatico / automatic"
+        },
+        {
+          "left": "〜ば",
+          "right": "ipotesi generale / general hypothesis"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜なら premessa/contesto",
+      "en": "〜なら premise/context"
+    },
+    {
+      "it": "I 4 condizionali a confronto",
+      "en": "The 4 conditionals compared"
+    }
+  ]
+}

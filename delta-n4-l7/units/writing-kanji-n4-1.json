@@ -1,0 +1,137 @@
+{
+  "id": "writing-kanji-n4-1",
+  "level": 7,
+  "order": 7,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (1)",
+    "en": "Writing · tracing N4 kanji (1)"
+  },
+  "description": {
+    "it": "Per la prima volta tracci dei kanji, non solo kana! I kanji hanno più tratti e l'ordine conta ancora di più: una sequenza corretta rende il carattere equilibrato e ti aiuta a memorizzarlo. Traccia 思, 知, 作, 使, 持 con la guida KanjiVG, lo stesso sistema che hai usato per i kana.",
+    "en": "For the first time you trace kanji, not just kana! Kanji have more strokes and the order matters even more: a correct sequence makes the character balanced and helps you memorize it. Trace 思, 知, 作, 使, 持 with the KanjiVG guide, the same system you used for kana."
+  },
+  "kanjiRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu"
+  ],
+  "canDo": [
+    {
+      "id": "cando-write-kanji-n4-1",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano i primi kanji N4 rispettando l'ordine dei tratti.",
+        "en": "I can hand-write the first N4 kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [],
+  "prerequisites": [
+    "kanji-n4-verbs-1"
+  ],
+  "quizzes": [
+    {
+      "id": "q-wkn4-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 思 (pensare) seguendo l'ordine dei tratti.",
+        "en": "Trace 思 (think) following the stroke order."
+      },
+      "targetItemId": "kanji-omou",
+      "japanese": "思",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wkn4-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 知 (sapere / conoscere) seguendo l'ordine dei tratti.",
+        "en": "Trace 知 (know) following the stroke order."
+      },
+      "targetItemId": "kanji-shiru",
+      "japanese": "知",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wkn4-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 作 (fare / creare) seguendo l'ordine dei tratti.",
+        "en": "Trace 作 (make) following the stroke order."
+      },
+      "targetItemId": "kanji-tsukuru",
+      "japanese": "作",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wkn4-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 使 (usare) seguendo l'ordine dei tratti.",
+        "en": "Trace 使 (use) following the stroke order."
+      },
+      "targetItemId": "kanji-tsukau",
+      "japanese": "使",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wkn4-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 持 (tenere / possedere) seguendo l'ordine dei tratti.",
+        "en": "Trace 持 (hold) following the stroke order."
+      },
+      "targetItemId": "kanji-motsu",
+      "japanese": "持",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wkn4-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta soprattutto a...",
+        "en": "Tracing kanji mainly helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più veloce",
+          "en": "leggere più veloce"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti nei kanji",
+      "en": "Stroke order in kanji"
+    },
+    {
+      "it": "Scrivere i primi kanji N4",
+      "en": "Writing the first N4 kanji"
+    }
+  ]
+}

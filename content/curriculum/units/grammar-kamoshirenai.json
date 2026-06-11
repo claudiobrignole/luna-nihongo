@@ -1,0 +1,141 @@
+{
+  "id": "grammar-kamoshirenai",
+  "level": 9,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜かもしれません (forse)",
+    "en": "Grammar · ~kamoshiremasen (maybe)"
+  },
+  "description": {
+    "it": "〜かもしれません esprime una possibilità incerta ('forse, può darsi'): あめがふるかもしれません. È meno sicuro di でしょう: でしょう = probabilità alta, かもしれません = possibilità più debole, aperta. Si attacca alla forma piana. Informale: 〜かも.",
+    "en": "〜かもしれません expresses uncertain possibility ('maybe, might'): あめがふるかもしれません. It's less certain than でしょう: でしょう = high probability, かもしれません = weaker, open possibility. It attaches to the plain form. Casual: 〜かも."
+  },
+  "grammarRefs": [
+    "gr-kamoshirenai"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-deshou"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gka-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜かもしれません esprime...",
+        "en": "〜かもしれません expresses..."
+      },
+      "options": [
+        {
+          "it": "possibilità incerta (forse)",
+          "en": "possibilità incerta (forse)"
+        },
+        {
+          "it": "certezza",
+          "en": "certezza"
+        },
+        {
+          "it": "obbligo",
+          "en": "obbligo"
+        },
+        {
+          "it": "capacità",
+          "en": "capacità"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gka-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Rispetto a でしょう, かもしれません è...",
+        "en": "compared to でしょう, かもしれません is..."
+      },
+      "options": [
+        {
+          "it": "meno sicuro",
+          "en": "meno sicuro"
+        },
+        {
+          "it": "più sicuro",
+          "en": "più sicuro"
+        },
+        {
+          "it": "identico",
+          "en": "identico"
+        },
+        {
+          "it": "più formale",
+          "en": "più formale"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gka-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma informale breve di かもしれません?",
+        "en": "Short casual form of かもしれません?"
+      },
+      "options": [
+        {
+          "it": "かも",
+          "en": "かも"
+        },
+        {
+          "it": "かもね だけ no",
+          "en": "かもね だけ no"
+        },
+        {
+          "it": "しれぬ",
+          "en": "しれぬ"
+        },
+        {
+          "it": "でしょ",
+          "en": "でしょ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gka-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina certezza.",
+        "en": "Match certainty level."
+      },
+      "pairs": [
+        {
+          "left": "でしょう",
+          "right": "probabile / likely"
+        },
+        {
+          "left": "かもしれません",
+          "right": "forse / maybe"
+        },
+        {
+          "left": "です",
+          "right": "certo / certain"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜かもしれません possibilità",
+      "en": "〜かもしれません possibility"
+    },
+    {
+      "it": "でしょう vs かもしれません",
+      "en": "でしょう vs かもしれません"
+    }
+  ]
+}

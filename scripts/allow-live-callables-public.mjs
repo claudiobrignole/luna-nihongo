@@ -19,10 +19,15 @@ const SERVICES = [
   'endlivesession',
   'deletelivesession',
   'createstripecheckout',
+  'createextralessoncheckout',
   'createstripeportal',
   'stripewebhook',
   'startfreetrial',
   'bookavailabilityslot',
+  'cancelbooking',
+  'reschedulebooking',
+  'subscribenewsletter',
+  'syncmarketingconsent',
 ];
 
 async function getAccessToken() {

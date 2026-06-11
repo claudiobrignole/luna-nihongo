@@ -79,7 +79,7 @@ L'accesso HTTP diretto a quel file è bloccato da `api/.htaccess`.
 ### 4. Firebase — dominio autorizzato
 
 Firebase Console → **Authentication** → **Settings** → **Authorized domains**  
-Aggiungi il tuo dominio (es. `lunanihongo.it`).
+Aggiungi il tuo dominio (es. `lunanihongo.com`).
 
 ### 5. Firestore rules e indici
 

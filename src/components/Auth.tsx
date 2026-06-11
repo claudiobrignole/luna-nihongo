@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, ArrowRight, UserPlus, LogIn, User, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { PRIVACY_POLICY_URL } from '../constants/links';
 import { isFirebaseConfigured } from '../lib/firebase';
 
 interface AuthProps {
@@ -9,18 +10,21 @@ interface AuthProps {
 }
 
 export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) => {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, resetPassword } = useAuth();
   const [isLogin, setIsLogin] = useState(!initialSignup);
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState('');
+  const [info, setInfo] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setInfo('');
 
     if (!email.trim()) {
       setError(language === 'en' ? 'Please enter your email.' : 'Inserisci la tua email.');
@@ -42,10 +46,32 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
       if (isLogin) {
         await signIn(email, password, language);
       } else {
-        await signUp(email, password, username, language);
+        await signUp(email, password, username, language, { marketingConsent });
       }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Authentication failed');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    setError('');
+    setInfo('');
+    if (!email.trim()) {
+      setError(language === 'en' ? 'Enter your email first.' : 'Inserisci prima la tua email.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await resetPassword(email, language);
+      setInfo(
+        language === 'en'
+          ? 'Password reset email sent. Check your inbox.'
+          : 'Email di reset inviata. Controlla la posta.',
+      );
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Reset failed');
     } finally {
       setIsSubmitting(false);
     }
@@ -124,6 +150,18 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
               border: '1px solid hsla(5, 80%, 50%, 0.1)'
             }}>
               ⚠️ {error}
+            </div>
+          )}
+
+          {info && (
+            <div style={{
+              fontSize: '0.85rem',
+              backgroundColor: 'var(--success-glow)',
+              color: 'var(--success)',
+              padding: '8px 12px',
+              borderRadius: '8px',
+            }}>
+              {info}
             </div>
           )}
 
@@ -217,6 +255,35 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
               </button>
             </div>
           </div>
+
+          {!isLogin && (
+            <label style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', fontSize: '0.82rem', color: 'var(--text-muted)', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={marketingConsent}
+                onChange={(e) => setMarketingConsent(e.target.checked)}
+                style={{ marginTop: '0.2rem' }}
+              />
+              <span>
+                {language === 'en'
+                  ? 'I want to receive the Luna Nihongo newsletter (tips, culture, updates). You can unsubscribe anytime.'
+                  : 'Voglio ricevere la newsletter Luna Nihongo (consigli, cultura, novità). Puoi disiscriverti in qualsiasi momento.'}{' '}
+                <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
+                  Privacy
+                </a>
+              </span>
+            </label>
+          )}
+
+          {isLogin && (
+            <button
+              type="button"
+              onClick={() => void handleResetPassword()}
+              style={{ fontSize: '0.82rem', color: 'var(--primary)', textAlign: 'left', fontWeight: 600 }}
+            >
+              {language === 'en' ? 'Forgot password?' : 'Password dimenticata?'}
+            </button>
+          )}
 
           <button
             type="submit"

@@ -1,0 +1,141 @@
+{
+  "id": "grammar-te-shimau-oku-miru",
+  "level": 10,
+  "order": 6,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜てしまう・〜ておく・〜てみる",
+    "en": "Grammar · ~te shimau / oku / miru"
+  },
+  "description": {
+    "it": "Tre sfumature che si attaccano alla forma -て. 〜てしまう: completare del tutto, o rammarico ('l'ho fatto/purtroppo è successo') — たべてしまった ('l'ho mangiato tutto / l'ho mangiato per sbaglio'); informale 〜ちゃう. 〜ておく: fare in anticipo, in preparazione — よやくしておく ('prenoto in anticipo'). 〜てみる: provare a fare — たべてみる ('provo a mangiarlo'). Sono frequentissime e aggiungono sfumatura a un verbo che già conosci.",
+    "en": "Three nuances attaching to the -te form. 〜てしまう: completing fully, or regret ('did it all / unfortunately it happened') — たべてしまった ('I ate it all / I ate it by mistake'); casual 〜ちゃう. 〜ておく: doing in advance, in preparation — よやくしておく ('I'll book in advance'). 〜てみる: trying to do — たべてみる ('I'll try eating it'). They're very frequent and add nuance to a verb you already know."
+  },
+  "grammarRefs": [
+    "gr-te-shimau-oku-miru"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-nakutemo-ii"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gts-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜てみる significa...",
+        "en": "〜てみる means..."
+      },
+      "options": [
+        {
+          "it": "provare a fare",
+          "en": "provare a fare"
+        },
+        {
+          "it": "finire del tutto",
+          "en": "finire del tutto"
+        },
+        {
+          "it": "fare in anticipo",
+          "en": "fare in anticipo"
+        },
+        {
+          "it": "dover fare",
+          "en": "dover fare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gts-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Prenoto in anticipo':",
+        "en": "'I'll book in advance':"
+      },
+      "options": [
+        {
+          "it": "よやくしておく",
+          "en": "よやくしておく"
+        },
+        {
+          "it": "よやくしてみる",
+          "en": "よやくしてみる"
+        },
+        {
+          "it": "よやくしてしまう",
+          "en": "よやくしてしまう"
+        },
+        {
+          "it": "よやくしなければ",
+          "en": "よやくしなければ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gts-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜てしまう può esprimere...",
+        "en": "〜てしまう can express..."
+      },
+      "options": [
+        {
+          "it": "completamento o rammarico",
+          "en": "completamento o rammarico"
+        },
+        {
+          "it": "preparazione",
+          "en": "preparazione"
+        },
+        {
+          "it": "tentativo",
+          "en": "tentativo"
+        },
+        {
+          "it": "obbligo",
+          "en": "obbligo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gts-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e sfumatura.",
+        "en": "Match structure to nuance."
+      },
+      "pairs": [
+        {
+          "left": "〜てしまう",
+          "right": "completare/rammarico / completion/regret"
+        },
+        {
+          "left": "〜ておく",
+          "right": "in anticipo / in advance"
+        },
+        {
+          "left": "〜てみる",
+          "right": "provare / try"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜てしまう / ておく / てみる",
+      "en": "〜てしまう / ておく / てみる"
+    },
+    {
+      "it": "Sfumature sulla forma -て",
+      "en": "Nuances on the -te form"
+    }
+  ]
+}

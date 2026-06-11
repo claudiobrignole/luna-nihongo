@@ -2,10 +2,12 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { defineSecret, defineString } from 'firebase-functions/params';
 import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https';
 import Stripe from 'stripe';
-import { bookSlotForUser } from './scheduling';
+import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
+import { bookSlotForUser, notifyBookingConfirmed } from './scheduling';
 
 const stripeSecretKey = defineSecret('STRIPE_SECRET_KEY');
 const stripeWebhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
+const resendApiKey = defineSecret('RESEND_API_KEY');
 const stripePriceId = defineString('STRIPE_PRICE_ID', { default: '' });
 const stripeExtraLessonPriceId = defineString('STRIPE_EXTRA_LESSON_PRICE_ID', {
   default: 'price_1TfeSxQaxCx8KSVpKs4U0W4M',
@@ -24,7 +26,7 @@ function appOrigin(): string {
       /* fall through */
     }
   }
-  return 'https://lunanihongo.it';
+  return 'https://lunanihongo.com';
 }
 
 async function userRef(uid: string) {
@@ -131,7 +133,7 @@ export const createExtraLessonCheckout = onCall(
       throw new HttpsError('failed-precondition', 'Active subscription required for extra lessons.');
     }
 
-    let customerId = user.stripeCustomerId as string | undefined;
+    const customerId = user.stripeCustomerId as string | undefined;
     if (!customerId) {
       throw new HttpsError('failed-precondition', 'No Stripe customer on file.');
     }
@@ -197,6 +199,7 @@ export const createStripePortal = onCall(
 async function setPremiumFromSubscription(
   uid: string,
   subscription: Stripe.Subscription,
+  resendKey?: string,
 ): Promise<void> {
   const ref = await userRef(uid);
   const active = subscription.status === 'active' || subscription.status === 'trialing';
@@ -204,8 +207,11 @@ async function setPremiumFromSubscription(
 
   if (active) {
     const snap = await ref.get();
-    const prevStart = snap.data()?.subscriptionPeriodStart as string | undefined;
+    const user = snap.data() ?? {};
+    const prevStart = user.subscriptionPeriodStart as string | undefined;
     const periodRenewed = prevStart && prevStart !== periods.subscriptionPeriodStart;
+    const isFirstPremium = user.tier !== 'premium' && !user.premiumWelcomeSentAt;
+    const now = new Date().toISOString();
 
     await ref.set(
       {
@@ -214,13 +220,30 @@ async function setPremiumFromSubscription(
         stripeSubscriptionId: subscription.id,
         premiumEndedAt: null,
         ...periods,
-        includedLessonsUsed: periodRenewed ? 0 : (snap.data()?.includedLessonsUsed ?? 0),
-        liveMinutesUsed: periodRenewed ? 0 : (snap.data()?.liveMinutesUsed ?? 0),
-        liveMinutesWindowStart: periodRenewed ? null : (snap.data()?.liveMinutesWindowStart ?? null),
-        updatedAt: new Date().toISOString(),
+        includedLessonsUsed: periodRenewed ? 0 : (user.includedLessonsUsed ?? 0),
+        liveMinutesUsed: periodRenewed ? 0 : (user.liveMinutesUsed ?? 0),
+        liveMinutesWindowStart: periodRenewed ? null : (user.liveMinutesWindowStart ?? null),
+        ...(isFirstPremium ? { premiumWelcomeSentAt: now } : {}),
+        updatedAt: now,
       },
       { merge: true },
     );
+
+    if (isFirstPremium && resendKey) {
+      const email = String(user.email ?? '');
+      if (email) {
+        queueTransactionalEmail({
+          apiKey: resendKey,
+          to: email,
+          language: resolveUserLanguage(user),
+          type: 'premium_welcome',
+          data: {
+            name: String(user.username ?? ''),
+            bookingUrl: `${appOrigin()}/?book=regular`,
+          },
+        });
+      }
+    }
     return;
   }
 
@@ -242,7 +265,7 @@ async function setPremiumFromSubscription(
 export const stripeWebhook = onRequest(
   {
     region: 'europe-west1',
-    secrets: [stripeSecretKey, stripeWebhookSecret],
+    secrets: [stripeSecretKey, stripeWebhookSecret, resendApiKey],
   },
   async (req, res) => {
     if (req.method !== 'POST') {
@@ -279,13 +302,13 @@ export const stripeWebhook = onRequest(
 
           if (session.mode === 'subscription' && session.subscription && typeof session.subscription === 'string') {
             const sub = await stripe.subscriptions.retrieve(session.subscription);
-            await setPremiumFromSubscription(uid, sub);
+            await setPremiumFromSubscription(uid, sub, resendApiKey.value());
             break;
           }
 
           if (session.mode === 'payment' && session.metadata?.checkoutType === 'extra_lesson') {
             const slotId = session.metadata.slotId ?? '';
-            await bookSlotForUser({
+            const booking = await bookSlotForUser({
               uid,
               slotId,
               name: session.metadata.name ?? '',
@@ -294,6 +317,8 @@ export const stripeWebhook = onRequest(
               notes: session.metadata.notes ?? '',
               plan: 'extra',
             });
+            const userSnap = await (await userRef(uid)).get();
+            notifyBookingConfirmed(uid, booking, resendApiKey.value(), userSnap.data() ?? {});
           }
           break;
         }
@@ -302,7 +327,7 @@ export const stripeWebhook = onRequest(
           const subscription = event.data.object as Stripe.Subscription;
           const uid = subscription.metadata?.firebaseUid;
           if (uid) {
-            await setPremiumFromSubscription(uid, subscription);
+            await setPremiumFromSubscription(uid, subscription, resendApiKey.value());
           }
           break;
         }

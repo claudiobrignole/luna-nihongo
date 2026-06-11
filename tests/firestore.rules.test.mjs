@@ -17,6 +17,11 @@ test('firestore rules block client stripe field writes', () => {
   assert.match(rules, /stripeCustomerId.*stripeSubscriptionId.*subscriptionStatus/s);
 });
 
+test('firestore rules block client booking writes', () => {
+  assert.match(rules, /match \/bookings\/\{bookingId\}/);
+  assert.match(rules, /allow create, update, delete: if false/);
+});
+
 test('firestore indexes enable premiumEndedAt via single-field controls', () => {
   const indexes = JSON.parse(readFileSync(join(root, 'firestore.indexes.json'), 'utf8'));
   const redundantComposite = indexes.indexes?.find(

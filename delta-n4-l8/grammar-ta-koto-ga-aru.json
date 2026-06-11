@@ -1,0 +1,138 @@
+{
+  "id": "grammar-ta-koto-ga-aru",
+  "level": 8,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜たことがある",
+    "en": "Grammar · ~ta koto ga aru"
+  },
+  "description": {
+    "it": "Per raccontare esperienze: にほんへいったことがある ('sono già stato in Giappone'). Si forma con la forma -た (passato piano) + ことがある. Esprime 'ho avuto l'esperienza di...'. Al negativo: 〜たことがない ('non sono mai...'). È diverso dal semplice passato: non dice 'l'ho fatto', ma 'ho l'esperienza di averlo fatto'.",
+    "en": "To talk about experiences: にほんへいったことがある ('I've been to Japan'). Formed with the -ta form (plain past) + ことがある. It expresses 'I have the experience of...'. Negative: 〜たことがない ('I've never...'). It differs from the simple past: it doesn't say 'I did it', but 'I have the experience of having done it'."
+  },
+  "grammarRefs": [
+    "gr-ta-koto-ga-aru"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gtk-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Sono già stato in Giappone' usa quale forma + ことがある?",
+        "en": "'I've been to Japan' uses which form + ことがある?"
+      },
+      "options": [
+        {
+          "it": "la forma -た",
+          "en": "la forma -た"
+        },
+        {
+          "it": "la forma -ます",
+          "en": "la forma -ます"
+        },
+        {
+          "it": "la forma del dizionario",
+          "en": "la forma del dizionario"
+        },
+        {
+          "it": "la forma -ない",
+          "en": "la forma -ない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Non ho mai mangiato sushi':",
+        "en": "'I've never eaten sushi':"
+      },
+      "options": [
+        {
+          "it": "すしをたべたことがない",
+          "en": "すしをたべたことがない"
+        },
+        {
+          "it": "すしをたべることがない",
+          "en": "すしをたべることがない"
+        },
+        {
+          "it": "すしをたべたことがある",
+          "en": "すしをたべたことがある"
+        },
+        {
+          "it": "すしをたべない",
+          "en": "すしをたべない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜たことがある esprime...",
+        "en": "〜たことがある expresses..."
+      },
+      "options": [
+        {
+          "it": "un'esperienza passata",
+          "en": "un'esperienza passata"
+        },
+        {
+          "it": "il futuro",
+          "en": "il futuro"
+        },
+        {
+          "it": "un obbligo",
+          "en": "un obbligo"
+        },
+        {
+          "it": "una capacità",
+          "en": "una capacità"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtk-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e significato.",
+        "en": "Match sentence to meaning."
+      },
+      "pairs": [
+        {
+          "left": "いったことがある",
+          "right": "ci sono stato / I've been there"
+        },
+        {
+          "left": "みたことがない",
+          "right": "non l'ho mai visto / I've never seen it"
+        },
+        {
+          "left": "たべたことがある",
+          "right": "l'ho già mangiato / I've eaten it before"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜たことがある esperienze",
+      "en": "〜たことがある experiences"
+    },
+    {
+      "it": "Esperienza vs passato semplice",
+      "en": "Experience vs simple past"
+    }
+  ]
+}

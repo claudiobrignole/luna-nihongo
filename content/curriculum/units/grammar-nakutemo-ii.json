@@ -1,0 +1,145 @@
+{
+  "id": "grammar-nakutemo-ii",
+  "level": 10,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜なくてもいいです (non serve)",
+    "en": "Grammar · ~nakutemo ii desu (don't have to)"
+  },
+  "description": {
+    "it": "L'opposto dell'obbligo: 'non c'è bisogno di'. こなくてもいいです ('non devi venire'). Dalla forma -ない togli -い e aggiungi -くてもいいです. È la coppia naturale di 〜なければなりません. Non confonderla con 〜てはいけません (divieto: 'non si deve assolutamente').",
+    "en": "The opposite of obligation: 'no need to'. こなくてもいいです ('you don't have to come'). From the -nai form drop -い and add -くてもいいです. It's the natural pair of 〜なければなりません. Don't confuse it with 〜てはいけません (prohibition: 'you must not')."
+  },
+  "grammarRefs": [
+    "gr-nakutemo-ii"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-nakereba-naranai"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gni-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Non c'è bisogno di affrettarsi':",
+        "en": "'No need to hurry':"
+      },
+      "options": [
+        {
+          "it": "いそがなくてもいいです",
+          "en": "いそがなくてもいいです"
+        },
+        {
+          "it": "いそがなければなりません",
+          "en": "いそがなければなりません"
+        },
+        {
+          "it": "いそいではいけません",
+          "en": "いそいではいけません"
+        },
+        {
+          "it": "いそぐでしょう",
+          "en": "いそぐでしょう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gni-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜なくてもいい è l'opposto di...",
+        "en": "〜なくてもいい is the opposite of..."
+      },
+      "options": [
+        {
+          "it": "〜なければならない",
+          "en": "〜なければならない"
+        },
+        {
+          "it": "〜てもいい",
+          "en": "〜てもいい"
+        },
+        {
+          "it": "〜たい",
+          "en": "〜たい"
+        },
+        {
+          "it": "〜ている",
+          "en": "〜ている"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gni-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Da non confondere con 〜てはいけません, che significa...",
+        "en": "Not to confuse with 〜てはいけません, which means..."
+      },
+      "options": [
+        {
+          "it": "divieto (non si deve)",
+          "en": "divieto (non si deve)"
+        },
+        {
+          "it": "permesso",
+          "en": "permesso"
+        },
+        {
+          "it": "non c'è bisogno",
+          "en": "non c'è bisogno"
+        },
+        {
+          "it": "obbligo",
+          "en": "obbligo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gni-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e significato.",
+        "en": "Match structure to meaning."
+      },
+      "pairs": [
+        {
+          "left": "〜なければならない",
+          "right": "devo / must"
+        },
+        {
+          "left": "〜なくてもいい",
+          "right": "non serve / don't have to"
+        },
+        {
+          "left": "〜てはいけない",
+          "right": "vietato / must not"
+        },
+        {
+          "left": "〜てもいい",
+          "right": "permesso / may"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜なくてもいい non-obbligo",
+      "en": "〜なくてもいい non-obligation"
+    },
+    {
+      "it": "Obbligo vs permesso vs divieto",
+      "en": "Obligation vs permission vs prohibition"
+    }
+  ]
+}

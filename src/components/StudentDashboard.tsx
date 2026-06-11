@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Video, Calendar, Sparkles, AlertCircle, Trash2, Crown, LogOut, User, Shield, Zap } from 'lucide-react';
+import { Video, Calendar, Sparkles, AlertCircle, Trash2, Crown, LogOut, User, Shield, Zap, CalendarClock } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { canManageUsers, isAdminRole, roleLabel } from '../types/user';
+import { canManageUsers, hasActiveSubscription, isAdminRole, isTrialActive, roleLabel } from '../types/user';
+import type { BookingMode } from './BookingCalendar';
 import type { BookedLesson } from '../types/booking';
-import { loadBookings, deleteBooking as deleteBookingFromDb } from '../services/bookingService';
+import { loadBookings } from '../services/bookingService';
+import { cancelBookingRemote, formatEmailCallableError } from '../services/emailService';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { PremiumRetentionNotice } from './PremiumRetentionNotice';
 import { openPremiumPortal } from '../services/stripeService';
 
 interface StudentDashboardProps {
   language: 'en' | 'it';
-  onNavigateToBooking: () => void;
+  onNavigateToBooking: (mode: BookingMode, bookingId?: string) => void;
   currentUser: LunaUser;
   onLogout: () => void;
   onUserUpdate: (updates: Partial<LunaUser>) => Promise<void>;
+  onBookingCancelled?: () => void;
 }
 
 export const StudentDashboard: React.FC<StudentDashboardProps> = ({
@@ -22,10 +25,14 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   currentUser,
   onLogout,
   onUserUpdate,
+  onBookingCancelled,
 }) => {
   const [bookings, setBookings] = useState<BookedLesson[]>([]);
   const [showUpgradeConfirm, setShowUpgradeConfirm] = useState(false);
   const [bookingsLoading, setBookingsLoading] = useState(true);
+  const [cancelTarget, setCancelTarget] = useState<BookedLesson | null>(null);
+  const [cancelError, setCancelError] = useState<string | null>(null);
+  const [cancelLoading, setCancelLoading] = useState(false);
 
   const fetchBookings = useCallback(async () => {
     setBookingsLoading(true);
@@ -43,12 +50,22 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
     fetchBookings();
   }, [fetchBookings]);
 
-  const deleteBooking = async (id: string) => {
+  const confirmCancelBooking = async () => {
+    if (!cancelTarget) return;
+    setCancelLoading(true);
+    setCancelError(null);
     try {
-      await deleteBookingFromDb(currentUser.id, id);
-      setBookings((prev) => prev.filter((b) => b.id !== id));
+      const cancelled = cancelTarget;
+      await cancelBookingRemote(cancelled.id);
+      setBookings((prev) => prev.filter((b) => b.id !== cancelled.id));
+      setCancelTarget(null);
+      if (cancelled.slotType === 'intro' || cancelled.plan === 'trial_intro') {
+        onBookingCancelled?.();
+      }
     } catch (err) {
-      console.error('Failed to delete booking', err);
+      setCancelError(formatEmailCallableError(err, language));
+    } finally {
+      setCancelLoading(false);
     }
   };
 
@@ -71,6 +88,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   const completedUnitsCount = currentUser.completedUnits.length;
   const xp = currentUser.xp || completedUnitsCount * 10;
   const isPremium = currentUser.tier === 'premium';
+  const subscribed = hasActiveSubscription(currentUser);
+  const trialActive = isTrialActive(currentUser);
   const canToggleTier = canManageUsers(currentUser.role);
 
   return (
@@ -269,13 +288,44 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               {language === 'en' ? 'No lessons scheduled yet' : 'Nessuna lezione programmata'}
             </h4>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '400px' }}>
-              {language === 'en'
-                ? 'Book a 1-on-1 private lesson with Luna and get your Google Meet link instantly.'
-                : "Prenota una lezione privata con Luna e ottieni subito il link Google Meet."}
+              {subscribed
+                ? language === 'en'
+                  ? 'Book a 1-on-1 private lesson with Luna and get your Google Meet link instantly.'
+                  : 'Prenota una lezione privata con Luna e ottieni subito il link Google Meet.'
+                : trialActive
+                  ? language === 'en'
+                    ? 'Your trial includes a 30-minute intro videocall with Luna.'
+                    : 'La prova gratuita include una videocall introduttiva di 30 minuti con Luna.'
+                  : language === 'en'
+                    ? 'Subscribe with Stripe to book live lessons with Luna (2 included per billing cycle).'
+                    : 'Abbonati con Stripe per prenotare lezioni live con Luna (2 incluse per ciclo).'}
             </p>
-            <button onClick={onNavigateToBooking} className="btn btn-primary" style={{ marginTop: '1rem' }}>
-              {language === 'en' ? 'Book a Lesson' : 'Prenota una Lezione'}
-            </button>
+            {subscribed ? (
+              <button
+                type="button"
+                onClick={() => onNavigateToBooking('regular')}
+                className="btn btn-primary"
+                style={{ marginTop: '1rem' }}
+              >
+                {language === 'en' ? 'Book a Lesson' : 'Prenota una Lezione'}
+              </button>
+            ) : trialActive ? (
+              <button
+                type="button"
+                onClick={() => onNavigateToBooking('intro')}
+                className="btn btn-primary"
+                style={{ marginTop: '1rem' }}
+              >
+                {language === 'en' ? 'Book intro call' : 'Prenota call introduttiva'}
+              </button>
+            ) : (
+              <div style={{ marginTop: '1rem' }}>
+                <PremiumUpgradeButton
+                  language={language}
+                  label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
+                />
+              </div>
+            )}
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -311,10 +361,22 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     <Video size={16} />
                     <span>{language === 'en' ? 'Join Meet' : 'Entra nel Meet'}</span>
                   </a>
-                  <button onClick={() => deleteBooking(booking.id)}
+                  <button
+                    type="button"
+                    onClick={() => onNavigateToBooking(booking.slotType === 'intro' ? 'intro' : 'regular', booking.id)}
+                    className="btn btn-secondary"
+                    style={{ padding: '0.6rem 1rem', fontSize: '0.85rem' }}
+                    title={language === 'en' ? 'Reschedule' : 'Riprogramma'}
+                  >
+                    <CalendarClock size={16} />
+                    {language === 'en' ? 'Reschedule' : 'Riprogramma'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setCancelTarget(booking); setCancelError(null); }}
                     style={{ padding: '0.6rem', borderRadius: '12px', border: '1px solid var(--border)', color: 'var(--text-light)', transition: 'all var(--transition-fast)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--error)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-light)'}
+                    onMouseEnter={e => { e.currentTarget.style.color = 'var(--error)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-light)'; }}
                     title={language === 'en' ? 'Cancel' : 'Annulla'}
                   >
                     <Trash2 size={16} />
@@ -333,12 +395,46 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       }}>
         <AlertCircle size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
         <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-          <strong>{language === 'en' ? 'Need to reschedule?' : 'Hai bisogno di riprogrammare?'}</strong><br />
+          <strong>{language === 'en' ? 'Reschedule or cancel' : 'Riprogramma o annulla'}</strong><br />
           {language === 'en'
-            ? 'Lessons can be rescheduled or cancelled up to 24 hours before the session. Contact Luna via WhatsApp for priority booking.'
-            : "Le lezioni possono essere riprogrammate fino a 24 ore prima. Contatta Luna via WhatsApp per prenotazioni prioritarie."}
+            ? 'Use the buttons on each lesson up to 24 hours before the session. You will receive a confirmation email.'
+            : 'Usa i pulsanti su ogni lezione fino a 24 ore prima. Riceverai un\'email di conferma.'}
         </div>
       </div>
+
+      {cancelTarget && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 300,
+          backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
+        }}>
+          <div className="glass-panel" style={{
+            maxWidth: '420px', width: '100%', padding: '2rem',
+            background: 'var(--bg-app)', display: 'flex', flexDirection: 'column', gap: '1rem',
+          }}>
+            <h3 style={{ margin: 0 }}>
+              {language === 'en' ? 'Cancel this lesson?' : 'Annullare questa lezione?'}
+            </h3>
+            <p style={{ color: 'var(--text-muted)', margin: 0, fontSize: '0.9rem' }}>
+              {formatDate(cancelTarget.date)} · {cancelTarget.time}
+            </p>
+            <p style={{ color: 'var(--text-muted)', margin: 0, fontSize: '0.85rem' }}>
+              {language === 'en'
+                ? 'Only possible at least 24 hours before the session.'
+                : 'Possibile solo almeno 24 ore prima della lezione.'}
+            </p>
+            {cancelError && <p style={{ color: 'var(--error)', margin: 0, fontSize: '0.85rem' }}>{cancelError}</p>}
+            <div style={{ display: 'flex', gap: '0.75rem' }}>
+              <button type="button" className="btn btn-secondary" style={{ flex: 1 }} onClick={() => setCancelTarget(null)} disabled={cancelLoading}>
+                {language === 'en' ? 'Keep' : 'Mantieni'}
+              </button>
+              <button type="button" className="btn btn-primary" style={{ flex: 1, background: 'var(--error)' }} onClick={() => void confirmCancelBooking()} disabled={cancelLoading}>
+                {cancelLoading ? (language === 'en' ? 'Cancelling…' : 'Annullamento…') : (language === 'en' ? 'Cancel lesson' : 'Annulla lezione')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Upgrade/Downgrade Confirm Modal ── */}
       {showUpgradeConfirm && canToggleTier && (

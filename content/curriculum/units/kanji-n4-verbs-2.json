@@ -1,0 +1,154 @@
+{
+  "id": "kanji-n4-verbs-2",
+  "level": 8,
+  "order": 6,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · verbi N4 (2) — movimento e azione",
+    "en": "Kanji · N4 verbs (2) — movement & action"
+  },
+  "description": {
+    "it": "Kanji di movimento e attività quotidiana: 教 (insegnare), 習 (imparare), 走 (correre), 歩 (camminare), 止 (fermarsi), 動 (muoversi), 働 (lavorare), 帰 (tornare), 買 (comprare), 売 (vendere). Nota la coppia 買/売 (comprare/vendere) e come 働 (lavorare) contenga 動 (muoversi) + 人 (persona): lavorare è 'la persona che si muove'.",
+    "en": "Kanji of movement and daily activity: 教 (teach), 習 (learn), 走 (run), 歩 (walk), 止 (stop), 動 (move), 働 (work), 帰 (return), 買 (buy), 売 (sell). Note the pair 買/売 (buy/sell) and how 働 (work) contains 動 (move) + 人 (person): to work is 'the person who moves'."
+  },
+  "kanjiRefs": [
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn4v2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "働 (lavorare) contiene quali componenti?",
+        "en": "Which components does 働 (work) contain?"
+      },
+      "options": [
+        {
+          "it": "動 (muoversi) + 人 (persona)",
+          "en": "動 (muoversi) + 人 (persona)"
+        },
+        {
+          "it": "教 + 人",
+          "en": "教 + 人"
+        },
+        {
+          "it": "走 + 力",
+          "en": "走 + 力"
+        },
+        {
+          "it": "止 + 人",
+          "en": "止 + 人"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v2-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "買 e 売 sono una coppia. Cosa significano?",
+        "en": "買 and 売 are a pair. What do they mean?"
+      },
+      "options": [
+        {
+          "it": "comprare / vendere",
+          "en": "comprare / vendere"
+        },
+        {
+          "it": "correre / camminare",
+          "en": "correre / camminare"
+        },
+        {
+          "it": "insegnare / imparare",
+          "en": "insegnare / imparare"
+        },
+        {
+          "it": "fermarsi / muoversi",
+          "en": "fermarsi / muoversi"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v2-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "教 e 習 formano una coppia naturale:",
+        "en": "教 and 習 form a natural pair:"
+      },
+      "options": [
+        {
+          "it": "insegnare / imparare",
+          "en": "insegnare / imparare"
+        },
+        {
+          "it": "correre / fermarsi",
+          "en": "correre / fermarsi"
+        },
+        {
+          "it": "comprare / vendere",
+          "en": "comprare / vendere"
+        },
+        {
+          "it": "andare / tornare",
+          "en": "andare / tornare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v2-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "走",
+          "right": "correre / run"
+        },
+        {
+          "left": "歩",
+          "right": "camminare / walk"
+        },
+        {
+          "left": "動",
+          "right": "muoversi / move"
+        },
+        {
+          "left": "帰",
+          "right": "tornare / return"
+        },
+        {
+          "left": "止",
+          "right": "fermarsi / stop"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Coppie 買/売, 教/習",
+      "en": "Pairs 買/売, 教/習"
+    },
+    {
+      "it": "働 = 動 + 人",
+      "en": "働 = 動 + 人"
+    }
+  ]
+}

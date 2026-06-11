@@ -1,0 +1,145 @@
+{
+  "id": "grammar-ba",
+  "level": 10,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il condizionale 〜ば",
+    "en": "Grammar · the 〜ba conditional"
+  },
+  "description": {
+    "it": "〜ば esprime una condizione ipotetica generale: 'se A, allora B'. やすければ、かいます. Formazione: gruppo 1 -u → -eba (いく→いけば); gruppo 2 -る → -れば (たべる→たべれば); aggettivi -い → -ければ (やすい→やすければ); する→すれば, くる→くれば. Usatissimo per consigli con 〜ばいい ('basta che...'). Ammette conseguenze non automatiche, a differenza di 〜と.",
+    "en": "〜ば expresses a general hypothetical condition: 'if A, then B'. やすければ、かいます. Formation: group 1 -u → -eba (いく→いけば); group 2 -る → -れば (たべる→たべれば); i-adjectives -い → -ければ (やすい→やすければ); する→すれば, くる→くれば. Widely used for advice with 〜ばいい ('you just have to...'). Allows non-automatic results, unlike 〜と."
+  },
+  "grammarRefs": [
+    "gr-ba"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-to-conditional"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gba-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ば di いく?",
+        "en": "〜ba of いく?"
+      },
+      "options": [
+        {
+          "it": "いけば",
+          "en": "いけば"
+        },
+        {
+          "it": "いくば",
+          "en": "いくば"
+        },
+        {
+          "it": "いったら",
+          "en": "いったら"
+        },
+        {
+          "it": "いけれ",
+          "en": "いけれ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gba-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ば di たべる?",
+        "en": "〜ba of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべれば",
+          "en": "たべれば"
+        },
+        {
+          "it": "たべば",
+          "en": "たべば"
+        },
+        {
+          "it": "たべらば",
+          "en": "たべらば"
+        },
+        {
+          "it": "たべeば",
+          "en": "たべeば"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gba-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Cosa dovrei fare?' (con 〜ば):",
+        "en": "'What should I do?' (with 〜ば):"
+      },
+      "options": [
+        {
+          "it": "どうすればいいですか",
+          "en": "どうすればいいですか"
+        },
+        {
+          "it": "どうしたらべきですか",
+          "en": "どうしたらべきですか"
+        },
+        {
+          "it": "どうするといいか",
+          "en": "どうするといいか"
+        },
+        {
+          "it": "どうなら いいか",
+          "en": "どうなら いいか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gba-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina parola e forma ば.",
+        "en": "Match word to ba form."
+      },
+      "pairs": [
+        {
+          "left": "いく",
+          "right": "いけば"
+        },
+        {
+          "left": "たべる",
+          "right": "たべれば"
+        },
+        {
+          "left": "やすい",
+          "right": "やすければ"
+        },
+        {
+          "left": "する",
+          "right": "すれば"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜ば per gruppo",
+      "en": "〜ば by group"
+    },
+    {
+      "it": "〜ばいい consigli",
+      "en": "〜ばいい advice"
+    }
+  ]
+}

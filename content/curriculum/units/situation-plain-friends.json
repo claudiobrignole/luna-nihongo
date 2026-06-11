@@ -1,0 +1,192 @@
+{
+  "id": "situation-plain-friends",
+  "level": 7,
+  "order": 6,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · parlare tra amici",
+    "en": "Situation · talking with friends"
+  },
+  "description": {
+    "it": "Tempo di usare la forma piana in una conversazione vera! Tra amici e coetanei il giapponese abbandona il -ます e passa al piano — è il registro che senti negli anime. Ascolta lo scambio, nota la forma piana, la frase relativa ('il libro che hai comprato') e il passato piano, poi prova a scrivere la tua risposta informale.",
+    "en": "Time to use the plain form in a real conversation! Among friends and peers, Japanese drops -masu and goes plain — it's the register you hear in anime. Listen to the exchange, notice the plain form, the relative clause ('the book you bought') and the plain past, then write your own casual reply."
+  },
+  "dialogueRefs": [
+    "dlg-plain-chat"
+  ],
+  "canDo": [
+    {
+      "id": "cando-speak-plain",
+      "level": "A2",
+      "statement": {
+        "it": "So conversare in forma piana con un amico.",
+        "en": "I can converse in plain form with a friend."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-plain",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere un messaggio informale in forma piana.",
+        "en": "I can write a casual message in plain form."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "hobbies-invitation",
+    "greetings-social"
+  ],
+  "prerequisites": [
+    "grammar-dictionary-form",
+    "grammar-ta-form-plain",
+    "grammar-relative-clauses"
+  ],
+  "grammarRefs": [
+    "gr-dictionary-form",
+    "gr-ta-form-plain",
+    "gr-relative-clauses"
+  ],
+  "vocabRefs": [
+    "vocab-shuumatsu",
+    "vocab-eega"
+  ],
+  "quizzes": [
+    {
+      "id": "q-spf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tra amici, 'cosa fai nel weekend?' in forma piana:",
+        "en": "Among friends, 'what are you doing this weekend?' in plain form:"
+      },
+      "options": [
+        {
+          "it": "しゅうまつ、なにする?",
+          "en": "しゅうまつ、なにする?"
+        },
+        {
+          "it": "しゅうまつ、なにしますか?",
+          "en": "しゅうまつ、なにしますか?"
+        },
+        {
+          "it": "しゅうまつ、なにをしてください?",
+          "en": "しゅうまつ、なにをしてください?"
+        },
+        {
+          "it": "しゅうまつ、なにするんですか?",
+          "en": "しゅうまつ、なにするんですか?"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-spf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Il libro che hai comprato ieri' si dice:",
+        "en": "'The book you bought yesterday' is:"
+      },
+      "options": [
+        {
+          "it": "きのうかったほん",
+          "en": "きのうかったほん"
+        },
+        {
+          "it": "ほんをきのうかった",
+          "en": "ほんをきのうかった"
+        },
+        {
+          "it": "きのうほんかった",
+          "en": "きのうほんかった"
+        },
+        {
+          "it": "かったきのうほん",
+          "en": "かったきのうほん"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-spf-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Un amico ti chiede cosa fai nel weekend. Rispondi in FORMA PIANA (niente -ます) con 1-2 frasi, dicendo cosa pensi di fare. Prova a usare un verbo in forma piana.",
+        "en": "A friend asks what you're doing this weekend. Reply in PLAIN FORM (no -masu) with 1-2 sentences, saying what you plan to do. Try to use a verb in plain form."
+      },
+      "targetLength": {
+        "min": 10,
+        "max": 40
+      },
+      "rubric": [
+        {
+          "it": "Usa la forma piana, non -ます.",
+          "en": "Uses plain form, not -masu."
+        },
+        {
+          "it": "Risposta coerente con la domanda (il weekend).",
+          "en": "Answer fits the question (the weekend)."
+        },
+        {
+          "it": "Frase leggibile e corretta.",
+          "en": "Readable, correct sentence."
+        }
+      ],
+      "modelAnswer": "えいがをみるつもり。ともだちにもあう。",
+      "modelAnswerKana": "えいがをみるつもり。ともだちにもあう。",
+      "modelAnswerRomaji": "eiga o miru tsumori. tomodachi ni mo au.",
+      "modelAnswerTranslation": {
+        "it": "Penso di vedere un film. Vedo anche un amico.",
+        "en": "I'm planning to watch a movie. I'll also meet a friend."
+      },
+      "expectsGrammarRefs": [
+        "gr-dictionary-form"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-spf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina cortese e piano.",
+        "en": "Match polite to plain."
+      },
+      "pairs": [
+        {
+          "left": "します",
+          "right": "する"
+        },
+        {
+          "left": "みます",
+          "right": "みる"
+        },
+        {
+          "left": "よみました",
+          "right": "よんだ"
+        },
+        {
+          "left": "いきません",
+          "right": "いかない"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Registro piano tra amici",
+      "en": "Plain register among friends"
+    },
+    {
+      "it": "Forma piana in conversazione",
+      "en": "Plain form in conversation"
+    }
+  ]
+}

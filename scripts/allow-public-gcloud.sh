@@ -11,10 +11,15 @@ SERVICES=(
   endlivesession
   deletelivesession
   createstripecheckout
+  createextralessoncheckout
   createstripeportal
   stripewebhook
   startfreetrial
   bookavailabilityslot
+  cancelbooking
+  reschedulebooking
+  subscribenewsletter
+  syncmarketingconsent
 )
 
 echo "Project: $PROJECT  Region: $REGION"

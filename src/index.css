@@ -212,6 +212,31 @@ input, select, textarea {
   transition: all var(--transition-normal);
 }
 
+.email-verify-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0.65rem var(--page-gutter);
+  font-size: 0.88rem;
+  color: var(--text-main);
+  background: var(--warning);
+  background: hsla(var(--accent-hue), 90%, 55%, 0.12);
+  border-bottom: 1px solid var(--border);
+}
+
+.email-verify-banner p {
+  margin: 0;
+  flex: 1 1 200px;
+}
+
+.email-verify-banner-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 .header-content {
   max-width: var(--page-max-width);
   margin: 0 auto;
@@ -2125,9 +2150,12 @@ body.has-mobile-nav {
 
 .luna-live-link-btn {
   margin-top: 0.5rem;
-  color: var(--primary);
   font-weight: 700;
   font-size: 0.85rem;
+}
+
+.luna-live-link-btn.btn-primary {
+  color: #fff;
 }
 
 .luna-live-transcript {

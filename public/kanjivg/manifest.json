@@ -2,1112 +2,1592 @@
   "source": "KanjiVG",
   "release": "r20250816",
   "license": "CC-BY-SA-3.0",
-  "generatedAt": "2026-06-07T21:08:17.645Z",
-  "count": 92,
+  "generatedAt": "2026-06-11T14:50:41.912Z",
+  "count": 132,
   "characters": [
     {
       "kanjiVgId": "03042",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-a"
-      ],
       "japanese": [
         "あ"
       ],
-      "path": "/kanjivg/kanji/03042.svg"
+      "path": "/kanjivg/kanji/03042.svg",
+      "kanaIds": [
+        "hira-a"
+      ]
     },
     {
       "kanjiVgId": "03044",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-i"
-      ],
       "japanese": [
         "い"
       ],
-      "path": "/kanjivg/kanji/03044.svg"
+      "path": "/kanjivg/kanji/03044.svg",
+      "kanaIds": [
+        "hira-i"
+      ]
     },
     {
       "kanjiVgId": "03046",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-u"
-      ],
       "japanese": [
         "う"
       ],
-      "path": "/kanjivg/kanji/03046.svg"
+      "path": "/kanjivg/kanji/03046.svg",
+      "kanaIds": [
+        "hira-u"
+      ]
     },
     {
       "kanjiVgId": "03048",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-e"
-      ],
       "japanese": [
         "え"
       ],
-      "path": "/kanjivg/kanji/03048.svg"
+      "path": "/kanjivg/kanji/03048.svg",
+      "kanaIds": [
+        "hira-e"
+      ]
     },
     {
       "kanjiVgId": "0304a",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-o"
-      ],
       "japanese": [
         "お"
       ],
-      "path": "/kanjivg/kanji/0304a.svg"
+      "path": "/kanjivg/kanji/0304a.svg",
+      "kanaIds": [
+        "hira-o"
+      ]
     },
     {
       "kanjiVgId": "0304b",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ka"
-      ],
       "japanese": [
         "か"
       ],
-      "path": "/kanjivg/kanji/0304b.svg"
+      "path": "/kanjivg/kanji/0304b.svg",
+      "kanaIds": [
+        "hira-ka"
+      ]
     },
     {
       "kanjiVgId": "0304d",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "hira-ki"
-      ],
       "japanese": [
         "き"
       ],
-      "path": "/kanjivg/kanji/0304d.svg"
+      "path": "/kanjivg/kanji/0304d.svg",
+      "kanaIds": [
+        "hira-ki"
+      ]
     },
     {
       "kanjiVgId": "0304f",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-ku"
-      ],
       "japanese": [
         "く"
       ],
-      "path": "/kanjivg/kanji/0304f.svg"
+      "path": "/kanjivg/kanji/0304f.svg",
+      "kanaIds": [
+        "hira-ku"
+      ]
     },
     {
       "kanjiVgId": "03051",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ke"
-      ],
       "japanese": [
         "け"
       ],
-      "path": "/kanjivg/kanji/03051.svg"
+      "path": "/kanjivg/kanji/03051.svg",
+      "kanaIds": [
+        "hira-ke"
+      ]
     },
     {
       "kanjiVgId": "03053",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-ko"
-      ],
       "japanese": [
         "こ"
       ],
-      "path": "/kanjivg/kanji/03053.svg"
+      "path": "/kanjivg/kanji/03053.svg",
+      "kanaIds": [
+        "hira-ko"
+      ]
     },
     {
       "kanjiVgId": "03055",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-sa"
-      ],
       "japanese": [
         "さ"
       ],
-      "path": "/kanjivg/kanji/03055.svg"
+      "path": "/kanjivg/kanji/03055.svg",
+      "kanaIds": [
+        "hira-sa"
+      ]
     },
     {
       "kanjiVgId": "03057",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-shi"
-      ],
       "japanese": [
         "し"
       ],
-      "path": "/kanjivg/kanji/03057.svg"
+      "path": "/kanjivg/kanji/03057.svg",
+      "kanaIds": [
+        "hira-shi"
+      ]
     },
     {
       "kanjiVgId": "03059",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-su"
-      ],
       "japanese": [
         "す"
       ],
-      "path": "/kanjivg/kanji/03059.svg"
+      "path": "/kanjivg/kanji/03059.svg",
+      "kanaIds": [
+        "hira-su"
+      ]
     },
     {
       "kanjiVgId": "0305b",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-se"
-      ],
       "japanese": [
         "せ"
       ],
-      "path": "/kanjivg/kanji/0305b.svg"
+      "path": "/kanjivg/kanji/0305b.svg",
+      "kanaIds": [
+        "hira-se"
+      ]
     },
     {
       "kanjiVgId": "0305d",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-so"
-      ],
       "japanese": [
         "そ"
       ],
-      "path": "/kanjivg/kanji/0305d.svg"
+      "path": "/kanjivg/kanji/0305d.svg",
+      "kanaIds": [
+        "hira-so"
+      ]
     },
     {
       "kanjiVgId": "0305f",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "hira-ta"
-      ],
       "japanese": [
         "た"
       ],
-      "path": "/kanjivg/kanji/0305f.svg"
+      "path": "/kanjivg/kanji/0305f.svg",
+      "kanaIds": [
+        "hira-ta"
+      ]
     },
     {
       "kanjiVgId": "03061",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-chi"
-      ],
       "japanese": [
         "ち"
       ],
-      "path": "/kanjivg/kanji/03061.svg"
+      "path": "/kanjivg/kanji/03061.svg",
+      "kanaIds": [
+        "hira-chi"
+      ]
     },
     {
       "kanjiVgId": "03064",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-tsu"
-      ],
       "japanese": [
         "つ"
       ],
-      "path": "/kanjivg/kanji/03064.svg"
+      "path": "/kanjivg/kanji/03064.svg",
+      "kanaIds": [
+        "hira-tsu"
+      ]
     },
     {
       "kanjiVgId": "03066",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-te"
-      ],
       "japanese": [
         "て"
       ],
-      "path": "/kanjivg/kanji/03066.svg"
+      "path": "/kanjivg/kanji/03066.svg",
+      "kanaIds": [
+        "hira-te"
+      ]
     },
     {
       "kanjiVgId": "03068",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-to"
-      ],
       "japanese": [
         "と"
       ],
-      "path": "/kanjivg/kanji/03068.svg"
+      "path": "/kanjivg/kanji/03068.svg",
+      "kanaIds": [
+        "hira-to"
+      ]
     },
     {
       "kanjiVgId": "0306a",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "hira-na"
-      ],
       "japanese": [
         "な"
       ],
-      "path": "/kanjivg/kanji/0306a.svg"
+      "path": "/kanjivg/kanji/0306a.svg",
+      "kanaIds": [
+        "hira-na"
+      ]
     },
     {
       "kanjiVgId": "0306b",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ni"
-      ],
       "japanese": [
         "に"
       ],
-      "path": "/kanjivg/kanji/0306b.svg"
+      "path": "/kanjivg/kanji/0306b.svg",
+      "kanaIds": [
+        "hira-ni"
+      ]
     },
     {
       "kanjiVgId": "0306c",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-nu"
-      ],
       "japanese": [
         "ぬ"
       ],
-      "path": "/kanjivg/kanji/0306c.svg"
+      "path": "/kanjivg/kanji/0306c.svg",
+      "kanaIds": [
+        "hira-nu"
+      ]
     },
     {
       "kanjiVgId": "0306d",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-ne"
-      ],
       "japanese": [
         "ね"
       ],
-      "path": "/kanjivg/kanji/0306d.svg"
+      "path": "/kanjivg/kanji/0306d.svg",
+      "kanaIds": [
+        "hira-ne"
+      ]
     },
     {
       "kanjiVgId": "0306e",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-no"
-      ],
       "japanese": [
         "の"
       ],
-      "path": "/kanjivg/kanji/0306e.svg"
+      "path": "/kanjivg/kanji/0306e.svg",
+      "kanaIds": [
+        "hira-no"
+      ]
     },
     {
       "kanjiVgId": "0306f",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ha"
-      ],
       "japanese": [
         "は"
       ],
-      "path": "/kanjivg/kanji/0306f.svg"
+      "path": "/kanjivg/kanji/0306f.svg",
+      "kanaIds": [
+        "hira-ha"
+      ]
     },
     {
       "kanjiVgId": "03072",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-hi"
-      ],
       "japanese": [
         "ひ"
       ],
-      "path": "/kanjivg/kanji/03072.svg"
+      "path": "/kanjivg/kanji/03072.svg",
+      "kanaIds": [
+        "hira-hi"
+      ]
     },
     {
       "kanjiVgId": "03075",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "hira-fu"
-      ],
       "japanese": [
         "ふ"
       ],
-      "path": "/kanjivg/kanji/03075.svg"
+      "path": "/kanjivg/kanji/03075.svg",
+      "kanaIds": [
+        "hira-fu"
+      ]
     },
     {
       "kanjiVgId": "03078",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-he"
-      ],
       "japanese": [
         "へ"
       ],
-      "path": "/kanjivg/kanji/03078.svg"
+      "path": "/kanjivg/kanji/03078.svg",
+      "kanaIds": [
+        "hira-he"
+      ]
     },
     {
       "kanjiVgId": "0307b",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "hira-ho"
-      ],
       "japanese": [
         "ほ"
       ],
-      "path": "/kanjivg/kanji/0307b.svg"
+      "path": "/kanjivg/kanji/0307b.svg",
+      "kanaIds": [
+        "hira-ho"
+      ]
     },
     {
       "kanjiVgId": "0307e",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ma"
-      ],
       "japanese": [
         "ま"
       ],
-      "path": "/kanjivg/kanji/0307e.svg"
+      "path": "/kanjivg/kanji/0307e.svg",
+      "kanaIds": [
+        "hira-ma"
+      ]
     },
     {
       "kanjiVgId": "0307f",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-mi"
-      ],
       "japanese": [
         "み"
       ],
-      "path": "/kanjivg/kanji/0307f.svg"
+      "path": "/kanjivg/kanji/0307f.svg",
+      "kanaIds": [
+        "hira-mi"
+      ]
     },
     {
       "kanjiVgId": "03080",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-mu"
-      ],
       "japanese": [
         "む"
       ],
-      "path": "/kanjivg/kanji/03080.svg"
+      "path": "/kanjivg/kanji/03080.svg",
+      "kanaIds": [
+        "hira-mu"
+      ]
     },
     {
       "kanjiVgId": "03081",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-me"
-      ],
       "japanese": [
         "め"
       ],
-      "path": "/kanjivg/kanji/03081.svg"
+      "path": "/kanjivg/kanji/03081.svg",
+      "kanaIds": [
+        "hira-me"
+      ]
     },
     {
       "kanjiVgId": "03082",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-mo"
-      ],
       "japanese": [
         "も"
       ],
-      "path": "/kanjivg/kanji/03082.svg"
+      "path": "/kanjivg/kanji/03082.svg",
+      "kanaIds": [
+        "hira-mo"
+      ]
     },
     {
       "kanjiVgId": "03084",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-ya"
-      ],
       "japanese": [
         "や"
       ],
-      "path": "/kanjivg/kanji/03084.svg"
+      "path": "/kanjivg/kanji/03084.svg",
+      "kanaIds": [
+        "hira-ya"
+      ]
     },
     {
       "kanjiVgId": "03086",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-yu"
-      ],
       "japanese": [
         "ゆ"
       ],
-      "path": "/kanjivg/kanji/03086.svg"
+      "path": "/kanjivg/kanji/03086.svg",
+      "kanaIds": [
+        "hira-yu"
+      ]
     },
     {
       "kanjiVgId": "03088",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-yo"
-      ],
       "japanese": [
         "よ"
       ],
-      "path": "/kanjivg/kanji/03088.svg"
+      "path": "/kanjivg/kanji/03088.svg",
+      "kanaIds": [
+        "hira-yo"
+      ]
     },
     {
       "kanjiVgId": "03089",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-ra"
-      ],
       "japanese": [
         "ら"
       ],
-      "path": "/kanjivg/kanji/03089.svg"
+      "path": "/kanjivg/kanji/03089.svg",
+      "kanaIds": [
+        "hira-ra"
+      ]
     },
     {
       "kanjiVgId": "0308a",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-ri"
-      ],
       "japanese": [
         "り"
       ],
-      "path": "/kanjivg/kanji/0308a.svg"
+      "path": "/kanjivg/kanji/0308a.svg",
+      "kanaIds": [
+        "hira-ri"
+      ]
     },
     {
       "kanjiVgId": "0308b",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-ru"
-      ],
       "japanese": [
         "る"
       ],
-      "path": "/kanjivg/kanji/0308b.svg"
+      "path": "/kanjivg/kanji/0308b.svg",
+      "kanaIds": [
+        "hira-ru"
+      ]
     },
     {
       "kanjiVgId": "0308c",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-re"
-      ],
       "japanese": [
         "れ"
       ],
-      "path": "/kanjivg/kanji/0308c.svg"
+      "path": "/kanjivg/kanji/0308c.svg",
+      "kanaIds": [
+        "hira-re"
+      ]
     },
     {
       "kanjiVgId": "0308d",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-ro"
-      ],
       "japanese": [
         "ろ"
       ],
-      "path": "/kanjivg/kanji/0308d.svg"
+      "path": "/kanjivg/kanji/0308d.svg",
+      "kanaIds": [
+        "hira-ro"
+      ]
     },
     {
       "kanjiVgId": "0308f",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "hira-wa"
-      ],
       "japanese": [
         "わ"
       ],
-      "path": "/kanjivg/kanji/0308f.svg"
+      "path": "/kanjivg/kanji/0308f.svg",
+      "kanaIds": [
+        "hira-wa"
+      ]
     },
     {
       "kanjiVgId": "03092",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "hira-wo"
-      ],
       "japanese": [
         "を"
       ],
-      "path": "/kanjivg/kanji/03092.svg"
+      "path": "/kanjivg/kanji/03092.svg",
+      "kanaIds": [
+        "hira-wo"
+      ]
     },
     {
       "kanjiVgId": "03093",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "hira-n"
-      ],
       "japanese": [
         "ん"
       ],
-      "path": "/kanjivg/kanji/03093.svg"
+      "path": "/kanjivg/kanji/03093.svg",
+      "kanaIds": [
+        "hira-n"
+      ]
     },
     {
       "kanjiVgId": "030a2",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-a"
-      ],
       "japanese": [
         "ア"
       ],
-      "path": "/kanjivg/kanji/030a2.svg"
+      "path": "/kanjivg/kanji/030a2.svg",
+      "kanaIds": [
+        "kata-a"
+      ]
     },
     {
       "kanjiVgId": "030a4",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-i"
-      ],
       "japanese": [
         "イ"
       ],
-      "path": "/kanjivg/kanji/030a4.svg"
+      "path": "/kanjivg/kanji/030a4.svg",
+      "kanaIds": [
+        "kata-i"
+      ]
     },
     {
       "kanjiVgId": "030a6",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-u"
-      ],
       "japanese": [
         "ウ"
       ],
-      "path": "/kanjivg/kanji/030a6.svg"
+      "path": "/kanjivg/kanji/030a6.svg",
+      "kanaIds": [
+        "kata-u"
+      ]
     },
     {
       "kanjiVgId": "030a8",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-e"
-      ],
       "japanese": [
         "エ"
       ],
-      "path": "/kanjivg/kanji/030a8.svg"
+      "path": "/kanjivg/kanji/030a8.svg",
+      "kanaIds": [
+        "kata-e"
+      ]
     },
     {
       "kanjiVgId": "030aa",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-o"
-      ],
       "japanese": [
         "オ"
       ],
-      "path": "/kanjivg/kanji/030aa.svg"
+      "path": "/kanjivg/kanji/030aa.svg",
+      "kanaIds": [
+        "kata-o"
+      ]
     },
     {
       "kanjiVgId": "030ab",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ka"
-      ],
       "japanese": [
         "カ"
       ],
-      "path": "/kanjivg/kanji/030ab.svg"
+      "path": "/kanjivg/kanji/030ab.svg",
+      "kanaIds": [
+        "kata-ka"
+      ]
     },
     {
       "kanjiVgId": "030ad",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-ki"
-      ],
       "japanese": [
         "キ"
       ],
-      "path": "/kanjivg/kanji/030ad.svg"
+      "path": "/kanjivg/kanji/030ad.svg",
+      "kanaIds": [
+        "kata-ki"
+      ]
     },
     {
       "kanjiVgId": "030af",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ku"
-      ],
       "japanese": [
         "ク"
       ],
-      "path": "/kanjivg/kanji/030af.svg"
+      "path": "/kanjivg/kanji/030af.svg",
+      "kanaIds": [
+        "kata-ku"
+      ]
     },
     {
       "kanjiVgId": "030b1",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-ke"
-      ],
       "japanese": [
         "ケ"
       ],
-      "path": "/kanjivg/kanji/030b1.svg"
+      "path": "/kanjivg/kanji/030b1.svg",
+      "kanaIds": [
+        "kata-ke"
+      ]
     },
     {
       "kanjiVgId": "030b3",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ko"
-      ],
       "japanese": [
         "コ"
       ],
-      "path": "/kanjivg/kanji/030b3.svg"
+      "path": "/kanjivg/kanji/030b3.svg",
+      "kanaIds": [
+        "kata-ko"
+      ]
     },
     {
       "kanjiVgId": "030b5",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-sa"
-      ],
       "japanese": [
         "サ"
       ],
-      "path": "/kanjivg/kanji/030b5.svg"
+      "path": "/kanjivg/kanji/030b5.svg",
+      "kanaIds": [
+        "kata-sa"
+      ]
     },
     {
       "kanjiVgId": "030b7",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-shi"
-      ],
       "japanese": [
         "シ"
       ],
-      "path": "/kanjivg/kanji/030b7.svg"
+      "path": "/kanjivg/kanji/030b7.svg",
+      "kanaIds": [
+        "kata-shi"
+      ]
     },
     {
       "kanjiVgId": "030b9",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-su"
-      ],
       "japanese": [
         "ス"
       ],
-      "path": "/kanjivg/kanji/030b9.svg"
+      "path": "/kanjivg/kanji/030b9.svg",
+      "kanaIds": [
+        "kata-su"
+      ]
     },
     {
       "kanjiVgId": "030bb",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-se"
-      ],
       "japanese": [
         "セ"
       ],
-      "path": "/kanjivg/kanji/030bb.svg"
+      "path": "/kanjivg/kanji/030bb.svg",
+      "kanaIds": [
+        "kata-se"
+      ]
     },
     {
       "kanjiVgId": "030bd",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-so"
-      ],
       "japanese": [
         "ソ"
       ],
-      "path": "/kanjivg/kanji/030bd.svg"
+      "path": "/kanjivg/kanji/030bd.svg",
+      "kanaIds": [
+        "kata-so"
+      ]
     },
     {
       "kanjiVgId": "030bf",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-ta"
-      ],
       "japanese": [
         "タ"
       ],
-      "path": "/kanjivg/kanji/030bf.svg"
+      "path": "/kanjivg/kanji/030bf.svg",
+      "kanaIds": [
+        "kata-ta"
+      ]
     },
     {
       "kanjiVgId": "030c1",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-chi"
-      ],
       "japanese": [
         "チ"
       ],
-      "path": "/kanjivg/kanji/030c1.svg"
+      "path": "/kanjivg/kanji/030c1.svg",
+      "kanaIds": [
+        "kata-chi"
+      ]
     },
     {
       "kanjiVgId": "030c4",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-tsu"
-      ],
       "japanese": [
         "ツ"
       ],
-      "path": "/kanjivg/kanji/030c4.svg"
+      "path": "/kanjivg/kanji/030c4.svg",
+      "kanaIds": [
+        "kata-tsu"
+      ]
     },
     {
       "kanjiVgId": "030c6",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-te"
-      ],
       "japanese": [
         "テ"
       ],
-      "path": "/kanjivg/kanji/030c6.svg"
+      "path": "/kanjivg/kanji/030c6.svg",
+      "kanaIds": [
+        "kata-te"
+      ]
     },
     {
       "kanjiVgId": "030c8",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-to"
-      ],
       "japanese": [
         "ト"
       ],
-      "path": "/kanjivg/kanji/030c8.svg"
+      "path": "/kanjivg/kanji/030c8.svg",
+      "kanaIds": [
+        "kata-to"
+      ]
     },
     {
       "kanjiVgId": "030ca",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-na"
-      ],
       "japanese": [
         "ナ"
       ],
-      "path": "/kanjivg/kanji/030ca.svg"
+      "path": "/kanjivg/kanji/030ca.svg",
+      "kanaIds": [
+        "kata-na"
+      ]
     },
     {
       "kanjiVgId": "030cb",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ni"
-      ],
       "japanese": [
         "ニ"
       ],
-      "path": "/kanjivg/kanji/030cb.svg"
+      "path": "/kanjivg/kanji/030cb.svg",
+      "kanaIds": [
+        "kata-ni"
+      ]
     },
     {
       "kanjiVgId": "030cc",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-nu"
-      ],
       "japanese": [
         "ヌ"
       ],
-      "path": "/kanjivg/kanji/030cc.svg"
+      "path": "/kanjivg/kanji/030cc.svg",
+      "kanaIds": [
+        "kata-nu"
+      ]
     },
     {
       "kanjiVgId": "030cd",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "kata-ne"
-      ],
       "japanese": [
         "ネ"
       ],
-      "path": "/kanjivg/kanji/030cd.svg"
+      "path": "/kanjivg/kanji/030cd.svg",
+      "kanaIds": [
+        "kata-ne"
+      ]
     },
     {
       "kanjiVgId": "030ce",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "kata-no"
-      ],
       "japanese": [
         "ノ"
       ],
-      "path": "/kanjivg/kanji/030ce.svg"
+      "path": "/kanjivg/kanji/030ce.svg",
+      "kanaIds": [
+        "kata-no"
+      ]
     },
     {
       "kanjiVgId": "030cf",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ha"
-      ],
       "japanese": [
         "ハ"
       ],
-      "path": "/kanjivg/kanji/030cf.svg"
+      "path": "/kanjivg/kanji/030cf.svg",
+      "kanaIds": [
+        "kata-ha"
+      ]
     },
     {
       "kanjiVgId": "030d2",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-hi"
-      ],
       "japanese": [
         "ヒ"
       ],
-      "path": "/kanjivg/kanji/030d2.svg"
+      "path": "/kanjivg/kanji/030d2.svg",
+      "kanaIds": [
+        "kata-hi"
+      ]
     },
     {
       "kanjiVgId": "030d5",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "kata-fu"
-      ],
       "japanese": [
         "フ"
       ],
-      "path": "/kanjivg/kanji/030d5.svg"
+      "path": "/kanjivg/kanji/030d5.svg",
+      "kanaIds": [
+        "kata-fu"
+      ]
     },
     {
       "kanjiVgId": "030d8",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "kata-he"
-      ],
       "japanese": [
         "ヘ"
       ],
-      "path": "/kanjivg/kanji/030d8.svg"
+      "path": "/kanjivg/kanji/030d8.svg",
+      "kanaIds": [
+        "kata-he"
+      ]
     },
     {
       "kanjiVgId": "030db",
       "strokeCount": 4,
       "svgStrokeCount": 4,
-      "kanaIds": [
-        "kata-ho"
-      ],
       "japanese": [
         "ホ"
       ],
-      "path": "/kanjivg/kanji/030db.svg"
+      "path": "/kanjivg/kanji/030db.svg",
+      "kanaIds": [
+        "kata-ho"
+      ]
     },
     {
       "kanjiVgId": "030de",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ma"
-      ],
       "japanese": [
         "マ"
       ],
-      "path": "/kanjivg/kanji/030de.svg"
+      "path": "/kanjivg/kanji/030de.svg",
+      "kanaIds": [
+        "kata-ma"
+      ]
     },
     {
       "kanjiVgId": "030df",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-mi"
-      ],
       "japanese": [
         "ミ"
       ],
-      "path": "/kanjivg/kanji/030df.svg"
+      "path": "/kanjivg/kanji/030df.svg",
+      "kanaIds": [
+        "kata-mi"
+      ]
     },
     {
       "kanjiVgId": "030e0",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-mu"
-      ],
       "japanese": [
         "ム"
       ],
-      "path": "/kanjivg/kanji/030e0.svg"
+      "path": "/kanjivg/kanji/030e0.svg",
+      "kanaIds": [
+        "kata-mu"
+      ]
     },
     {
       "kanjiVgId": "030e1",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-me"
-      ],
       "japanese": [
         "メ"
       ],
-      "path": "/kanjivg/kanji/030e1.svg"
+      "path": "/kanjivg/kanji/030e1.svg",
+      "kanaIds": [
+        "kata-me"
+      ]
     },
     {
       "kanjiVgId": "030e2",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-mo"
-      ],
       "japanese": [
         "モ"
       ],
-      "path": "/kanjivg/kanji/030e2.svg"
+      "path": "/kanjivg/kanji/030e2.svg",
+      "kanaIds": [
+        "kata-mo"
+      ]
     },
     {
       "kanjiVgId": "030e4",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ya"
-      ],
       "japanese": [
         "ヤ"
       ],
-      "path": "/kanjivg/kanji/030e4.svg"
+      "path": "/kanjivg/kanji/030e4.svg",
+      "kanaIds": [
+        "kata-ya"
+      ]
     },
     {
       "kanjiVgId": "030e6",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-yu"
-      ],
       "japanese": [
         "ユ"
       ],
-      "path": "/kanjivg/kanji/030e6.svg"
+      "path": "/kanjivg/kanji/030e6.svg",
+      "kanaIds": [
+        "kata-yu"
+      ]
     },
     {
       "kanjiVgId": "030e8",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-yo"
-      ],
       "japanese": [
         "ヨ"
       ],
-      "path": "/kanjivg/kanji/030e8.svg"
+      "path": "/kanjivg/kanji/030e8.svg",
+      "kanaIds": [
+        "kata-yo"
+      ]
     },
     {
       "kanjiVgId": "030e9",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ra"
-      ],
       "japanese": [
         "ラ"
       ],
-      "path": "/kanjivg/kanji/030e9.svg"
+      "path": "/kanjivg/kanji/030e9.svg",
+      "kanaIds": [
+        "kata-ra"
+      ]
     },
     {
       "kanjiVgId": "030ea",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ri"
-      ],
       "japanese": [
         "リ"
       ],
-      "path": "/kanjivg/kanji/030ea.svg"
+      "path": "/kanjivg/kanji/030ea.svg",
+      "kanaIds": [
+        "kata-ri"
+      ]
     },
     {
       "kanjiVgId": "030eb",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-ru"
-      ],
       "japanese": [
         "ル"
       ],
-      "path": "/kanjivg/kanji/030eb.svg"
+      "path": "/kanjivg/kanji/030eb.svg",
+      "kanaIds": [
+        "kata-ru"
+      ]
     },
     {
       "kanjiVgId": "030ec",
       "strokeCount": 1,
       "svgStrokeCount": 1,
-      "kanaIds": [
-        "kata-re"
-      ],
       "japanese": [
         "レ"
       ],
-      "path": "/kanjivg/kanji/030ec.svg"
+      "path": "/kanjivg/kanji/030ec.svg",
+      "kanaIds": [
+        "kata-re"
+      ]
     },
     {
       "kanjiVgId": "030ed",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-ro"
-      ],
       "japanese": [
         "ロ"
       ],
-      "path": "/kanjivg/kanji/030ed.svg"
+      "path": "/kanjivg/kanji/030ed.svg",
+      "kanaIds": [
+        "kata-ro"
+      ]
     },
     {
       "kanjiVgId": "030ef",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-wa"
-      ],
       "japanese": [
         "ワ"
       ],
-      "path": "/kanjivg/kanji/030ef.svg"
+      "path": "/kanjivg/kanji/030ef.svg",
+      "kanaIds": [
+        "kata-wa"
+      ]
     },
     {
       "kanjiVgId": "030f2",
       "strokeCount": 3,
       "svgStrokeCount": 3,
-      "kanaIds": [
-        "kata-wo"
-      ],
       "japanese": [
         "ヲ"
       ],
-      "path": "/kanjivg/kanji/030f2.svg"
+      "path": "/kanjivg/kanji/030f2.svg",
+      "kanaIds": [
+        "kata-wo"
+      ]
     },
     {
       "kanjiVgId": "030f3",
       "strokeCount": 2,
       "svgStrokeCount": 2,
-      "kanaIds": [
-        "kata-n"
-      ],
       "japanese": [
         "ン"
       ],
-      "path": "/kanjivg/kanji/030f3.svg"
+      "path": "/kanjivg/kanji/030f3.svg",
+      "kanaIds": [
+        "kata-n"
+      ]
+    },
+    {
+      "kanjiVgId": "04f5c",
+      "strokeCount": 7,
+      "svgStrokeCount": 7,
+      "japanese": [
+        "作"
+      ],
+      "path": "/kanjivg/kanji/04f5c.svg",
+      "kanjiIds": [
+        "kanji-tsukuru"
+      ]
+    },
+    {
+      "kanjiVgId": "04f7f",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "使"
+      ],
+      "path": "/kanjivg/kanji/04f7f.svg",
+      "kanjiIds": [
+        "kanji-tsukau"
+      ]
+    },
+    {
+      "kanjiVgId": "0501f",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "借"
+      ],
+      "path": "/kanjivg/kanji/0501f.svg",
+      "kanjiIds": [
+        "kanji-kariru"
+      ]
+    },
+    {
+      "kanjiVgId": "050cd",
+      "strokeCount": 13,
+      "svgStrokeCount": 13,
+      "japanese": [
+        "働"
+      ],
+      "path": "/kanjivg/kanji/050cd.svg",
+      "kanjiIds": [
+        "kanji-hataraku-k"
+      ]
+    },
+    {
+      "kanjiVgId": "05144",
+      "strokeCount": 5,
+      "svgStrokeCount": 5,
+      "japanese": [
+        "兄"
+      ],
+      "path": "/kanjivg/kanji/05144.svg",
+      "kanjiIds": [
+        "kanji-ani"
+      ]
+    },
+    {
+      "kanjiVgId": "052d5",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "動"
+      ],
+      "path": "/kanjivg/kanji/052d5.svg",
+      "kanjiIds": [
+        "kanji-ugoku"
+      ]
+    },
+    {
+      "kanjiVgId": "053e4",
+      "strokeCount": 5,
+      "svgStrokeCount": 5,
+      "japanese": [
+        "古"
+      ],
+      "path": "/kanjivg/kanji/053e4.svg",
+      "kanjiIds": [
+        "kanji-furui"
+      ]
+    },
+    {
+      "kanjiVgId": "058f2",
+      "strokeCount": 7,
+      "svgStrokeCount": 7,
+      "japanese": [
+        "売"
+      ],
+      "path": "/kanjivg/kanji/058f2.svg",
+      "kanjiIds": [
+        "kanji-uru"
+      ]
+    },
+    {
+      "kanjiVgId": "0591a",
+      "strokeCount": 6,
+      "svgStrokeCount": 6,
+      "japanese": [
+        "多"
+      ],
+      "path": "/kanjivg/kanji/0591a.svg",
+      "kanjiIds": [
+        "kanji-ooi"
+      ]
+    },
+    {
+      "kanjiVgId": "0591c",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "夜"
+      ],
+      "path": "/kanjivg/kanji/0591c.svg",
+      "kanjiIds": [
+        "kanji-yoru"
+      ]
+    },
+    {
+      "kanjiVgId": "059b9",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "妹"
+      ],
+      "path": "/kanjivg/kanji/059b9.svg",
+      "kanjiIds": [
+        "kanji-imouto"
+      ]
+    },
+    {
+      "kanjiVgId": "059c9",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "姉"
+      ],
+      "path": "/kanjivg/kanji/059c9.svg",
+      "kanjiIds": [
+        "kanji-ane"
+      ]
+    },
+    {
+      "kanjiVgId": "059cb",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "始"
+      ],
+      "path": "/kanjivg/kanji/059cb.svg",
+      "kanjiIds": [
+        "kanji-hajimeru"
+      ]
+    },
+    {
+      "kanjiVgId": "05bb6",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "家"
+      ],
+      "path": "/kanjivg/kanji/05bb6.svg",
+      "kanjiIds": [
+        "kanji-ie"
+      ]
+    },
+    {
+      "kanjiVgId": "05c11",
+      "strokeCount": 4,
+      "svgStrokeCount": 4,
+      "japanese": [
+        "少"
+      ],
+      "path": "/kanjivg/kanji/05c11.svg",
+      "kanjiIds": [
+        "kanji-sukunai"
+      ]
+    },
+    {
+      "kanjiVgId": "05e30",
+      "strokeCount": 10,
+      "svgStrokeCount": 10,
+      "japanese": [
+        "帰"
+      ],
+      "path": "/kanjivg/kanji/05e30.svg",
+      "kanjiIds": [
+        "kanji-kaeru-k"
+      ]
+    },
+    {
+      "kanjiVgId": "05f1f",
+      "strokeCount": 7,
+      "svgStrokeCount": 7,
+      "japanese": [
+        "弟"
+      ],
+      "path": "/kanjivg/kanji/05f1f.svg",
+      "kanjiIds": [
+        "kanji-otouto"
+      ]
+    },
+    {
+      "kanjiVgId": "05f85",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "待"
+      ],
+      "path": "/kanjivg/kanji/05f85.svg",
+      "kanjiIds": [
+        "kanji-matsu-k"
+      ]
+    },
+    {
+      "kanjiVgId": "0601d",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "思"
+      ],
+      "path": "/kanjivg/kanji/0601d.svg",
+      "kanjiIds": [
+        "kanji-omou"
+      ]
+    },
+    {
+      "kanjiVgId": "06301",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "持"
+      ],
+      "path": "/kanjivg/kanji/06301.svg",
+      "kanjiIds": [
+        "kanji-motsu"
+      ]
+    },
+    {
+      "kanjiVgId": "06559",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "教"
+      ],
+      "path": "/kanjivg/kanji/06559.svg",
+      "kanjiIds": [
+        "kanji-oshieru"
+      ]
+    },
+    {
+      "kanjiVgId": "065b0",
+      "strokeCount": 13,
+      "svgStrokeCount": 13,
+      "japanese": [
+        "新"
+      ],
+      "path": "/kanjivg/kanji/065b0.svg",
+      "kanjiIds": [
+        "kanji-atarashii-k"
+      ]
+    },
+    {
+      "kanjiVgId": "065cf",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "族"
+      ],
+      "path": "/kanjivg/kanji/065cf.svg",
+      "kanjiIds": [
+        "kanji-zoku"
+      ]
+    },
+    {
+      "kanjiVgId": "0663c",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "昼"
+      ],
+      "path": "/kanjivg/kanji/0663c.svg",
+      "kanjiIds": [
+        "kanji-hiru"
+      ]
+    },
+    {
+      "kanjiVgId": "066dc",
+      "strokeCount": 18,
+      "svgStrokeCount": 18,
+      "japanese": [
+        "曜"
+      ],
+      "path": "/kanjivg/kanji/066dc.svg",
+      "kanjiIds": [
+        "kanji-you"
+      ]
+    },
+    {
+      "kanjiVgId": "0671d",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "朝"
+      ],
+      "path": "/kanjivg/kanji/0671d.svg",
+      "kanjiIds": [
+        "kanji-asa-k"
+      ]
+    },
+    {
+      "kanjiVgId": "06b62",
+      "strokeCount": 4,
+      "svgStrokeCount": 4,
+      "japanese": [
+        "止"
+      ],
+      "path": "/kanjivg/kanji/06b62.svg",
+      "kanjiIds": [
+        "kanji-tomaru"
+      ]
+    },
+    {
+      "kanjiVgId": "06b69",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "歩"
+      ],
+      "path": "/kanjivg/kanji/06b69.svg",
+      "kanjiIds": [
+        "kanji-aruku"
+      ]
+    },
+    {
+      "kanjiVgId": "06cf3",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "泳"
+      ],
+      "path": "/kanjivg/kanji/06cf3.svg",
+      "kanjiIds": [
+        "kanji-oyogu"
+      ]
+    },
+    {
+      "kanjiVgId": "077e5",
+      "strokeCount": 8,
+      "svgStrokeCount": 8,
+      "japanese": [
+        "知"
+      ],
+      "path": "/kanjivg/kanji/077e5.svg",
+      "kanjiIds": [
+        "kanji-shiru"
+      ]
+    },
+    {
+      "kanjiVgId": "07d42",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "終"
+      ],
+      "path": "/kanjivg/kanji/07d42.svg",
+      "kanjiIds": [
+        "kanji-owaru"
+      ]
+    },
+    {
+      "kanjiVgId": "07fd2",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "習"
+      ],
+      "path": "/kanjivg/kanji/07fd2.svg",
+      "kanjiIds": [
+        "kanji-narau"
+      ]
+    },
+    {
+      "kanjiVgId": "089aa",
+      "strokeCount": 16,
+      "svgStrokeCount": 16,
+      "japanese": [
+        "親"
+      ],
+      "path": "/kanjivg/kanji/089aa.svg",
+      "kanjiIds": [
+        "kanji-oya"
+      ]
+    },
+    {
+      "kanjiVgId": "08cb7",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "買"
+      ],
+      "path": "/kanjivg/kanji/08cb7.svg",
+      "kanjiIds": [
+        "kanji-kau-k"
+      ]
+    },
+    {
+      "kanjiVgId": "08cb8",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "貸"
+      ],
+      "path": "/kanjivg/kanji/08cb8.svg",
+      "kanjiIds": [
+        "kanji-kasu"
+      ]
+    },
+    {
+      "kanjiVgId": "08d70",
+      "strokeCount": 7,
+      "svgStrokeCount": 7,
+      "japanese": [
+        "走"
+      ],
+      "path": "/kanjivg/kanji/08d70.svg",
+      "kanjiIds": [
+        "kanji-hashiru"
+      ]
+    },
+    {
+      "kanjiVgId": "09001",
+      "strokeCount": 9,
+      "svgStrokeCount": 9,
+      "japanese": [
+        "送"
+      ],
+      "path": "/kanjivg/kanji/09001.svg",
+      "kanjiIds": [
+        "kanji-okuru"
+      ]
+    },
+    {
+      "kanjiVgId": "09031",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "週"
+      ],
+      "path": "/kanjivg/kanji/09031.svg",
+      "kanjiIds": [
+        "kanji-shuu"
+      ]
+    },
+    {
+      "kanjiVgId": "09589",
+      "strokeCount": 11,
+      "svgStrokeCount": 11,
+      "japanese": [
+        "閉"
+      ],
+      "path": "/kanjivg/kanji/09589.svg",
+      "kanjiIds": [
+        "kanji-shimeru"
+      ]
+    },
+    {
+      "kanjiVgId": "0958b",
+      "strokeCount": 12,
+      "svgStrokeCount": 12,
+      "japanese": [
+        "開"
+      ],
+      "path": "/kanjivg/kanji/0958b.svg",
+      "kanjiIds": [
+        "kanji-akeru"
+      ]
     }
   ]
 }

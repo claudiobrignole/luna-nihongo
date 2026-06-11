@@ -1,0 +1,154 @@
+{
+  "id": "kanji-n4-verbs-1",
+  "level": 7,
+  "order": 5,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · verbi N4 (1)",
+    "en": "Kanji · N4 verbs (1)"
+  },
+  "description": {
+    "it": "I primi kanji dell'N4 sono verbi d'azione e di pensiero che userai con la forma piana appena imparata: 思 (pensare), 知 (sapere), 作 (fare), 使 (usare), 持 (tenere), 始 (iniziare), 終 (finire), 開 (aprire), 閉 (chiudere). Ognuno con il suo tracciamento KanjiVG.",
+    "en": "The first N4 kanji are action and thought verbs you'll use with the plain form you just learned: 思 (think), 知 (know), 作 (make), 使 (use), 持 (hold), 始 (begin), 終 (end), 開 (open), 閉 (close). Each with its KanjiVG stroke practice."
+  },
+  "kanjiRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru",
+    "kanji-tsukau",
+    "kanji-motsu",
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn4v1-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale kanji significa 'pensare'?",
+        "en": "Which kanji means 'to think'?"
+      },
+      "options": [
+        {
+          "it": "思",
+          "en": "思"
+        },
+        {
+          "it": "知",
+          "en": "知"
+        },
+        {
+          "it": "作",
+          "en": "作"
+        },
+        {
+          "it": "使",
+          "en": "使"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v1-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "開 e 閉 sono una coppia di opposti. Cosa significano?",
+        "en": "開 and 閉 are an opposite pair. What do they mean?"
+      },
+      "options": [
+        {
+          "it": "aprire / chiudere",
+          "en": "aprire / chiudere"
+        },
+        {
+          "it": "iniziare / finire",
+          "en": "iniziare / finire"
+        },
+        {
+          "it": "sapere / pensare",
+          "en": "sapere / pensare"
+        },
+        {
+          "it": "fare / usare",
+          "en": "fare / usare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v1-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "始 e 終 significano...",
+        "en": "始 and 終 mean..."
+      },
+      "options": [
+        {
+          "it": "iniziare / finire",
+          "en": "iniziare / finire"
+        },
+        {
+          "it": "aprire / chiudere",
+          "en": "aprire / chiudere"
+        },
+        {
+          "it": "tenere / usare",
+          "en": "tenere / usare"
+        },
+        {
+          "it": "pensare / sapere",
+          "en": "pensare / sapere"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4v1-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "思",
+          "right": "pensare / think"
+        },
+        {
+          "left": "知",
+          "right": "sapere / know"
+        },
+        {
+          "left": "作",
+          "right": "fare / make"
+        },
+        {
+          "left": "使",
+          "right": "usare / use"
+        },
+        {
+          "left": "持",
+          "right": "tenere / hold"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Verbi N4 in kanji",
+      "en": "N4 verbs in kanji"
+    },
+    {
+      "it": "Coppie 開/閉, 始/終",
+      "en": "Pairs 開/閉, 始/終"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "kanji": [
+    {
+      "id": "kanji-oya",
+      "japanese": "親",
+      "meaning": {
+        "it": "genitore",
+        "en": "parent"
+      },
+      "readingOnyomi": [
+        "シン"
+      ],
+      "readingKunyomi": [
+        "おや",
+        "した.しい"
+      ],
+      "strokeCount": 16,
+      "components": [
+        "kanji-miru-k"
+      ],
+      "mnemonic": {
+        "it": "Sta in piedi su un albero a guardare (見) i figli: il genitore.",
+        "en": "Standing on a tree watching (見) the children: a parent."
+      },
+      "strokeData": {
+        "kanjiVgId": "089aa",
+        "strokeCount": 16
+      }
+    },
+    {
+      "id": "kanji-asa-k",
+      "japanese": "朝",
+      "meaning": {
+        "it": "mattina",
+        "en": "morning"
+      },
+      "readingOnyomi": [
+        "チョウ"
+      ],
+      "readingKunyomi": [
+        "あさ"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "0671d",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-hiru",
+      "japanese": "昼",
+      "meaning": {
+        "it": "mezzogiorno / giorno",
+        "en": "noon / daytime"
+      },
+      "readingOnyomi": [
+        "チュウ"
+      ],
+      "readingKunyomi": [
+        "ひる"
+      ],
+      "strokeCount": 9,
+      "strokeData": {
+        "kanjiVgId": "0663c",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-yoru",
+      "japanese": "夜",
+      "meaning": {
+        "it": "notte",
+        "en": "night"
+      },
+      "readingOnyomi": [
+        "ヤ"
+      ],
+      "readingKunyomi": [
+        "よる"
+      ],
+      "strokeCount": 8,
+      "strokeData": {
+        "kanjiVgId": "0591c",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-you",
+      "japanese": "曜",
+      "meaning": {
+        "it": "giorno della settimana",
+        "en": "day of week"
+      },
+      "readingOnyomi": [
+        "ヨウ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 18,
+      "strokeData": {
+        "kanjiVgId": "066dc",
+        "strokeCount": 18
+      }
+    },
+    {
+      "id": "kanji-shuu",
+      "japanese": "週",
+      "meaning": {
+        "it": "settimana",
+        "en": "week"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "09031",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-atarashii-k",
+      "japanese": "新",
+      "meaning": {
+        "it": "nuovo",
+        "en": "new"
+      },
+      "readingOnyomi": [
+        "シン"
+      ],
+      "readingKunyomi": [
+        "あたら.しい"
+      ],
+      "strokeCount": 13,
+      "strokeData": {
+        "kanjiVgId": "065b0",
+        "strokeCount": 13
+      }
+    },
+    {
+      "id": "kanji-furui",
+      "japanese": "古",
+      "meaning": {
+        "it": "vecchio",
+        "en": "old"
+      },
+      "readingOnyomi": [
+        "コ"
+      ],
+      "readingKunyomi": [
+        "ふる.い"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Dieci (十) bocche (口): una storia passata per dieci generazioni — antica.",
+        "en": "Ten (十) mouths (口): a story through ten generations — old."
+      },
+      "strokeData": {
+        "kanjiVgId": "053e4",
+        "strokeCount": 5
+      }
+    },
+    {
+      "id": "kanji-ooi",
+      "japanese": "多",
+      "meaning": {
+        "it": "molti",
+        "en": "many"
+      },
+      "readingOnyomi": [
+        "タ"
+      ],
+      "readingKunyomi": [
+        "おお.い"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Due sere (夕) una sopra l'altra: tante.",
+        "en": "Two evenings (夕) stacked: many."
+      },
+      "strokeData": {
+        "kanjiVgId": "0591a",
+        "strokeCount": 6
+      }
+    },
+    {
+      "id": "kanji-sukunai",
+      "japanese": "少",
+      "meaning": {
+        "it": "pochi",
+        "en": "few"
+      },
+      "readingOnyomi": [
+        "ショウ"
+      ],
+      "readingKunyomi": [
+        "すく.ない",
+        "すこ.し"
+      ],
+      "strokeCount": 4,
+      "strokeData": {
+        "kanjiVgId": "05c11",
+        "strokeCount": 4
+      }
+    }
+  ]
+}

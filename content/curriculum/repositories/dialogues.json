@@ -925,6 +925,333 @@
         "vocab-tomodachi",
         "vocab-au"
       ]
+    },
+    {
+      "id": "dlg-plain-chat",
+      "title": {
+        "it": "Tra amici",
+        "en": "Between friends"
+      },
+      "setting": {
+        "it": "Due amici parlano del weekend in forma piana, come si fa tra coetanei.",
+        "en": "Two friends talk about the weekend in plain form, as peers do."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Rin",
+            "en": "Rin"
+          },
+          "japanese": "しゅうまつ、なにする?",
+          "kana": "しゅうまつ、なにする?",
+          "romaji": "shuumatsu, nani suru?",
+          "translation": {
+            "it": "Cosa fai nel weekend?",
+            "en": "What are you doing this weekend?"
+          },
+          "note": {
+            "it": "Forma piana する, niente -ます: tra amici è normale.",
+            "en": "Plain form する, no -masu: normal among friends."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sho",
+            "en": "Sho"
+          },
+          "japanese": "えいがをみるつもり。",
+          "kana": "えいがをみるつもり。",
+          "romaji": "eiga o miru tsumori.",
+          "translation": {
+            "it": "Penso di vedere un film.",
+            "en": "I'm planning to watch a movie."
+          },
+          "note": {
+            "it": "みる in forma piana + つもり (intenzione).",
+            "en": "みる in plain form + つもり (intention)."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Rin",
+            "en": "Rin"
+          },
+          "japanese": "いいね。きのうかったほん、もうよんだ?",
+          "kana": "いいね。きのうかったほん、もうよんだ?",
+          "romaji": "ii ne. kinou katta hon, mou yonda?",
+          "translation": {
+            "it": "Bello. Il libro che hai comprato ieri, l'hai già letto?",
+            "en": "Nice. The book you bought yesterday, did you read it already?"
+          },
+          "note": {
+            "it": "きのうかったほん = frase relativa ('il libro che hai comprato ieri'); よんだ = passato piano.",
+            "en": "きのうかったほん = relative clause; よんだ = plain past."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sho",
+            "en": "Sho"
+          },
+          "japanese": "まだよんでない。",
+          "kana": "まだよんでない。",
+          "romaji": "mada yonde nai.",
+          "translation": {
+            "it": "Non ancora.",
+            "en": "Not yet."
+          },
+          "note": {
+            "it": "よんでない = forma piana negativa di よんでいる.",
+            "en": "よんでない = plain negative of よんでいる."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-dictionary-form",
+        "gr-ta-form-plain",
+        "gr-relative-clauses"
+      ],
+      "usesVocabRefs": [
+        "vocab-shuumatsu",
+        "vocab-eega"
+      ]
+    },
+    {
+      "id": "dlg-experiences",
+      "title": {
+        "it": "Esperienze di viaggio",
+        "en": "Travel experiences"
+      },
+      "setting": {
+        "it": "Due colleghi parlano di viaggi e di cosa sanno fare.",
+        "en": "Two coworkers talk about travel and what they can do."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "にほんへいったことがありますか。",
+          "kana": "にほんへいったことがありますか。",
+          "romaji": "nihon e itta koto ga arimasu ka.",
+          "translation": {
+            "it": "È mai stato in Giappone?",
+            "en": "Have you ever been to Japan?"
+          },
+          "note": {
+            "it": "〜たことがある = esperienza.",
+            "en": "〜たことがある = experience."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Leo",
+            "en": "Leo"
+          },
+          "japanese": "はい、あります。すこしにほんごがはなせます。",
+          "kana": "はい、あります。すこしにほんごがはなせます。",
+          "romaji": "hai, arimasu. sukoshi nihongo ga hanasemasu.",
+          "translation": {
+            "it": "Sì. So parlare un po' di giapponese.",
+            "en": "Yes. I can speak a little Japanese."
+          },
+          "note": {
+            "it": "はなせます = potenziale di はなす; oggetto con が.",
+            "en": "はなせます = potential of はなす; object with が."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "すごい!むこうでなにをしましたか。",
+          "kana": "すごい!むこうでなにをしましたか。",
+          "romaji": "sugoi! mukou de nani o shimashita ka.",
+          "translation": {
+            "it": "Che bello! Cosa ha fatto là?",
+            "en": "Great! What did you do over there?"
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Leo",
+            "en": "Leo"
+          },
+          "japanese": "おてらをみたり、おんせんにはいったりしました。",
+          "kana": "おてらをみたり、おんせんにはいったりしました。",
+          "romaji": "otera o mitari, onsen ni haittari shimashita.",
+          "translation": {
+            "it": "Ho fatto cose come visitare templi ed entrare nelle terme.",
+            "en": "I did things like visiting temples and going to hot springs."
+          },
+          "note": {
+            "it": "〜たり〜たり = elenco di attività.",
+            "en": "〜たり〜たり = listing activities."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-potential",
+        "gr-ta-koto-ga-aru",
+        "gr-tari-tari"
+      ],
+      "usesVocabRefs": []
+    },
+    {
+      "id": "dlg-opinion-weather",
+      "title": {
+        "it": "Opinioni e previsioni",
+        "en": "Opinions & forecasts"
+      },
+      "setting": {
+        "it": "Due colleghi commentano il tempo e fanno ipotesi.",
+        "en": "Two coworkers comment on the weather and make guesses."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yui",
+            "en": "Yui"
+          },
+          "japanese": "あしたはあめだそうです。",
+          "kana": "あしたはあめだそうです。",
+          "romaji": "ashita wa ame da sou desu.",
+          "translation": {
+            "it": "Ho sentito che domani piove.",
+            "en": "I heard it'll rain tomorrow."
+          },
+          "note": {
+            "it": "〜そうです = sentito dire.",
+            "en": "〜そうです = hearsay."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Ken",
+            "en": "Ken"
+          },
+          "japanese": "そうですか。さむくなるとおもいます。",
+          "kana": "そうですか。さむくなるとおもいます。",
+          "romaji": "sou desu ka. samuku naru to omoimasu.",
+          "translation": {
+            "it": "Davvero? Penso che farà freddo.",
+            "en": "Really? I think it'll get cold."
+          },
+          "note": {
+            "it": "〜とおもう = opinione.",
+            "en": "〜とおもう = opinion."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yui",
+            "en": "Yui"
+          },
+          "japanese": "ええ、ゆきもふるかもしれません。",
+          "kana": "ええ、ゆきもふるかもしれません。",
+          "romaji": "ee, yuki mo furu kamoshiremasen.",
+          "translation": {
+            "it": "Sì, forse nevicherà anche.",
+            "en": "Yes, it might even snow."
+          },
+          "note": {
+            "it": "〜かもしれません = forse.",
+            "en": "〜かもしれません = maybe."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-sou-desu-hearsay",
+        "gr-to-omou-to-iu",
+        "gr-kamoshirenai"
+      ],
+      "usesVocabRefs": []
+    },
+    {
+      "id": "dlg-plans-conditions",
+      "title": {
+        "it": "Programmi e condizioni",
+        "en": "Plans & conditions"
+      },
+      "setting": {
+        "it": "Due amici organizzano il weekend, valutando condizioni e obblighi.",
+        "en": "Two friends plan the weekend, weighing conditions and obligations."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "あした、てんきがよかったら、うみにいきませんか。",
+          "kana": "あした、てんきがよかったら、うみにいきませんか。",
+          "romaji": "ashita, tenki ga yokattara, umi ni ikimasen ka.",
+          "translation": {
+            "it": "Domani, se fa bel tempo, andiamo al mare?",
+            "en": "Tomorrow, if the weather's nice, shall we go to the sea?"
+          },
+          "note": {
+            "it": "〜たら = condizione + invito.",
+            "en": "〜たら = condition + invitation."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Riku",
+            "en": "Riku"
+          },
+          "japanese": "いいですね。でも、ごぜんちゅうははたらかなければなりません。",
+          "kana": "いいですね。でも、ごぜんちゅうははたらかなければなりません。",
+          "romaji": "ii desu ne. demo, gozenchuu wa hatarakanakereba narimasen.",
+          "translation": {
+            "it": "Bello. Ma di mattina devo lavorare.",
+            "en": "Nice. But in the morning I have to work."
+          },
+          "note": {
+            "it": "〜なければなりません = obbligo.",
+            "en": "〜なければなりません = obligation."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "じゃあ、ごごでもいいですよ。いそがなくてもいいです。",
+          "kana": "じゃあ、ごごでもいいですよ。いそがなくてもいいです。",
+          "romaji": "jaa, gogo demo ii desu yo. isoganakutemo ii desu.",
+          "translation": {
+            "it": "Allora va bene anche il pomeriggio. Non c'è bisogno di affrettarsi.",
+            "en": "Then the afternoon is fine too. No need to hurry."
+          },
+          "note": {
+            "it": "〜なくてもいい = non serve.",
+            "en": "〜なくてもいい = don't have to."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-tara",
+        "gr-nakereba-naranai",
+        "gr-nakutemo-ii"
+      ],
+      "usesVocabRefs": []
     }
   ]
 }

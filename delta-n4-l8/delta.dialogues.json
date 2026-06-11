@@ -1,0 +1,91 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-experiences",
+      "title": {
+        "it": "Esperienze di viaggio",
+        "en": "Travel experiences"
+      },
+      "setting": {
+        "it": "Due colleghi parlano di viaggi e di cosa sanno fare.",
+        "en": "Two coworkers talk about travel and what they can do."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "にほんへいったことがありますか。",
+          "kana": "にほんへいったことがありますか。",
+          "romaji": "nihon e itta koto ga arimasu ka.",
+          "translation": {
+            "it": "È mai stato in Giappone?",
+            "en": "Have you ever been to Japan?"
+          },
+          "note": {
+            "it": "〜たことがある = esperienza.",
+            "en": "〜たことがある = experience."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Leo",
+            "en": "Leo"
+          },
+          "japanese": "はい、あります。すこしにほんごがはなせます。",
+          "kana": "はい、あります。すこしにほんごがはなせます。",
+          "romaji": "hai, arimasu. sukoshi nihongo ga hanasemasu.",
+          "translation": {
+            "it": "Sì. So parlare un po' di giapponese.",
+            "en": "Yes. I can speak a little Japanese."
+          },
+          "note": {
+            "it": "はなせます = potenziale di はなす; oggetto con が.",
+            "en": "はなせます = potential of はなす; object with が."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Mei",
+            "en": "Mei"
+          },
+          "japanese": "すごい!むこうでなにをしましたか。",
+          "kana": "すごい!むこうでなにをしましたか。",
+          "romaji": "sugoi! mukou de nani o shimashita ka.",
+          "translation": {
+            "it": "Che bello! Cosa ha fatto là?",
+            "en": "Great! What did you do over there?"
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Leo",
+            "en": "Leo"
+          },
+          "japanese": "おてらをみたり、おんせんにはいったりしました。",
+          "kana": "おてらをみたり、おんせんにはいったりしました。",
+          "romaji": "otera o mitari, onsen ni haittari shimashita.",
+          "translation": {
+            "it": "Ho fatto cose come visitare templi ed entrare nelle terme.",
+            "en": "I did things like visiting temples and going to hot springs."
+          },
+          "note": {
+            "it": "〜たり〜たり = elenco di attività.",
+            "en": "〜たり〜たり = listing activities."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-potential",
+        "gr-ta-koto-ga-aru",
+        "gr-tari-tari"
+      ],
+      "usesVocabRefs": []
+    }
+  ]
+}

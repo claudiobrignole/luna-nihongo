@@ -1,0 +1,183 @@
+{
+  "id": "situation-opinions-guesses",
+  "level": 9,
+  "order": 7,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · opinioni e previsioni",
+    "en": "Situation · opinions & guesses"
+  },
+  "description": {
+    "it": "Ora sai esprimere ciò che pensi, ciò che hai sentito e ciò che immagini. Ascolta due colleghi che commentano il tempo usando 〜そうです (sentito dire), 〜とおもう (opinione) e 〜かもしれません (forse), poi scrivi la tua previsione e opinione su qualcosa.",
+    "en": "Now you can express what you think, what you heard, and what you guess. Listen to two coworkers commenting on the weather using 〜そうです (hearsay), 〜とおもう (opinion) and 〜かもしれません (maybe), then write your own forecast and opinion about something."
+  },
+  "dialogueRefs": [
+    "dlg-opinion-weather"
+  ],
+  "canDo": [
+    {
+      "id": "cando-give-opinion",
+      "level": "A2",
+      "statement": {
+        "it": "So esprimere un'opinione e una supposizione.",
+        "en": "I can express an opinion and a guess."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-opinion",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere ciò che penso usando 〜とおもう.",
+        "en": "I can write what I think using 〜とおもう."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "weather-smalltalk",
+    "greetings-social"
+  ],
+  "prerequisites": [
+    "kanji-n4-family"
+  ],
+  "grammarRefs": [
+    "gr-to-omou-to-iu",
+    "gr-sou-desu-hearsay",
+    "gr-kamoshirenai"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-sog-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Ho sentito che domani piove':",
+        "en": "'I heard it'll rain tomorrow':"
+      },
+      "options": [
+        {
+          "it": "あしたはあめだそうです",
+          "en": "あしたはあめだそうです"
+        },
+        {
+          "it": "あしたはあめそうです",
+          "en": "あしたはあめそうです"
+        },
+        {
+          "it": "あしたはあめでしょう",
+          "en": "あしたはあめでしょう"
+        },
+        {
+          "it": "あしたはあめだとおもう",
+          "en": "あしたはあめだとおもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sog-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Penso che farà freddo':",
+        "en": "'I think it'll get cold':"
+      },
+      "options": [
+        {
+          "it": "さむくなるとおもいます",
+          "en": "さむくなるとおもいます"
+        },
+        {
+          "it": "さむくなるそうです",
+          "en": "さむくなるそうです"
+        },
+        {
+          "it": "さむくなるでしょうか",
+          "en": "さむくなるでしょうか"
+        },
+        {
+          "it": "さむいといいます",
+          "en": "さむいといいます"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-sog-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Esprimi una tua opinione o previsione su qualcosa (il tempo, un film, il futuro) usando 〜とおもう. 1-2 frasi.",
+        "en": "Express an opinion or guess about something (the weather, a movie, the future) using 〜とおもう. 1-2 sentences."
+      },
+      "targetLength": {
+        "min": 12,
+        "max": 45
+      },
+      "rubric": [
+        {
+          "it": "Usa 〜とおもう correttamente.",
+          "en": "Uses 〜とおもう correctly."
+        },
+        {
+          "it": "La frase prima di と è in forma piana.",
+          "en": "The clause before と is in plain form."
+        },
+        {
+          "it": "Opinione coerente e leggibile.",
+          "en": "Coherent, readable opinion."
+        }
+      ],
+      "modelAnswer": "あしたはいいてんきになるとおもいます。",
+      "modelAnswerKana": "あしたはいいてんきになるとおもいます。",
+      "modelAnswerRomaji": "ashita wa ii tenki ni naru to omoimasu.",
+      "modelAnswerTranslation": {
+        "it": "Penso che domani farà bel tempo.",
+        "en": "I think the weather will be nice tomorrow."
+      },
+      "expectsGrammarRefs": [
+        "gr-to-omou-to-iu"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-sog-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e sfumatura.",
+        "en": "Match structure to nuance."
+      },
+      "pairs": [
+        {
+          "left": "〜とおもう",
+          "right": "la mia opinione / my opinion"
+        },
+        {
+          "left": "〜そうです",
+          "right": "l'ho sentito / I heard it"
+        },
+        {
+          "left": "〜かもしれません",
+          "right": "forse / maybe"
+        },
+        {
+          "left": "〜でしょう",
+          "right": "probabilmente / probably"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Opinione vs sentito dire vs supposizione",
+      "en": "Opinion vs hearsay vs guess"
+    }
+  ]
+}

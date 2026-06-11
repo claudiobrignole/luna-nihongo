@@ -1,0 +1,179 @@
+{
+  "id": "situation-plans-obligations",
+  "level": 10,
+  "order": 8,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Situazione · programmi, condizioni e obblighi",
+    "en": "Situation · plans, conditions & obligations"
+  },
+  "description": {
+    "it": "Metti insieme condizionali e obblighi in una situazione reale: organizzare un'uscita tenendo conto di 'se' (〜たら), di ciò che si deve fare (〜なければなりません) e di ciò che non serve (〜なくてもいい). Ascolta i due amici, poi scrivi un tuo programma con una condizione.",
+    "en": "Combine conditionals and obligations in a real situation: planning an outing factoring in 'if' (〜たら), what must be done (〜なければなりません) and what's not needed (〜なくてもいい). Listen to the two friends, then write your own plan with a condition."
+  },
+  "dialogueRefs": [
+    "dlg-plans-conditions"
+  ],
+  "canDo": [
+    {
+      "id": "cando-plan-conditions",
+      "level": "A2",
+      "statement": {
+        "it": "So fare programmi esprimendo condizioni e obblighi.",
+        "en": "I can make plans expressing conditions and obligations."
+      },
+      "skill": "speaking"
+    },
+    {
+      "id": "cando-write-conditions",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere un programma con una condizione (〜たら).",
+        "en": "I can write a plan with a condition (〜たら)."
+      },
+      "skill": "writing"
+    }
+  ],
+  "situationTags": [
+    "hobbies-invitation",
+    "weather-smalltalk"
+  ],
+  "prerequisites": [
+    "kanji-n4-time-quantity"
+  ],
+  "grammarRefs": [
+    "gr-tara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-spo-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Se fa bel tempo, andiamo al mare?':",
+        "en": "'If the weather's nice, shall we go to the sea?':"
+      },
+      "options": [
+        {
+          "it": "てんきがよかったら、うみにいきませんか",
+          "en": "てんきがよかったら、うみにいきませんか"
+        },
+        {
+          "it": "てんきがいいと、うみにいきませんか",
+          "en": "てんきがいいと、うみにいきませんか"
+        },
+        {
+          "it": "てんきがよければ、うみにいこう",
+          "en": "てんきがよければ、うみにいこう"
+        },
+        {
+          "it": "てんきがいいなら、うみです",
+          "en": "てんきがいいなら、うみです"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-spo-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Di mattina devo lavorare':",
+        "en": "'In the morning I have to work':"
+      },
+      "options": [
+        {
+          "it": "ごぜんちゅうははたらかなければなりません",
+          "en": "ごぜんちゅうははたらかなければなりません"
+        },
+        {
+          "it": "ごぜんちゅうははたらかなくてもいいです",
+          "en": "ごぜんちゅうははたらかなくてもいいです"
+        },
+        {
+          "it": "ごぜんちゅうははたらいてもいいです",
+          "en": "ごぜんちゅうははたらいてもいいです"
+        },
+        {
+          "it": "ごぜんちゅうははたらくでしょう",
+          "en": "ごぜんちゅうははたらくでしょう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-spo-writing-1",
+      "type": "writing",
+      "prompt": {
+        "it": "Scrivi la tua risposta.",
+        "en": "Write your answer."
+      },
+      "task": {
+        "it": "Scrivi un programma per il weekend che dipenda da una condizione, usando 〜たら. 1-2 frasi. Es. 'se fa bel tempo, ...'.",
+        "en": "Write a weekend plan that depends on a condition, using 〜たら. 1-2 sentences. E.g. 'if the weather's nice, ...'."
+      },
+      "targetLength": {
+        "min": 12,
+        "max": 50
+      },
+      "rubric": [
+        {
+          "it": "Usa 〜たら correttamente.",
+          "en": "Uses 〜たら correctly."
+        },
+        {
+          "it": "La forma -た prima di ら è corretta.",
+          "en": "The -ta form before ら is correct."
+        },
+        {
+          "it": "Programma coerente e leggibile.",
+          "en": "Coherent, readable plan."
+        }
+      ],
+      "modelAnswer": "あした、はれたら、こうえんでさんぽします。",
+      "modelAnswerKana": "あした、はれたら、こうえんでさんぽします。",
+      "modelAnswerRomaji": "ashita, haretara, kouen de sanpo shimasu.",
+      "modelAnswerTranslation": {
+        "it": "Domani, se è sereno, passeggio al parco.",
+        "en": "Tomorrow, if it's clear, I'll walk in the park."
+      },
+      "expectsGrammarRefs": [
+        "gr-tara"
+      ],
+      "xp": 30
+    },
+    {
+      "id": "q-spo-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "〜たら",
+          "right": "condizione / condition"
+        },
+        {
+          "left": "〜なければならない",
+          "right": "obbligo / obligation"
+        },
+        {
+          "left": "〜なくてもいい",
+          "right": "non serve / not needed"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Condizioni e obblighi insieme",
+      "en": "Conditions and obligations together"
+    }
+  ]
+}

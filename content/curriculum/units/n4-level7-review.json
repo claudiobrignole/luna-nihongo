@@ -1,0 +1,191 @@
+{
+  "id": "n4-level7-review",
+  "level": 7,
+  "order": 8,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · forma piana e frasi complesse",
+    "en": "Review · plain form & complex sentences"
+  },
+  "description": {
+    "it": "Hai fatto il salto più importante dell'N4: la forma piana e le frasi relative. Questo ripasso intreccia forma del dizionario, -ない, -た piano, ～んです e le relative — gli strumenti su cui poggia tutto il resto dell'N4. Consolidali bene prima di proseguire.",
+    "en": "You've made the most important leap of N4: the plain form and relative clauses. This review weaves together dictionary form, -nai, plain -ta, ～n desu and relative clauses — the tools the rest of N4 rests on. Consolidate them well before moving on."
+  },
+  "grammarRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses"
+  ],
+  "kanjiRefs": [
+    "kanji-omou",
+    "kanji-shiru",
+    "kanji-tsukuru"
+  ],
+  "reviewPoolRefs": [
+    "gr-dictionary-form",
+    "gr-nai-form",
+    "gr-ta-form-plain",
+    "gr-n-desu",
+    "gr-relative-clauses",
+    "kanji-omou",
+    "kanji-shiru"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4l7r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma piana di のみます?",
+        "en": "Plain form of のみます?"
+      },
+      "options": [
+        {
+          "it": "のむ",
+          "en": "のむ"
+        },
+        {
+          "it": "のみ",
+          "en": "のみ"
+        },
+        {
+          "it": "のんだ",
+          "en": "のんだ"
+        },
+        {
+          "it": "のまない",
+          "en": "のまない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l7r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -ない di いきます?",
+        "en": "-nai form of いきます?"
+      },
+      "options": [
+        {
+          "it": "いかない",
+          "en": "いかない"
+        },
+        {
+          "it": "いきない",
+          "en": "いきない"
+        },
+        {
+          "it": "いってない",
+          "en": "いってない"
+        },
+        {
+          "it": "いくない",
+          "en": "いくない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l7r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -た di みる?",
+        "en": "-ta form of みる?"
+      },
+      "options": [
+        {
+          "it": "みた",
+          "en": "みた"
+        },
+        {
+          "it": "みって",
+          "en": "みって"
+        },
+        {
+          "it": "みた",
+          "en": "みた"
+        },
+        {
+          "it": "みない",
+          "en": "みない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l7r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Il film che ho visto ieri':",
+        "en": "'The movie I saw yesterday':"
+      },
+      "options": [
+        {
+          "it": "きのうみたえいが",
+          "en": "きのうみたえいが"
+        },
+        {
+          "it": "えいがきのうみた",
+          "en": "えいがきのうみた"
+        },
+        {
+          "it": "みたえいがきのう",
+          "en": "みたえいがきのう"
+        },
+        {
+          "it": "きのうえいがみた",
+          "en": "きのうえいがみた"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l7r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina forma piana e funzione.",
+        "en": "Match plain form to function."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "presente piano / plain present"
+        },
+        {
+          "left": "たべない",
+          "right": "negativo piano / plain negative"
+        },
+        {
+          "left": "たべた",
+          "right": "passato piano / plain past"
+        },
+        {
+          "left": "たべたんです",
+          "right": "spiegazione / explanation"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Le tre forme piane (る/ない/た)",
+      "en": "The three plain forms"
+    },
+    {
+      "it": "Frasi relative",
+      "en": "Relative clauses"
+    },
+    {
+      "it": "～んです",
+      "en": "～n desu"
+    }
+  ]
+}

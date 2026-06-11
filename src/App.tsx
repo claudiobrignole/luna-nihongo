@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { sendEmailVerification } from 'firebase/auth';
+import { getFirebaseAuth } from './lib/firebase';
 import { LearningPath } from './components/LearningPath';
 import { Flashcards } from './components/Flashcards';
 import { TeacherProfile } from './components/TeacherProfile';
@@ -21,15 +23,19 @@ import { isAdminRole, hasActiveSubscription } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
 import { startFreeTrial } from './services/trialService';
+import { syncMarketingConsent } from './services/emailService';
 import { CURRICULUM_LEVELS } from './data/curriculum';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
 function App() {
-  const { currentUser, loading, signOut, updateUser, refreshUser } = useAuth();
+  const { currentUser, firebaseUser, loading, signOut, updateUser, refreshUser } = useAuth();
+  const [verifyEmailBusy, setVerifyEmailBusy] = useState(false);
+  const [verifyEmailInfo, setVerifyEmailInfo] = useState('');
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [language, setLanguage] = useState<LanguageType>('it');
   const [bookingMode, setBookingMode] = useState<BookingMode>('intro');
+  const [rescheduleBookingId, setRescheduleBookingId] = useState<string | null>(null);
   const [authSignupMode, setAuthSignupMode] = useState(true);
   const [registerPromptOpen, setRegisterPromptOpen] = useState(false);
   const [registerReason, setRegisterReason] = useState<RegisterReason>('study');
@@ -91,13 +97,21 @@ function App() {
     });
   };
 
-  const handleOnboardingComplete = async (preferredStartLevel: number) => {
+  const handleOnboardingComplete = async (preferredStartLevel: number, marketingConsent: boolean) => {
     if (!currentUser) return;
     const levelMeta = CURRICULUM_LEVELS.find((l) => l.level === preferredStartLevel);
+    const now = new Date().toISOString();
     await updateUser({
       onboardingCompleted: true,
       preferredStartLevel,
+      preferredLanguage: language,
+      ...(marketingConsent
+        ? { marketingConsent: true, marketingConsentAt: now }
+        : {}),
     });
+    if (marketingConsent) {
+      void syncMarketingConsent().catch((err) => console.warn('SendFox sync failed', err));
+    }
     void logStudyActivity(currentUser.id, {
       type: 'level_selected',
       label: levelMeta?.title[language] ?? `Level ${preferredStartLevel}`,
@@ -127,6 +141,41 @@ function App() {
     await updateUser(updates);
   };
 
+  const handleMarketingConsentChange = async (consent: boolean) => {
+    if (!currentUser) return;
+    const now = new Date().toISOString();
+    await updateUser({
+      marketingConsent: consent,
+      marketingConsentAt: consent ? now : null,
+    });
+    if (consent) {
+      void syncMarketingConsent().catch((err) => console.warn('SendFox sync failed', err));
+    }
+  };
+
+  const handleResendVerification = async () => {
+    const fbUser = getFirebaseAuth().currentUser;
+    if (!fbUser || fbUser.emailVerified) return;
+    setVerifyEmailBusy(true);
+    setVerifyEmailInfo('');
+    try {
+      await sendEmailVerification(fbUser);
+      setVerifyEmailInfo(
+        language === 'en'
+          ? 'Verification email sent — check your inbox.'
+          : 'Email di verifica inviata — controlla la posta.',
+      );
+    } catch {
+      setVerifyEmailInfo(
+        language === 'en'
+          ? 'Could not send verification email. Try again later.'
+          : 'Impossibile inviare l\'email di verifica. Riprova più tardi.',
+      );
+    } finally {
+      setVerifyEmailBusy(false);
+    }
+  };
+
   const handleLanguageToggle = () => {
     setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
@@ -151,20 +200,17 @@ function App() {
     }
   }, [currentUser?.id, currentUser?.onboardingCompleted]);
 
+  // Persist Stripe return params before URL cleanup (auth may still be loading).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const checkout = params.get('checkout');
-    if (!checkout || !currentUser) return;
+    if (!checkout) return;
 
-    if (checkout === 'success') {
-      void refreshUser();
-      if (params.get('book') === '1') {
-        setSubscribeBookOpen(true);
-      }
+    if (checkout === 'success' && params.get('book') === '1') {
+      sessionStorage.setItem('luna_pending_subscribe_book', '1');
     }
-
     if (checkout === 'extra') {
-      void refreshUser();
+      sessionStorage.setItem('luna_pending_extra_refresh', '1');
     }
 
     params.delete('checkout');
@@ -173,6 +219,22 @@ function App() {
     params.delete('lang');
     const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
     window.history.replaceState({}, '', next);
+  }, []);
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    const pendingBook = sessionStorage.getItem('luna_pending_subscribe_book');
+    if (pendingBook === '1') {
+      sessionStorage.removeItem('luna_pending_subscribe_book');
+      void refreshUser().then(() => setSubscribeBookOpen(true));
+      return;
+    }
+
+    if (sessionStorage.getItem('luna_pending_extra_refresh') === '1') {
+      sessionStorage.removeItem('luna_pending_extra_refresh');
+      void refreshUser();
+    }
   }, [currentUser, refreshUser]);
 
   if (loading) {
@@ -291,7 +353,29 @@ function App() {
         currentUser={currentUser}
         onLogout={handleLogout}
         onOpenOnboarding={openOnboarding}
+        onMarketingConsentChange={handleMarketingConsentChange}
       />
+
+      {firebaseUser && !firebaseUser.emailVerified && (
+        <div className="email-verify-banner" role="status">
+          <p>
+            {language === 'en'
+              ? 'Please verify your email address to secure your account.'
+              : 'Verifica il tuo indirizzo email per proteggere l\'account.'}
+          </p>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => void handleResendVerification()}
+            disabled={verifyEmailBusy}
+          >
+            {verifyEmailBusy
+              ? (language === 'en' ? 'Sending…' : 'Invio…')
+              : (language === 'en' ? 'Resend verification email' : 'Reinvia email di verifica')}
+          </button>
+          {verifyEmailInfo && <span className="email-verify-banner-info">{verifyEmailInfo}</span>}
+        </div>
+      )}
 
       {onboardingOpen && (
         <Onboarding
@@ -299,7 +383,8 @@ function App() {
           username={currentUser.username}
           initialLevel={currentUser.preferredStartLevel}
           startAtLevelStep={currentUser.onboardingCompleted}
-          onComplete={(level) => void handleOnboardingComplete(level)}
+          showMarketingOptIn={currentUser.onboardingCompleted && !currentUser.marketingConsent}
+          onComplete={(level, marketingConsent) => void handleOnboardingComplete(level, marketingConsent)}
           onClose={() => setOnboardingOpen(false)}
         />
       )}
@@ -374,8 +459,10 @@ function App() {
             currentUser={currentUser}
             mode={bookingMode}
             defaultPlan={bookingMode === 'regular' ? 'included' : 'trial_intro'}
+            rescheduleBookingId={rescheduleBookingId}
             onBookingSuccess={() => {
               void refreshUser();
+              setRescheduleBookingId(null);
               setActiveTab('dashboard');
             }}
           />
@@ -384,13 +471,15 @@ function App() {
         {activeTab === 'dashboard' && (
           <StudentDashboard
             language={language}
-            onNavigateToBooking={() => {
-              setBookingMode('regular');
+            onNavigateToBooking={(mode, bookingId) => {
+              setBookingMode(mode);
+              setRescheduleBookingId(bookingId ?? null);
               setActiveTab('booking');
             }}
             currentUser={currentUser}
             onLogout={handleLogout}
             onUserUpdate={handleUserUpdate}
+            onBookingCancelled={() => void refreshUser()}
           />
         )}
 

@@ -1,0 +1,141 @@
+{
+  "id": "grammar-sou-desu-looks",
+  "level": 9,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜そうです (sembra)",
+    "en": "Grammar · ~sou desu (looks like)"
+  },
+  "description": {
+    "it": "Questo 〜そうです esprime un'impressione immediata ('sembra, ha l'aria'): おいしそうです ('sembra buono'). Si attacca alla RADICE: aggettivi -い tolgono -い (おいしい→おいしそう), verbi alla radice -ます (ふりそう = 'sta per cadere/piovere'). Eccezioni: いい→よさそう, ない→なさそう. Diverso dal そうです del sentito dire: qui parli di ciò che percepisci ora.",
+    "en": "This 〜そうです expresses an immediate impression ('looks, seems'): おいしそうです ('looks delicious'). It attaches to the STEM: i-adjectives drop -い (おいしい→おいしそう), verbs take the -ます stem (ふりそう = 'about to fall/rain'). Exceptions: いい→よさそう, ない→なさそう. Different from hearsay そうです: here you speak of what you perceive now."
+  },
+  "grammarRefs": [
+    "gr-sou-desu-looks"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-sou-desu-hearsay"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gsl-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Sembra buono' (guardando un piatto):",
+        "en": "'It looks delicious' (seeing a dish):"
+      },
+      "options": [
+        {
+          "it": "おいしそうです",
+          "en": "おいしそうです"
+        },
+        {
+          "it": "おいしいそうです",
+          "en": "おいしいそうです"
+        },
+        {
+          "it": "おいしいでしょう",
+          "en": "おいしいでしょう"
+        },
+        {
+          "it": "おいしいらしい",
+          "en": "おいしいらしい"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsl-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Questo そうです (apparenza) si attacca a...",
+        "en": "appearance そうです attaches to..."
+      },
+      "options": [
+        {
+          "it": "la radice (togli -い / radice -ます)",
+          "en": "la radice (togli -い / radice -ます)"
+        },
+        {
+          "it": "la forma piana completa",
+          "en": "la forma piana completa"
+        },
+        {
+          "it": "la forma -て",
+          "en": "la forma -て"
+        },
+        {
+          "it": "il nome + だ",
+          "en": "il nome + だ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsl-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Eccezione: いい diventa...",
+        "en": "Exception: いい becomes..."
+      },
+      "options": [
+        {
+          "it": "よさそう",
+          "en": "よさそう"
+        },
+        {
+          "it": "いいそう",
+          "en": "いいそう"
+        },
+        {
+          "it": "よそう",
+          "en": "よそう"
+        },
+        {
+          "it": "いさそう",
+          "en": "いさそう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gsl-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina e distingui dai sentito-dire.",
+        "en": "Match and tell from hearsay."
+      },
+      "pairs": [
+        {
+          "left": "おいしそう",
+          "right": "sembra buono / looks tasty"
+        },
+        {
+          "left": "ふりそう",
+          "right": "sta per piovere / about to rain"
+        },
+        {
+          "left": "よさそう",
+          "right": "sembra buono (eccezione) / looks good"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜そうです apparenza",
+      "en": "〜そうです appearance"
+    },
+    {
+      "it": "Sembra (vedo) vs ho sentito",
+      "en": "Looks (I see) vs I heard"
+    }
+  ]
+}

@@ -72,7 +72,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
     startSpeechRecognition,
     speechFeedback,
     activeMicItemId,
-    isSpeaking,
+    speakingItemId,
     clearSpeechFeedback,
   } = useJapaneseSpeech({ language });
 
@@ -337,7 +337,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             <div style={{ display: 'flex', gap: '0.4rem' }}>
                               <button 
                                 onClick={() => void speakJapanese(item.japanese, item.id)}
-                                disabled={isSpeaking}
+                                disabled={speakingItemId !== null}
                                 style={{
                                   padding: '8px',
                                   borderRadius: '50%',
@@ -346,11 +346,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                                   display: 'flex',
                                   alignItems: 'center',
                                   justifyContent: 'center',
-                                  opacity: isSpeaking ? 0.6 : 1,
+                                  opacity: speakingItemId === item.id ? 0.6 : 1,
                                 }}
                                 title={language === 'en' ? 'Listen pronunciation' : 'Ascolta pronuncia'}
                               >
-                                {isSpeaking ? <Loader2 size={16} /> : <Volume2 size={16} />}
+                                {speakingItemId === item.id ? <Loader2 size={16} className="spin" /> : <Volume2 size={16} />}
                               </button>
 
                               <button 
@@ -446,7 +446,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             </div>
                             <button 
                               onClick={() => void speakJapanese(example.japanese, `ex-${i}`)}
-                              disabled={isSpeaking}
+                              disabled={speakingItemId !== null}
                               style={{
                                 padding: '6px',
                                 borderRadius: '50%',
@@ -455,11 +455,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                opacity: isSpeaking ? 0.6 : 1,
+                                opacity: speakingItemId === `ex-${i}` ? 0.6 : 1,
                               }}
                               title={language === 'en' ? 'Listen' : 'Ascolta'}
                             >
-                              {isSpeaking ? <Loader2 size={16} /> : <Volume2 size={16} />}
+                              {speakingItemId === `ex-${i}` ? <Loader2 size={16} className="spin" /> : <Volume2 size={16} />}
                             </button>
                           </div>
                           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>

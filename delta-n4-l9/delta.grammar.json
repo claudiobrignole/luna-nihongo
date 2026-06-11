@@ -1,0 +1,344 @@
+{
+  "grammar": [
+    {
+      "id": "gr-to-omou-to-iu",
+      "title": {
+        "it": "〜と思う／〜と言う — pensieri e citazioni",
+        "en": "〜と思う / 〜と言う — thoughts & quotes"
+      },
+      "explanation": {
+        "it": "Per riferire pensieri e parole, il giapponese usa la particella と + forma piana. 行くと思います = 'penso che andrò / penso che vada'; おいしいと思います = 'penso sia buono'. Chi pensa è (di norma) chi parla; per i pensieri altrui si usa 〜と思っています.\n\nPer le parole dette: 〜と言いました ('ha detto che...'): 田中さんは来ると言いました. Citazione diretta con virgolette giapponesi: 「行きます」と言いました.\n\nRegola d'oro: davanti a と va la forma piana, mai -ます. Da qui in poi quasi tutta la grammatica 'di riporto' funziona così.",
+        "en": "To report thoughts and words, Japanese uses the particle と + plain form. 行くと思います = 'I think I'll go / I think (someone) goes'; おいしいと思います = 'I think it's tasty'. The thinker is (normally) the speaker; for others' ongoing thoughts use 〜と思っています.\n\nFor reported speech: 〜と言いました ('said that...'): 田中さんは来ると言いました. Direct quotes use Japanese brackets: 「行きます」と言いました.\n\nGolden rule: before と goes the plain form, never -ます. From here on, almost all 'reporting' grammar works this way."
+      },
+      "examples": [
+        {
+          "japanese": "あした 雨が ふると思います。",
+          "romaji": "ashita ame ga furu to omoimasu.",
+          "translation": {
+            "it": "Penso che domani pioverà.",
+            "en": "I think it will rain tomorrow."
+          }
+        },
+        {
+          "japanese": "この えいがは おもしろいと思います。",
+          "romaji": "kono eiga wa omoshiroi to omoimasu.",
+          "translation": {
+            "it": "Penso che questo film sia interessante.",
+            "en": "I think this movie is interesting."
+          }
+        },
+        {
+          "japanese": "田中さんは 来ると言いました。",
+          "romaji": "tanaka-san wa kuru to iimashita.",
+          "translation": {
+            "it": "Tanaka ha detto che viene.",
+            "en": "Tanaka said he's coming."
+          }
+        },
+        {
+          "japanese": "「行きます」と言いました。",
+          "romaji": "'ikimasu' to iimashita.",
+          "translation": {
+            "it": "Ha detto: 'vado'.",
+            "en": "He said, 'I'll go.'"
+          },
+          "note": {
+            "it": "Citazione diretta con 「」.",
+            "en": "Direct quote with 「」."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-volitional"
+      ]
+    },
+    {
+      "id": "gr-toki",
+      "title": {
+        "it": "〜とき — 'quando...'",
+        "en": "〜とき — 'when...'"
+      },
+      "explanation": {
+        "it": "とき ('momento') trasforma una frase in 'quando...': 日本に行くとき ('quando vado in Giappone'), 子どものとき ('quando ero bambino'), ひまなとき ('quando ho tempo').\n\nSi costruisce come una relativa: forma piana + とき; coi nomi si usa の (子どものとき), con gli aggettivi -な si usa な.\n\nSottigliezza utile: il tempo del verbo prima di とき è relativo all'azione principale. 行くとき、切符を買います = compro il biglietto PRIMA di andare (l'andare non è ancora avvenuto); 行ったとき、写真をとりました = ho fatto foto DOPO essere arrivato.",
+        "en": "とき ('time/moment') turns a clause into 'when...': 日本に行くとき ('when I go to Japan'), 子どものとき ('when I was a child'), ひまなとき ('when I'm free').\n\nIt's built like a relative clause: plain form + とき; with nouns use の (子どものとき), with na-adjectives use な.\n\nUseful subtlety: the tense before とき is relative to the main action. 行くとき、切符を買います = I buy the ticket BEFORE going (the going hasn't happened yet); 行ったとき、写真をとりました = I took photos AFTER arriving."
+      },
+      "examples": [
+        {
+          "japanese": "子どものとき、東京に住んでいました。",
+          "romaji": "kodomo no toki, toukyou ni sunde imashita.",
+          "translation": {
+            "it": "Da bambino vivevo a Tokyo.",
+            "en": "When I was a child, I lived in Tokyo."
+          }
+        },
+        {
+          "japanese": "ひまなとき、何を しますか。",
+          "romaji": "hima na toki, nani o shimasu ka.",
+          "translation": {
+            "it": "Cosa fai quando hai tempo?",
+            "en": "What do you do when you're free?"
+          }
+        },
+        {
+          "japanese": "日本に 行くとき、カメラを 買います。",
+          "romaji": "nihon ni iku toki, kamera o kaimasu.",
+          "translation": {
+            "it": "Compro una macchina fotografica quando (prima di) andare in Giappone.",
+            "en": "I'll buy a camera when (before) going to Japan."
+          }
+        },
+        {
+          "japanese": "日本に 行ったとき、写真を とりました。",
+          "romaji": "nihon ni itta toki, shashin o torimashita.",
+          "translation": {
+            "it": "Quando sono andato in Giappone ho fatto foto.",
+            "en": "When I went to Japan, I took photos."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-relative-clauses"
+      ]
+    },
+    {
+      "id": "gr-deshou",
+      "title": {
+        "it": "〜でしょう — probabilità e conferma",
+        "en": "~deshou — probability & confirmation"
+      },
+      "explanation": {
+        "it": "〜でしょう esprime una previsione o supposizione ('probabilmente', 'sarà'): あしたはあめでしょう ('domani probabilmente pioverà'). Si attacca alla forma piana (per i nomi e gli aggettivi -な, senza だ). Con intonazione ascendente diventa una richiesta di conferma: 'vero?', 'no?'. È più morbido di un'affermazione netta e suona naturale e cortese. Nel parlato informale diventa でしょ o だろう.",
+        "en": "〜でしょう expresses a prediction or supposition ('probably', 'likely'): あしたはあめでしょう ('it will probably rain tomorrow'). It attaches to the plain form (for nouns and na-adjectives, without だ). With rising intonation it becomes a request for confirmation: 'right?', 'isn't it?'. It's softer than a flat statement and sounds natural and polite. In casual speech it becomes でしょ or だろう."
+      },
+      "examples": [
+        {
+          "japanese": "あしたはあめでしょう。",
+          "romaji": "ashita wa ame deshou.",
+          "translation": {
+            "it": "Domani probabilmente pioverà.",
+            "en": "It will probably rain tomorrow."
+          },
+          "note": {
+            "it": "Previsione.",
+            "en": "Prediction."
+          }
+        },
+        {
+          "japanese": "たかいでしょう。",
+          "romaji": "takai deshou.",
+          "translation": {
+            "it": "Sarà caro.",
+            "en": "It's probably expensive."
+          }
+        },
+        {
+          "japanese": "いいでしょう?",
+          "romaji": "ii deshou?",
+          "translation": {
+            "it": "Bello, vero?",
+            "en": "Nice, right?"
+          },
+          "note": {
+            "it": "Con intonazione ascendente: conferma.",
+            "en": "With rising intonation: confirmation."
+          }
+        },
+        {
+          "japanese": "かれはくるでしょう。",
+          "romaji": "kare wa kuru deshou.",
+          "translation": {
+            "it": "Lui verrà, probabilmente.",
+            "en": "He'll probably come."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-kamoshirenai",
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-kamoshirenai",
+      "title": {
+        "it": "〜かもしれません — forse, può darsi",
+        "en": "~kamoshiremasen — maybe, might"
+      },
+      "explanation": {
+        "it": "〜かもしれません esprime una possibilità incerta ('forse', 'può darsi'): あめがふるかもしれません ('forse pioverà'). È meno sicuro di 〜でしょう: でしょう indica una probabilità abbastanza alta, かもしれません lascia aperta una possibilità più debole. Si attacca alla forma piana (nomi e aggettivi -な senza だ). Informale: 〜かもしれない o solo 〜かも.",
+        "en": "〜かもしれません expresses an uncertain possibility ('maybe', 'might'): あめがふるかもしれません ('it might rain'). It's less certain than 〜でしょう: でしょう indicates a fairly high probability, かもしれません leaves open a weaker possibility. It attaches to the plain form (nouns and na-adjectives without だ). Casual: 〜かもしれない or just 〜かも."
+      },
+      "examples": [
+        {
+          "japanese": "あめがふるかもしれません。",
+          "romaji": "ame ga furu kamoshiremasen.",
+          "translation": {
+            "it": "Forse pioverà.",
+            "en": "It might rain."
+          },
+          "note": {
+            "it": "Possibilità incerta.",
+            "en": "Uncertain possibility."
+          }
+        },
+        {
+          "japanese": "たかいかもしれません。",
+          "romaji": "takai kamoshiremasen.",
+          "translation": {
+            "it": "Forse è caro.",
+            "en": "It might be expensive."
+          }
+        },
+        {
+          "japanese": "こないかもしれません。",
+          "romaji": "konai kamoshiremasen.",
+          "translation": {
+            "it": "Forse non viene.",
+            "en": "They might not come."
+          },
+          "note": {
+            "it": "Forma piana negativa + かも.",
+            "en": "Plain negative + かも."
+          }
+        },
+        {
+          "japanese": "びょうきかもしれません。",
+          "romaji": "byouki kamoshiremasen.",
+          "translation": {
+            "it": "Forse è malato.",
+            "en": "They might be sick."
+          },
+          "note": {
+            "it": "Nome + かもしれません (senza だ).",
+            "en": "Noun + かもしれません (no だ)."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-deshou"
+      ]
+    },
+    {
+      "id": "gr-sou-desu-hearsay",
+      "title": {
+        "it": "〜そうです — ho sentito che (riferito)",
+        "en": "~sou desu — I heard that (hearsay)"
+      },
+      "explanation": {
+        "it": "Questo 〜そうです riporta un'informazione sentita da altri ('ho sentito che', 'pare che', 'dicono che'): あしたはあめだそうです ('ho sentito che domani piove'). Si attacca alla FORMA PIANA completa, inclusa だ per nomi e aggettivi -な (あめだそうです). Attenzione a non confonderlo con l'altro そうです (quello dell'apparenza, 'sembra'): qui riporti ciò che hai saputo, non ciò che vedi. Spesso introdotto da fonti: ニュースによると... ('secondo le notizie...').",
+        "en": "This 〜そうです reports information heard from others ('I heard that', 'apparently', 'they say'): あしたはあめだそうです ('I heard it'll rain tomorrow'). It attaches to the FULL plain form, including だ for nouns and na-adjectives (あめだそうです). Be careful not to confuse it with the other そうです (the appearance one, 'looks like'): here you report what you've learned, not what you see. Often introduced by sources: ニュースによると... ('according to the news...')."
+      },
+      "examples": [
+        {
+          "japanese": "あしたはあめだそうです。",
+          "romaji": "ashita wa ame da sou desu.",
+          "translation": {
+            "it": "Ho sentito che domani piove.",
+            "en": "I heard it'll rain tomorrow."
+          },
+          "note": {
+            "it": "Forma piana + そうです (con だ).",
+            "en": "Plain form + そうです (with だ)."
+          }
+        },
+        {
+          "japanese": "たなかさんはいそがしいそうです。",
+          "romaji": "tanaka-san wa isogashii sou desu.",
+          "translation": {
+            "it": "Pare che Tanaka sia occupato.",
+            "en": "Apparently Tanaka is busy."
+          }
+        },
+        {
+          "japanese": "えいがはおもしろかったそうです。",
+          "romaji": "eiga wa omoshirokatta sou desu.",
+          "translation": {
+            "it": "Dicono che il film fosse bello.",
+            "en": "They say the movie was good."
+          },
+          "note": {
+            "it": "Anche al passato piano.",
+            "en": "Plain past too."
+          }
+        },
+        {
+          "japanese": "ニュースによると、たいふうがくるそうです。",
+          "romaji": "nyuusu ni yoru to, taifuu ga kuru sou desu.",
+          "translation": {
+            "it": "Secondo le notizie, arriva un tifone.",
+            "en": "According to the news, a typhoon is coming."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-sou-desu-looks",
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-sou-desu-looks",
+      "title": {
+        "it": "〜そうです — sembra (apparenza)",
+        "en": "~sou desu — looks like (appearance)"
+      },
+      "explanation": {
+        "it": "Questo 〜そうです esprime un'impressione visiva o immediata ('sembra', 'ha l'aria di'): おいしそうです ('sembra buono', guardando un piatto). Si attacca alla RADICE: aggettivi -い perdono la -い (おいしい → おいしそう), aggettivi -な perdono il な (げんき → げんそう... in realtà げんきそう), verbi alla radice -ます + そう (あめがふりそう = 'sta per piovere'). Eccezioni: いい → よさそう, ない → なさそう. Diverso dal そうです del sentito dire: qui parli di ciò che percepisci adesso, non di ciò che ti hanno detto.",
+        "en": "This 〜そうです expresses a visual or immediate impression ('looks', 'seems'): おいしそうです ('looks delicious', seeing a dish). It attaches to the STEM: i-adjectives drop -い (おいしい → おいしそう), na-adjectives drop な (げんき → げんきそう), verbs take the -ます stem + そう (あめがふりそう = 'it looks about to rain'). Exceptions: いい → よさそう, ない → なさそう. Different from the hearsay そうです: here you talk about what you perceive now, not what you were told."
+      },
+      "examples": [
+        {
+          "japanese": "おいしそうです。",
+          "romaji": "oishisou desu.",
+          "translation": {
+            "it": "Sembra buono.",
+            "en": "It looks delicious."
+          },
+          "note": {
+            "it": "Aggettivo -い: togli -い + そう.",
+            "en": "i-adjective: drop -い + そう."
+          }
+        },
+        {
+          "japanese": "あめがふりそうです。",
+          "romaji": "ame ga furisou desu.",
+          "translation": {
+            "it": "Sta per piovere.",
+            "en": "It looks about to rain."
+          },
+          "note": {
+            "it": "Radice -ます + そう.",
+            "en": "-masu stem + そう."
+          }
+        },
+        {
+          "japanese": "げんきそうですね。",
+          "romaji": "genkisou desu ne.",
+          "translation": {
+            "it": "Hai l'aria in forma.",
+            "en": "You look well."
+          },
+          "note": {
+            "it": "Aggettivo -な + そう.",
+            "en": "na-adjective + そう."
+          }
+        },
+        {
+          "japanese": "よさそうです。",
+          "romaji": "yosasou desu.",
+          "translation": {
+            "it": "Sembra buono/va bene.",
+            "en": "Looks good."
+          },
+          "note": {
+            "it": "Eccezione: いい → よさそう.",
+            "en": "Exception: いい → よさそう."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-sou-desu-hearsay",
+        "gr-i-adjectives"
+      ]
+    }
+  ]
+}

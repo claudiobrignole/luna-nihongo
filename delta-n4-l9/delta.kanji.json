@@ -1,0 +1,216 @@
+{
+  "kanji": [
+    {
+      "id": "kanji-okuru",
+      "japanese": "送",
+      "meaning": {
+        "it": "spedire / accompagnare",
+        "en": "send"
+      },
+      "readingOnyomi": [
+        "ソウ"
+      ],
+      "readingKunyomi": [
+        "おく.る"
+      ],
+      "strokeCount": 9,
+      "strokeData": {
+        "kanjiVgId": "09001",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-kariru",
+      "japanese": "借",
+      "meaning": {
+        "it": "prendere in prestito",
+        "en": "borrow"
+      },
+      "readingOnyomi": [
+        "シャク"
+      ],
+      "readingKunyomi": [
+        "か.りる"
+      ],
+      "strokeCount": 10,
+      "components": [
+        "kanji-hito"
+      ],
+      "strokeData": {
+        "kanjiVgId": "0501f",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-kasu",
+      "japanese": "貸",
+      "meaning": {
+        "it": "prestare",
+        "en": "lend"
+      },
+      "readingOnyomi": [
+        "タイ"
+      ],
+      "readingKunyomi": [
+        "か.す"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "08cb8",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-oyogu",
+      "japanese": "泳",
+      "meaning": {
+        "it": "nuotare",
+        "en": "swim"
+      },
+      "readingOnyomi": [
+        "エイ"
+      ],
+      "readingKunyomi": [
+        "およ.ぐ"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-sui"
+      ],
+      "mnemonic": {
+        "it": "Acqua (氵) che scorre eterna: nuotare.",
+        "en": "Water (氵) flowing forever: to swim."
+      },
+      "strokeData": {
+        "kanjiVgId": "06cf3",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-ie",
+      "japanese": "家",
+      "meaning": {
+        "it": "casa / famiglia",
+        "en": "house / family"
+      },
+      "readingOnyomi": [
+        "カ",
+        "ケ"
+      ],
+      "readingKunyomi": [
+        "いえ",
+        "うち"
+      ],
+      "strokeCount": 10,
+      "mnemonic": {
+        "it": "Un tetto con un maiale sotto: la fattoria antica, la casa.",
+        "en": "A roof with a pig beneath: the old farmstead, home."
+      },
+      "strokeData": {
+        "kanjiVgId": "05bb6",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-zoku",
+      "japanese": "族",
+      "meaning": {
+        "it": "famiglia / tribù",
+        "en": "family / tribe"
+      },
+      "readingOnyomi": [
+        "ゾク"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "065cf",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-ani",
+      "japanese": "兄",
+      "meaning": {
+        "it": "fratello maggiore",
+        "en": "older brother"
+      },
+      "readingOnyomi": [
+        "キョウ",
+        "ケイ"
+      ],
+      "readingKunyomi": [
+        "あに"
+      ],
+      "strokeCount": 5,
+      "strokeData": {
+        "kanjiVgId": "05144",
+        "strokeCount": 5
+      }
+    },
+    {
+      "id": "kanji-otouto",
+      "japanese": "弟",
+      "meaning": {
+        "it": "fratello minore",
+        "en": "younger brother"
+      },
+      "readingOnyomi": [
+        "ダイ",
+        "デ"
+      ],
+      "readingKunyomi": [
+        "おとうと"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "05f1f",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-ane",
+      "japanese": "姉",
+      "meaning": {
+        "it": "sorella maggiore",
+        "en": "older sister"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "あね"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "strokeData": {
+        "kanjiVgId": "059c9",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-imouto",
+      "japanese": "妹",
+      "meaning": {
+        "it": "sorella minore",
+        "en": "younger sister"
+      },
+      "readingOnyomi": [
+        "マイ"
+      ],
+      "readingKunyomi": [
+        "いもうと"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "strokeData": {
+        "kanjiVgId": "059b9",
+        "strokeCount": 8
+      }
+    }
+  ]
+}

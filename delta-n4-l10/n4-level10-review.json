@@ -1,0 +1,226 @@
+{
+  "id": "n4-level10-review",
+  "level": 10,
+  "order": 9,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · condizioni e obblighi",
+    "en": "Review · conditions & obligations"
+  },
+  "description": {
+    "it": "Questo livello ti ha dato i quattro condizionali giapponesi — たら (versatile), と (automatico), ば (ipotetico), なら (contestuale) — più l'obbligo (〜なければなりません), il non-obbligo (〜なくてもいい) e le sfumature 〜てしまう/ておく/てみる. Il ripasso si concentra sul distinguere i quattro 'se', che è il vero punto difficile.",
+    "en": "This level gave you the four Japanese conditionals — たら (versatile), と (automatic), ば (hypothetical), なら (contextual) — plus obligation (〜なければなりません), non-obligation (〜なくてもいい) and the nuances 〜てしまう/ておく/てみる. The review focuses on telling the four 'if's apart, which is the real difficulty."
+  },
+  "grammarRefs": [
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru"
+  ],
+  "kanjiRefs": [
+    "kanji-asa-k",
+    "kanji-yoru",
+    "kanji-atarashii-k"
+  ],
+  "reviewPoolRefs": [
+    "gr-tara",
+    "gr-to-conditional",
+    "gr-ba",
+    "gr-nara",
+    "gr-nakereba-naranai",
+    "gr-nakutemo-ii",
+    "gr-te-shimau-oku-miru",
+    "kanji-asa-k",
+    "kanji-atarashii-k"
+  ],
+  "prerequisites": [
+    "situation-plans-obligations"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4l10r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale condizionale per una conseguenza AUTOMATICA (leggi di natura)?",
+        "en": "Which conditional for an AUTOMATIC result (natural laws)?"
+      },
+      "options": [
+        {
+          "it": "〜と",
+          "en": "〜と"
+        },
+        {
+          "it": "〜たら",
+          "en": "〜たら"
+        },
+        {
+          "it": "〜なら",
+          "en": "〜なら"
+        },
+        {
+          "it": "〜ば",
+          "en": "〜ば"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l10r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale condizionale reagisce a un'informazione DATA dal contesto?",
+        "en": "Which conditional responds to GIVEN context?"
+      },
+      "options": [
+        {
+          "it": "〜なら",
+          "en": "〜なら"
+        },
+        {
+          "it": "〜と",
+          "en": "〜と"
+        },
+        {
+          "it": "〜たら",
+          "en": "〜たら"
+        },
+        {
+          "it": "〜ば",
+          "en": "〜ば"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l10r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Devo andare':",
+        "en": "'I must go':"
+      },
+      "options": [
+        {
+          "it": "いかなければなりません",
+          "en": "いかなければなりません"
+        },
+        {
+          "it": "いかなくてもいいです",
+          "en": "いかなくてもいいです"
+        },
+        {
+          "it": "いってはいけません",
+          "en": "いってはいけません"
+        },
+        {
+          "it": "いくでしょう",
+          "en": "いくでしょう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l10r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Non c'è bisogno di venire':",
+        "en": "'You don't have to come':"
+      },
+      "options": [
+        {
+          "it": "こなくてもいいです",
+          "en": "こなくてもいいです"
+        },
+        {
+          "it": "こなければなりません",
+          "en": "こなければなりません"
+        },
+        {
+          "it": "きてはいけません",
+          "en": "きてはいけません"
+        },
+        {
+          "it": "くるかもしれません",
+          "en": "くるかもしれません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l10r-mc-5",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Provo a mangiarlo':",
+        "en": "'I'll try eating it':"
+      },
+      "options": [
+        {
+          "it": "たべてみる",
+          "en": "たべてみる"
+        },
+        {
+          "it": "たべてしまう",
+          "en": "たべてしまう"
+        },
+        {
+          "it": "たべておく",
+          "en": "たべておく"
+        },
+        {
+          "it": "たべなければ",
+          "en": "たべなければ"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l10r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina condizionale e sfumatura.",
+        "en": "Match conditional to nuance."
+      },
+      "pairs": [
+        {
+          "left": "〜と",
+          "right": "automatico / automatic"
+        },
+        {
+          "left": "〜たら",
+          "right": "versatile (se/quando) / versatile"
+        },
+        {
+          "left": "〜ば",
+          "right": "ipotetico / hypothetical"
+        },
+        {
+          "left": "〜なら",
+          "right": "contestuale / contextual"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "I quattro condizionali a confronto",
+      "en": "The four conditionals compared"
+    },
+    {
+      "it": "Obbligo / non-obbligo / divieto",
+      "en": "Obligation / non-obligation / prohibition"
+    },
+    {
+      "it": "〜てしまう/ておく/てみる",
+      "en": "〜てしまう/ておく/てみる"
+    }
+  ]
+}

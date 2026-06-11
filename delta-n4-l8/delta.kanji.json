@@ -1,0 +1,214 @@
+{
+  "kanji": [
+    {
+      "id": "kanji-oshieru",
+      "japanese": "教",
+      "meaning": {
+        "it": "insegnare",
+        "en": "teach"
+      },
+      "readingOnyomi": [
+        "キョウ"
+      ],
+      "readingKunyomi": [
+        "おし.える"
+      ],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "06559",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-narau",
+      "japanese": "習",
+      "meaning": {
+        "it": "imparare / esercitarsi",
+        "en": "learn / practice"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [
+        "なら.う"
+      ],
+      "strokeCount": 11,
+      "mnemonic": {
+        "it": "Ali (羽) sopra il bianco: il pulcino che prova a volare, ripetendo.",
+        "en": "Wings (羽) over white: a chick practicing flight, again and again."
+      },
+      "strokeData": {
+        "kanjiVgId": "07fd2",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-hashiru",
+      "japanese": "走",
+      "meaning": {
+        "it": "correre",
+        "en": "run"
+      },
+      "readingOnyomi": [
+        "ソウ"
+      ],
+      "readingKunyomi": [
+        "はし.る"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "08d70",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-aruku",
+      "japanese": "歩",
+      "meaning": {
+        "it": "camminare",
+        "en": "walk"
+      },
+      "readingOnyomi": [
+        "ホ"
+      ],
+      "readingKunyomi": [
+        "ある.く"
+      ],
+      "strokeCount": 8,
+      "mnemonic": {
+        "it": "Fermarsi (止) un po' (少): camminare è fermarsi un poco a ogni passo.",
+        "en": "Stop (止) a little (少): walking is stopping a little at each step."
+      },
+      "strokeData": {
+        "kanjiVgId": "06b69",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-tomaru",
+      "japanese": "止",
+      "meaning": {
+        "it": "fermarsi",
+        "en": "stop"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "と.まる"
+      ],
+      "strokeCount": 4,
+      "strokeData": {
+        "kanjiVgId": "06b62",
+        "strokeCount": 4
+      }
+    },
+    {
+      "id": "kanji-ugoku",
+      "japanese": "動",
+      "meaning": {
+        "it": "muoversi",
+        "en": "move"
+      },
+      "readingOnyomi": [
+        "ドウ"
+      ],
+      "readingKunyomi": [
+        "うご.く"
+      ],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "052d5",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-hataraku-k",
+      "japanese": "働",
+      "meaning": {
+        "it": "lavorare",
+        "en": "work"
+      },
+      "readingOnyomi": [
+        "ドウ"
+      ],
+      "readingKunyomi": [
+        "はたら.く"
+      ],
+      "strokeCount": 13,
+      "components": [
+        "kanji-ugoku",
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (人) che si muove (動): lavorare.",
+        "en": "A person (人) in motion (動): to work."
+      },
+      "strokeData": {
+        "kanjiVgId": "050cd",
+        "strokeCount": 13
+      }
+    },
+    {
+      "id": "kanji-kaeru-k",
+      "japanese": "帰",
+      "meaning": {
+        "it": "tornare",
+        "en": "return"
+      },
+      "readingOnyomi": [
+        "キ"
+      ],
+      "readingKunyomi": [
+        "かえ.る"
+      ],
+      "strokeCount": 10,
+      "strokeData": {
+        "kanjiVgId": "05e30",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-kau-k",
+      "japanese": "買",
+      "meaning": {
+        "it": "comprare",
+        "en": "buy"
+      },
+      "readingOnyomi": [
+        "バイ"
+      ],
+      "readingKunyomi": [
+        "か.う"
+      ],
+      "strokeCount": 12,
+      "mnemonic": {
+        "it": "Una rete sopra una conchiglia (denaro antico): catturare merce col denaro.",
+        "en": "A net over a shell (ancient money): catching goods with money."
+      },
+      "strokeData": {
+        "kanjiVgId": "08cb7",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-uru",
+      "japanese": "売",
+      "meaning": {
+        "it": "vendere",
+        "en": "sell"
+      },
+      "readingOnyomi": [
+        "バイ"
+      ],
+      "readingKunyomi": [
+        "う.る"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "058f2",
+        "strokeCount": 7
+      }
+    }
+  ]
+}

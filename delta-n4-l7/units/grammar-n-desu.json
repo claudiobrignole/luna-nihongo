@@ -1,0 +1,138 @@
+{
+  "id": "grammar-n-desu",
+  "level": 7,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · ～んです",
+    "en": "Grammar · ~n desu"
+  },
+  "description": {
+    "it": "～んです serve a spiegare, dare un motivo o chiedere 'come mai?'. あたまがいたいんです ('è che ho mal di testa'). Si attacca alla forma piana. È onnipresente nel parlato: trasforma una frase neutra in una con sfumatura esplicativa o di interesse. Capirla è essenziale per suonare naturali.",
+    "en": "～んです is used to explain, give a reason, or ask 'how come?'. あたまがいたいんです ('the thing is, I have a headache'). It attaches to the plain form. It's everywhere in speech: it turns a neutral sentence into one with an explanatory or interested nuance. Understanding it is key to sounding natural."
+  },
+  "grammarRefs": [
+    "gr-n-desu"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gnd-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "～んです si attacca a quale forma?",
+        "en": "～n desu attaches to which form?"
+      },
+      "options": [
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "forma -ます",
+          "en": "forma -ます"
+        },
+        {
+          "it": "forma -て",
+          "en": "forma -て"
+        },
+        {
+          "it": "forma -ない soltanto",
+          "en": "forma -ない soltanto"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'È che ho mal di testa' (spiegazione):",
+        "en": "'The thing is, I have a headache':"
+      },
+      "options": [
+        {
+          "it": "あたまがいたいんです",
+          "en": "あたまがいたいんです"
+        },
+        {
+          "it": "あたまがいたいです",
+          "en": "あたまがいたいです"
+        },
+        {
+          "it": "あたまをいたいです",
+          "en": "あたまをいたいです"
+        },
+        {
+          "it": "あたまでいたいんです",
+          "en": "あたまでいたいんです"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "A cosa serve principalmente ～んです?",
+        "en": "What is ～n desu mainly for?"
+      },
+      "options": [
+        {
+          "it": "spiegare / dare un motivo",
+          "en": "spiegare / dare un motivo"
+        },
+        {
+          "it": "contare oggetti",
+          "en": "contare oggetti"
+        },
+        {
+          "it": "fare il passato",
+          "en": "fare il passato"
+        },
+        {
+          "it": "negare",
+          "en": "negare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnd-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina frase e funzione.",
+        "en": "Match sentence to function."
+      },
+      "pairs": [
+        {
+          "left": "どうしたんですか",
+          "right": "chiedere cosa è successo / asking what happened"
+        },
+        {
+          "left": "いそがしいんです",
+          "right": "spiegare di essere occupato / explaining you're busy"
+        },
+        {
+          "left": "やすみたいんです",
+          "right": "dare un motivo / giving a reason"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "～んです per spiegare",
+      "en": "～n desu to explain"
+    },
+    {
+      "it": "～んです + forma piana",
+      "en": "～n desu + plain form"
+    }
+  ]
+}

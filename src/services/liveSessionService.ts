@@ -64,7 +64,7 @@ function getFunctionsInstance() {
 }
 
 function sessionQuota(user: LunaUser): Pick<CreateLiveSessionResult, 'maxSessionSeconds' | 'minutesRemaining' | 'minutesLimit' | 'minutesUsed'> {
-  const limit = liveMinutesLimitForUser(user);
+  const limit = liveMinutesLimitForUser();
   const { used } = normalizeWeeklyAiUsage(user.liveMinutesUsed, user.liveMinutesWindowStart);
   const minutesRemaining = liveMinutesRemaining(user);
   const maxSessionSeconds = Math.min(
@@ -194,7 +194,7 @@ export async function reportLiveSessionEnd(
   },
 ): Promise<EndLiveSessionResult> {
   const billedMinutes = computeBilledMinutes(durationSeconds);
-  const limit = liveMinutesLimitForUser(user);
+  const limit = liveMinutesLimitForUser();
   const { used } = normalizeWeeklyAiUsage(user.liveMinutesUsed, user.liveMinutesWindowStart);
   const newUsed = Math.min(limit, used + billedMinutes);
   const language = options?.language ?? 'it';

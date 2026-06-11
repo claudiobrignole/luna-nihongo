@@ -1,0 +1,298 @@
+{
+  "grammar": [
+    {
+      "id": "gr-dictionary-form",
+      "title": {
+        "it": "La forma del dizionario (piana presente)",
+        "en": "Dictionary form (plain present)"
+      },
+      "explanation": {
+        "it": "Finora hai usato la forma cortese -ます. Il giapponese ha anche una forma piana, quella che trovi nel dizionario: たべる, のむ, いく. È il registro che si usa tra amici, in famiglia, e che senti continuamente in anime e film. Ma soprattutto è la base su cui si costruiscono moltissime strutture dell'N4: relative, condizionali, ～と思う e molto altro.\n\nLa forma del dizionario si ottiene dai gruppi verbali. I verbi del gruppo 2 (ichidan) tornano alla -る: たべます → たべる, みます → みる. I verbi del gruppo 1 (godan) cambiano la -い finale della radice -ます nella -u corrispondente: のみます → のむ, いきます → いく, かいます → かう. I due irregolari: します → する, きます → くる.\n\nUsare la forma piana al posto giusto è ciò che distingue chi 'recita frasi da manuale' da chi parla davvero giapponese.",
+        "en": "Until now you've used the polite -masu form. Japanese also has a plain form, the one in dictionaries: たべる, のむ, いく. It's the register used among friends, family, and the one you hear constantly in anime and films. But above all it's the base for many N4 structures: relative clauses, conditionals, ～と思う and much more.\n\nThe dictionary form comes from the verb groups. Group 2 (ichidan) verbs return to -る: たべます → たべる, みます → みる. Group 1 (godan) verbs change the final -i of the -masu stem to the matching -u: のみます → のむ, いきます → いく, かいます → かう. The two irregulars: します → する, きます → くる.\n\nUsing the plain form in the right place is what tells apart someone reciting textbook phrases from someone actually speaking Japanese."
+      },
+      "examples": [
+        {
+          "japanese": "たべます → たべる",
+          "romaji": "tabemasu → taberu",
+          "translation": {
+            "it": "mangiare (cortese → piana)",
+            "en": "to eat (polite → plain)"
+          },
+          "note": {
+            "it": "Gruppo 2: -ます → -る.",
+            "en": "Group 2: -masu → -ru."
+          }
+        },
+        {
+          "japanese": "のみます → のむ",
+          "romaji": "nomimasu → nomu",
+          "translation": {
+            "it": "bere (cortese → piana)",
+            "en": "to drink (polite → plain)"
+          },
+          "note": {
+            "it": "Gruppo 1: -みます → -む.",
+            "en": "Group 1: -mimasu → -mu."
+          }
+        },
+        {
+          "japanese": "いきます → いく",
+          "romaji": "ikimasu → iku",
+          "translation": {
+            "it": "andare (cortese → piana)",
+            "en": "to go (polite → plain)"
+          }
+        },
+        {
+          "japanese": "します → する、きます → くる",
+          "romaji": "shimasu → suru, kimasu → kuru",
+          "translation": {
+            "it": "i due irregolari",
+            "en": "the two irregulars"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-masu-verbs",
+        "gr-nai-form",
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-nai-form",
+      "title": {
+        "it": "La forma -ない (negativo piano)",
+        "en": "The -nai form (plain negative)"
+      },
+      "explanation": {
+        "it": "La forma -ない è il negativo piano: たべない ('non mangio'), いかない ('non vado'). È il corrispettivo informale di -ません, e come la forma del dizionario è una base per strutture più avanzate (～なければなりません, ～ないでください, ～ないと...).\n\nSi costruisce così. Gruppo 2 (ichidan): -る → -ない. たべる → たべない, みる → みない. Gruppo 1 (godan): la -u finale diventa -anai. のむ → のまない, いく → いかない, かう → かわない (attenzione: う → わ, non あ). I due irregolari: する → しない, くる → こない.\n\nUn'eccezione importantissima: ある (esserci, per oggetti) ha negativo irregolare ない, non *あらない.",
+        "en": "The -nai form is the plain negative: たべない ('I don't eat'), いかない ('I don't go'). It's the casual counterpart of -ません, and like the dictionary form it's a base for more advanced structures (～なければなりません, ～ないでください, ～ないと...).\n\nIt's built like this. Group 2 (ichidan): -る → -ない. たべる → たべない, みる → みない. Group 1 (godan): the final -u becomes -anai. のむ → のまない, いく → いかない, かう → かわない (note: う → わ, not あ). The two irregulars: する → しない, くる → こない.\n\nA very important exception: ある (to exist, for objects) has the irregular negative ない, not *あらない."
+      },
+      "examples": [
+        {
+          "japanese": "たべる → たべない",
+          "romaji": "taberu → tabenai",
+          "translation": {
+            "it": "non mangiare",
+            "en": "not eat"
+          },
+          "note": {
+            "it": "Gruppo 2: -る → -ない.",
+            "en": "Group 2: -ru → -nai."
+          }
+        },
+        {
+          "japanese": "のむ → のまない",
+          "romaji": "nomu → nomanai",
+          "translation": {
+            "it": "non bere",
+            "en": "not drink"
+          },
+          "note": {
+            "it": "Gruppo 1: -u → -anai.",
+            "en": "Group 1: -u → -anai."
+          }
+        },
+        {
+          "japanese": "かう → かわない",
+          "romaji": "kau → kawanai",
+          "translation": {
+            "it": "non comprare",
+            "en": "not buy"
+          },
+          "note": {
+            "it": "う → わ, non あ.",
+            "en": "う → わ, not あ."
+          }
+        },
+        {
+          "japanese": "する → しない、くる → こない",
+          "romaji": "suru → shinai, kuru → konai",
+          "translation": {
+            "it": "gli irregolari",
+            "en": "the irregulars"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-past-tense"
+      ]
+    },
+    {
+      "id": "gr-ta-form-plain",
+      "title": {
+        "it": "La forma -た (passato piano)",
+        "en": "The -ta form (plain past)"
+      },
+      "explanation": {
+        "it": "La forma -た è il passato piano: たべた ('ho mangiato'), いった ('sono andato'). Ottima notizia: si costruisce esattamente come la forma -て che già conosci dall'N5 — basta cambiare て in た e で in だ.\n\nQuindi: たべて → たべた, のんで → のんだ, いって → いった, して → した, よんで → よんだ. Tutte le regole di sonorizzazione che hai imparato per la -て valgono identiche.\n\nLa forma -た non serve solo per il passato informale: è la base di strutture chiave dell'N4 come ～たことがある (aver fatto esperienza di qualcosa), ～たら (condizionale), ～たり (elencare azioni). Vale la pena automatizzarla.",
+        "en": "The -ta form is the plain past: たべた ('I ate'), いった ('I went'). Great news: it's built exactly like the -te form you already know from N5 — just change て to た and で to だ.\n\nSo: たべて → たべた, のんで → のんだ, いって → いった, して → した, よんで → よんだ. All the voicing rules you learned for the -te form apply identically.\n\nThe -ta form isn't just for the casual past: it's the base of key N4 structures like ～たことがある (having experienced something), ～たら (conditional), ～たり (listing actions). Well worth automating."
+      },
+      "examples": [
+        {
+          "japanese": "たべて → たべた",
+          "romaji": "tabete → tabeta",
+          "translation": {
+            "it": "forma -て → -た",
+            "en": "-te form → -ta"
+          }
+        },
+        {
+          "japanese": "のんで → のんだ",
+          "romaji": "nonde → nonda",
+          "translation": {
+            "it": "bere: -て → -た",
+            "en": "drink: -te → -ta"
+          },
+          "note": {
+            "it": "で → だ.",
+            "en": "で → だ."
+          }
+        },
+        {
+          "japanese": "いって → いった",
+          "romaji": "itte → itta",
+          "translation": {
+            "it": "andare: -て → -た",
+            "en": "go: -te → -ta"
+          }
+        },
+        {
+          "japanese": "して → した",
+          "romaji": "shite → shita",
+          "translation": {
+            "it": "fare: -て → -た",
+            "en": "do: -te → -ta"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form",
+        "gr-dictionary-form",
+        "gr-nai-form"
+      ]
+    },
+    {
+      "id": "gr-n-desu",
+      "title": {
+        "it": "〜んです — spiegare e chiedere il perché",
+        "en": "~n desu — explaining & asking why"
+      },
+      "explanation": {
+        "it": "〜んです (informale 〜んだ / 〜の) aggiunge a una frase una sfumatura di spiegazione, motivo o coinvolgimento. Confronta: あたまがいたいです ('ho mal di testa', neutro) e あたまがいたいんです ('è che ho mal di testa', sto spiegando perché, ad esempio, non vengo). È fra le strutture più frequenti del parlato reale.\n\nSi attacca alla forma piana: verbi e aggettivi -い direttamente (いくんです, いたいんです), mentre nomi e aggettivi -な richiedono な prima di んです (がくせいなんです, しずかなんです).\n\nIn domanda, 〜んですか chiede spiegazioni con interesse o sorpresa: どうしたんですか ('cosa è successo?'), どこへいくんですか ('ma dove vai?'). Senza んです le stesse domande suonano più piatte e distaccate.",
+        "en": "〜んです (casual 〜んだ / 〜の) adds a nuance of explanation, reason or involvement to a sentence. Compare: あたまがいたいです ('I have a headache', neutral) and あたまがいたいんです ('the thing is, I have a headache', explaining why, e.g., you're not coming). It's among the most frequent structures in real speech.\n\nIt attaches to the plain form: verbs and i-adjectives directly (いくんです, いたいんです), while nouns and na-adjectives need な before んです (がくせいなんです, しずかなんです).\n\nAs a question, 〜んですか asks for an explanation with interest or surprise: どうしたんですか ('what happened?'), どこへいくんですか ('where are you off to?'). Without んです the same questions sound flatter and more detached."
+      },
+      "examples": [
+        {
+          "japanese": "あたまがいたいんです。",
+          "romaji": "atama ga itai n desu.",
+          "translation": {
+            "it": "È che ho mal di testa.",
+            "en": "The thing is, I have a headache."
+          },
+          "note": {
+            "it": "Spiegazione/motivo.",
+            "en": "Explanation/reason."
+          }
+        },
+        {
+          "japanese": "どうしたんですか。",
+          "romaji": "dou shita n desu ka.",
+          "translation": {
+            "it": "Cosa è successo?",
+            "en": "What happened?"
+          },
+          "note": {
+            "it": "Domanda con interesse.",
+            "en": "Question with interest."
+          }
+        },
+        {
+          "japanese": "がくせいなんです。",
+          "romaji": "gakusei na n desu.",
+          "translation": {
+            "it": "È che sono uno studente.",
+            "en": "The thing is, I'm a student."
+          },
+          "note": {
+            "it": "Nome + な + んです.",
+            "en": "Noun + な + んです."
+          }
+        },
+        {
+          "japanese": "いそがしいんです。",
+          "romaji": "isogashii n desu.",
+          "translation": {
+            "it": "È che sono occupato.",
+            "en": "The thing is, I'm busy."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-relative-clauses",
+      "title": {
+        "it": "Le frasi relative — descrivere un nome",
+        "en": "Relative clauses — describing a noun"
+      },
+      "explanation": {
+        "it": "In italiano dici 'il libro che ho comprato': il 'che' introduce la frase che descrive il libro, e va dopo. In giapponese funziona al contrario: la frase che descrive il nome va PRIMA del nome, in forma piana, senza alcuna parola tipo 'che'.\n\nわたしがかったほん = 'il libro che ho comprato' (lett. 'io-ho-comprato libro'). きのうみたえいが = 'il film che ho visto ieri'. たなかさんがつくったりょうり = 'il piatto che ha fatto Tanaka'.\n\nIl verbo che modifica il nome è sempre in forma piana (かった, みた, つくった), mai in -ます. Dentro la frase relativa, il soggetto può essere marcato da が (o の) invece che da は.\n\nÈ una struttura che all'inizio spiazza perché ribalta l'ordine italiano, ma è fondamentale: senza relative non puoi dire quasi nulla di complesso, e sono ovunque nei testi e nei dialoghi.",
+        "en": "In English you say 'the book that I bought': 'that' introduces the clause describing the book, and comes after. In Japanese it's the opposite: the clause describing the noun goes BEFORE the noun, in plain form, with no word like 'that'.\n\nわたしがかったほん = 'the book that I bought' (lit. 'I-bought book'). きのうみたえいが = 'the movie I saw yesterday'. たなかさんがつくったりょうり = 'the dish Tanaka made'.\n\nThe verb modifying the noun is always plain (かった, みた, つくった), never -masu. Inside the relative clause, the subject can be marked by が (or の) instead of は.\n\nIt's a structure that throws you at first because it flips the English order, but it's fundamental: without relative clauses you can hardly say anything complex, and they're everywhere in texts and dialogue."
+      },
+      "examples": [
+        {
+          "japanese": "わたしがかったほん",
+          "romaji": "watashi ga katta hon",
+          "translation": {
+            "it": "il libro che ho comprato",
+            "en": "the book I bought"
+          },
+          "note": {
+            "it": "Frase piana PRIMA del nome.",
+            "en": "Plain clause BEFORE the noun."
+          }
+        },
+        {
+          "japanese": "きのうみたえいが",
+          "romaji": "kinou mita eiga",
+          "translation": {
+            "it": "il film che ho visto ieri",
+            "en": "the movie I saw yesterday"
+          }
+        },
+        {
+          "japanese": "たなかさんがつくったりょうり",
+          "romaji": "tanaka-san ga tsukutta ryouri",
+          "translation": {
+            "it": "il piatto che ha fatto Tanaka",
+            "en": "the dish Tanaka made"
+          },
+          "note": {
+            "it": "Soggetto interno con が.",
+            "en": "Internal subject with が."
+          }
+        },
+        {
+          "japanese": "にほんごをはなすひと",
+          "romaji": "nihongo o hanasu hito",
+          "translation": {
+            "it": "la persona che parla giapponese",
+            "en": "the person who speaks Japanese"
+          },
+          "note": {
+            "it": "Anche al presente piano.",
+            "en": "Plain present works too."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-ta-form-plain"
+      ]
+    }
+  ]
+}

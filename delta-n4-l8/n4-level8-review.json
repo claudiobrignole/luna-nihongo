@@ -1,0 +1,193 @@
+{
+  "id": "n4-level8-review",
+  "level": 8,
+  "order": 8,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · potenziale, esperienze e paragoni",
+    "en": "Review · potential, experiences & comparison"
+  },
+  "description": {
+    "it": "Hai ampliato molto ciò che sai esprimere: capacità (potenziale), proposte (volitivo), esperienze (〜たことがある), elenchi di attività (〜たり), azioni contemporanee (〜ながら) e paragoni. Questo ripasso li intreccia tutti.",
+    "en": "You've greatly expanded what you can express: ability (potential), suggestions (volitional), experiences (〜たことがある), activity lists (〜たり), simultaneous actions (〜ながら) and comparison. This review weaves them all together."
+  },
+  "grammarRefs": [
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison"
+  ],
+  "kanjiRefs": [
+    "kanji-oshieru",
+    "kanji-hashiru",
+    "kanji-hataraku-k"
+  ],
+  "reviewPoolRefs": [
+    "gr-potential",
+    "gr-volitional",
+    "gr-ta-koto-ga-aru",
+    "gr-tari-tari",
+    "gr-nagara",
+    "gr-comparison",
+    "kanji-oshieru",
+    "kanji-hataraku-k"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4l8r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma potenziale di のむ?",
+        "en": "Potential form of のむ?"
+      },
+      "options": [
+        {
+          "it": "のめる",
+          "en": "のめる"
+        },
+        {
+          "it": "のもう",
+          "en": "のもう"
+        },
+        {
+          "it": "のんだ",
+          "en": "のんだ"
+        },
+        {
+          "it": "のまない",
+          "en": "のまない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l8r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Volitivo di いく?",
+        "en": "Volitional of いく?"
+      },
+      "options": [
+        {
+          "it": "いこう",
+          "en": "いこう"
+        },
+        {
+          "it": "いける",
+          "en": "いける"
+        },
+        {
+          "it": "いった",
+          "en": "いった"
+        },
+        {
+          "it": "いかない",
+          "en": "いかない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l8r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Non sono mai stato in Giappone':",
+        "en": "'I've never been to Japan':"
+      },
+      "options": [
+        {
+          "it": "にほんへいったことがない",
+          "en": "にほんへいったことがない"
+        },
+        {
+          "it": "にほんへいかない",
+          "en": "にほんへいかない"
+        },
+        {
+          "it": "にほんへいけない",
+          "en": "にほんへいけない"
+        },
+        {
+          "it": "にほんへいったり しない",
+          "en": "にほんへいったり しない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l8r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Il treno è più veloce dell'autobus':",
+        "en": "'The train is faster than the bus':"
+      },
+      "options": [
+        {
+          "it": "でんしゃのほうがバスよりはやい",
+          "en": "でんしゃのほうがバスよりはやい"
+        },
+        {
+          "it": "バスのほうがでんしゃよりはやい",
+          "en": "バスのほうがでんしゃよりはやい"
+        },
+        {
+          "it": "でんしゃはバスいちばんはやい",
+          "en": "でんしゃはバスいちばんはやい"
+        },
+        {
+          "it": "でんしゃとバスどちらはやい",
+          "en": "でんしゃとバスどちらはやい"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l8r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e significato.",
+        "en": "Match structure to meaning."
+      },
+      "pairs": [
+        {
+          "left": "たべられる",
+          "right": "posso mangiare / can eat"
+        },
+        {
+          "left": "たべよう",
+          "right": "mangiamo! / let's eat"
+        },
+        {
+          "left": "たべたことがある",
+          "right": "ho già mangiato / have eaten"
+        },
+        {
+          "left": "たべたり",
+          "right": "mangiare tra le altre cose / eating among other things"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Potenziale vs volitivo",
+      "en": "Potential vs volitional"
+    },
+    {
+      "it": "〜たことがある, 〜たり, 〜ながら",
+      "en": "〜たことがある, 〜たり, 〜ながら"
+    },
+    {
+      "it": "Paragoni",
+      "en": "Comparison"
+    }
+  ]
+}

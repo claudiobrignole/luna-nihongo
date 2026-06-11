@@ -22,7 +22,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const { speakJapanese, isSpeaking } = useJapaneseSpeech({ language });
+  const { speakJapanese, speakingItemId } = useJapaneseSpeech({ language });
 
   const fetchCards = useCallback(async (options?: { refresh?: boolean }) => {
     if (options?.refresh) {
@@ -350,7 +350,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                       e.stopPropagation();
                       void speakJapanese(activeCard.front);
                     }}
-                    disabled={isSpeaking}
+                    disabled={speakingItemId !== null}
                     style={{
                       padding: '8px',
                       borderRadius: '50%',
@@ -359,11 +359,11 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      opacity: isSpeaking ? 0.6 : 1,
+                      opacity: speakingItemId === '_audio' ? 0.6 : 1,
                     }}
                     title={language === 'en' ? 'Listen' : 'Ascolta'}
                   >
-                    {isSpeaking ? <Loader2 size={16} /> : <Volume2 size={16} />}
+                    {speakingItemId === '_audio' ? <Loader2 size={16} className="spin" /> : <Volume2 size={16} />}
                   </button>
                 </span>
 

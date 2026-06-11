@@ -1,0 +1,138 @@
+{
+  "id": "grammar-comparison",
+  "level": 8,
+  "order": 5,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · i paragoni",
+    "en": "Grammar · comparison"
+  },
+  "description": {
+    "it": "Per confrontare: より ('di/rispetto a'), 〜のほうが ('...è più'), いちばん ('il più'). でんしゃのほうがバスよりはやい ('il treno è più veloce dell'autobus'). Per il superlativo: にほんでいちばんたかいやま ('la montagna più alta del Giappone'). Nelle domande di paragone si usa どちらのほうが ('quale dei due è più...?').",
+    "en": "To compare: より ('than'), 〜のほうが ('...is more'), いちばん ('the most'). でんしゃのほうがバスよりはやい ('the train is faster than the bus'). For the superlative: にほんでいちばんたかいやま ('the tallest mountain in Japan'). In comparison questions use どちらのほうが ('which of the two is more...?')."
+  },
+  "grammarRefs": [
+    "gr-comparison"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gco-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'A è più ~ di B' — quale schema?",
+        "en": "'A is more ~ than B' — which pattern?"
+      },
+      "options": [
+        {
+          "it": "AのほうがBより~",
+          "en": "AのほうがBより~"
+        },
+        {
+          "it": "AよりBのほうが~",
+          "en": "AよりBのほうが~"
+        },
+        {
+          "it": "AはBいちばん~",
+          "en": "AはBいちばん~"
+        },
+        {
+          "it": "AとBどちら~",
+          "en": "AとBどちら~"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gco-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Per dire 'il più...' si usa...",
+        "en": "To say 'the most...' you use..."
+      },
+      "options": [
+        {
+          "it": "いちばん",
+          "en": "いちばん"
+        },
+        {
+          "it": "より",
+          "en": "より"
+        },
+        {
+          "it": "のほうが",
+          "en": "のほうが"
+        },
+        {
+          "it": "どちら",
+          "en": "どちら"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gco-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Quale dei due è più caro?':",
+        "en": "'Which of the two is more expensive?':"
+      },
+      "options": [
+        {
+          "it": "どちらのほうがたかいですか",
+          "en": "どちらのほうがたかいですか"
+        },
+        {
+          "it": "いちばんたかいですか",
+          "en": "いちばんたかいですか"
+        },
+        {
+          "it": "どれがたかいですか",
+          "en": "どれがたかいですか"
+        },
+        {
+          "it": "より たかいですか",
+          "en": "より たかいですか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gco-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina espressione e funzione.",
+        "en": "Match expression to function."
+      },
+      "pairs": [
+        {
+          "left": "より",
+          "right": "termine di paragone / than"
+        },
+        {
+          "left": "のほうが",
+          "right": "'è più' / 'is more'"
+        },
+        {
+          "left": "いちばん",
+          "right": "superlativo / the most"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "より / のほうが / いちばん",
+      "en": "より / のほうが / いちばん"
+    },
+    {
+      "it": "Domande di paragone",
+      "en": "Comparison questions"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ export const LIVE_MODEL_FALLBACKS = [
   'gemini-2.0-flash-live-001',
 ];
 
-export function weeklyAiLimit(_tier: 'free' | 'premium'): number {
+export function weeklyAiLimit(): number {
   return AI_MINUTES_WEEKLY;
 }
 

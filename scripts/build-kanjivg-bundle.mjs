@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Extract KanjiVG SVG files for kana strokeData ids (reproducible bundle).
+ * Extract KanjiVG SVG files for kana + kanji strokeData ids (reproducible bundle).
  *
  * Usage:
+ *   node scripts/build-kanjivg-bundle.mjs --fetch
  *   node scripts/build-kanjivg-bundle.mjs --source /path/to/kanjivg/kanji
  *   node scripts/build-kanjivg-bundle.mjs --zip /path/to/kanjivg-YYYYMMDD-main.zip
  *
@@ -24,24 +25,53 @@ import { tmpdir } from 'node:os';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const KANA_JSON = join(ROOT, 'content/curriculum/repositories/kana.json');
+const KANJI_JSON = join(ROOT, 'content/curriculum/repositories/kanji.json');
 const OUT_DIR = join(ROOT, 'public/kanjivg');
 const OUT_KANJI = join(OUT_DIR, 'kanji');
 const MANIFEST_PATH = join(OUT_DIR, 'manifest.json');
 const KANJIVG_RELEASE = 'r20250816';
+const KANJIVG_RAW_BASE = `https://raw.githubusercontent.com/KanjiVG/kanjivg/${KANJIVG_RELEASE}/kanji`;
 
 function readIds() {
   const { kana } = JSON.parse(readFileSync(KANA_JSON, 'utf8'));
+  const { kanji } = JSON.parse(readFileSync(KANJI_JSON, 'utf8'));
   const bySvgId = new Map();
+
+  const upsert = (kanjiVgId, strokeCount, patch) => {
+    const id = String(kanjiVgId).toLowerCase();
+    const prev = bySvgId.get(id) ?? {
+      kanjiVgId: id,
+      strokeCount,
+      kanaIds: [],
+      kanjiIds: [],
+      japanese: [],
+    };
+    prev.strokeCount = strokeCount;
+    if (patch.kanaId) prev.kanaIds.push(patch.kanaId);
+    if (patch.kanjiId) prev.kanjiIds.push(patch.kanjiId);
+    if (patch.japanese) prev.japanese.push(patch.japanese);
+    prev.kanaIds = [...new Set(prev.kanaIds)];
+    prev.kanjiIds = [...new Set(prev.kanjiIds)];
+    prev.japanese = [...new Set(prev.japanese)];
+    bySvgId.set(id, prev);
+  };
+
   for (const item of kana) {
     if (!item.strokeData) continue;
-    const kanjiVgId = String(item.strokeData.kanjiVgId).toLowerCase();
-    bySvgId.set(kanjiVgId, {
-      kanjiVgId,
-      strokeCount: item.strokeData.strokeCount,
-      kanaIds: [...(bySvgId.get(kanjiVgId)?.kanaIds ?? []), item.id],
-      japanese: [...new Set([...(bySvgId.get(kanjiVgId)?.japanese ?? []), item.japanese])],
+    upsert(item.strokeData.kanjiVgId, item.strokeData.strokeCount, {
+      kanaId: item.id,
+      japanese: item.japanese,
     });
   }
+
+  for (const item of kanji) {
+    if (!item.strokeData) continue;
+    upsert(item.strokeData.kanjiVgId, item.strokeData.strokeCount, {
+      kanjiId: item.id,
+      japanese: item.japanese,
+    });
+  }
+
   return [...bySvgId.values()].sort((a, b) => a.kanjiVgId.localeCompare(b.kanjiVgId));
 }
 
@@ -49,6 +79,15 @@ function countSvgStrokes(svgText) {
   const matches = svgText.match(/id="kvg:[0-9a-f]+-s\d+"/gi) ?? [];
   const nums = matches.map((m) => Number(m.match(/-s(\d+)"/i)?.[1] ?? 0));
   return nums.length ? Math.max(...nums) : 0;
+}
+
+async function fetchSvg(kanjiVgId) {
+  const url = `${KANJIVG_RAW_BASE}/${kanjiVgId}.svg`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} for ${url}`);
+  }
+  return res.text();
 }
 
 function resolveSourceDir(argv) {
@@ -73,12 +112,18 @@ function resolveSourceDir(argv) {
     return kanjiDir;
   }
 
-  throw new Error('Provide --source <kanjivg/kanji dir> or --zip <kanjivg-main.zip>');
+  return null;
 }
 
-function main() {
+async function main() {
+  const argv = process.argv.slice(2);
+  const useFetch = argv.includes('--fetch');
   const entries = readIds();
-  const sourceDir = resolveSourceDir(process.argv.slice(2));
+  const sourceDir = resolveSourceDir(argv);
+
+  if (!sourceDir && !useFetch) {
+    throw new Error('Provide --source, --zip, or --fetch (download from KanjiVG GitHub)');
+  }
 
   rmSync(OUT_KANJI, { recursive: true, force: true });
   mkdirSync(OUT_KANJI, { recursive: true });
@@ -94,17 +139,32 @@ function main() {
 
   let missing = 0;
   let mismatch = 0;
+  let fetched = 0;
 
   for (const entry of entries) {
-    const src = join(sourceDir, `${entry.kanjiVgId}.svg`);
     const dest = join(OUT_KANJI, `${entry.kanjiVgId}.svg`);
-    if (!existsSync(src)) {
+    const src = sourceDir ? join(sourceDir, `${entry.kanjiVgId}.svg`) : null;
+
+    let svgText;
+    if (src && existsSync(src)) {
+      cpSync(src, dest);
+      svgText = readFileSync(dest, 'utf8');
+    } else if (useFetch) {
+      try {
+        svgText = await fetchSvg(entry.kanjiVgId);
+        writeFileSync(dest, svgText);
+        fetched += 1;
+      } catch (err) {
+        console.error(`MISSING ${entry.kanjiVgId}.svg (${entry.japanese.join(', ')}): ${err.message}`);
+        missing += 1;
+        continue;
+      }
+    } else {
       console.error(`MISSING ${entry.kanjiVgId}.svg (${entry.japanese.join(', ')})`);
       missing += 1;
       continue;
     }
-    cpSync(src, dest);
-    const svgText = readFileSync(dest, 'utf8');
+
     const pathCount = countSvgStrokes(svgText);
     if (pathCount !== entry.strokeCount) {
       console.warn(
@@ -112,20 +172,24 @@ function main() {
       );
       mismatch += 1;
     }
-    manifest.characters.push({
+
+    const row = {
       kanjiVgId: entry.kanjiVgId,
       strokeCount: entry.strokeCount,
       svgStrokeCount: pathCount,
-      kanaIds: entry.kanaIds,
       japanese: entry.japanese,
       path: `/kanjivg/kanji/${entry.kanjiVgId}.svg`,
-    });
+    };
+    if (entry.kanaIds.length) row.kanaIds = entry.kanaIds;
+    if (entry.kanjiIds.length) row.kanjiIds = entry.kanjiIds;
+    manifest.characters.push(row);
   }
 
   writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`);
 
   console.log(`KanjiVG bundle → ${OUT_KANJI}`);
   console.log(`  copied: ${manifest.characters.length}/${entries.length}`);
+  if (fetched) console.log(`  fetched from GitHub: ${fetched}`);
   if (missing) {
     process.exitCode = 1;
     console.error(`  missing: ${missing}`);
@@ -135,4 +199,7 @@ function main() {
   }
 }
 
-main();
+main().catch((err) => {
+  console.error(err.message ?? err);
+  process.exit(1);
+});

@@ -1,0 +1,77 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-opinion-weather",
+      "title": {
+        "it": "Opinioni e previsioni",
+        "en": "Opinions & forecasts"
+      },
+      "setting": {
+        "it": "Due colleghi commentano il tempo e fanno ipotesi.",
+        "en": "Two coworkers comment on the weather and make guesses."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yui",
+            "en": "Yui"
+          },
+          "japanese": "あしたはあめだそうです。",
+          "kana": "あしたはあめだそうです。",
+          "romaji": "ashita wa ame da sou desu.",
+          "translation": {
+            "it": "Ho sentito che domani piove.",
+            "en": "I heard it'll rain tomorrow."
+          },
+          "note": {
+            "it": "〜そうです = sentito dire.",
+            "en": "〜そうです = hearsay."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Ken",
+            "en": "Ken"
+          },
+          "japanese": "そうですか。さむくなるとおもいます。",
+          "kana": "そうですか。さむくなるとおもいます。",
+          "romaji": "sou desu ka. samuku naru to omoimasu.",
+          "translation": {
+            "it": "Davvero? Penso che farà freddo.",
+            "en": "Really? I think it'll get cold."
+          },
+          "note": {
+            "it": "〜とおもう = opinione.",
+            "en": "〜とおもう = opinion."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Yui",
+            "en": "Yui"
+          },
+          "japanese": "ええ、ゆきもふるかもしれません。",
+          "kana": "ええ、ゆきもふるかもしれません。",
+          "romaji": "ee, yuki mo furu kamoshiremasen.",
+          "translation": {
+            "it": "Sì, forse nevicherà anche.",
+            "en": "Yes, it might even snow."
+          },
+          "note": {
+            "it": "〜かもしれません = forse.",
+            "en": "〜かもしれません = maybe."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-sou-desu-hearsay",
+        "gr-to-omou-to-iu",
+        "gr-kamoshirenai"
+      ],
+      "usesVocabRefs": []
+    }
+  ]
+}

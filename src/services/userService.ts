@@ -39,7 +39,7 @@ export function resolveTierForEmail(email: string): SubscriptionTier {
     : 'free';
 }
 
-function defaultMemory(_email: string, _username: string, _language: 'en' | 'it'): string {
+function defaultMemory(): string {
   return '';
 }
 
@@ -104,6 +104,11 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     trialEndsAt: normalized.trialEndsAt ?? null,
     trialUsed: normalized.trialUsed === true,
     introCallBookedAt: normalized.introCallBookedAt ?? null,
+    preferredLanguage: normalized.preferredLanguage === 'en' ? 'en' : 'it',
+    marketingConsent: normalized.marketingConsent === true,
+    marketingConsentAt: normalized.marketingConsentAt ?? null,
+    sendfoxSyncedAt: normalized.sendfoxSyncedAt ?? null,
+    premiumWelcomeSentAt: normalized.premiumWelcomeSentAt ?? null,
   };
 }
 
@@ -117,7 +122,8 @@ export async function ensureUserProfile(
   uid: string,
   email: string,
   username: string,
-  language: 'en' | 'it' = 'it'
+  language: 'en' | 'it' = 'it',
+  options?: { marketingConsent?: boolean },
 ): Promise<LunaUser> {
   const ref = doc(getFirebaseDb(), USERS_COLLECTION, uid);
   const snap = await getDoc(ref);
@@ -150,14 +156,17 @@ export async function ensureUserProfile(
     xp: 0,
     joinedDate: new Date().toLocaleDateString(language === 'en' ? 'en-US' : 'it-IT'),
     messagesCount: 0,
-    memory: defaultMemory(normalizedEmail, username, language),
+    memory: defaultMemory(),
     chatHistory: [],
     onboardingCompleted: false,
     preferredStartLevel: 0,
+    preferredLanguage: language,
     showRomaji: true,
     tutorVoiceEnabled: true,
     liveMinutesUsed: 0,
     liveMinutesPeriod: '',
+    marketingConsent: options?.marketingConsent === true,
+    marketingConsentAt: options?.marketingConsent === true ? now : null,
     createdAt: now,
     updatedAt: now,
   };
@@ -184,6 +193,9 @@ export async function updateUserProfile(
       | 'chatHistory'
       | 'onboardingCompleted'
       | 'preferredStartLevel'
+      | 'preferredLanguage'
+      | 'marketingConsent'
+      | 'marketingConsentAt'
       | 'showRomaji'
       | 'tutorVoiceEnabled'
       | 'liveMinutesUsed'

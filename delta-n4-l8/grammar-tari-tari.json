@@ -1,0 +1,138 @@
+{
+  "id": "grammar-tari-tari",
+  "level": 8,
+  "order": 3,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜たり〜たりする",
+    "en": "Grammar · ~tari ~tari suru"
+  },
+  "description": {
+    "it": "Per elencare attività rappresentative (non esaustive): しゅうまつはえいがをみたり、ほんをよんだりします ('nel weekend faccio cose come vedere film e leggere libri'). Si usa la forma -た + り su ogni verbo, chiudendo con する. Diverso dall'elenco con て: 〜たり suggerisce 'tra le altre cose', non una sequenza completa o ordinata.",
+    "en": "To list representative (not exhaustive) activities: しゅうまつはえいがをみたり、ほんをよんだりします ('on weekends I do things like watch movies and read books'). Use the -ta form + り on each verb, closing with する. Different from listing with て: 〜たり suggests 'among other things', not a complete or ordered sequence."
+  },
+  "grammarRefs": [
+    "gr-tari-tari"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gtt-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜たり si attacca a quale forma?",
+        "en": "〜たり attaches to which form?"
+      },
+      "options": [
+        {
+          "it": "forma -た + り",
+          "en": "forma -た + り"
+        },
+        {
+          "it": "forma -ます",
+          "en": "forma -ます"
+        },
+        {
+          "it": "forma del dizionario",
+          "en": "forma del dizionario"
+        },
+        {
+          "it": "forma -ない",
+          "en": "forma -ない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtt-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa chiude tipicamente una frase 〜たり〜たり?",
+        "en": "What typically closes a 〜たり〜たり sentence?"
+      },
+      "options": [
+        {
+          "it": "する",
+          "en": "する"
+        },
+        {
+          "it": "です",
+          "en": "です"
+        },
+        {
+          "it": "ある",
+          "en": "ある"
+        },
+        {
+          "it": "いる",
+          "en": "いる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtt-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜たり〜たり suggerisce...",
+        "en": "〜たり〜たり suggests..."
+      },
+      "options": [
+        {
+          "it": "esempi tra le altre cose",
+          "en": "esempi tra le altre cose"
+        },
+        {
+          "it": "una sequenza ordinata completa",
+          "en": "una sequenza ordinata completa"
+        },
+        {
+          "it": "un divieto",
+          "en": "un divieto"
+        },
+        {
+          "it": "una capacità",
+          "en": "una capacità"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtt-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma -たり.",
+        "en": "Match verb to -tari form."
+      },
+      "pairs": [
+        {
+          "left": "みる",
+          "right": "みたり"
+        },
+        {
+          "left": "よむ",
+          "right": "よんだり"
+        },
+        {
+          "left": "いく",
+          "right": "いったり"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜たり elenco non esaustivo",
+      "en": "〜たり non-exhaustive list"
+    },
+    {
+      "it": "-たり vs -て",
+      "en": "-tari vs -te"
+    }
+  ]
+}

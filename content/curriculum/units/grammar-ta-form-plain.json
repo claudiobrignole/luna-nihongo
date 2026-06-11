@@ -1,0 +1,153 @@
+{
+  "id": "grammar-ta-form-plain",
+  "level": 7,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · la forma -た (passato piano)",
+    "en": "Grammar · the -ta form (plain past)"
+  },
+  "description": {
+    "it": "Il passato in forma piana: たべた ('ho mangiato'), いった ('sono andato'). Buona notizia: si costruisce esattamente come la forma -て che già conosci, basta cambiare て→た e で→だ. のんで→のんだ, いって→いった. Sblocca strutture come ～たことがある (esperienze) e ～たら (condizionale).",
+    "en": "The plain past: たべた ('I ate'), いった ('I went'). Good news: it's built exactly like the -te form you already know, just change て→た and で→だ. のんで→のんだ, いって→いった. It unlocks structures like ～たことがある (experiences) and ～たら (conditional)."
+  },
+  "grammarRefs": [
+    "gr-ta-form-plain"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gtp-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -た di たべる?",
+        "en": "-ta form of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべた",
+          "en": "たべた"
+        },
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべない",
+          "en": "たべない"
+        },
+        {
+          "it": "たべて",
+          "en": "たべて"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtp-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "のむ → forma -て è のんで. Forma -た?",
+        "en": "のむ → -te is のんで. -ta form?"
+      },
+      "options": [
+        {
+          "it": "のんだ",
+          "en": "のんだ"
+        },
+        {
+          "it": "のんた",
+          "en": "のんた"
+        },
+        {
+          "it": "のみた",
+          "en": "のみた"
+        },
+        {
+          "it": "のった",
+          "en": "のった"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtp-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La forma -た si costruisce come...",
+        "en": "The -ta form is built like..."
+      },
+      "options": [
+        {
+          "it": "la forma -て (て→た, で→だ)",
+          "en": "la forma -て (て→た, で→だ)"
+        },
+        {
+          "it": "la forma -ます",
+          "en": "la forma -ます"
+        },
+        {
+          "it": "la forma del dizionario",
+          "en": "la forma del dizionario"
+        },
+        {
+          "it": "la forma -ない",
+          "en": "la forma -ない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtp-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "いく → forma -て è いって. Scrivi la forma -た in romaji: ___",
+        "en": "いく → -te is いって. Type the -ta form in romaji: ___"
+      },
+      "answer": "itta",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-gtp-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina -て e -た.",
+        "en": "Match -te to -ta."
+      },
+      "pairs": [
+        {
+          "left": "たべて",
+          "right": "たべた"
+        },
+        {
+          "left": "のんで",
+          "right": "のんだ"
+        },
+        {
+          "left": "いって",
+          "right": "いった"
+        },
+        {
+          "left": "して",
+          "right": "した"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Da -て a -た",
+      "en": "From -te to -ta"
+    },
+    {
+      "it": "Passato piano",
+      "en": "Plain past"
+    }
+  ]
+}

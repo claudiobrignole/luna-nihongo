@@ -1,0 +1,141 @@
+{
+  "id": "grammar-to-conditional",
+  "level": 10,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il condizionale 〜と",
+    "en": "Grammar · the 〜to conditional"
+  },
+  "description": {
+    "it": "〜と esprime una conseguenza automatica e inevitabile: ogni volta che A, sempre B. はるになると、さくらがさきます. Si attacca alla forma piana presente. Tipico di leggi di natura, meccanismi, indicazioni stradali. Limite chiave: dopo 〜と NON puoi mettere richieste, inviti o comandi — solo fatti. Per quelli usa 〜たら o 〜ば.",
+    "en": "〜と expresses an automatic, inevitable result: whenever A, always B. はるになると、さくらがさきます. It attaches to the plain present. Typical of natural laws, mechanisms, directions. Key limit: after 〜と you CANNOT put requests, invitations or commands — only facts. For those use 〜たら or 〜ば."
+  },
+  "grammarRefs": [
+    "gr-to-conditional"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-tara"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gtc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜と esprime una conseguenza...",
+        "en": "〜と expresses a result that is..."
+      },
+      "options": [
+        {
+          "it": "automatica/inevitabile",
+          "en": "automatica/inevitabile"
+        },
+        {
+          "it": "incerta",
+          "en": "incerta"
+        },
+        {
+          "it": "ipotetica",
+          "en": "ipotetica"
+        },
+        {
+          "it": "contestuale",
+          "en": "contestuale"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Cosa NON può seguire 〜と?",
+        "en": "What CANNOT follow 〜と?"
+      },
+      "options": [
+        {
+          "it": "una richiesta o un comando",
+          "en": "una richiesta o un comando"
+        },
+        {
+          "it": "un fatto",
+          "en": "un fatto"
+        },
+        {
+          "it": "una conseguenza naturale",
+          "en": "una conseguenza naturale"
+        },
+        {
+          "it": "un'indicazione stradale",
+          "en": "un'indicazione stradale"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Premendo il bottone, esce il biglietto':",
+        "en": "'Press the button and a ticket comes out':"
+      },
+      "options": [
+        {
+          "it": "ボタンをおすと、きっぷがでます",
+          "en": "ボタンをおすと、きっぷがでます"
+        },
+        {
+          "it": "ボタンをおしたら、きっぷをだしてください",
+          "en": "ボタンをおしたら、きっぷをだしてください"
+        },
+        {
+          "it": "ボタンをおせば、きっぷをだそう",
+          "en": "ボタンをおせば、きっぷをだそう"
+        },
+        {
+          "it": "ボタンをおすなら、きっぷです",
+          "en": "ボタンをおすなら、きっぷです"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gtc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina condizionale e uso tipico.",
+        "en": "Match conditional to typical use."
+      },
+      "pairs": [
+        {
+          "left": "〜と",
+          "right": "leggi naturali/meccanismi / natural laws"
+        },
+        {
+          "left": "〜たら",
+          "right": "tutto, anche richieste / anything incl. requests"
+        },
+        {
+          "left": "〜ば",
+          "right": "ipotesi generale / general hypothesis"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜と automatico",
+      "en": "〜と automatic"
+    },
+    {
+      "it": "〜と senza comandi",
+      "en": "〜と no commands"
+    }
+  ]
+}

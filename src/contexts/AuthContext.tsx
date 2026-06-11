@@ -9,11 +9,14 @@ import React, {
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
   updateProfile,
   type User as FirebaseUser,
 } from 'firebase/auth';
+import { syncMarketingConsent } from '../services/emailService';
 import { getFirebaseAuth, isFirebaseConfigured } from '../lib/firebase';
 import {
   ensureUserProfile,
@@ -32,8 +35,10 @@ interface AuthContextValue {
     email: string,
     password: string,
     username: string,
-    language: 'en' | 'it'
+    language: 'en' | 'it',
+    options?: { marketingConsent?: boolean },
   ) => Promise<void>;
+  resetPassword: (email: string, language: 'en' | 'it') => Promise<void>;
   signOut: () => Promise<void>;
   updateUser: (updates: Partial<LunaUser>) => Promise<LunaUser>;
   refreshUser: () => Promise<void>;
@@ -172,7 +177,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       email: string,
       password: string,
       username: string,
-      language: 'en' | 'it'
+      language: 'en' | 'it',
+      options?: { marketingConsent?: boolean },
     ) => {
       setAuthError(null);
       try {
@@ -180,23 +186,44 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const credential = await createUserWithEmailAndPassword(
           auth,
           email.trim(),
-          password
+          password,
         );
         await updateProfile(credential.user, { displayName: username.trim() });
+        try {
+          await sendEmailVerification(credential.user);
+        } catch (verifyErr) {
+          console.warn('Email verification send failed', verifyErr);
+        }
         const profile = await ensureUserProfile(
           credential.user.uid,
           email,
           username,
-          language
+          language,
+          { marketingConsent: options?.marketingConsent === true },
         );
         setCurrentUser(profile);
+        if (options?.marketingConsent === true) {
+          void syncMarketingConsent().catch((syncErr) => {
+            console.warn('SendFox sync failed', syncErr);
+          });
+        }
       } catch (err: unknown) {
         const code = (err as { code?: string }).code ?? '';
         throw new Error(mapFirebaseAuthError(code, language), { cause: err });
       }
     },
-    []
+    [],
   );
+
+  const resetPassword = useCallback(async (email: string, language: 'en' | 'it') => {
+    setAuthError(null);
+    try {
+      await sendPasswordResetEmail(getFirebaseAuth(), email.trim());
+    } catch (err: unknown) {
+      const code = (err as { code?: string }).code ?? '';
+      throw new Error(mapFirebaseAuthError(code, language), { cause: err });
+    }
+  }, []);
 
   const signOut = useCallback(async () => {
     await firebaseSignOut(getFirebaseAuth());
@@ -224,11 +251,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       authError,
       signIn,
       signUp,
+      resetPassword,
       signOut,
       updateUser,
       refreshUser,
     }),
-    [currentUser, firebaseUser, loading, authError, signIn, signUp, signOut, updateUser, refreshUser]
+    [currentUser, firebaseUser, loading, authError, signIn, signUp, resetPassword, signOut, updateUser, refreshUser]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

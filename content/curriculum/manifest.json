@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "targetLevel": "N5",
+  "targetLevel": "N4",
   "$comment": "Canonical learning path. unitOrder is the single source of truth for sequence. unitMap below documents what each unit contains and where review-units fall — this is the deliverable to validate before card-filling.",
   "unitOrder": [
     "hiragana-vowels",
@@ -87,7 +87,48 @@
     "n5-kana-mastery",
     "n5-kanji-mastery",
     "n5-grammar-mastery",
-    "n5-mock-exam"
+    "n5-mock-exam",
+    "grammar-dictionary-form",
+    "grammar-nai-form",
+    "grammar-ta-form-plain",
+    "grammar-n-desu",
+    "grammar-relative-clauses",
+    "kanji-n4-verbs-1",
+    "writing-kanji-n4-2",
+    "situation-plain-friends",
+    "writing-kanji-n4-1",
+    "n4-level7-review",
+    "grammar-potential",
+    "grammar-volitional",
+    "grammar-ta-koto-ga-aru",
+    "grammar-tari-tari",
+    "grammar-nagara",
+    "grammar-comparison",
+    "kanji-n4-verbs-2",
+    "writing-kanji-n4-3",
+    "situation-travel-experiences",
+    "n4-level8-review",
+    "grammar-to-omou-to-iu",
+    "grammar-toki",
+    "grammar-deshou",
+    "grammar-kamoshirenai",
+    "grammar-sou-desu-hearsay",
+    "grammar-sou-desu-looks",
+    "kanji-n4-family",
+    "writing-kanji-n4-4",
+    "situation-opinions-guesses",
+    "n4-level9-review",
+    "grammar-tara",
+    "grammar-to-conditional",
+    "grammar-ba",
+    "grammar-nara",
+    "grammar-nakereba-naranai",
+    "grammar-nakutemo-ii",
+    "grammar-te-shimau-oku-miru",
+    "kanji-n4-time-quantity",
+    "writing-kanji-n4-5",
+    "situation-plans-obligations",
+    "n4-level10-review"
   ],
   "unitMap": [
     {
@@ -1023,6 +1064,457 @@
         "en": "N5 mock exam"
       },
       "contains": "mixed exam-style: kana+kanji+vocab+grammar",
+      "isReview": true
+    },
+    {
+      "id": "grammar-dictionary-form",
+      "level": 7,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · la forma del dizionario",
+        "en": "Grammar · dictionary form"
+      },
+      "contains": "Benvenuto nell'N4! Finora hai parlato in forma cortese (-ます). Ora impari la forma piana — quella del dizionario: たべる inv",
+      "isReview": false
+    },
+    {
+      "id": "grammar-nai-form",
+      "level": 7,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · la forma -ない",
+        "en": "Grammar · the -nai form"
+      },
+      "contains": "La negazione in forma piana: たべない ('non mangio'), いかない ('non vado'). È il corrispettivo piano di -ません, e come la forma d",
+      "isReview": false
+    },
+    {
+      "id": "grammar-ta-form-plain",
+      "level": 7,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · la forma -た (passato piano)",
+        "en": "Grammar · the -ta form (plain past)"
+      },
+      "contains": "Il passato in forma piana: たべた ('ho mangiato'), いった ('sono andato'). Buona notizia: si costruisce esattamente come la fo",
+      "isReview": false
+    },
+    {
+      "id": "grammar-n-desu",
+      "level": 7,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · ～んです",
+        "en": "Grammar · ~n desu"
+      },
+      "contains": "～んです serve a spiegare, dare un motivo o chiedere 'come mai?'. あたまがいたいんです ('è che ho mal di testa'). Si attacca alla form",
+      "isReview": false
+    },
+    {
+      "id": "grammar-relative-clauses",
+      "level": 7,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · le frasi relative",
+        "en": "Grammar · relative clauses"
+      },
+      "contains": "In giapponese si descrive un nome mettendo una frase intera PRIMA di esso, in forma piana: わたしがかったほん ('il libro che ho c",
+      "isReview": false
+    },
+    {
+      "id": "kanji-n4-verbs-1",
+      "level": 7,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · verbi N4 (1)",
+        "en": "Kanji · N4 verbs (1)"
+      },
+      "contains": "I primi kanji dell'N4 sono verbi d'azione e di pensiero che userai con la forma piana appena imparata: 思 (pensare), 知 (s",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-2",
+      "level": 7,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (2)",
+        "en": "Writing · tracing N4 kanji (2)"
+      },
+      "contains": "Completiamo il tracciamento dei kanji del Livello 7: 待 (aspettare), 始 (iniziare), 終 (finire), 開 (aprire), 閉 (chiudere). ",
+      "isReview": false
+    },
+    {
+      "id": "situation-plain-friends",
+      "level": 7,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · parlare tra amici",
+        "en": "Situation · talking with friends"
+      },
+      "contains": "Tempo di usare la forma piana in una conversazione vera! Tra amici e coetanei il giapponese abbandona il -ます e passa al ",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-1",
+      "level": 7,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (1)",
+        "en": "Writing · tracing N4 kanji (1)"
+      },
+      "contains": "Per la prima volta tracci dei kanji, non solo kana! I kanji hanno più tratti e l'ordine conta ancora di più: una sequenz",
+      "isReview": false
+    },
+    {
+      "id": "n4-level7-review",
+      "level": 7,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · forma piana e frasi complesse",
+        "en": "Review · plain form & complex sentences"
+      },
+      "contains": "Hai fatto il salto più importante dell'N4: la forma piana e le frasi relative. Questo ripasso intreccia forma del dizion",
+      "isReview": true
+    },
+    {
+      "id": "grammar-potential",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · la forma potenziale",
+        "en": "Grammar · the potential form"
+      },
+      "contains": "Ora puoi dire ciò che SAI fare: たべられる ('posso mangiare'), はなせる ('so parlare'). La forma potenziale esprime capacità e po",
+      "isReview": false
+    },
+    {
+      "id": "grammar-volitional",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il volitivo",
+        "en": "Grammar · the volitional"
+      },
+      "contains": "Il volitivo esprime 'facciamo!' o l'intenzione: たべよう ('mangiamo!'), いこう ('andiamo!'). È la forma piana di -ましょう. Gruppo ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-ta-koto-ga-aru",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜たことがある",
+        "en": "Grammar · ~ta koto ga aru"
+      },
+      "contains": "Per raccontare esperienze: にほんへいったことがある ('sono già stato in Giappone'). Si forma con la forma -た (passato piano) + ことがある",
+      "isReview": false
+    },
+    {
+      "id": "grammar-tari-tari",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜たり〜たりする",
+        "en": "Grammar · ~tari ~tari suru"
+      },
+      "contains": "Per elencare attività rappresentative (non esaustive): しゅうまつはえいがをみたり、ほんをよんだりします ('nel weekend faccio cose come vedere fi",
+      "isReview": false
+    },
+    {
+      "id": "grammar-nagara",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜ながら",
+        "en": "Grammar · ~nagara"
+      },
+      "contains": "Per due azioni contemporanee dello stesso soggetto: おんがくをききながらべんきょうする ('studio ascoltando musica'). Si forma con la radi",
+      "isReview": false
+    },
+    {
+      "id": "grammar-comparison",
+      "level": 8,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · i paragoni",
+        "en": "Grammar · comparison"
+      },
+      "contains": "Per confrontare: より ('di/rispetto a'), 〜のほうが ('...è più'), いちばん ('il più'). でんしゃのほうがバスよりはやい ('il treno è più veloce dell",
+      "isReview": false
+    },
+    {
+      "id": "kanji-n4-verbs-2",
+      "level": 8,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · verbi N4 (2) — movimento e azione",
+        "en": "Kanji · N4 verbs (2) — movement & action"
+      },
+      "contains": "Kanji di movimento e attività quotidiana: 教 (insegnare), 習 (imparare), 走 (correre), 歩 (camminare), 止 (fermarsi), 動 (muov",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-3",
+      "level": 8,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (3)",
+        "en": "Writing · tracing N4 kanji (3)"
+      },
+      "contains": "Traccia i dieci kanji di movimento e azione del Livello 8: 教習走歩止動働帰買売. Caratteri con più tratti: segui la guida e prendi",
+      "isReview": false
+    },
+    {
+      "id": "situation-travel-experiences",
+      "level": 8,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · esperienze e capacità",
+        "en": "Situation · experiences & abilities"
+      },
+      "contains": "Metti insieme i nuovi strumenti: racconta dove sei stato (〜たことがある), cosa sai fare (potenziale) e cosa fai di solito (〜たり",
+      "isReview": false
+    },
+    {
+      "id": "n4-level8-review",
+      "level": 8,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · potenziale, esperienze e paragoni",
+        "en": "Review · potential, experiences & comparison"
+      },
+      "contains": "Hai ampliato molto ciò che sai esprimere: capacità (potenziale), proposte (volitivo), esperienze (〜たことがある), elenchi di a",
+      "isReview": true
+    },
+    {
+      "id": "grammar-to-omou-to-iu",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜と思う / 〜と言う",
+        "en": "Grammar · ~to omou / ~to iu"
+      },
+      "contains": "Per esprimere opinioni e citare: 〜と思う ('penso che...'), 〜と言う ('dice che...'). La frase citata va in forma piana prima di",
+      "isReview": false
+    },
+    {
+      "id": "grammar-toki",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜とき (quando)",
+        "en": "Grammar · ~toki (when)"
+      },
+      "contains": "〜とき indica 'quando' / 'al momento di': にほんへいくとき、カメラをかいました ('quando sono andato in Giappone, ho comprato una macchina fot",
+      "isReview": false
+    },
+    {
+      "id": "grammar-deshou",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜でしょう (probabilità)",
+        "en": "Grammar · ~deshou (probability)"
+      },
+      "contains": "〜でしょう esprime previsione ('probabilmente, sarà') o, con intonazione ascendente, chiede conferma ('vero?'). あしたはあめでしょう ('",
+      "isReview": false
+    },
+    {
+      "id": "grammar-kamoshirenai",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜かもしれません (forse)",
+        "en": "Grammar · ~kamoshiremasen (maybe)"
+      },
+      "contains": "〜かもしれません esprime una possibilità incerta ('forse, può darsi'): あめがふるかもしれません. È meno sicuro di でしょう: でしょう = probabilità a",
+      "isReview": false
+    },
+    {
+      "id": "grammar-sou-desu-hearsay",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜そうです (ho sentito che)",
+        "en": "Grammar · ~sou desu (hearsay)"
+      },
+      "contains": "Questo 〜そうです riporta ciò che hai sentito ('ho sentito che, pare che'): あしたはあめだそうです. Si attacca alla forma piana COMPLETA",
+      "isReview": false
+    },
+    {
+      "id": "grammar-sou-desu-looks",
+      "level": 9,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜そうです (sembra)",
+        "en": "Grammar · ~sou desu (looks like)"
+      },
+      "contains": "Questo 〜そうです esprime un'impressione immediata ('sembra, ha l'aria'): おいしそうです ('sembra buono'). Si attacca alla RADICE: a",
+      "isReview": false
+    },
+    {
+      "id": "kanji-n4-family",
+      "level": 9,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · famiglia e azioni N4",
+        "en": "Kanji · family & actions N4"
+      },
+      "contains": "Kanji della famiglia e di alcune azioni: 家 (casa), 族 (famiglia/clan), 兄 (fratello maggiore), 弟 (fratello minore), 姉 (sor",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-4",
+      "level": 9,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (4)",
+        "en": "Writing · tracing N4 kanji (4)"
+      },
+      "contains": "Traccia i kanji della famiglia e delle azioni del Livello 9: 家族兄弟姉妹 più 送借貸泳. I kanji della famiglia hanno forme che ric",
+      "isReview": false
+    },
+    {
+      "id": "situation-opinions-guesses",
+      "level": 9,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · opinioni e previsioni",
+        "en": "Situation · opinions & guesses"
+      },
+      "contains": "Ora sai esprimere ciò che pensi, ciò che hai sentito e ciò che immagini. Ascolta due colleghi che commentano il tempo us",
+      "isReview": false
+    },
+    {
+      "id": "n4-level9-review",
+      "level": 9,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · pensieri, opinioni e supposizioni",
+        "en": "Review · thoughts, opinions & guesses"
+      },
+      "contains": "Ora sai dire cosa pensi (〜とおもう), citare (〜という), collocare nel tempo (〜とき), e graduare la certezza: でしょう (probabile), かもし",
+      "isReview": true
+    },
+    {
+      "id": "grammar-tara",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il condizionale 〜たら",
+        "en": "Grammar · the 〜tara conditional"
+      },
+      "contains": "〜たら è il condizionale più versatile: 'se / quando' A, allora B. Si forma dalla forma -た + ら: たべたら, いったら, さむかったら. Vale pe",
+      "isReview": false
+    },
+    {
+      "id": "grammar-to-conditional",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il condizionale 〜と",
+        "en": "Grammar · the 〜to conditional"
+      },
+      "contains": "〜と esprime una conseguenza automatica e inevitabile: ogni volta che A, sempre B. はるになると、さくらがさきます. Si attacca alla forma ",
+      "isReview": false
+    },
+    {
+      "id": "grammar-ba",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il condizionale 〜ば",
+        "en": "Grammar · the 〜ba conditional"
+      },
+      "contains": "〜ば esprime una condizione ipotetica generale: 'se A, allora B'. やすければ、かいます. Formazione: gruppo 1 -u → -eba (いく→いけば); gru",
+      "isReview": false
+    },
+    {
+      "id": "grammar-nara",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · il condizionale 〜なら",
+        "en": "Grammar · the 〜nara conditional"
+      },
+      "contains": "〜なら introduce una condizione basata su qualcosa di dato o appena detto: 'se (è il caso che) A, allora...'. にほんへいくなら、きょうと",
+      "isReview": false
+    },
+    {
+      "id": "grammar-nakereba-naranai",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜なければなりません (dovere)",
+        "en": "Grammar · ~nakereba narimasen (must)"
+      },
+      "contains": "Per esprimere un obbligo: いかなければなりません ('devo andare'). Dalla forma -ない togli -ない e aggiungi -なければなりません. Letteralmente 's",
+      "isReview": false
+    },
+    {
+      "id": "grammar-nakutemo-ii",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜なくてもいいです (non serve)",
+        "en": "Grammar · ~nakutemo ii desu (don't have to)"
+      },
+      "contains": "L'opposto dell'obbligo: 'non c'è bisogno di'. こなくてもいいです ('non devi venire'). Dalla forma -ない togli -い e aggiungi -くてもいいで",
+      "isReview": false
+    },
+    {
+      "id": "grammar-te-shimau-oku-miru",
+      "level": 10,
+      "type": "grammar",
+      "title": {
+        "it": "Grammatica · 〜てしまう・〜ておく・〜てみる",
+        "en": "Grammar · ~te shimau / oku / miru"
+      },
+      "contains": "Tre sfumature che si attaccano alla forma -て. 〜てしまう: completare del tutto, o rammarico ('l'ho fatto/purtroppo è successo",
+      "isReview": false
+    },
+    {
+      "id": "kanji-n4-time-quantity",
+      "level": 10,
+      "type": "kanji",
+      "title": {
+        "it": "Kanji · tempo e quantità N4",
+        "en": "Kanji · time & quantity N4"
+      },
+      "contains": "Kanji del tempo e della quantità: 親 (genitore), 朝 (mattina), 昼 (mezzogiorno), 夜 (notte), 曜 (giorno della settimana), 週 (",
+      "isReview": false
+    },
+    {
+      "id": "writing-kanji-n4-5",
+      "level": 10,
+      "type": "situation",
+      "title": {
+        "it": "Scrittura · tracciare i kanji N4 (5)",
+        "en": "Writing · tracing N4 kanji (5)"
+      },
+      "contains": "Traccia i kanji di tempo e quantità del Livello 10: 親朝昼夜曜週新古多少. Osserva i radicali ricorrenti (日 'sole' in 朝昼曜) — ricono",
+      "isReview": false
+    },
+    {
+      "id": "situation-plans-obligations",
+      "level": 10,
+      "type": "situation",
+      "title": {
+        "it": "Situazione · programmi, condizioni e obblighi",
+        "en": "Situation · plans, conditions & obligations"
+      },
+      "contains": "Metti insieme condizionali e obblighi in una situazione reale: organizzare un'uscita tenendo conto di 'se' (〜たら), di ciò",
+      "isReview": false
+    },
+    {
+      "id": "n4-level10-review",
+      "level": 10,
+      "type": "review",
+      "title": {
+        "it": "Ripasso · condizioni e obblighi",
+        "en": "Review · conditions & obligations"
+      },
+      "contains": "Questo livello ti ha dato i quattro condizionali giapponesi — たら (versatile), と (automatico), ば (ipotetico), なら (contest",
       "isReview": true
     }
   ]

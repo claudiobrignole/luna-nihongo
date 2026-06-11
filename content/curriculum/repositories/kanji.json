@@ -1353,6 +1353,894 @@
         "it": "Vapore che sale: l'aria, l'energia, lo 'spirito' delle cose. In 天気 (tempo atmosferico) e 元気 (in forma).",
         "en": "Rising vapor — air, energy, the 'spirit' of things. In 天気 (weather) and 元気 (lively)."
       }
+    },
+    {
+      "id": "kanji-omou",
+      "japanese": "思",
+      "meaning": {
+        "it": "pensare",
+        "en": "to think"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "おも.う"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-ta"
+      ],
+      "mnemonic": {
+        "it": "Il campo (田) sopra il cuore (心): ciò che coltivi nel cuore, il pensiero.",
+        "en": "A field (田) over the heart (心): what you cultivate in the heart — thought."
+      },
+      "strokeData": {
+        "kanjiVgId": "0601d",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-shiru",
+      "japanese": "知",
+      "meaning": {
+        "it": "sapere / conoscere",
+        "en": "to know"
+      },
+      "readingOnyomi": [
+        "チ"
+      ],
+      "readingKunyomi": [
+        "し.る"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-kuchi"
+      ],
+      "mnemonic": {
+        "it": "Una freccia (矢) e una bocca (口): dire le cose con prontezza, sapere.",
+        "en": "An arrow (矢) and a mouth (口): speaking swiftly and surely — to know."
+      },
+      "strokeData": {
+        "kanjiVgId": "077e5",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-tsukuru",
+      "japanese": "作",
+      "meaning": {
+        "it": "fare / creare",
+        "en": "to make"
+      },
+      "readingOnyomi": [
+        "サク",
+        "サ"
+      ],
+      "readingKunyomi": [
+        "つく.る"
+      ],
+      "strokeCount": 7,
+      "components": [
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (亻) accanto a ciò che costruisce: fare, creare.",
+        "en": "A person (亻) beside what they build — to make, to create."
+      },
+      "strokeData": {
+        "kanjiVgId": "04f5c",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-tsukau",
+      "japanese": "使",
+      "meaning": {
+        "it": "usare",
+        "en": "to use"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "つか.う"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (亻) che impiega un funzionario: mandare a usare, usare.",
+        "en": "A person (亻) employing an official — to send to use, to use."
+      },
+      "strokeData": {
+        "kanjiVgId": "04f7f",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-motsu",
+      "japanese": "持",
+      "meaning": {
+        "it": "tenere / possedere",
+        "en": "to hold"
+      },
+      "readingOnyomi": [
+        "ジ"
+      ],
+      "readingKunyomi": [
+        "も.つ"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-te-hand",
+        "kanji-ji-time"
+      ],
+      "mnemonic": {
+        "it": "La mano (扌) che trattiene nel tempo (寺): tenere, possedere.",
+        "en": "The hand (扌) keeping through time (寺) — to hold, to possess."
+      },
+      "strokeData": {
+        "kanjiVgId": "06301",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-matsu-k",
+      "japanese": "待",
+      "meaning": {
+        "it": "aspettare",
+        "en": "to wait"
+      },
+      "readingOnyomi": [
+        "タイ"
+      ],
+      "readingKunyomi": [
+        "ま.つ"
+      ],
+      "strokeCount": 9,
+      "components": [
+        "kanji-ji-time"
+      ],
+      "mnemonic": {
+        "it": "Un passo (彳) fermo nel tempo (寺): restare ad aspettare.",
+        "en": "A step (彳) held still in time (寺) — to stay and wait."
+      },
+      "strokeData": {
+        "kanjiVgId": "05f85",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-hajimeru",
+      "japanese": "始",
+      "meaning": {
+        "it": "iniziare",
+        "en": "to begin"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "はじ.める",
+        "はじ.まる"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "mnemonic": {
+        "it": "Una donna (女) e l'origine: dare inizio, cominciare.",
+        "en": "A woman (女) and the origin — to give a start, to begin."
+      },
+      "strokeData": {
+        "kanjiVgId": "059cb",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-owaru",
+      "japanese": "終",
+      "meaning": {
+        "it": "finire",
+        "en": "to end"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [
+        "お.わる",
+        "お.える"
+      ],
+      "strokeCount": 11,
+      "mnemonic": {
+        "it": "Il filo (糸) che arriva all'ultima stagione: concludere, finire.",
+        "en": "The thread (糸) reaching the final season — to conclude, to end."
+      },
+      "strokeData": {
+        "kanjiVgId": "07d42",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-akeru",
+      "japanese": "開",
+      "meaning": {
+        "it": "aprire",
+        "en": "to open"
+      },
+      "readingOnyomi": [
+        "カイ"
+      ],
+      "readingKunyomi": [
+        "あ.ける",
+        "ひら.く"
+      ],
+      "strokeCount": 12,
+      "components": [
+        "kanji-kan"
+      ],
+      "mnemonic": {
+        "it": "Due mani che sollevano la sbarra dentro un cancello (門): aprire.",
+        "en": "Two hands lifting the bar inside a gate (門) — to open."
+      },
+      "strokeData": {
+        "kanjiVgId": "0958b",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-shimeru",
+      "japanese": "閉",
+      "meaning": {
+        "it": "chiudere",
+        "en": "to close"
+      },
+      "readingOnyomi": [
+        "ヘイ"
+      ],
+      "readingKunyomi": [
+        "し.める",
+        "と.じる"
+      ],
+      "strokeCount": 11,
+      "components": [
+        "kanji-kan"
+      ],
+      "mnemonic": {
+        "it": "Una sbarra che blocca il cancello (門): chiudere.",
+        "en": "A bar blocking the gate (門) — to close."
+      },
+      "strokeData": {
+        "kanjiVgId": "09589",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-oshieru",
+      "japanese": "教",
+      "meaning": {
+        "it": "insegnare",
+        "en": "teach"
+      },
+      "readingOnyomi": [
+        "キョウ"
+      ],
+      "readingKunyomi": [
+        "おし.える"
+      ],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "06559",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-narau",
+      "japanese": "習",
+      "meaning": {
+        "it": "imparare / esercitarsi",
+        "en": "learn / practice"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [
+        "なら.う"
+      ],
+      "strokeCount": 11,
+      "mnemonic": {
+        "it": "Ali (羽) sopra il bianco: il pulcino che prova a volare, ripetendo.",
+        "en": "Wings (羽) over white: a chick practicing flight, again and again."
+      },
+      "strokeData": {
+        "kanjiVgId": "07fd2",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-hashiru",
+      "japanese": "走",
+      "meaning": {
+        "it": "correre",
+        "en": "run"
+      },
+      "readingOnyomi": [
+        "ソウ"
+      ],
+      "readingKunyomi": [
+        "はし.る"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "08d70",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-aruku",
+      "japanese": "歩",
+      "meaning": {
+        "it": "camminare",
+        "en": "walk"
+      },
+      "readingOnyomi": [
+        "ホ"
+      ],
+      "readingKunyomi": [
+        "ある.く"
+      ],
+      "strokeCount": 8,
+      "mnemonic": {
+        "it": "Fermarsi (止) un po' (少): camminare è fermarsi un poco a ogni passo.",
+        "en": "Stop (止) a little (少): walking is stopping a little at each step."
+      },
+      "strokeData": {
+        "kanjiVgId": "06b69",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-tomaru",
+      "japanese": "止",
+      "meaning": {
+        "it": "fermarsi",
+        "en": "stop"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "と.まる"
+      ],
+      "strokeCount": 4,
+      "strokeData": {
+        "kanjiVgId": "06b62",
+        "strokeCount": 4
+      }
+    },
+    {
+      "id": "kanji-ugoku",
+      "japanese": "動",
+      "meaning": {
+        "it": "muoversi",
+        "en": "move"
+      },
+      "readingOnyomi": [
+        "ドウ"
+      ],
+      "readingKunyomi": [
+        "うご.く"
+      ],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "052d5",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-hataraku-k",
+      "japanese": "働",
+      "meaning": {
+        "it": "lavorare",
+        "en": "work"
+      },
+      "readingOnyomi": [
+        "ドウ"
+      ],
+      "readingKunyomi": [
+        "はたら.く"
+      ],
+      "strokeCount": 13,
+      "components": [
+        "kanji-ugoku",
+        "kanji-hito"
+      ],
+      "mnemonic": {
+        "it": "Una persona (人) che si muove (動): lavorare.",
+        "en": "A person (人) in motion (動): to work."
+      },
+      "strokeData": {
+        "kanjiVgId": "050cd",
+        "strokeCount": 13
+      }
+    },
+    {
+      "id": "kanji-kaeru-k",
+      "japanese": "帰",
+      "meaning": {
+        "it": "tornare",
+        "en": "return"
+      },
+      "readingOnyomi": [
+        "キ"
+      ],
+      "readingKunyomi": [
+        "かえ.る"
+      ],
+      "strokeCount": 10,
+      "strokeData": {
+        "kanjiVgId": "05e30",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-kau-k",
+      "japanese": "買",
+      "meaning": {
+        "it": "comprare",
+        "en": "buy"
+      },
+      "readingOnyomi": [
+        "バイ"
+      ],
+      "readingKunyomi": [
+        "か.う"
+      ],
+      "strokeCount": 12,
+      "mnemonic": {
+        "it": "Una rete sopra una conchiglia (denaro antico): catturare merce col denaro.",
+        "en": "A net over a shell (ancient money): catching goods with money."
+      },
+      "strokeData": {
+        "kanjiVgId": "08cb7",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-uru",
+      "japanese": "売",
+      "meaning": {
+        "it": "vendere",
+        "en": "sell"
+      },
+      "readingOnyomi": [
+        "バイ"
+      ],
+      "readingKunyomi": [
+        "う.る"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "058f2",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-okuru",
+      "japanese": "送",
+      "meaning": {
+        "it": "spedire / accompagnare",
+        "en": "send"
+      },
+      "readingOnyomi": [
+        "ソウ"
+      ],
+      "readingKunyomi": [
+        "おく.る"
+      ],
+      "strokeCount": 9,
+      "strokeData": {
+        "kanjiVgId": "09001",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-kariru",
+      "japanese": "借",
+      "meaning": {
+        "it": "prendere in prestito",
+        "en": "borrow"
+      },
+      "readingOnyomi": [
+        "シャク"
+      ],
+      "readingKunyomi": [
+        "か.りる"
+      ],
+      "strokeCount": 10,
+      "components": [
+        "kanji-hito"
+      ],
+      "strokeData": {
+        "kanjiVgId": "0501f",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-kasu",
+      "japanese": "貸",
+      "meaning": {
+        "it": "prestare",
+        "en": "lend"
+      },
+      "readingOnyomi": [
+        "タイ"
+      ],
+      "readingKunyomi": [
+        "か.す"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "08cb8",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-oyogu",
+      "japanese": "泳",
+      "meaning": {
+        "it": "nuotare",
+        "en": "swim"
+      },
+      "readingOnyomi": [
+        "エイ"
+      ],
+      "readingKunyomi": [
+        "およ.ぐ"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-sui"
+      ],
+      "mnemonic": {
+        "it": "Acqua (氵) che scorre eterna: nuotare.",
+        "en": "Water (氵) flowing forever: to swim."
+      },
+      "strokeData": {
+        "kanjiVgId": "06cf3",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-ie",
+      "japanese": "家",
+      "meaning": {
+        "it": "casa / famiglia",
+        "en": "house / family"
+      },
+      "readingOnyomi": [
+        "カ",
+        "ケ"
+      ],
+      "readingKunyomi": [
+        "いえ",
+        "うち"
+      ],
+      "strokeCount": 10,
+      "mnemonic": {
+        "it": "Un tetto con un maiale sotto: la fattoria antica, la casa.",
+        "en": "A roof with a pig beneath: the old farmstead, home."
+      },
+      "strokeData": {
+        "kanjiVgId": "05bb6",
+        "strokeCount": 10
+      }
+    },
+    {
+      "id": "kanji-zoku",
+      "japanese": "族",
+      "meaning": {
+        "it": "famiglia / tribù",
+        "en": "family / tribe"
+      },
+      "readingOnyomi": [
+        "ゾク"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "065cf",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-ani",
+      "japanese": "兄",
+      "meaning": {
+        "it": "fratello maggiore",
+        "en": "older brother"
+      },
+      "readingOnyomi": [
+        "キョウ",
+        "ケイ"
+      ],
+      "readingKunyomi": [
+        "あに"
+      ],
+      "strokeCount": 5,
+      "strokeData": {
+        "kanjiVgId": "05144",
+        "strokeCount": 5
+      }
+    },
+    {
+      "id": "kanji-otouto",
+      "japanese": "弟",
+      "meaning": {
+        "it": "fratello minore",
+        "en": "younger brother"
+      },
+      "readingOnyomi": [
+        "ダイ",
+        "デ"
+      ],
+      "readingKunyomi": [
+        "おとうと"
+      ],
+      "strokeCount": 7,
+      "strokeData": {
+        "kanjiVgId": "05f1f",
+        "strokeCount": 7
+      }
+    },
+    {
+      "id": "kanji-ane",
+      "japanese": "姉",
+      "meaning": {
+        "it": "sorella maggiore",
+        "en": "older sister"
+      },
+      "readingOnyomi": [
+        "シ"
+      ],
+      "readingKunyomi": [
+        "あね"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "strokeData": {
+        "kanjiVgId": "059c9",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-imouto",
+      "japanese": "妹",
+      "meaning": {
+        "it": "sorella minore",
+        "en": "younger sister"
+      },
+      "readingOnyomi": [
+        "マイ"
+      ],
+      "readingKunyomi": [
+        "いもうと"
+      ],
+      "strokeCount": 8,
+      "components": [
+        "kanji-onna"
+      ],
+      "strokeData": {
+        "kanjiVgId": "059b9",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-oya",
+      "japanese": "親",
+      "meaning": {
+        "it": "genitore",
+        "en": "parent"
+      },
+      "readingOnyomi": [
+        "シン"
+      ],
+      "readingKunyomi": [
+        "おや",
+        "した.しい"
+      ],
+      "strokeCount": 16,
+      "components": [
+        "kanji-miru-k"
+      ],
+      "mnemonic": {
+        "it": "Sta in piedi su un albero a guardare (見) i figli: il genitore.",
+        "en": "Standing on a tree watching (見) the children: a parent."
+      },
+      "strokeData": {
+        "kanjiVgId": "089aa",
+        "strokeCount": 16
+      }
+    },
+    {
+      "id": "kanji-asa-k",
+      "japanese": "朝",
+      "meaning": {
+        "it": "mattina",
+        "en": "morning"
+      },
+      "readingOnyomi": [
+        "チョウ"
+      ],
+      "readingKunyomi": [
+        "あさ"
+      ],
+      "strokeCount": 12,
+      "strokeData": {
+        "kanjiVgId": "0671d",
+        "strokeCount": 12
+      }
+    },
+    {
+      "id": "kanji-hiru",
+      "japanese": "昼",
+      "meaning": {
+        "it": "mezzogiorno / giorno",
+        "en": "noon / daytime"
+      },
+      "readingOnyomi": [
+        "チュウ"
+      ],
+      "readingKunyomi": [
+        "ひる"
+      ],
+      "strokeCount": 9,
+      "strokeData": {
+        "kanjiVgId": "0663c",
+        "strokeCount": 9
+      }
+    },
+    {
+      "id": "kanji-yoru",
+      "japanese": "夜",
+      "meaning": {
+        "it": "notte",
+        "en": "night"
+      },
+      "readingOnyomi": [
+        "ヤ"
+      ],
+      "readingKunyomi": [
+        "よる"
+      ],
+      "strokeCount": 8,
+      "strokeData": {
+        "kanjiVgId": "0591c",
+        "strokeCount": 8
+      }
+    },
+    {
+      "id": "kanji-you",
+      "japanese": "曜",
+      "meaning": {
+        "it": "giorno della settimana",
+        "en": "day of week"
+      },
+      "readingOnyomi": [
+        "ヨウ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 18,
+      "strokeData": {
+        "kanjiVgId": "066dc",
+        "strokeCount": 18
+      }
+    },
+    {
+      "id": "kanji-shuu",
+      "japanese": "週",
+      "meaning": {
+        "it": "settimana",
+        "en": "week"
+      },
+      "readingOnyomi": [
+        "シュウ"
+      ],
+      "readingKunyomi": [],
+      "strokeCount": 11,
+      "strokeData": {
+        "kanjiVgId": "09031",
+        "strokeCount": 11
+      }
+    },
+    {
+      "id": "kanji-atarashii-k",
+      "japanese": "新",
+      "meaning": {
+        "it": "nuovo",
+        "en": "new"
+      },
+      "readingOnyomi": [
+        "シン"
+      ],
+      "readingKunyomi": [
+        "あたら.しい"
+      ],
+      "strokeCount": 13,
+      "strokeData": {
+        "kanjiVgId": "065b0",
+        "strokeCount": 13
+      }
+    },
+    {
+      "id": "kanji-furui",
+      "japanese": "古",
+      "meaning": {
+        "it": "vecchio",
+        "en": "old"
+      },
+      "readingOnyomi": [
+        "コ"
+      ],
+      "readingKunyomi": [
+        "ふる.い"
+      ],
+      "strokeCount": 5,
+      "mnemonic": {
+        "it": "Dieci (十) bocche (口): una storia passata per dieci generazioni — antica.",
+        "en": "Ten (十) mouths (口): a story through ten generations — old."
+      },
+      "strokeData": {
+        "kanjiVgId": "053e4",
+        "strokeCount": 5
+      }
+    },
+    {
+      "id": "kanji-ooi",
+      "japanese": "多",
+      "meaning": {
+        "it": "molti",
+        "en": "many"
+      },
+      "readingOnyomi": [
+        "タ"
+      ],
+      "readingKunyomi": [
+        "おお.い"
+      ],
+      "strokeCount": 6,
+      "mnemonic": {
+        "it": "Due sere (夕) una sopra l'altra: tante.",
+        "en": "Two evenings (夕) stacked: many."
+      },
+      "strokeData": {
+        "kanjiVgId": "0591a",
+        "strokeCount": 6
+      }
+    },
+    {
+      "id": "kanji-sukunai",
+      "japanese": "少",
+      "meaning": {
+        "it": "pochi",
+        "en": "few"
+      },
+      "readingOnyomi": [
+        "ショウ"
+      ],
+      "readingKunyomi": [
+        "すく.ない",
+        "すこ.し"
+      ],
+      "strokeCount": 4,
+      "strokeData": {
+        "kanjiVgId": "05c11",
+        "strokeCount": 4
+      }
     }
   ]
 }

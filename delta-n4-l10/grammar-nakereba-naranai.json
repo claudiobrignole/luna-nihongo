@@ -1,0 +1,141 @@
+{
+  "id": "grammar-nakereba-naranai",
+  "level": 10,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜なければなりません (dovere)",
+    "en": "Grammar · ~nakereba narimasen (must)"
+  },
+  "description": {
+    "it": "Per esprimere un obbligo: いかなければなりません ('devo andare'). Dalla forma -ない togli -ない e aggiungi -なければなりません. Letteralmente 'se non lo faccio non va bene' → 'devo'. Informale: 〜なきゃ. È lungo ma frequentissimo per regole, doveri, necessità.",
+    "en": "To express obligation: いかなければなりません ('I must go'). From the -nai form drop -ない and add -なければなりません. Literally 'if I don't, it won't do' → 'I must'. Casual: 〜なきゃ. It's long but very frequent for rules, duties, necessities."
+  },
+  "grammarRefs": [
+    "gr-nakereba-naranai"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-nara"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gnn-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Da quale forma si costruisce 〜なければなりません?",
+        "en": "From which form is 〜なければなりません built?"
+      },
+      "options": [
+        {
+          "it": "dalla forma -ない",
+          "en": "dalla forma -ない"
+        },
+        {
+          "it": "dalla forma del dizionario",
+          "en": "dalla forma del dizionario"
+        },
+        {
+          "it": "dalla forma -た",
+          "en": "dalla forma -た"
+        },
+        {
+          "it": "dalla radice -ます",
+          "en": "dalla radice -ます"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Devo studiare':",
+        "en": "'I must study':"
+      },
+      "options": [
+        {
+          "it": "べんきょうしなければなりません",
+          "en": "べんきょうしなければなりません"
+        },
+        {
+          "it": "べんきょうしてもいいです",
+          "en": "べんきょうしてもいいです"
+        },
+        {
+          "it": "べんきょうしなくてもいいです",
+          "en": "べんきょうしなくてもいいです"
+        },
+        {
+          "it": "べんきょうするでしょう",
+          "en": "べんきょうするでしょう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma informale breve?",
+        "en": "Short casual form?"
+      },
+      "options": [
+        {
+          "it": "〜なきゃ",
+          "en": "〜なきゃ"
+        },
+        {
+          "it": "〜なくちゃだめ no",
+          "en": "〜なくちゃだめ no"
+        },
+        {
+          "it": "〜ねば solo",
+          "en": "〜ねば solo"
+        },
+        {
+          "it": "〜なし",
+          "en": "〜なし"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnn-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e obbligo.",
+        "en": "Match verb to obligation."
+      },
+      "pairs": [
+        {
+          "left": "いく",
+          "right": "いかなければならない"
+        },
+        {
+          "left": "のむ",
+          "right": "のまなければならない"
+        },
+        {
+          "left": "する",
+          "right": "しなければならない"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜なければなりません obbligo",
+      "en": "〜なければなりません obligation"
+    },
+    {
+      "it": "〜なきゃ informale",
+      "en": "〜なきゃ casual"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "grammar-to-omou-to-iu",
+  "level": 9,
+  "order": 0,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜と思う / 〜と言う",
+    "en": "Grammar · ~to omou / ~to iu"
+  },
+  "description": {
+    "it": "Per esprimere opinioni e citare: 〜と思う ('penso che...'), 〜と言う ('dice che...'). La frase citata va in forma piana prima di と: あしたはあめだとおもう ('penso che domani piova'). と funziona come le virgolette del pensiero o del discorso. È lo strumento base per dire cosa pensi e per riportare le parole altrui.",
+    "en": "To express opinions and quote: 〜と思う ('I think that...'), 〜と言う ('says that...'). The quoted clause goes in plain form before と: あしたはあめだとおもう ('I think it'll rain tomorrow'). と works like quotation marks for thought or speech. It's the basic tool for saying what you think and reporting others' words."
+  },
+  "grammarRefs": [
+    "gr-to-omou-to-iu"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "n4-level8-review"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gto-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Penso che domani piova':",
+        "en": "'I think it'll rain tomorrow':"
+      },
+      "options": [
+        {
+          "it": "あしたはあめだとおもう",
+          "en": "あしたはあめだとおもう"
+        },
+        {
+          "it": "あしたはあめをおもう",
+          "en": "あしたはあめをおもう"
+        },
+        {
+          "it": "あしたはあめとおもう",
+          "en": "あしたはあめとおもう"
+        },
+        {
+          "it": "あしたはあめがおもう",
+          "en": "あしたはあめがおもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gto-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "La frase prima di と va in...",
+        "en": "The clause before と is in..."
+      },
+      "options": [
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "forma -ます",
+          "en": "forma -ます"
+        },
+        {
+          "it": "forma -て",
+          "en": "forma -て"
+        },
+        {
+          "it": "forma -ない soltanto",
+          "en": "forma -ない soltanto"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gto-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜と言う serve a...",
+        "en": "〜と言う is used to..."
+      },
+      "options": [
+        {
+          "it": "citare/riportare parole",
+          "en": "citare/riportare parole"
+        },
+        {
+          "it": "fare il passato",
+          "en": "fare il passato"
+        },
+        {
+          "it": "contare",
+          "en": "contare"
+        },
+        {
+          "it": "negare",
+          "en": "negare"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gto-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "〜とおもう",
+          "right": "opinione / opinion"
+        },
+        {
+          "left": "〜という",
+          "right": "citazione / quoting"
+        },
+        {
+          "left": "forma piana + と",
+          "right": "contenuto citato / quoted content"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜と思う opinioni",
+      "en": "〜と思う opinions"
+    },
+    {
+      "it": "〜と言う citare",
+      "en": "〜と言う quoting"
+    }
+  ]
+}

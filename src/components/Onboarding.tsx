@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowRight, Sparkles, X } from 'lucide-react';
 import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import { PRIVACY_POLICY_URL } from '../constants/links';
 import type { LanguageType } from './Header';
 
 interface OnboardingProps {
@@ -9,7 +10,9 @@ interface OnboardingProps {
   initialLevel?: number;
   /** When true, open directly on level picker (returning users). */
   startAtLevelStep?: boolean;
-  onComplete: (preferredStartLevel: number) => void;
+  /** Show newsletter opt-in on level step when user has not opted in yet. */
+  showMarketingOptIn?: boolean;
+  onComplete: (preferredStartLevel: number, marketingConsent: boolean) => void;
   onClose?: () => void;
 }
 
@@ -18,11 +21,13 @@ export function Onboarding({
   username,
   initialLevel = 0,
   startAtLevelStep = false,
+  showMarketingOptIn = false,
   onComplete,
   onClose,
 }: OnboardingProps) {
   const [step, setStep] = useState(startAtLevelStep ? 1 : 0);
   const [level, setLevel] = useState(initialLevel);
+  const [marketingConsent, setMarketingConsent] = useState(false);
 
   const unitCountForLevel = (lvl: number) => SYLLABUS.filter((u) => u.level === lvl).length;
 
@@ -56,6 +61,22 @@ export function Onboarding({
             <li>{language === 'en' ? 'AI tutor with voice after free signup.' : 'Tutor AI con voce dopo la registrazione gratuita.'}</li>
             <li>{language === 'en' ? 'Live lessons with Luna (booking).' : 'Lezioni live con Luna (prenotazione).'}</li>
           </ul>
+          <label style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.5rem', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={marketingConsent}
+              onChange={(e) => setMarketingConsent(e.target.checked)}
+              style={{ marginTop: '0.2rem' }}
+            />
+            <span>
+              {language === 'en'
+                ? 'Send me the Luna newsletter (Japanese tips & culture). Optional.'
+                : 'Inviami la newsletter Luna (consigli e cultura giapponese). Facoltativo.'}{' '}
+              <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
+                {language === 'en' ? 'Privacy' : 'Privacy'}
+              </a>
+            </span>
+          </label>
           <button type="button" className="btn btn-primary" onClick={() => setStep(1)}>
             {language === 'en' ? 'Choose my level' : 'Scegli il mio livello'}
             <ArrowRight size={18} />
@@ -92,7 +113,25 @@ export function Onboarding({
             </button>
           ))}
         </div>
-        <button type="button" className="btn btn-primary" onClick={() => onComplete(level)}>
+        {showMarketingOptIn && (
+          <label style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem', cursor: 'pointer' }}>
+            <input
+              type="checkbox"
+              checked={marketingConsent}
+              onChange={(e) => setMarketingConsent(e.target.checked)}
+              style={{ marginTop: '0.2rem' }}
+            />
+            <span>
+              {language === 'en'
+                ? 'Send me the Luna newsletter (Japanese tips & culture). Optional.'
+                : 'Inviami la newsletter Luna (consigli e cultura giapponese). Facoltativo.'}{' '}
+              <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
+                Privacy
+              </a>
+            </span>
+          </label>
+        )}
+        <button type="button" className="btn btn-primary" onClick={() => onComplete(level, marketingConsent)}>
           {startAtLevelStep
             ? (language === 'en' ? 'Save level' : 'Salva livello')
             : (language === 'en' ? 'Start learning' : 'Inizia a studiare')}

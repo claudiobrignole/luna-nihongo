@@ -1,0 +1,77 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-plans-conditions",
+      "title": {
+        "it": "Programmi e condizioni",
+        "en": "Plans & conditions"
+      },
+      "setting": {
+        "it": "Due amici organizzano il weekend, valutando condizioni e obblighi.",
+        "en": "Two friends plan the weekend, weighing conditions and obligations."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "あした、てんきがよかったら、うみにいきませんか。",
+          "kana": "あした、てんきがよかったら、うみにいきませんか。",
+          "romaji": "ashita, tenki ga yokattara, umi ni ikimasen ka.",
+          "translation": {
+            "it": "Domani, se fa bel tempo, andiamo al mare?",
+            "en": "Tomorrow, if the weather's nice, shall we go to the sea?"
+          },
+          "note": {
+            "it": "〜たら = condizione + invito.",
+            "en": "〜たら = condition + invitation."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Riku",
+            "en": "Riku"
+          },
+          "japanese": "いいですね。でも、ごぜんちゅうははたらかなければなりません。",
+          "kana": "いいですね。でも、ごぜんちゅうははたらかなければなりません。",
+          "romaji": "ii desu ne. demo, gozenchuu wa hatarakanakereba narimasen.",
+          "translation": {
+            "it": "Bello. Ma di mattina devo lavorare.",
+            "en": "Nice. But in the morning I have to work."
+          },
+          "note": {
+            "it": "〜なければなりません = obbligo.",
+            "en": "〜なければなりません = obligation."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Aya",
+            "en": "Aya"
+          },
+          "japanese": "じゃあ、ごごでもいいですよ。いそがなくてもいいです。",
+          "kana": "じゃあ、ごごでもいいですよ。いそがなくてもいいです。",
+          "romaji": "jaa, gogo demo ii desu yo. isoganakutemo ii desu.",
+          "translation": {
+            "it": "Allora va bene anche il pomeriggio. Non c'è bisogno di affrettarsi.",
+            "en": "Then the afternoon is fine too. No need to hurry."
+          },
+          "note": {
+            "it": "〜なくてもいい = non serve.",
+            "en": "〜なくてもいい = don't have to."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-tara",
+        "gr-nakereba-naranai",
+        "gr-nakutemo-ii"
+      ],
+      "usesVocabRefs": []
+    }
+  ]
+}

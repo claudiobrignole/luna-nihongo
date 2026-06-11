@@ -1,0 +1,138 @@
+{
+  "id": "grammar-nagara",
+  "level": 8,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜ながら",
+    "en": "Grammar · ~nagara"
+  },
+  "description": {
+    "it": "Per due azioni contemporanee dello stesso soggetto: おんがくをききながらべんきょうする ('studio ascoltando musica'). Si forma con la radice -ます + ながら sul verbo secondario (l'azione 'di sfondo'), seguito dall'azione principale. Entrambe le azioni le fa la stessa persona, nello stesso momento.",
+    "en": "For two simultaneous actions by the same subject: おんがくをききながらべんきょうする ('I study while listening to music'). Formed with the -masu stem + ながら on the secondary verb (the 'background' action), followed by the main action. Both actions are done by the same person, at the same time."
+  },
+  "grammarRefs": [
+    "gr-nagara"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gna-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "〜ながら si attacca a...",
+        "en": "〜ながら attaches to..."
+      },
+      "options": [
+        {
+          "it": "la radice -ます",
+          "en": "la radice -ます"
+        },
+        {
+          "it": "la forma del dizionario",
+          "en": "la forma del dizionario"
+        },
+        {
+          "it": "la forma -た",
+          "en": "la forma -た"
+        },
+        {
+          "it": "la forma -ない",
+          "en": "la forma -ない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Studio ascoltando musica':",
+        "en": "'I study while listening to music':"
+      },
+      "options": [
+        {
+          "it": "おんがくをききながらべんきょうする",
+          "en": "おんがくをききながらべんきょうする"
+        },
+        {
+          "it": "おんがくをきくながらべんきょうする",
+          "en": "おんがくをきくながらべんきょうする"
+        },
+        {
+          "it": "おんがくをきいてべんきょうする",
+          "en": "おんがくをきいてべんきょうする"
+        },
+        {
+          "it": "おんがくをききべんきょうする",
+          "en": "おんがくをききべんきょうする"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Le due azioni di 〜ながら sono fatte da...",
+        "en": "The two 〜ながら actions are done by..."
+      },
+      "options": [
+        {
+          "it": "la stessa persona",
+          "en": "la stessa persona"
+        },
+        {
+          "it": "due persone diverse",
+          "en": "due persone diverse"
+        },
+        {
+          "it": "nessuno",
+          "en": "nessuno"
+        },
+        {
+          "it": "il soggetto e l'oggetto",
+          "en": "il soggetto e l'oggetto"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gna-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma ながら.",
+        "en": "Match verb to nagara form."
+      },
+      "pairs": [
+        {
+          "left": "きく",
+          "right": "ききながら"
+        },
+        {
+          "left": "たべる",
+          "right": "たべながら"
+        },
+        {
+          "left": "あるく",
+          "right": "あるきながら"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜ながら azioni contemporanee",
+      "en": "〜ながら simultaneous actions"
+    },
+    {
+      "it": "Radice -ます + ながら",
+      "en": "-masu stem + ながら"
+    }
+  ]
+}

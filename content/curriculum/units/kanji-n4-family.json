@@ -1,0 +1,157 @@
+{
+  "id": "kanji-n4-family",
+  "level": 9,
+  "order": 6,
+  "type": "kanji",
+  "contentVersion": 1,
+  "title": {
+    "it": "Kanji · famiglia e azioni N4",
+    "en": "Kanji · family & actions N4"
+  },
+  "description": {
+    "it": "Kanji della famiglia e di alcune azioni: 家 (casa), 族 (famiglia/clan), 兄 (fratello maggiore), 弟 (fratello minore), 姉 (sorella maggiore), 妹 (sorella minore), più 送 (spedire), 借 (prendere in prestito), 貸 (prestare), 泳 (nuotare). 家族 ('famiglia') unisce i primi due. Nota la coppia 借/貸 (prendere/dare in prestito).",
+    "en": "Kanji of family and some actions: 家 (house), 族 (family/clan), 兄 (older brother), 弟 (younger brother), 姉 (older sister), 妹 (younger sister), plus 送 (send), 借 (borrow), 貸 (lend), 泳 (swim). 家族 ('family') joins the first two. Note the pair 借/貸 (borrow/lend)."
+  },
+  "kanjiRefs": [
+    "kanji-okuru",
+    "kanji-kariru",
+    "kanji-kasu",
+    "kanji-oyogu",
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani",
+    "kanji-otouto",
+    "kanji-ane",
+    "kanji-imouto"
+  ],
+  "prerequisites": [
+    "grammar-sou-desu-looks"
+  ],
+  "quizzes": [
+    {
+      "id": "q-kn4f-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "家族 ('famiglia') è composto da...",
+        "en": "家族 ('family') is made of..."
+      },
+      "options": [
+        {
+          "it": "家 (casa) + 族 (clan)",
+          "en": "家 (casa) + 族 (clan)"
+        },
+        {
+          "it": "兄 + 弟",
+          "en": "兄 + 弟"
+        },
+        {
+          "it": "姉 + 妹",
+          "en": "姉 + 妹"
+        },
+        {
+          "it": "送 + 族",
+          "en": "送 + 族"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4f-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "借 e 貸 formano una coppia:",
+        "en": "借 and 貸 form a pair:"
+      },
+      "options": [
+        {
+          "it": "prendere in prestito / prestare",
+          "en": "prendere in prestito / prestare"
+        },
+        {
+          "it": "fratello / sorella",
+          "en": "fratello / sorella"
+        },
+        {
+          "it": "spedire / nuotare",
+          "en": "spedire / nuotare"
+        },
+        {
+          "it": "casa / famiglia",
+          "en": "casa / famiglia"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4f-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "兄 e 姉 indicano fratelli/sorelle...",
+        "en": "兄 and 姉 indicate siblings who are..."
+      },
+      "options": [
+        {
+          "it": "maggiori",
+          "en": "maggiori"
+        },
+        {
+          "it": "minori",
+          "en": "minori"
+        },
+        {
+          "it": "gemelli",
+          "en": "gemelli"
+        },
+        {
+          "it": "acquisiti",
+          "en": "acquisiti"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-kn4f-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina kanji e significato.",
+        "en": "Match kanji to meaning."
+      },
+      "pairs": [
+        {
+          "left": "兄",
+          "right": "fratello maggiore / older brother"
+        },
+        {
+          "left": "妹",
+          "right": "sorella minore / younger sister"
+        },
+        {
+          "left": "泳",
+          "right": "nuotare / swim"
+        },
+        {
+          "left": "送",
+          "right": "spedire / send"
+        },
+        {
+          "left": "家",
+          "right": "casa / house"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "家族 e i membri della famiglia",
+      "en": "家族 and family members"
+    },
+    {
+      "it": "借/貸 coppia",
+      "en": "借/貸 pair"
+    }
+  ]
+}

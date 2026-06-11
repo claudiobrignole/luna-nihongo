@@ -1,0 +1,98 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg-plain-chat",
+      "title": {
+        "it": "Tra amici",
+        "en": "Between friends"
+      },
+      "setting": {
+        "it": "Due amici parlano del weekend in forma piana, come si fa tra coetanei.",
+        "en": "Two friends talk about the weekend in plain form, as peers do."
+      },
+      "lines": [
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Rin",
+            "en": "Rin"
+          },
+          "japanese": "しゅうまつ、なにする?",
+          "kana": "しゅうまつ、なにする?",
+          "romaji": "shuumatsu, nani suru?",
+          "translation": {
+            "it": "Cosa fai nel weekend?",
+            "en": "What are you doing this weekend?"
+          },
+          "note": {
+            "it": "Forma piana する, niente -ます: tra amici è normale.",
+            "en": "Plain form する, no -masu: normal among friends."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sho",
+            "en": "Sho"
+          },
+          "japanese": "えいがをみるつもり。",
+          "kana": "えいがをみるつもり。",
+          "romaji": "eiga o miru tsumori.",
+          "translation": {
+            "it": "Penso di vedere un film.",
+            "en": "I'm planning to watch a movie."
+          },
+          "note": {
+            "it": "みる in forma piana + つもり (intenzione).",
+            "en": "みる in plain form + つもり (intention)."
+          }
+        },
+        {
+          "speaker": "A",
+          "speakerLabel": {
+            "it": "Rin",
+            "en": "Rin"
+          },
+          "japanese": "いいね。きのうかったほん、もうよんだ?",
+          "kana": "いいね。きのうかったほん、もうよんだ?",
+          "romaji": "ii ne. kinou katta hon, mou yonda?",
+          "translation": {
+            "it": "Bello. Il libro che hai comprato ieri, l'hai già letto?",
+            "en": "Nice. The book you bought yesterday, did you read it already?"
+          },
+          "note": {
+            "it": "きのうかったほん = frase relativa ('il libro che hai comprato ieri'); よんだ = passato piano.",
+            "en": "きのうかったほん = relative clause; よんだ = plain past."
+          }
+        },
+        {
+          "speaker": "B",
+          "speakerLabel": {
+            "it": "Sho",
+            "en": "Sho"
+          },
+          "japanese": "まだよんでない。",
+          "kana": "まだよんでない。",
+          "romaji": "mada yonde nai.",
+          "translation": {
+            "it": "Non ancora.",
+            "en": "Not yet."
+          },
+          "note": {
+            "it": "よんでない = forma piana negativa di よんでいる.",
+            "en": "よんでない = plain negative of よんでいる."
+          }
+        }
+      ],
+      "usesGrammarRefs": [
+        "gr-dictionary-form",
+        "gr-ta-form-plain",
+        "gr-relative-clauses"
+      ],
+      "usesVocabRefs": [
+        "vocab-shuumatsu",
+        "vocab-eega"
+      ]
+    }
+  ]
+}

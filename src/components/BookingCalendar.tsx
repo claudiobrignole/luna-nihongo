@@ -14,7 +14,9 @@ import {
 import { formatSlotLabel, slotSeatsLeft } from '../types/availability';
 import { loadAvailabilitySlots } from '../services/availabilityService';
 import { bookAvailabilitySlot } from '../services/trialService';
+import { formatEmailCallableError, rescheduleBookingRemote } from '../services/emailService';
 import { startExtraLessonCheckout } from '../services/stripeService';
+import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 
 export type BookingMode = 'intro' | 'regular';
 
@@ -25,6 +27,7 @@ interface BookingCalendarProps {
   currentUser: LunaUser;
   mode: BookingMode;
   defaultPlan?: BookingPlan;
+  rescheduleBookingId?: string | null;
   onBookingSuccess: () => void;
 }
 
@@ -35,8 +38,10 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   currentUser,
   mode,
   defaultPlan,
+  rescheduleBookingId = null,
   onBookingSuccess,
 }) => {
+  const isReschedule = Boolean(rescheduleBookingId);
   const slotType = mode === 'intro' ? 'intro' : 'regular';
   const subscribed = hasActiveSubscription(currentUser);
   const includedLeft = includedLessonsRemaining(currentUser);
@@ -102,6 +107,13 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     setIsProcessing(true);
     setError(null);
     try {
+      if (isReschedule && rescheduleBookingId) {
+        await rescheduleBookingRemote(rescheduleBookingId, selectedSlotId);
+        setBookingCompleted(true);
+        onBookingSuccess();
+        return;
+      }
+
       if (mode === 'intro') {
         const result = await bookAvailabilitySlot({
           slotId: selectedSlotId,
@@ -142,9 +154,11 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     } catch (err) {
       console.error(err);
       setError(
-        language === 'en'
-          ? 'Booking failed. The slot may be full or no longer available.'
-          : 'Prenotazione non riuscita. Lo slot potrebbe essere pieno o non più disponibile.',
+        isReschedule
+          ? formatEmailCallableError(err, language)
+          : language === 'en'
+            ? 'Booking failed. The slot may be full or no longer available.'
+            : 'Prenotazione non riuscita. Lo slot potrebbe essere pieno o non più disponibile.',
       );
     } finally {
       setIsProcessing(false);
@@ -153,6 +167,43 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
   const formatMonthName = (date: Date) =>
     date.toLocaleDateString(language === 'en' ? 'en-US' : 'it-IT', { month: 'long', year: 'numeric' });
+
+  if (mode === 'regular' && !subscribed && !isReschedule) {
+    return (
+      <div className="page-view booking-view">
+        <div
+          className="glass-panel"
+          style={{
+            padding: '2.5rem',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1.25rem',
+            maxWidth: 520,
+            margin: '0 auto',
+            border: '2px solid var(--primary)',
+          }}
+        >
+          <CreditCard size={48} style={{ color: 'var(--primary)' }} />
+          <h2 style={{ margin: 0 }}>
+            {language === 'en' ? 'Subscribe to book lessons' : 'Abbonati per prenotare lezioni'}
+          </h2>
+          <p style={{ color: 'var(--text-muted)', margin: 0, lineHeight: 1.5 }}>
+            {language === 'en'
+              ? `Live 1-on-1 lessons with Luna are included in the monthly plan (${INCLUDED_LESSONS_PER_CYCLE} × 60 min per billing cycle). Complete payment with Stripe first, then you can book your slots.`
+              : `Le lezioni live individuali con Luna sono incluse nell'abbonamento mensile (${INCLUDED_LESSONS_PER_CYCLE} × 60 min per ciclo). Completa prima il pagamento con Stripe, poi potrai prenotare gli slot.`}
+          </p>
+          <PremiumUpgradeButton
+            language={language}
+            label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
+            className="btn btn-primary"
+            style={{ width: '100%' }}
+          />
+        </div>
+      </div>
+    );
+  }
 
   if (bookingCompleted) {
     return (
@@ -187,9 +238,11 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     <div className="page-view booking-view" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       <div style={{ textAlign: 'center' }}>
         <h2 style={{ marginBottom: '0.4rem' }}>
-          {mode === 'intro'
-            ? language === 'en' ? 'Book intro videocall' : 'Prenota videocall introduttiva'
-            : language === 'en' ? 'Book a lesson with Luna' : 'Prenota una lezione con Luna'}
+          {isReschedule
+            ? (language === 'en' ? 'Reschedule your lesson' : 'Riprogramma la lezione')
+            : mode === 'intro'
+              ? language === 'en' ? 'Book intro videocall' : 'Prenota videocall introduttiva'
+              : language === 'en' ? 'Book a lesson with Luna' : 'Prenota una lezione con Luna'}
         </h2>
         <p style={{ color: 'var(--text-muted)' }}>
           {mode === 'intro'
@@ -370,7 +423,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!selectedSlotId || isProcessing || (mode === 'regular' && !subscribed)}
+            disabled={!selectedSlotId || isProcessing || (mode === 'regular' && !subscribed && !isReschedule)}
           >
             {isProcessing ? <Loader2 size={16} className="spin" /> : mode === 'regular' && lessonPlan === 'extra' ? <CreditCard size={16} /> : <ArrowRight size={16} />}
             {mode === 'intro'

@@ -1,0 +1,132 @@
+{
+  "id": "writing-kanji-n4-2",
+  "level": 7,
+  "order": 6,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (2)",
+    "en": "Writing · tracing N4 kanji (2)"
+  },
+  "description": {
+    "it": "Completiamo il tracciamento dei kanji del Livello 7: 待 (aspettare), 始 (iniziare), 終 (finire), 開 (aprire), 閉 (chiudere). Nota le coppie di opposti 始/終 e 開/閉 — tracciarle insieme aiuta a fissarle.",
+    "en": "Let's complete the tracing of Level 7 kanji: 待 (wait), 始 (begin), 終 (end), 開 (open), 閉 (close). Note the opposite pairs 始/終 and 開/閉 — tracing them together helps fix them."
+  },
+  "kanjiRefs": [
+    "kanji-matsu-k",
+    "kanji-hajimeru",
+    "kanji-owaru",
+    "kanji-akeru",
+    "kanji-shimeru"
+  ],
+  "prerequisites": [
+    "kanji-n4-verbs-1"
+  ],
+  "canDo": [
+    {
+      "id": "cando-writing-kanji-n4-2",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano questi kanji rispettando l'ordine dei tratti.",
+        "en": "I can hand-write these kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wk4-2-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 待 (aspettare) seguendo l'ordine dei tratti.",
+        "en": "Trace 待 (wait) following the stroke order."
+      },
+      "targetItemId": "kanji-matsu-k",
+      "japanese": "待",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-2-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 始 (iniziare) seguendo l'ordine dei tratti.",
+        "en": "Trace 始 (begin) following the stroke order."
+      },
+      "targetItemId": "kanji-hajimeru",
+      "japanese": "始",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-2-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 終 (finire) seguendo l'ordine dei tratti.",
+        "en": "Trace 終 (end) following the stroke order."
+      },
+      "targetItemId": "kanji-owaru",
+      "japanese": "終",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-2-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 開 (aprire) seguendo l'ordine dei tratti.",
+        "en": "Trace 開 (open) following the stroke order."
+      },
+      "targetItemId": "kanji-akeru",
+      "japanese": "開",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-2-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 閉 (chiudere) seguendo l'ordine dei tratti.",
+        "en": "Trace 閉 (close) following the stroke order."
+      },
+      "targetItemId": "kanji-shimeru",
+      "japanese": "閉",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-2-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta a...",
+        "en": "Tracing kanji helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più in fretta",
+          "en": "leggere più in fretta"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti kanji",
+      "en": "Kanji stroke order"
+    }
+  ]
+}

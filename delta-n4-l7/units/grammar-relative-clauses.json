@@ -1,0 +1,138 @@
+{
+  "id": "grammar-relative-clauses",
+  "level": 7,
+  "order": 4,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · le frasi relative",
+    "en": "Grammar · relative clauses"
+  },
+  "description": {
+    "it": "In giapponese si descrive un nome mettendo una frase intera PRIMA di esso, in forma piana: わたしがかったほん ('il libro che ho comprato'). Niente 'che' o 'il quale': la frase modifica direttamente il nome. È diverso dall'italiano e all'inizio spiazza, ma è uno strumento potentissimo per dire cose complesse. Indispensabile per leggere e capire.",
+    "en": "In Japanese you describe a noun by placing a whole clause BEFORE it, in plain form: わたしがかったほん ('the book that I bought'). No 'that' or 'which': the clause modifies the noun directly. It's different from English and confusing at first, but it's a powerful tool for saying complex things. Essential for reading and comprehension."
+  },
+  "grammarRefs": [
+    "gr-relative-clauses"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-grc-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Il libro che ho comprato' — come si ordina?",
+        "en": "'The book that I bought' — what order?"
+      },
+      "options": [
+        {
+          "it": "わたしがかったほん",
+          "en": "わたしがかったほん"
+        },
+        {
+          "it": "ほんわたしがかった",
+          "en": "ほんわたしがかった"
+        },
+        {
+          "it": "かったほんわたしが",
+          "en": "かったほんわたしが"
+        },
+        {
+          "it": "わたしはほんかった",
+          "en": "わたしはほんかった"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-grc-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "In una frase relativa, il verbo che modifica il nome è in...",
+        "en": "In a relative clause, the verb modifying the noun is in..."
+      },
+      "options": [
+        {
+          "it": "forma piana",
+          "en": "forma piana"
+        },
+        {
+          "it": "forma -ます",
+          "en": "forma -ます"
+        },
+        {
+          "it": "forma -て",
+          "en": "forma -て"
+        },
+        {
+          "it": "forma -ない soltanto",
+          "en": "forma -ない soltanto"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-grc-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Dove va la frase che descrive il nome?",
+        "en": "Where does the describing clause go?"
+      },
+      "options": [
+        {
+          "it": "prima del nome",
+          "en": "prima del nome"
+        },
+        {
+          "it": "dopo il nome",
+          "en": "dopo il nome"
+        },
+        {
+          "it": "alla fine della frase",
+          "en": "alla fine della frase"
+        },
+        {
+          "it": "non importa",
+          "en": "non importa"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-grc-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina la relativa al significato.",
+        "en": "Match the relative clause to its meaning."
+      },
+      "pairs": [
+        {
+          "left": "わたしがよんだほん",
+          "right": "il libro che ho letto / the book I read"
+        },
+        {
+          "left": "たなかさんがつくったりょうり",
+          "right": "il piatto che ha fatto Tanaka / the dish Tanaka made"
+        },
+        {
+          "left": "きのうみたえいが",
+          "right": "il film che ho visto ieri / the movie I saw yesterday"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Frase relativa prima del nome",
+      "en": "Relative clause before the noun"
+    },
+    {
+      "it": "Verbo piano + nome",
+      "en": "Plain verb + noun"
+    }
+  ]
+}

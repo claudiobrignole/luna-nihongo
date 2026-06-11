@@ -1,0 +1,141 @@
+{
+  "id": "grammar-deshou",
+  "level": 9,
+  "order": 2,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · 〜でしょう (probabilità)",
+    "en": "Grammar · ~deshou (probability)"
+  },
+  "description": {
+    "it": "〜でしょう esprime previsione ('probabilmente, sarà') o, con intonazione ascendente, chiede conferma ('vero?'). あしたはあめでしょう ('domani probabilmente piove'). Si attacca alla forma piana. È più morbido di un'affermazione netta — utilissimo per non sembrare troppo categorici.",
+    "en": "〜でしょう expresses prediction ('probably') or, with rising intonation, asks for confirmation ('right?'). あしたはあめでしょう ('it'll probably rain tomorrow'). It attaches to the plain form. It's softer than a flat statement — very useful to avoid sounding too categorical."
+  },
+  "grammarRefs": [
+    "gr-deshou"
+  ],
+  "vocabRefs": [],
+  "prerequisites": [
+    "grammar-toki"
+  ],
+  "quizzes": [
+    {
+      "id": "q-gde-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Domani probabilmente piove':",
+        "en": "'It'll probably rain tomorrow':"
+      },
+      "options": [
+        {
+          "it": "あしたはあめでしょう",
+          "en": "あしたはあめでしょう"
+        },
+        {
+          "it": "あしたはあめです",
+          "en": "あしたはあめです"
+        },
+        {
+          "it": "あしたはあめだ",
+          "en": "あしたはあめだ"
+        },
+        {
+          "it": "あしたはあめか",
+          "en": "あしたはあめか"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gde-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "でしょう con intonazione ascendente...",
+        "en": "でしょう with rising intonation..."
+      },
+      "options": [
+        {
+          "it": "chiede conferma ('vero?')",
+          "en": "chiede conferma ('vero?')"
+        },
+        {
+          "it": "fa una domanda formale",
+          "en": "fa una domanda formale"
+        },
+        {
+          "it": "nega",
+          "en": "nega"
+        },
+        {
+          "it": "conta",
+          "en": "conta"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gde-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "でしょう rispetto a affermare 'です' è...",
+        "en": "compared to stating 'です', でしょう is..."
+      },
+      "options": [
+        {
+          "it": "più morbido/probabile",
+          "en": "più morbido/probabile"
+        },
+        {
+          "it": "più sicuro",
+          "en": "più sicuro"
+        },
+        {
+          "it": "più formale",
+          "en": "più formale"
+        },
+        {
+          "it": "identico",
+          "en": "identico"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gde-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina uso.",
+        "en": "Match usage."
+      },
+      "pairs": [
+        {
+          "left": "あめでしょう",
+          "right": "previsione / prediction"
+        },
+        {
+          "left": "いいでしょう?",
+          "right": "conferma / confirmation"
+        },
+        {
+          "left": "くるでしょう",
+          "right": "supposizione / supposition"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "〜でしょう previsione",
+      "en": "〜でしょう prediction"
+    },
+    {
+      "it": "でしょう? conferma",
+      "en": "でしょう? confirmation"
+    }
+  ]
+}

@@ -1,15 +1,19 @@
+import { useState } from 'react';
 import {
   ArrowRight,
   BookOpen,
   GraduationCap,
   Heart,
   Layers,
+  Mail,
   MessageCircle,
   Sparkles,
   User,
 } from 'lucide-react';
 import { BookingPreview } from './BookingPreview';
 import type { LanguageType } from './Header';
+import { PRIVACY_POLICY_URL } from '../constants/links';
+import { formatEmailCallableError, subscribeNewsletter } from '../services/emailService';
 
 interface PublicLandingProps {
   language: LanguageType;
@@ -18,6 +22,25 @@ interface PublicLandingProps {
 }
 
 export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLandingProps) {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [newsletterError, setNewsletterError] = useState('');
+
+  const handleNewsletter = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    setNewsletterStatus('loading');
+    setNewsletterError('');
+    try {
+      await subscribeNewsletter({ email: newsletterEmail.trim(), language });
+      setNewsletterStatus('success');
+      setNewsletterEmail('');
+    } catch (err) {
+      setNewsletterStatus('error');
+      setNewsletterError(formatEmailCallableError(err, language));
+    }
+  };
+
   return (
     <div className="marketing-landing page-view">
       <section className="marketing-hero glass-panel">
@@ -103,6 +126,55 @@ export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLa
               : 'Prenota lezioni individuali con Luna online. Il flusso sotto è un\'anteprima — altre opzioni in arrivo.'}
           </p>
         </article>
+      </section>
+
+      <section className="marketing-section glass-panel">
+        <div className="marketing-section-icon">
+          <Mail size={24} />
+        </div>
+        <h2>{language === 'en' ? 'Luna newsletter' : 'Newsletter Luna'}</h2>
+        <p>
+          {language === 'en'
+            ? 'Japanese tips, culture, and updates — no spam. Welcome series included.'
+            : 'Consigli di giapponese, cultura e novità — niente spam. Serie di benvenuto inclusa.'}
+        </p>
+        <form onSubmit={(e) => void handleNewsletter(e)} style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+          <input
+            type="email"
+            required
+            value={newsletterEmail}
+            onChange={(e) => setNewsletterEmail(e.target.value)}
+            placeholder={language === 'en' ? 'your@email.com' : 'tua@email.it'}
+            style={{
+              flex: '1 1 220px',
+              padding: '0.75rem 1rem',
+              borderRadius: '12px',
+              border: '1px solid var(--border)',
+              background: 'var(--bg-input)',
+            }}
+          />
+          <button type="submit" className="btn btn-primary" disabled={newsletterStatus === 'loading'}>
+            {newsletterStatus === 'loading'
+              ? (language === 'en' ? 'Subscribing…' : 'Iscrizione…')
+              : (language === 'en' ? 'Subscribe' : 'Iscriviti')}
+          </button>
+        </form>
+        {newsletterStatus === 'success' && (
+          <p style={{ color: 'var(--success)', marginTop: '0.75rem', fontSize: '0.9rem' }}>
+            {language === 'en' ? 'Thanks! Check your inbox for the welcome email.' : 'Grazie! Controlla la posta per il benvenuto.'}
+          </p>
+        )}
+        {newsletterStatus === 'error' && (
+          <p style={{ color: 'var(--error)', marginTop: '0.75rem', fontSize: '0.9rem' }}>{newsletterError}</p>
+        )}
+        <p style={{ marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+          {language === 'en'
+            ? 'By subscribing you agree to receive marketing emails. '
+            : 'Iscrivendoti accetti di ricevere email di marketing. '}
+          <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer">
+            {language === 'en' ? 'Privacy policy' : 'Informativa privacy'}
+          </a>
+        </p>
       </section>
 
       <section className="marketing-booking-section">

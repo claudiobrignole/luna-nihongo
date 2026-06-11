@@ -1,0 +1,196 @@
+{
+  "id": "n4-level9-review",
+  "level": 9,
+  "order": 8,
+  "type": "review",
+  "contentVersion": 1,
+  "title": {
+    "it": "Ripasso · pensieri, opinioni e supposizioni",
+    "en": "Review · thoughts, opinions & guesses"
+  },
+  "description": {
+    "it": "Ora sai dire cosa pensi (〜とおもう), citare (〜という), collocare nel tempo (〜とき), e graduare la certezza: でしょう (probabile), かもしれません (forse), 〜そうです nei suoi due usi (sentito dire / sembra). Questo ripasso li mette a confronto — la distinzione tra i due そうです è il punto chiave.",
+    "en": "Now you can say what you think (〜とおもう), quote (〜という), place in time (〜とき), and grade certainty: でしょう (likely), かもしれません (maybe), 〜そうです in its two uses (hearsay / looks like). This review contrasts them — the distinction between the two そうです is the key point."
+  },
+  "grammarRefs": [
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks"
+  ],
+  "kanjiRefs": [
+    "kanji-ie",
+    "kanji-zoku",
+    "kanji-ani"
+  ],
+  "reviewPoolRefs": [
+    "gr-to-omou-to-iu",
+    "gr-toki",
+    "gr-deshou",
+    "gr-kamoshirenai",
+    "gr-sou-desu-hearsay",
+    "gr-sou-desu-looks",
+    "kanji-ie",
+    "kanji-ani"
+  ],
+  "prerequisites": [
+    "situation-opinions-guesses"
+  ],
+  "quizzes": [
+    {
+      "id": "q-n4l9r-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Penso che domani piova':",
+        "en": "'I think it'll rain tomorrow':"
+      },
+      "options": [
+        {
+          "it": "あしたはあめだとおもう",
+          "en": "あしたはあめだとおもう"
+        },
+        {
+          "it": "あしたはあめだそうだ",
+          "en": "あしたはあめだそうだ"
+        },
+        {
+          "it": "あしたはあめでしょう",
+          "en": "あしたはあめでしょう"
+        },
+        {
+          "it": "あしたはあめらしい",
+          "en": "あしたはあめらしい"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l9r-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Ho sentito che il film era bello' (sentito dire):",
+        "en": "'I heard the movie was good' (hearsay):"
+      },
+      "options": [
+        {
+          "it": "えいがはよかったそうです",
+          "en": "えいがはよかったそうです"
+        },
+        {
+          "it": "えいがはよさそうです",
+          "en": "えいがはよさそうです"
+        },
+        {
+          "it": "えいがはいいでしょう",
+          "en": "えいがはいいでしょう"
+        },
+        {
+          "it": "えいがはいいとおもう",
+          "en": "えいがはいいとおもう"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l9r-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "'Sembra buono' (guardando) usa quale そうです?",
+        "en": "'Looks delicious' (seeing) uses which そうです?"
+      },
+      "options": [
+        {
+          "it": "おいしそうです (radice)",
+          "en": "おいしそうです (radice)"
+        },
+        {
+          "it": "おいしいそうです (piana)",
+          "en": "おいしいそうです (piana)"
+        },
+        {
+          "it": "おいしいでしょう",
+          "en": "おいしいでしょう"
+        },
+        {
+          "it": "おいしいかも",
+          "en": "おいしいかも"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l9r-mc-4",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Quale esprime la possibilità più debole?",
+        "en": "Which expresses the weakest possibility?"
+      },
+      "options": [
+        {
+          "it": "かもしれません",
+          "en": "かもしれません"
+        },
+        {
+          "it": "でしょう",
+          "en": "でしょう"
+        },
+        {
+          "it": "です",
+          "en": "です"
+        },
+        {
+          "it": "そうです (sentito)",
+          "en": "そうです (sentito)"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-n4l9r-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina struttura e funzione.",
+        "en": "Match structure to function."
+      },
+      "pairs": [
+        {
+          "left": "〜とおもう",
+          "right": "opinione / opinion"
+        },
+        {
+          "left": "〜とき",
+          "right": "quando / when"
+        },
+        {
+          "left": "でしょう",
+          "right": "probabile / likely"
+        },
+        {
+          "left": "〜だそうです",
+          "right": "sentito dire / hearsay"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "I due そうです (sentito vs sembra)",
+      "en": "The two そうです (hearsay vs looks)"
+    },
+    {
+      "it": "Gradi di certezza",
+      "en": "Degrees of certainty"
+    },
+    {
+      "it": "〜とおもう / 〜とき",
+      "en": "〜とおもう / 〜とき"
+    }
+  ]
+}

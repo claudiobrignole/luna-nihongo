@@ -1,0 +1,153 @@
+{
+  "id": "grammar-nai-form",
+  "level": 7,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · la forma -ない",
+    "en": "Grammar · the -nai form"
+  },
+  "description": {
+    "it": "La negazione in forma piana: たべない ('non mangio'), いかない ('non vado'). È il corrispettivo piano di -ません, e come la forma del dizionario serve a costruire strutture più complesse (～なければ, ～ないでください...). Imparala bene: la userai ovunque.",
+    "en": "The plain negative: たべない ('I don't eat'), いかない ('I don't go'). It's the plain counterpart of -ません, and like the dictionary form it builds more complex structures (～なければ, ～ないでください...). Learn it well: you'll use it everywhere."
+  },
+  "grammarRefs": [
+    "gr-nai-form"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gnf-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -ない di たべます?",
+        "en": "-nai form of たべます?"
+      },
+      "options": [
+        {
+          "it": "たべない",
+          "en": "たべない"
+        },
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        },
+        {
+          "it": "たべません",
+          "en": "たべません"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnf-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Forma -ない di いきます (irregolare nel gruppo u)?",
+        "en": "-nai form of いきます?"
+      },
+      "options": [
+        {
+          "it": "いかない",
+          "en": "いかない"
+        },
+        {
+          "it": "いきない",
+          "en": "いきない"
+        },
+        {
+          "it": "いってない",
+          "en": "いってない"
+        },
+        {
+          "it": "いくない",
+          "en": "いくない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnf-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "する e くる diventano...",
+        "en": "する and くる become..."
+      },
+      "options": [
+        {
+          "it": "しない / こない",
+          "en": "しない / こない"
+        },
+        {
+          "it": "さない / きない",
+          "en": "さない / きない"
+        },
+        {
+          "it": "しらない / くらない",
+          "en": "しらない / くらない"
+        },
+        {
+          "it": "せない / けない",
+          "en": "せない / けない"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gnf-spell-1",
+      "type": "spelling",
+      "prompt": {
+        "it": "Scrivi in romaji la forma -ない di のみます: ___",
+        "en": "Type the romaji -nai form of のみます: ___"
+      },
+      "answer": "nomanai",
+      "requiresRomaji": false,
+      "xp": 15
+    },
+    {
+      "id": "q-gnf-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e forma -ない.",
+        "en": "Match verb to -nai form."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべない"
+        },
+        {
+          "left": "のむ",
+          "right": "のまない"
+        },
+        {
+          "left": "いく",
+          "right": "いかない"
+        },
+        {
+          "left": "する",
+          "right": "しない"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Forma -ない per gruppo",
+      "en": "-nai form by group"
+    },
+    {
+      "it": "Irregolari しない/こない",
+      "en": "Irregulars しない/こない"
+    }
+  ]
+}

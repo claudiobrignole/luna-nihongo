@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Crown, Loader2 } from 'lucide-react';
-import { startPremiumCheckout } from '../services/stripeService';
+import { formatStripeCallableError, startPremiumCheckout } from '../services/stripeService';
 
 interface PremiumUpgradeButtonProps {
   language: 'en' | 'it';
@@ -28,11 +28,7 @@ export const PremiumUpgradeButton: React.FC<PremiumUpgradeButtonProps> = ({
       window.location.href = url;
     } catch (err) {
       console.error('Stripe checkout failed', err);
-      setError(
-        language === 'en'
-          ? 'Could not start checkout. Try again or contact support.'
-          : 'Impossibile avviare il pagamento. Riprova o contattaci.',
-      );
+      setError(formatStripeCallableError(err, language));
       setLoading(false);
     }
   };

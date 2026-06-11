@@ -958,6 +958,1319 @@
         "gr-na-adjectives",
         "gr-past-tense"
       ]
+    },
+    {
+      "id": "gr-dictionary-form",
+      "title": {
+        "it": "La forma del dizionario (piana presente)",
+        "en": "Dictionary form (plain present)"
+      },
+      "explanation": {
+        "it": "Finora hai usato la forma cortese -ます. Il giapponese ha anche una forma piana, quella che trovi nel dizionario: たべる, のむ, いく. È il registro che si usa tra amici, in famiglia, e che senti continuamente in anime e film. Ma soprattutto è la base su cui si costruiscono moltissime strutture dell'N4: relative, condizionali, ～と思う e molto altro.\n\nLa forma del dizionario si ottiene dai gruppi verbali. I verbi del gruppo 2 (ichidan) tornano alla -る: たべます → たべる, みます → みる. I verbi del gruppo 1 (godan) cambiano la -い finale della radice -ます nella -u corrispondente: のみます → のむ, いきます → いく, かいます → かう. I due irregolari: します → する, きます → くる.\n\nUsare la forma piana al posto giusto è ciò che distingue chi 'recita frasi da manuale' da chi parla davvero giapponese.",
+        "en": "Until now you've used the polite -masu form. Japanese also has a plain form, the one in dictionaries: たべる, のむ, いく. It's the register used among friends, family, and the one you hear constantly in anime and films. But above all it's the base for many N4 structures: relative clauses, conditionals, ～と思う and much more.\n\nThe dictionary form comes from the verb groups. Group 2 (ichidan) verbs return to -る: たべます → たべる, みます → みる. Group 1 (godan) verbs change the final -i of the -masu stem to the matching -u: のみます → のむ, いきます → いく, かいます → かう. The two irregulars: します → する, きます → くる.\n\nUsing the plain form in the right place is what tells apart someone reciting textbook phrases from someone actually speaking Japanese."
+      },
+      "examples": [
+        {
+          "japanese": "たべます → たべる",
+          "romaji": "tabemasu → taberu",
+          "translation": {
+            "it": "mangiare (cortese → piana)",
+            "en": "to eat (polite → plain)"
+          },
+          "note": {
+            "it": "Gruppo 2: -ます → -る.",
+            "en": "Group 2: -masu → -ru."
+          }
+        },
+        {
+          "japanese": "のみます → のむ",
+          "romaji": "nomimasu → nomu",
+          "translation": {
+            "it": "bere (cortese → piana)",
+            "en": "to drink (polite → plain)"
+          },
+          "note": {
+            "it": "Gruppo 1: -みます → -む.",
+            "en": "Group 1: -mimasu → -mu."
+          }
+        },
+        {
+          "japanese": "いきます → いく",
+          "romaji": "ikimasu → iku",
+          "translation": {
+            "it": "andare (cortese → piana)",
+            "en": "to go (polite → plain)"
+          }
+        },
+        {
+          "japanese": "します → する、きます → くる",
+          "romaji": "shimasu → suru, kimasu → kuru",
+          "translation": {
+            "it": "i due irregolari",
+            "en": "the two irregulars"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-masu-verbs",
+        "gr-nai-form",
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-nai-form",
+      "title": {
+        "it": "La forma -ない (negativo piano)",
+        "en": "The -nai form (plain negative)"
+      },
+      "explanation": {
+        "it": "La forma -ない è il negativo piano: たべない ('non mangio'), いかない ('non vado'). È il corrispettivo informale di -ません, e come la forma del dizionario è una base per strutture più avanzate (～なければなりません, ～ないでください, ～ないと...).\n\nSi costruisce così. Gruppo 2 (ichidan): -る → -ない. たべる → たべない, みる → みない. Gruppo 1 (godan): la -u finale diventa -anai. のむ → のまない, いく → いかない, かう → かわない (attenzione: う → わ, non あ). I due irregolari: する → しない, くる → こない.\n\nUn'eccezione importantissima: ある (esserci, per oggetti) ha negativo irregolare ない, non *あらない.",
+        "en": "The -nai form is the plain negative: たべない ('I don't eat'), いかない ('I don't go'). It's the casual counterpart of -ません, and like the dictionary form it's a base for more advanced structures (～なければなりません, ～ないでください, ～ないと...).\n\nIt's built like this. Group 2 (ichidan): -る → -ない. たべる → たべない, みる → みない. Group 1 (godan): the final -u becomes -anai. のむ → のまない, いく → いかない, かう → かわない (note: う → わ, not あ). The two irregulars: する → しない, くる → こない.\n\nA very important exception: ある (to exist, for objects) has the irregular negative ない, not *あらない."
+      },
+      "examples": [
+        {
+          "japanese": "たべる → たべない",
+          "romaji": "taberu → tabenai",
+          "translation": {
+            "it": "non mangiare",
+            "en": "not eat"
+          },
+          "note": {
+            "it": "Gruppo 2: -る → -ない.",
+            "en": "Group 2: -ru → -nai."
+          }
+        },
+        {
+          "japanese": "のむ → のまない",
+          "romaji": "nomu → nomanai",
+          "translation": {
+            "it": "non bere",
+            "en": "not drink"
+          },
+          "note": {
+            "it": "Gruppo 1: -u → -anai.",
+            "en": "Group 1: -u → -anai."
+          }
+        },
+        {
+          "japanese": "かう → かわない",
+          "romaji": "kau → kawanai",
+          "translation": {
+            "it": "non comprare",
+            "en": "not buy"
+          },
+          "note": {
+            "it": "う → わ, non あ.",
+            "en": "う → わ, not あ."
+          }
+        },
+        {
+          "japanese": "する → しない、くる → こない",
+          "romaji": "suru → shinai, kuru → konai",
+          "translation": {
+            "it": "gli irregolari",
+            "en": "the irregulars"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-past-tense"
+      ]
+    },
+    {
+      "id": "gr-ta-form-plain",
+      "title": {
+        "it": "La forma -た (passato piano)",
+        "en": "The -ta form (plain past)"
+      },
+      "explanation": {
+        "it": "La forma -た è il passato piano: たべた ('ho mangiato'), いった ('sono andato'). Ottima notizia: si costruisce esattamente come la forma -て che già conosci dall'N5 — basta cambiare て in た e で in だ.\n\nQuindi: たべて → たべた, のんで → のんだ, いって → いった, して → した, よんで → よんだ. Tutte le regole di sonorizzazione che hai imparato per la -て valgono identiche.\n\nLa forma -た non serve solo per il passato informale: è la base di strutture chiave dell'N4 come ～たことがある (aver fatto esperienza di qualcosa), ～たら (condizionale), ～たり (elencare azioni). Vale la pena automatizzarla.",
+        "en": "The -ta form is the plain past: たべた ('I ate'), いった ('I went'). Great news: it's built exactly like the -te form you already know from N5 — just change て to た and で to だ.\n\nSo: たべて → たべた, のんで → のんだ, いって → いった, して → した, よんで → よんだ. All the voicing rules you learned for the -te form apply identically.\n\nThe -ta form isn't just for the casual past: it's the base of key N4 structures like ～たことがある (having experienced something), ～たら (conditional), ～たり (listing actions). Well worth automating."
+      },
+      "examples": [
+        {
+          "japanese": "たべて → たべた",
+          "romaji": "tabete → tabeta",
+          "translation": {
+            "it": "forma -て → -た",
+            "en": "-te form → -ta"
+          }
+        },
+        {
+          "japanese": "のんで → のんだ",
+          "romaji": "nonde → nonda",
+          "translation": {
+            "it": "bere: -て → -た",
+            "en": "drink: -te → -ta"
+          },
+          "note": {
+            "it": "で → だ.",
+            "en": "で → だ."
+          }
+        },
+        {
+          "japanese": "いって → いった",
+          "romaji": "itte → itta",
+          "translation": {
+            "it": "andare: -て → -た",
+            "en": "go: -te → -ta"
+          }
+        },
+        {
+          "japanese": "して → した",
+          "romaji": "shite → shita",
+          "translation": {
+            "it": "fare: -て → -た",
+            "en": "do: -te → -ta"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form",
+        "gr-dictionary-form",
+        "gr-nai-form"
+      ]
+    },
+    {
+      "id": "gr-n-desu",
+      "title": {
+        "it": "〜んです — spiegare e chiedere il perché",
+        "en": "~n desu — explaining & asking why"
+      },
+      "explanation": {
+        "it": "〜んです (informale 〜んだ / 〜の) aggiunge a una frase una sfumatura di spiegazione, motivo o coinvolgimento. Confronta: あたまがいたいです ('ho mal di testa', neutro) e あたまがいたいんです ('è che ho mal di testa', sto spiegando perché, ad esempio, non vengo). È fra le strutture più frequenti del parlato reale.\n\nSi attacca alla forma piana: verbi e aggettivi -い direttamente (いくんです, いたいんです), mentre nomi e aggettivi -な richiedono な prima di んです (がくせいなんです, しずかなんです).\n\nIn domanda, 〜んですか chiede spiegazioni con interesse o sorpresa: どうしたんですか ('cosa è successo?'), どこへいくんですか ('ma dove vai?'). Senza んです le stesse domande suonano più piatte e distaccate.",
+        "en": "〜んです (casual 〜んだ / 〜の) adds a nuance of explanation, reason or involvement to a sentence. Compare: あたまがいたいです ('I have a headache', neutral) and あたまがいたいんです ('the thing is, I have a headache', explaining why, e.g., you're not coming). It's among the most frequent structures in real speech.\n\nIt attaches to the plain form: verbs and i-adjectives directly (いくんです, いたいんです), while nouns and na-adjectives need な before んです (がくせいなんです, しずかなんです).\n\nAs a question, 〜んですか asks for an explanation with interest or surprise: どうしたんですか ('what happened?'), どこへいくんですか ('where are you off to?'). Without んです the same questions sound flatter and more detached."
+      },
+      "examples": [
+        {
+          "japanese": "あたまがいたいんです。",
+          "romaji": "atama ga itai n desu.",
+          "translation": {
+            "it": "È che ho mal di testa.",
+            "en": "The thing is, I have a headache."
+          },
+          "note": {
+            "it": "Spiegazione/motivo.",
+            "en": "Explanation/reason."
+          }
+        },
+        {
+          "japanese": "どうしたんですか。",
+          "romaji": "dou shita n desu ka.",
+          "translation": {
+            "it": "Cosa è successo?",
+            "en": "What happened?"
+          },
+          "note": {
+            "it": "Domanda con interesse.",
+            "en": "Question with interest."
+          }
+        },
+        {
+          "japanese": "がくせいなんです。",
+          "romaji": "gakusei na n desu.",
+          "translation": {
+            "it": "È che sono uno studente.",
+            "en": "The thing is, I'm a student."
+          },
+          "note": {
+            "it": "Nome + な + んです.",
+            "en": "Noun + な + んです."
+          }
+        },
+        {
+          "japanese": "いそがしいんです。",
+          "romaji": "isogashii n desu.",
+          "translation": {
+            "it": "È che sono occupato.",
+            "en": "The thing is, I'm busy."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-relative-clauses",
+      "title": {
+        "it": "Le frasi relative — descrivere un nome",
+        "en": "Relative clauses — describing a noun"
+      },
+      "explanation": {
+        "it": "In italiano dici 'il libro che ho comprato': il 'che' introduce la frase che descrive il libro, e va dopo. In giapponese funziona al contrario: la frase che descrive il nome va PRIMA del nome, in forma piana, senza alcuna parola tipo 'che'.\n\nわたしがかったほん = 'il libro che ho comprato' (lett. 'io-ho-comprato libro'). きのうみたえいが = 'il film che ho visto ieri'. たなかさんがつくったりょうり = 'il piatto che ha fatto Tanaka'.\n\nIl verbo che modifica il nome è sempre in forma piana (かった, みた, つくった), mai in -ます. Dentro la frase relativa, il soggetto può essere marcato da が (o の) invece che da は.\n\nÈ una struttura che all'inizio spiazza perché ribalta l'ordine italiano, ma è fondamentale: senza relative non puoi dire quasi nulla di complesso, e sono ovunque nei testi e nei dialoghi.",
+        "en": "In English you say 'the book that I bought': 'that' introduces the clause describing the book, and comes after. In Japanese it's the opposite: the clause describing the noun goes BEFORE the noun, in plain form, with no word like 'that'.\n\nわたしがかったほん = 'the book that I bought' (lit. 'I-bought book'). きのうみたえいが = 'the movie I saw yesterday'. たなかさんがつくったりょうり = 'the dish Tanaka made'.\n\nThe verb modifying the noun is always plain (かった, みた, つくった), never -masu. Inside the relative clause, the subject can be marked by が (or の) instead of は.\n\nIt's a structure that throws you at first because it flips the English order, but it's fundamental: without relative clauses you can hardly say anything complex, and they're everywhere in texts and dialogue."
+      },
+      "examples": [
+        {
+          "japanese": "わたしがかったほん",
+          "romaji": "watashi ga katta hon",
+          "translation": {
+            "it": "il libro che ho comprato",
+            "en": "the book I bought"
+          },
+          "note": {
+            "it": "Frase piana PRIMA del nome.",
+            "en": "Plain clause BEFORE the noun."
+          }
+        },
+        {
+          "japanese": "きのうみたえいが",
+          "romaji": "kinou mita eiga",
+          "translation": {
+            "it": "il film che ho visto ieri",
+            "en": "the movie I saw yesterday"
+          }
+        },
+        {
+          "japanese": "たなかさんがつくったりょうり",
+          "romaji": "tanaka-san ga tsukutta ryouri",
+          "translation": {
+            "it": "il piatto che ha fatto Tanaka",
+            "en": "the dish Tanaka made"
+          },
+          "note": {
+            "it": "Soggetto interno con が.",
+            "en": "Internal subject with が."
+          }
+        },
+        {
+          "japanese": "にほんごをはなすひと",
+          "romaji": "nihongo o hanasu hito",
+          "translation": {
+            "it": "la persona che parla giapponese",
+            "en": "the person who speaks Japanese"
+          },
+          "note": {
+            "it": "Anche al presente piano.",
+            "en": "Plain present works too."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-potential",
+      "title": {
+        "it": "La forma potenziale — saper fare",
+        "en": "The potential form — can do"
+      },
+      "explanation": {
+        "it": "Per dire 'so/posso fare': gruppo 2, -る → -られる (たべる→たべられる, 'posso mangiare'); gruppo 1, la -u finale → -e + る (のむ→のめる, かく→かける, はなす→はなせる). Irregolari: する→できる, くる→こられる.\n\nDue cose importanti. L'oggetto del potenziale si marca di solito con が: 日本語が話せます ('so parlare giapponese'). E できる da solo copre 'saper fare' qualcosa espressa da un nome: ピアノができます.\n\nNel parlato moderno sentirai anche たべれる (senza ら, il cosiddetto ra-nuki): comprendi, ma nello standard scritto usa たべられる.",
+        "en": "To say 'can do': group 2, -る → -られる (たべる→たべられる, 'I can eat'); group 1, final -u → -e + る (のむ→のめる, かく→かける, はなす→はなせる). Irregulars: する→できる, くる→こられる.\n\nTwo key points. The object of a potential is usually marked with が: 日本語が話せます ('I can speak Japanese'). And できる alone covers 'can do' something expressed by a noun: ピアノができます.\n\nIn modern speech you'll also hear たべれる (without ら, so-called ra-nuki): understand it, but in standard writing use たべられる."
+      },
+      "examples": [
+        {
+          "japanese": "日本語が 話せます。",
+          "romaji": "nihongo ga hanasemasu.",
+          "translation": {
+            "it": "So parlare giapponese.",
+            "en": "I can speak Japanese."
+          },
+          "note": {
+            "it": "Oggetto con が.",
+            "en": "Object takes が."
+          }
+        },
+        {
+          "japanese": "たべる → たべられる",
+          "romaji": "taberu → taberareru",
+          "translation": {
+            "it": "posso mangiare",
+            "en": "can eat"
+          }
+        },
+        {
+          "japanese": "およぐ → およげる",
+          "romaji": "oyogu → oyogeru",
+          "translation": {
+            "it": "so nuotare",
+            "en": "can swim"
+          }
+        },
+        {
+          "japanese": "ピアノが できます。",
+          "romaji": "piano ga dekimasu.",
+          "translation": {
+            "it": "So suonare il piano.",
+            "en": "I can play the piano."
+          },
+          "note": {
+            "it": "する → できる.",
+            "en": "する → できる."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-volitional",
+      "title": {
+        "it": "La forma volitiva — 'facciamo!' e intenzioni",
+        "en": "The volitional — 'let's!' and intentions"
+      },
+      "explanation": {
+        "it": "Conosci già 〜ましょう ('facciamo...', cortese). La versione piana è la volitiva: gruppo 2, -る → -よう (たべよう 'mangiamo!'); gruppo 1, -u → -ou (のもう, いこう); irregolari しよう, こよう.\n\nDue usi: proposta informale tra amici (いこう! 'andiamo!') e, con と思う, l'intenzione: 日本に行こうと思います = 'penso di andare in Giappone / ho intenzione di andare'. È il modo naturale di parlare dei propri progetti.",
+        "en": "You already know 〜ましょう ('let's...', polite). The plain version is the volitional: group 2, -る → -よう (たべよう 'let's eat!'); group 1, -u → -ou (のもう, いこう); irregulars しよう, こよう.\n\nTwo uses: casual proposal among friends (いこう! 'let's go!') and, with と思う, intention: 日本に行こうと思います = 'I'm thinking of going to Japan / I intend to go'. It's the natural way to talk about your plans."
+      },
+      "examples": [
+        {
+          "japanese": "いこう!",
+          "romaji": "ikou!",
+          "translation": {
+            "it": "Andiamo!",
+            "en": "Let's go!"
+          }
+        },
+        {
+          "japanese": "たべよう。",
+          "romaji": "tabeyou.",
+          "translation": {
+            "it": "Mangiamo.",
+            "en": "Let's eat."
+          }
+        },
+        {
+          "japanese": "日本に 行こうと思います。",
+          "romaji": "nihon ni ikou to omoimasu.",
+          "translation": {
+            "it": "Penso di andare in Giappone.",
+            "en": "I'm thinking of going to Japan."
+          },
+          "note": {
+            "it": "Volitiva + と思う = intenzione.",
+            "en": "Volitional + と思う = intention."
+          }
+        },
+        {
+          "japanese": "もっと 練習しようと思います。",
+          "romaji": "motto renshuu shiyou to omoimasu.",
+          "translation": {
+            "it": "Ho intenzione di esercitarmi di più.",
+            "en": "I intend to practice more."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-to-omou-to-iu"
+      ]
+    },
+    {
+      "id": "gr-ta-koto-ga-aru",
+      "title": {
+        "it": "〜たことがある — le esperienze",
+        "en": "〜たことがある — experiences"
+      },
+      "explanation": {
+        "it": "Per dire 'mi è capitato di / ho già fatto (almeno una volta nella vita)': forma -た + ことがある. 日本に行ったことがあります = 'sono stato in Giappone (esperienza)'. Negativo: 〜たことがありません ('non mi è mai capitato').\n\nDiverso dal semplice passato: 行きました racconta UN evento ('ci sono andato [quella volta]'), 行ったことがあります parla della tua vita ('è un'esperienza che ho'). La domanda 〜たことがありますか ('ti è mai capitato di...?') è perfetta per conoscere qualcuno.",
+        "en": "To say 'I have done (at least once in my life)': -ta form + ことがある. 日本に行ったことがあります = 'I have been to Japan (as an experience)'. Negative: 〜たことがありません ('I have never...').\n\nDifferent from the simple past: 行きました narrates ONE event ('I went [that time]'), 行ったことがあります speaks about your life ('it's an experience I have'). The question 〜たことがありますか ('have you ever...?') is perfect for getting to know someone."
+      },
+      "examples": [
+        {
+          "japanese": "日本に 行ったことがあります。",
+          "romaji": "nihon ni itta koto ga arimasu.",
+          "translation": {
+            "it": "Sono stato in Giappone.",
+            "en": "I have been to Japan."
+          }
+        },
+        {
+          "japanese": "すしを 食べたことがありますか。",
+          "romaji": "sushi o tabeta koto ga arimasu ka.",
+          "translation": {
+            "it": "Hai mai mangiato sushi?",
+            "en": "Have you ever eaten sushi?"
+          }
+        },
+        {
+          "japanese": "ふじさんを 見たことがありません。",
+          "romaji": "fujisan o mita koto ga arimasen.",
+          "translation": {
+            "it": "Non ho mai visto il monte Fuji.",
+            "en": "I've never seen Mt. Fuji."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-ta-form-plain",
+        "gr-past-tense"
+      ]
+    },
+    {
+      "id": "gr-tari-tari",
+      "title": {
+        "it": "〜たり〜たりする — elencare attività",
+        "en": "〜たり〜たりする — listing activities"
+      },
+      "explanation": {
+        "it": "Per elencare alcune attività tra tante, senza pretendere di dirle tutte: forma -た + り, ripetuta, e chiusa da する (coniugato). 週末は 本を読んだり、音楽を聞いたりします = 'nel weekend leggo, ascolto musica (e cose così)'.\n\nIl confronto con -て è il punto: 食べて、飲みました elenca in sequenza ('ho mangiato e poi bevuto'); 食べたり、飲んだりしました dà esempi non esaustivi e senza ordine. Il tempo della frase lo decide il する finale: します presente abituale, しました passato.",
+        "en": "To list some activities among many, without claiming completeness: -ta form + り, repeated, closed by する (conjugated). 週末は 本を読んだり、音楽を聞いたりします = 'on weekends I read, listen to music (and such)'.\n\nThe contrast with -te matters: 食べて、飲みました lists in sequence ('I ate and then drank'); 食べたり、飲んだりしました gives non-exhaustive, unordered examples. The final する carries the tense: します habitual present, しました past."
+      },
+      "examples": [
+        {
+          "japanese": "読んだり、聞いたりします。",
+          "romaji": "yondari, kiitari shimasu.",
+          "translation": {
+            "it": "Leggo, ascolto (e altro).",
+            "en": "I read, listen (and such)."
+          }
+        },
+        {
+          "japanese": "週末は 買い物したり、友だちに会ったりしました。",
+          "romaji": "shuumatsu wa kaimono shitari, tomodachi ni attari shimashita.",
+          "translation": {
+            "it": "Nel weekend ho fatto spese, visto amici...",
+            "en": "On the weekend I shopped, met friends..."
+          }
+        },
+        {
+          "japanese": "泳いだり、走ったりするのが すきです。",
+          "romaji": "oyoidari, hashittari suru no ga suki desu.",
+          "translation": {
+            "it": "Mi piace nuotare, correre eccetera.",
+            "en": "I like swimming, running and so on."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-nagara",
+      "title": {
+        "it": "〜ながら — fare due cose insieme",
+        "en": "〜ながら — doing two things at once"
+      },
+      "explanation": {
+        "it": "Per due azioni simultanee della stessa persona: radice del verbo (la forma -ます senza ます) + ながら. 音楽を聞きながら、勉強します = 'studio ascoltando musica'.\n\nL'azione principale è la SECONDA: ながら marca quella di contorno. テレビを見ながら食べる = 'mangio guardando la TV' (l'attività principale è mangiare). Soggetto unico: non si usa per 'io cucino mentre tu studi'.",
+        "en": "For two simultaneous actions by the same person: verb stem (the -masu form without ます) + ながら. 音楽を聞きながら、勉強します = 'I study while listening to music'.\n\nThe main action is the SECOND one: ながら marks the background action. テレビを見ながら食べる = 'I eat while watching TV' (eating is the main activity). One subject only: not for 'I cook while you study'."
+      },
+      "examples": [
+        {
+          "japanese": "音楽を 聞きながら、勉強します。",
+          "romaji": "ongaku o kikinagara, benkyou shimasu.",
+          "translation": {
+            "it": "Studio ascoltando musica.",
+            "en": "I study while listening to music."
+          }
+        },
+        {
+          "japanese": "歩きながら、話しましょう。",
+          "romaji": "arukinagara, hanashimashou.",
+          "translation": {
+            "it": "Parliamo camminando.",
+            "en": "Let's talk as we walk."
+          }
+        },
+        {
+          "japanese": "テレビを 見ながら、食べます。",
+          "romaji": "terebi o minagara, tabemasu.",
+          "translation": {
+            "it": "Mangio guardando la TV.",
+            "en": "I eat while watching TV."
+          },
+          "note": {
+            "it": "L'azione principale è la seconda.",
+            "en": "The main action comes second."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-masu-verbs"
+      ]
+    },
+    {
+      "id": "gr-comparison",
+      "title": {
+        "it": "Confrontare — より、〜のほうが、いちばん",
+        "en": "Comparing — より, 〜のほうが, いちばん"
+      },
+      "explanation": {
+        "it": "Tre mattoni per i confronti. AはBより〜 = 'A è più... di B': 日本語は英語よりおもしろいです. AとBと、どちらが〜? per chiedere quale dei due; si risponde 〜のほうが: ねこのほうがすきです ('preferisco i gatti').\n\nPer il superlativo: いちばん ('il più'): クラスでいちばん高い = 'il più alto della classe'; 何がいちばんすきですか = 'cosa ti piace di più?'. Nota che gli aggettivi non cambiano forma: il confronto lo fanno le particelle e いちばん, non un suffisso come l'italiano '-issimo' o l'inglese '-er/-est'.",
+        "en": "Three building blocks. AはBより〜 = 'A is more... than B': 日本語は英語よりおもしろいです. AとBと、どちらが〜? to ask which of two; answer with 〜のほうが: ねこのほうがすきです ('I prefer cats').\n\nFor the superlative: いちばん ('the most'): クラスでいちばん高い = 'the tallest in the class'; 何がいちばんすきですか = 'what do you like best?'. Note adjectives don't change form: comparison is done by particles and いちばん, not by suffixes like English '-er/-est'."
+      },
+      "examples": [
+        {
+          "japanese": "日本語は 英語より おもしろいです。",
+          "romaji": "nihongo wa eigo yori omoshiroi desu.",
+          "translation": {
+            "it": "Il giapponese è più interessante dell'inglese.",
+            "en": "Japanese is more interesting than English."
+          }
+        },
+        {
+          "japanese": "ねこと いぬと、どちらが すきですか。",
+          "romaji": "neko to inu to, dochira ga suki desu ka.",
+          "translation": {
+            "it": "Preferisci i gatti o i cani?",
+            "en": "Which do you like better, cats or dogs?"
+          }
+        },
+        {
+          "japanese": "ねこのほうが すきです。",
+          "romaji": "neko no hou ga suki desu.",
+          "translation": {
+            "it": "Preferisco i gatti.",
+            "en": "I prefer cats."
+          }
+        },
+        {
+          "japanese": "何が いちばん すきですか。",
+          "romaji": "nani ga ichiban suki desu ka.",
+          "translation": {
+            "it": "Cosa ti piace di più?",
+            "en": "What do you like best?"
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-i-adjectives",
+        "gr-suki-hoshii"
+      ]
+    },
+    {
+      "id": "gr-to-omou-to-iu",
+      "title": {
+        "it": "〜と思う／〜と言う — pensieri e citazioni",
+        "en": "〜と思う / 〜と言う — thoughts & quotes"
+      },
+      "explanation": {
+        "it": "Per riferire pensieri e parole, il giapponese usa la particella と + forma piana. 行くと思います = 'penso che andrò / penso che vada'; おいしいと思います = 'penso sia buono'. Chi pensa è (di norma) chi parla; per i pensieri altrui si usa 〜と思っています.\n\nPer le parole dette: 〜と言いました ('ha detto che...'): 田中さんは来ると言いました. Citazione diretta con virgolette giapponesi: 「行きます」と言いました.\n\nRegola d'oro: davanti a と va la forma piana, mai -ます. Da qui in poi quasi tutta la grammatica 'di riporto' funziona così.",
+        "en": "To report thoughts and words, Japanese uses the particle と + plain form. 行くと思います = 'I think I'll go / I think (someone) goes'; おいしいと思います = 'I think it's tasty'. The thinker is (normally) the speaker; for others' ongoing thoughts use 〜と思っています.\n\nFor reported speech: 〜と言いました ('said that...'): 田中さんは来ると言いました. Direct quotes use Japanese brackets: 「行きます」と言いました.\n\nGolden rule: before と goes the plain form, never -ます. From here on, almost all 'reporting' grammar works this way."
+      },
+      "examples": [
+        {
+          "japanese": "あした 雨が ふると思います。",
+          "romaji": "ashita ame ga furu to omoimasu.",
+          "translation": {
+            "it": "Penso che domani pioverà.",
+            "en": "I think it will rain tomorrow."
+          }
+        },
+        {
+          "japanese": "この えいがは おもしろいと思います。",
+          "romaji": "kono eiga wa omoshiroi to omoimasu.",
+          "translation": {
+            "it": "Penso che questo film sia interessante.",
+            "en": "I think this movie is interesting."
+          }
+        },
+        {
+          "japanese": "田中さんは 来ると言いました。",
+          "romaji": "tanaka-san wa kuru to iimashita.",
+          "translation": {
+            "it": "Tanaka ha detto che viene.",
+            "en": "Tanaka said he's coming."
+          }
+        },
+        {
+          "japanese": "「行きます」と言いました。",
+          "romaji": "'ikimasu' to iimashita.",
+          "translation": {
+            "it": "Ha detto: 'vado'.",
+            "en": "He said, 'I'll go.'"
+          },
+          "note": {
+            "it": "Citazione diretta con 「」.",
+            "en": "Direct quote with 「」."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-dictionary-form",
+        "gr-volitional"
+      ]
+    },
+    {
+      "id": "gr-toki",
+      "title": {
+        "it": "〜とき — 'quando...'",
+        "en": "〜とき — 'when...'"
+      },
+      "explanation": {
+        "it": "とき ('momento') trasforma una frase in 'quando...': 日本に行くとき ('quando vado in Giappone'), 子どものとき ('quando ero bambino'), ひまなとき ('quando ho tempo').\n\nSi costruisce come una relativa: forma piana + とき; coi nomi si usa の (子どものとき), con gli aggettivi -な si usa な.\n\nSottigliezza utile: il tempo del verbo prima di とき è relativo all'azione principale. 行くとき、切符を買います = compro il biglietto PRIMA di andare (l'andare non è ancora avvenuto); 行ったとき、写真をとりました = ho fatto foto DOPO essere arrivato.",
+        "en": "とき ('time/moment') turns a clause into 'when...': 日本に行くとき ('when I go to Japan'), 子どものとき ('when I was a child'), ひまなとき ('when I'm free').\n\nIt's built like a relative clause: plain form + とき; with nouns use の (子どものとき), with na-adjectives use な.\n\nUseful subtlety: the tense before とき is relative to the main action. 行くとき、切符を買います = I buy the ticket BEFORE going (the going hasn't happened yet); 行ったとき、写真をとりました = I took photos AFTER arriving."
+      },
+      "examples": [
+        {
+          "japanese": "子どものとき、東京に住んでいました。",
+          "romaji": "kodomo no toki, toukyou ni sunde imashita.",
+          "translation": {
+            "it": "Da bambino vivevo a Tokyo.",
+            "en": "When I was a child, I lived in Tokyo."
+          }
+        },
+        {
+          "japanese": "ひまなとき、何を しますか。",
+          "romaji": "hima na toki, nani o shimasu ka.",
+          "translation": {
+            "it": "Cosa fai quando hai tempo?",
+            "en": "What do you do when you're free?"
+          }
+        },
+        {
+          "japanese": "日本に 行くとき、カメラを 買います。",
+          "romaji": "nihon ni iku toki, kamera o kaimasu.",
+          "translation": {
+            "it": "Compro una macchina fotografica quando (prima di) andare in Giappone.",
+            "en": "I'll buy a camera when (before) going to Japan."
+          }
+        },
+        {
+          "japanese": "日本に 行ったとき、写真を とりました。",
+          "romaji": "nihon ni itta toki, shashin o torimashita.",
+          "translation": {
+            "it": "Quando sono andato in Giappone ho fatto foto.",
+            "en": "When I went to Japan, I took photos."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-relative-clauses"
+      ]
+    },
+    {
+      "id": "gr-deshou",
+      "title": {
+        "it": "〜でしょう — probabilità e conferma",
+        "en": "~deshou — probability & confirmation"
+      },
+      "explanation": {
+        "it": "〜でしょう esprime una previsione o supposizione ('probabilmente', 'sarà'): あしたはあめでしょう ('domani probabilmente pioverà'). Si attacca alla forma piana (per i nomi e gli aggettivi -な, senza だ). Con intonazione ascendente diventa una richiesta di conferma: 'vero?', 'no?'. È più morbido di un'affermazione netta e suona naturale e cortese. Nel parlato informale diventa でしょ o だろう.",
+        "en": "〜でしょう expresses a prediction or supposition ('probably', 'likely'): あしたはあめでしょう ('it will probably rain tomorrow'). It attaches to the plain form (for nouns and na-adjectives, without だ). With rising intonation it becomes a request for confirmation: 'right?', 'isn't it?'. It's softer than a flat statement and sounds natural and polite. In casual speech it becomes でしょ or だろう."
+      },
+      "examples": [
+        {
+          "japanese": "あしたはあめでしょう。",
+          "romaji": "ashita wa ame deshou.",
+          "translation": {
+            "it": "Domani probabilmente pioverà.",
+            "en": "It will probably rain tomorrow."
+          },
+          "note": {
+            "it": "Previsione.",
+            "en": "Prediction."
+          }
+        },
+        {
+          "japanese": "たかいでしょう。",
+          "romaji": "takai deshou.",
+          "translation": {
+            "it": "Sarà caro.",
+            "en": "It's probably expensive."
+          }
+        },
+        {
+          "japanese": "いいでしょう?",
+          "romaji": "ii deshou?",
+          "translation": {
+            "it": "Bello, vero?",
+            "en": "Nice, right?"
+          },
+          "note": {
+            "it": "Con intonazione ascendente: conferma.",
+            "en": "With rising intonation: confirmation."
+          }
+        },
+        {
+          "japanese": "かれはくるでしょう。",
+          "romaji": "kare wa kuru deshou.",
+          "translation": {
+            "it": "Lui verrà, probabilmente.",
+            "en": "He'll probably come."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-kamoshirenai",
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-kamoshirenai",
+      "title": {
+        "it": "〜かもしれません — forse, può darsi",
+        "en": "~kamoshiremasen — maybe, might"
+      },
+      "explanation": {
+        "it": "〜かもしれません esprime una possibilità incerta ('forse', 'può darsi'): あめがふるかもしれません ('forse pioverà'). È meno sicuro di 〜でしょう: でしょう indica una probabilità abbastanza alta, かもしれません lascia aperta una possibilità più debole. Si attacca alla forma piana (nomi e aggettivi -な senza だ). Informale: 〜かもしれない o solo 〜かも.",
+        "en": "〜かもしれません expresses an uncertain possibility ('maybe', 'might'): あめがふるかもしれません ('it might rain'). It's less certain than 〜でしょう: でしょう indicates a fairly high probability, かもしれません leaves open a weaker possibility. It attaches to the plain form (nouns and na-adjectives without だ). Casual: 〜かもしれない or just 〜かも."
+      },
+      "examples": [
+        {
+          "japanese": "あめがふるかもしれません。",
+          "romaji": "ame ga furu kamoshiremasen.",
+          "translation": {
+            "it": "Forse pioverà.",
+            "en": "It might rain."
+          },
+          "note": {
+            "it": "Possibilità incerta.",
+            "en": "Uncertain possibility."
+          }
+        },
+        {
+          "japanese": "たかいかもしれません。",
+          "romaji": "takai kamoshiremasen.",
+          "translation": {
+            "it": "Forse è caro.",
+            "en": "It might be expensive."
+          }
+        },
+        {
+          "japanese": "こないかもしれません。",
+          "romaji": "konai kamoshiremasen.",
+          "translation": {
+            "it": "Forse non viene.",
+            "en": "They might not come."
+          },
+          "note": {
+            "it": "Forma piana negativa + かも.",
+            "en": "Plain negative + かも."
+          }
+        },
+        {
+          "japanese": "びょうきかもしれません。",
+          "romaji": "byouki kamoshiremasen.",
+          "translation": {
+            "it": "Forse è malato.",
+            "en": "They might be sick."
+          },
+          "note": {
+            "it": "Nome + かもしれません (senza だ).",
+            "en": "Noun + かもしれません (no だ)."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-deshou"
+      ]
+    },
+    {
+      "id": "gr-sou-desu-hearsay",
+      "title": {
+        "it": "〜そうです — ho sentito che (riferito)",
+        "en": "~sou desu — I heard that (hearsay)"
+      },
+      "explanation": {
+        "it": "Questo 〜そうです riporta un'informazione sentita da altri ('ho sentito che', 'pare che', 'dicono che'): あしたはあめだそうです ('ho sentito che domani piove'). Si attacca alla FORMA PIANA completa, inclusa だ per nomi e aggettivi -な (あめだそうです). Attenzione a non confonderlo con l'altro そうです (quello dell'apparenza, 'sembra'): qui riporti ciò che hai saputo, non ciò che vedi. Spesso introdotto da fonti: ニュースによると... ('secondo le notizie...').",
+        "en": "This 〜そうです reports information heard from others ('I heard that', 'apparently', 'they say'): あしたはあめだそうです ('I heard it'll rain tomorrow'). It attaches to the FULL plain form, including だ for nouns and na-adjectives (あめだそうです). Be careful not to confuse it with the other そうです (the appearance one, 'looks like'): here you report what you've learned, not what you see. Often introduced by sources: ニュースによると... ('according to the news...')."
+      },
+      "examples": [
+        {
+          "japanese": "あしたはあめだそうです。",
+          "romaji": "ashita wa ame da sou desu.",
+          "translation": {
+            "it": "Ho sentito che domani piove.",
+            "en": "I heard it'll rain tomorrow."
+          },
+          "note": {
+            "it": "Forma piana + そうです (con だ).",
+            "en": "Plain form + そうです (with だ)."
+          }
+        },
+        {
+          "japanese": "たなかさんはいそがしいそうです。",
+          "romaji": "tanaka-san wa isogashii sou desu.",
+          "translation": {
+            "it": "Pare che Tanaka sia occupato.",
+            "en": "Apparently Tanaka is busy."
+          }
+        },
+        {
+          "japanese": "えいがはおもしろかったそうです。",
+          "romaji": "eiga wa omoshirokatta sou desu.",
+          "translation": {
+            "it": "Dicono che il film fosse bello.",
+            "en": "They say the movie was good."
+          },
+          "note": {
+            "it": "Anche al passato piano.",
+            "en": "Plain past too."
+          }
+        },
+        {
+          "japanese": "ニュースによると、たいふうがくるそうです。",
+          "romaji": "nyuusu ni yoru to, taifuu ga kuru sou desu.",
+          "translation": {
+            "it": "Secondo le notizie, arriva un tifone.",
+            "en": "According to the news, a typhoon is coming."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-sou-desu-looks",
+        "gr-dictionary-form"
+      ]
+    },
+    {
+      "id": "gr-sou-desu-looks",
+      "title": {
+        "it": "〜そうです — sembra (apparenza)",
+        "en": "~sou desu — looks like (appearance)"
+      },
+      "explanation": {
+        "it": "Questo 〜そうです esprime un'impressione visiva o immediata ('sembra', 'ha l'aria di'): おいしそうです ('sembra buono', guardando un piatto). Si attacca alla RADICE: aggettivi -い perdono la -い (おいしい → おいしそう), aggettivi -な perdono il な (げんき → げんそう... in realtà げんきそう), verbi alla radice -ます + そう (あめがふりそう = 'sta per piovere'). Eccezioni: いい → よさそう, ない → なさそう. Diverso dal そうです del sentito dire: qui parli di ciò che percepisci adesso, non di ciò che ti hanno detto.",
+        "en": "This 〜そうです expresses a visual or immediate impression ('looks', 'seems'): おいしそうです ('looks delicious', seeing a dish). It attaches to the STEM: i-adjectives drop -い (おいしい → おいしそう), na-adjectives drop な (げんき → げんきそう), verbs take the -ます stem + そう (あめがふりそう = 'it looks about to rain'). Exceptions: いい → よさそう, ない → なさそう. Different from the hearsay そうです: here you talk about what you perceive now, not what you were told."
+      },
+      "examples": [
+        {
+          "japanese": "おいしそうです。",
+          "romaji": "oishisou desu.",
+          "translation": {
+            "it": "Sembra buono.",
+            "en": "It looks delicious."
+          },
+          "note": {
+            "it": "Aggettivo -い: togli -い + そう.",
+            "en": "i-adjective: drop -い + そう."
+          }
+        },
+        {
+          "japanese": "あめがふりそうです。",
+          "romaji": "ame ga furisou desu.",
+          "translation": {
+            "it": "Sta per piovere.",
+            "en": "It looks about to rain."
+          },
+          "note": {
+            "it": "Radice -ます + そう.",
+            "en": "-masu stem + そう."
+          }
+        },
+        {
+          "japanese": "げんきそうですね。",
+          "romaji": "genkisou desu ne.",
+          "translation": {
+            "it": "Hai l'aria in forma.",
+            "en": "You look well."
+          },
+          "note": {
+            "it": "Aggettivo -な + そう.",
+            "en": "na-adjective + そう."
+          }
+        },
+        {
+          "japanese": "よさそうです。",
+          "romaji": "yosasou desu.",
+          "translation": {
+            "it": "Sembra buono/va bene.",
+            "en": "Looks good."
+          },
+          "note": {
+            "it": "Eccezione: いい → よさそう.",
+            "en": "Exception: いい → よさそう."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-sou-desu-hearsay",
+        "gr-i-adjectives"
+      ]
+    },
+    {
+      "id": "gr-tara",
+      "title": {
+        "it": "〜たら — 'se/quando' (la condizionale universale)",
+        "en": "〜たら — 'if/when' (the all-round conditional)"
+      },
+      "explanation": {
+        "it": "La condizionale più versatile: forma -た + ら. 雨がふったら、うちにいます = 'se piove, sto a casa'. Vale per ipotesi (se), e anche per sequenze certe (quando/una volta che): 日本に着いたら、電話します = 'quando arrivo in Giappone, ti chiamo'.\n\nFunziona con tutto: verbi (行ったら), aggettivi -い (安かったら 'se costa poco'), -な e nomi (ひまだったら, 雨だったら). Spesso accompagnata da もし in apertura per segnalare l'ipotesi: もし時間があったら... ('se avessi tempo...').\n\nSe devi scegliere UNA condizionale da padroneggiare per l'N4, è questa.",
+        "en": "The most versatile conditional: -ta form + ら. 雨がふったら、うちにいます = 'if it rains, I'll stay home'. It covers hypotheses (if) and certain sequences (when/once): 日本に着いたら、電話します = 'when I arrive in Japan, I'll call you'.\n\nIt works with everything: verbs (行ったら), i-adjectives (安かったら 'if it's cheap'), na-adjectives and nouns (ひまだったら, 雨だったら). Often paired with もし at the start to flag the hypothesis: もし時間があったら... ('if I had time...').\n\nIf you master ONE conditional for N4, make it this one."
+      },
+      "examples": [
+        {
+          "japanese": "雨が ふったら、うちに います。",
+          "romaji": "ame ga futtara, uchi ni imasu.",
+          "translation": {
+            "it": "Se piove, resto a casa.",
+            "en": "If it rains, I'll stay home."
+          }
+        },
+        {
+          "japanese": "日本に 着いたら、電話します。",
+          "romaji": "nihon ni tsuitara, denwa shimasu.",
+          "translation": {
+            "it": "Quando arrivo in Giappone, chiamo.",
+            "en": "When I arrive in Japan, I'll call."
+          }
+        },
+        {
+          "japanese": "安かったら、買います。",
+          "romaji": "yasukattara, kaimasu.",
+          "translation": {
+            "it": "Se costa poco, lo compro.",
+            "en": "If it's cheap, I'll buy it."
+          }
+        },
+        {
+          "japanese": "もし ひまだったら、来てください。",
+          "romaji": "moshi hima dattara, kite kudasai.",
+          "translation": {
+            "it": "Se sei libero, vieni.",
+            "en": "If you're free, please come."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-ta-form-plain"
+      ]
+    },
+    {
+      "id": "gr-to-conditional",
+      "title": {
+        "it": "Il condizionale 〜と (conseguenza automatica)",
+        "en": "The 〜と conditional (automatic result)"
+      },
+      "explanation": {
+        "it": "〜と esprime una conseguenza naturale e automatica: ogni volta che A, allora B, senza eccezioni. はるになると、さくらがさきます ('quando arriva la primavera, fioriscono i ciliegi'). Si attacca alla forma piana presente. È tipico di leggi di natura, meccanismi, istruzioni e percorsi: このボタンをおすと、きっぷがでます ('se premi questo bottone, esce il biglietto'). Limite importante: dopo 〜と non si possono usare comandi, richieste o inviti — solo conseguenze fattuali. Per quelle usa 〜たら o 〜ば.",
+        "en": "〜と expresses a natural, automatic result: whenever A, then B, no exceptions. はるになると、さくらがさきます ('when spring comes, the cherry trees bloom'). It attaches to the plain present. It's typical of natural laws, mechanisms, instructions and directions: このボタンをおすと、きっぷがでます ('if you press this button, a ticket comes out'). Important limit: after 〜と you can't use commands, requests or invitations — only factual consequences. For those use 〜たら or 〜ば."
+      },
+      "examples": [
+        {
+          "japanese": "はるになると、さくらがさきます。",
+          "romaji": "haru ni naru to, sakura ga sakimasu.",
+          "translation": {
+            "it": "Quando arriva la primavera, fioriscono i ciliegi.",
+            "en": "When spring comes, cherry trees bloom."
+          },
+          "note": {
+            "it": "Conseguenza naturale.",
+            "en": "Natural result."
+          }
+        },
+        {
+          "japanese": "このボタンをおすと、きっぷがでます。",
+          "romaji": "kono botan o osu to, kippu ga demasu.",
+          "translation": {
+            "it": "Se premi questo bottone, esce il biglietto.",
+            "en": "Press this button and a ticket comes out."
+          },
+          "note": {
+            "it": "Meccanismo.",
+            "en": "Mechanism."
+          }
+        },
+        {
+          "japanese": "まっすぐいくと、えきがあります。",
+          "romaji": "massugu iku to, eki ga arimasu.",
+          "translation": {
+            "it": "Andando dritto, c'è la stazione.",
+            "en": "Go straight and there's the station."
+          },
+          "note": {
+            "it": "Indicazioni stradali.",
+            "en": "Directions."
+          }
+        },
+        {
+          "japanese": "べんきょうしないと、わかりません。",
+          "romaji": "benkyou shinai to, wakarimasen.",
+          "translation": {
+            "it": "Se non studi, non capisci.",
+            "en": "If you don't study, you won't understand."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-ba",
+        "gr-nara"
+      ]
+    },
+    {
+      "id": "gr-ba",
+      "title": {
+        "it": "Il condizionale 〜ば (se ipotetico)",
+        "en": "The 〜ば conditional (hypothetical if)"
+      },
+      "explanation": {
+        "it": "〜ば esprime una condizione ipotetica generale: 'se A, allora B'. やすければ、かいます ('se è economico, lo compro'). Formazione: verbi gruppo 1 cambiano la -u finale in -eba (いく → いけば, のむ → のめば); gruppo 2: -る → -れば (たべる → たべれば); aggettivi -い: -い → -ければ (やすい → やすければ); する → すれば, くる → くれば. È spesso usato per dare consigli (〜ばいい = 'basta che...') e per ipotesi. A differenza di 〜と, ammette anche conseguenze non automatiche.",
+        "en": "〜ば expresses a general hypothetical condition: 'if A, then B'. やすければ、かいます ('if it's cheap, I'll buy it'). Formation: group 1 verbs change final -u to -eba (いく → いけば, のむ → のめば); group 2: -る → -れば (たべる → たべれば); i-adjectives: -い → -ければ (やすい → やすければ); する → すれば, くる → くれば. Often used for advice (〜ばいい = 'you just have to...') and hypotheses. Unlike 〜と, it allows non-automatic results too."
+      },
+      "examples": [
+        {
+          "japanese": "やすければ、かいます。",
+          "romaji": "yasukereba, kaimasu.",
+          "translation": {
+            "it": "Se è economico, lo compro.",
+            "en": "If it's cheap, I'll buy it."
+          },
+          "note": {
+            "it": "Aggettivo -い: -ければ.",
+            "en": "i-adjective: -ければ."
+          }
+        },
+        {
+          "japanese": "いけば、わかります。",
+          "romaji": "ikeba, wakarimasu.",
+          "translation": {
+            "it": "Se vai, capisci.",
+            "en": "If you go, you'll understand."
+          },
+          "note": {
+            "it": "Verbo gruppo 1: -u → -eba.",
+            "en": "Group 1 verb: -u → -eba."
+          }
+        },
+        {
+          "japanese": "どうすればいいですか。",
+          "romaji": "dou sureba ii desu ka.",
+          "translation": {
+            "it": "Cosa dovrei fare? (lett. 'come facendo va bene?')",
+            "en": "What should I do?"
+          },
+          "note": {
+            "it": "〜ばいい per consigli/domande.",
+            "en": "〜ばいい for advice/questions."
+          }
+        },
+        {
+          "japanese": "やすければやすいほどいい。",
+          "romaji": "yasukereba yasui hodo ii.",
+          "translation": {
+            "it": "Più è economico, meglio è.",
+            "en": "The cheaper, the better."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-to-conditional",
+        "gr-nara"
+      ]
+    },
+    {
+      "id": "gr-nara",
+      "title": {
+        "it": "Il condizionale 〜なら (se è il caso che)",
+        "en": "The 〜なら conditional (if it's the case that)"
+      },
+      "explanation": {
+        "it": "〜なら introduce una condizione basata su un'informazione data o sul contesto: 'se (è vero che) A, allora...'. にほんへいくなら、きょうとがいいですよ ('se vai in Giappone, Kyoto è una buona idea'). Spesso risponde o reagisce a qualcosa che l'altro ha appena detto o a una premessa nota. Si attacca al nome o alla forma piana. La differenza chiave: 〜なら mette la condizione come 'dato/presupposto', mentre たら/ば/と guardano alla sequenza o all'automatismo degli eventi.",
+        "en": "〜なら introduces a condition based on given information or context: 'if (it's true that) A, then...'. にほんへいくなら、きょうとがいいですよ ('if you're going to Japan, Kyoto is a good idea'). It often responds to something the other person just said or to a known premise. It attaches to a noun or the plain form. The key difference: 〜なら frames the condition as 'given/assumed', while たら/ば/と look at the sequence or automatic nature of events."
+      },
+      "examples": [
+        {
+          "japanese": "にほんへいくなら、きょうとがいいですよ。",
+          "romaji": "nihon e iku nara, kyouto ga ii desu yo.",
+          "translation": {
+            "it": "Se vai in Giappone, Kyoto è una buona idea.",
+            "en": "If you're going to Japan, Kyoto is good."
+          },
+          "note": {
+            "it": "Reagisce a un'informazione data.",
+            "en": "Responds to given info."
+          }
+        },
+        {
+          "japanese": "さむいなら、まどをしめます。",
+          "romaji": "samui nara, mado o shimemasu.",
+          "translation": {
+            "it": "Se hai freddo, chiudo la finestra.",
+            "en": "If you're cold, I'll close the window."
+          }
+        },
+        {
+          "japanese": "くるまでいくなら、わたしものせてください。",
+          "romaji": "kuruma de iku nara, watashi mo nosete kudasai.",
+          "translation": {
+            "it": "Se vai in macchina, dai un passaggio anche a me.",
+            "en": "If you're going by car, give me a ride too."
+          },
+          "note": {
+            "it": "Condizione presupposta + richiesta.",
+            "en": "Assumed condition + request."
+          }
+        },
+        {
+          "japanese": "にほんごなら、すこしわかります。",
+          "romaji": "nihongo nara, sukoshi wakarimasu.",
+          "translation": {
+            "it": "Quanto al giapponese, ne capisco un po'.",
+            "en": "As for Japanese, I understand a little."
+          },
+          "note": {
+            "it": "Nome + なら (tema/contesto).",
+            "en": "Noun + なら (topic/context)."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-tara",
+        "gr-ba",
+        "gr-to-conditional"
+      ]
+    },
+    {
+      "id": "gr-nakereba-naranai",
+      "title": {
+        "it": "〜なければなりません — dovere / obbligo",
+        "en": "~nakereba narimasen — must / obligation"
+      },
+      "explanation": {
+        "it": "Per esprimere un obbligo ('devo, bisogna'): やくそくをまもらなければなりません ('devo mantenere la promessa'). Si parte dalla forma -ない, si toglie -ない e si aggiunge -なければなりません. のむ → のまない → のまなければなりません. Letteralmente 'se non lo faccio, non va bene', quindi 'devo'. Varianti comuni: 〜なきゃ (informale), 〜なければいけません. È lungo da dire ma frequentissimo: vale la pena automatizzarlo.",
+        "en": "To express obligation ('I must, one has to'): やくそくをまもらなければなりません ('I must keep the promise'). Start from the -nai form, drop -ない and add -なければなりません. のむ → のまない → のまなければなりません. Literally 'if I don't do it, it won't do', hence 'I must'. Common variants: 〜なきゃ (casual), 〜なければいけません. It's long to say but very frequent: worth automating."
+      },
+      "examples": [
+        {
+          "japanese": "くすりをのまなければなりません。",
+          "romaji": "kusuri o nomanakereba narimasen.",
+          "translation": {
+            "it": "Devo prendere la medicina.",
+            "en": "I must take the medicine."
+          },
+          "note": {
+            "it": "-ない → -なければなりません.",
+            "en": "-nai → -なければなりません."
+          }
+        },
+        {
+          "japanese": "いかなければなりません。",
+          "romaji": "ikanakereba narimasen.",
+          "translation": {
+            "it": "Devo andare.",
+            "en": "I have to go."
+          }
+        },
+        {
+          "japanese": "べんきょうしなければなりません。",
+          "romaji": "benkyou shinakereba narimasen.",
+          "translation": {
+            "it": "Devo studiare.",
+            "en": "I must study."
+          },
+          "note": {
+            "it": "する → しなければ.",
+            "en": "する → しなければ."
+          }
+        },
+        {
+          "japanese": "もう、いかなきゃ。",
+          "romaji": "mou, ikanakya.",
+          "translation": {
+            "it": "Devo andare ormai.",
+            "en": "I gotta go now."
+          },
+          "note": {
+            "it": "〜なきゃ informale.",
+            "en": "〜なきゃ casual."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-nakutemo-ii",
+        "gr-nai-form"
+      ]
+    },
+    {
+      "id": "gr-nakutemo-ii",
+      "title": {
+        "it": "〜なくてもいいです — non è necessario",
+        "en": "~nakutemo ii desu — don't have to"
+      },
+      "explanation": {
+        "it": "L'opposto dell'obbligo: 'non c'è bisogno di, non devi'. あした、こなくてもいいです ('domani non c'è bisogno che tu venga'). Si parte dalla forma -ない, si toglie -い e si aggiunge -くてもいいです. のむ → のまない → のまなくてもいいです. È la risposta naturale a 〜なければなりません: l'una dice 'devo', l'altra 'non devo / non serve'. Da non confondere con 〜てはいけません (divieto: 'non devi assolutamente').",
+        "en": "The opposite of obligation: 'you don't need to, you don't have to'. あした、こなくてもいいです ('you don't have to come tomorrow'). Start from the -nai form, drop -い and add -くてもいいです. のむ → のまない → のまなくてもいいです. It's the natural counterpart to 〜なければなりません: one says 'must', the other 'don't have to / no need'. Don't confuse it with 〜てはいけません (prohibition: 'you must not')."
+      },
+      "examples": [
+        {
+          "japanese": "こなくてもいいです。",
+          "romaji": "konakutemo ii desu.",
+          "translation": {
+            "it": "Non c'è bisogno che tu venga.",
+            "en": "You don't have to come."
+          },
+          "note": {
+            "it": "-ない → -なくてもいい.",
+            "en": "-nai → -なくてもいい."
+          }
+        },
+        {
+          "japanese": "いそがなくてもいいです。",
+          "romaji": "isoganakutemo ii desu.",
+          "translation": {
+            "it": "Non c'è bisogno di affrettarsi.",
+            "en": "No need to hurry."
+          }
+        },
+        {
+          "japanese": "ぜんぶたべなくてもいいです。",
+          "romaji": "zenbu tabenakutemo ii desu.",
+          "translation": {
+            "it": "Non devi mangiare tutto.",
+            "en": "You don't have to eat everything."
+          }
+        },
+        {
+          "japanese": "しんぱいしなくてもいいですよ。",
+          "romaji": "shinpai shinakutemo ii desu yo.",
+          "translation": {
+            "it": "Non c'è bisogno di preoccuparsi.",
+            "en": "No need to worry."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-nakereba-naranai",
+        "gr-te-permission"
+      ]
+    },
+    {
+      "id": "gr-te-shimau-oku-miru",
+      "title": {
+        "it": "〜てしまう・〜ておく・〜てみる — sfumature d'azione",
+        "en": "〜てしまう・〜ておく・〜てみる — action nuances"
+      },
+      "explanation": {
+        "it": "Tre estensioni della forma -て che danno sfumatura all'azione.\n\n〜てしまう: completamento totale o rammarico: 全部食べてしまいました ('ho finito di mangiare tutto' oppure 'ahimè, ho mangiato tutto'); さいふを忘れてしまいました ('ho dimenticato il portafoglio, accidenti'). Colloquiale: 〜ちゃう (食べちゃった).\n\n〜ておく: fare in anticipo, in preparazione: ホテルを予約しておきます ('prenoto l'hotel [per tempo]'). Colloquiale: 〜とく.\n\n〜てみる: provare a fare: 食べてみます ('assaggio / provo a mangiarlo'); 日本語で書いてみました ('ho provato a scriverlo in giapponese').",
+        "en": "Three -te extensions that add nuance to an action.\n\n〜てしまう: full completion or regret: 全部食べてしまいました ('I ate it all up' or 'oh no, I ate it all'); さいふを忘れてしまいました ('I went and forgot my wallet'). Casual: 〜ちゃう (食べちゃった).\n\n〜ておく: do in advance, in preparation: ホテルを予約しておきます ('I'll book the hotel [ahead of time]'). Casual: 〜とく.\n\n〜てみる: try doing: 食べてみます ('I'll try eating it / give it a taste'); 日本語で書いてみました ('I tried writing it in Japanese')."
+      },
+      "examples": [
+        {
+          "japanese": "さいふを 忘れてしまいました。",
+          "romaji": "saifu o wasurete shimaimashita.",
+          "translation": {
+            "it": "Ho dimenticato il portafoglio (ahimè).",
+            "en": "I went and forgot my wallet."
+          }
+        },
+        {
+          "japanese": "ホテルを 予約しておきます。",
+          "romaji": "hoteru o yoyaku shite okimasu.",
+          "translation": {
+            "it": "Prenoto l'hotel in anticipo.",
+            "en": "I'll book the hotel ahead."
+          }
+        },
+        {
+          "japanese": "食べてみてください。",
+          "romaji": "tabete mite kudasai.",
+          "translation": {
+            "it": "Assaggia, prova.",
+            "en": "Give it a try (taste it)."
+          }
+        },
+        {
+          "japanese": "全部 読んでしまいました。",
+          "romaji": "zenbu yonde shimaimashita.",
+          "translation": {
+            "it": "L'ho letto tutto.",
+            "en": "I read it all up."
+          }
+        }
+      ],
+      "relatedRefs": [
+        "gr-te-form"
+      ]
     }
   ]
 }

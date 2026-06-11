@@ -91,7 +91,7 @@ export const createLiveSession = onCall(
       );
     }
 
-    const limit = weeklyAiLimit('premium');
+    const limit = weeklyAiLimit();
     const { used, windowStart, reset } = normalizeWeeklyAiUsage(
       user.liveMinutesUsed,
       user.liveMinutesWindowStart,
@@ -194,7 +194,7 @@ export const endLiveSession = onCall(
     }
 
     const user = snap.data() as UserDoc;
-    const limit = weeklyAiLimit('premium');
+    const limit = weeklyAiLimit();
     const { used, windowStart, reset } = normalizeWeeklyAiUsage(
       user.liveMinutesUsed,
       user.liveMinutesWindowStart,
@@ -330,5 +330,11 @@ export const purgeExpiredLiveHistory = onSchedule(
 );
 
 export { createStripeCheckout, createExtraLessonCheckout, createStripePortal, stripeWebhook } from './stripe';
-export { startFreeTrial, bookAvailabilitySlot } from './scheduling';
+export {
+  startFreeTrial,
+  bookAvailabilitySlot,
+  cancelBooking,
+  rescheduleBooking,
+} from './scheduling';
+export { subscribeNewsletter, syncMarketingConsent } from './sendfox';
 export { adminDeleteUser } from './adminUsers';

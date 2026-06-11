@@ -1,0 +1,142 @@
+{
+  "id": "grammar-volitional",
+  "level": 8,
+  "order": 1,
+  "type": "grammar",
+  "contentVersion": 1,
+  "title": {
+    "it": "Grammatica · il volitivo",
+    "en": "Grammar · the volitional"
+  },
+  "description": {
+    "it": "Il volitivo esprime 'facciamo!' o l'intenzione: たべよう ('mangiamo!'), いこう ('andiamo!'). È la forma piana di -ましょう. Gruppo 2: -る → -よう. Gruppo 1: -u → -ou (のむ → のもう, いく → いこう). Irregolari: する → しよう, くる → こよう. Spesso seguito da と思う per dire 'penso di...' (いこうとおもう = 'penso di andare').",
+    "en": "The volitional expresses 'let's!' or intention: たべよう ('let's eat!'), いこう ('let's go!'). It's the plain form of -ましょう. Group 2: -る → -よう. Group 1: -u → -ou (のむ → のもう, いく → いこう). Irregulars: する → しよう, くる → こよう. Often followed by と思う to say 'I'm thinking of...' (いこうとおもう = 'I think I'll go')."
+  },
+  "grammarRefs": [
+    "gr-volitional"
+  ],
+  "vocabRefs": [],
+  "quizzes": [
+    {
+      "id": "q-gvo-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Volitivo di たべる?",
+        "en": "Volitional of たべる?"
+      },
+      "options": [
+        {
+          "it": "たべよう",
+          "en": "たべよう"
+        },
+        {
+          "it": "たべる",
+          "en": "たべる"
+        },
+        {
+          "it": "たべた",
+          "en": "たべた"
+        },
+        {
+          "it": "たべられる",
+          "en": "たべられる"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gvo-mc-2",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Il volitivo è la forma piana di...",
+        "en": "The volitional is the plain form of..."
+      },
+      "options": [
+        {
+          "it": "-ましょう",
+          "en": "-ましょう"
+        },
+        {
+          "it": "-ます",
+          "en": "-ます"
+        },
+        {
+          "it": "-ません",
+          "en": "-ません"
+        },
+        {
+          "it": "-ました",
+          "en": "-ました"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gvo-mc-3",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "いく nel volitivo?",
+        "en": "いく in volitional?"
+      },
+      "options": [
+        {
+          "it": "いこう",
+          "en": "いこう"
+        },
+        {
+          "it": "いくう",
+          "en": "いくう"
+        },
+        {
+          "it": "いきよう",
+          "en": "いきよう"
+        },
+        {
+          "it": "いって",
+          "en": "いって"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 15
+    },
+    {
+      "id": "q-gvo-match-1",
+      "type": "matching",
+      "prompt": {
+        "it": "Abbina verbo e volitivo.",
+        "en": "Match verb to volitional."
+      },
+      "pairs": [
+        {
+          "left": "たべる",
+          "right": "たべよう"
+        },
+        {
+          "left": "のむ",
+          "right": "のもう"
+        },
+        {
+          "left": "いく",
+          "right": "いこう"
+        },
+        {
+          "left": "する",
+          "right": "しよう"
+        }
+      ],
+      "xp": 20
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Volitivo per gruppo",
+      "en": "Volitional by group"
+    },
+    {
+      "it": "〜ようと思う",
+      "en": "〜you to omou"
+    }
+  ]
+}

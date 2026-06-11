@@ -6,10 +6,7 @@ interface BookingPreviewProps {
   onRegister: () => void;
 }
 
-/**
- * Static preview of the live-lesson booking flow.
- * Extend this component when real scheduling/payments are wired.
- */
+/** Static preview of the live-lesson booking flow for guests (full flow after signup). */
 export function BookingPreview({ language, onRegister }: BookingPreviewProps) {
   return (
     <div className="booking-preview page-view">
@@ -67,8 +64,12 @@ export function BookingPreview({ language, onRegister }: BookingPreviewProps) {
           <div className="booking-preview-payment glass-panel">
             <CreditCard size={18} />
             <div>
-              <strong>{language === 'en' ? 'Payment (preview)' : 'Pagamento (anteprima)'}</strong>
-              <p>{language === 'en' ? 'Single lesson or subscription — coming soon.' : 'Lezione singola o abbonamento — in arrivo.'}</p>
+              <strong>{language === 'en' ? 'Plans' : 'Piani'}</strong>
+              <p>
+                {language === 'en'
+                  ? 'Free intro call with trial · 2 lessons/month on Premium · extra lessons via Stripe checkout.'
+                  : 'Chiamata intro gratuita con trial · 2 lezioni/mese con Premium · lezioni extra via checkout Stripe.'}
+              </p>
             </div>
           </div>
 

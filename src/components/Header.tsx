@@ -51,6 +51,7 @@ interface HeaderProps {
   onRegister?: () => void;
   onLogin?: () => void;
   onOpenOnboarding?: () => void;
+  onMarketingConsentChange?: (consent: boolean) => void | Promise<void>;
 }
 
 function NavButton({
@@ -92,6 +93,7 @@ export function Header({
   onRegister,
   onLogin,
   onOpenOnboarding,
+  onMarketingConsentChange,
 }: HeaderProps) {
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const hasMobileNav = variant === 'app' || variant === 'guest';
@@ -260,6 +262,7 @@ export function Header({
                 onNavigate={navigate}
                 onLogout={onLogout}
                 onOpenOnboarding={onOpenOnboarding}
+                onMarketingConsentChange={onMarketingConsentChange}
               />
             )}
           </div>

@@ -15,7 +15,7 @@
     "curriculum:check": "node content/curriculum/hydrate.mjs --check",
     "curriculum:build": "node content/curriculum/hydrate.mjs",
     "curriculum:insert": "node content/curriculum/insert-units.mjs",
-    "kanjivg:bundle": "node scripts/build-kanjivg-bundle.mjs",
+    "kanjivg:bundle": "node scripts/build-kanjivg-bundle.mjs --fetch",
     "lint": "eslint .",
     "preview": "vite preview",
     "check:env": "node scripts/check-firebase-env.mjs",
@@ -25,6 +25,9 @@
     "functions:deploy": "npm run build --prefix functions && firebase deploy --only functions",
     "functions:allow-public": "npm run allow-public --prefix functions",
     "functions:allow-public:gcloud": "npm run allow-public:gcloud --prefix functions",
+    "check:stripe": "node scripts/check-stripe-setup.mjs",
+    "check:email": "node scripts/check-email-setup.mjs",
+    "pretest": "npm run functions:build",
     "test": "node --test tests/**/*.test.mjs",
     "prepare": "husky"
   },

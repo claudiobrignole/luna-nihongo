@@ -1,0 +1,197 @@
+{
+  "id": "writing-kanji-n4-3",
+  "level": 8,
+  "order": 7,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · tracciare i kanji N4 (3)",
+    "en": "Writing · tracing N4 kanji (3)"
+  },
+  "description": {
+    "it": "Traccia i dieci kanji di movimento e azione del Livello 8: 教習走歩止動働帰買売. Caratteri con più tratti: segui la guida e prendi il ritmo. Osserva come 働 (lavorare) costruisca su 動 (muoversi) + 人.",
+    "en": "Trace the ten movement-and-action kanji of Level 8: 教習走歩止動働帰買売. Characters with more strokes: follow the guide and find the rhythm. Notice how 働 (work) builds on 動 (move) + 人."
+  },
+  "kanjiRefs": [
+    "kanji-oshieru",
+    "kanji-narau",
+    "kanji-hashiru",
+    "kanji-aruku",
+    "kanji-tomaru",
+    "kanji-ugoku",
+    "kanji-hataraku-k",
+    "kanji-kaeru-k",
+    "kanji-kau-k",
+    "kanji-uru"
+  ],
+  "prerequisites": [
+    "kanji-n4-verbs-2"
+  ],
+  "canDo": [
+    {
+      "id": "cando-writing-kanji-n4-3",
+      "level": "A2",
+      "statement": {
+        "it": "So scrivere a mano questi kanji rispettando l'ordine dei tratti.",
+        "en": "I can hand-write these kanji with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-wk4-3-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 教 (insegnare) seguendo l'ordine dei tratti.",
+        "en": "Trace 教 (teach) following the stroke order."
+      },
+      "targetItemId": "kanji-oshieru",
+      "japanese": "教",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 習 (imparare / esercitarsi) seguendo l'ordine dei tratti.",
+        "en": "Trace 習 (learn / practice) following the stroke order."
+      },
+      "targetItemId": "kanji-narau",
+      "japanese": "習",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 走 (correre) seguendo l'ordine dei tratti.",
+        "en": "Trace 走 (run) following the stroke order."
+      },
+      "targetItemId": "kanji-hashiru",
+      "japanese": "走",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 歩 (camminare) seguendo l'ordine dei tratti.",
+        "en": "Trace 歩 (walk) following the stroke order."
+      },
+      "targetItemId": "kanji-aruku",
+      "japanese": "歩",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 止 (fermarsi) seguendo l'ordine dei tratti.",
+        "en": "Trace 止 (stop) following the stroke order."
+      },
+      "targetItemId": "kanji-tomaru",
+      "japanese": "止",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-6",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 動 (muoversi) seguendo l'ordine dei tratti.",
+        "en": "Trace 動 (move) following the stroke order."
+      },
+      "targetItemId": "kanji-ugoku",
+      "japanese": "動",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-7",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 働 (lavorare) seguendo l'ordine dei tratti.",
+        "en": "Trace 働 (work) following the stroke order."
+      },
+      "targetItemId": "kanji-hataraku-k",
+      "japanese": "働",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-8",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 帰 (tornare) seguendo l'ordine dei tratti.",
+        "en": "Trace 帰 (return) following the stroke order."
+      },
+      "targetItemId": "kanji-kaeru-k",
+      "japanese": "帰",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-9",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 買 (comprare) seguendo l'ordine dei tratti.",
+        "en": "Trace 買 (buy) following the stroke order."
+      },
+      "targetItemId": "kanji-kau-k",
+      "japanese": "買",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-stroke-10",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia 売 (vendere) seguendo l'ordine dei tratti.",
+        "en": "Trace 売 (sell) following the stroke order."
+      },
+      "targetItemId": "kanji-uru",
+      "japanese": "売",
+      "enforceOrder": true,
+      "xp": 20
+    },
+    {
+      "id": "q-wk4-3-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciare i kanji aiuta a...",
+        "en": "Tracing kanji helps to..."
+      },
+      "options": [
+        {
+          "it": "memorizzarli e scriverli a mano",
+          "en": "memorizzarli e scriverli a mano"
+        },
+        {
+          "it": "leggere più in fretta",
+          "en": "leggere più in fretta"
+        },
+        {
+          "it": "parlare meglio",
+          "en": "parlare meglio"
+        },
+        {
+          "it": "contare i tratti senza scopo",
+          "en": "contare i tratti senza scopo"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine tratti kanji",
+      "en": "Kanji stroke order"
+    }
+  ]
+}
