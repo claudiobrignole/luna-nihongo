@@ -15,7 +15,19 @@ import type { LunaUser } from '../types/user';
 import { isAdminRole } from '../types/user';
 import { UserMenu } from './UserMenu';
 
-export type TabType = 'home' | 'path' | 'flashcards' | 'teacher' | 'booking' | 'dashboard' | 'tutor' | 'admin' | 'auth';
+export type TabType =
+  | 'home'
+  | 'path'
+  | 'flashcards'
+  | 'teacher'
+  | 'booking'
+  | 'dashboard'
+  | 'tutor'
+  | 'admin'
+  | 'auth'
+  | 'privacy'
+  | 'cookies'
+  | 'terms';
 export type LanguageType = 'en' | 'it';
 
 interface NavItem {
@@ -128,7 +140,7 @@ export function Header({
               aria-label="Luna Nihongo"
               onClick={() => navigate('home')}
             >
-              <div className="logo-circle">月</div>
+              <div className="logo-circle" lang="ja">るな</div>
               <div className="logo-text logo-text-desktop">
                 <span className="logo-text-primary">Luna</span>
                 <span className="logo-text-secondary">Nihongo</span>
@@ -229,7 +241,7 @@ export function Header({
       <header className="main-header">
         <div className="header-content header-content-app">
           <div className="header-brand">
-            <div className="logo-circle">月</div>
+            <div className="logo-circle" lang="ja">るな</div>
             <div className="logo-text logo-text-desktop">
               <span className="logo-text-primary">Luna</span>
               <span className="logo-text-secondary">Nihongo</span>
