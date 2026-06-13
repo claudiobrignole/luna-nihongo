@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Compass, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
 import { isAdminRole, roleLabel } from '../types/user';
-
-type TabType = 'home' | 'path' | 'flashcards' | 'teacher' | 'booking' | 'dashboard' | 'tutor' | 'admin' | 'auth';
-type LanguageType = 'en' | 'it';
+import type { TabType, LanguageType } from './Header';
 
 interface UserMenuProps {
   currentUser: LunaUser;
