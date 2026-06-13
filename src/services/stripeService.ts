@@ -70,12 +70,25 @@ export async function startExtraLessonCheckout(input: {
   level: string;
   notes?: string;
   language: 'en' | 'it';
+  discountCouponId?: string;
 }): Promise<string> {
   const fn = httpsCallable<typeof input, { url: string }>(
     getFunctionsInstance(),
     'createExtraLessonCheckout',
   );
   const result = await fn(input);
+  if (!result.data.url) {
+    throw new Error('Checkout URL missing');
+  }
+  return result.data.url;
+}
+
+export async function startGiftLessonCheckout(language: 'en' | 'it'): Promise<string> {
+  const fn = httpsCallable<{ language: 'en' | 'it' }, { url: string }>(
+    getFunctionsInstance(),
+    'createGiftLessonCheckout',
+  );
+  const result = await fn({ language });
   if (!result.data.url) {
     throw new Error('Checkout URL missing');
   }

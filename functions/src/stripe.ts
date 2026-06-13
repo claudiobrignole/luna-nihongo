@@ -2,6 +2,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { defineSecret, defineString } from 'firebase-functions/params';
 import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https';
 import Stripe from 'stripe';
+import { assertPercentOffCouponRedeemable, issueGiftCouponForPurchase, markCouponDiscountUsed } from './coupons';
 import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
 import { bookSlotForUser, notifyBookingConfirmed } from './scheduling';
 
@@ -10,6 +11,9 @@ const stripeWebhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
 const resendApiKey = defineSecret('RESEND_API_KEY');
 const stripePriceId = defineString('STRIPE_PRICE_ID', { default: '' });
 const stripeExtraLessonPriceId = defineString('STRIPE_EXTRA_LESSON_PRICE_ID', {
+  default: 'price_1TfeSxQaxCx8KSVpKs4U0W4M',
+});
+const stripeGiftLessonPriceId = defineString('STRIPE_GIFT_LESSON_PRICE_ID', {
   default: 'price_1TfeSxQaxCx8KSVpKs4U0W4M',
 });
 
@@ -113,6 +117,8 @@ export const createExtraLessonCheckout = onCall(
     const email = typeof request.data?.email === 'string' ? request.data.email.trim() : '';
     const level = typeof request.data?.level === 'string' ? request.data.level : 'beginner';
     const notes = typeof request.data?.notes === 'string' ? request.data.notes.trim() : '';
+    const discountCouponId =
+      typeof request.data?.discountCouponId === 'string' ? request.data.discountCouponId.trim() : '';
 
     if (!slotId || !name || !email) {
       throw new HttpsError('invalid-argument', 'slotId, name and email are required.');
@@ -129,22 +135,40 @@ export const createExtraLessonCheckout = onCall(
     const snap = await ref.get();
     const user = snap.data() ?? {};
 
-    if (user.tier !== 'premium') {
+    if (!discountCouponId && user.tier !== 'premium') {
       throw new HttpsError('failed-precondition', 'Active subscription required for extra lessons.');
     }
 
-    const customerId = user.stripeCustomerId as string | undefined;
+    let customerId = user.stripeCustomerId as string | undefined;
     if (!customerId) {
-      throw new HttpsError('failed-precondition', 'No Stripe customer on file.');
+      const customer = await stripe.customers.create({
+        email,
+        metadata: { firebaseUid: uid },
+      });
+      customerId = customer.id;
+      await ref.set({ stripeCustomerId: customerId, updatedAt: new Date().toISOString() }, { merge: true });
     }
 
     const origin = appOrigin();
     const language = request.data?.language === 'en' ? 'en' : 'it';
 
+    let discounts: Stripe.Checkout.SessionCreateParams.Discount[] | undefined;
+    if (discountCouponId) {
+      const coupon = await assertPercentOffCouponRedeemable(discountCouponId, uid);
+      const stripeCoupon = await stripe.coupons.create({
+        percent_off: coupon.percentOff ?? 20,
+        duration: 'once',
+        max_redemptions: 1,
+        metadata: { lunaCouponId: discountCouponId },
+      });
+      discounts = [{ coupon: stripeCoupon.id }];
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer: customerId,
       line_items: [{ price: priceId, quantity: 1 }],
+      discounts,
       success_url: `${origin}/?checkout=extra&lang=${language}&slotId=${encodeURIComponent(slotId)}`,
       cancel_url: `${origin}/?checkout=cancel&lang=${language}`,
       metadata: {
@@ -155,6 +179,63 @@ export const createExtraLessonCheckout = onCall(
         email,
         level,
         notes,
+        discountCouponId,
+      },
+    });
+
+    if (!session.url) {
+      throw new HttpsError('internal', 'Could not create checkout session.');
+    }
+
+    return { url: session.url };
+  },
+);
+
+export const createGiftLessonCheckout = onCall(
+  {
+    region: 'europe-west1',
+    secrets: [stripeSecretKey],
+    invoker: 'public',
+  },
+  async (request) => {
+    if (!request.auth?.uid) {
+      throw new HttpsError('unauthenticated', 'Login required.');
+    }
+
+    const priceId = stripeGiftLessonPriceId.value();
+    if (!priceId) {
+      throw new HttpsError('failed-precondition', 'STRIPE_GIFT_LESSON_PRICE_ID is not configured.');
+    }
+
+    const uid = request.auth.uid;
+    const email = request.auth.token.email ?? '';
+    const stripe = getStripe(stripeSecretKey.value());
+    const ref = await userRef(uid);
+    const snap = await ref.get();
+    const user = snap.data() ?? {};
+
+    let customerId = user.stripeCustomerId as string | undefined;
+    if (!customerId) {
+      const customer = await stripe.customers.create({
+        email,
+        metadata: { firebaseUid: uid },
+      });
+      customerId = customer.id;
+      await ref.set({ stripeCustomerId: customerId, updatedAt: new Date().toISOString() }, { merge: true });
+    }
+
+    const origin = appOrigin();
+    const language = request.data?.language === 'en' ? 'en' : 'it';
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      customer: customerId,
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `${origin}/?checkout=gift&lang=${language}`,
+      cancel_url: `${origin}/?checkout=cancel&lang=${language}`,
+      metadata: {
+        firebaseUid: uid,
+        checkoutType: 'gift_lesson',
       },
     });
 
@@ -221,6 +302,10 @@ async function setPremiumFromSubscription(
         premiumEndedAt: null,
         ...periods,
         includedLessonsUsed: periodRenewed ? 0 : (user.includedLessonsUsed ?? 0),
+        graceCancellationsIncludedUsed: periodRenewed ? 0 : (user.graceCancellationsIncludedUsed ?? 0),
+        graceCancellationsExtraUsed: periodRenewed ? 0 : (user.graceCancellationsExtraUsed ?? 0),
+        extraRebookCredit: periodRenewed ? 0 : (user.extraRebookCredit ?? 0),
+        replacementLessonCredit: periodRenewed ? 0 : (user.replacementLessonCredit ?? 0),
         liveMinutesUsed: periodRenewed ? 0 : (user.liveMinutesUsed ?? 0),
         liveMinutesWindowStart: periodRenewed ? null : (user.liveMinutesWindowStart ?? null),
         ...(isFirstPremium ? { premiumWelcomeSentAt: now } : {}),
@@ -308,6 +393,7 @@ export const stripeWebhook = onRequest(
 
           if (session.mode === 'payment' && session.metadata?.checkoutType === 'extra_lesson') {
             const slotId = session.metadata.slotId ?? '';
+            const discountCouponId = session.metadata.discountCouponId ?? '';
             const booking = await bookSlotForUser({
               uid,
               slotId,
@@ -317,8 +403,39 @@ export const stripeWebhook = onRequest(
               notes: session.metadata.notes ?? '',
               plan: 'extra',
             });
+            if (discountCouponId) {
+              await markCouponDiscountUsed(discountCouponId);
+            }
             const userSnap = await (await userRef(uid)).get();
             notifyBookingConfirmed(uid, booking, resendApiKey.value(), userSnap.data() ?? {});
+            break;
+          }
+
+          if (session.mode === 'payment' && session.metadata?.checkoutType === 'gift_lesson') {
+            const { couponId, code, created } = await issueGiftCouponForPurchase({
+              purchasedByUid: uid,
+              stripeSessionId: session.id,
+            });
+            if (created && code) {
+              const userSnap = await (await userRef(uid)).get();
+              const user = userSnap.data() ?? {};
+              const buyerEmail = String(user.email ?? session.customer_details?.email ?? '');
+              const buyerName = String(user.username ?? '');
+              if (buyerEmail) {
+                queueTransactionalEmail({
+                  apiKey: resendApiKey.value(),
+                  to: buyerEmail,
+                  language: resolveUserLanguage(user),
+                  type: 'gift_coupon_purchased',
+                  data: {
+                    name: buyerName,
+                    couponCode: code,
+                    bookingUrl: `${appOrigin()}/?book=regular`,
+                  },
+                });
+              }
+            }
+            console.log('Gift lesson coupon issued', { uid, couponId, created });
           }
           break;
         }

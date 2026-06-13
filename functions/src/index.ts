@@ -329,12 +329,23 @@ export const purgeExpiredLiveHistory = onSchedule(
   },
 );
 
-export { createStripeCheckout, createExtraLessonCheckout, createStripePortal, stripeWebhook } from './stripe';
+export {
+  createStripeCheckout,
+  createExtraLessonCheckout,
+  createGiftLessonCheckout,
+  createStripePortal,
+  stripeWebhook,
+} from './stripe';
 export {
   startFreeTrial,
   bookAvailabilitySlot,
   cancelBooking,
   rescheduleBooking,
+  redeemCoupon,
+  checkGraceNoSlotsCoupon,
 } from './scheduling';
+export { adminCancelBooking, adminDeactivateSlot } from './adminBooking';
+export { scanGraceNoSlotsCoupons } from './graceNoSlots';
+export { sendLessonReminders } from './lessonReminders';
 export { subscribeNewsletter, syncMarketingConsent } from './sendfox';
 export { adminDeleteUser } from './adminUsers';

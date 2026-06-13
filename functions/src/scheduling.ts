@@ -1,34 +1,29 @@
 import { createHash } from 'crypto';
-import { FieldValue, getFirestore, type Transaction } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore, type DocumentReference, type Transaction } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError, type CallableRequest } from 'firebase-functions/v2/https';
 import { hasPremiumAccess, hasActiveSubscription } from './access';
+import {
+  assertCouponLessonRedeemable,
+  markCouponLessonUsed,
+  redeemCouponForUser,
+} from './coupons';
 import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
-import { isAtLeast24HoursBeforeSlot } from './schedulingRules';
+import { maybeIssueGraceNoSlotsCoupon } from './graceNoSlots';
+import { parseSlotStartMs } from './schedulingRules';
+import {
+  releaseBookingForUser,
+  releaseBookingInTransaction,
+} from './schedulingRelease';
+import type { BookingPlan, BookingResult } from './schedulingTypes';
+
+export type { BookingPlan, BookingResult } from './schedulingTypes';
 
 const resendApiKey = defineSecret('RESEND_API_KEY');
 
 const TRIAL_DAYS = 7;
 const INCLUDED_LESSONS_PER_CYCLE = 2;
 const APP_ORIGIN = 'https://lunanihongo.com';
-
-export type BookingPlan = 'trial_intro' | 'included' | 'extra';
-
-export interface BookingResult {
-  bookingId: string;
-  name: string;
-  email: string;
-  level: string;
-  notes: string;
-  date: string;
-  time: string;
-  plan: BookingPlan;
-  slotId: string;
-  slotType: 'intro' | 'regular';
-  meetLink: string;
-  price: string;
-  timestamp: string;
-}
 
 function addDaysIso(days: number): string {
   const d = new Date();
@@ -67,17 +62,15 @@ function includedLessonsRemaining(user: Record<string, unknown>, now = Date.now(
 
 function planPriceLabel(plan: BookingPlan): string {
   if (plan === 'trial_intro') return 'Gratis';
-  if (plan === 'included') return 'Inclusa';
+  if (plan === 'included' || plan === 'replacement') return 'Inclusa';
+  if (plan === 'extra_rebook') return 'Extra (riprenotazione)';
+  if (plan === 'coupon') return 'Coupon';
   return '49 EUR/CHF';
 }
 
-function assertCancellableAtLeast24h(date: string, startTime: string): void {
-  if (!isAtLeast24HoursBeforeSlot(date, startTime)) {
-    throw new HttpsError(
-      'failed-precondition',
-      'Lessons can only be cancelled or rescheduled at least 24 hours before the session.',
-    );
-  }
+function buildSlotStartAt(date: string, startTime: string): string | null {
+  const startMs = parseSlotStartMs(date, String(startTime).split('–')[0]?.trim() ?? startTime);
+  return startMs ? new Date(startMs).toISOString() : null;
 }
 
 export function notifyBookingConfirmed(
@@ -110,6 +103,7 @@ export interface BookSlotInput {
   level: string;
   notes: string;
   plan: BookingPlan;
+  couponId?: string;
 }
 
 async function bookSlotInTransaction(
@@ -119,7 +113,7 @@ async function bookSlotInTransaction(
   bookingId: string,
   timestamp: string,
 ): Promise<BookingResult> {
-  const { slotId, name, email, level, notes, plan } = input;
+  const { slotId, name, email, level, notes, plan, couponId } = input;
   const db = getFirestore();
   const userRef = db.collection('users').doc(uid);
   const slotRef = db.collection('availabilitySlots').doc(slotId);
@@ -181,13 +175,45 @@ async function bookSlotInTransaction(
         throw new HttpsError('permission-denied', 'Active subscription required for extra lessons.');
       }
     }
+    if (plan === 'extra_rebook') {
+      const credit = typeof user.extraRebookCredit === 'number' ? user.extraRebookCredit : 0;
+      if (credit <= 0) {
+        throw new HttpsError(
+          'failed-precondition',
+          'No extra lesson rebook credit available.',
+        );
+      }
+    }
+    if (plan === 'coupon') {
+      if (!couponId) {
+        throw new HttpsError('invalid-argument', 'couponId is required for coupon bookings.');
+      }
+    }
+    if (plan === 'replacement') {
+      const replacementCredit =
+        typeof user.replacementLessonCredit === 'number' ? user.replacementLessonCredit : 0;
+      if (replacementCredit <= 0) {
+        throw new HttpsError(
+          'failed-precondition',
+          'No replacement lesson credit available.',
+        );
+      }
+    }
   }
 
   const videoRoomId = buildVideoRoomId(slotId);
   const meetLink = `${APP_ORIGIN}/call/${videoRoomId}`;
   const date = String(slot.date ?? '');
-  const time = `${slot.startTime ?? ''} – ${slot.endTime ?? ''}`;
+  const slotStartTime = String(slot.startTime ?? '');
+  const time = `${slotStartTime} – ${slot.endTime ?? ''}`;
   const resolvedPlan: BookingPlan = slotType === 'intro' ? 'trial_intro' : plan;
+  const slotStartAt = buildSlotStartAt(date, slotStartTime);
+
+  let couponRefToUse: DocumentReference | null = null;
+  if (plan === 'coupon' && couponId) {
+    const checked = await assertCouponLessonRedeemable(tx, couponId, uid);
+    couponRefToUse = checked.couponRef;
+  }
 
   tx.update(slotRef, {
     participantCount: participantCount + 1,
@@ -208,6 +234,8 @@ async function bookSlotInTransaction(
     meetLink,
     price: planPriceLabel(resolvedPlan),
     timestamp,
+    slotStartAt,
+    couponId: plan === 'coupon' ? couponId ?? null : null,
   };
 
   tx.set(userRef.collection('bookings').doc(bookingId), bookingPayload);
@@ -217,7 +245,19 @@ async function bookSlotInTransaction(
   if (slotType === 'intro') {
     userUpdates.introCallBookedAt = timestamp;
   } else if (resolvedPlan === 'included') {
-    userUpdates.includedLessonsUsed = (typeof user.includedLessonsUsed === 'number' ? user.includedLessonsUsed : 0) + 1;
+    userUpdates.includedLessonsUsed =
+      (typeof user.includedLessonsUsed === 'number' ? user.includedLessonsUsed : 0) + 1;
+  } else if (resolvedPlan === 'extra_rebook') {
+    const credit = typeof user.extraRebookCredit === 'number' ? user.extraRebookCredit : 0;
+    userUpdates.extraRebookCredit = Math.max(0, credit - 1);
+  } else if (resolvedPlan === 'replacement') {
+    const credit =
+      typeof user.replacementLessonCredit === 'number' ? user.replacementLessonCredit : 0;
+    userUpdates.replacementLessonCredit = Math.max(0, credit - 1);
+  }
+
+  if (resolvedPlan === 'coupon' && couponRefToUse) {
+    markCouponLessonUsed(tx, couponRefToUse);
   }
 
   tx.update(userRef, userUpdates);
@@ -237,66 +277,6 @@ export async function bookSlotForUser(input: BookSlotInput): Promise<BookingResu
   return db.runTransaction(async (tx) =>
     bookSlotInTransaction(tx, uid, input, bookingId, timestamp),
   );
-}
-
-async function releaseBookingInTransaction(
-  tx: Transaction,
-  uid: string,
-  bookingId: string,
-  booking: Record<string, unknown>,
-): Promise<{ name: string; email: string; date: string; time: string; plan: BookingPlan }> {
-  const db = getFirestore();
-  const userRef = db.collection('users').doc(uid);
-  const slotId = String(booking.slotId ?? '');
-  const slotRef = db.collection('availabilitySlots').doc(slotId);
-  const bookingRef = userRef.collection('bookings').doc(bookingId);
-
-  const [userSnap, slotSnap] = await Promise.all([tx.get(userRef), tx.get(slotRef)]);
-  if (!userSnap.exists) {
-    throw new HttpsError('not-found', 'User profile not found.');
-  }
-  if (!slotSnap.exists) {
-    throw new HttpsError('not-found', 'Slot not found.');
-  }
-
-  const user = userSnap.data() ?? {};
-  const slot = slotSnap.data() ?? {};
-  const slotDate = String(slot.date ?? booking.date ?? '');
-  const slotStart = String(slot.startTime ?? '');
-  assertCancellableAtLeast24h(slotDate, slotStart);
-
-  const participantIds: string[] = Array.isArray(slot.participantIds) ? slot.participantIds : [];
-  const participantCount = typeof slot.participantCount === 'number'
-    ? slot.participantCount
-    : participantIds.length;
-
-  tx.update(slotRef, {
-    participantCount: Math.max(0, participantCount - 1),
-    participantIds: FieldValue.arrayRemove(uid),
-    updatedAt: new Date().toISOString(),
-  });
-
-  const plan = (booking.plan as BookingPlan) ?? 'included';
-  const slotType = booking.slotType === 'intro' ? 'intro' : 'regular';
-  const userUpdates: Record<string, unknown> = { updatedAt: new Date().toISOString() };
-
-  if (slotType === 'intro') {
-    userUpdates.introCallBookedAt = null;
-  } else if (plan === 'included') {
-    const used = typeof user.includedLessonsUsed === 'number' ? user.includedLessonsUsed : 0;
-    userUpdates.includedLessonsUsed = Math.max(0, used - 1);
-  }
-
-  tx.update(userRef, userUpdates);
-  tx.delete(bookingRef);
-
-  return {
-    name: String(booking.name ?? user.username ?? ''),
-    email: String(booking.email ?? user.email ?? ''),
-    date: String(booking.date ?? slotDate),
-    time: String(booking.time ?? ''),
-    plan,
-  };
 }
 
 export const cancelBooking = onCall(
@@ -329,24 +309,37 @@ export const cancelBooking = onCall(
     const userSnap = await userRef.get();
     const user = userSnap.data() ?? {};
 
-    const released = await db.runTransaction(async (tx) =>
-      releaseBookingInTransaction(tx, uid, bookingId, booking),
-    );
+    const released = await releaseBookingForUser(uid, bookingId, booking, 'student_cancel');
+
+    if (released.cancelOutcome === 'grace' && booking.slotType !== 'intro') {
+      const freshUser = (await userRef.get()).data() ?? user;
+      await maybeIssueGraceNoSlotsCoupon({
+        uid,
+        user: freshUser,
+        resendApiKey: resendApiKey.value(),
+      });
+    }
+
+    const emailType =
+      released.cancelOutcome === 'forfeit'
+        ? 'booking_cancelled_forfeit'
+        : 'booking_cancelled_grace';
 
     queueTransactionalEmail({
       apiKey: resendApiKey.value(),
       to: released.email,
       language: resolveUserLanguage(user),
-      type: 'booking_cancelled',
+      type: emailType,
       data: {
         name: released.name,
         date: released.date,
         time: released.time,
         meetLink: String(booking.meetLink ?? ''),
+        plan: released.plan,
       },
     });
 
-    return { ok: true };
+    return { ok: true, outcome: released.cancelOutcome ?? 'grace' };
   },
 );
 
@@ -386,10 +379,17 @@ export const rescheduleBooking = onCall(
     const oldTime = String(oldBooking.time ?? '');
     const plan = (oldBooking.plan as BookingPlan) ?? 'included';
 
-    if (plan === 'extra') {
+    if (plan === 'extra' || plan === 'extra_rebook') {
       throw new HttpsError(
         'failed-precondition',
         'Extra lessons cannot be rescheduled online. Cancel this lesson and book a new slot with payment.',
+      );
+    }
+
+    if (plan === 'coupon' || plan === 'replacement') {
+      throw new HttpsError(
+        'failed-precondition',
+        'Coupon and replacement lessons cannot be rescheduled online. Cancel and book again.',
       );
     }
 
@@ -397,7 +397,13 @@ export const rescheduleBooking = onCall(
     const newBookingId = `book-${Date.now()}`;
 
     const { newBooking, released } = await db.runTransaction(async (tx) => {
-      const releasedBooking = await releaseBookingInTransaction(tx, uid, bookingId, oldBooking);
+      const releasedBooking = await releaseBookingInTransaction(
+        tx,
+        uid,
+        bookingId,
+        oldBooking,
+        'reschedule',
+      );
       const booked = await bookSlotInTransaction(
         tx,
         uid,
@@ -544,16 +550,23 @@ export const bookAvailabilitySlot = onCall(
     const level = typeof request.data?.level === 'string' ? request.data.level : 'beginner';
     const notes = typeof request.data?.notes === 'string' ? request.data.notes.trim() : '';
     const plan = request.data?.plan;
+    const couponId =
+      typeof request.data?.couponId === 'string' ? request.data.couponId.trim() : undefined;
 
     if (!slotId || !name || !email) {
       throw new HttpsError('invalid-argument', 'slotId, name and email are required.');
     }
 
-    if (plan !== 'trial_intro' && plan !== 'included') {
+    const allowedPlans = ['trial_intro', 'included', 'extra_rebook', 'coupon', 'replacement'] as const;
+    if (!allowedPlans.includes(plan)) {
       throw new HttpsError(
         'invalid-argument',
-        'Only trial_intro or included plans can be booked directly. Extra lessons require payment.',
+        'Only trial_intro, included, extra_rebook, or coupon plans can be booked directly. Extra lessons require payment.',
       );
+    }
+
+    if (plan === 'coupon' && !couponId) {
+      throw new HttpsError('invalid-argument', 'couponId is required for coupon bookings.');
     }
 
     const uid = request.auth.uid;
@@ -568,10 +581,55 @@ export const bookAvailabilitySlot = onCall(
       level,
       notes,
       plan,
+      couponId,
     });
 
     notifyBookingConfirmed(uid, result, resendApiKey.value(), user);
 
     return result;
+  },
+);
+
+export const redeemCoupon = onCall(
+  {
+    region: 'europe-west1',
+    invoker: 'public',
+  },
+  async (request) => {
+    if (!request.auth?.uid) {
+      throw new HttpsError('unauthenticated', 'Login required.');
+    }
+
+    const code = typeof request.data?.code === 'string' ? request.data.code.trim() : '';
+    if (!code) {
+      throw new HttpsError('invalid-argument', 'code is required.');
+    }
+
+    return redeemCouponForUser(request.auth.uid, code);
+  },
+);
+
+export const checkGraceNoSlotsCoupon = onCall(
+  {
+    region: 'europe-west1',
+    secrets: [resendApiKey],
+    invoker: 'public',
+  },
+  async (request) => {
+    if (!request.auth?.uid) {
+      throw new HttpsError('unauthenticated', 'Login required.');
+    }
+
+    const uid = request.auth.uid;
+    const userSnap = await getFirestore().collection('users').doc(uid).get();
+    if (!userSnap.exists) {
+      throw new HttpsError('not-found', 'User profile not found.');
+    }
+
+    return maybeIssueGraceNoSlotsCoupon({
+      uid,
+      user: userSnap.data() ?? {},
+      resendApiKey: resendApiKey.value(),
+    });
   },
 );

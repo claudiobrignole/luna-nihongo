@@ -8,6 +8,7 @@ import {
   loadAllAvailabilitySlotsAdmin,
   toggleAvailabilitySlot,
 } from '../services/availabilityService';
+import { adminDeactivateSlotRemote } from '../services/adminBookingService';
 
 interface AdminAvailabilityPanelProps {
   language: 'en' | 'it';
@@ -134,6 +135,26 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
                   <td style={{ padding: '0.5rem' }}>{slot.slotType === 'intro' ? 'Intro' : 'Regular'}</td>
                   <td style={{ padding: '0.5rem' }}>{slot.participantCount}/{slot.maxParticipants}</td>
                   <td style={{ padding: '0.5rem', display: 'flex', gap: '0.35rem' }}>
+                    {slot.participantCount > 0 && (
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        disabled={busyId === slot.id}
+                        title={language === 'en' ? 'Cancel all bookings + compensate' : 'Annulla prenotazioni + compensa'}
+                        onClick={() => {
+                          const msg = language === 'en'
+                            ? 'Cancel all bookings on this slot, email students, and issue compensation coupons?'
+                            : 'Annullare tutte le prenotazioni su questo slot, avvisare gli studenti e emettere coupon di compensazione?';
+                          if (!window.confirm(msg)) return;
+                          setBusyId(slot.id);
+                          void adminDeactivateSlotRemote({ slotId: slot.id })
+                            .then(refresh)
+                            .finally(() => setBusyId(null));
+                        }}
+                      >
+                        {language === 'en' ? 'Cancel all' : 'Annulla tutti'}
+                      </button>
+                    )}
                     <button
                       type="button"
                       className="btn btn-secondary"

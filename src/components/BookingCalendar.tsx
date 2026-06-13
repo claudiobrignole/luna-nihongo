@@ -9,14 +9,20 @@ import {
   EXTRA_LESSON_PRICE_LABEL,
   hasActiveSubscription,
   includedLessonsRemaining,
+  extraRebookCreditRemaining,
+  replacementLessonCreditRemaining,
   INCLUDED_LESSONS_PER_CYCLE,
 } from '../types/user';
+import type { UserCouponSummary } from '../types/coupon';
 import { formatSlotLabel, slotSeatsLeft } from '../types/availability';
 import { loadAvailabilitySlots } from '../services/availabilityService';
 import { bookAvailabilitySlot } from '../services/trialService';
 import { formatEmailCallableError, rescheduleBookingRemote } from '../services/emailService';
+import { checkGraceNoSlotsCoupon, loadUserCoupons } from '../services/couponService';
 import { startExtraLessonCheckout } from '../services/stripeService';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+
+type LessonPlan = 'included' | 'extra' | 'extra_rebook' | 'coupon' | 'replacement';
 
 export type BookingMode = 'intro' | 'regular';
 
@@ -45,6 +51,23 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const slotType = mode === 'intro' ? 'intro' : 'regular';
   const subscribed = hasActiveSubscription(currentUser);
   const includedLeft = includedLessonsRemaining(currentUser);
+  const extraRebookLeft = extraRebookCreditRemaining(currentUser);
+  const replacementLeft = replacementLessonCreditRemaining(currentUser);
+  const [userCoupons, setUserCoupons] = useState<UserCouponSummary[]>([]);
+  const freeLessonCoupons = useMemo(
+    () => userCoupons.filter((coupon) => coupon.type === 'free_lesson'),
+    [userCoupons],
+  );
+  const discountCoupons = useMemo(
+    () => userCoupons.filter((coupon) => coupon.type === 'percent_off_extra'),
+    [userCoupons],
+  );
+  const canBookWithoutSub =
+    subscribed
+    || extraRebookLeft > 0
+    || replacementLeft > 0
+    || freeLessonCoupons.length > 0
+    || isReschedule;
 
   const [slots, setSlots] = useState<AvailabilitySlot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(true);
@@ -55,9 +78,19 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const [email, setEmail] = useState(userEmail);
   const [level, setLevel] = useState('beginner');
   const [notes, setNotes] = useState('');
-  const [lessonPlan, setLessonPlan] = useState<'included' | 'extra'>(
-    defaultPlan === 'included' || includedLeft > 0 ? 'included' : 'extra',
+  const [lessonPlan, setLessonPlan] = useState<LessonPlan>(
+    freeLessonCoupons.length > 0 && !subscribed
+      ? 'coupon'
+      : replacementLeft > 0 && !subscribed
+        ? 'replacement'
+        : extraRebookLeft > 0 && includedLeft === 0
+          ? 'extra_rebook'
+          : defaultPlan === 'included' || includedLeft > 0
+            ? 'included'
+            : 'extra',
   );
+  const [selectedCouponId, setSelectedCouponId] = useState('');
+  const [selectedDiscountCouponId, setSelectedDiscountCouponId] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [bookingCompleted, setBookingCompleted] = useState(false);
   const [meetLink, setMeetLink] = useState('');
@@ -81,12 +114,48 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     void refreshSlots();
   }, [refreshSlots]);
 
+  useEffect(() => {
+    void loadUserCoupons(currentUser.id)
+      .then(setUserCoupons)
+      .catch(console.error);
+  }, [currentUser.id]);
+
+  useEffect(() => {
+    if (freeLessonCoupons.length > 0 && !selectedCouponId) {
+      setSelectedCouponId(freeLessonCoupons[0].couponId);
+    }
+    if (discountCoupons.length > 0 && !selectedDiscountCouponId) {
+      setSelectedDiscountCouponId(discountCoupons[0].couponId);
+    }
+  }, [discountCoupons, freeLessonCoupons, selectedCouponId, selectedDiscountCouponId]);
+
   const slotsForDate = useMemo(
     () => (selectedDate ? slots.filter((s) => s.date === selectedDate && slotSeatsLeft(s) > 0) : []),
     [selectedDate, slots],
   );
 
   const datesWithSlots = useMemo(() => new Set(slots.filter((s) => slotSeatsLeft(s) > 0).map((s) => s.date)), [slots]);
+
+  useEffect(() => {
+    if (mode !== 'regular' || datesWithSlots.size > 0) return;
+    if (!includedLeft && !extraRebookLeft && !replacementLeft && freeLessonCoupons.length === 0) return;
+    void checkGraceNoSlotsCoupon()
+      .then((result) => {
+        if (result.issued) {
+          return loadUserCoupons(currentUser.id).then(setUserCoupons);
+        }
+        return undefined;
+      })
+      .catch(console.error);
+  }, [
+    currentUser.id,
+    datesWithSlots.size,
+    extraRebookLeft,
+    freeLessonCoupons.length,
+    includedLeft,
+    mode,
+    replacementLeft,
+  ]);
 
   const daysInMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
   const firstDayIndex = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay();
@@ -95,7 +164,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
     e.preventDefault();
     if (!selectedSlotId || !name || !email) return;
 
-    if (mode === 'regular' && !subscribed) {
+    if (mode === 'regular' && !canBookWithoutSub) {
       setError(
         language === 'en'
           ? 'An active subscription is required to book lessons with Luna.'
@@ -136,8 +205,56 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           level,
           notes,
           language,
+          discountCouponId: selectedDiscountCouponId || undefined,
         });
         window.location.href = url;
+        return;
+      }
+
+      if (lessonPlan === 'coupon') {
+        if (!selectedCouponId) {
+          setError(language === 'en' ? 'Select a lesson coupon.' : 'Seleziona un coupon lezione.');
+          return;
+        }
+        const result = await bookAvailabilitySlot({
+          slotId: selectedSlotId,
+          name,
+          email,
+          level,
+          notes,
+          plan: 'coupon',
+          couponId: selectedCouponId,
+        });
+        setMeetLink(result.meetLink);
+        setBookingCompleted(true);
+        return;
+      }
+
+      if (lessonPlan === 'replacement') {
+        const result = await bookAvailabilitySlot({
+          slotId: selectedSlotId,
+          name,
+          email,
+          level,
+          notes,
+          plan: 'replacement',
+        });
+        setMeetLink(result.meetLink);
+        setBookingCompleted(true);
+        return;
+      }
+
+      if (lessonPlan === 'extra_rebook') {
+        const result = await bookAvailabilitySlot({
+          slotId: selectedSlotId,
+          name,
+          email,
+          level,
+          notes,
+          plan: 'extra_rebook',
+        });
+        setMeetLink(result.meetLink);
+        setBookingCompleted(true);
         return;
       }
 
@@ -168,7 +285,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const formatMonthName = (date: Date) =>
     date.toLocaleDateString(language === 'en' ? 'en-US' : 'it-IT', { month: 'long', year: 'numeric' });
 
-  if (mode === 'regular' && !subscribed && !isReschedule) {
+  if (mode === 'regular' && !canBookWithoutSub && !isReschedule) {
     return (
       <div className="page-view booking-view">
         <div
@@ -386,25 +503,81 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
             <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" style={{ width: '100%', padding: '0.6rem 1rem 0.6rem 2.2rem' }} />
           </div>
 
-          {mode === 'regular' && subscribed && (
-            <select
-              value={lessonPlan}
-              onChange={(e) => setLessonPlan(e.target.value as 'included' | 'extra')}
-              style={{ width: '100%', padding: '0.6rem 1rem' }}
-            >
-              {includedLeft > 0 && (
-                <option value="included">
-                  {language === 'en'
-                    ? `Included lesson (${includedLeft} left this cycle)`
-                    : `Lezione inclusa (${includedLeft} rimaste nel ciclo)`}
-                </option>
+          {mode === 'regular' && canBookWithoutSub && (
+            <>
+              <select
+                value={lessonPlan}
+                onChange={(e) => setLessonPlan(e.target.value as LessonPlan)}
+                style={{ width: '100%', padding: '0.6rem 1rem' }}
+              >
+                {includedLeft > 0 && subscribed && (
+                  <option value="included">
+                    {language === 'en'
+                      ? `Included lesson (${includedLeft} left this cycle)`
+                      : `Lezione inclusa (${includedLeft} rimaste nel ciclo)`}
+                  </option>
+                )}
+                {replacementLeft > 0 && (
+                  <option value="replacement">
+                    {language === 'en'
+                      ? `Replacement lesson (${replacementLeft} credit)`
+                      : `Lezione sostitutiva (${replacementLeft} credito)`}
+                  </option>
+                )}
+                {freeLessonCoupons.length > 0 && (
+                  <option value="coupon">
+                    {language === 'en'
+                      ? `Free lesson coupon (${freeLessonCoupons.length})`
+                      : `Coupon lezione gratuita (${freeLessonCoupons.length})`}
+                  </option>
+                )}
+                {extraRebookLeft > 0 && (
+                  <option value="extra_rebook">
+                    {language === 'en'
+                      ? `Extra rebook (${extraRebookLeft} credit — no payment)`
+                      : `Riprenotazione extra (${extraRebookLeft} credito — senza pagamento)`}
+                  </option>
+                )}
+                {(subscribed || discountCoupons.length > 0) && (
+                  <option value="extra">
+                    {language === 'en'
+                      ? `Extra lesson — pay ${EXTRA_LESSON_PRICE_LABEL}`
+                      : `Lezione extra — paga ${EXTRA_LESSON_PRICE_LABEL}`}
+                  </option>
+                )}
+              </select>
+              {lessonPlan === 'coupon' && freeLessonCoupons.length > 1 && (
+                <select
+                  value={selectedCouponId}
+                  onChange={(e) => setSelectedCouponId(e.target.value)}
+                  style={{ width: '100%', padding: '0.6rem 1rem' }}
+                >
+                  {freeLessonCoupons.map((coupon) => (
+                    <option key={coupon.couponId} value={coupon.couponId}>
+                      {language === 'en' ? 'Expires' : 'Scade'} {new Date(coupon.expiresAt).toLocaleDateString()}
+                    </option>
+                  ))}
+                </select>
               )}
-              <option value="extra">
-                {language === 'en'
-                  ? `Extra lesson — pay ${EXTRA_LESSON_PRICE_LABEL}`
-                  : `Lezione extra — paga ${EXTRA_LESSON_PRICE_LABEL}`}
-              </option>
-            </select>
+              {lessonPlan === 'extra' && discountCoupons.length > 0 && (
+                <select
+                  value={selectedDiscountCouponId}
+                  onChange={(e) => setSelectedDiscountCouponId(e.target.value)}
+                  style={{ width: '100%', padding: '0.6rem 1rem' }}
+                >
+                  <option value="">
+                    {language === 'en' ? 'No discount' : 'Nessuno sconto'}
+                  </option>
+                  {discountCoupons.map((coupon) => (
+                    <option key={coupon.couponId} value={coupon.couponId}>
+                      {language === 'en'
+                        ? `${coupon.percentOff ?? 20}% off — expires ${new Date(coupon.expiresAt).toLocaleDateString()}`
+                        : `${coupon.percentOff ?? 20}% sconto — scade ${new Date(coupon.expiresAt).toLocaleDateString()}`}
+                    </option>
+                  ))}
+                </select>
+              )}
+            </>
           )}
 
           <select value={level} onChange={(e) => setLevel(e.target.value)} style={{ width: '100%', padding: '0.6rem 1rem' }}>
@@ -423,14 +596,20 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!selectedSlotId || isProcessing || (mode === 'regular' && !subscribed && !isReschedule)}
+            disabled={!selectedSlotId || isProcessing || (mode === 'regular' && !canBookWithoutSub && !isReschedule)}
           >
             {isProcessing ? <Loader2 size={16} className="spin" /> : mode === 'regular' && lessonPlan === 'extra' ? <CreditCard size={16} /> : <ArrowRight size={16} />}
             {mode === 'intro'
               ? language === 'en' ? 'Confirm intro call' : 'Conferma call intro'
               : lessonPlan === 'extra'
                 ? language === 'en' ? 'Pay & book extra lesson' : 'Paga e prenota lezione extra'
-                : language === 'en' ? 'Book included lesson' : 'Prenota lezione inclusa'}
+                : lessonPlan === 'extra_rebook'
+                  ? language === 'en' ? 'Book with rebook credit' : 'Prenota con credito riprenotazione'
+                  : lessonPlan === 'coupon'
+                    ? language === 'en' ? 'Book with coupon' : 'Prenota con coupon'
+                    : lessonPlan === 'replacement'
+                      ? language === 'en' ? 'Book replacement lesson' : 'Prenota lezione sostitutiva'
+                      : language === 'en' ? 'Book included lesson' : 'Prenota lezione inclusa'}
           </button>
         </div>
       </form>

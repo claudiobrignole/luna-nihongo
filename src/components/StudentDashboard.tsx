@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Video, Calendar, Sparkles, AlertCircle, Trash2, Crown, LogOut, User, Shield, Zap, CalendarClock } from 'lucide-react';
+import { Video, Calendar, Sparkles, AlertCircle, Trash2, Crown, LogOut, User, Shield, Zap, CalendarClock, Ticket, Gift } from 'lucide-react';
 import type { LunaUser } from '../types/user';
 import { canManageUsers, hasActiveSubscription, isAdminRole, isTrialActive, roleLabel } from '../types/user';
 import type { BookingMode } from './BookingCalendar';
 import type { BookedLesson } from '../types/booking';
 import { loadBookings } from '../services/bookingService';
+import { loadPurchasedGiftCoupons, loadUserCoupons, redeemCouponCode } from '../services/couponService';
 import { cancelBookingRemote, formatEmailCallableError } from '../services/emailService';
+import type { PurchasedGiftCoupon, UserCouponSummary } from '../types/coupon';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { PremiumRetentionNotice } from './PremiumRetentionNotice';
-import { openPremiumPortal } from '../services/stripeService';
+import { formatStripeCallableError, openPremiumPortal, startGiftLessonCheckout } from '../services/stripeService';
 
 interface StudentDashboardProps {
   language: 'en' | 'it';
@@ -33,6 +35,15 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   const [cancelTarget, setCancelTarget] = useState<BookedLesson | null>(null);
   const [cancelError, setCancelError] = useState<string | null>(null);
   const [cancelLoading, setCancelLoading] = useState(false);
+  const [coupons, setCoupons] = useState<UserCouponSummary[]>([]);
+  const [couponCode, setCouponCode] = useState('');
+  const [couponError, setCouponError] = useState<string | null>(null);
+  const [couponLoading, setCouponLoading] = useState(false);
+  const [giftCoupons, setGiftCoupons] = useState<PurchasedGiftCoupon[]>([]);
+  const [giftLoading, setGiftLoading] = useState(false);
+  const [giftError, setGiftError] = useState<string | null>(null);
+  const [giftNotice, setGiftNotice] = useState<string | null>(null);
+  const [copiedGiftId, setCopiedGiftId] = useState<string | null>(null);
 
   const fetchBookings = useCallback(async () => {
     setBookingsLoading(true);
@@ -49,6 +60,84 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   useEffect(() => {
     fetchBookings();
   }, [fetchBookings]);
+
+  const fetchCoupons = useCallback(async () => {
+    try {
+      setCoupons(await loadUserCoupons(currentUser.id));
+    } catch (err) {
+      console.error('Failed to load coupons', err);
+    }
+  }, [currentUser.id]);
+
+  useEffect(() => {
+    void fetchCoupons();
+  }, [fetchCoupons]);
+
+  const fetchGiftCoupons = useCallback(async () => {
+    try {
+      setGiftCoupons(await loadPurchasedGiftCoupons(currentUser.id));
+    } catch (err) {
+      console.error('Failed to load gift coupons', err);
+    }
+  }, [currentUser.id]);
+
+  useEffect(() => {
+    void fetchGiftCoupons();
+  }, [fetchGiftCoupons]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('luna_pending_gift_refresh') === '1') {
+      setGiftNotice(
+        language === 'en'
+          ? 'Gift purchase complete. Check your email for the code, or copy it below.'
+          : 'Acquisto regalo completato. Controlla l\'email con il codice, oppure copialo qui sotto.',
+      );
+      void fetchGiftCoupons();
+    }
+  }, [fetchGiftCoupons, language]);
+
+  const handleBuyGiftCoupon = async () => {
+    setGiftLoading(true);
+    setGiftError(null);
+    setGiftNotice(null);
+    try {
+      const url = await startGiftLessonCheckout(language);
+      window.location.href = url;
+    } catch (err) {
+      setGiftError(formatStripeCallableError(err, language));
+      setGiftLoading(false);
+    }
+  };
+
+  const handleCopyGiftCode = async (coupon: PurchasedGiftCoupon) => {
+    try {
+      await navigator.clipboard.writeText(coupon.shareCode);
+      setCopiedGiftId(coupon.couponId);
+      window.setTimeout(() => setCopiedGiftId((id) => (id === coupon.couponId ? null : id)), 2000);
+    } catch {
+      setGiftError(
+        language === 'en'
+          ? 'Could not copy the code. Select it manually.'
+          : 'Impossibile copiare il codice. Selezionalo manualmente.',
+      );
+    }
+  };
+
+  const handleRedeemCoupon = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!couponCode.trim()) return;
+    setCouponLoading(true);
+    setCouponError(null);
+    try {
+      await redeemCouponCode(couponCode.trim());
+      setCouponCode('');
+      await fetchCoupons();
+    } catch (err) {
+      setCouponError(formatEmailCallableError(err, language));
+    } finally {
+      setCouponLoading(false);
+    }
+  };
 
   const confirmCancelBooking = async () => {
     if (!cancelTarget) return;
@@ -268,6 +357,120 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
 
       <PremiumRetentionNotice language={language} currentUser={currentUser} />
 
+      <div className="glass-panel" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+        <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <Ticket size={18} />
+          {language === 'en' ? 'Coupons & credits' : 'Coupon e crediti'}
+        </h3>
+        <form onSubmit={(e) => void handleRedeemCoupon(e)} style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <input
+            type="text"
+            value={couponCode}
+            onChange={(e) => setCouponCode(e.target.value)}
+            placeholder={language === 'en' ? 'Enter coupon code' : 'Inserisci codice coupon'}
+            style={{ flex: '1 1 200px', padding: '0.6rem 0.85rem', borderRadius: '10px', border: '1px solid var(--border)' }}
+          />
+          <button type="submit" className="btn btn-secondary" disabled={couponLoading}>
+            {couponLoading
+              ? (language === 'en' ? 'Redeeming…' : 'Riscatto…')
+              : (language === 'en' ? 'Redeem' : 'Riscatta')}
+          </button>
+        </form>
+        {couponError && <p style={{ margin: 0, color: 'var(--error)', fontSize: '0.85rem' }}>{couponError}</p>}
+        {coupons.length === 0 ? (
+          <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+            {language === 'en' ? 'No active coupons.' : 'Nessun coupon attivo.'}
+          </p>
+        ) : (
+          <ul style={{ margin: 0, paddingLeft: '1.1rem', color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+            {coupons.map((coupon) => (
+              <li key={coupon.couponId}>
+                {coupon.type === 'free_lesson'
+                  ? (language === 'en' ? 'Free lesson' : 'Lezione gratuita')
+                  : (language === 'en'
+                    ? `${coupon.percentOff ?? 20}% off extra lesson`
+                    : `${coupon.percentOff ?? 20}% sconto lezione extra`)}
+                {' — '}
+                {language === 'en' ? 'expires' : 'scade'}{' '}
+                {new Date(coupon.expiresAt).toLocaleDateString(language === 'en' ? 'en-US' : 'it-IT')}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="glass-panel" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+        <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+          <Gift size={18} />
+          {language === 'en' ? 'Gift a lesson' : 'Regala una lezione'}
+        </h3>
+        <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.88rem' }}>
+          {language === 'en'
+            ? 'Buy a gift coupon for one 60-minute live lesson with Luna. Share the code — the recipient can redeem and book without an active subscription.'
+            : 'Acquista un coupon regalo per una lezione live da 60 minuti con Luna. Condividi il codice: chi lo riceve può riscattarlo e prenotare anche senza abbonamento attivo.'}
+        </p>
+        <button
+          type="button"
+          className="btn btn-secondary"
+          onClick={() => void handleBuyGiftCoupon()}
+          disabled={giftLoading}
+          style={{ alignSelf: 'flex-start' }}
+        >
+          {giftLoading
+            ? (language === 'en' ? 'Opening checkout…' : 'Apertura checkout…')
+            : (language === 'en' ? 'Buy gift coupon (49 EUR/CHF)' : 'Acquista coupon regalo (49 EUR/CHF)')}
+        </button>
+        {giftNotice && (
+          <p style={{ margin: 0, color: 'var(--success, #2e7d32)', fontSize: '0.85rem' }}>{giftNotice}</p>
+        )}
+        {giftError && <p style={{ margin: 0, color: 'var(--error)', fontSize: '0.85rem' }}>{giftError}</p>}
+        {giftCoupons.length > 0 && (
+          <ul style={{ margin: 0, paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+            {giftCoupons.map((coupon) => (
+              <li
+                key={coupon.couponId}
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.65rem 0.75rem',
+                  borderRadius: '10px',
+                  border: '1px solid var(--border)',
+                  fontSize: '0.88rem',
+                }}
+              >
+                <div>
+                  <strong style={{ fontFamily: 'monospace' }}>{coupon.shareCode}</strong>
+                  <span style={{ color: 'var(--text-muted)', marginLeft: '0.5rem' }}>
+                    {coupon.status === 'issued'
+                      ? (language === 'en' ? 'Not redeemed yet' : 'Non ancora riscattato')
+                      : coupon.status === 'redeemed'
+                        ? (language === 'en' ? 'Redeemed' : 'Riscattato')
+                        : coupon.status === 'used'
+                          ? (language === 'en' ? 'Lesson booked' : 'Lezione prenotata')
+                          : coupon.status}
+                  </span>
+                </div>
+                {coupon.status === 'issued' && (
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    style={{ padding: '0.35rem 0.75rem', fontSize: '0.8rem' }}
+                    onClick={() => void handleCopyGiftCode(coupon)}
+                  >
+                    {copiedGiftId === coupon.couponId
+                      ? (language === 'en' ? 'Copied!' : 'Copiato!')
+                      : (language === 'en' ? 'Copy code' : 'Copia codice')}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       {/* ── Private Lessons Section ── */}
       <div>
         <h3 style={{ fontSize: '1.4rem', marginBottom: '1.2rem' }}>
@@ -397,8 +600,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
           <strong>{language === 'en' ? 'Reschedule or cancel' : 'Riprogramma o annulla'}</strong><br />
           {language === 'en'
-            ? 'Use the buttons on each lesson up to 24 hours before the session. You will receive a confirmation email.'
-            : 'Usa i pulsanti su ogni lezione fino a 24 ore prima. Riceverai un\'email di conferma.'}
+            ? 'You can cancel once per billing cycle without losing your included or extra lesson (rebook at no extra charge). A second cancellation forfeits the lesson. Changes require 24h notice.'
+            : 'Puoi annullare una volta per ciclo senza perdere la lezione inclusa o extra (riprenotazione gratuita). Una seconda cancellazione fa perdere la lezione. Serve preavviso di 24 ore.'}
         </div>
       </div>
 

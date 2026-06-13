@@ -19,13 +19,16 @@ export async function startFreeTrial(): Promise<{
   return result.data;
 }
 
+import type { BookingPlan } from '../types/booking';
+
 export async function bookAvailabilitySlot(input: {
   slotId: string;
   name: string;
   email: string;
   level: string;
   notes?: string;
-  plan: 'trial_intro' | 'included';
+  plan: Extract<BookingPlan, 'trial_intro' | 'included' | 'extra_rebook' | 'coupon' | 'replacement'>;
+  couponId?: string;
 }): Promise<{
   bookingId: string;
   meetLink: string;

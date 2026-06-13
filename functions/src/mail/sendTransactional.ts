@@ -1,6 +1,8 @@
 import {
   buildTransactionalEmail,
   type BookingMailData,
+  type CouponNoSlotsMailData,
+  type LunaCancelMailData,
   type MailLanguage,
   type PremiumWelcomeData,
   type RescheduleMailData,
@@ -12,6 +14,8 @@ import { sendResendEmail } from './resendClient';
 export type TransactionalMailData =
   | BookingMailData
   | RescheduleMailData
+  | LunaCancelMailData
+  | CouponNoSlotsMailData
   | PremiumWelcomeData
   | TrialStartedData;
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+  <g stroke="#2b2333" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(60 52)">
+      <g>
+        <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.4" transform="rotate(0)"/>
+        <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.4" transform="rotate(72)"/>
+        <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.4" transform="rotate(144)"/>
+        <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.4" transform="rotate(216)"/>
+        <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.4" transform="rotate(288)"/>
+      </g>
+      <g stroke-width="1.6">
+        <path d="M 0 0 L 0 -10 M 0 0 L 9.5 -3 M 0 0 L 6 8 M 0 0 L -6 8 M 0 0 L -9.5 -3"/>
+        <circle cx="0" cy="-11.5" r="1.7" fill="#f0a92e" stroke="none"/>
+        <circle cx="11" cy="-3.5" r="1.7" fill="#f0a92e" stroke="none"/>
+        <circle cx="7" cy="9.5" r="1.7" fill="#f0a92e" stroke="none"/>
+        <circle cx="-7" cy="9.5" r="1.7" fill="#f0a92e" stroke="none"/>
+        <circle cx="-11" cy="-3.5" r="1.7" fill="#f0a92e" stroke="none"/>
+      </g>
+      <circle cx="0" cy="0" r="3" fill="#e87f9a" stroke-width="1.6"/>
+    </g>
+    <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.2" transform="translate(98 88) rotate(38) scale(.68)"/>
+    <path d="M 0 -2 C -8 -6 -12 -16 -8 -26 C -6 -31 -2 -33 0 -30 C 2 -33 6 -31 8 -26 C 12 -16 8 -6 0 -2 Z" fill="#f6b8c8" stroke-width="2.2" transform="translate(20 100) rotate(-42) scale(.55)"/>
+  </g>
+</svg>

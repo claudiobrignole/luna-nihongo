@@ -9,6 +9,7 @@ const REGION = 'europe-west1';
 const CALLABLES = [
   'createStripeCheckout',
   'createExtraLessonCheckout',
+  'createGiftLessonCheckout',
   'createStripePortal',
 ];
 const WEBHOOK = `https://${REGION}-${PROJECT}.cloudfunctions.net/stripeWebhook`;
@@ -50,6 +51,7 @@ console.log('   firebase functions:secrets:set STRIPE_WEBHOOK_SECRET');
 console.log('2. Function params (Firebase Console → Functions → createStripeCheckout → Parameters):');
 console.log('   STRIPE_PRICE_ID = price_...  (monthly subscription, NOT prod_...)');
 console.log('   STRIPE_EXTRA_LESSON_PRICE_ID = price_...  (optional, has default in code)');
+console.log('   STRIPE_GIFT_LESSON_PRICE_ID = price_...  (optional, defaults to extra lesson price)');
 console.log('3. Stripe Dashboard → Webhooks → endpoint:');
 console.log(`   ${WEBHOOK}`);
 console.log('   Events: checkout.session.completed, customer.subscription.updated, customer.subscription.deleted');

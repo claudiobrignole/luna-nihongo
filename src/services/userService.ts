@@ -100,6 +100,20 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     subscriptionPeriodStart: normalized.subscriptionPeriodStart ?? null,
     subscriptionPeriodEnd: normalized.subscriptionPeriodEnd ?? null,
     includedLessonsUsed: typeof normalized.includedLessonsUsed === 'number' ? normalized.includedLessonsUsed : 0,
+    graceCancellationsIncludedUsed:
+      typeof normalized.graceCancellationsIncludedUsed === 'number'
+        ? normalized.graceCancellationsIncludedUsed
+        : 0,
+    graceCancellationsExtraUsed:
+      typeof normalized.graceCancellationsExtraUsed === 'number'
+        ? normalized.graceCancellationsExtraUsed
+        : 0,
+    extraRebookCredit:
+      typeof normalized.extraRebookCredit === 'number' ? normalized.extraRebookCredit : 0,
+    replacementLessonCredit:
+      typeof normalized.replacementLessonCredit === 'number'
+        ? normalized.replacementLessonCredit
+        : 0,
     trialStartedAt: normalized.trialStartedAt ?? null,
     trialEndsAt: normalized.trialEndsAt ?? null,
     trialUsed: normalized.trialUsed === true,

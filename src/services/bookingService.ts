@@ -20,7 +20,9 @@ function docToBooking(id: string, data: Record<string, unknown>): BookedLesson {
     notes: data.notes ? String(data.notes) : undefined,
     date: String(data.date ?? ''),
     time: String(data.time ?? ''),
-    plan: (['trial_intro', 'included', 'extra'].includes(String(data.plan))
+    plan: (['trial_intro', 'included', 'extra', 'extra_rebook', 'coupon', 'replacement'].includes(
+      String(data.plan),
+    )
       ? String(data.plan)
       : data.plan === 'subscription'
         ? 'included'
@@ -30,6 +32,8 @@ function docToBooking(id: string, data: Record<string, unknown>): BookedLesson {
     meetLink: String(data.meetLink ?? ''),
     price: String(data.price ?? ''),
     timestamp: String(data.timestamp ?? new Date().toISOString()),
+    slotStartAt: data.slotStartAt ? String(data.slotStartAt) : null,
+    couponId: data.couponId ? String(data.couponId) : null,
   };
 }
 

@@ -18,6 +18,11 @@ import { CreditsModal } from './components/CreditsModal';
 import { BookingPreview } from './components/BookingPreview';
 import { GuestTutorPreview } from './components/GuestTutorPreview';
 import { GuestFlashcardsPreview } from './components/GuestFlashcardsPreview';
+import { PageHero, type PageHeroKey } from './components/PageHero';
+import { LegalPage } from './components/LegalPage';
+import { SiteFooter } from './components/SiteFooter';
+import { CookieConsent } from './components/CookieConsent';
+import { ConsentProvider, useConsent } from './contexts/ConsentContext';
 import { useAuth } from './contexts/AuthContext';
 import { isAdminRole, hasActiveSubscription } from './types/user';
 import type { LunaUser } from './types/user';
@@ -28,8 +33,24 @@ import { CURRICULUM_LEVELS } from './data/curriculum';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
-function App() {
+// Immagine Luna + banda manga per ogni pagina (segnaposto, vedi PageHero).
+const HERO_FOR: Partial<Record<TabType, PageHeroKey>> = {
+  path: 'study',
+  flashcards: 'decks',
+  tutor: 'tutor',
+  teacher: 'teacher',
+  booking: 'booking',
+  auth: 'auth',
+  dashboard: 'dashboard',
+};
+
+function isLegalTab(tab: TabType): tab is 'privacy' | 'cookies' | 'terms' {
+  return tab === 'privacy' || tab === 'cookies' || tab === 'terms';
+}
+
+function AppInner() {
   const { currentUser, firebaseUser, loading, signOut, updateUser, refreshUser } = useAuth();
+  const { openPreferences } = useConsent();
   const [verifyEmailBusy, setVerifyEmailBusy] = useState(false);
   const [verifyEmailInfo, setVerifyEmailInfo] = useState('');
   const [activeTab, setActiveTab] = useState<TabType>('home');
@@ -180,6 +201,28 @@ function App() {
     setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
 
+  // Navigazione con hash per le pagine legali (link condivisibili dal footer/banner).
+  const navigateTab = (tab: TabType) => {
+    setActiveTab(tab);
+    if (typeof window === 'undefined') return;
+    if (isLegalTab(tab)) {
+      window.location.hash = tab;
+    } else if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    window.scrollTo({ top: 0 });
+  };
+
+  useEffect(() => {
+    const applyHash = () => {
+      const h = window.location.hash.replace('#', '');
+      if (h === 'privacy' || h === 'cookies' || h === 'terms') setActiveTab(h);
+    };
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
+  }, []);
+
   // After login: first-time users see onboarding; returning users land on Studio.
   useEffect(() => {
     if (!currentUser) {
@@ -212,6 +255,9 @@ function App() {
     if (checkout === 'extra') {
       sessionStorage.setItem('luna_pending_extra_refresh', '1');
     }
+    if (checkout === 'gift') {
+      sessionStorage.setItem('luna_pending_gift_refresh', '1');
+    }
 
     params.delete('checkout');
     params.delete('book');
@@ -235,13 +281,18 @@ function App() {
       sessionStorage.removeItem('luna_pending_extra_refresh');
       void refreshUser();
     }
+
+    if (sessionStorage.getItem('luna_pending_gift_refresh') === '1') {
+      sessionStorage.removeItem('luna_pending_gift_refresh');
+      void refreshUser();
+    }
   }, [currentUser, refreshUser]);
 
   if (loading) {
     return (
       <div className="app-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
         <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-          <div className="logo-circle" style={{ margin: '0 auto 1rem', width: 48, height: 48, fontSize: '1.4rem' }}>月</div>
+          <div className="logo-circle" lang="ja" style={{ margin: '0 auto 1rem', width: 48, height: 48, fontSize: '1.05rem' }}>るな</div>
           <p>{language === 'en' ? 'Loading...' : 'Caricamento...'}</p>
         </div>
       </div>
@@ -263,6 +314,10 @@ function App() {
           onLogin={openLogin}
         />
         <main className="main-content">
+          {HERO_FOR[activeTab] && activeTab !== 'home' && (
+            <PageHero page={HERO_FOR[activeTab]!} language={language} />
+          )}
+          {isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
           {activeTab === 'home' && (
             <PublicLanding
               language={language}
@@ -329,11 +384,14 @@ function App() {
 
         <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
 
-        <footer className="main-footer">
-          <div className="footer-content">
-            <div>© {new Date().getFullYear()} <strong>Luna Nihongo</strong>. All rights reserved.</div>
-          </div>
-        </footer>
+        <SiteFooter
+          language={language}
+          onNavigate={navigateTab}
+          onOpenCookieSettings={openPreferences}
+          onLanguageToggle={handleLanguageToggle}
+        />
+
+        <CookieConsent language={language} onOpenPolicy={navigateTab} />
       </div>
     );
   }
@@ -389,6 +447,20 @@ function App() {
       )}
 
       <main className="main-content">
+        {HERO_FOR[activeTab] && activeTab !== 'home' && activeTab !== 'tutor' && (
+          <PageHero
+            page={HERO_FOR[activeTab]!}
+            language={language}
+            subOverride={
+              activeTab === 'dashboard'
+                ? (language === 'en'
+                    ? `Welcome back, ${currentUser.username}`
+                    : `Bentornato, ${currentUser.username}`)
+                : undefined
+            }
+          />
+        )}
+        {isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
         {activeTab === 'home' && (
           <HomeLanding
             language={language}
@@ -518,20 +590,22 @@ function App() {
 
       <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
 
-      <footer className="main-footer">
-        <div className="footer-content">
-          <div>
-            © {new Date().getFullYear()} <strong>Luna Nihongo</strong>. All rights reserved.
-          </div>
-          <div style={{ color: 'var(--text-light)', fontSize: '0.8rem' }}>
-            {language === 'en'
-              ? 'Empowering Japanese learners through spaced repetition and AI tutoring.'
-              : 'Aiutiamo gli studenti a imparare il giapponese con AI e ripasso spaziato.'}
-          </div>
-        </div>
-      </footer>
+      <SiteFooter
+        language={language}
+        onNavigate={navigateTab}
+        onOpenCookieSettings={openPreferences}
+        onLanguageToggle={handleLanguageToggle}
+      />
+
+      <CookieConsent language={language} onOpenPolicy={navigateTab} />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <ConsentProvider>
+      <AppInner />
+    </ConsentProvider>
+  );
+}

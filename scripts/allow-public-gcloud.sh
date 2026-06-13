@@ -12,12 +12,17 @@ SERVICES=(
   deletelivesession
   createstripecheckout
   createextralessoncheckout
+  creategiftlessoncheckout
   createstripeportal
   stripewebhook
   startfreetrial
   bookavailabilityslot
   cancelbooking
   reschedulebooking
+  redeemcoupon
+  checkgracenoslotscoupon
+  admincancelbooking
+  admindeactivateslot
   subscribenewsletter
   syncmarketingconsent
 )

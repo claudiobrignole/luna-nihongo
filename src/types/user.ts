@@ -51,6 +51,10 @@ export interface LunaUser {
   subscriptionPeriodStart?: string | null;
   subscriptionPeriodEnd?: string | null;
   includedLessonsUsed?: number;
+  graceCancellationsIncludedUsed?: number;
+  graceCancellationsExtraUsed?: number;
+  extraRebookCredit?: number;
+  replacementLessonCredit?: number;
   trialStartedAt?: string | null;
   trialEndsAt?: string | null;
   trialUsed?: boolean;
@@ -90,6 +94,10 @@ export interface UserProfileDocument {
   subscriptionPeriodStart?: string | null;
   subscriptionPeriodEnd?: string | null;
   includedLessonsUsed?: number;
+  graceCancellationsIncludedUsed?: number;
+  graceCancellationsExtraUsed?: number;
+  extraRebookCredit?: number;
+  replacementLessonCredit?: number;
   trialStartedAt?: string | null;
   trialEndsAt?: string | null;
   trialUsed?: boolean;
@@ -169,6 +177,22 @@ export function includedLessonsRemaining(user: LunaUser, now = Date.now()): numb
   if (Number.isNaN(start) || Number.isNaN(end) || now < start || now > end) return 0;
   const used = user.includedLessonsUsed ?? 0;
   return Math.max(0, INCLUDED_LESSONS_PER_CYCLE - used);
+}
+
+export function extraRebookCreditRemaining(user: LunaUser): number {
+  return user.extraRebookCredit ?? 0;
+}
+
+export function replacementLessonCreditRemaining(user: LunaUser): number {
+  return user.replacementLessonCredit ?? 0;
+}
+
+export function graceCancellationsIncludedUsed(user: LunaUser): number {
+  return user.graceCancellationsIncludedUsed ?? 0;
+}
+
+export function graceCancellationsExtraUsed(user: LunaUser): number {
+  return user.graceCancellationsExtraUsed ?? 0;
 }
 
 /** @deprecated use aiMinutesRemaining */
