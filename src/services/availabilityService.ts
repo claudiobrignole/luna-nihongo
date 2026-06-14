@@ -42,21 +42,59 @@ export async function loadAvailabilitySlots(
     teacherId?: string;
   },
 ): Promise<AvailabilitySlot[]> {
-  const constraints = [where('active', '==', true)];
-  if (options?.teacherId) {
-    constraints.push(where('teacherId', '==', options.teacherId));
+  const filterSlots = (slots: AvailabilitySlot[]) => {
+    let result = slots;
+    if (options?.slotType) {
+      result = result.filter((s) => s.slotType === options.slotType);
+    }
+    if (options?.fromDate) {
+      const fromDate = options.fromDate;
+      result = result.filter((s) => s.date >= fromDate);
+    }
+    if (options?.teacherId) {
+      result = result.filter((s) => s.teacherId === options.teacherId);
+    }
+    return result.sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime));
+  };
+
+  try {
+    const constraints = [where('active', '==', true)];
+    if (options?.teacherId) {
+      constraints.push(where('teacherId', '==', options.teacherId));
+    }
+    const q = query(collection(getFirebaseDb(), COLLECTION), ...constraints);
+    const snap = await getDocs(q);
+    return filterSlots(snap.docs.map((d) => docToSlot(d.id, d.data() as Record<string, unknown>)));
+  } catch (err) {
+    console.warn('Indexed slot query failed, falling back to client filter', err);
+    const snap = await getDocs(
+      query(collection(getFirebaseDb(), COLLECTION), where('active', '==', true)),
+    );
+    return filterSlots(snap.docs.map((d) => docToSlot(d.id, d.data() as Record<string, unknown>)));
   }
-  const q = query(collection(getFirebaseDb(), COLLECTION), ...constraints);
-  const snap = await getDocs(q);
-  let slots = snap.docs.map((d) => docToSlot(d.id, d.data() as Record<string, unknown>));
-  if (options?.slotType) {
-    slots = slots.filter((s) => s.slotType === options.slotType);
+}
+
+/** Teachers with published slots — works for any signed-in student (no users collection read). */
+export async function listTeachersFromAvailabilitySlots(
+  options?: { slotType?: SlotType; fromDate?: string },
+): Promise<Array<{ id: string; username: string; teacherDisplayName?: string }>> {
+  const slots = await loadAvailabilitySlots(options);
+  const map = new Map<string, { id: string; username: string; teacherDisplayName?: string }>();
+  for (const slot of slots) {
+    if (!slot.teacherId) continue;
+    if (!map.has(slot.teacherId)) {
+      map.set(slot.teacherId, {
+        id: slot.teacherId,
+        username: slot.teacherDisplayName || 'Maestro/a',
+        teacherDisplayName: slot.teacherDisplayName || undefined,
+      });
+    }
   }
-  if (options?.fromDate) {
-    const fromDate = options.fromDate;
-    slots = slots.filter((s) => s.date >= fromDate);
-  }
-  return slots.sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime));
+  return [...map.values()].sort((a, b) =>
+    (a.teacherDisplayName ?? a.username).localeCompare(b.teacherDisplayName ?? b.username, 'it', {
+      sensitivity: 'base',
+    }),
+  );
 }
 
 export async function loadAllAvailabilitySlotsAdmin(teacherId?: string): Promise<AvailabilitySlot[]> {

@@ -19,7 +19,7 @@ import { loadAvailabilitySlots } from '../services/availabilityService';
 import { listTeachers } from '../services/userService';
 import type { BookableTeacher } from '../types/teacher';
 import { getTeacherPublicName } from '../types/teacher';
-import { bookAvailabilitySlot } from '../services/trialService';
+import { bookAvailabilitySlot, formatBookingCallableError } from '../services/trialService';
 import { formatEmailCallableError, rescheduleBookingRemote } from '../services/emailService';
 import { checkGraceNoSlotsCoupon, loadUserCoupons } from '../services/couponService';
 import { startExtraLessonCheckout } from '../services/stripeService';
@@ -105,10 +105,14 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const todayIso = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
   useEffect(() => {
-    void listTeachers()
+    void listTeachers({ slotType, fromDate: todayIso })
       .then((list) => {
         setTeachers(list);
-        if (list.length === 1) setSelectedTeacherId(list[0].id);
+        if (list.length > 0) {
+          setSelectedTeacherId((prev) =>
+            prev && list.some((t) => t.id === prev) ? prev : list[0].id,
+          );
+        }
       })
       .catch(() => {
         setError(
@@ -118,7 +122,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
         );
       })
       .finally(() => setLoadingTeachers(false));
-  }, [language]);
+  }, [language, slotType, todayIso]);
 
   const refreshSlots = useCallback(async () => {
     if (!selectedTeacherId) {
@@ -190,6 +194,12 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const handleBook = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSlotId || !name || !email) return;
+    if (!selectedTeacherId) {
+      setError(
+        language === 'en' ? 'Choose a teacher first.' : 'Scegli prima un maestro.',
+      );
+      return;
+    }
 
     if (mode === 'regular' && !canBookWithoutSub) {
       setError(
@@ -300,9 +310,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
       setError(
         isReschedule
           ? formatEmailCallableError(err, language)
-          : language === 'en'
-            ? 'Booking failed. The slot may be full or no longer available.'
-            : 'Prenotazione non riuscita. Lo slot potrebbe essere pieno o non più disponibile.',
+          : formatBookingCallableError(err, language),
       );
     } finally {
       setIsProcessing(false);

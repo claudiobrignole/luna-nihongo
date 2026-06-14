@@ -4,7 +4,9 @@ import { getFirebaseApp, getFirebaseDb } from '../lib/firebase';
 import type { TeacherBookingView, TeacherPayoutMonth, BookableTeacher } from '../types/teacher';
 import { TEACHER_LESSON_PAYOUT_EUR, monthKeyFromDate } from '../types/teacher';
 import type { BookingPlan } from '../types/booking';
+import type { SlotType } from '../types/availability';
 import { ensureFreshAuthToken } from './authCallable';
+import { listTeachersFromAvailabilitySlots } from './availabilityService';
 
 function docToTeacherBooking(
   id: string,
@@ -42,6 +44,20 @@ export async function listBookableTeachersRemote(): Promise<BookableTeacher[]> {
   );
   const result = await fn({});
   return result.data.teachers ?? [];
+}
+
+/** Callable first; if IAM/403 or empty, derive teachers from published availability slots. */
+export async function listBookableTeachers(options?: {
+  slotType?: SlotType;
+  fromDate?: string;
+}): Promise<BookableTeacher[]> {
+  try {
+    const fromCallable = await listBookableTeachersRemote();
+    if (fromCallable.length > 0) return fromCallable;
+  } catch (err) {
+    console.warn('listPublicTeachers unavailable, using slot-based teacher list', err);
+  }
+  return listTeachersFromAvailabilitySlots(options);
 }
 
 export async function loadTeacherBookings(teacherId: string): Promise<TeacherBookingView[]> {

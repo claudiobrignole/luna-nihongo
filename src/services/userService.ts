@@ -20,8 +20,9 @@ import {
   canChangeRole,
   canManageTier,
 } from '../types/user';
-import { listBookableTeachersRemote } from './teacherService';
+import { listBookableTeachers } from './teacherService';
 import type { BookableTeacher } from '../types/teacher';
+import type { SlotType } from '../types/availability';
 
 const USERS_COLLECTION = 'users';
 
@@ -289,9 +290,11 @@ export async function setUserRole(
   return docToUser(targetUid, updated.data()!);
 }
 
-
-export async function listTeachers(): Promise<BookableTeacher[]> {
-  return listBookableTeachersRemote();
+export async function listTeachers(options?: {
+  slotType?: SlotType;
+  fromDate?: string;
+}): Promise<BookableTeacher[]> {
+  return listBookableTeachers(options);
 }
 
 export async function updateTeacherDisplayName(uid: string, teacherDisplayName: string): Promise<void> {
