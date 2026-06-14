@@ -20,6 +20,8 @@ import {
   canChangeRole,
   canManageTier,
 } from '../types/user';
+import { listBookableTeachersRemote } from './teacherService';
+import type { BookableTeacher } from '../types/teacher';
 
 const USERS_COLLECTION = 'users';
 
@@ -287,9 +289,9 @@ export async function setUserRole(
   return docToUser(targetUid, updated.data()!);
 }
 
-export async function listTeachers(): Promise<LunaUser[]> {
-  const all = await listAllUsers();
-  return all.filter((u) => u.role === 'teacher' || u.role === 'super_admin');
+
+export async function listTeachers(): Promise<BookableTeacher[]> {
+  return listBookableTeachersRemote();
 }
 
 export async function updateTeacherDisplayName(uid: string, teacherDisplayName: string): Promise<void> {

@@ -17,6 +17,7 @@ import type { UserCouponSummary } from '../types/coupon';
 import { formatSlotLabel, slotSeatsLeft } from '../types/availability';
 import { loadAvailabilitySlots } from '../services/availabilityService';
 import { listTeachers } from '../services/userService';
+import type { BookableTeacher } from '../types/teacher';
 import { getTeacherPublicName } from '../types/teacher';
 import { bookAvailabilitySlot } from '../services/trialService';
 import { formatEmailCallableError, rescheduleBookingRemote } from '../services/emailService';
@@ -97,7 +98,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const [bookingCompleted, setBookingCompleted] = useState(false);
   const [meetLink, setMeetLink] = useState('');
   const [error, setError] = useState<string | null>(null);
-  const [teachers, setTeachers] = useState<LunaUser[]>([]);
+  const [teachers, setTeachers] = useState<BookableTeacher[]>([]);
   const [selectedTeacherId, setSelectedTeacherId] = useState<string | null>(null);
   const [loadingTeachers, setLoadingTeachers] = useState(true);
 
@@ -109,8 +110,15 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
         setTeachers(list);
         if (list.length === 1) setSelectedTeacherId(list[0].id);
       })
+      .catch(() => {
+        setError(
+          language === 'en'
+            ? 'Could not load teachers. Try again in a moment.'
+            : 'Impossibile caricare i maestri. Riprova tra poco.',
+        );
+      })
       .finally(() => setLoadingTeachers(false));
-  }, []);
+  }, [language]);
 
   const refreshSlots = useCallback(async () => {
     if (!selectedTeacherId) {
@@ -332,7 +340,6 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           </p>
           <PremiumUpgradeButton
             language={language}
-            label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
             className="btn btn-primary"
             style={{ width: '100%' }}
           />

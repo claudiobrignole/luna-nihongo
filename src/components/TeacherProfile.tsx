@@ -356,7 +356,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
             ) : (
               <PremiumUpgradeButton
                 language={language}
-                label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
+                onRequireAuth={onRequireAuth}
                 className="btn btn-primary"
                 style={{ width: '100%', marginTop: 'auto' }}
               />

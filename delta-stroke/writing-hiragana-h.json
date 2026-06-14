@@ -1,0 +1,137 @@
+{
+  "id": "writing-hiragana-h",
+  "level": 0,
+  "order": 6,
+  "type": "situation",
+  "contentVersion": 1,
+  "title": {
+    "it": "Scrittura · riga H",
+    "en": "Writing · H row"
+  },
+  "description": {
+    "it": "Ora che riconosci は ひ ふ へ ほ, passa alla mano: traccia ogni carattere rispettando l'ordine dei tratti. Scrivere fissa la memoria molto meglio del solo riconoscere — e in giapponese l'ordine non è mai casuale.",
+    "en": "Now that you recognize は ひ ふ へ ほ, move to the hand: trace each character following the stroke order. Writing fixes memory far better than recognition alone — and in Japanese the order is never random."
+  },
+  "situationTags": [],
+  "prerequisites": [
+    "hiragana-h"
+  ],
+  "kanaRefs": [
+    "hira-ha",
+    "hira-hi",
+    "hira-fu",
+    "hira-he",
+    "hira-ho"
+  ],
+  "canDo": [
+    {
+      "id": "cando-write-hiragana-h",
+      "level": "A1",
+      "statement": {
+        "it": "So scrivere a mano i caratteri della riga H rispettando l'ordine dei tratti.",
+        "en": "I can hand-write the H row characters with correct stroke order."
+      },
+      "skill": "writing"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q-whrgn-stroke-1",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia は seguendo l'ordine dei tratti.",
+        "en": "Trace は following the stroke order."
+      },
+      "targetItemId": "hira-ha",
+      "japanese": "は",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-whrgn-stroke-2",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ひ seguendo l'ordine dei tratti.",
+        "en": "Trace ひ following the stroke order."
+      },
+      "targetItemId": "hira-hi",
+      "japanese": "ひ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-whrgn-stroke-3",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ふ seguendo l'ordine dei tratti.",
+        "en": "Trace ふ following the stroke order."
+      },
+      "targetItemId": "hira-fu",
+      "japanese": "ふ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-whrgn-stroke-4",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia へ seguendo l'ordine dei tratti.",
+        "en": "Trace へ following the stroke order."
+      },
+      "targetItemId": "hira-he",
+      "japanese": "へ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-whrgn-stroke-5",
+      "type": "stroke-order",
+      "prompt": {
+        "it": "Traccia ほ seguendo l'ordine dei tratti.",
+        "en": "Trace ほ following the stroke order."
+      },
+      "targetItemId": "hira-ho",
+      "japanese": "ほ",
+      "enforceOrder": true,
+      "xp": 15
+    },
+    {
+      "id": "q-whrgn-mc-1",
+      "type": "multiple-choice",
+      "prompt": {
+        "it": "Tracciando questi caratteri, cosa conta di più?",
+        "en": "When tracing these characters, what matters most?"
+      },
+      "options": [
+        {
+          "it": "L'ordine e la direzione dei tratti",
+          "en": "The order and direction of the strokes"
+        },
+        {
+          "it": "Solo la forma finale",
+          "en": "Only the final shape"
+        },
+        {
+          "it": "La velocità",
+          "en": "Speed"
+        },
+        {
+          "it": "Il colore",
+          "en": "The color"
+        }
+      ],
+      "correctIndex": 0,
+      "xp": 10
+    }
+  ],
+  "tutorReviewTopics": [
+    {
+      "it": "Ordine dei tratti",
+      "en": "Stroke order"
+    },
+    {
+      "it": "Scrittura riga H",
+      "en": "Writing H row"
+    }
+  ]
+}

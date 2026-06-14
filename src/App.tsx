@@ -25,7 +25,7 @@ import { SiteFooter } from './components/SiteFooter';
 import { CookieConsent } from './components/CookieConsent';
 import { ConsentProvider, useConsent } from './contexts/ConsentContext';
 import { useAuth } from './contexts/AuthContext';
-import { isStaffRole, isTeacherRole, hasActiveSubscription } from './types/user';
+import { isStaffRole, hasActiveSubscription, canAccessTeacherDashboard } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
 import { startFreeTrial } from './services/trialService';
@@ -48,6 +48,33 @@ const HERO_FOR: Partial<Record<TabType, PageHeroKey>> = {
 
 function isLegalTab(tab: TabType): tab is 'privacy' | 'cookies' | 'terms' {
   return tab === 'privacy' || tab === 'cookies' || tab === 'terms';
+}
+
+const AUTH_TABS = new Set<TabType>([
+  'path',
+  'flashcards',
+  'tutor',
+  'teacher',
+  'booking',
+  'dashboard',
+  'admin',
+  'teacher-dashboard',
+]);
+
+function isKnownTab(tab: string): tab is TabType {
+  return AUTH_TABS.has(tab as TabType) || tab === 'home' || tab === 'auth' || isLegalTab(tab as TabType);
+}
+
+function canOpenTab(tab: TabType, user: LunaUser | null): boolean {
+  if (tab === 'admin' || tab === 'teacher-dashboard') {
+    if (!user) return false;
+    if (tab === 'admin') return isStaffRole(user.role);
+    return canAccessTeacherDashboard(user.role);
+  }
+  if (tab === 'dashboard' || tab === 'booking' || tab === 'path' || tab === 'flashcards' || tab === 'tutor') {
+    return Boolean(user);
+  }
+  return true;
 }
 
 function AppInner() {
@@ -233,24 +260,34 @@ function AppInner() {
       return;
     }
 
-    setActiveTab((tab) => (tab === 'auth' ? 'path' : tab));
+    const pendingTab = sessionStorage.getItem('luna_pending_tab');
+    if (pendingTab && isKnownTab(pendingTab) && canOpenTab(pendingTab, currentUser)) {
+      sessionStorage.removeItem('luna_pending_tab');
+      setActiveTab(pendingTab);
+    } else {
+      setActiveTab((tab) => (tab === 'auth' ? 'path' : tab));
+    }
 
     if (!currentUser.onboardingCompleted && !onboardingAutoOpened.current) {
       setOnboardingOpen(true);
       onboardingAutoOpened.current = true;
     }
 
-    if (currentUser.onboardingCompleted) {
+    if (currentUser.onboardingCompleted && !pendingTab) {
       setActiveTab((tab) => (tab === 'auth' || tab === 'home' ? 'path' : tab));
     }
   }, [currentUser?.id, currentUser?.onboardingCompleted]);
 
-  // Persist Stripe return params before URL cleanup (auth may still be loading).
+  // Deep links: ?tab=teacher-dashboard (emails), ?checkout= (Stripe).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const checkout = params.get('checkout');
-    if (!checkout) return;
+    const tab = params.get('tab');
+    if (tab && isKnownTab(tab)) {
+      sessionStorage.setItem('luna_pending_tab', tab);
+      params.delete('tab');
+    }
 
+    const checkout = params.get('checkout');
     if (checkout === 'success' && params.get('book') === '1') {
       sessionStorage.setItem('luna_pending_subscribe_book', '1');
     }
@@ -560,7 +597,7 @@ function AppInner() {
           <AdminPanel language={language} currentUser={currentUser} />
         )}
 
-        {activeTab === 'teacher-dashboard' && isTeacherRole(currentUser.role) && (
+        {activeTab === 'teacher-dashboard' && currentUser && canAccessTeacherDashboard(currentUser.role) && (
           <TeacherDashboard language={language} currentUser={currentUser} />
         )}
       </main>

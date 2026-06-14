@@ -239,7 +239,6 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
               <PremiumUpgradeButton
                 language={language}
                 className="luna-live-link-btn btn btn-primary"
-                label={language === 'en' ? 'Upgrade to Premium' : 'Passa a Premium'}
               />
             )}
           </div>

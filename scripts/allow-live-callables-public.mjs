@@ -36,6 +36,7 @@ const SERVICES = [
   'admindeleteuser',
   'setbookingmeetlink',
   'setteacherpayoutstatus',
+  'listpublicteachers',
 ];
 
 async function getAccessToken() {

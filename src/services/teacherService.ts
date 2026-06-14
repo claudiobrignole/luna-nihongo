@@ -1,9 +1,10 @@
 import { collection, collectionGroup, doc, getDoc, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { getFirebaseApp, getFirebaseDb } from '../lib/firebase';
-import type { TeacherBookingView, TeacherPayoutMonth } from '../types/teacher';
+import type { TeacherBookingView, TeacherPayoutMonth, BookableTeacher } from '../types/teacher';
 import { TEACHER_LESSON_PAYOUT_EUR, monthKeyFromDate } from '../types/teacher';
 import type { BookingPlan } from '../types/booking';
+import { ensureFreshAuthToken } from './authCallable';
 
 function docToTeacherBooking(
   id: string,
@@ -31,6 +32,16 @@ function docToTeacherBooking(
     teacherDisplayName: String(data.teacherDisplayName ?? ''),
     teacherEmail: String(data.teacherEmail ?? ''),
   };
+}
+
+export async function listBookableTeachersRemote(): Promise<BookableTeacher[]> {
+  await ensureFreshAuthToken();
+  const fn = httpsCallable<Record<string, never>, { teachers: BookableTeacher[] }>(
+    getFunctions(getFirebaseApp(), 'europe-west1'),
+    'listPublicTeachers',
+  );
+  const result = await fn({});
+  return result.data.teachers ?? [];
 }
 
 export async function loadTeacherBookings(teacherId: string): Promise<TeacherBookingView[]> {

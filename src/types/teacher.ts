@@ -41,6 +41,12 @@ export function getTeacherPublicName(user: Pick<LunaUser, 'username' | 'teacherD
   return nick && nick.length > 0 ? nick : user.username;
 }
 
+export interface BookableTeacher {
+  id: string;
+  username: string;
+  teacherDisplayName?: string;
+}
+
 export function monthKeyFromDate(isoOrDate: string): string {
   return isoOrDate.slice(0, 7);
 }

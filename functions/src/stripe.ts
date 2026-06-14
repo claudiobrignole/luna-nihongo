@@ -66,7 +66,22 @@ export const createStripeCheckout = onCall(
     const stripe = getStripe(stripeSecretKey.value());
     const ref = await userRef(uid);
     const snap = await ref.get();
-    const user = snap.data() ?? {};
+    let user = snap.data() ?? {};
+
+    if (!snap.exists) {
+      const bootstrap = {
+        email,
+        username: String(request.auth.token.name ?? email.split('@')[0] ?? 'User'),
+        role: 'user',
+        tier: 'free',
+        xp: 0,
+        completedUnits: [],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      await ref.set(bootstrap, { merge: true });
+      user = bootstrap;
+    }
 
     let customerId = user.stripeCustomerId as string | undefined;
     if (!customerId) {

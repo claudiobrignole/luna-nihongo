@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isStaffRole, isTeacherRole } from '../types/user';
+import { isStaffRole, canAccessTeacherDashboard } from '../types/user';
 import { UserMenu } from './UserMenu';
 import { LunaLogo } from './LunaLogo';
 
@@ -334,7 +334,7 @@ export function Header({
                 {language === 'en' ? 'Book a lesson' : 'Prenota lezione'}
               </button>
 
-              {currentUser && isTeacherRole(currentUser.role) && (
+              {currentUser && canAccessTeacherDashboard(currentUser.role) && (
                 <button
                   type="button"
                   className={`mobile-sheet-link ${activeTab === 'teacher-dashboard' ? 'active' : ''}`}

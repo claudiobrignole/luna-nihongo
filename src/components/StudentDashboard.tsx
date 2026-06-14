@@ -501,8 +501,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
                     ? 'Your trial includes a 30-minute intro videocall with Luna.'
                     : 'La prova gratuita include una videocall introduttiva di 30 minuti con Luna.'
                   : language === 'en'
-                    ? 'Subscribe with Stripe to book live lessons with Luna (2 included per billing cycle).'
-                    : 'Abbonati con Stripe per prenotare lezioni live con Luna (2 incluse per ciclo).'}
+                    ? 'Premium includes live lessons with Luna (2 per billing cycle).'
+                    : 'Premium include le lezioni live con Luna (2 per ciclo di fatturazione).'}
             </p>
             {subscribed ? (
               <button
@@ -524,10 +524,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               </button>
             ) : (
               <div style={{ marginTop: '1rem' }}>
-                <PremiumUpgradeButton
-                  language={language}
-                  label={language === 'en' ? 'Subscribe with Stripe' : 'Abbonati con Stripe'}
-                />
+                <PremiumUpgradeButton language={language} />
               </div>
             )}
           </div>

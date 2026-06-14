@@ -214,6 +214,11 @@ export function isTeacherRole(role: UserRole): boolean {
   return role === 'teacher';
 }
 
+/** Teachers and super admins who may use the teacher dashboard. */
+export function canAccessTeacherDashboard(role: UserRole): boolean {
+  return role === 'teacher' || role === 'super_admin';
+}
+
 export function isStaffRole(role: UserRole): boolean {
   return role === 'super_admin' || role === 'teacher';
 }

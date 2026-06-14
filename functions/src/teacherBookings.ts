@@ -3,6 +3,10 @@ import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
 import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
 import { assertStaff, assertSuperAdmin } from './adminAuth';
+import {
+  countCompletedRegularLessonsForMonth,
+  TEACHER_LESSON_PAYOUT_EUR,
+} from './teacherPayouts';
 import type { TeacherBookingMailData } from './schedulingTypes';
 
 const resendApiKey = defineSecret('RESEND_API_KEY');
@@ -102,13 +106,13 @@ export const setTeacherPayoutStatus = onCall(
     const teacherId = typeof request.data?.teacherId === 'string' ? request.data.teacherId.trim() : '';
     const monthKey = typeof request.data?.monthKey === 'string' ? request.data.monthKey.trim() : '';
     const status = request.data?.status;
-    const lessonCount = typeof request.data?.lessonCount === 'number' ? request.data.lessonCount : 0;
 
     if (!teacherId || !monthKey || (status !== 'pending_invoice' && status !== 'paid')) {
       throw new HttpsError('invalid-argument', 'teacherId, monthKey and valid status are required.');
     }
 
-    const amountEur = lessonCount * 33;
+    const lessonCount = await countCompletedRegularLessonsForMonth(teacherId, monthKey);
+    const amountEur = lessonCount * TEACHER_LESSON_PAYOUT_EUR;
     const now = new Date().toISOString();
     const payload: Record<string, unknown> = {
       status,

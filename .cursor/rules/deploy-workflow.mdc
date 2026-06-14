@@ -1,0 +1,18 @@
+---
+description: Deploy workflow — GitHub push + Hostinger auto-deploy; Firebase da locale
+alwaysApply: true
+---
+
+# Deploy Luna Nihongo
+
+## Frontend (sito React + PHP in dist/)
+
+- L'utente **non configura nulla manualmente su Hostinger**.
+- Flusso: commit → `git push` su GitHub (branch `main`) → Hostinger fa auto-deploy (build `npm ci && npm run build:hostinger`, output `dist/`).
+- Non suggerire upload FTP, File Manager hPanel, o redeploy manuale Hostinger salvo emergenza.
+
+## Backend (Firestore rules/indexes, Cloud Functions)
+
+- **Non** passa da Hostinger/GitHub.
+- Si pubblica **da locale** con Firebase CLI: `firebase deploy --only firestore`, `npm run functions:deploy`, permessi Cloud Run (`npm run functions:allow-public` o `bash scripts/allow-public-gcloud.sh`).
+- Distinguere sempre: push Git = solo frontend; Functions/IAM = terminale locale.

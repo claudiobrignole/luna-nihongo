@@ -237,9 +237,26 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
                   </div>
                   <div><strong>{booking.date}</strong> · {booking.time}</div>
                   {hasLink ? (
-                    <a href={booking.meetLink!} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ alignSelf: 'flex-start' }}>
-                      <ExternalLink size={16} /> {language === 'en' ? 'Open video call' : 'Apri videochiamata'}
-                    </a>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                      <a href={booking.meetLink!} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ alignSelf: 'flex-start' }}>
+                        <ExternalLink size={16} /> {language === 'en' ? 'Open call' : 'Apri call'}
+                      </a>
+                      <input
+                        type="url"
+                        placeholder="https://meet.google.com/..."
+                        value={linkDrafts[key] ?? booking.meetLink ?? ''}
+                        onChange={(e) => setLinkDrafts((prev) => ({ ...prev, [key]: e.target.value }))}
+                        style={{ flex: 1, minWidth: 200, padding: '0.5rem 0.75rem', borderRadius: 8, border: '1px solid var(--border)' }}
+                      />
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        disabled={busyKey === key}
+                        onClick={() => void handleSaveLink(booking)}
+                      >
+                        {busyKey === key ? '...' : (language === 'en' ? 'Update link' : 'Aggiorna link')}
+                      </button>
+                    </div>
                   ) : (
                     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
                       <Link2 size={16} style={{ color: 'var(--warning)' }} />

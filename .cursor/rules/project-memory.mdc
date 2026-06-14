@@ -1,0 +1,17 @@
+---
+description: Panoramica progetto Luna Nihongo (stack, curriculum 142 unità, deploy, convenzioni)
+alwaysApply: true
+---
+
+# Luna Nihongo — contesto progetto
+
+Consulta **`.cursor/PROJECT_MEMORY.md`** per la guida completa e aggiornata.
+
+## Essenziale
+
+- App React 19 + Firebase + Gemini (chat/TTS/Live) + Stripe; hosting Hostinger (`dist/`).
+- Curriculum in `content/curriculum/`: **142 unità**, livelli **0–12** (N5: L0–6 = 85, N4: L7–12 = 57). Sequenza canonica = `manifest.unitOrder`. Build → `build/curriculum.json` → `src/data/curriculum.ts`.
+- Non rinominare id unità/refs pubblicati. Nuove unità: `insert-units.mjs`, poi `curriculum:check`.
+- Audio Studio = file statici curriculum (`public/audio/curriculum/`) + Gemini solo tutor/live. Dialoghi: `DialogueStudyPanel` in `LearningPath` (audio precalcolato per battuta + Ascolta tutto).
+- `delta-stroke/` non committare. Deploy functions: `npm run functions:deploy` + `functions:allow-public`.
+- Copy: usare `CURRICULUM_META.unitCount`, non “60 unità”.

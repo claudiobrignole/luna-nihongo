@@ -28,6 +28,7 @@ SERVICES=(
   admindeleteuser
   setbookingmeetlink
   setteacherpayoutstatus
+  listpublicteachers
 )
 
 echo "Project: $PROJECT  Region: $REGION"

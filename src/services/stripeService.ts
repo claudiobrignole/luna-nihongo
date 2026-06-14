@@ -1,6 +1,7 @@
 import { FirebaseError } from 'firebase/app';
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions';
 import { getFirebaseApp } from '../lib/firebase';
+import { ensureFreshAuthToken } from './authCallable';
 
 export function formatStripeCallableError(
   err: unknown,
@@ -30,6 +31,22 @@ export function formatStripeCallableError(
         ? 'Payment service unavailable. Try again in a moment.'
         : 'Servizio di pagamento non disponibile. Riprova tra poco.';
     }
+    if (code === 'unavailable' || code === 'deadline-exceeded') {
+      return language === 'en'
+        ? 'Payment service is temporarily offline. Try again shortly.'
+        : 'Servizio di pagamento temporaneamente offline. Riprova tra poco.';
+    }
+  }
+
+  if (err instanceof Error && err.message === 'not-authenticated') {
+    return language === 'en'
+      ? 'Please sign in before subscribing.'
+      : 'Accedi prima di passare a Premium.';
+  }
+  if (err instanceof Error && err.message === 'auth-timeout') {
+    return language === 'en'
+      ? 'Still signing you in. Wait a moment and try again.'
+      : 'Accesso in corso. Attendi un momento e riprova.';
   }
 
   return language === 'en'
@@ -52,6 +69,7 @@ function getFunctionsInstance() {
 }
 
 export async function startPremiumCheckout(language: 'en' | 'it'): Promise<string> {
+  await ensureFreshAuthToken();
   const fn = httpsCallable<{ language: 'en' | 'it' }, { url: string }>(
     getFunctionsInstance(),
     'createStripeCheckout',

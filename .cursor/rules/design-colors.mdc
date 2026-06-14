@@ -1,0 +1,31 @@
+---
+description: Regole colore sfondo — crema solo pagina/header, bianco per pannelli
+globs: src/**/*.{css,tsx}
+alwaysApply: true
+---
+
+# Sfondi Luna Nihongo
+
+Vedi anche [`design.md`](../../design.md).
+
+## `#FAF6ED` (`--ln-cream`) — solo qui
+
+- Sfondo pagina: `--bg-app`, `body`, `.app-container`
+- Header: `.main-header`
+
+## Bianco (`--ln-card-bg`, `--bg-panel`) — tutto il resto
+
+- `.glass-panel`, card, filtri (`hub-filter-stack`, `study-level-groups`), flashcard, footer, nav mobile, tutor panels, chip, input surfaces
+
+## Da evitare
+
+```css
+/* ❌ crema su un pannello */
+.my-panel { background: var(--ln-cream); }
+.my-panel { background: var(--bg-app); }
+
+/* ✅ bianco per superfici UI */
+.my-panel { background: var(--ln-card-bg); }
+```
+
+Non impostare `background: var(--bg-panel)` inline su elementi con `glass-panel` — la classe già definisce il bianco.

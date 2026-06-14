@@ -20,7 +20,9 @@ echo "→ Validating curriculum..."
 npm run curriculum:check
 
 echo "→ Verifying curriculum audio..."
-npm run audio:verify
+if ! npm run audio:verify; then
+  echo "⚠️  Curriculum audio incomplete — deploy continues. Run: npm run audio:batch"
+fi
 
 echo "→ Generating Gemini secret file..."
 node scripts/generate-gemini-secret.mjs

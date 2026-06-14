@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Compass, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isStaffRole, isTeacherRole, roleLabel } from '../types/user';
+import { isStaffRole, canAccessTeacherDashboard, roleLabel } from '../types/user';
 import type { TabType, LanguageType } from './Header';
 
 interface UserMenuProps {
@@ -27,7 +27,7 @@ export function UserMenu({
   const [marketingBusy, setMarketingBusy] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const isStaff = isStaffRole(currentUser.role);
-  const isTeacher = isTeacherRole(currentUser.role);
+  const showTeacherDashboard = canAccessTeacherDashboard(currentUser.role);
   const initial = currentUser.username.charAt(0).toUpperCase();
 
   useEffect(() => {
@@ -133,7 +133,7 @@ export function UserMenu({
             </button>
           )}
 
-          {isTeacher && (
+          {showTeacherDashboard && (
             <button
               type="button"
               role="menuitem"

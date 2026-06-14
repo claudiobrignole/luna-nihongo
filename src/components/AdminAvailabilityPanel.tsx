@@ -12,7 +12,7 @@ import {
   toggleAvailabilitySlot,
 } from '../services/availabilityService';
 import { adminDeactivateSlotRemote } from '../services/adminBookingService';
-import { listTeachers } from '../services/userService';
+import { listAllUsers } from '../services/userService';
 
 interface AdminAvailabilityPanelProps {
   language: 'en' | 'it';
@@ -45,7 +45,9 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
 
   useEffect(() => {
     if (isSuperAdmin) {
-      void listTeachers().then(setTeachers);
+      void listAllUsers().then((users) => {
+        setTeachers(users.filter((u) => u.role === 'teacher' || u.role === 'super_admin'));
+      });
     } else {
       setTeachers([currentUser]);
     }

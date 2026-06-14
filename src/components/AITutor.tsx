@@ -720,7 +720,6 @@ export const AITutor: React.FC<AITutorProps> = ({
               <PremiumUpgradeButton
                 language={language}
                 style={{ width: '100%' }}
-                label={language === 'en' ? 'Upgrade to Premium' : 'Passa a Premium'}
               />
               <button
                 style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}

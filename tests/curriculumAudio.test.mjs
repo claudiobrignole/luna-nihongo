@@ -39,7 +39,7 @@ test('audio manifest covers all curriculum speakables', { skip: !existsSync(MANI
   assert.equal(manifest.curriculumSchemaVersion, curriculum.schemaVersion);
 
   if (!isComplete) {
-    assert.ok(manifest.stats?.presentUniqueFiles > 0, 'partial manifest should list present files');
+    assert.ok(Object.keys(manifest.entries ?? {}).length > 0, 'partial manifest should list present files');
     return;
   }
 

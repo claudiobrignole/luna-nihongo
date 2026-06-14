@@ -49,6 +49,7 @@ export const adminDeleteUser = onCall(
   {
     region: 'europe-west1',
     timeoutSeconds: 120,
+    invoker: 'public',
   },
   async (request) => {
     const actorUid = await assertSuperAdmin(request);
