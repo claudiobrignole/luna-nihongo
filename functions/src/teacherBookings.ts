@@ -136,6 +136,58 @@ export const setTeacherPayoutStatus = onCall(
   },
 );
 
+export const listTeacherBookings = onCall(
+  {
+    region: 'europe-west1',
+    invoker: 'public',
+  },
+  async (request) => {
+    const staff = await assertStaff(request);
+    const requestedId =
+      typeof request.data?.teacherId === 'string' ? request.data.teacherId.trim() : staff.uid;
+    const teacherId = requestedId || staff.uid;
+
+    if (staff.role === 'teacher' && teacherId !== staff.uid) {
+      throw new HttpsError('permission-denied', 'Teachers can only view their own lessons.');
+    }
+
+    const snap = await getFirestore()
+      .collectionGroup('bookings')
+      .where('teacherId', '==', teacherId)
+      .get();
+
+    const bookings = snap.docs.map((docSnap) => {
+      const data = docSnap.data();
+      const studentUid = docSnap.ref.parent.parent?.id ?? '';
+      return {
+        id: docSnap.id,
+        studentUid,
+        name: String(data.name ?? ''),
+        email: String(data.email ?? ''),
+        level: String(data.level ?? ''),
+        notes: data.notes ? String(data.notes) : undefined,
+        date: String(data.date ?? ''),
+        time: String(data.time ?? ''),
+        plan: String(data.plan ?? ''),
+        slotId: data.slotId ? String(data.slotId) : undefined,
+        slotType: data.slotType === 'intro' ? 'intro' : data.slotType === 'regular' ? 'regular' : undefined,
+        meetLink: data.meetLink != null ? String(data.meetLink) : null,
+        meetLinkSetAt: data.meetLinkSetAt ? String(data.meetLinkSetAt) : null,
+        price: String(data.price ?? ''),
+        timestamp: String(data.timestamp ?? ''),
+        slotStartAt: data.slotStartAt ? String(data.slotStartAt) : null,
+        teacherId: String(data.teacherId ?? ''),
+        teacherDisplayName: String(data.teacherDisplayName ?? ''),
+        teacherEmail: String(data.teacherEmail ?? ''),
+      };
+    });
+
+    bookings.sort((a, b) => String(a.slotStartAt ?? '').localeCompare(String(b.slotStartAt ?? '')));
+
+    return { bookings };
+  },
+);
+
 export function teacherDashboardUrl(): string {
   return `${APP_ORIGIN}/?tab=teacher-dashboard`;
 }

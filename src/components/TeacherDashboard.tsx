@@ -51,15 +51,29 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
   const refresh = useCallback(async () => {
     setLoading(true);
     setError(null);
+    const issues: string[] = [];
     try {
-      const [b, p] = await Promise.all([
-        loadTeacherBookings(currentUser.id),
-        loadTeacherPayoutMonths(currentUser.id),
-      ]);
-      setBookings(b);
-      setPayouts(p);
-    } catch {
-      setError(language === 'en' ? 'Could not load dashboard.' : 'Impossibile caricare la dashboard.');
+      try {
+        setBookings(await loadTeacherBookings(currentUser.id));
+      } catch (err) {
+        console.error('Teacher bookings load failed', err);
+        issues.push(language === 'en' ? 'lessons' : 'lezioni');
+      }
+      try {
+        setPayouts(await loadTeacherPayoutMonths(currentUser.id));
+      } catch (err) {
+        console.error('Teacher payouts load failed', err);
+        issues.push(language === 'en' ? 'earnings' : 'compensi');
+      }
+      if (issues.length === 2) {
+        setError(language === 'en' ? 'Could not load dashboard.' : 'Impossibile caricare la dashboard.');
+      } else if (issues.length === 1) {
+        setError(
+          language === 'en'
+            ? `Could not load ${issues[0]}. Other sections may still work.`
+            : `Impossibile caricare ${issues[0]}. Le altre sezioni possono funzionare.`,
+        );
+      }
     } finally {
       setLoading(false);
     }

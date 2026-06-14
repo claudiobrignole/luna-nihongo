@@ -49,6 +49,7 @@ export const ensureTeacherPayoutDrafts = onSchedule(
   {
     schedule: '0 8 1 * *',
     timeZone: 'Europe/Zurich',
+    region: 'europe-west1',
   },
   async () => {
     const db = getFirestore();

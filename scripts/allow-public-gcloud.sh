@@ -29,6 +29,7 @@ SERVICES=(
   setbookingmeetlink
   setteacherpayoutstatus
   listpublicteachers
+  listteacherbookings
 )
 
 echo "Project: $PROJECT  Region: $REGION"

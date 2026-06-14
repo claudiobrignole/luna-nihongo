@@ -1,4 +1,4 @@
-import { collection, collectionGroup, doc, getDoc, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { collection, collectionGroup, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { getFunctions, httpsCallable } from 'firebase/functions';
 import { getFirebaseApp, getFirebaseDb } from '../lib/firebase';
 import type { TeacherBookingView, TeacherPayoutMonth, BookableTeacher } from '../types/teacher';
@@ -45,15 +45,27 @@ export async function listBookableTeachersRemote(): Promise<BookableTeacher[]> {
 }
 
 export async function loadTeacherBookings(teacherId: string): Promise<TeacherBookingView[]> {
-  const q = query(
-    collectionGroup(getFirebaseDb(), 'bookings'),
-    where('teacherId', '==', teacherId),
-    orderBy('slotStartAt', 'asc'),
-  );
-  const snap = await getDocs(q);
-  return snap.docs.map((d) =>
-    docToTeacherBooking(d.id, d.ref.parent.parent?.id ?? '', d.data() as Record<string, unknown>),
-  );
+  try {
+    await ensureFreshAuthToken();
+    const fn = httpsCallable<{ teacherId: string }, { bookings: TeacherBookingView[] }>(
+      getFunctions(getFirebaseApp(), 'europe-west1'),
+      'listTeacherBookings',
+    );
+    const result = await fn({ teacherId });
+    return result.data.bookings ?? [];
+  } catch (err) {
+    console.warn('listTeacherBookings callable failed, falling back to Firestore', err);
+    const q = query(
+      collectionGroup(getFirebaseDb(), 'bookings'),
+      where('teacherId', '==', teacherId),
+    );
+    const snap = await getDocs(q);
+    const rows = snap.docs.map((d) =>
+      docToTeacherBooking(d.id, d.ref.parent.parent?.id ?? '', d.data() as Record<string, unknown>),
+    );
+    rows.sort((a, b) => String(a.slotStartAt ?? '').localeCompare(String(b.slotStartAt ?? '')));
+    return rows;
+  }
 }
 
 export async function setBookingMeetLinkRemote(

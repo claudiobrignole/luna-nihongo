@@ -37,6 +37,7 @@ const SERVICES = [
   'setbookingmeetlink',
   'setteacherpayoutstatus',
   'listpublicteachers',
+  'listteacherbookings',
 ];
 
 async function getAccessToken() {

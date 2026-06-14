@@ -349,6 +349,6 @@ export { scanGraceNoSlotsCoupons } from './graceNoSlots';
 export { sendLessonReminders } from './lessonReminders';
 export { subscribeNewsletter, syncMarketingConsent } from './sendfox';
 export { adminDeleteUser } from './adminUsers';
-export { setBookingMeetLink, setTeacherPayoutStatus } from './teacherBookings';
+export { setBookingMeetLink, setTeacherPayoutStatus, listTeacherBookings } from './teacherBookings';
 export { listPublicTeachers } from './teachersPublic';
 export { ensureTeacherPayoutDrafts } from './teacherPayouts';
