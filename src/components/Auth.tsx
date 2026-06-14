@@ -3,6 +3,7 @@ import { Mail, Lock, ArrowRight, UserPlus, LogIn, User, Eye, EyeOff } from 'luci
 import { useAuth } from '../contexts/AuthContext';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import { isFirebaseConfigured } from '../lib/firebase';
+import { LunaLogo } from './LunaLogo';
 
 interface AuthProps {
   language: 'en' | 'it';
@@ -112,21 +113,7 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
         gap: '1.5rem'
       }}>
         <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '1.8rem',
-            fontWeight: '700',
-            marginBottom: '1rem'
-          }}>
-            月
-          </div>
+          <LunaLogo layout="vertical" theme="light" className="luna-logo--auth" />
           <h2 style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
             {isLogin
               ? (language === 'en' ? 'Welcome Back' : 'Bentornato')

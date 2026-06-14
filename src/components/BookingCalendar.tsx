@@ -16,6 +16,8 @@ import {
 import type { UserCouponSummary } from '../types/coupon';
 import { formatSlotLabel, slotSeatsLeft } from '../types/availability';
 import { loadAvailabilitySlots } from '../services/availabilityService';
+import { listTeachers } from '../services/userService';
+import { getTeacherPublicName } from '../types/teacher';
 import { bookAvailabilitySlot } from '../services/trialService';
 import { formatEmailCallableError, rescheduleBookingRemote } from '../services/emailService';
 import { checkGraceNoSlotsCoupon, loadUserCoupons } from '../services/couponService';
@@ -95,20 +97,37 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const [bookingCompleted, setBookingCompleted] = useState(false);
   const [meetLink, setMeetLink] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [teachers, setTeachers] = useState<LunaUser[]>([]);
+  const [selectedTeacherId, setSelectedTeacherId] = useState<string | null>(null);
+  const [loadingTeachers, setLoadingTeachers] = useState(true);
 
   const todayIso = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
+  useEffect(() => {
+    void listTeachers()
+      .then((list) => {
+        setTeachers(list);
+        if (list.length === 1) setSelectedTeacherId(list[0].id);
+      })
+      .finally(() => setLoadingTeachers(false));
+  }, []);
+
   const refreshSlots = useCallback(async () => {
+    if (!selectedTeacherId) {
+      setSlots([]);
+      setLoadingSlots(false);
+      return;
+    }
     setLoadingSlots(true);
     try {
-      setSlots(await loadAvailabilitySlots(slotType, todayIso));
+      setSlots(await loadAvailabilitySlots({ slotType, fromDate: todayIso, teacherId: selectedTeacherId }));
     } catch (err) {
       console.error(err);
       setError(language === 'en' ? 'Could not load availability.' : 'Impossibile caricare la disponibilità.');
     } finally {
       setLoadingSlots(false);
     }
-  }, [language, slotType, todayIso]);
+  }, [language, slotType, todayIso, selectedTeacherId]);
 
   useEffect(() => {
     void refreshSlots();
@@ -329,13 +348,9 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           <CheckCircle2 size={48} color="var(--success)" style={{ margin: '0 auto' }} />
           <h2>{language === 'en' ? 'Booking confirmed!' : 'Prenotazione confermata!'}</h2>
           <p style={{ color: 'var(--text-muted)' }}>
-            {mode === 'intro'
-              ? language === 'en'
-                ? 'Your 30-minute intro videocall with Luna is booked. Join from your dashboard when it is time.'
-                : 'La videocall introduttiva di 30 minuti con Luna è prenotata. Entra dalla dashboard quando è il momento.'
-              : language === 'en'
-                ? 'Your included lesson is reserved for this billing cycle.'
-                : 'La lezione inclusa è riservata per questo ciclo di fatturazione.'}
+            {language === 'en'
+              ? 'Your lesson is booked. You will receive the video link by email once your teacher adds it.'
+              : 'Lezione prenotata. Riceverai il link video via email appena il maestro lo inserirà.'}
           </p>
           {meetLink && (
             <a href={meetLink} className="btn btn-primary" style={{ alignSelf: 'center' }}>
@@ -389,6 +404,37 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
       {error && <div className="luna-live-banner error">{error}</div>}
 
+      {loadingTeachers ? (
+        <div style={{ textAlign: 'center', padding: '2rem' }}><Loader2 size={28} className="spin" /></div>
+      ) : teachers.length === 0 ? (
+        <div className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+          {language === 'en' ? 'No teachers available for booking yet.' : 'Nessun maestro disponibile per le prenotazioni.'}
+        </div>
+      ) : (
+        <>
+      <div className="glass-panel" style={{ padding: '1.25rem' }}>
+        <h3 style={{ margin: '0 0 0.75rem', fontSize: '1rem' }}>
+          {language === 'en' ? '1. Choose your teacher' : '1. Scegli il maestro'}
+        </h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+          {teachers.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              className={selectedTeacherId === t.id ? 'btn btn-primary' : 'btn btn-secondary'}
+              onClick={() => {
+                setSelectedTeacherId(t.id);
+                setSelectedDate(null);
+                setSelectedSlotId(null);
+              }}
+            >
+              {getTeacherPublicName(t)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {!selectedTeacherId ? null : (
       <form onSubmit={(e) => void handleBook(e)} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
         <div className="glass-panel" style={{ padding: '1.25rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -613,6 +659,9 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           </button>
         </div>
       </form>
+      )}
+        </>
+      )}
     </div>
   );
 };

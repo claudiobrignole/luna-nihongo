@@ -18,6 +18,7 @@ public/api/bootstrap.local.php
 public/api/gemini-secret.php
 # Generated curriculum bundle (rebuilt by hydrate.mjs)
 content/curriculum/build/
+public/audio/curriculum/.batch-job.json
 
 # KanjiVG release archives (bundled SVGs live in public/kanjivg/)
 kanjivg-*.zip

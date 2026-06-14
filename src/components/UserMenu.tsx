@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Compass, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isAdminRole, roleLabel } from '../types/user';
+import { isStaffRole, isTeacherRole, roleLabel } from '../types/user';
 import type { TabType, LanguageType } from './Header';
 
 interface UserMenuProps {
@@ -26,7 +26,8 @@ export function UserMenu({
   const [open, setOpen] = useState(false);
   const [marketingBusy, setMarketingBusy] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const isAdmin = isAdminRole(currentUser.role);
+  const isStaff = isStaffRole(currentUser.role);
+  const isTeacher = isTeacherRole(currentUser.role);
   const initial = currentUser.username.charAt(0).toUpperCase();
 
   useEffect(() => {
@@ -92,7 +93,7 @@ export function UserMenu({
               <strong>{currentUser.username}</strong>
               <span className="user-menu-email">{currentUser.email}</span>
               <div className="user-menu-badges">
-                {isAdmin && (
+                {isStaff && (
                   <span className="user-menu-badge user-menu-badge-admin">
                     <Shield size={12} />
                     {roleLabel(currentUser.role, language)}
@@ -132,7 +133,19 @@ export function UserMenu({
             </button>
           )}
 
-          {isAdmin && (
+          {isTeacher && (
+            <button
+              type="button"
+              role="menuitem"
+              className={`user-menu-item ${activeTab === 'teacher-dashboard' ? 'active' : ''}`}
+              onClick={() => closeAndNavigate('teacher-dashboard')}
+            >
+              <LayoutDashboard size={18} />
+              {language === 'en' ? 'Teacher dashboard' : 'Dashboard maestro'}
+            </button>
+          )}
+
+          {isStaff && (
             <button
               type="button"
               role="menuitem"
@@ -140,7 +153,7 @@ export function UserMenu({
               onClick={() => closeAndNavigate('admin')}
             >
               <Shield size={18} />
-              {language === 'en' ? 'Admin panel' : 'Pannello admin'}
+              {language === 'en' ? 'Staff panel' : 'Pannello staff'}
             </button>
           )}
 

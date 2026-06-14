@@ -1,4 +1,4 @@
-export type TTSSource = 'gemini';
+export type TTSSource = 'static' | 'gemini';
 
 let activeAudio: HTMLAudioElement | null = null;
 let activeBlobUrl: string | null = null;
@@ -16,6 +16,25 @@ function stopCurrentPlayback(): void {
     URL.revokeObjectURL(activeBlobUrl);
     activeBlobUrl = null;
   }
+}
+
+function playUrlAudio(url: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const audio = new Audio(url);
+    activeAudio = audio;
+    audio.onended = () => {
+      stopCurrentPlayback();
+      resolve();
+    };
+    audio.onerror = () => {
+      stopCurrentPlayback();
+      reject(new Error('Audio playback failed'));
+    };
+    void audio.play().catch((err) => {
+      stopCurrentPlayback();
+      reject(err);
+    });
+  });
 }
 
 function playBase64Audio(base64: string, mimeType: string): Promise<void> {
@@ -87,7 +106,37 @@ export function formatTtsFailure(
   return `HTTP ${response.status}`;
 }
 
-/** Japanese speech via Gemini TTS only (no browser fallback). */
+/** Pre-generated curriculum audio (LearningPath, dialogues, flashcards). */
+export async function speakCurriculumJapanese(
+  stableId: string,
+  text: string,
+  language: 'en' | 'it' = 'it',
+): Promise<SpeakResult> {
+  const trimmed = text.trim();
+  if (!trimmed) return { error: 'Empty text' };
+
+  stopCurrentPlayback();
+
+  const { loadCurriculumAudioManifest, resolveCurriculumAudioUrlAsync } = await import(
+    '../utils/curriculumAudio'
+  );
+  const manifest = await loadCurriculumAudioManifest();
+  if (manifest) {
+    const url = await resolveCurriculumAudioUrlAsync(manifest, stableId, trimmed);
+    if (url) {
+      try {
+        await playUrlAudio(url);
+        return { source: 'static' };
+      } catch {
+        console.warn('[tts] static audio playback failed, falling back to Gemini', stableId);
+      }
+    }
+  }
+
+  return speakJapaneseText(trimmed, language);
+}
+
+/** Japanese speech via Gemini TTS (tutor chat only). */
 export async function speakJapaneseText(
   text: string,
   language: 'en' | 'it' = 'it',

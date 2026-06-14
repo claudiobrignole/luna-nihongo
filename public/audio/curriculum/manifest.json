@@ -1,0 +1,4914 @@
+{
+  "version": 1,
+  "ttsProfile": {
+    "voice": "Kore",
+    "models": [
+      "gemini-3.1-flash-tts-preview",
+      "gemini-2.5-flash-preview-tts",
+      "gemini-2.5-pro-preview-tts"
+    ],
+    "promptVersion": 1
+  },
+  "curriculumSchemaVersion": "1.1.0",
+  "generatedAt": "2026-06-14T17:52:22.643Z",
+  "entries": {
+    "hira-a": {
+      "text": "あ",
+      "textHash": "dc5a4d3d82f7e157",
+      "file": "files/dc5a4d3d82f7e157.wav",
+      "durationMs": 771
+    },
+    "hira-i": {
+      "text": "い",
+      "textHash": "4c6ff24613969749",
+      "file": "files/4c6ff24613969749.wav",
+      "durationMs": 840
+    },
+    "hira-u": {
+      "text": "う",
+      "textHash": "8a0179143e31b095",
+      "file": "files/8a0179143e31b095.wav",
+      "durationMs": 760
+    },
+    "hira-e": {
+      "text": "え",
+      "textHash": "3b0a650001298c05",
+      "file": "files/3b0a650001298c05.wav",
+      "durationMs": 571
+    },
+    "hira-o": {
+      "text": "お",
+      "textHash": "762c1a1a571413e6",
+      "file": "files/762c1a1a571413e6.wav",
+      "durationMs": 651
+    },
+    "hira-ka": {
+      "text": "か",
+      "textHash": "f500b3b07ce5e1c7",
+      "file": "files/f500b3b07ce5e1c7.wav",
+      "durationMs": 811
+    },
+    "hira-ki": {
+      "text": "き",
+      "textHash": "614459aa75868bbf",
+      "file": "files/614459aa75868bbf.wav",
+      "durationMs": 651
+    },
+    "hira-ku": {
+      "text": "く",
+      "textHash": "10c477b2569aa9d2",
+      "file": "files/10c477b2569aa9d2.wav",
+      "durationMs": 811
+    },
+    "hira-ke": {
+      "text": "け",
+      "textHash": "81744914c053bfc3",
+      "file": "files/81744914c053bfc3.wav",
+      "durationMs": 731
+    },
+    "hira-ko": {
+      "text": "こ",
+      "textHash": "083ed6fbedae1760",
+      "file": "files/083ed6fbedae1760.wav",
+      "durationMs": 811
+    },
+    "hira-sa": {
+      "text": "さ",
+      "textHash": "598e6dcaa5412a9a",
+      "file": "files/598e6dcaa5412a9a.wav",
+      "durationMs": 731
+    },
+    "hira-shi": {
+      "text": "し",
+      "textHash": "1bb602cd1cb01953",
+      "file": "files/1bb602cd1cb01953.wav",
+      "durationMs": 1131
+    },
+    "hira-su": {
+      "text": "す",
+      "textHash": "a4a4c9f8a8ed62c3",
+      "file": "files/a4a4c9f8a8ed62c3.wav",
+      "durationMs": 960
+    },
+    "hira-se": {
+      "text": "せ",
+      "textHash": "910204a13a70c71b",
+      "file": "files/910204a13a70c71b.wav",
+      "durationMs": 851
+    },
+    "hira-so": {
+      "text": "そ",
+      "textHash": "b6059c658b2c4ded",
+      "file": "files/b6059c658b2c4ded.wav",
+      "durationMs": 891
+    },
+    "hira-ta": {
+      "text": "た",
+      "textHash": "4cef96814184d968",
+      "file": "files/4cef96814184d968.wav",
+      "durationMs": 920
+    },
+    "hira-chi": {
+      "text": "ち",
+      "textHash": "2bcee2b466317c94",
+      "file": "files/2bcee2b466317c94.wav",
+      "durationMs": 771
+    },
+    "hira-tsu": {
+      "text": "つ",
+      "textHash": "82cb12703e4a4ce6",
+      "file": "files/82cb12703e4a4ce6.wav",
+      "durationMs": 920
+    },
+    "hira-te": {
+      "text": "て",
+      "textHash": "afafbae591c156ee",
+      "file": "files/afafbae591c156ee.wav",
+      "durationMs": 851
+    },
+    "hira-to": {
+      "text": "と",
+      "textHash": "427566260604d16f",
+      "file": "files/427566260604d16f.wav",
+      "durationMs": 1040
+    },
+    "hira-na": {
+      "text": "な",
+      "textHash": "30decdf427451393",
+      "file": "files/30decdf427451393.wav",
+      "durationMs": 731
+    },
+    "hira-ni": {
+      "text": "に",
+      "textHash": "5f945f18ef589732",
+      "file": "files/5f945f18ef589732.wav",
+      "durationMs": 1000
+    },
+    "hira-nu": {
+      "text": "ぬ",
+      "textHash": "01954929e88c8fd6",
+      "file": "files/01954929e88c8fd6.wav",
+      "durationMs": 451
+    },
+    "hira-ne": {
+      "text": "ね",
+      "textHash": "9e228bcc5ed49ae3",
+      "file": "files/9e228bcc5ed49ae3.wav",
+      "durationMs": 880
+    },
+    "hira-no": {
+      "text": "の",
+      "textHash": "3b2e79bc71937994",
+      "file": "files/3b2e79bc71937994.wav",
+      "durationMs": 920
+    },
+    "hira-ha": {
+      "text": "は",
+      "textHash": "de77c92e70001383",
+      "file": "files/de77c92e70001383.wav",
+      "durationMs": 1120
+    },
+    "hira-hi": {
+      "text": "ひ",
+      "textHash": "ac2c2fe2a77e427f",
+      "file": "files/ac2c2fe2a77e427f.wav",
+      "durationMs": 1200
+    },
+    "hira-fu": {
+      "text": "ふ",
+      "textHash": "0e2c91a393eaf7ec",
+      "file": "files/0e2c91a393eaf7ec.wav",
+      "durationMs": 920
+    },
+    "hira-he": {
+      "text": "へ",
+      "textHash": "58c25b81f1d2466d",
+      "file": "files/58c25b81f1d2466d.wav",
+      "durationMs": 840
+    },
+    "hira-ho": {
+      "text": "ほ",
+      "textHash": "5a742a1142b8ad7c",
+      "file": "files/5a742a1142b8ad7c.wav",
+      "durationMs": 691
+    },
+    "hira-ma": {
+      "text": "ま",
+      "textHash": "f044d12b2a9f611b",
+      "file": "files/f044d12b2a9f611b.wav",
+      "durationMs": 680
+    },
+    "hira-mi": {
+      "text": "み",
+      "textHash": "71541c68c80f279e",
+      "file": "files/71541c68c80f279e.wav",
+      "durationMs": 811
+    },
+    "hira-mu": {
+      "text": "む",
+      "textHash": "cad4655b0efc3d3d",
+      "file": "files/cad4655b0efc3d3d.wav",
+      "durationMs": 691
+    },
+    "hira-me": {
+      "text": "め",
+      "textHash": "1d37bdf9abb0f388",
+      "file": "files/1d37bdf9abb0f388.wav",
+      "durationMs": 771
+    },
+    "hira-mo": {
+      "text": "も",
+      "textHash": "06ccdf06d7529eb8",
+      "file": "files/06ccdf06d7529eb8.wav",
+      "durationMs": 691
+    },
+    "hira-ya": {
+      "text": "や",
+      "textHash": "6a8f5a639349d940",
+      "file": "files/6a8f5a639349d940.wav",
+      "durationMs": 411
+    },
+    "hira-yu": {
+      "text": "ゆ",
+      "textHash": "0026f00eafdfe271",
+      "file": "files/0026f00eafdfe271.wav",
+      "durationMs": 1011
+    },
+    "hira-yo": {
+      "text": "よ",
+      "textHash": "7a0a3e30c7c42e14",
+      "file": "files/7a0a3e30c7c42e14.wav",
+      "durationMs": 491
+    },
+    "hira-ra": {
+      "text": "ら",
+      "textHash": "08f1c786678cb288",
+      "file": "files/08f1c786678cb288.wav",
+      "durationMs": 731
+    },
+    "hira-ri": {
+      "text": "り",
+      "textHash": "1828fe931380bc20",
+      "file": "files/1828fe931380bc20.wav",
+      "durationMs": 880
+    },
+    "hira-ru": {
+      "text": "る",
+      "textHash": "1ed061f00fb6e08d",
+      "file": "files/1ed061f00fb6e08d.wav",
+      "durationMs": 731
+    },
+    "hira-re": {
+      "text": "れ",
+      "textHash": "653c7a8efdbb2997",
+      "file": "files/653c7a8efdbb2997.wav",
+      "durationMs": 880
+    },
+    "hira-ro": {
+      "text": "ろ",
+      "textHash": "88a9f6609db82ea1",
+      "file": "files/88a9f6609db82ea1.wav",
+      "durationMs": 851
+    },
+    "hira-wa": {
+      "text": "わ",
+      "textHash": "f466e5f296542629",
+      "file": "files/f466e5f296542629.wav",
+      "durationMs": 811
+    },
+    "hira-wo": {
+      "text": "を",
+      "textHash": "98aa8c57ac915336",
+      "file": "files/98aa8c57ac915336.wav",
+      "durationMs": 611
+    },
+    "hira-n": {
+      "text": "ん",
+      "textHash": "3bad3747efd88e63",
+      "file": "files/3bad3747efd88e63.wav",
+      "durationMs": 2051
+    },
+    "hira-ga": {
+      "text": "が",
+      "textHash": "e3b21956ce958d25",
+      "file": "files/e3b21956ce958d25.wav",
+      "durationMs": 811
+    },
+    "hira-gi": {
+      "text": "ぎ",
+      "textHash": "95b30f74a2aee850",
+      "file": "files/95b30f74a2aee850.wav",
+      "durationMs": 731
+    },
+    "hira-gu": {
+      "text": "ぐ",
+      "textHash": "bcfd3bc6b7b47707",
+      "file": "files/bcfd3bc6b7b47707.wav",
+      "durationMs": 771
+    },
+    "hira-ge": {
+      "text": "げ",
+      "textHash": "41aceb4407f8d97d",
+      "file": "files/41aceb4407f8d97d.wav",
+      "durationMs": 1200
+    },
+    "hira-go": {
+      "text": "ご",
+      "textHash": "a01669e6ccf908c0",
+      "file": "files/a01669e6ccf908c0.wav",
+      "durationMs": 760
+    },
+    "hira-za": {
+      "text": "ざ",
+      "textHash": "125a2a0798c75356",
+      "file": "files/125a2a0798c75356.wav",
+      "durationMs": 880
+    },
+    "hira-ji": {
+      "text": "じ",
+      "textHash": "bfb06973c3079797",
+      "file": "files/bfb06973c3079797.wav",
+      "durationMs": 960
+    },
+    "hira-zu": {
+      "text": "ず",
+      "textHash": "fbb749fade42c031",
+      "file": "files/fbb749fade42c031.wav",
+      "durationMs": 1120
+    },
+    "hira-ze": {
+      "text": "ぜ",
+      "textHash": "7a2b9fadc056a4e1",
+      "file": "files/7a2b9fadc056a4e1.wav",
+      "durationMs": 920
+    },
+    "hira-zo": {
+      "text": "ぞ",
+      "textHash": "2fbe4700340b0870",
+      "file": "files/2fbe4700340b0870.wav",
+      "durationMs": 1080
+    },
+    "hira-da": {
+      "text": "だ",
+      "textHash": "8b53bf6f987a8b5b",
+      "file": "files/8b53bf6f987a8b5b.wav",
+      "durationMs": 2040
+    },
+    "hira-dji": {
+      "text": "ぢ",
+      "textHash": "bc6449aa4a7e320e",
+      "file": "files/bc6449aa4a7e320e.wav",
+      "durationMs": 920
+    },
+    "hira-dzu": {
+      "text": "づ",
+      "textHash": "6451e9cd22842e8d",
+      "file": "files/6451e9cd22842e8d.wav",
+      "durationMs": 840
+    },
+    "hira-de": {
+      "text": "で",
+      "textHash": "a2e54fdcf32b8cea",
+      "file": "files/a2e54fdcf32b8cea.wav",
+      "durationMs": 931
+    },
+    "hira-do": {
+      "text": "ど",
+      "textHash": "83e3e6bb20d612f7",
+      "file": "files/83e3e6bb20d612f7.wav",
+      "durationMs": 920
+    },
+    "hira-ba": {
+      "text": "ば",
+      "textHash": "6eb4beb351ba4dd8",
+      "file": "files/6eb4beb351ba4dd8.wav",
+      "durationMs": 1120
+    },
+    "hira-bi": {
+      "text": "び",
+      "textHash": "2c61ff462011cf8b",
+      "file": "files/2c61ff462011cf8b.wav",
+      "durationMs": 1080
+    },
+    "hira-bu": {
+      "text": "ぶ",
+      "textHash": "ff75dec6aad37d0d",
+      "file": "files/ff75dec6aad37d0d.wav",
+      "durationMs": 851
+    },
+    "hira-be": {
+      "text": "べ",
+      "textHash": "46c8d60d8bc65169",
+      "file": "files/46c8d60d8bc65169.wav",
+      "durationMs": 811
+    },
+    "hira-bo": {
+      "text": "ぼ",
+      "textHash": "fb2a4a5d28fef1f5",
+      "file": "files/fb2a4a5d28fef1f5.wav",
+      "durationMs": 971
+    },
+    "hira-pa": {
+      "text": "ぱ",
+      "textHash": "2ccb5d56a6f044e3",
+      "file": "files/2ccb5d56a6f044e3.wav",
+      "durationMs": 531
+    },
+    "hira-pi": {
+      "text": "ぴ",
+      "textHash": "a9e571593c16679c",
+      "file": "files/a9e571593c16679c.wav",
+      "durationMs": 691
+    },
+    "hira-pu": {
+      "text": "ぷ",
+      "textHash": "98bc98dde31a8278",
+      "file": "files/98bc98dde31a8278.wav",
+      "durationMs": 851
+    },
+    "hira-pe": {
+      "text": "ぺ",
+      "textHash": "9ce79d0b6935129f",
+      "file": "files/9ce79d0b6935129f.wav",
+      "durationMs": 731
+    },
+    "hira-po": {
+      "text": "ぽ",
+      "textHash": "29d8625781fed1a9",
+      "file": "files/29d8625781fed1a9.wav",
+      "durationMs": 571
+    },
+    "hira-kya": {
+      "text": "きゃ",
+      "textHash": "2ff5ae6efe948dd8",
+      "file": "files/2ff5ae6efe948dd8.wav",
+      "durationMs": 1091
+    },
+    "hira-kyu": {
+      "text": "きゅ",
+      "textHash": "9c247e28bfa163ed",
+      "file": "files/9c247e28bfa163ed.wav",
+      "durationMs": 811
+    },
+    "hira-kyo": {
+      "text": "きょ",
+      "textHash": "2952b9dbfce90e2b",
+      "file": "files/2952b9dbfce90e2b.wav",
+      "durationMs": 811
+    },
+    "hira-sha": {
+      "text": "しゃ",
+      "textHash": "51dc9788715f8094",
+      "file": "files/51dc9788715f8094.wav",
+      "durationMs": 920
+    },
+    "hira-shu": {
+      "text": "しゅ",
+      "textHash": "f8516fa7dce11f02",
+      "file": "files/f8516fa7dce11f02.wav",
+      "durationMs": 891
+    },
+    "hira-sho": {
+      "text": "しょ",
+      "textHash": "ef05e9c5bd344f92",
+      "file": "files/ef05e9c5bd344f92.wav",
+      "durationMs": 1280
+    },
+    "hira-cha": {
+      "text": "ちゃ",
+      "textHash": "40567f336c59951f",
+      "file": "files/40567f336c59951f.wav",
+      "durationMs": 451
+    },
+    "hira-chu": {
+      "text": "ちゅ",
+      "textHash": "2c7f6f31d3e69034",
+      "file": "files/2c7f6f31d3e69034.wav",
+      "durationMs": 1480
+    },
+    "hira-cho": {
+      "text": "ちょ",
+      "textHash": "d9bbca88a093f017",
+      "file": "files/d9bbca88a093f017.wav",
+      "durationMs": 760
+    },
+    "hira-nya": {
+      "text": "にゃ",
+      "textHash": "f92b3b41102f78ed",
+      "file": "files/f92b3b41102f78ed.wav",
+      "durationMs": 891
+    },
+    "hira-nyu": {
+      "text": "にゅ",
+      "textHash": "f2a474cff308298a",
+      "file": "files/f2a474cff308298a.wav",
+      "durationMs": 1000
+    },
+    "hira-nyo": {
+      "text": "にょ",
+      "textHash": "85063421a5eea69e",
+      "file": "files/85063421a5eea69e.wav",
+      "durationMs": 800
+    },
+    "hira-hya": {
+      "text": "ひゃ",
+      "textHash": "c2cbe93be194d69a",
+      "file": "files/c2cbe93be194d69a.wav",
+      "durationMs": 1000
+    },
+    "hira-hyu": {
+      "text": "ひゅ",
+      "textHash": "4eb3a5fcbea3f29c",
+      "file": "files/4eb3a5fcbea3f29c.wav",
+      "durationMs": 1160
+    },
+    "hira-hyo": {
+      "text": "ひょ",
+      "textHash": "c67f96569b2799b0",
+      "file": "files/c67f96569b2799b0.wav",
+      "durationMs": 720
+    },
+    "hira-mya": {
+      "text": "みゃ",
+      "textHash": "47eeccedc72f9329",
+      "file": "files/47eeccedc72f9329.wav",
+      "durationMs": 1040
+    },
+    "hira-myu": {
+      "text": "みゅ",
+      "textHash": "7f3f2482c24dee56",
+      "file": "files/7f3f2482c24dee56.wav",
+      "durationMs": 1160
+    },
+    "hira-myo": {
+      "text": "みょ",
+      "textHash": "fb03accd25a2f1d4",
+      "file": "files/fb03accd25a2f1d4.wav",
+      "durationMs": 1120
+    },
+    "hira-rya": {
+      "text": "りゃ",
+      "textHash": "95703d390d4a0b98",
+      "file": "files/95703d390d4a0b98.wav",
+      "durationMs": 1040
+    },
+    "hira-ryu": {
+      "text": "りゅ",
+      "textHash": "a51e5845490c0c10",
+      "file": "files/a51e5845490c0c10.wav",
+      "durationMs": 1000
+    },
+    "hira-ryo": {
+      "text": "りょ",
+      "textHash": "aaea714e0dcd2a0e",
+      "file": "files/aaea714e0dcd2a0e.wav",
+      "durationMs": 1291
+    },
+    "hira-gya": {
+      "text": "ぎゃ",
+      "textHash": "0443e9f0f9857580",
+      "file": "files/0443e9f0f9857580.wav",
+      "durationMs": 800
+    },
+    "hira-gyu": {
+      "text": "ぎゅ",
+      "textHash": "cb1b6d2997d59314",
+      "file": "files/cb1b6d2997d59314.wav",
+      "durationMs": 731
+    },
+    "hira-gyo": {
+      "text": "ぎょ",
+      "textHash": "01f1f78d8b701e50",
+      "file": "files/01f1f78d8b701e50.wav",
+      "durationMs": 651
+    },
+    "hira-ja": {
+      "text": "じゃ",
+      "textHash": "11ccea378e78ebdb",
+      "file": "files/11ccea378e78ebdb.wav",
+      "durationMs": 651
+    },
+    "hira-ju": {
+      "text": "じゅ",
+      "textHash": "4fa4051bbc6af2ba",
+      "file": "files/4fa4051bbc6af2ba.wav",
+      "durationMs": 1051
+    },
+    "hira-jo": {
+      "text": "じょ",
+      "textHash": "1c2875304f547cea",
+      "file": "files/1c2875304f547cea.wav",
+      "durationMs": 851
+    },
+    "hira-bya": {
+      "text": "びゃ",
+      "textHash": "1b1a9bcd3e71a37e",
+      "file": "files/1b1a9bcd3e71a37e.wav",
+      "durationMs": 811
+    },
+    "hira-byu": {
+      "text": "びゅ",
+      "textHash": "c0c2b6d4a6a04bb2",
+      "file": "files/c0c2b6d4a6a04bb2.wav",
+      "durationMs": 1440
+    },
+    "hira-byo": {
+      "text": "びょ",
+      "textHash": "b2e7b5a13271c5a2",
+      "file": "files/b2e7b5a13271c5a2.wav",
+      "durationMs": 771
+    },
+    "hira-pya": {
+      "text": "ぴゃ",
+      "textHash": "0ca50a805636310b",
+      "file": "files/0ca50a805636310b.wav",
+      "durationMs": 411
+    },
+    "hira-pyu": {
+      "text": "ぴゅ",
+      "textHash": "28cf4c8cc2f67f01",
+      "file": "files/28cf4c8cc2f67f01.wav",
+      "durationMs": 691
+    },
+    "hira-pyo": {
+      "text": "ぴょ",
+      "textHash": "11eb3e109a97f547",
+      "file": "files/11eb3e109a97f547.wav",
+      "durationMs": 451
+    },
+    "hira-sokuon": {
+      "text": "っ",
+      "textHash": "efe5e8334bbf8cfd",
+      "file": "files/efe5e8334bbf8cfd.wav",
+      "durationMs": 1251
+    },
+    "kata-a": {
+      "text": "ア",
+      "textHash": "f49423c7fc7144a9",
+      "file": "files/f49423c7fc7144a9.wav",
+      "durationMs": 691
+    },
+    "kata-i": {
+      "text": "イ",
+      "textHash": "410fe1c0eea1ca99",
+      "file": "files/410fe1c0eea1ca99.wav",
+      "durationMs": 771
+    },
+    "kata-u": {
+      "text": "ウ",
+      "textHash": "62fcdf6a847e7083",
+      "file": "files/62fcdf6a847e7083.wav",
+      "durationMs": 760
+    },
+    "kata-e": {
+      "text": "エ",
+      "textHash": "296ce152de092ca3",
+      "file": "files/296ce152de092ca3.wav",
+      "durationMs": 811
+    },
+    "kata-o": {
+      "text": "オ",
+      "textHash": "19e6e37a2fdbab5a",
+      "file": "files/19e6e37a2fdbab5a.wav",
+      "durationMs": 851
+    },
+    "kata-ka": {
+      "text": "カ",
+      "textHash": "860f64c0e8859b0d",
+      "file": "files/860f64c0e8859b0d.wav",
+      "durationMs": 971
+    },
+    "kata-ki": {
+      "text": "キ",
+      "textHash": "b34b58bcd32af23f",
+      "file": "files/b34b58bcd32af23f.wav",
+      "durationMs": 611
+    },
+    "kata-ku": {
+      "text": "ク",
+      "textHash": "561eed1f508e742f",
+      "file": "files/561eed1f508e742f.wav",
+      "durationMs": 1040
+    },
+    "kata-ke": {
+      "text": "ケ",
+      "textHash": "02293f9797a521a3",
+      "file": "files/02293f9797a521a3.wav",
+      "durationMs": 1200
+    },
+    "kata-ko": {
+      "text": "コ",
+      "textHash": "03a20a68499221ca",
+      "file": "files/03a20a68499221ca.wav",
+      "durationMs": 651
+    },
+    "kata-sa": {
+      "text": "サ",
+      "textHash": "dcc564340d0d513f",
+      "file": "files/dcc564340d0d513f.wav",
+      "durationMs": 1000
+    },
+    "kata-shi": {
+      "text": "シ",
+      "textHash": "f3666aa0d13b6c6a",
+      "file": "files/f3666aa0d13b6c6a.wav",
+      "durationMs": 1000
+    },
+    "kata-su": {
+      "text": "ス",
+      "textHash": "56f2b721baad46f8",
+      "file": "files/56f2b721baad46f8.wav",
+      "durationMs": 1320
+    },
+    "kata-se": {
+      "text": "セ",
+      "textHash": "c466ba88b1e97806",
+      "file": "files/c466ba88b1e97806.wav",
+      "durationMs": 1280
+    },
+    "kata-so": {
+      "text": "ソ",
+      "textHash": "930142342b789621",
+      "file": "files/930142342b789621.wav",
+      "durationMs": 1040
+    },
+    "kata-ta": {
+      "text": "タ",
+      "textHash": "3f02a97fabc7e030",
+      "file": "files/3f02a97fabc7e030.wav",
+      "durationMs": 760
+    },
+    "kata-chi": {
+      "text": "チ",
+      "textHash": "2fa92c53b879e4d8",
+      "file": "files/2fa92c53b879e4d8.wav",
+      "durationMs": 920
+    },
+    "kata-tsu": {
+      "text": "ツ",
+      "textHash": "3d21cd4a05abb31b",
+      "file": "files/3d21cd4a05abb31b.wav",
+      "durationMs": 1000
+    },
+    "kata-te": {
+      "text": "テ",
+      "textHash": "a6ab7daf528e40f6",
+      "file": "files/a6ab7daf528e40f6.wav",
+      "durationMs": 960
+    },
+    "kata-to": {
+      "text": "ト",
+      "textHash": "b26a2d796c27bc7b",
+      "file": "files/b26a2d796c27bc7b.wav",
+      "durationMs": 971
+    },
+    "kata-na": {
+      "text": "ナ",
+      "textHash": "daeec56715f9dd0a",
+      "file": "files/daeec56715f9dd0a.wav",
+      "durationMs": 1080
+    },
+    "kata-ni": {
+      "text": "ニ",
+      "textHash": "944d02bc7499b38a",
+      "file": "files/944d02bc7499b38a.wav",
+      "durationMs": 1320
+    },
+    "kata-nu": {
+      "text": "ヌ",
+      "textHash": "57572a446c1d6fe7",
+      "file": "files/57572a446c1d6fe7.wav",
+      "durationMs": 651
+    },
+    "kata-ne": {
+      "text": "ネ",
+      "textHash": "46a30d65ac6eda2c",
+      "file": "files/46a30d65ac6eda2c.wav",
+      "durationMs": 931
+    },
+    "kata-no": {
+      "text": "ノ",
+      "textHash": "aa59218a318ee3ff",
+      "file": "files/aa59218a318ee3ff.wav",
+      "durationMs": 771
+    },
+    "kata-ha": {
+      "text": "ハ",
+      "textHash": "5a5eb8495e7e1ac0",
+      "file": "files/5a5eb8495e7e1ac0.wav",
+      "durationMs": 760
+    },
+    "kata-hi": {
+      "text": "ヒ",
+      "textHash": "167cf0fe1ebe89ed",
+      "file": "files/167cf0fe1ebe89ed.wav",
+      "durationMs": 1000
+    },
+    "kata-fu": {
+      "text": "フ",
+      "textHash": "9df8cbce8468e790",
+      "file": "files/9df8cbce8468e790.wav",
+      "durationMs": 611
+    },
+    "kata-he": {
+      "text": "ヘ",
+      "textHash": "959b5fb556dc3ca7",
+      "file": "files/959b5fb556dc3ca7.wav",
+      "durationMs": 651
+    },
+    "kata-ho": {
+      "text": "ホ",
+      "textHash": "58de2f238b974b80",
+      "file": "files/58de2f238b974b80.wav",
+      "durationMs": 651
+    },
+    "kata-ma": {
+      "text": "マ",
+      "textHash": "f72ae52ce8ee6dbe",
+      "file": "files/f72ae52ce8ee6dbe.wav",
+      "durationMs": 960
+    },
+    "kata-mi": {
+      "text": "ミ",
+      "textHash": "41b6e06173acab72",
+      "file": "files/41b6e06173acab72.wav",
+      "durationMs": 451
+    },
+    "kata-mu": {
+      "text": "ム",
+      "textHash": "f0717b7e4463a13b",
+      "file": "files/f0717b7e4463a13b.wav",
+      "durationMs": 651
+    },
+    "kata-me": {
+      "text": "メ",
+      "textHash": "3a16c07c11a4d410",
+      "file": "files/3a16c07c11a4d410.wav",
+      "durationMs": 731
+    },
+    "kata-mo": {
+      "text": "モ",
+      "textHash": "d688b8063217484d",
+      "file": "files/d688b8063217484d.wav",
+      "durationMs": 771
+    },
+    "kata-ya": {
+      "text": "ヤ",
+      "textHash": "c916ed7c78e4c4de",
+      "file": "files/c916ed7c78e4c4de.wav",
+      "durationMs": 811
+    },
+    "kata-yu": {
+      "text": "ユ",
+      "textHash": "310b2a07f46e00fe",
+      "file": "files/310b2a07f46e00fe.wav",
+      "durationMs": 1280
+    },
+    "kata-yo": {
+      "text": "ヨ",
+      "textHash": "b9dead0b43355e24",
+      "file": "files/b9dead0b43355e24.wav",
+      "durationMs": 1080
+    },
+    "kata-ra": {
+      "text": "ラ",
+      "textHash": "8fcf513a744912b1",
+      "file": "files/8fcf513a744912b1.wav",
+      "durationMs": 960
+    },
+    "kata-ri": {
+      "text": "リ",
+      "textHash": "14b9c3492157eccb",
+      "file": "files/14b9c3492157eccb.wav",
+      "durationMs": 1480
+    },
+    "kata-ru": {
+      "text": "ル",
+      "textHash": "74322165253f3b17",
+      "file": "files/74322165253f3b17.wav",
+      "durationMs": 1360
+    },
+    "kata-re": {
+      "text": "レ",
+      "textHash": "7ca522a92e77cc2f",
+      "file": "files/7ca522a92e77cc2f.wav",
+      "durationMs": 1160
+    },
+    "kata-ro": {
+      "text": "ロ",
+      "textHash": "413fcd407e2aa8e3",
+      "file": "files/413fcd407e2aa8e3.wav",
+      "durationMs": 960
+    },
+    "kata-wa": {
+      "text": "ワ",
+      "textHash": "9de21f408717795f",
+      "file": "files/9de21f408717795f.wav",
+      "durationMs": 880
+    },
+    "kata-wo": {
+      "text": "ヲ",
+      "textHash": "17ca7f0f8b60cd3f",
+      "file": "files/17ca7f0f8b60cd3f.wav",
+      "durationMs": 880
+    },
+    "kata-n": {
+      "text": "ン",
+      "textHash": "0f66959f485070f6",
+      "file": "files/0f66959f485070f6.wav",
+      "durationMs": 880
+    },
+    "kata-ga": {
+      "text": "ガ",
+      "textHash": "0ce4a3ddbd00020f",
+      "file": "files/0ce4a3ddbd00020f.wav",
+      "durationMs": 1600
+    },
+    "kata-gi": {
+      "text": "ギ",
+      "textHash": "1ede47e1681e96ca",
+      "file": "files/1ede47e1681e96ca.wav",
+      "durationMs": 1120
+    },
+    "kata-gu": {
+      "text": "グ",
+      "textHash": "64a67eee96655af8",
+      "file": "files/64a67eee96655af8.wav",
+      "durationMs": 731
+    },
+    "kata-ge": {
+      "text": "ゲ",
+      "textHash": "4fa4e281067f1c93",
+      "file": "files/4fa4e281067f1c93.wav",
+      "durationMs": 1040
+    },
+    "kata-go": {
+      "text": "ゴ",
+      "textHash": "c284cc889cb8a6c4",
+      "file": "files/c284cc889cb8a6c4.wav",
+      "durationMs": 691
+    },
+    "kata-za": {
+      "text": "ザ",
+      "textHash": "ee84cff607134549",
+      "file": "files/ee84cff607134549.wav",
+      "durationMs": 691
+    },
+    "kata-ji": {
+      "text": "ジ",
+      "textHash": "fde72e59dd4a50aa",
+      "file": "files/fde72e59dd4a50aa.wav",
+      "durationMs": 1080
+    },
+    "kata-zu": {
+      "text": "ズ",
+      "textHash": "23076f29d7521e2a",
+      "file": "files/23076f29d7521e2a.wav",
+      "durationMs": 691
+    },
+    "kata-ze": {
+      "text": "ゼ",
+      "textHash": "d917be71ffac525f",
+      "file": "files/d917be71ffac525f.wav",
+      "durationMs": 651
+    },
+    "kata-zo": {
+      "text": "ゾ",
+      "textHash": "3c91b48246471149",
+      "file": "files/3c91b48246471149.wav",
+      "durationMs": 960
+    },
+    "kata-da": {
+      "text": "ダ",
+      "textHash": "d79edd02b3cd4140",
+      "file": "files/d79edd02b3cd4140.wav",
+      "durationMs": 771
+    },
+    "kata-de": {
+      "text": "デ",
+      "textHash": "699f405c84d9438e",
+      "file": "files/699f405c84d9438e.wav",
+      "durationMs": 611
+    },
+    "kata-do": {
+      "text": "ド",
+      "textHash": "712d53db3a279538",
+      "file": "files/712d53db3a279538.wav",
+      "durationMs": 651
+    },
+    "kata-ba": {
+      "text": "バ",
+      "textHash": "05493030fbfdb7ba",
+      "file": "files/05493030fbfdb7ba.wav",
+      "durationMs": 1200
+    },
+    "kata-bi": {
+      "text": "ビ",
+      "textHash": "b607e5b6b6c1be64",
+      "file": "files/b607e5b6b6c1be64.wav",
+      "durationMs": 920
+    },
+    "kata-bu": {
+      "text": "ブ",
+      "textHash": "981566a722787e2e",
+      "file": "files/981566a722787e2e.wav",
+      "durationMs": 960
+    },
+    "kata-be": {
+      "text": "ベ",
+      "textHash": "9fbb4234bd244630",
+      "file": "files/9fbb4234bd244630.wav",
+      "durationMs": 1280
+    },
+    "kata-bo": {
+      "text": "ボ",
+      "textHash": "3fa71ead9a69b4ec",
+      "file": "files/3fa71ead9a69b4ec.wav",
+      "durationMs": 1160
+    },
+    "kata-pa": {
+      "text": "パ",
+      "textHash": "0352b0ed3717b2ad",
+      "file": "files/0352b0ed3717b2ad.wav",
+      "durationMs": 451
+    },
+    "kata-pi": {
+      "text": "ピ",
+      "textHash": "62e25c17ef8aa1d3",
+      "file": "files/62e25c17ef8aa1d3.wav",
+      "durationMs": 800
+    },
+    "kata-pu": {
+      "text": "プ",
+      "textHash": "40d0b0b23fd7fea3",
+      "file": "files/40d0b0b23fd7fea3.wav",
+      "durationMs": 571
+    },
+    "kata-pe": {
+      "text": "ペ",
+      "textHash": "0ba10292bcf21f7e",
+      "file": "files/0ba10292bcf21f7e.wav",
+      "durationMs": 491
+    },
+    "kata-po": {
+      "text": "ポ",
+      "textHash": "56ae0008815437ae",
+      "file": "files/56ae0008815437ae.wav",
+      "durationMs": 651
+    },
+    "kata-kya": {
+      "text": "キャ",
+      "textHash": "0591d04f30a9c571",
+      "file": "files/0591d04f30a9c571.wav",
+      "durationMs": 1040
+    },
+    "kata-kyu": {
+      "text": "キュ",
+      "textHash": "9ff2dc9d0618e081",
+      "file": "files/9ff2dc9d0618e081.wav",
+      "durationMs": 891
+    },
+    "kata-kyo": {
+      "text": "キョ",
+      "textHash": "aa13f0d5f44efad4",
+      "file": "files/aa13f0d5f44efad4.wav",
+      "durationMs": 1160
+    },
+    "kata-sha": {
+      "text": "シャ",
+      "textHash": "864ee655e6b4e597",
+      "file": "files/864ee655e6b4e597.wav",
+      "durationMs": 1040
+    },
+    "kata-shu": {
+      "text": "シュ",
+      "textHash": "4a66252980d9310b",
+      "file": "files/4a66252980d9310b.wav",
+      "durationMs": 960
+    },
+    "kata-sho": {
+      "text": "ショ",
+      "textHash": "b834003b661e9c5a",
+      "file": "files/b834003b661e9c5a.wav",
+      "durationMs": 491
+    },
+    "kata-cha": {
+      "text": "チャ",
+      "textHash": "7df1e4d2b3a72332",
+      "file": "files/7df1e4d2b3a72332.wav",
+      "durationMs": 920
+    },
+    "kata-chu": {
+      "text": "チュ",
+      "textHash": "bd434b5d0de4d112",
+      "file": "files/bd434b5d0de4d112.wav",
+      "durationMs": 920
+    },
+    "kata-cho": {
+      "text": "チョ",
+      "textHash": "5095be98853744be",
+      "file": "files/5095be98853744be.wav",
+      "durationMs": 1040
+    },
+    "kata-ja": {
+      "text": "ジャ",
+      "textHash": "bc3d3754d60a5647",
+      "file": "files/bc3d3754d60a5647.wav",
+      "durationMs": 1560
+    },
+    "kata-ju": {
+      "text": "ジュ",
+      "textHash": "446fd334a07dfa9a",
+      "file": "files/446fd334a07dfa9a.wav",
+      "durationMs": 960
+    },
+    "kata-jo": {
+      "text": "ジョ",
+      "textHash": "0fe7080fdd9ff011",
+      "file": "files/0fe7080fdd9ff011.wav",
+      "durationMs": 440
+    },
+    "kata-chouon": {
+      "text": "ー",
+      "textHash": "1e1acf2ad9d955e4",
+      "file": "files/1e1acf2ad9d955e4.wav",
+      "durationMs": 5000
+    },
+    "kata-sokuon": {
+      "text": "ッ",
+      "textHash": "04e6afb005c7f2e9",
+      "file": "files/04e6afb005c7f2e9.wav",
+      "durationMs": 800
+    },
+    "kanji-ichi": {
+      "text": "一",
+      "textHash": "51a75f4634dfa859",
+      "file": "files/51a75f4634dfa859.wav",
+      "durationMs": 1360
+    },
+    "kanji-ni": {
+      "text": "二",
+      "textHash": "084b42f6e95e4e65",
+      "file": "files/084b42f6e95e4e65.wav",
+      "durationMs": 1200
+    },
+    "kanji-san": {
+      "text": "三",
+      "textHash": "a4c3313deb180960",
+      "file": "files/a4c3313deb180960.wav",
+      "durationMs": 1000
+    },
+    "kanji-shi": {
+      "text": "四",
+      "textHash": "754a9d5828d502f1",
+      "file": "files/754a9d5828d502f1.wav",
+      "durationMs": 1160
+    },
+    "kanji-go": {
+      "text": "五",
+      "textHash": "c9b87f516a38ea36",
+      "file": "files/c9b87f516a38ea36.wav",
+      "durationMs": 1040
+    },
+    "kanji-roku": {
+      "text": "六",
+      "textHash": "de07b5383874b2a3",
+      "file": "files/de07b5383874b2a3.wav",
+      "durationMs": 1240
+    },
+    "kanji-shichi": {
+      "text": "七",
+      "textHash": "1b0542878c67f6cd",
+      "file": "files/1b0542878c67f6cd.wav",
+      "durationMs": 1480
+    },
+    "kanji-hachi": {
+      "text": "八",
+      "textHash": "2c467d3673926b20",
+      "file": "files/2c467d3673926b20.wav",
+      "durationMs": 1000
+    },
+    "kanji-kyuu": {
+      "text": "九",
+      "textHash": "df897da6e02ecd30",
+      "file": "files/df897da6e02ecd30.wav",
+      "durationMs": 1120
+    },
+    "kanji-juu": {
+      "text": "十",
+      "textHash": "fc7edd399a5c4b93",
+      "file": "files/fc7edd399a5c4b93.wav",
+      "durationMs": 1120
+    },
+    "kanji-hyaku": {
+      "text": "百",
+      "textHash": "089d8c4c00705fce",
+      "file": "files/089d8c4c00705fce.wav",
+      "durationMs": 1280
+    },
+    "kanji-sen": {
+      "text": "千",
+      "textHash": "23d862decf4f14ab",
+      "file": "files/23d862decf4f14ab.wav",
+      "durationMs": 1080
+    },
+    "kanji-man": {
+      "text": "万",
+      "textHash": "fc227df4fc949728",
+      "file": "files/fc227df4fc949728.wav",
+      "durationMs": 1600
+    },
+    "kanji-en": {
+      "text": "円",
+      "textHash": "08002c6675f7436c",
+      "file": "files/08002c6675f7436c.wav",
+      "durationMs": 960
+    },
+    "vocab-ohayou": {
+      "text": "おはよう",
+      "textHash": "4314662c3426676a",
+      "file": "files/4314662c3426676a.wav",
+      "durationMs": 1760
+    },
+    "vocab-ohayou-gozaimasu": {
+      "text": "おはようございます",
+      "textHash": "d7d192bdd1e9c1c6",
+      "file": "files/d7d192bdd1e9c1c6.wav",
+      "durationMs": 1800
+    },
+    "vocab-konnichiwa": {
+      "text": "こんにちは",
+      "textHash": "125aeadf27b0459b",
+      "file": "files/125aeadf27b0459b.wav",
+      "durationMs": 1320
+    },
+    "vocab-konbanwa": {
+      "text": "こんばんは",
+      "textHash": "70d3e9fba8c74912",
+      "file": "files/70d3e9fba8c74912.wav",
+      "durationMs": 1360
+    },
+    "vocab-sayounara": {
+      "text": "さようなら",
+      "textHash": "7d91977f8227bc5a",
+      "file": "files/7d91977f8227bc5a.wav",
+      "durationMs": 2240
+    },
+    "vocab-arigatou": {
+      "text": "ありがとう",
+      "textHash": "5773be7d3dedf7cb",
+      "file": "files/5773be7d3dedf7cb.wav",
+      "durationMs": 1200
+    },
+    "vocab-arigatou-gozaimasu": {
+      "text": "ありがとうございます",
+      "textHash": "21b2ba1811e66eef",
+      "file": "files/21b2ba1811e66eef.wav",
+      "durationMs": 1800
+    },
+    "vocab-sumimasen": {
+      "text": "すみません",
+      "textHash": "20c644122287a484",
+      "file": "files/20c644122287a484.wav",
+      "durationMs": 1480
+    },
+    "vocab-hajimemashite": {
+      "text": "はじめまして",
+      "textHash": "1a7b00c2059a05e6",
+      "file": "files/1a7b00c2059a05e6.wav",
+      "durationMs": 1440
+    },
+    "vocab-onegaishimasu": {
+      "text": "おねがいします",
+      "textHash": "cb7f690950307f82",
+      "file": "files/cb7f690950307f82.wav",
+      "durationMs": 1720
+    },
+    "vocab-hai": {
+      "text": "はい",
+      "textHash": "8f90d85ec13a0b1b",
+      "file": "files/8f90d85ec13a0b1b.wav",
+      "durationMs": 840
+    },
+    "vocab-iie": {
+      "text": "いいえ",
+      "textHash": "48ef2b674823d03d",
+      "file": "files/48ef2b674823d03d.wav",
+      "durationMs": 1440
+    },
+    "gr-wa-topic:ex0": {
+      "text": "わたしは がくせいです。",
+      "textHash": "371f18a3c929e397",
+      "file": "files/371f18a3c929e397.wav",
+      "durationMs": 3280
+    },
+    "gr-wa-topic:ex1": {
+      "text": "これは ほんです。",
+      "textHash": "fa4ce1aa3be02667",
+      "file": "files/fa4ce1aa3be02667.wav",
+      "durationMs": 2480
+    },
+    "gr-wa-topic:ex2": {
+      "text": "せんせいは にほんじんです。",
+      "textHash": "93f15ba3d528443a",
+      "file": "files/93f15ba3d528443a.wav",
+      "durationMs": 2920
+    },
+    "gr-wa-topic:ex3": {
+      "text": "がくせいです。",
+      "textHash": "07abd2b745ef510f",
+      "file": "files/07abd2b745ef510f.wav",
+      "durationMs": 1520
+    },
+    "gr-wa-topic": {
+      "text": "わたしは がくせいです。",
+      "textHash": "371f18a3c929e397",
+      "file": "files/371f18a3c929e397.wav",
+      "durationMs": 3280
+    },
+    "dlg-self-intro-L0": {
+      "text": "おはようございます。",
+      "textHash": "bc4e77e6407e004b",
+      "file": "files/bc4e77e6407e004b.wav",
+      "durationMs": 1720
+    },
+    "dlg-self-intro-L1": {
+      "text": "おはようございます。",
+      "textHash": "bc4e77e6407e004b",
+      "file": "files/bc4e77e6407e004b.wav",
+      "durationMs": 1720
+    },
+    "dlg-self-intro-L2": {
+      "text": "はじめまして。アオイです。",
+      "textHash": "0dad71e8d3d1868f",
+      "file": "files/0dad71e8d3d1868f.wav",
+      "durationMs": 2920
+    },
+    "dlg-self-intro-L3": {
+      "text": "ケンジです。よろしくおねがいします。",
+      "textHash": "c00aa74286d22967",
+      "file": "files/c00aa74286d22967.wav",
+      "durationMs": 3160
+    },
+    "dlg-self-intro-L4": {
+      "text": "よろしくおねがいします。",
+      "textHash": "794a190718235edd",
+      "file": "files/794a190718235edd.wav",
+      "durationMs": 2040
+    },
+    "gr-no-possessive:ex0": {
+      "text": "わたしのほん",
+      "textHash": "4cbb08dde6bbbabc",
+      "file": "files/4cbb08dde6bbbabc.wav",
+      "durationMs": 1680
+    },
+    "gr-no-possessive:ex1": {
+      "text": "せんせいのくるま",
+      "textHash": "83e9976f45f170ca",
+      "file": "files/83e9976f45f170ca.wav",
+      "durationMs": 2160
+    },
+    "gr-no-possessive:ex2": {
+      "text": "にほんごのほん",
+      "textHash": "63707a4f2288dfd6",
+      "file": "files/63707a4f2288dfd6.wav",
+      "durationMs": 1840
+    },
+    "gr-no-possessive:ex3": {
+      "text": "これはだれのですか。",
+      "textHash": "caa0a517d0b4a507",
+      "file": "files/caa0a517d0b4a507.wav",
+      "durationMs": 2680
+    },
+    "gr-no-possessive": {
+      "text": "わたしのほん",
+      "textHash": "4cbb08dde6bbbabc",
+      "file": "files/4cbb08dde6bbbabc.wav",
+      "durationMs": 1680
+    },
+    "vocab-doko": {
+      "text": "どこ",
+      "textHash": "90cd87d006829630",
+      "file": "files/90cd87d006829630.wav",
+      "durationMs": 1000
+    },
+    "vocab-shusshin": {
+      "text": "出身",
+      "textHash": "b4b6091cf9cbb2f2",
+      "file": "files/b4b6091cf9cbb2f2.wav",
+      "durationMs": 1480
+    },
+    "dlg-where-from-L0": {
+      "text": "ごしゅっしんは どこですか。",
+      "textHash": "359822307fe02238",
+      "file": "files/359822307fe02238.wav",
+      "durationMs": 2680
+    },
+    "dlg-where-from-L1": {
+      "text": "イタリアです。ミラノの しゅっしんです。",
+      "textHash": "44072970d05f1a06",
+      "file": "files/44072970d05f1a06.wav",
+      "durationMs": 4080
+    },
+    "dlg-where-from-L2": {
+      "text": "そうですか。",
+      "textHash": "03bba055aea688e0",
+      "file": "files/03bba055aea688e0.wav",
+      "durationMs": 2000
+    },
+    "kanji-hi": {
+      "text": "日",
+      "textHash": "85217f7aff778414",
+      "file": "files/85217f7aff778414.wav",
+      "durationMs": 1240
+    },
+    "kanji-tsuki": {
+      "text": "月",
+      "textHash": "1625179badc027f0",
+      "file": "files/1625179badc027f0.wav",
+      "durationMs": 960
+    },
+    "kanji-ka": {
+      "text": "火",
+      "textHash": "d4cfe8c82c9c3045",
+      "file": "files/d4cfe8c82c9c3045.wav",
+      "durationMs": 1000
+    },
+    "kanji-sui": {
+      "text": "水",
+      "textHash": "327b54d04f71f212",
+      "file": "files/327b54d04f71f212.wav",
+      "durationMs": 1560
+    },
+    "kanji-ki": {
+      "text": "木",
+      "textHash": "9213ab05890bafa2",
+      "file": "files/9213ab05890bafa2.wav",
+      "durationMs": 960
+    },
+    "kanji-kin": {
+      "text": "金",
+      "textHash": "3c1e31a193cda379",
+      "file": "files/3c1e31a193cda379.wav",
+      "durationMs": 1320
+    },
+    "kanji-do": {
+      "text": "土",
+      "textHash": "7c18dba3144b6dcd",
+      "file": "files/7c18dba3144b6dcd.wav",
+      "durationMs": 1080
+    },
+    "kanji-yama": {
+      "text": "山",
+      "textHash": "4862540a299762b3",
+      "file": "files/4862540a299762b3.wav",
+      "durationMs": 1280
+    },
+    "kanji-kawa": {
+      "text": "川",
+      "textHash": "b5aae693581d12c8",
+      "file": "files/b5aae693581d12c8.wav",
+      "durationMs": 1200
+    },
+    "kanji-hayashi": {
+      "text": "林",
+      "textHash": "0cff3c9b1cdea525",
+      "file": "files/0cff3c9b1cdea525.wav",
+      "durationMs": 1160
+    },
+    "kanji-mori": {
+      "text": "森",
+      "textHash": "5f8e490558897efa",
+      "file": "files/5f8e490558897efa.wav",
+      "durationMs": 1000
+    },
+    "vocab-ichi": {
+      "text": "一",
+      "textHash": "51a75f4634dfa859",
+      "file": "files/51a75f4634dfa859.wav",
+      "durationMs": 1360
+    },
+    "vocab-ni-num": {
+      "text": "二",
+      "textHash": "084b42f6e95e4e65",
+      "file": "files/084b42f6e95e4e65.wav",
+      "durationMs": 1200
+    },
+    "vocab-san-num": {
+      "text": "三",
+      "textHash": "a4c3313deb180960",
+      "file": "files/a4c3313deb180960.wav",
+      "durationMs": 1000
+    },
+    "vocab-yon": {
+      "text": "四",
+      "textHash": "754a9d5828d502f1",
+      "file": "files/754a9d5828d502f1.wav",
+      "durationMs": 1160
+    },
+    "vocab-go-num": {
+      "text": "五",
+      "textHash": "c9b87f516a38ea36",
+      "file": "files/c9b87f516a38ea36.wav",
+      "durationMs": 1040
+    },
+    "vocab-juu-num": {
+      "text": "十",
+      "textHash": "fc7edd399a5c4b93",
+      "file": "files/fc7edd399a5c4b93.wav",
+      "durationMs": 1120
+    },
+    "vocab-hyaku-num": {
+      "text": "百",
+      "textHash": "089d8c4c00705fce",
+      "file": "files/089d8c4c00705fce.wav",
+      "durationMs": 1280
+    },
+    "vocab-en-money": {
+      "text": "円",
+      "textHash": "08002c6675f7436c",
+      "file": "files/08002c6675f7436c.wav",
+      "durationMs": 960
+    },
+    "vocab-zero": {
+      "text": "ゼロ",
+      "textHash": "32778b29fea58065",
+      "file": "files/32778b29fea58065.wav",
+      "durationMs": 1440
+    },
+    "vocab-hitotsu": {
+      "text": "一つ",
+      "textHash": "0d6a3f1b9aaf4ade",
+      "file": "files/0d6a3f1b9aaf4ade.wav",
+      "durationMs": 1240
+    },
+    "vocab-futatsu": {
+      "text": "二つ",
+      "textHash": "16f20597cd0a425c",
+      "file": "files/16f20597cd0a425c.wav",
+      "durationMs": 1480
+    },
+    "vocab-mittsu": {
+      "text": "三つ",
+      "textHash": "0b993ba83fd20438",
+      "file": "files/0b993ba83fd20438.wav",
+      "durationMs": 1280
+    },
+    "vocab-hitori": {
+      "text": "一人",
+      "textHash": "45b3f27e3a97e2c1",
+      "file": "files/45b3f27e3a97e2c1.wav",
+      "durationMs": 1080
+    },
+    "vocab-futari": {
+      "text": "二人",
+      "textHash": "8981f8b72b351ea3",
+      "file": "files/8981f8b72b351ea3.wav",
+      "durationMs": 1280
+    },
+    "vocab-ikura": {
+      "text": "いくら",
+      "textHash": "fdf2c44a8af69906",
+      "file": "files/fdf2c44a8af69906.wav",
+      "durationMs": 1280
+    },
+    "vocab-kudasai": {
+      "text": "ください",
+      "textHash": "54065d292cb7d38e",
+      "file": "files/54065d292cb7d38e.wav",
+      "durationMs": 1240
+    },
+    "dlg-numbers-prices-L0": {
+      "text": "これは いくらですか。",
+      "textHash": "df1b885b29a5abf0",
+      "file": "files/df1b885b29a5abf0.wav",
+      "durationMs": 2200
+    },
+    "dlg-numbers-prices-L1": {
+      "text": "さんびゃくえんです。",
+      "textHash": "8e5802eaa385ed40",
+      "file": "files/8e5802eaa385ed40.wav",
+      "durationMs": 1840
+    },
+    "dlg-numbers-prices-L2": {
+      "text": "じゃあ、ふたつ ください。",
+      "textHash": "e50e849bf020a69c",
+      "file": "files/e50e849bf020a69c.wav",
+      "durationMs": 2280
+    },
+    "vocab-nani": {
+      "text": "何",
+      "textHash": "3265cdd08afe9532",
+      "file": "files/3265cdd08afe9532.wav",
+      "durationMs": 1360
+    },
+    "vocab-dare": {
+      "text": "誰",
+      "textHash": "47c9a42683e927d5",
+      "file": "files/47c9a42683e927d5.wav",
+      "durationMs": 1280
+    },
+    "gr-mo-also:ex0": {
+      "text": "わたしもがくせいです。",
+      "textHash": "a6585e99cc574743",
+      "file": "files/a6585e99cc574743.wav",
+      "durationMs": 2560
+    },
+    "gr-mo-also:ex1": {
+      "text": "これはほんですか。",
+      "textHash": "11d85cc09ce66d42",
+      "file": "files/11d85cc09ce66d42.wav",
+      "durationMs": 2600
+    },
+    "gr-mo-also:ex2": {
+      "text": "これはなんですか。",
+      "textHash": "b1323fd251c0629d",
+      "file": "files/b1323fd251c0629d.wav",
+      "durationMs": 2040
+    },
+    "gr-mo-also:ex3": {
+      "text": "あのひとはだれですか。",
+      "textHash": "e3275b9116a23f6c",
+      "file": "files/e3275b9116a23f6c.wav",
+      "durationMs": 2400
+    },
+    "gr-mo-also": {
+      "text": "わたしもがくせいです。",
+      "textHash": "a6585e99cc574743",
+      "file": "files/a6585e99cc574743.wav",
+      "durationMs": 2560
+    },
+    "kanji-hito": {
+      "text": "人",
+      "textHash": "50f5d65d57290f75",
+      "file": "files/50f5d65d57290f75.wav",
+      "durationMs": 1000
+    },
+    "kanji-dai": {
+      "text": "大",
+      "textHash": "7d4ca7f48effd602",
+      "file": "files/7d4ca7f48effd602.wav",
+      "durationMs": 1160
+    },
+    "kanji-shou": {
+      "text": "小",
+      "textHash": "6a7339bb759788f3",
+      "file": "files/6a7339bb759788f3.wav",
+      "durationMs": 880
+    },
+    "kanji-otoko": {
+      "text": "男",
+      "textHash": "4e79758a99006223",
+      "file": "files/4e79758a99006223.wav",
+      "durationMs": 1200
+    },
+    "kanji-onna": {
+      "text": "女",
+      "textHash": "0ab4610b9257c298",
+      "file": "files/0ab4610b9257c298.wav",
+      "durationMs": 1800
+    },
+    "kanji-ko": {
+      "text": "子",
+      "textHash": "a6b71dae843e3e0a",
+      "file": "files/a6b71dae843e3e0a.wav",
+      "durationMs": 920
+    },
+    "kanji-hon": {
+      "text": "本",
+      "textHash": "83831c3f910cf940",
+      "file": "files/83831c3f910cf940.wav",
+      "durationMs": 1040
+    },
+    "vocab-taberu": {
+      "text": "食べる",
+      "textHash": "2b7ce3887f50f5f1",
+      "file": "files/2b7ce3887f50f5f1.wav",
+      "durationMs": 1360
+    },
+    "vocab-nomu": {
+      "text": "飲む",
+      "textHash": "5706ea39cdd0272c",
+      "file": "files/5706ea39cdd0272c.wav",
+      "durationMs": 1640
+    },
+    "vocab-miru": {
+      "text": "見る",
+      "textHash": "c1ee2c0cd4e9e38c",
+      "file": "files/c1ee2c0cd4e9e38c.wav",
+      "durationMs": 1240
+    },
+    "vocab-iku": {
+      "text": "行く",
+      "textHash": "d74a571ffab4df17",
+      "file": "files/d74a571ffab4df17.wav",
+      "durationMs": 1120
+    },
+    "vocab-suru": {
+      "text": "する",
+      "textHash": "67003f878dd9e2ae",
+      "file": "files/67003f878dd9e2ae.wav",
+      "durationMs": 1160
+    },
+    "gr-masu-verbs:ex0": {
+      "text": "わたしはたべます。",
+      "textHash": "61636fc4c29ce541",
+      "file": "files/61636fc4c29ce541.wav",
+      "durationMs": 2480
+    },
+    "gr-masu-verbs:ex1": {
+      "text": "コーヒーをのみます。",
+      "textHash": "a24817938430fc2d",
+      "file": "files/a24817938430fc2d.wav",
+      "durationMs": 2120
+    },
+    "gr-masu-verbs:ex2": {
+      "text": "テレビをみません。",
+      "textHash": "f1689fb3814cbd86",
+      "file": "files/f1689fb3814cbd86.wav",
+      "durationMs": 2000
+    },
+    "gr-masu-verbs:ex3": {
+      "text": "あした、いきます。",
+      "textHash": "bcfb7886119e54c4",
+      "file": "files/bcfb7886119e54c4.wav",
+      "durationMs": 2040
+    },
+    "gr-masu-verbs": {
+      "text": "わたしはたべます。",
+      "textHash": "61636fc4c29ce541",
+      "file": "files/61636fc4c29ce541.wav",
+      "durationMs": 2480
+    },
+    "vocab-yomu": {
+      "text": "読む",
+      "textHash": "818417a13955f3a1",
+      "file": "files/818417a13955f3a1.wav",
+      "durationMs": 2160
+    },
+    "vocab-kaku": {
+      "text": "書く",
+      "textHash": "9eee51e1e3549449",
+      "file": "files/9eee51e1e3549449.wav",
+      "durationMs": 960
+    },
+    "vocab-hanasu": {
+      "text": "話す",
+      "textHash": "ef622501f5942f95",
+      "file": "files/ef622501f5942f95.wav",
+      "durationMs": 1600
+    },
+    "gr-o-object:ex0": {
+      "text": "コーヒーをのみます。",
+      "textHash": "a24817938430fc2d",
+      "file": "files/a24817938430fc2d.wav",
+      "durationMs": 2120
+    },
+    "gr-o-object:ex1": {
+      "text": "ほんをよみます。",
+      "textHash": "232dfcf38f573a5b",
+      "file": "files/232dfcf38f573a5b.wav",
+      "durationMs": 1760
+    },
+    "gr-o-object:ex2": {
+      "text": "わたしはごはんをたべます。",
+      "textHash": "aef0e7d19c70dd35",
+      "file": "files/aef0e7d19c70dd35.wav",
+      "durationMs": 3200
+    },
+    "gr-o-object:ex3": {
+      "text": "にほんごをはなします。",
+      "textHash": "b99a260d638aba31",
+      "file": "files/b99a260d638aba31.wav",
+      "durationMs": 2480
+    },
+    "gr-o-object": {
+      "text": "コーヒーをのみます。",
+      "textHash": "a24817938430fc2d",
+      "file": "files/a24817938430fc2d.wav",
+      "durationMs": 2120
+    },
+    "vocab-kuru": {
+      "text": "来る",
+      "textHash": "792ec616b4c0fa01",
+      "file": "files/792ec616b4c0fa01.wav",
+      "durationMs": 731
+    },
+    "vocab-kiku": {
+      "text": "聞く",
+      "textHash": "d9291ccba400db30",
+      "file": "files/d9291ccba400db30.wav",
+      "durationMs": 1040
+    },
+    "vocab-chuumon": {
+      "text": "注文",
+      "textHash": "266125ddb97f1877",
+      "file": "files/266125ddb97f1877.wav",
+      "durationMs": 1480
+    },
+    "vocab-ocha": {
+      "text": "お茶",
+      "textHash": "d56d29df4445ad66",
+      "file": "files/d56d29df4445ad66.wav",
+      "durationMs": 1160
+    },
+    "dlg-order-restaurant-L0": {
+      "text": "ごちゅうもんは?",
+      "textHash": "0720f0c9342c5075",
+      "file": "files/0720f0c9342c5075.wav",
+      "durationMs": 1640
+    },
+    "dlg-order-restaurant-L1": {
+      "text": "うどんを おねがいします。",
+      "textHash": "4cf18bc3b2f07dfe",
+      "file": "files/4cf18bc3b2f07dfe.wav",
+      "durationMs": 2080
+    },
+    "dlg-order-restaurant-L2": {
+      "text": "おのみものは?",
+      "textHash": "60a9aa35a5b6eb0c",
+      "file": "files/60a9aa35a5b6eb0c.wav",
+      "durationMs": 1480
+    },
+    "dlg-order-restaurant-L3": {
+      "text": "おちゃを ください。",
+      "textHash": "3c0a08c1a53f68b3",
+      "file": "files/3c0a08c1a53f68b3.wav",
+      "durationMs": 2000
+    },
+    "kanji-ue": {
+      "text": "上",
+      "textHash": "db5ba671d244ee82",
+      "file": "files/db5ba671d244ee82.wav",
+      "durationMs": 1200
+    },
+    "kanji-shita": {
+      "text": "下",
+      "textHash": "13c12b064b635e06",
+      "file": "files/13c12b064b635e06.wav",
+      "durationMs": 1640
+    },
+    "kanji-naka": {
+      "text": "中",
+      "textHash": "a567bdaa11367f26",
+      "file": "files/a567bdaa11367f26.wav",
+      "durationMs": 1120
+    },
+    "kanji-migi": {
+      "text": "右",
+      "textHash": "14ab1f2bce0a8777",
+      "file": "files/14ab1f2bce0a8777.wav",
+      "durationMs": 1360
+    },
+    "kanji-hidari": {
+      "text": "左",
+      "textHash": "e2e0c454e5d53186",
+      "file": "files/e2e0c454e5d53186.wav",
+      "durationMs": 1880
+    },
+    "kanji-ta": {
+      "text": "田",
+      "textHash": "c313bfaa8f635a30",
+      "file": "files/c313bfaa8f635a30.wav",
+      "durationMs": 4400
+    },
+    "vocab-uchi": {
+      "text": "家",
+      "textHash": "c8ae97be80f3867c",
+      "file": "files/c8ae97be80f3867c.wav",
+      "durationMs": 1400
+    },
+    "vocab-gakkou": {
+      "text": "学校",
+      "textHash": "dc6e2aafeb9e125b",
+      "file": "files/dc6e2aafeb9e125b.wav",
+      "durationMs": 1560
+    },
+    "vocab-mise": {
+      "text": "店",
+      "textHash": "aaded36a83022ef1",
+      "file": "files/aaded36a83022ef1.wav",
+      "durationMs": 1240
+    },
+    "vocab-eki": {
+      "text": "駅",
+      "textHash": "53e5e276999d5674",
+      "file": "files/53e5e276999d5674.wav",
+      "durationMs": 1040
+    },
+    "gr-ni-de-place:ex0": {
+      "text": "うちにいます。",
+      "textHash": "25a77fcfe383a51a",
+      "file": "files/25a77fcfe383a51a.wav",
+      "durationMs": 1600
+    },
+    "gr-ni-de-place:ex1": {
+      "text": "えきにあります。",
+      "textHash": "d50625c6b0085afa",
+      "file": "files/d50625c6b0085afa.wav",
+      "durationMs": 1560
+    },
+    "gr-ni-de-place:ex2": {
+      "text": "がっこうでたべます。",
+      "textHash": "860edabc6b0269af",
+      "file": "files/860edabc6b0269af.wav",
+      "durationMs": 2000
+    },
+    "gr-ni-de-place:ex3": {
+      "text": "みせでほんをよみます。",
+      "textHash": "ed2913fb69719a43",
+      "file": "files/ed2913fb69719a43.wav",
+      "durationMs": 2840
+    },
+    "gr-ni-de-place": {
+      "text": "うちにいます。",
+      "textHash": "25a77fcfe383a51a",
+      "file": "files/25a77fcfe383a51a.wav",
+      "durationMs": 1600
+    },
+    "gr-e-ni-direction:ex0": {
+      "text": "がっこうへいきます。",
+      "textHash": "596b635b8545a35e",
+      "file": "files/596b635b8545a35e.wav",
+      "durationMs": 2720
+    },
+    "gr-e-ni-direction:ex1": {
+      "text": "うちにかえります。",
+      "textHash": "052140cfc0e37a57",
+      "file": "files/052140cfc0e37a57.wav",
+      "durationMs": 2400
+    },
+    "gr-e-ni-direction:ex2": {
+      "text": "にほんへきます。",
+      "textHash": "9982cbaf29cf486e",
+      "file": "files/9982cbaf29cf486e.wav",
+      "durationMs": 2160
+    },
+    "gr-e-ni-direction:ex3": {
+      "text": "えきへいきます。",
+      "textHash": "dd9bbdc210d155ef",
+      "file": "files/dd9bbdc210d155ef.wav",
+      "durationMs": 1680
+    },
+    "gr-e-ni-direction": {
+      "text": "がっこうへいきます。",
+      "textHash": "596b635b8545a35e",
+      "file": "files/596b635b8545a35e.wav",
+      "durationMs": 2720
+    },
+    "vocab-kyou": {
+      "text": "今日",
+      "textHash": "5c9cf5e0dd47dc80",
+      "file": "files/5c9cf5e0dd47dc80.wav",
+      "durationMs": 960
+    },
+    "vocab-ashita": {
+      "text": "明日",
+      "textHash": "6450d5f86685fd01",
+      "file": "files/6450d5f86685fd01.wav",
+      "durationMs": 1080
+    },
+    "vocab-kinou": {
+      "text": "昨日",
+      "textHash": "655d11bd2af019c2",
+      "file": "files/655d11bd2af019c2.wav",
+      "durationMs": 1480
+    },
+    "vocab-ima": {
+      "text": "今",
+      "textHash": "7bafa8a1f2dc627d",
+      "file": "files/7bafa8a1f2dc627d.wav",
+      "durationMs": 1080
+    },
+    "vocab-asa": {
+      "text": "朝",
+      "textHash": "419c745398dffb65",
+      "file": "files/419c745398dffb65.wav",
+      "durationMs": 1120
+    },
+    "vocab-hiru": {
+      "text": "昼",
+      "textHash": "0201c422a7fc856c",
+      "file": "files/0201c422a7fc856c.wav",
+      "durationMs": 1160
+    },
+    "vocab-yoru": {
+      "text": "夜",
+      "textHash": "a519542a5fb41635",
+      "file": "files/a519542a5fb41635.wav",
+      "durationMs": 1160
+    },
+    "vocab-ji": {
+      "text": "〜時",
+      "textHash": "cf15d9049b92af6f",
+      "file": "files/cf15d9049b92af6f.wav",
+      "durationMs": 1280
+    },
+    "vocab-youbi": {
+      "text": "〜曜日",
+      "textHash": "e846753c81bc93e6",
+      "file": "files/e846753c81bc93e6.wav",
+      "durationMs": 1400
+    },
+    "vocab-getsuyoubi": {
+      "text": "月曜日",
+      "textHash": "175bb7f22f8f6152",
+      "file": "files/175bb7f22f8f6152.wav",
+      "durationMs": 1680
+    },
+    "vocab-nichiyoubi": {
+      "text": "日曜日",
+      "textHash": "314d1cf4a9595686",
+      "file": "files/314d1cf4a9595686.wav",
+      "durationMs": 1480
+    },
+    "vocab-shigoto": {
+      "text": "仕事",
+      "textHash": "fb7db808eb037549",
+      "file": "files/fb7db808eb037549.wav",
+      "durationMs": 1400
+    },
+    "gr-conjunctions:ex0": {
+      "text": "たべます。そしてのみます。",
+      "textHash": "2dde86dabefb181b",
+      "file": "files/2dde86dabefb181b.wav",
+      "durationMs": 4560
+    },
+    "gr-conjunctions:ex1": {
+      "text": "たかいです。でもおいしいです。",
+      "textHash": "b8871298a57fd4b0",
+      "file": "files/b8871298a57fd4b0.wav",
+      "durationMs": 3560
+    },
+    "gr-conjunctions:ex2": {
+      "text": "やすいですから、かいます。",
+      "textHash": "8b13d4fc718d2f8f",
+      "file": "files/8b13d4fc718d2f8f.wav",
+      "durationMs": 2600
+    },
+    "gr-conjunctions:ex3": {
+      "text": "にほんごがすきですから、べんきょうします。",
+      "textHash": "ed92bfbba71f174d",
+      "file": "files/ed92bfbba71f174d.wav",
+      "durationMs": 3520
+    },
+    "gr-conjunctions": {
+      "text": "たべます。そしてのみます。",
+      "textHash": "2dde86dabefb181b",
+      "file": "files/2dde86dabefb181b.wav",
+      "durationMs": 4560
+    },
+    "dlg-daily-routine-L0": {
+      "text": "あさ、なにを しますか。",
+      "textHash": "abe90e911d0902ca",
+      "file": "files/abe90e911d0902ca.wav",
+      "durationMs": 2840
+    },
+    "dlg-daily-routine-L1": {
+      "text": "コーヒーを のみます。そして、しごとを します。",
+      "textHash": "543d187ab31e4dce",
+      "file": "files/543d187ab31e4dce.wav",
+      "durationMs": 5040
+    },
+    "dlg-going-places-L0": {
+      "text": "きょう、どこへ いきますか。",
+      "textHash": "34cc8ea7c0283f51",
+      "file": "files/34cc8ea7c0283f51.wav",
+      "durationMs": 3080
+    },
+    "dlg-going-places-L1": {
+      "text": "がっこうへ いきます。",
+      "textHash": "790175acb599262e",
+      "file": "files/790175acb599262e.wav",
+      "durationMs": 2000
+    },
+    "dlg-going-places-L2": {
+      "text": "いってらっしゃい。",
+      "textHash": "3ce5c88fb70286d1",
+      "file": "files/3ce5c88fb70286d1.wav",
+      "durationMs": 1520
+    },
+    "vocab-kaisha": {
+      "text": "会社",
+      "textHash": "a9181ae30ebcd87c",
+      "file": "files/a9181ae30ebcd87c.wav",
+      "durationMs": 1520
+    },
+    "vocab-chichi": {
+      "text": "父",
+      "textHash": "ca4c64d9ae27fa4a",
+      "file": "files/ca4c64d9ae27fa4a.wav",
+      "durationMs": 1160
+    },
+    "vocab-haha": {
+      "text": "母",
+      "textHash": "1a3205c3a91ea555",
+      "file": "files/1a3205c3a91ea555.wav",
+      "durationMs": 1080
+    },
+    "vocab-ani": {
+      "text": "兄",
+      "textHash": "b7488a2d40a3868b",
+      "file": "files/b7488a2d40a3868b.wav",
+      "durationMs": 1120
+    },
+    "vocab-ane": {
+      "text": "姉",
+      "textHash": "6a9849543e49add3",
+      "file": "files/6a9849543e49add3.wav",
+      "durationMs": 1360
+    },
+    "vocab-otouto": {
+      "text": "弟",
+      "textHash": "f1d9eb390e4a841e",
+      "file": "files/f1d9eb390e4a841e.wav",
+      "durationMs": 1480
+    },
+    "vocab-imouto": {
+      "text": "妹",
+      "textHash": "219c2f148bcece14",
+      "file": "files/219c2f148bcece14.wav",
+      "durationMs": 1440
+    },
+    "vocab-kazoku": {
+      "text": "家族",
+      "textHash": "3c659f5514a2e0d3",
+      "file": "files/3c659f5514a2e0d3.wav",
+      "durationMs": 1240
+    },
+    "vocab-asoko": {
+      "text": "あそこ",
+      "textHash": "0b97164bfc367f43",
+      "file": "files/0b97164bfc367f43.wav",
+      "durationMs": 1400
+    },
+    "vocab-koko": {
+      "text": "ここ",
+      "textHash": "ff267cf7f05cfe5a",
+      "file": "files/ff267cf7f05cfe5a.wav",
+      "durationMs": 1120
+    },
+    "dlg-ask-directions-L0": {
+      "text": "すみません、えきは どこですか。",
+      "textHash": "26cdcf19e4bd43eb",
+      "file": "files/26cdcf19e4bd43eb.wav",
+      "durationMs": 3320
+    },
+    "dlg-ask-directions-L1": {
+      "text": "えきは あそこです。",
+      "textHash": "ba79001de41d7e57",
+      "file": "files/ba79001de41d7e57.wav",
+      "durationMs": 2680
+    },
+    "dlg-ask-directions-L2": {
+      "text": "ありがとうございます。",
+      "textHash": "1749b2e403ed4869",
+      "file": "files/1749b2e403ed4869.wav",
+      "durationMs": 1760
+    },
+    "kanji-nen": {
+      "text": "年",
+      "textHash": "62ef900a8f5d5bff",
+      "file": "files/62ef900a8f5d5bff.wav",
+      "durationMs": 1000
+    },
+    "kanji-ji-time": {
+      "text": "時",
+      "textHash": "7a661802fe616540",
+      "file": "files/7a661802fe616540.wav",
+      "durationMs": 1200
+    },
+    "kanji-kan": {
+      "text": "間",
+      "textHash": "1bac16bd0a659423",
+      "file": "files/1bac16bd0a659423.wav",
+      "durationMs": 1160
+    },
+    "kanji-han": {
+      "text": "半",
+      "textHash": "f30071fa503a5928",
+      "file": "files/f30071fa503a5928.wav",
+      "durationMs": 1480
+    },
+    "kanji-kon": {
+      "text": "今",
+      "textHash": "7bafa8a1f2dc627d",
+      "file": "files/7bafa8a1f2dc627d.wav",
+      "durationMs": 1080
+    },
+    "kanji-shoku": {
+      "text": "食",
+      "textHash": "0fbe868d1df356ca",
+      "file": "files/0fbe868d1df356ca.wav",
+      "durationMs": 1120
+    },
+    "kanji-in": {
+      "text": "飲",
+      "textHash": "6dceec1fb8eb52ce",
+      "file": "files/6dceec1fb8eb52ce.wav",
+      "durationMs": 1120
+    },
+    "vocab-takai": {
+      "text": "高い",
+      "textHash": "c0f56aca3eafa13e",
+      "file": "files/c0f56aca3eafa13e.wav",
+      "durationMs": 1360
+    },
+    "vocab-yasui": {
+      "text": "安い",
+      "textHash": "685cf10081c8b3f7",
+      "file": "files/685cf10081c8b3f7.wav",
+      "durationMs": 1640
+    },
+    "vocab-oishii": {
+      "text": "おいしい",
+      "textHash": "55094920afddde49",
+      "file": "files/55094920afddde49.wav",
+      "durationMs": 1360
+    },
+    "vocab-atarashii": {
+      "text": "新しい",
+      "textHash": "08468ea02e6f5038",
+      "file": "files/08468ea02e6f5038.wav",
+      "durationMs": 1560
+    },
+    "vocab-furui": {
+      "text": "古い",
+      "textHash": "4f0311747e234574",
+      "file": "files/4f0311747e234574.wav",
+      "durationMs": 1320
+    },
+    "vocab-omoshiroi": {
+      "text": "面白い",
+      "textHash": "599c4bf469c878ea",
+      "file": "files/599c4bf469c878ea.wav",
+      "durationMs": 1680
+    },
+    "gr-i-adjectives:ex0": {
+      "text": "たかいほんです。",
+      "textHash": "9cb861c90fd939e4",
+      "file": "files/9cb861c90fd939e4.wav",
+      "durationMs": 1960
+    },
+    "gr-i-adjectives:ex1": {
+      "text": "このほんはたかいです。",
+      "textHash": "440560ae1221f772",
+      "file": "files/440560ae1221f772.wav",
+      "durationMs": 2760
+    },
+    "gr-i-adjectives:ex2": {
+      "text": "たかくないです。",
+      "textHash": "2927460dd80c83ad",
+      "file": "files/2927460dd80c83ad.wav",
+      "durationMs": 1600
+    },
+    "gr-i-adjectives:ex3": {
+      "text": "このりょうりはおいしいです。",
+      "textHash": "44146b626c24c8f4",
+      "file": "files/44146b626c24c8f4.wav",
+      "durationMs": 2760
+    },
+    "gr-i-adjectives": {
+      "text": "たかいほんです。",
+      "textHash": "9cb861c90fd939e4",
+      "file": "files/9cb861c90fd939e4.wav",
+      "durationMs": 1960
+    },
+    "vocab-shizuka": {
+      "text": "静か",
+      "textHash": "ef9afc92783fbb44",
+      "file": "files/ef9afc92783fbb44.wav",
+      "durationMs": 1480
+    },
+    "vocab-genki": {
+      "text": "元気",
+      "textHash": "7fc6e83611c67ab4",
+      "file": "files/7fc6e83611c67ab4.wav",
+      "durationMs": 1200
+    },
+    "vocab-yuumei": {
+      "text": "有名",
+      "textHash": "0e555b079db112f4",
+      "file": "files/0e555b079db112f4.wav",
+      "durationMs": 1480
+    },
+    "vocab-kirei": {
+      "text": "きれい",
+      "textHash": "dcb5ff87f34a008b",
+      "file": "files/dcb5ff87f34a008b.wav",
+      "durationMs": 1360
+    },
+    "vocab-benri": {
+      "text": "便利",
+      "textHash": "2c91cda1fa7deb29",
+      "file": "files/2c91cda1fa7deb29.wav",
+      "durationMs": 1160
+    },
+    "gr-na-adjectives:ex0": {
+      "text": "しずかなまちです。",
+      "textHash": "be0ba6adf15b3a07",
+      "file": "files/be0ba6adf15b3a07.wav",
+      "durationMs": 2120
+    },
+    "gr-na-adjectives:ex1": {
+      "text": "このまちはしずかです。",
+      "textHash": "3c82c92563bed1ab",
+      "file": "files/3c82c92563bed1ab.wav",
+      "durationMs": 2840
+    },
+    "gr-na-adjectives:ex2": {
+      "text": "きれいなはなです。",
+      "textHash": "0e1e87b77404755d",
+      "file": "files/0e1e87b77404755d.wav",
+      "durationMs": 1840
+    },
+    "gr-na-adjectives:ex3": {
+      "text": "ゆうめいではありません。",
+      "textHash": "ef906fa580a171ea",
+      "file": "files/ef906fa580a171ea.wav",
+      "durationMs": 2120
+    },
+    "gr-na-adjectives": {
+      "text": "しずかなまちです。",
+      "textHash": "be0ba6adf15b3a07",
+      "file": "files/be0ba6adf15b3a07.wav",
+      "durationMs": 2120
+    },
+    "vocab-gohan": {
+      "text": "ご飯",
+      "textHash": "36e586559116888b",
+      "file": "files/36e586559116888b.wav",
+      "durationMs": 1200
+    },
+    "vocab-sakana": {
+      "text": "魚",
+      "textHash": "b481cb1bcb3f18ba",
+      "file": "files/b481cb1bcb3f18ba.wav",
+      "durationMs": 1360
+    },
+    "vocab-niku": {
+      "text": "肉",
+      "textHash": "2f79e1fce5422a84",
+      "file": "files/2f79e1fce5422a84.wav",
+      "durationMs": 1440
+    },
+    "vocab-yasai": {
+      "text": "野菜",
+      "textHash": "9fd67a14966e85d1",
+      "file": "files/9fd67a14966e85d1.wav",
+      "durationMs": 1320
+    },
+    "vocab-pan": {
+      "text": "パン",
+      "textHash": "433c68371a3d5588",
+      "file": "files/433c68371a3d5588.wav",
+      "durationMs": 840
+    },
+    "vocab-kudamono": {
+      "text": "果物",
+      "textHash": "69363e7f12cbf231",
+      "file": "files/69363e7f12cbf231.wav",
+      "durationMs": 1320
+    },
+    "vocab-aka": {
+      "text": "赤",
+      "textHash": "d6765296ee89e6a0",
+      "file": "files/d6765296ee89e6a0.wav",
+      "durationMs": 1080
+    },
+    "vocab-ao": {
+      "text": "青",
+      "textHash": "dc06463a46eb5685",
+      "file": "files/dc06463a46eb5685.wav",
+      "durationMs": 1240
+    },
+    "vocab-shiro": {
+      "text": "白",
+      "textHash": "3366645622a78090",
+      "file": "files/3366645622a78090.wav",
+      "durationMs": 1160
+    },
+    "vocab-kuro": {
+      "text": "黒",
+      "textHash": "680105f7f1c8587d",
+      "file": "files/680105f7f1c8587d.wav",
+      "durationMs": 1000
+    },
+    "vocab-kiiro": {
+      "text": "黄色",
+      "textHash": "d451c07d739b3306",
+      "file": "files/d451c07d739b3306.wav",
+      "durationMs": 1360
+    },
+    "vocab-midori": {
+      "text": "緑",
+      "textHash": "005c047dbb3dccba",
+      "file": "files/005c047dbb3dccba.wav",
+      "durationMs": 1080
+    },
+    "dlg-shopping-howmuch-L0": {
+      "text": "この あかい かばんは いくらですか。",
+      "textHash": "8c3a8bba906f6314",
+      "file": "files/8c3a8bba906f6314.wav",
+      "durationMs": 4360
+    },
+    "dlg-shopping-howmuch-L1": {
+      "text": "ごせんえんです。",
+      "textHash": "325bb21763c0e99c",
+      "file": "files/325bb21763c0e99c.wav",
+      "durationMs": 1760
+    },
+    "dlg-shopping-howmuch-L2": {
+      "text": "ちょっと たかいですね。",
+      "textHash": "c6e761ff7136ed1e",
+      "file": "files/c6e761ff7136ed1e.wav",
+      "durationMs": 2440
+    },
+    "vocab-suki": {
+      "text": "好き",
+      "textHash": "226fdde702803813",
+      "file": "files/226fdde702803813.wav",
+      "durationMs": 1240
+    },
+    "vocab-kirai": {
+      "text": "嫌い",
+      "textHash": "896d585d9029faeb",
+      "file": "files/896d585d9029faeb.wav",
+      "durationMs": 1560
+    },
+    "vocab-hoshii": {
+      "text": "欲しい",
+      "textHash": "7bfe7863d351e866",
+      "file": "files/7bfe7863d351e866.wav",
+      "durationMs": 1320
+    },
+    "gr-suki-hoshii:ex0": {
+      "text": "コーヒーがすきです。",
+      "textHash": "f35f72ffef67afe7",
+      "file": "files/f35f72ffef67afe7.wav",
+      "durationMs": 1960
+    },
+    "gr-suki-hoshii:ex1": {
+      "text": "やさいがきらいです。",
+      "textHash": "4bd11b450e82c61e",
+      "file": "files/4bd11b450e82c61e.wav",
+      "durationMs": 2320
+    },
+    "gr-suki-hoshii:ex2": {
+      "text": "あたらしいくるまがほしいです。",
+      "textHash": "e5d115e289002c91",
+      "file": "files/e5d115e289002c91.wav",
+      "durationMs": 2720
+    },
+    "gr-suki-hoshii:ex3": {
+      "text": "にほんごがすきですか。",
+      "textHash": "502cc23086f703a8",
+      "file": "files/502cc23086f703a8.wav",
+      "durationMs": 2480
+    },
+    "gr-suki-hoshii": {
+      "text": "コーヒーがすきです。",
+      "textHash": "f35f72ffef67afe7",
+      "file": "files/f35f72ffef67afe7.wav",
+      "durationMs": 1960
+    },
+    "vocab-eega": {
+      "text": "映画",
+      "textHash": "d626ecafe6c45ab6",
+      "file": "files/d626ecafe6c45ab6.wav",
+      "durationMs": 1080
+    },
+    "dlg-likes-hobbies-L0": {
+      "text": "しゅみは なんですか。",
+      "textHash": "38d05537f0b1a1c6",
+      "file": "files/38d05537f0b1a1c6.wav",
+      "durationMs": 1960
+    },
+    "dlg-likes-hobbies-L1": {
+      "text": "えいがが すきです。",
+      "textHash": "31c1c3fd58eccad6",
+      "file": "files/31c1c3fd58eccad6.wav",
+      "durationMs": 1840
+    },
+    "dlg-likes-hobbies-L2": {
+      "text": "わたしも すきです。",
+      "textHash": "7a117b8f2a3a2ef5",
+      "file": "files/7a117b8f2a3a2ef5.wav",
+      "durationMs": 1920
+    },
+    "kanji-gaku": {
+      "text": "学",
+      "textHash": "8a6949a38384ceae",
+      "file": "files/8a6949a38384ceae.wav",
+      "durationMs": 1480
+    },
+    "kanji-kou": {
+      "text": "校",
+      "textHash": "ae06002f9a0af101",
+      "file": "files/ae06002f9a0af101.wav",
+      "durationMs": 1120
+    },
+    "kanji-sen-teacher": {
+      "text": "先",
+      "textHash": "27250da81c0a763a",
+      "file": "files/27250da81c0a763a.wav",
+      "durationMs": 1360
+    },
+    "kanji-sei": {
+      "text": "生",
+      "textHash": "c5921e8441bcf405",
+      "file": "files/c5921e8441bcf405.wav",
+      "durationMs": 1280
+    },
+    "kanji-me-eye": {
+      "text": "目",
+      "textHash": "67220858d7f44bbc",
+      "file": "files/67220858d7f44bbc.wav",
+      "durationMs": 1120
+    },
+    "kanji-mimi": {
+      "text": "耳",
+      "textHash": "6448195cd7a60caa",
+      "file": "files/6448195cd7a60caa.wav",
+      "durationMs": 1320
+    },
+    "kanji-kuchi": {
+      "text": "口",
+      "textHash": "037bb71227fae848",
+      "file": "files/037bb71227fae848.wav",
+      "durationMs": 1080
+    },
+    "kanji-te-hand": {
+      "text": "手",
+      "textHash": "48e3a023f8997977",
+      "file": "files/48e3a023f8997977.wav",
+      "durationMs": 880
+    },
+    "kanji-ashi": {
+      "text": "足",
+      "textHash": "5b76d055140807c3",
+      "file": "files/5b76d055140807c3.wav",
+      "durationMs": 1120
+    },
+    "dlg-describe-people-L0": {
+      "text": "あたらしい せんせいは どんな ひとですか。",
+      "textHash": "a4a2ef0cb3316c3d",
+      "file": "files/a4a2ef0cb3316c3d.wav",
+      "durationMs": 3520
+    },
+    "dlg-describe-people-L1": {
+      "text": "しんせつな ひとです。それに、げんきです。",
+      "textHash": "f1585f4ba4a3dd46",
+      "file": "files/f1585f4ba4a3dd46.wav",
+      "durationMs": 4480
+    },
+    "vocab-kau": {
+      "text": "買う",
+      "textHash": "2952009576e0dad8",
+      "file": "files/2952009576e0dad8.wav",
+      "durationMs": 880
+    },
+    "vocab-matsu": {
+      "text": "待つ",
+      "textHash": "522bf697a5f81f40",
+      "file": "files/522bf697a5f81f40.wav",
+      "durationMs": 1080
+    },
+    "vocab-asobu": {
+      "text": "遊ぶ",
+      "textHash": "6cbc3cac32b9bcba",
+      "file": "files/6cbc3cac32b9bcba.wav",
+      "durationMs": 1360
+    },
+    "vocab-okiru": {
+      "text": "起きる",
+      "textHash": "13b5cd292d16bcbe",
+      "file": "files/13b5cd292d16bcbe.wav",
+      "durationMs": 1200
+    },
+    "gr-te-form:ex0": {
+      "text": "たべる → たべて",
+      "textHash": "bcd8b2c39076b2f4",
+      "file": "files/bcd8b2c39076b2f4.wav",
+      "durationMs": 2840
+    },
+    "gr-te-form:ex1": {
+      "text": "かう → かって",
+      "textHash": "e3868dcec688dd0f",
+      "file": "files/e3868dcec688dd0f.wav",
+      "durationMs": 2760
+    },
+    "gr-te-form:ex2": {
+      "text": "のむ → のんで",
+      "textHash": "085697daa30b9578",
+      "file": "files/085697daa30b9578.wav",
+      "durationMs": 2720
+    },
+    "gr-te-form:ex3": {
+      "text": "する → して、くる → きて",
+      "textHash": "a5bc1692015a90ab",
+      "file": "files/a5bc1692015a90ab.wav",
+      "durationMs": 5520
+    },
+    "gr-te-form": {
+      "text": "たべる → たべて",
+      "textHash": "bcd8b2c39076b2f4",
+      "file": "files/bcd8b2c39076b2f4.wav",
+      "durationMs": 2840
+    },
+    "vocab-hataraku": {
+      "text": "働く",
+      "textHash": "3fb88915d4c8d749",
+      "file": "files/3fb88915d4c8d749.wav",
+      "durationMs": 1320
+    },
+    "gr-te-requests-progressive:ex0": {
+      "text": "みてください。",
+      "textHash": "14e4f6624d744f54",
+      "file": "files/14e4f6624d744f54.wav",
+      "durationMs": 1560
+    },
+    "gr-te-requests-progressive:ex1": {
+      "text": "まってください。",
+      "textHash": "e4ac0c507968f575",
+      "file": "files/e4ac0c507968f575.wav",
+      "durationMs": 1520
+    },
+    "gr-te-requests-progressive:ex2": {
+      "text": "たべています。",
+      "textHash": "4fed44e89fbba03d",
+      "file": "files/4fed44e89fbba03d.wav",
+      "durationMs": 1520
+    },
+    "gr-te-requests-progressive:ex3": {
+      "text": "とうきょうにすんでいます。",
+      "textHash": "892c2da58662d6db",
+      "file": "files/892c2da58662d6db.wav",
+      "durationMs": 2560
+    },
+    "gr-te-requests-progressive": {
+      "text": "みてください。",
+      "textHash": "14e4f6624d744f54",
+      "file": "files/14e4f6624d744f54.wav",
+      "durationMs": 1560
+    },
+    "dlg-make-request-L0": {
+      "text": "すみません、ちょっと まってください。",
+      "textHash": "a7c8e108f9ebbd1e",
+      "file": "files/a7c8e108f9ebbd1e.wav",
+      "durationMs": 3280
+    },
+    "dlg-make-request-L1": {
+      "text": "はい、わかりました。",
+      "textHash": "83356588561a6990",
+      "file": "files/83356588561a6990.wav",
+      "durationMs": 2160
+    },
+    "dlg-make-request-L2": {
+      "text": "これを よんでください。",
+      "textHash": "177c7b0eb13d08d6",
+      "file": "files/177c7b0eb13d08d6.wav",
+      "durationMs": 2880
+    },
+    "gr-te-permission:ex0": {
+      "text": "たべてもいいです。",
+      "textHash": "6626cddebbbd8488",
+      "file": "files/6626cddebbbd8488.wav",
+      "durationMs": 1760
+    },
+    "gr-te-permission:ex1": {
+      "text": "みてもいいですか。",
+      "textHash": "2e443f22110c2cdf",
+      "file": "files/2e443f22110c2cdf.wav",
+      "durationMs": 1800
+    },
+    "gr-te-permission:ex2": {
+      "text": "ここでたべてはいけません。",
+      "textHash": "2e498ce39263b3e9",
+      "file": "files/2e498ce39263b3e9.wav",
+      "durationMs": 2400
+    },
+    "gr-te-permission:ex3": {
+      "text": "はいってはいけません。",
+      "textHash": "27d713ad3e9dab54",
+      "file": "files/27d713ad3e9dab54.wav",
+      "durationMs": 2080
+    },
+    "gr-te-permission": {
+      "text": "たべてもいいです。",
+      "textHash": "6626cddebbbd8488",
+      "file": "files/6626cddebbbd8488.wav",
+      "durationMs": 1760
+    },
+    "dlg-rules-permission-L0": {
+      "text": "ここで しゃしんを とってもいいですか。",
+      "textHash": "5c3d0a696c8ec580",
+      "file": "files/5c3d0a696c8ec580.wav",
+      "durationMs": 3640
+    },
+    "dlg-rules-permission-L1": {
+      "text": "すみません、ここでは とってはいけません。",
+      "textHash": "d31341ab8b68acd2",
+      "file": "files/d31341ab8b68acd2.wav",
+      "durationMs": 3880
+    },
+    "vocab-au": {
+      "text": "会う",
+      "textHash": "edd39040783426ef",
+      "file": "files/edd39040783426ef.wav",
+      "durationMs": 1000
+    },
+    "vocab-kaeru": {
+      "text": "帰る",
+      "textHash": "1b8a0294850ce438",
+      "file": "files/1b8a0294850ce438.wav",
+      "durationMs": 1240
+    },
+    "vocab-neru": {
+      "text": "寝る",
+      "textHash": "40f9dfc77994df91",
+      "file": "files/40f9dfc77994df91.wav",
+      "durationMs": 1040
+    },
+    "gr-past-tense:ex0": {
+      "text": "たべました。",
+      "textHash": "a7c29495ae21f5d4",
+      "file": "files/a7c29495ae21f5d4.wav",
+      "durationMs": 1440
+    },
+    "gr-past-tense:ex1": {
+      "text": "えいがをみました。",
+      "textHash": "991f75c9522d0341",
+      "file": "files/991f75c9522d0341.wav",
+      "durationMs": 1840
+    },
+    "gr-past-tense:ex2": {
+      "text": "たべませんでした。",
+      "textHash": "e7427ece137fd60a",
+      "file": "files/e7427ece137fd60a.wav",
+      "durationMs": 1800
+    },
+    "gr-past-tense:ex3": {
+      "text": "きのう、はたらきませんでした。",
+      "textHash": "8b0f8cb73715ecca",
+      "file": "files/8b0f8cb73715ecca.wav",
+      "durationMs": 3080
+    },
+    "gr-past-tense": {
+      "text": "たべました。",
+      "textHash": "a7c29495ae21f5d4",
+      "file": "files/a7c29495ae21f5d4.wav",
+      "durationMs": 1440
+    },
+    "gr-adjective-past:ex0": {
+      "text": "たかかったです。",
+      "textHash": "cc324c640df75103",
+      "file": "files/cc324c640df75103.wav",
+      "durationMs": 1640
+    },
+    "gr-adjective-past:ex1": {
+      "text": "えいがはおもしろかったです。",
+      "textHash": "1a5621fbff4c7f41",
+      "file": "files/1a5621fbff4c7f41.wav",
+      "durationMs": 2560
+    },
+    "gr-adjective-past:ex2": {
+      "text": "しずかでした。",
+      "textHash": "a9e124887c7d3bc8",
+      "file": "files/a9e124887c7d3bc8.wav",
+      "durationMs": 1720
+    },
+    "gr-adjective-past:ex3": {
+      "text": "げんきではありませんでした。",
+      "textHash": "947b297c5f74162f",
+      "file": "files/947b297c5f74162f.wav",
+      "durationMs": 2520
+    },
+    "gr-adjective-past": {
+      "text": "たかかったです。",
+      "textHash": "cc324c640df75103",
+      "file": "files/cc324c640df75103.wav",
+      "durationMs": 1640
+    },
+    "kanji-deru": {
+      "text": "出",
+      "textHash": "4d5f7e15c8a569bf",
+      "file": "files/4d5f7e15c8a569bf.wav",
+      "durationMs": 1040
+    },
+    "kanji-hairu": {
+      "text": "入",
+      "textHash": "c404effc172031c7",
+      "file": "files/c404effc172031c7.wav",
+      "durationMs": 2360
+    },
+    "kanji-iku-k": {
+      "text": "行",
+      "textHash": "4cc7b00050cb1c21",
+      "file": "files/4cc7b00050cb1c21.wav",
+      "durationMs": 1200
+    },
+    "kanji-kuru-k": {
+      "text": "来",
+      "textHash": "6d8229118caa20c2",
+      "file": "files/6d8229118caa20c2.wav",
+      "durationMs": 1080
+    },
+    "kanji-miru-k": {
+      "text": "見",
+      "textHash": "44b54f5ad98b36d6",
+      "file": "files/44b54f5ad98b36d6.wav",
+      "durationMs": 960
+    },
+    "kanji-kiku-k": {
+      "text": "聞",
+      "textHash": "7888b5f4185217b3",
+      "file": "files/7888b5f4185217b3.wav",
+      "durationMs": 1960
+    },
+    "kanji-iu": {
+      "text": "言",
+      "textHash": "884e97995130b8b9",
+      "file": "files/884e97995130b8b9.wav",
+      "durationMs": 2080
+    },
+    "kanji-hanasu-k": {
+      "text": "話",
+      "textHash": "0602b4f4d85cfb21",
+      "file": "files/0602b4f4d85cfb21.wav",
+      "durationMs": 1320
+    },
+    "kanji-yomu-k": {
+      "text": "読",
+      "textHash": "be93c785b2bd90ea",
+      "file": "files/be93c785b2bd90ea.wav",
+      "durationMs": 1240
+    },
+    "kanji-kaku-k": {
+      "text": "書",
+      "textHash": "d48e61f572566a32",
+      "file": "files/d48e61f572566a32.wav",
+      "durationMs": 1240
+    },
+    "kanji-ten": {
+      "text": "天",
+      "textHash": "49da61ceeea2f271",
+      "file": "files/49da61ceeea2f271.wav",
+      "durationMs": 960
+    },
+    "kanji-ki-spirit": {
+      "text": "気",
+      "textHash": "543e16964d384f61",
+      "file": "files/543e16964d384f61.wav",
+      "durationMs": 1520
+    },
+    "vocab-tomodachi": {
+      "text": "友達",
+      "textHash": "93015cdfdcb0f67a",
+      "file": "files/93015cdfdcb0f67a.wav",
+      "durationMs": 1440
+    },
+    "vocab-tenki": {
+      "text": "天気",
+      "textHash": "bc79d84d3df7763a",
+      "file": "files/bc79d84d3df7763a.wav",
+      "durationMs": 1040
+    },
+    "vocab-mae": {
+      "text": "前",
+      "textHash": "6044e9f095e0b5e4",
+      "file": "files/6044e9f095e0b5e4.wav",
+      "durationMs": 1040
+    },
+    "vocab-ushiro": {
+      "text": "後ろ",
+      "textHash": "e9fa45a75ea13f9a",
+      "file": "files/e9fa45a75ea13f9a.wav",
+      "durationMs": 1320
+    },
+    "vocab-tonari": {
+      "text": "となり",
+      "textHash": "2f31b30c6f412ea4",
+      "file": "files/2f31b30c6f412ea4.wav",
+      "durationMs": 2200
+    },
+    "vocab-michi": {
+      "text": "道",
+      "textHash": "00a9d5bd97c269b4",
+      "file": "files/00a9d5bd97c269b4.wav",
+      "durationMs": 1280
+    },
+    "vocab-shuumatsu": {
+      "text": "週末",
+      "textHash": "ad5be9c1595bde03",
+      "file": "files/ad5be9c1595bde03.wav",
+      "durationMs": 1600
+    },
+    "dlg-talk-past-L0": {
+      "text": "しゅうまつ、なにを しましたか。",
+      "textHash": "949b0bc7723887cf",
+      "file": "files/949b0bc7723887cf.wav",
+      "durationMs": 3080
+    },
+    "dlg-talk-past-L1": {
+      "text": "ともだちに あいました。たのしかったです。",
+      "textHash": "d239479ab4e1fab8",
+      "file": "files/d239479ab4e1fab8.wav",
+      "durationMs": 4880
+    },
+    "gr-dictionary-form:ex0": {
+      "text": "たべます → たべる",
+      "textHash": "3e8a84626d08f2fa",
+      "file": "files/3e8a84626d08f2fa.wav",
+      "durationMs": 2720
+    },
+    "gr-dictionary-form:ex1": {
+      "text": "のみます → のむ",
+      "textHash": "d9abd728e0f30630",
+      "file": "files/d9abd728e0f30630.wav",
+      "durationMs": 2760
+    },
+    "gr-dictionary-form:ex2": {
+      "text": "いきます → いく",
+      "textHash": "4e550624450b98f7",
+      "file": "files/4e550624450b98f7.wav",
+      "durationMs": 2800
+    },
+    "gr-dictionary-form:ex3": {
+      "text": "します → する、きます → くる",
+      "textHash": "30a776e3d2a1ab8d",
+      "file": "files/30a776e3d2a1ab8d.wav",
+      "durationMs": 6160
+    },
+    "gr-dictionary-form": {
+      "text": "たべます → たべる",
+      "textHash": "3e8a84626d08f2fa",
+      "file": "files/3e8a84626d08f2fa.wav",
+      "durationMs": 2720
+    },
+    "gr-nai-form:ex0": {
+      "text": "たべる → たべない",
+      "textHash": "e0dafe21997a1b33",
+      "file": "files/e0dafe21997a1b33.wav",
+      "durationMs": 3200
+    },
+    "gr-nai-form:ex1": {
+      "text": "のむ → のまない",
+      "textHash": "ebb735a84a1944ff",
+      "file": "files/ebb735a84a1944ff.wav",
+      "durationMs": 2640
+    },
+    "gr-nai-form:ex2": {
+      "text": "かう → かわない",
+      "textHash": "1bb53523403d739b",
+      "file": "files/1bb53523403d739b.wav",
+      "durationMs": 3000
+    },
+    "gr-nai-form:ex3": {
+      "text": "する → しない、くる → こない",
+      "textHash": "846c55ce0e151314",
+      "file": "files/846c55ce0e151314.wav",
+      "durationMs": 5840
+    },
+    "gr-nai-form": {
+      "text": "たべる → たべない",
+      "textHash": "e0dafe21997a1b33",
+      "file": "files/e0dafe21997a1b33.wav",
+      "durationMs": 3200
+    },
+    "gr-ta-form-plain:ex0": {
+      "text": "たべて → たべた",
+      "textHash": "6ad4a6a6143d55b3",
+      "file": "files/6ad4a6a6143d55b3.wav",
+      "durationMs": 2560
+    },
+    "gr-ta-form-plain:ex1": {
+      "text": "のんで → のんだ",
+      "textHash": "a155a5f983b9842f",
+      "file": "files/a155a5f983b9842f.wav",
+      "durationMs": 3000
+    },
+    "gr-ta-form-plain:ex2": {
+      "text": "いって → いった",
+      "textHash": "7084d2cefa070d8b",
+      "file": "files/7084d2cefa070d8b.wav",
+      "durationMs": 2800
+    },
+    "gr-ta-form-plain:ex3": {
+      "text": "して → した",
+      "textHash": "24abb71957ff9df3",
+      "file": "files/24abb71957ff9df3.wav",
+      "durationMs": 2760
+    },
+    "gr-ta-form-plain": {
+      "text": "たべて → たべた",
+      "textHash": "6ad4a6a6143d55b3",
+      "file": "files/6ad4a6a6143d55b3.wav",
+      "durationMs": 2560
+    },
+    "gr-n-desu:ex0": {
+      "text": "あたまがいたいんです。",
+      "textHash": "8cdba5bc4e597e75",
+      "file": "files/8cdba5bc4e597e75.wav",
+      "durationMs": 2320
+    },
+    "gr-n-desu:ex1": {
+      "text": "どうしたんですか。",
+      "textHash": "d5841e01251bb834",
+      "file": "files/d5841e01251bb834.wav",
+      "durationMs": 1760
+    },
+    "gr-n-desu:ex2": {
+      "text": "がくせいなんです。",
+      "textHash": "3e7211eaca017e72",
+      "file": "files/3e7211eaca017e72.wav",
+      "durationMs": 1800
+    },
+    "gr-n-desu:ex3": {
+      "text": "いそがしいんです。",
+      "textHash": "cc232a867394965d",
+      "file": "files/cc232a867394965d.wav",
+      "durationMs": 1760
+    },
+    "gr-n-desu": {
+      "text": "あたまがいたいんです。",
+      "textHash": "8cdba5bc4e597e75",
+      "file": "files/8cdba5bc4e597e75.wav",
+      "durationMs": 2320
+    },
+    "gr-relative-clauses:ex0": {
+      "text": "わたしがかったほん",
+      "textHash": "e27243a0d49d324f",
+      "file": "files/e27243a0d49d324f.wav",
+      "durationMs": 2240
+    },
+    "gr-relative-clauses:ex1": {
+      "text": "きのうみたえいが",
+      "textHash": "e9cb8c816fc99fc9",
+      "file": "files/e9cb8c816fc99fc9.wav",
+      "durationMs": 2160
+    },
+    "gr-relative-clauses:ex2": {
+      "text": "たなかさんがつくったりょうり",
+      "textHash": "2cc948764342b6a3",
+      "file": "files/2cc948764342b6a3.wav",
+      "durationMs": 2720
+    },
+    "gr-relative-clauses:ex3": {
+      "text": "にほんごをはなすひと",
+      "textHash": "cfa123d21e9a22cd",
+      "file": "files/cfa123d21e9a22cd.wav",
+      "durationMs": 2680
+    },
+    "gr-relative-clauses": {
+      "text": "わたしがかったほん",
+      "textHash": "e27243a0d49d324f",
+      "file": "files/e27243a0d49d324f.wav",
+      "durationMs": 2240
+    },
+    "kanji-omou": {
+      "text": "思",
+      "textHash": "756c86276bcc8b46",
+      "file": "files/756c86276bcc8b46.wav",
+      "durationMs": 1960
+    },
+    "kanji-shiru": {
+      "text": "知",
+      "textHash": "142a111bdbd817ad",
+      "file": "files/142a111bdbd817ad.wav",
+      "durationMs": 1760
+    },
+    "kanji-tsukuru": {
+      "text": "作",
+      "textHash": "7ff9df9923a86fd9",
+      "file": "files/7ff9df9923a86fd9.wav",
+      "durationMs": 1040
+    },
+    "kanji-tsukau": {
+      "text": "使",
+      "textHash": "22c95798a9323bb5",
+      "file": "files/22c95798a9323bb5.wav",
+      "durationMs": 1480
+    },
+    "kanji-motsu": {
+      "text": "持",
+      "textHash": "2df23c9b4094d780",
+      "file": "files/2df23c9b4094d780.wav",
+      "durationMs": 1440
+    },
+    "kanji-matsu-k": {
+      "text": "待",
+      "textHash": "a668052ae6ec6ecb",
+      "file": "files/a668052ae6ec6ecb.wav",
+      "durationMs": 1120
+    },
+    "kanji-hajimeru": {
+      "text": "始",
+      "textHash": "7eccd1115f346014",
+      "file": "files/7eccd1115f346014.wav",
+      "durationMs": 1360
+    },
+    "kanji-owaru": {
+      "text": "終",
+      "textHash": "e957ecd57fc8e72d",
+      "file": "files/e957ecd57fc8e72d.wav",
+      "durationMs": 1400
+    },
+    "kanji-akeru": {
+      "text": "開",
+      "textHash": "320d1ab4f80f5960",
+      "file": "files/320d1ab4f80f5960.wav",
+      "durationMs": 1800
+    },
+    "kanji-shimeru": {
+      "text": "閉",
+      "textHash": "04012b549a9301c0",
+      "file": "files/04012b549a9301c0.wav",
+      "durationMs": 1840
+    },
+    "dlg-plain-chat-L0": {
+      "text": "しゅうまつ、なにする?",
+      "textHash": "0e5a53865af229fd",
+      "file": "files/0e5a53865af229fd.wav",
+      "durationMs": 2560
+    },
+    "dlg-plain-chat-L1": {
+      "text": "えいがをみるつもり。",
+      "textHash": "d852e98c555c5dc8",
+      "file": "files/d852e98c555c5dc8.wav",
+      "durationMs": 2280
+    },
+    "dlg-plain-chat-L2": {
+      "text": "いいね。きのうかったほん、もうよんだ?",
+      "textHash": "d6374f78b2aaa8f0",
+      "file": "files/d6374f78b2aaa8f0.wav",
+      "durationMs": 4320
+    },
+    "dlg-plain-chat-L3": {
+      "text": "まだよんでない。",
+      "textHash": "00e40e78efc6941c",
+      "file": "files/00e40e78efc6941c.wav",
+      "durationMs": 1800
+    },
+    "gr-potential:ex0": {
+      "text": "日本語が 話せます。",
+      "textHash": "116a64c9bea9198f",
+      "file": "files/116a64c9bea9198f.wav",
+      "durationMs": 2520
+    },
+    "gr-potential:ex1": {
+      "text": "たべる → たべられる",
+      "textHash": "b235444c9e0ab4a1",
+      "file": "files/b235444c9e0ab4a1.wav",
+      "durationMs": 2840
+    },
+    "gr-potential:ex2": {
+      "text": "およぐ → およげる",
+      "textHash": "cffdcf754243d0ba",
+      "file": "files/cffdcf754243d0ba.wav",
+      "durationMs": 3480
+    },
+    "gr-potential:ex3": {
+      "text": "ピアノが できます。",
+      "textHash": "e5fb59544273d2a0",
+      "file": "files/e5fb59544273d2a0.wav",
+      "durationMs": 1880
+    },
+    "gr-potential": {
+      "text": "日本語が 話せます。",
+      "textHash": "116a64c9bea9198f",
+      "file": "files/116a64c9bea9198f.wav",
+      "durationMs": 2520
+    },
+    "gr-volitional:ex0": {
+      "text": "いこう!",
+      "textHash": "da42b91a3b1f3974",
+      "file": "files/da42b91a3b1f3974.wav",
+      "durationMs": 1200
+    },
+    "gr-volitional:ex1": {
+      "text": "たべよう。",
+      "textHash": "b052bd43702ac3a8",
+      "file": "files/b052bd43702ac3a8.wav",
+      "durationMs": 1520
+    },
+    "gr-volitional:ex2": {
+      "text": "日本に 行こうと思います。",
+      "textHash": "14eb5942b5651f00",
+      "file": "files/14eb5942b5651f00.wav",
+      "durationMs": 3160
+    },
+    "gr-volitional:ex3": {
+      "text": "もっと 練習しようと思います。",
+      "textHash": "f9d9faa74a1f895b",
+      "file": "files/f9d9faa74a1f895b.wav",
+      "durationMs": 3080
+    },
+    "gr-volitional": {
+      "text": "いこう!",
+      "textHash": "da42b91a3b1f3974",
+      "file": "files/da42b91a3b1f3974.wav",
+      "durationMs": 1200
+    },
+    "gr-ta-koto-ga-aru:ex0": {
+      "text": "日本に 行ったことがあります。",
+      "textHash": "3a64212bd56131cd",
+      "file": "files/3a64212bd56131cd.wav",
+      "durationMs": 3080
+    },
+    "gr-ta-koto-ga-aru:ex1": {
+      "text": "すしを 食べたことがありますか。",
+      "textHash": "23699c2cad543064",
+      "file": "files/23699c2cad543064.wav",
+      "durationMs": 2960
+    },
+    "gr-ta-koto-ga-aru:ex2": {
+      "text": "ふじさんを 見たことがありません。",
+      "textHash": "1e85e9668a421952",
+      "file": "files/1e85e9668a421952.wav",
+      "durationMs": 3240
+    },
+    "gr-ta-koto-ga-aru": {
+      "text": "日本に 行ったことがあります。",
+      "textHash": "3a64212bd56131cd",
+      "file": "files/3a64212bd56131cd.wav",
+      "durationMs": 3080
+    },
+    "gr-tari-tari:ex0": {
+      "text": "読んだり、聞いたりします。",
+      "textHash": "903fd2417a6cd693",
+      "file": "files/903fd2417a6cd693.wav",
+      "durationMs": 3320
+    },
+    "gr-tari-tari:ex1": {
+      "text": "週末は 買い物したり、友だちに会ったりしました。",
+      "textHash": "2796340e45019887",
+      "file": "files/2796340e45019887.wav",
+      "durationMs": 5240
+    },
+    "gr-tari-tari:ex2": {
+      "text": "泳いだり、走ったりするのが すきです。",
+      "textHash": "d9d5e93a7021fde2",
+      "file": "files/d9d5e93a7021fde2.wav",
+      "durationMs": 3960
+    },
+    "gr-tari-tari": {
+      "text": "読んだり、聞いたりします。",
+      "textHash": "903fd2417a6cd693",
+      "file": "files/903fd2417a6cd693.wav",
+      "durationMs": 3320
+    },
+    "gr-nagara:ex0": {
+      "text": "音楽を 聞きながら、勉強します。",
+      "textHash": "3c7e3e625522b610",
+      "file": "files/3c7e3e625522b610.wav",
+      "durationMs": 3400
+    },
+    "gr-nagara:ex1": {
+      "text": "歩きながら、話しましょう。",
+      "textHash": "9ba708d37d8a3f9b",
+      "file": "files/9ba708d37d8a3f9b.wav",
+      "durationMs": 2400
+    },
+    "gr-nagara:ex2": {
+      "text": "テレビを 見ながら、食べます。",
+      "textHash": "7d7a7697eb8725ac",
+      "file": "files/7d7a7697eb8725ac.wav",
+      "durationMs": 2800
+    },
+    "gr-nagara": {
+      "text": "音楽を 聞きながら、勉強します。",
+      "textHash": "3c7e3e625522b610",
+      "file": "files/3c7e3e625522b610.wav",
+      "durationMs": 3400
+    },
+    "gr-comparison:ex0": {
+      "text": "日本語は 英語より おもしろいです。",
+      "textHash": "bd35d4ccaf10fb6a",
+      "file": "files/bd35d4ccaf10fb6a.wav",
+      "durationMs": 3840
+    },
+    "gr-comparison:ex1": {
+      "text": "ねこと いぬと、どちらが すきですか。",
+      "textHash": "73c9fb80f7750878",
+      "file": "files/73c9fb80f7750878.wav",
+      "durationMs": 3600
+    },
+    "gr-comparison:ex2": {
+      "text": "ねこのほうが すきです。",
+      "textHash": "9459fdedb4ddf7b0",
+      "file": "files/9459fdedb4ddf7b0.wav",
+      "durationMs": 2120
+    },
+    "gr-comparison:ex3": {
+      "text": "何が いちばん すきですか。",
+      "textHash": "c48d9a8a5e10fbe9",
+      "file": "files/c48d9a8a5e10fbe9.wav",
+      "durationMs": 2880
+    },
+    "gr-comparison": {
+      "text": "日本語は 英語より おもしろいです。",
+      "textHash": "bd35d4ccaf10fb6a",
+      "file": "files/bd35d4ccaf10fb6a.wav",
+      "durationMs": 3840
+    },
+    "kanji-oshieru": {
+      "text": "教",
+      "textHash": "4da9378368423266",
+      "file": "files/4da9378368423266.wav",
+      "durationMs": 1000
+    },
+    "kanji-narau": {
+      "text": "習",
+      "textHash": "d6561bcd8b36c908",
+      "file": "files/d6561bcd8b36c908.wav",
+      "durationMs": 1480
+    },
+    "kanji-hashiru": {
+      "text": "走",
+      "textHash": "f66de6c4cd41cdff",
+      "file": "files/f66de6c4cd41cdff.wav",
+      "durationMs": 1240
+    },
+    "kanji-aruku": {
+      "text": "歩",
+      "textHash": "92ff659f598645eb",
+      "file": "files/92ff659f598645eb.wav",
+      "durationMs": 1360
+    },
+    "kanji-tomaru": {
+      "text": "止",
+      "textHash": "cd44dff084066952",
+      "file": "files/cd44dff084066952.wav",
+      "durationMs": 1320
+    },
+    "kanji-ugoku": {
+      "text": "動",
+      "textHash": "32ad822fb2325a6c",
+      "file": "files/32ad822fb2325a6c.wav",
+      "durationMs": 1640
+    },
+    "kanji-hataraku-k": {
+      "text": "働",
+      "textHash": "4134580dd4b42b7e",
+      "file": "files/4134580dd4b42b7e.wav",
+      "durationMs": 1480
+    },
+    "kanji-kaeru-k": {
+      "text": "帰",
+      "textHash": "4460823b1000bbaf",
+      "file": "files/4460823b1000bbaf.wav",
+      "durationMs": 1080
+    },
+    "kanji-kau-k": {
+      "text": "買",
+      "textHash": "9a56a4f7b1211a27",
+      "file": "files/9a56a4f7b1211a27.wav",
+      "durationMs": 1200
+    },
+    "kanji-uru": {
+      "text": "売",
+      "textHash": "40ba6750217b4eff",
+      "file": "files/40ba6750217b4eff.wav",
+      "durationMs": 1160
+    },
+    "dlg-experiences-L0": {
+      "text": "にほんへいったことがありますか。",
+      "textHash": "6bbf1352438b0e0b",
+      "file": "files/6bbf1352438b0e0b.wav",
+      "durationMs": 3440
+    },
+    "dlg-experiences-L1": {
+      "text": "はい、あります。すこしにほんごがはなせます。",
+      "textHash": "ea8e58989f172947",
+      "file": "files/ea8e58989f172947.wav",
+      "durationMs": 4000
+    },
+    "dlg-experiences-L2": {
+      "text": "すごい!むこうでなにをしましたか。",
+      "textHash": "04b56cd72b349607",
+      "file": "files/04b56cd72b349607.wav",
+      "durationMs": 3680
+    },
+    "dlg-experiences-L3": {
+      "text": "おてらをみたり、おんせんにはいったりしました。",
+      "textHash": "b7fbaa85a349468e",
+      "file": "files/b7fbaa85a349468e.wav",
+      "durationMs": 4120
+    },
+    "gr-to-omou-to-iu:ex0": {
+      "text": "あした 雨が ふると思います。",
+      "textHash": "d1b3721ebb6e47f5",
+      "file": "files/d1b3721ebb6e47f5.wav",
+      "durationMs": 3120
+    },
+    "gr-to-omou-to-iu:ex1": {
+      "text": "この えいがは おもしろいと思います。",
+      "textHash": "fc5c588b7a7d5e7a",
+      "file": "files/fc5c588b7a7d5e7a.wav",
+      "durationMs": 2891
+    },
+    "gr-to-omou-to-iu:ex2": {
+      "text": "田中さんは 来ると言いました。",
+      "textHash": "7db8fc872c89e40d",
+      "file": "files/7db8fc872c89e40d.wav",
+      "durationMs": 2171
+    },
+    "gr-to-omou-to-iu:ex3": {
+      "text": "「行きます」と言いました。",
+      "textHash": "5b5a665f1a5245c3",
+      "file": "files/5b5a665f1a5245c3.wav",
+      "durationMs": 2760
+    },
+    "gr-to-omou-to-iu": {
+      "text": "あした 雨が ふると思います。",
+      "textHash": "d1b3721ebb6e47f5",
+      "file": "files/d1b3721ebb6e47f5.wav",
+      "durationMs": 3120
+    },
+    "gr-toki:ex0": {
+      "text": "子どものとき、東京に住んでいました。",
+      "textHash": "7c4e639bbadcc66e",
+      "file": "files/7c4e639bbadcc66e.wav",
+      "durationMs": 2571
+    },
+    "gr-toki:ex1": {
+      "text": "ひまなとき、何を しますか。",
+      "textHash": "099a32794c9f7440",
+      "file": "files/099a32794c9f7440.wav",
+      "durationMs": 2571
+    },
+    "gr-toki:ex2": {
+      "text": "日本に 行くとき、カメラを 買います。",
+      "textHash": "794b0c3776f0cc51",
+      "file": "files/794b0c3776f0cc51.wav",
+      "durationMs": 3680
+    },
+    "gr-toki:ex3": {
+      "text": "日本に 行ったとき、写真を とりました。",
+      "textHash": "064d2cc59100cc9d",
+      "file": "files/064d2cc59100cc9d.wav",
+      "durationMs": 4560
+    },
+    "gr-toki": {
+      "text": "子どものとき、東京に住んでいました。",
+      "textHash": "7c4e639bbadcc66e",
+      "file": "files/7c4e639bbadcc66e.wav",
+      "durationMs": 2571
+    },
+    "gr-deshou:ex0": {
+      "text": "あしたはあめでしょう。",
+      "textHash": "92dfb4ae2e99b1bd",
+      "file": "files/92dfb4ae2e99b1bd.wav",
+      "durationMs": 2640
+    },
+    "gr-deshou:ex1": {
+      "text": "たかいでしょう。",
+      "textHash": "75f577e69ab8b40c",
+      "file": "files/75f577e69ab8b40c.wav",
+      "durationMs": 1600
+    },
+    "gr-deshou:ex2": {
+      "text": "いいでしょう?",
+      "textHash": "1bdb3a11a1e947c2",
+      "file": "files/1bdb3a11a1e947c2.wav",
+      "durationMs": 1440
+    },
+    "gr-deshou:ex3": {
+      "text": "かれはくるでしょう。",
+      "textHash": "9364638473e147a1",
+      "file": "files/9364638473e147a1.wav",
+      "durationMs": 2320
+    },
+    "gr-deshou": {
+      "text": "あしたはあめでしょう。",
+      "textHash": "92dfb4ae2e99b1bd",
+      "file": "files/92dfb4ae2e99b1bd.wav",
+      "durationMs": 2640
+    },
+    "gr-kamoshirenai:ex0": {
+      "text": "あめがふるかもしれません。",
+      "textHash": "0ecd6de1cecb7df5",
+      "file": "files/0ecd6de1cecb7df5.wav",
+      "durationMs": 2240
+    },
+    "gr-kamoshirenai:ex1": {
+      "text": "たかいかもしれません。",
+      "textHash": "cd935bc94c167316",
+      "file": "files/cd935bc94c167316.wav",
+      "durationMs": 1960
+    },
+    "gr-kamoshirenai:ex2": {
+      "text": "こないかもしれません。",
+      "textHash": "6c4a3b3fadf5e579",
+      "file": "files/6c4a3b3fadf5e579.wav",
+      "durationMs": 2240
+    },
+    "gr-kamoshirenai:ex3": {
+      "text": "びょうきかもしれません。",
+      "textHash": "72268a5956048bde",
+      "file": "files/72268a5956048bde.wav",
+      "durationMs": 1880
+    },
+    "gr-kamoshirenai": {
+      "text": "あめがふるかもしれません。",
+      "textHash": "0ecd6de1cecb7df5",
+      "file": "files/0ecd6de1cecb7df5.wav",
+      "durationMs": 2240
+    },
+    "gr-sou-desu-hearsay:ex0": {
+      "text": "あしたはあめだそうです。",
+      "textHash": "e6626318d0ff063d",
+      "file": "files/e6626318d0ff063d.wav",
+      "durationMs": 2920
+    },
+    "gr-sou-desu-hearsay:ex1": {
+      "text": "たなかさんはいそがしいそうです。",
+      "textHash": "701a0fc283143a37",
+      "file": "files/701a0fc283143a37.wav",
+      "durationMs": 3200
+    },
+    "gr-sou-desu-hearsay:ex2": {
+      "text": "えいがはおもしろかったそうです。",
+      "textHash": "0ecc7030d00c3366",
+      "file": "files/0ecc7030d00c3366.wav",
+      "durationMs": 2480
+    },
+    "gr-sou-desu-hearsay:ex3": {
+      "text": "ニュースによると、たいふうがくるそうです。",
+      "textHash": "3d63fa2fee9b1631",
+      "file": "files/3d63fa2fee9b1631.wav",
+      "durationMs": 3920
+    },
+    "gr-sou-desu-hearsay": {
+      "text": "あしたはあめだそうです。",
+      "textHash": "e6626318d0ff063d",
+      "file": "files/e6626318d0ff063d.wav",
+      "durationMs": 2920
+    },
+    "gr-sou-desu-looks:ex0": {
+      "text": "おいしそうです。",
+      "textHash": "e8bce9529fbbe76c",
+      "file": "files/e8bce9529fbbe76c.wav",
+      "durationMs": 1640
+    },
+    "gr-sou-desu-looks:ex1": {
+      "text": "あめがふりそうです。",
+      "textHash": "b288ca94b0ae02b3",
+      "file": "files/b288ca94b0ae02b3.wav",
+      "durationMs": 2160
+    },
+    "gr-sou-desu-looks:ex2": {
+      "text": "げんきそうですね。",
+      "textHash": "e828cc29ee5a1801",
+      "file": "files/e828cc29ee5a1801.wav",
+      "durationMs": 1720
+    },
+    "gr-sou-desu-looks:ex3": {
+      "text": "よさそうです。",
+      "textHash": "8ea8c130574bfc07",
+      "file": "files/8ea8c130574bfc07.wav",
+      "durationMs": 1960
+    },
+    "gr-sou-desu-looks": {
+      "text": "おいしそうです。",
+      "textHash": "e8bce9529fbbe76c",
+      "file": "files/e8bce9529fbbe76c.wav",
+      "durationMs": 1640
+    },
+    "kanji-okuru": {
+      "text": "送",
+      "textHash": "2191cda8a545b174",
+      "file": "files/2191cda8a545b174.wav",
+      "durationMs": 1400
+    },
+    "kanji-kariru": {
+      "text": "借",
+      "textHash": "2b264025e323409f",
+      "file": "files/2b264025e323409f.wav",
+      "durationMs": 1560
+    },
+    "kanji-kasu": {
+      "text": "貸",
+      "textHash": "9dfff74ae63956e0",
+      "file": "files/9dfff74ae63956e0.wav",
+      "durationMs": 1320
+    },
+    "kanji-oyogu": {
+      "text": "泳",
+      "textHash": "f9a3556490d4176a",
+      "file": "files/f9a3556490d4176a.wav",
+      "durationMs": 1520
+    },
+    "kanji-ie": {
+      "text": "家",
+      "textHash": "c8ae97be80f3867c",
+      "file": "files/c8ae97be80f3867c.wav",
+      "durationMs": 1400
+    },
+    "kanji-zoku": {
+      "text": "族",
+      "textHash": "0fd8abd280cfc041",
+      "file": "files/0fd8abd280cfc041.wav",
+      "durationMs": 1160
+    },
+    "kanji-ani": {
+      "text": "兄",
+      "textHash": "b7488a2d40a3868b",
+      "file": "files/b7488a2d40a3868b.wav",
+      "durationMs": 1120
+    },
+    "kanji-otouto": {
+      "text": "弟",
+      "textHash": "f1d9eb390e4a841e",
+      "file": "files/f1d9eb390e4a841e.wav",
+      "durationMs": 1480
+    },
+    "kanji-ane": {
+      "text": "姉",
+      "textHash": "6a9849543e49add3",
+      "file": "files/6a9849543e49add3.wav",
+      "durationMs": 1360
+    },
+    "kanji-imouto": {
+      "text": "妹",
+      "textHash": "219c2f148bcece14",
+      "file": "files/219c2f148bcece14.wav",
+      "durationMs": 1440
+    },
+    "dlg-opinion-weather-L0": {
+      "text": "あしたはあめだそうです。",
+      "textHash": "e6626318d0ff063d",
+      "file": "files/e6626318d0ff063d.wav",
+      "durationMs": 2920
+    },
+    "dlg-opinion-weather-L1": {
+      "text": "そうですか。さむくなるとおもいます。",
+      "textHash": "23cc589fdfbef7af",
+      "file": "files/23cc589fdfbef7af.wav",
+      "durationMs": 4040
+    },
+    "dlg-opinion-weather-L2": {
+      "text": "ええ、ゆきもふるかもしれません。",
+      "textHash": "d927132cf8a84695",
+      "file": "files/d927132cf8a84695.wav",
+      "durationMs": 3160
+    },
+    "gr-tara:ex0": {
+      "text": "雨が ふったら、うちに います。",
+      "textHash": "d2d864bf3d55142e",
+      "file": "files/d2d864bf3d55142e.wav",
+      "durationMs": 3080
+    },
+    "gr-tara:ex1": {
+      "text": "日本に 着いたら、電話します。",
+      "textHash": "e7ed30a0bca7ee7c",
+      "file": "files/e7ed30a0bca7ee7c.wav",
+      "durationMs": 3040
+    },
+    "gr-tara:ex2": {
+      "text": "安かったら、買います。",
+      "textHash": "76265b9a8d3b60ff",
+      "file": "files/76265b9a8d3b60ff.wav",
+      "durationMs": 2080
+    },
+    "gr-tara:ex3": {
+      "text": "もし ひまだったら、来てください。",
+      "textHash": "8e6242ea7437f874",
+      "file": "files/8e6242ea7437f874.wav",
+      "durationMs": 3120
+    },
+    "gr-tara": {
+      "text": "雨が ふったら、うちに います。",
+      "textHash": "d2d864bf3d55142e",
+      "file": "files/d2d864bf3d55142e.wav",
+      "durationMs": 3080
+    },
+    "gr-to-conditional:ex0": {
+      "text": "はるになると、さくらがさきます。",
+      "textHash": "a4eca93d17148c0a",
+      "file": "files/a4eca93d17148c0a.wav",
+      "durationMs": 3240
+    },
+    "gr-to-conditional:ex1": {
+      "text": "このボタンをおすと、きっぷがでます。",
+      "textHash": "8318d918acac24d1",
+      "file": "files/8318d918acac24d1.wav",
+      "durationMs": 3600
+    },
+    "gr-to-conditional:ex2": {
+      "text": "まっすぐいくと、えきがあります。",
+      "textHash": "aae20f94a835d314",
+      "file": "files/aae20f94a835d314.wav",
+      "durationMs": 2920
+    },
+    "gr-to-conditional:ex3": {
+      "text": "べんきょうしないと、わかりません。",
+      "textHash": "0277278b7bc9e278",
+      "file": "files/0277278b7bc9e278.wav",
+      "durationMs": 2880
+    },
+    "gr-to-conditional": {
+      "text": "はるになると、さくらがさきます。",
+      "textHash": "a4eca93d17148c0a",
+      "file": "files/a4eca93d17148c0a.wav",
+      "durationMs": 3240
+    },
+    "gr-ba:ex0": {
+      "text": "やすければ、かいます。",
+      "textHash": "0464e2a947088493",
+      "file": "files/0464e2a947088493.wav",
+      "durationMs": 2160
+    },
+    "gr-ba:ex1": {
+      "text": "いけば、わかります。",
+      "textHash": "2b217c5336bf9405",
+      "file": "files/2b217c5336bf9405.wav",
+      "durationMs": 1800
+    },
+    "gr-ba:ex2": {
+      "text": "どうすればいいですか。",
+      "textHash": "17ab18cf33db8e11",
+      "file": "files/17ab18cf33db8e11.wav",
+      "durationMs": 3040
+    },
+    "gr-ba:ex3": {
+      "text": "やすければやすいほどいい。",
+      "textHash": "770128f506263cdd",
+      "file": "files/770128f506263cdd.wav",
+      "durationMs": 2680
+    },
+    "gr-ba": {
+      "text": "やすければ、かいます。",
+      "textHash": "0464e2a947088493",
+      "file": "files/0464e2a947088493.wav",
+      "durationMs": 2160
+    },
+    "gr-nara:ex0": {
+      "text": "にほんへいくなら、きょうとがいいですよ。",
+      "textHash": "6e0134e43a95a4ba",
+      "file": "files/6e0134e43a95a4ba.wav",
+      "durationMs": 3800
+    },
+    "gr-nara:ex1": {
+      "text": "さむいなら、まどをしめます。",
+      "textHash": "9fd9672b5a8aacec",
+      "file": "files/9fd9672b5a8aacec.wav",
+      "durationMs": 3200
+    },
+    "gr-nara:ex2": {
+      "text": "くるまでいくなら、わたしものせてください。",
+      "textHash": "314ca0235f43969f",
+      "file": "files/314ca0235f43969f.wav",
+      "durationMs": 3840
+    },
+    "gr-nara:ex3": {
+      "text": "にほんごなら、すこしわかります。",
+      "textHash": "36b8f06b5698a401",
+      "file": "files/36b8f06b5698a401.wav",
+      "durationMs": 3240
+    },
+    "gr-nara": {
+      "text": "にほんへいくなら、きょうとがいいですよ。",
+      "textHash": "6e0134e43a95a4ba",
+      "file": "files/6e0134e43a95a4ba.wav",
+      "durationMs": 3800
+    },
+    "gr-nakereba-naranai:ex0": {
+      "text": "くすりをのまなければなりません。",
+      "textHash": "34f52aaf45e16377",
+      "file": "files/34f52aaf45e16377.wav",
+      "durationMs": 2920
+    },
+    "gr-nakereba-naranai:ex1": {
+      "text": "いかなければなりません。",
+      "textHash": "732b53edd0488b29",
+      "file": "files/732b53edd0488b29.wav",
+      "durationMs": 2080
+    },
+    "gr-nakereba-naranai:ex2": {
+      "text": "べんきょうしなければなりません。",
+      "textHash": "920fe0be45c86d60",
+      "file": "files/920fe0be45c86d60.wav",
+      "durationMs": 2720
+    },
+    "gr-nakereba-naranai:ex3": {
+      "text": "もう、いかなきゃ。",
+      "textHash": "8bb5ef3b10f8016e",
+      "file": "files/8bb5ef3b10f8016e.wav",
+      "durationMs": 2200
+    },
+    "gr-nakereba-naranai": {
+      "text": "くすりをのまなければなりません。",
+      "textHash": "34f52aaf45e16377",
+      "file": "files/34f52aaf45e16377.wav",
+      "durationMs": 2920
+    },
+    "gr-nakutemo-ii:ex0": {
+      "text": "こなくてもいいです。",
+      "textHash": "531516cd51dbb983",
+      "file": "files/531516cd51dbb983.wav",
+      "durationMs": 2000
+    },
+    "gr-nakutemo-ii:ex1": {
+      "text": "いそがなくてもいいです。",
+      "textHash": "ab9c2f7bc2634bdc",
+      "file": "files/ab9c2f7bc2634bdc.wav",
+      "durationMs": 2440
+    },
+    "gr-nakutemo-ii:ex2": {
+      "text": "ぜんぶたべなくてもいいです。",
+      "textHash": "f172baa79ad5f0df",
+      "file": "files/f172baa79ad5f0df.wav",
+      "durationMs": 2360
+    },
+    "gr-nakutemo-ii:ex3": {
+      "text": "しんぱいしなくてもいいですよ。",
+      "textHash": "7e8d7f70a17e9ea2",
+      "file": "files/7e8d7f70a17e9ea2.wav",
+      "durationMs": 2360
+    },
+    "gr-nakutemo-ii": {
+      "text": "こなくてもいいです。",
+      "textHash": "531516cd51dbb983",
+      "file": "files/531516cd51dbb983.wav",
+      "durationMs": 2000
+    },
+    "gr-te-shimau-oku-miru:ex0": {
+      "text": "さいふを 忘れてしまいました。",
+      "textHash": "384f68bdd164414c",
+      "file": "files/384f68bdd164414c.wav",
+      "durationMs": 2640
+    },
+    "gr-te-shimau-oku-miru:ex1": {
+      "text": "ホテルを 予約しておきます。",
+      "textHash": "aa1246f7b6eb03ef",
+      "file": "files/aa1246f7b6eb03ef.wav",
+      "durationMs": 2720
+    },
+    "gr-te-shimau-oku-miru:ex2": {
+      "text": "食べてみてください。",
+      "textHash": "b26aa32de3b2fa25",
+      "file": "files/b26aa32de3b2fa25.wav",
+      "durationMs": 2000
+    },
+    "gr-te-shimau-oku-miru:ex3": {
+      "text": "全部 読んでしまいました。",
+      "textHash": "5567212ceee452e9",
+      "file": "files/5567212ceee452e9.wav",
+      "durationMs": 2440
+    },
+    "gr-te-shimau-oku-miru": {
+      "text": "さいふを 忘れてしまいました。",
+      "textHash": "384f68bdd164414c",
+      "file": "files/384f68bdd164414c.wav",
+      "durationMs": 2640
+    },
+    "kanji-oya": {
+      "text": "親",
+      "textHash": "48c518de61a1f490",
+      "file": "files/48c518de61a1f490.wav",
+      "durationMs": 960
+    },
+    "kanji-asa-k": {
+      "text": "朝",
+      "textHash": "419c745398dffb65",
+      "file": "files/419c745398dffb65.wav",
+      "durationMs": 1120
+    },
+    "kanji-hiru": {
+      "text": "昼",
+      "textHash": "0201c422a7fc856c",
+      "file": "files/0201c422a7fc856c.wav",
+      "durationMs": 1160
+    },
+    "kanji-yoru": {
+      "text": "夜",
+      "textHash": "a519542a5fb41635",
+      "file": "files/a519542a5fb41635.wav",
+      "durationMs": 1160
+    },
+    "kanji-you": {
+      "text": "曜",
+      "textHash": "b94fe089317d1e5f",
+      "file": "files/b94fe089317d1e5f.wav",
+      "durationMs": 1200
+    },
+    "kanji-shuu": {
+      "text": "週",
+      "textHash": "f36b4109a9a6c8ef",
+      "file": "files/f36b4109a9a6c8ef.wav",
+      "durationMs": 1000
+    },
+    "kanji-atarashii-k": {
+      "text": "新",
+      "textHash": "3cc493bc5b3b9b51",
+      "file": "files/3cc493bc5b3b9b51.wav",
+      "durationMs": 1000
+    },
+    "kanji-furui": {
+      "text": "古",
+      "textHash": "4e49452494a2a422",
+      "file": "files/4e49452494a2a422.wav",
+      "durationMs": 1040
+    },
+    "kanji-ooi": {
+      "text": "多",
+      "textHash": "1940119f05716460",
+      "file": "files/1940119f05716460.wav",
+      "durationMs": 1160
+    },
+    "kanji-sukunai": {
+      "text": "少",
+      "textHash": "62f99c9a0c50d790",
+      "file": "files/62f99c9a0c50d790.wav",
+      "durationMs": 1160
+    },
+    "dlg-plans-conditions-L0": {
+      "text": "あした、てんきがよかったら、うみにいきませんか。",
+      "textHash": "a91e906e696fa3d4",
+      "file": "files/a91e906e696fa3d4.wav",
+      "durationMs": 4840
+    },
+    "dlg-plans-conditions-L1": {
+      "text": "いいですね。でも、ごぜんちゅうははたらかなければなりません。",
+      "textHash": "30dee34962d8ef39",
+      "file": "files/30dee34962d8ef39.wav",
+      "durationMs": 4920
+    },
+    "dlg-plans-conditions-L2": {
+      "text": "じゃあ、ごごでもいいですよ。いそがなくてもいいです。",
+      "textHash": "961b1642835b46f7",
+      "file": "files/961b1642835b46f7.wav",
+      "durationMs": 4280
+    },
+    "gr-ageru-kureru-morau:ex0": {
+      "text": "友だちに 本を あげました。",
+      "textHash": "6832da2d4b95165e",
+      "file": "files/6832da2d4b95165e.wav",
+      "durationMs": 3760
+    },
+    "gr-ageru-kureru-morau:ex1": {
+      "text": "田中さんが チョコを くれました。",
+      "textHash": "bd945df166c48081",
+      "file": "files/bd945df166c48081.wav",
+      "durationMs": 3240
+    },
+    "gr-ageru-kureru-morau:ex2": {
+      "text": "先生に 教えてもらいました。",
+      "textHash": "3b190b588050c1b3",
+      "file": "files/3b190b588050c1b3.wav",
+      "durationMs": 2960
+    },
+    "gr-ageru-kureru-morau:ex3": {
+      "text": "手伝ってくれて、ありがとう。",
+      "textHash": "e8589aa9b5a9b0f9",
+      "file": "files/e8589aa9b5a9b0f9.wav",
+      "durationMs": 2600
+    },
+    "gr-ageru-kureru-morau": {
+      "text": "友だちに 本を あげました。",
+      "textHash": "6832da2d4b95165e",
+      "file": "files/6832da2d4b95165e.wav",
+      "durationMs": 3760
+    },
+    "gr-causative:ex0": {
+      "text": "子どもに 野菜を 食べさせます。",
+      "textHash": "a48de4e6035e6cce",
+      "file": "files/a48de4e6035e6cce.wav",
+      "durationMs": 3320
+    },
+    "gr-causative:ex1": {
+      "text": "社長は 私を 働かせます。",
+      "textHash": "896d5a78104bcf85",
+      "file": "files/896d5a78104bcf85.wav",
+      "durationMs": 3400
+    },
+    "gr-causative:ex2": {
+      "text": "私に 払わせてください。",
+      "textHash": "6df25debda6ad816",
+      "file": "files/6df25debda6ad816.wav",
+      "durationMs": 2240
+    },
+    "gr-causative": {
+      "text": "子どもに 野菜を 食べさせます。",
+      "textHash": "a48de4e6035e6cce",
+      "file": "files/a48de4e6035e6cce.wav",
+      "durationMs": 3320
+    },
+    "gr-passive:ex0": {
+      "text": "先生に ほめられました。",
+      "textHash": "402094d107843b28",
+      "file": "files/402094d107843b28.wav",
+      "durationMs": 3040
+    },
+    "gr-passive:ex1": {
+      "text": "この本は 多くの人に 読まれています。",
+      "textHash": "75cb5d18b9ac04fe",
+      "file": "files/75cb5d18b9ac04fe.wav",
+      "durationMs": 4160
+    },
+    "gr-passive:ex2": {
+      "text": "雨に ふられました。",
+      "textHash": "21407d094f7456b6",
+      "file": "files/21407d094f7456b6.wav",
+      "durationMs": 1960
+    },
+    "gr-passive:ex3": {
+      "text": "弟に ケーキを 食べられました。",
+      "textHash": "dfeb5e2c9ffa6751",
+      "file": "files/dfeb5e2c9ffa6751.wav",
+      "durationMs": 3360
+    },
+    "gr-passive": {
+      "text": "先生に ほめられました。",
+      "textHash": "402094d107843b28",
+      "file": "files/402094d107843b28.wav",
+      "durationMs": 3040
+    },
+    "gr-causative-passive:ex0": {
+      "text": "やさいをたべさせられました。",
+      "textHash": "619cba30f279625c",
+      "file": "files/619cba30f279625c.wav",
+      "durationMs": 3000
+    },
+    "gr-causative-passive:ex1": {
+      "text": "ぶちょうにおさけをのまされた。",
+      "textHash": "cdc6f72e2be8f085",
+      "file": "files/cdc6f72e2be8f085.wav",
+      "durationMs": 3480
+    },
+    "gr-causative-passive:ex2": {
+      "text": "いもうとにまたされた。",
+      "textHash": "35b6196553141143",
+      "file": "files/35b6196553141143.wav",
+      "durationMs": 2560
+    },
+    "gr-causative-passive:ex3": {
+      "text": "せんせいにかんじをかかせられた。",
+      "textHash": "02b5313349276ef1",
+      "file": "files/02b5313349276ef1.wav",
+      "durationMs": 3560
+    },
+    "gr-causative-passive": {
+      "text": "やさいをたべさせられました。",
+      "textHash": "619cba30f279625c",
+      "file": "files/619cba30f279625c.wav",
+      "durationMs": 3000
+    },
+    "gr-node-noni:ex0": {
+      "text": "雨が ふっているので、うちに います。",
+      "textHash": "31f87c5a50016abc",
+      "file": "files/31f87c5a50016abc.wav",
+      "durationMs": 4080
+    },
+    "gr-node-noni:ex1": {
+      "text": "びょうきなので、休みます。",
+      "textHash": "9dd053ba610c7a9d",
+      "file": "files/9dd053ba610c7a9d.wav",
+      "durationMs": 2800
+    },
+    "gr-node-noni:ex2": {
+      "text": "勉強したのに、テストは だめでした。",
+      "textHash": "ca21aa08e83a4969",
+      "file": "files/ca21aa08e83a4969.wav",
+      "durationMs": 3480
+    },
+    "gr-node-noni:ex3": {
+      "text": "高いのに、おいしくないです。",
+      "textHash": "200c6b0c908276a7",
+      "file": "files/200c6b0c908276a7.wav",
+      "durationMs": 2760
+    },
+    "gr-node-noni": {
+      "text": "雨が ふっているので、うちに います。",
+      "textHash": "31f87c5a50016abc",
+      "file": "files/31f87c5a50016abc.wav",
+      "durationMs": 4080
+    },
+    "gr-tame-ni-you-ni:ex0": {
+      "text": "日本に 行くために、お金を ためています。",
+      "textHash": "965b009bb6c1a493",
+      "file": "files/965b009bb6c1a493.wav",
+      "durationMs": 4120
+    },
+    "gr-tame-ni-you-ni:ex1": {
+      "text": "家族のために、働きます。",
+      "textHash": "321c18eeef8f7b3c",
+      "file": "files/321c18eeef8f7b3c.wav",
+      "durationMs": 2520
+    },
+    "gr-tame-ni-you-ni:ex2": {
+      "text": "話せるように、毎日 勉強します。",
+      "textHash": "b5f60aa908b69f89",
+      "file": "files/b5f60aa908b69f89.wav",
+      "durationMs": 3920
+    },
+    "gr-tame-ni-you-ni:ex3": {
+      "text": "忘れないように、メモします。",
+      "textHash": "d5c5d320b8af73fb",
+      "file": "files/d5c5d320b8af73fb.wav",
+      "durationMs": 3200
+    },
+    "gr-tame-ni-you-ni": {
+      "text": "日本に 行くために、お金を ためています。",
+      "textHash": "965b009bb6c1a493",
+      "file": "files/965b009bb6c1a493.wav",
+      "durationMs": 4120
+    },
+    "gr-keigo-basics:ex0": {
+      "text": "いらっしゃいませ。",
+      "textHash": "6001f93c73acdb78",
+      "file": "files/6001f93c73acdb78.wav",
+      "durationMs": 1600
+    },
+    "gr-keigo-basics:ex1": {
+      "text": "田中と もうします。",
+      "textHash": "59c106de5147a6e3",
+      "file": "files/59c106de5147a6e3.wav",
+      "durationMs": 2400
+    },
+    "gr-keigo-basics:ex2": {
+      "text": "先生は いらっしゃいますか。",
+      "textHash": "2244a51e994e82d5",
+      "file": "files/2244a51e994e82d5.wav",
+      "durationMs": 2960
+    },
+    "gr-keigo-basics:ex3": {
+      "text": "少々 お待ちください。",
+      "textHash": "53b34678bbd46f39",
+      "file": "files/53b34678bbd46f39.wav",
+      "durationMs": 1880
+    },
+    "gr-keigo-basics": {
+      "text": "いらっしゃいませ。",
+      "textHash": "6001f93c73acdb78",
+      "file": "files/6001f93c73acdb78.wav",
+      "durationMs": 1600
+    },
+    "kanji-nagai": {
+      "text": "長",
+      "textHash": "63ba256fdb4a9064",
+      "file": "files/63ba256fdb4a9064.wav",
+      "durationMs": 1520
+    },
+    "kanji-mijikai": {
+      "text": "短",
+      "textHash": "4ca8d4f77574e43a",
+      "file": "files/4ca8d4f77574e43a.wav",
+      "durationMs": 1320
+    },
+    "kanji-chikai": {
+      "text": "近",
+      "textHash": "03aeb7c768b4cb8e",
+      "file": "files/03aeb7c768b4cb8e.wav",
+      "durationMs": 680
+    },
+    "kanji-tooi": {
+      "text": "遠",
+      "textHash": "f6e33dd2abdadc5f",
+      "file": "files/f6e33dd2abdadc5f.wav",
+      "durationMs": 1240
+    },
+    "kanji-tsuyoi": {
+      "text": "強",
+      "textHash": "935d53cddb95b7cd",
+      "file": "files/935d53cddb95b7cd.wav",
+      "durationMs": 1560
+    },
+    "kanji-yowai": {
+      "text": "弱",
+      "textHash": "defa376eabaf2fff",
+      "file": "files/defa376eabaf2fff.wav",
+      "durationMs": 1400
+    },
+    "kanji-omoi": {
+      "text": "重",
+      "textHash": "f93d7367ecb3121f",
+      "file": "files/f93d7367ecb3121f.wav",
+      "durationMs": 1520
+    },
+    "kanji-karui": {
+      "text": "軽",
+      "textHash": "0c9e176edb3b2de9",
+      "file": "files/0c9e176edb3b2de9.wav",
+      "durationMs": 1400
+    },
+    "kanji-byou": {
+      "text": "病",
+      "textHash": "bd0fd6c08f85085f",
+      "file": "files/bd0fd6c08f85085f.wav",
+      "durationMs": 1280
+    },
+    "kanji-in2": {
+      "text": "院",
+      "textHash": "38eebae5f97a6a11",
+      "file": "files/38eebae5f97a6a11.wav",
+      "durationMs": 960
+    },
+    "dlg-gifts-L0": {
+      "text": "すてきな かばんですね。",
+      "textHash": "6f30a7270f32fca9",
+      "file": "files/6f30a7270f32fca9.wav",
+      "durationMs": 2280
+    },
+    "dlg-gifts-L1": {
+      "text": "ありがとう。姉が くれました。",
+      "textHash": "69eb9aca068ce846",
+      "file": "files/69eb9aca068ce846.wav",
+      "durationMs": 2251
+    },
+    "dlg-gifts-L2": {
+      "text": "いいですね。私は 母に 時計を もらいました。",
+      "textHash": "3b275ee5f1e38217",
+      "file": "files/3b275ee5f1e38217.wav",
+      "durationMs": 5131
+    },
+    "dlg-keigo-shop-L0": {
+      "text": "いらっしゃいませ。なにかおさがしですか。",
+      "textHash": "9c5ae2be3a330ef3",
+      "file": "files/9c5ae2be3a330ef3.wav",
+      "durationMs": 4000
+    },
+    "dlg-keigo-shop-L1": {
+      "text": "はい、このシャツをみせていただけますか。",
+      "textHash": "ac56fb67ca6e2ada",
+      "file": "files/ac56fb67ca6e2ada.wav",
+      "durationMs": 3760
+    },
+    "dlg-keigo-shop-L2": {
+      "text": "はい、どうぞ。ごゆっくりごらんください。",
+      "textHash": "7129533544ea82c5",
+      "file": "files/7129533544ea82c5.wav",
+      "durationMs": 3240
+    },
+    "dlg-n4-synthesis-L0": {
+      "text": "なつやすみに、おきなわへいこうとおもっているんだ。",
+      "textHash": "c0bb256df2fd3f74",
+      "file": "files/c0bb256df2fd3f74.wav",
+      "durationMs": 4080
+    },
+    "dlg-n4-synthesis-L1": {
+      "text": "いいね!おきなわへいったことがある?",
+      "textHash": "3323e50ec5bddcc6",
+      "file": "files/3323e50ec5bddcc6.wav",
+      "durationMs": 3760
+    },
+    "dlg-n4-synthesis-L2": {
+      "text": "ううん。でも、てんきがよかったら、うみでおよげるよ。",
+      "textHash": "22ccd17bae95fc0e",
+      "file": "files/22ccd17bae95fc0e.wav",
+      "durationMs": 5600
+    },
+    "dlg-n4-synthesis-L3": {
+      "text": "たのしそう!わたしもいきたいなあ。",
+      "textHash": "9e4b58c308537195",
+      "file": "files/9e4b58c308537195.wav",
+      "durationMs": 3840
+    }
+  },
+  "byTextHash": {
+    "dc5a4d3d82f7e157": "files/dc5a4d3d82f7e157.wav",
+    "4c6ff24613969749": "files/4c6ff24613969749.wav",
+    "8a0179143e31b095": "files/8a0179143e31b095.wav",
+    "3b0a650001298c05": "files/3b0a650001298c05.wav",
+    "762c1a1a571413e6": "files/762c1a1a571413e6.wav",
+    "f500b3b07ce5e1c7": "files/f500b3b07ce5e1c7.wav",
+    "614459aa75868bbf": "files/614459aa75868bbf.wav",
+    "10c477b2569aa9d2": "files/10c477b2569aa9d2.wav",
+    "81744914c053bfc3": "files/81744914c053bfc3.wav",
+    "083ed6fbedae1760": "files/083ed6fbedae1760.wav",
+    "598e6dcaa5412a9a": "files/598e6dcaa5412a9a.wav",
+    "1bb602cd1cb01953": "files/1bb602cd1cb01953.wav",
+    "a4a4c9f8a8ed62c3": "files/a4a4c9f8a8ed62c3.wav",
+    "910204a13a70c71b": "files/910204a13a70c71b.wav",
+    "b6059c658b2c4ded": "files/b6059c658b2c4ded.wav",
+    "4cef96814184d968": "files/4cef96814184d968.wav",
+    "2bcee2b466317c94": "files/2bcee2b466317c94.wav",
+    "82cb12703e4a4ce6": "files/82cb12703e4a4ce6.wav",
+    "afafbae591c156ee": "files/afafbae591c156ee.wav",
+    "427566260604d16f": "files/427566260604d16f.wav",
+    "30decdf427451393": "files/30decdf427451393.wav",
+    "5f945f18ef589732": "files/5f945f18ef589732.wav",
+    "01954929e88c8fd6": "files/01954929e88c8fd6.wav",
+    "9e228bcc5ed49ae3": "files/9e228bcc5ed49ae3.wav",
+    "3b2e79bc71937994": "files/3b2e79bc71937994.wav",
+    "de77c92e70001383": "files/de77c92e70001383.wav",
+    "ac2c2fe2a77e427f": "files/ac2c2fe2a77e427f.wav",
+    "0e2c91a393eaf7ec": "files/0e2c91a393eaf7ec.wav",
+    "58c25b81f1d2466d": "files/58c25b81f1d2466d.wav",
+    "5a742a1142b8ad7c": "files/5a742a1142b8ad7c.wav",
+    "f044d12b2a9f611b": "files/f044d12b2a9f611b.wav",
+    "71541c68c80f279e": "files/71541c68c80f279e.wav",
+    "cad4655b0efc3d3d": "files/cad4655b0efc3d3d.wav",
+    "1d37bdf9abb0f388": "files/1d37bdf9abb0f388.wav",
+    "06ccdf06d7529eb8": "files/06ccdf06d7529eb8.wav",
+    "6a8f5a639349d940": "files/6a8f5a639349d940.wav",
+    "0026f00eafdfe271": "files/0026f00eafdfe271.wav",
+    "7a0a3e30c7c42e14": "files/7a0a3e30c7c42e14.wav",
+    "08f1c786678cb288": "files/08f1c786678cb288.wav",
+    "1828fe931380bc20": "files/1828fe931380bc20.wav",
+    "1ed061f00fb6e08d": "files/1ed061f00fb6e08d.wav",
+    "653c7a8efdbb2997": "files/653c7a8efdbb2997.wav",
+    "88a9f6609db82ea1": "files/88a9f6609db82ea1.wav",
+    "f466e5f296542629": "files/f466e5f296542629.wav",
+    "98aa8c57ac915336": "files/98aa8c57ac915336.wav",
+    "3bad3747efd88e63": "files/3bad3747efd88e63.wav",
+    "e3b21956ce958d25": "files/e3b21956ce958d25.wav",
+    "95b30f74a2aee850": "files/95b30f74a2aee850.wav",
+    "bcfd3bc6b7b47707": "files/bcfd3bc6b7b47707.wav",
+    "41aceb4407f8d97d": "files/41aceb4407f8d97d.wav",
+    "a01669e6ccf908c0": "files/a01669e6ccf908c0.wav",
+    "125a2a0798c75356": "files/125a2a0798c75356.wav",
+    "bfb06973c3079797": "files/bfb06973c3079797.wav",
+    "fbb749fade42c031": "files/fbb749fade42c031.wav",
+    "7a2b9fadc056a4e1": "files/7a2b9fadc056a4e1.wav",
+    "2fbe4700340b0870": "files/2fbe4700340b0870.wav",
+    "8b53bf6f987a8b5b": "files/8b53bf6f987a8b5b.wav",
+    "bc6449aa4a7e320e": "files/bc6449aa4a7e320e.wav",
+    "6451e9cd22842e8d": "files/6451e9cd22842e8d.wav",
+    "a2e54fdcf32b8cea": "files/a2e54fdcf32b8cea.wav",
+    "83e3e6bb20d612f7": "files/83e3e6bb20d612f7.wav",
+    "6eb4beb351ba4dd8": "files/6eb4beb351ba4dd8.wav",
+    "2c61ff462011cf8b": "files/2c61ff462011cf8b.wav",
+    "ff75dec6aad37d0d": "files/ff75dec6aad37d0d.wav",
+    "46c8d60d8bc65169": "files/46c8d60d8bc65169.wav",
+    "fb2a4a5d28fef1f5": "files/fb2a4a5d28fef1f5.wav",
+    "2ccb5d56a6f044e3": "files/2ccb5d56a6f044e3.wav",
+    "a9e571593c16679c": "files/a9e571593c16679c.wav",
+    "98bc98dde31a8278": "files/98bc98dde31a8278.wav",
+    "9ce79d0b6935129f": "files/9ce79d0b6935129f.wav",
+    "29d8625781fed1a9": "files/29d8625781fed1a9.wav",
+    "2ff5ae6efe948dd8": "files/2ff5ae6efe948dd8.wav",
+    "9c247e28bfa163ed": "files/9c247e28bfa163ed.wav",
+    "2952b9dbfce90e2b": "files/2952b9dbfce90e2b.wav",
+    "51dc9788715f8094": "files/51dc9788715f8094.wav",
+    "f8516fa7dce11f02": "files/f8516fa7dce11f02.wav",
+    "ef05e9c5bd344f92": "files/ef05e9c5bd344f92.wav",
+    "40567f336c59951f": "files/40567f336c59951f.wav",
+    "2c7f6f31d3e69034": "files/2c7f6f31d3e69034.wav",
+    "d9bbca88a093f017": "files/d9bbca88a093f017.wav",
+    "f92b3b41102f78ed": "files/f92b3b41102f78ed.wav",
+    "f2a474cff308298a": "files/f2a474cff308298a.wav",
+    "85063421a5eea69e": "files/85063421a5eea69e.wav",
+    "c2cbe93be194d69a": "files/c2cbe93be194d69a.wav",
+    "4eb3a5fcbea3f29c": "files/4eb3a5fcbea3f29c.wav",
+    "c67f96569b2799b0": "files/c67f96569b2799b0.wav",
+    "47eeccedc72f9329": "files/47eeccedc72f9329.wav",
+    "7f3f2482c24dee56": "files/7f3f2482c24dee56.wav",
+    "fb03accd25a2f1d4": "files/fb03accd25a2f1d4.wav",
+    "95703d390d4a0b98": "files/95703d390d4a0b98.wav",
+    "a51e5845490c0c10": "files/a51e5845490c0c10.wav",
+    "aaea714e0dcd2a0e": "files/aaea714e0dcd2a0e.wav",
+    "0443e9f0f9857580": "files/0443e9f0f9857580.wav",
+    "cb1b6d2997d59314": "files/cb1b6d2997d59314.wav",
+    "01f1f78d8b701e50": "files/01f1f78d8b701e50.wav",
+    "11ccea378e78ebdb": "files/11ccea378e78ebdb.wav",
+    "4fa4051bbc6af2ba": "files/4fa4051bbc6af2ba.wav",
+    "1c2875304f547cea": "files/1c2875304f547cea.wav",
+    "1b1a9bcd3e71a37e": "files/1b1a9bcd3e71a37e.wav",
+    "c0c2b6d4a6a04bb2": "files/c0c2b6d4a6a04bb2.wav",
+    "b2e7b5a13271c5a2": "files/b2e7b5a13271c5a2.wav",
+    "0ca50a805636310b": "files/0ca50a805636310b.wav",
+    "28cf4c8cc2f67f01": "files/28cf4c8cc2f67f01.wav",
+    "11eb3e109a97f547": "files/11eb3e109a97f547.wav",
+    "efe5e8334bbf8cfd": "files/efe5e8334bbf8cfd.wav",
+    "f49423c7fc7144a9": "files/f49423c7fc7144a9.wav",
+    "410fe1c0eea1ca99": "files/410fe1c0eea1ca99.wav",
+    "62fcdf6a847e7083": "files/62fcdf6a847e7083.wav",
+    "296ce152de092ca3": "files/296ce152de092ca3.wav",
+    "19e6e37a2fdbab5a": "files/19e6e37a2fdbab5a.wav",
+    "860f64c0e8859b0d": "files/860f64c0e8859b0d.wav",
+    "b34b58bcd32af23f": "files/b34b58bcd32af23f.wav",
+    "561eed1f508e742f": "files/561eed1f508e742f.wav",
+    "02293f9797a521a3": "files/02293f9797a521a3.wav",
+    "03a20a68499221ca": "files/03a20a68499221ca.wav",
+    "dcc564340d0d513f": "files/dcc564340d0d513f.wav",
+    "f3666aa0d13b6c6a": "files/f3666aa0d13b6c6a.wav",
+    "56f2b721baad46f8": "files/56f2b721baad46f8.wav",
+    "c466ba88b1e97806": "files/c466ba88b1e97806.wav",
+    "930142342b789621": "files/930142342b789621.wav",
+    "3f02a97fabc7e030": "files/3f02a97fabc7e030.wav",
+    "2fa92c53b879e4d8": "files/2fa92c53b879e4d8.wav",
+    "3d21cd4a05abb31b": "files/3d21cd4a05abb31b.wav",
+    "a6ab7daf528e40f6": "files/a6ab7daf528e40f6.wav",
+    "b26a2d796c27bc7b": "files/b26a2d796c27bc7b.wav",
+    "daeec56715f9dd0a": "files/daeec56715f9dd0a.wav",
+    "944d02bc7499b38a": "files/944d02bc7499b38a.wav",
+    "57572a446c1d6fe7": "files/57572a446c1d6fe7.wav",
+    "46a30d65ac6eda2c": "files/46a30d65ac6eda2c.wav",
+    "aa59218a318ee3ff": "files/aa59218a318ee3ff.wav",
+    "5a5eb8495e7e1ac0": "files/5a5eb8495e7e1ac0.wav",
+    "167cf0fe1ebe89ed": "files/167cf0fe1ebe89ed.wav",
+    "9df8cbce8468e790": "files/9df8cbce8468e790.wav",
+    "959b5fb556dc3ca7": "files/959b5fb556dc3ca7.wav",
+    "58de2f238b974b80": "files/58de2f238b974b80.wav",
+    "f72ae52ce8ee6dbe": "files/f72ae52ce8ee6dbe.wav",
+    "41b6e06173acab72": "files/41b6e06173acab72.wav",
+    "f0717b7e4463a13b": "files/f0717b7e4463a13b.wav",
+    "3a16c07c11a4d410": "files/3a16c07c11a4d410.wav",
+    "d688b8063217484d": "files/d688b8063217484d.wav",
+    "c916ed7c78e4c4de": "files/c916ed7c78e4c4de.wav",
+    "310b2a07f46e00fe": "files/310b2a07f46e00fe.wav",
+    "b9dead0b43355e24": "files/b9dead0b43355e24.wav",
+    "8fcf513a744912b1": "files/8fcf513a744912b1.wav",
+    "14b9c3492157eccb": "files/14b9c3492157eccb.wav",
+    "74322165253f3b17": "files/74322165253f3b17.wav",
+    "7ca522a92e77cc2f": "files/7ca522a92e77cc2f.wav",
+    "413fcd407e2aa8e3": "files/413fcd407e2aa8e3.wav",
+    "9de21f408717795f": "files/9de21f408717795f.wav",
+    "17ca7f0f8b60cd3f": "files/17ca7f0f8b60cd3f.wav",
+    "0f66959f485070f6": "files/0f66959f485070f6.wav",
+    "0ce4a3ddbd00020f": "files/0ce4a3ddbd00020f.wav",
+    "1ede47e1681e96ca": "files/1ede47e1681e96ca.wav",
+    "64a67eee96655af8": "files/64a67eee96655af8.wav",
+    "4fa4e281067f1c93": "files/4fa4e281067f1c93.wav",
+    "c284cc889cb8a6c4": "files/c284cc889cb8a6c4.wav",
+    "ee84cff607134549": "files/ee84cff607134549.wav",
+    "fde72e59dd4a50aa": "files/fde72e59dd4a50aa.wav",
+    "23076f29d7521e2a": "files/23076f29d7521e2a.wav",
+    "d917be71ffac525f": "files/d917be71ffac525f.wav",
+    "3c91b48246471149": "files/3c91b48246471149.wav",
+    "d79edd02b3cd4140": "files/d79edd02b3cd4140.wav",
+    "699f405c84d9438e": "files/699f405c84d9438e.wav",
+    "712d53db3a279538": "files/712d53db3a279538.wav",
+    "05493030fbfdb7ba": "files/05493030fbfdb7ba.wav",
+    "b607e5b6b6c1be64": "files/b607e5b6b6c1be64.wav",
+    "981566a722787e2e": "files/981566a722787e2e.wav",
+    "9fbb4234bd244630": "files/9fbb4234bd244630.wav",
+    "3fa71ead9a69b4ec": "files/3fa71ead9a69b4ec.wav",
+    "0352b0ed3717b2ad": "files/0352b0ed3717b2ad.wav",
+    "62e25c17ef8aa1d3": "files/62e25c17ef8aa1d3.wav",
+    "40d0b0b23fd7fea3": "files/40d0b0b23fd7fea3.wav",
+    "0ba10292bcf21f7e": "files/0ba10292bcf21f7e.wav",
+    "56ae0008815437ae": "files/56ae0008815437ae.wav",
+    "0591d04f30a9c571": "files/0591d04f30a9c571.wav",
+    "9ff2dc9d0618e081": "files/9ff2dc9d0618e081.wav",
+    "aa13f0d5f44efad4": "files/aa13f0d5f44efad4.wav",
+    "864ee655e6b4e597": "files/864ee655e6b4e597.wav",
+    "4a66252980d9310b": "files/4a66252980d9310b.wav",
+    "b834003b661e9c5a": "files/b834003b661e9c5a.wav",
+    "7df1e4d2b3a72332": "files/7df1e4d2b3a72332.wav",
+    "bd434b5d0de4d112": "files/bd434b5d0de4d112.wav",
+    "5095be98853744be": "files/5095be98853744be.wav",
+    "bc3d3754d60a5647": "files/bc3d3754d60a5647.wav",
+    "446fd334a07dfa9a": "files/446fd334a07dfa9a.wav",
+    "0fe7080fdd9ff011": "files/0fe7080fdd9ff011.wav",
+    "1e1acf2ad9d955e4": "files/1e1acf2ad9d955e4.wav",
+    "04e6afb005c7f2e9": "files/04e6afb005c7f2e9.wav",
+    "51a75f4634dfa859": "files/51a75f4634dfa859.wav",
+    "084b42f6e95e4e65": "files/084b42f6e95e4e65.wav",
+    "a4c3313deb180960": "files/a4c3313deb180960.wav",
+    "754a9d5828d502f1": "files/754a9d5828d502f1.wav",
+    "c9b87f516a38ea36": "files/c9b87f516a38ea36.wav",
+    "de07b5383874b2a3": "files/de07b5383874b2a3.wav",
+    "1b0542878c67f6cd": "files/1b0542878c67f6cd.wav",
+    "2c467d3673926b20": "files/2c467d3673926b20.wav",
+    "df897da6e02ecd30": "files/df897da6e02ecd30.wav",
+    "fc7edd399a5c4b93": "files/fc7edd399a5c4b93.wav",
+    "089d8c4c00705fce": "files/089d8c4c00705fce.wav",
+    "23d862decf4f14ab": "files/23d862decf4f14ab.wav",
+    "fc227df4fc949728": "files/fc227df4fc949728.wav",
+    "08002c6675f7436c": "files/08002c6675f7436c.wav",
+    "4314662c3426676a": "files/4314662c3426676a.wav",
+    "d7d192bdd1e9c1c6": "files/d7d192bdd1e9c1c6.wav",
+    "125aeadf27b0459b": "files/125aeadf27b0459b.wav",
+    "70d3e9fba8c74912": "files/70d3e9fba8c74912.wav",
+    "7d91977f8227bc5a": "files/7d91977f8227bc5a.wav",
+    "5773be7d3dedf7cb": "files/5773be7d3dedf7cb.wav",
+    "21b2ba1811e66eef": "files/21b2ba1811e66eef.wav",
+    "20c644122287a484": "files/20c644122287a484.wav",
+    "1a7b00c2059a05e6": "files/1a7b00c2059a05e6.wav",
+    "cb7f690950307f82": "files/cb7f690950307f82.wav",
+    "8f90d85ec13a0b1b": "files/8f90d85ec13a0b1b.wav",
+    "48ef2b674823d03d": "files/48ef2b674823d03d.wav",
+    "371f18a3c929e397": "files/371f18a3c929e397.wav",
+    "fa4ce1aa3be02667": "files/fa4ce1aa3be02667.wav",
+    "93f15ba3d528443a": "files/93f15ba3d528443a.wav",
+    "07abd2b745ef510f": "files/07abd2b745ef510f.wav",
+    "bc4e77e6407e004b": "files/bc4e77e6407e004b.wav",
+    "0dad71e8d3d1868f": "files/0dad71e8d3d1868f.wav",
+    "c00aa74286d22967": "files/c00aa74286d22967.wav",
+    "794a190718235edd": "files/794a190718235edd.wav",
+    "4cbb08dde6bbbabc": "files/4cbb08dde6bbbabc.wav",
+    "83e9976f45f170ca": "files/83e9976f45f170ca.wav",
+    "63707a4f2288dfd6": "files/63707a4f2288dfd6.wav",
+    "caa0a517d0b4a507": "files/caa0a517d0b4a507.wav",
+    "90cd87d006829630": "files/90cd87d006829630.wav",
+    "b4b6091cf9cbb2f2": "files/b4b6091cf9cbb2f2.wav",
+    "359822307fe02238": "files/359822307fe02238.wav",
+    "44072970d05f1a06": "files/44072970d05f1a06.wav",
+    "03bba055aea688e0": "files/03bba055aea688e0.wav",
+    "85217f7aff778414": "files/85217f7aff778414.wav",
+    "1625179badc027f0": "files/1625179badc027f0.wav",
+    "d4cfe8c82c9c3045": "files/d4cfe8c82c9c3045.wav",
+    "327b54d04f71f212": "files/327b54d04f71f212.wav",
+    "9213ab05890bafa2": "files/9213ab05890bafa2.wav",
+    "3c1e31a193cda379": "files/3c1e31a193cda379.wav",
+    "7c18dba3144b6dcd": "files/7c18dba3144b6dcd.wav",
+    "4862540a299762b3": "files/4862540a299762b3.wav",
+    "b5aae693581d12c8": "files/b5aae693581d12c8.wav",
+    "0cff3c9b1cdea525": "files/0cff3c9b1cdea525.wav",
+    "5f8e490558897efa": "files/5f8e490558897efa.wav",
+    "32778b29fea58065": "files/32778b29fea58065.wav",
+    "0d6a3f1b9aaf4ade": "files/0d6a3f1b9aaf4ade.wav",
+    "16f20597cd0a425c": "files/16f20597cd0a425c.wav",
+    "0b993ba83fd20438": "files/0b993ba83fd20438.wav",
+    "45b3f27e3a97e2c1": "files/45b3f27e3a97e2c1.wav",
+    "8981f8b72b351ea3": "files/8981f8b72b351ea3.wav",
+    "fdf2c44a8af69906": "files/fdf2c44a8af69906.wav",
+    "54065d292cb7d38e": "files/54065d292cb7d38e.wav",
+    "df1b885b29a5abf0": "files/df1b885b29a5abf0.wav",
+    "8e5802eaa385ed40": "files/8e5802eaa385ed40.wav",
+    "e50e849bf020a69c": "files/e50e849bf020a69c.wav",
+    "3265cdd08afe9532": "files/3265cdd08afe9532.wav",
+    "47c9a42683e927d5": "files/47c9a42683e927d5.wav",
+    "a6585e99cc574743": "files/a6585e99cc574743.wav",
+    "11d85cc09ce66d42": "files/11d85cc09ce66d42.wav",
+    "b1323fd251c0629d": "files/b1323fd251c0629d.wav",
+    "e3275b9116a23f6c": "files/e3275b9116a23f6c.wav",
+    "50f5d65d57290f75": "files/50f5d65d57290f75.wav",
+    "7d4ca7f48effd602": "files/7d4ca7f48effd602.wav",
+    "6a7339bb759788f3": "files/6a7339bb759788f3.wav",
+    "4e79758a99006223": "files/4e79758a99006223.wav",
+    "0ab4610b9257c298": "files/0ab4610b9257c298.wav",
+    "a6b71dae843e3e0a": "files/a6b71dae843e3e0a.wav",
+    "83831c3f910cf940": "files/83831c3f910cf940.wav",
+    "2b7ce3887f50f5f1": "files/2b7ce3887f50f5f1.wav",
+    "5706ea39cdd0272c": "files/5706ea39cdd0272c.wav",
+    "c1ee2c0cd4e9e38c": "files/c1ee2c0cd4e9e38c.wav",
+    "d74a571ffab4df17": "files/d74a571ffab4df17.wav",
+    "67003f878dd9e2ae": "files/67003f878dd9e2ae.wav",
+    "61636fc4c29ce541": "files/61636fc4c29ce541.wav",
+    "a24817938430fc2d": "files/a24817938430fc2d.wav",
+    "f1689fb3814cbd86": "files/f1689fb3814cbd86.wav",
+    "bcfb7886119e54c4": "files/bcfb7886119e54c4.wav",
+    "818417a13955f3a1": "files/818417a13955f3a1.wav",
+    "9eee51e1e3549449": "files/9eee51e1e3549449.wav",
+    "ef622501f5942f95": "files/ef622501f5942f95.wav",
+    "232dfcf38f573a5b": "files/232dfcf38f573a5b.wav",
+    "aef0e7d19c70dd35": "files/aef0e7d19c70dd35.wav",
+    "b99a260d638aba31": "files/b99a260d638aba31.wav",
+    "792ec616b4c0fa01": "files/792ec616b4c0fa01.wav",
+    "d9291ccba400db30": "files/d9291ccba400db30.wav",
+    "266125ddb97f1877": "files/266125ddb97f1877.wav",
+    "d56d29df4445ad66": "files/d56d29df4445ad66.wav",
+    "0720f0c9342c5075": "files/0720f0c9342c5075.wav",
+    "4cf18bc3b2f07dfe": "files/4cf18bc3b2f07dfe.wav",
+    "60a9aa35a5b6eb0c": "files/60a9aa35a5b6eb0c.wav",
+    "3c0a08c1a53f68b3": "files/3c0a08c1a53f68b3.wav",
+    "db5ba671d244ee82": "files/db5ba671d244ee82.wav",
+    "13c12b064b635e06": "files/13c12b064b635e06.wav",
+    "a567bdaa11367f26": "files/a567bdaa11367f26.wav",
+    "14ab1f2bce0a8777": "files/14ab1f2bce0a8777.wav",
+    "e2e0c454e5d53186": "files/e2e0c454e5d53186.wav",
+    "c313bfaa8f635a30": "files/c313bfaa8f635a30.wav",
+    "c8ae97be80f3867c": "files/c8ae97be80f3867c.wav",
+    "dc6e2aafeb9e125b": "files/dc6e2aafeb9e125b.wav",
+    "aaded36a83022ef1": "files/aaded36a83022ef1.wav",
+    "53e5e276999d5674": "files/53e5e276999d5674.wav",
+    "25a77fcfe383a51a": "files/25a77fcfe383a51a.wav",
+    "d50625c6b0085afa": "files/d50625c6b0085afa.wav",
+    "860edabc6b0269af": "files/860edabc6b0269af.wav",
+    "ed2913fb69719a43": "files/ed2913fb69719a43.wav",
+    "596b635b8545a35e": "files/596b635b8545a35e.wav",
+    "052140cfc0e37a57": "files/052140cfc0e37a57.wav",
+    "9982cbaf29cf486e": "files/9982cbaf29cf486e.wav",
+    "dd9bbdc210d155ef": "files/dd9bbdc210d155ef.wav",
+    "5c9cf5e0dd47dc80": "files/5c9cf5e0dd47dc80.wav",
+    "6450d5f86685fd01": "files/6450d5f86685fd01.wav",
+    "655d11bd2af019c2": "files/655d11bd2af019c2.wav",
+    "7bafa8a1f2dc627d": "files/7bafa8a1f2dc627d.wav",
+    "419c745398dffb65": "files/419c745398dffb65.wav",
+    "0201c422a7fc856c": "files/0201c422a7fc856c.wav",
+    "a519542a5fb41635": "files/a519542a5fb41635.wav",
+    "cf15d9049b92af6f": "files/cf15d9049b92af6f.wav",
+    "e846753c81bc93e6": "files/e846753c81bc93e6.wav",
+    "175bb7f22f8f6152": "files/175bb7f22f8f6152.wav",
+    "314d1cf4a9595686": "files/314d1cf4a9595686.wav",
+    "fb7db808eb037549": "files/fb7db808eb037549.wav",
+    "2dde86dabefb181b": "files/2dde86dabefb181b.wav",
+    "b8871298a57fd4b0": "files/b8871298a57fd4b0.wav",
+    "8b13d4fc718d2f8f": "files/8b13d4fc718d2f8f.wav",
+    "ed92bfbba71f174d": "files/ed92bfbba71f174d.wav",
+    "abe90e911d0902ca": "files/abe90e911d0902ca.wav",
+    "543d187ab31e4dce": "files/543d187ab31e4dce.wav",
+    "34cc8ea7c0283f51": "files/34cc8ea7c0283f51.wav",
+    "790175acb599262e": "files/790175acb599262e.wav",
+    "3ce5c88fb70286d1": "files/3ce5c88fb70286d1.wav",
+    "a9181ae30ebcd87c": "files/a9181ae30ebcd87c.wav",
+    "ca4c64d9ae27fa4a": "files/ca4c64d9ae27fa4a.wav",
+    "1a3205c3a91ea555": "files/1a3205c3a91ea555.wav",
+    "b7488a2d40a3868b": "files/b7488a2d40a3868b.wav",
+    "6a9849543e49add3": "files/6a9849543e49add3.wav",
+    "f1d9eb390e4a841e": "files/f1d9eb390e4a841e.wav",
+    "219c2f148bcece14": "files/219c2f148bcece14.wav",
+    "3c659f5514a2e0d3": "files/3c659f5514a2e0d3.wav",
+    "0b97164bfc367f43": "files/0b97164bfc367f43.wav",
+    "ff267cf7f05cfe5a": "files/ff267cf7f05cfe5a.wav",
+    "26cdcf19e4bd43eb": "files/26cdcf19e4bd43eb.wav",
+    "ba79001de41d7e57": "files/ba79001de41d7e57.wav",
+    "1749b2e403ed4869": "files/1749b2e403ed4869.wav",
+    "62ef900a8f5d5bff": "files/62ef900a8f5d5bff.wav",
+    "7a661802fe616540": "files/7a661802fe616540.wav",
+    "1bac16bd0a659423": "files/1bac16bd0a659423.wav",
+    "f30071fa503a5928": "files/f30071fa503a5928.wav",
+    "0fbe868d1df356ca": "files/0fbe868d1df356ca.wav",
+    "6dceec1fb8eb52ce": "files/6dceec1fb8eb52ce.wav",
+    "c0f56aca3eafa13e": "files/c0f56aca3eafa13e.wav",
+    "685cf10081c8b3f7": "files/685cf10081c8b3f7.wav",
+    "55094920afddde49": "files/55094920afddde49.wav",
+    "08468ea02e6f5038": "files/08468ea02e6f5038.wav",
+    "4f0311747e234574": "files/4f0311747e234574.wav",
+    "599c4bf469c878ea": "files/599c4bf469c878ea.wav",
+    "9cb861c90fd939e4": "files/9cb861c90fd939e4.wav",
+    "440560ae1221f772": "files/440560ae1221f772.wav",
+    "2927460dd80c83ad": "files/2927460dd80c83ad.wav",
+    "44146b626c24c8f4": "files/44146b626c24c8f4.wav",
+    "ef9afc92783fbb44": "files/ef9afc92783fbb44.wav",
+    "7fc6e83611c67ab4": "files/7fc6e83611c67ab4.wav",
+    "0e555b079db112f4": "files/0e555b079db112f4.wav",
+    "dcb5ff87f34a008b": "files/dcb5ff87f34a008b.wav",
+    "2c91cda1fa7deb29": "files/2c91cda1fa7deb29.wav",
+    "be0ba6adf15b3a07": "files/be0ba6adf15b3a07.wav",
+    "3c82c92563bed1ab": "files/3c82c92563bed1ab.wav",
+    "0e1e87b77404755d": "files/0e1e87b77404755d.wav",
+    "ef906fa580a171ea": "files/ef906fa580a171ea.wav",
+    "36e586559116888b": "files/36e586559116888b.wav",
+    "b481cb1bcb3f18ba": "files/b481cb1bcb3f18ba.wav",
+    "2f79e1fce5422a84": "files/2f79e1fce5422a84.wav",
+    "9fd67a14966e85d1": "files/9fd67a14966e85d1.wav",
+    "433c68371a3d5588": "files/433c68371a3d5588.wav",
+    "69363e7f12cbf231": "files/69363e7f12cbf231.wav",
+    "d6765296ee89e6a0": "files/d6765296ee89e6a0.wav",
+    "dc06463a46eb5685": "files/dc06463a46eb5685.wav",
+    "3366645622a78090": "files/3366645622a78090.wav",
+    "680105f7f1c8587d": "files/680105f7f1c8587d.wav",
+    "d451c07d739b3306": "files/d451c07d739b3306.wav",
+    "005c047dbb3dccba": "files/005c047dbb3dccba.wav",
+    "8c3a8bba906f6314": "files/8c3a8bba906f6314.wav",
+    "325bb21763c0e99c": "files/325bb21763c0e99c.wav",
+    "c6e761ff7136ed1e": "files/c6e761ff7136ed1e.wav",
+    "226fdde702803813": "files/226fdde702803813.wav",
+    "896d585d9029faeb": "files/896d585d9029faeb.wav",
+    "7bfe7863d351e866": "files/7bfe7863d351e866.wav",
+    "f35f72ffef67afe7": "files/f35f72ffef67afe7.wav",
+    "4bd11b450e82c61e": "files/4bd11b450e82c61e.wav",
+    "e5d115e289002c91": "files/e5d115e289002c91.wav",
+    "502cc23086f703a8": "files/502cc23086f703a8.wav",
+    "d626ecafe6c45ab6": "files/d626ecafe6c45ab6.wav",
+    "38d05537f0b1a1c6": "files/38d05537f0b1a1c6.wav",
+    "31c1c3fd58eccad6": "files/31c1c3fd58eccad6.wav",
+    "7a117b8f2a3a2ef5": "files/7a117b8f2a3a2ef5.wav",
+    "8a6949a38384ceae": "files/8a6949a38384ceae.wav",
+    "ae06002f9a0af101": "files/ae06002f9a0af101.wav",
+    "27250da81c0a763a": "files/27250da81c0a763a.wav",
+    "c5921e8441bcf405": "files/c5921e8441bcf405.wav",
+    "67220858d7f44bbc": "files/67220858d7f44bbc.wav",
+    "6448195cd7a60caa": "files/6448195cd7a60caa.wav",
+    "037bb71227fae848": "files/037bb71227fae848.wav",
+    "48e3a023f8997977": "files/48e3a023f8997977.wav",
+    "5b76d055140807c3": "files/5b76d055140807c3.wav",
+    "a4a2ef0cb3316c3d": "files/a4a2ef0cb3316c3d.wav",
+    "f1585f4ba4a3dd46": "files/f1585f4ba4a3dd46.wav",
+    "2952009576e0dad8": "files/2952009576e0dad8.wav",
+    "522bf697a5f81f40": "files/522bf697a5f81f40.wav",
+    "6cbc3cac32b9bcba": "files/6cbc3cac32b9bcba.wav",
+    "13b5cd292d16bcbe": "files/13b5cd292d16bcbe.wav",
+    "bcd8b2c39076b2f4": "files/bcd8b2c39076b2f4.wav",
+    "e3868dcec688dd0f": "files/e3868dcec688dd0f.wav",
+    "085697daa30b9578": "files/085697daa30b9578.wav",
+    "a5bc1692015a90ab": "files/a5bc1692015a90ab.wav",
+    "3fb88915d4c8d749": "files/3fb88915d4c8d749.wav",
+    "14e4f6624d744f54": "files/14e4f6624d744f54.wav",
+    "e4ac0c507968f575": "files/e4ac0c507968f575.wav",
+    "4fed44e89fbba03d": "files/4fed44e89fbba03d.wav",
+    "892c2da58662d6db": "files/892c2da58662d6db.wav",
+    "a7c8e108f9ebbd1e": "files/a7c8e108f9ebbd1e.wav",
+    "83356588561a6990": "files/83356588561a6990.wav",
+    "177c7b0eb13d08d6": "files/177c7b0eb13d08d6.wav",
+    "6626cddebbbd8488": "files/6626cddebbbd8488.wav",
+    "2e443f22110c2cdf": "files/2e443f22110c2cdf.wav",
+    "2e498ce39263b3e9": "files/2e498ce39263b3e9.wav",
+    "27d713ad3e9dab54": "files/27d713ad3e9dab54.wav",
+    "5c3d0a696c8ec580": "files/5c3d0a696c8ec580.wav",
+    "d31341ab8b68acd2": "files/d31341ab8b68acd2.wav",
+    "edd39040783426ef": "files/edd39040783426ef.wav",
+    "1b8a0294850ce438": "files/1b8a0294850ce438.wav",
+    "40f9dfc77994df91": "files/40f9dfc77994df91.wav",
+    "a7c29495ae21f5d4": "files/a7c29495ae21f5d4.wav",
+    "991f75c9522d0341": "files/991f75c9522d0341.wav",
+    "e7427ece137fd60a": "files/e7427ece137fd60a.wav",
+    "8b0f8cb73715ecca": "files/8b0f8cb73715ecca.wav",
+    "cc324c640df75103": "files/cc324c640df75103.wav",
+    "1a5621fbff4c7f41": "files/1a5621fbff4c7f41.wav",
+    "a9e124887c7d3bc8": "files/a9e124887c7d3bc8.wav",
+    "947b297c5f74162f": "files/947b297c5f74162f.wav",
+    "4d5f7e15c8a569bf": "files/4d5f7e15c8a569bf.wav",
+    "c404effc172031c7": "files/c404effc172031c7.wav",
+    "4cc7b00050cb1c21": "files/4cc7b00050cb1c21.wav",
+    "6d8229118caa20c2": "files/6d8229118caa20c2.wav",
+    "44b54f5ad98b36d6": "files/44b54f5ad98b36d6.wav",
+    "7888b5f4185217b3": "files/7888b5f4185217b3.wav",
+    "884e97995130b8b9": "files/884e97995130b8b9.wav",
+    "0602b4f4d85cfb21": "files/0602b4f4d85cfb21.wav",
+    "be93c785b2bd90ea": "files/be93c785b2bd90ea.wav",
+    "d48e61f572566a32": "files/d48e61f572566a32.wav",
+    "49da61ceeea2f271": "files/49da61ceeea2f271.wav",
+    "543e16964d384f61": "files/543e16964d384f61.wav",
+    "93015cdfdcb0f67a": "files/93015cdfdcb0f67a.wav",
+    "bc79d84d3df7763a": "files/bc79d84d3df7763a.wav",
+    "6044e9f095e0b5e4": "files/6044e9f095e0b5e4.wav",
+    "e9fa45a75ea13f9a": "files/e9fa45a75ea13f9a.wav",
+    "2f31b30c6f412ea4": "files/2f31b30c6f412ea4.wav",
+    "00a9d5bd97c269b4": "files/00a9d5bd97c269b4.wav",
+    "ad5be9c1595bde03": "files/ad5be9c1595bde03.wav",
+    "949b0bc7723887cf": "files/949b0bc7723887cf.wav",
+    "d239479ab4e1fab8": "files/d239479ab4e1fab8.wav",
+    "3e8a84626d08f2fa": "files/3e8a84626d08f2fa.wav",
+    "d9abd728e0f30630": "files/d9abd728e0f30630.wav",
+    "4e550624450b98f7": "files/4e550624450b98f7.wav",
+    "30a776e3d2a1ab8d": "files/30a776e3d2a1ab8d.wav",
+    "e0dafe21997a1b33": "files/e0dafe21997a1b33.wav",
+    "ebb735a84a1944ff": "files/ebb735a84a1944ff.wav",
+    "1bb53523403d739b": "files/1bb53523403d739b.wav",
+    "846c55ce0e151314": "files/846c55ce0e151314.wav",
+    "6ad4a6a6143d55b3": "files/6ad4a6a6143d55b3.wav",
+    "a155a5f983b9842f": "files/a155a5f983b9842f.wav",
+    "7084d2cefa070d8b": "files/7084d2cefa070d8b.wav",
+    "24abb71957ff9df3": "files/24abb71957ff9df3.wav",
+    "8cdba5bc4e597e75": "files/8cdba5bc4e597e75.wav",
+    "d5841e01251bb834": "files/d5841e01251bb834.wav",
+    "3e7211eaca017e72": "files/3e7211eaca017e72.wav",
+    "cc232a867394965d": "files/cc232a867394965d.wav",
+    "e27243a0d49d324f": "files/e27243a0d49d324f.wav",
+    "e9cb8c816fc99fc9": "files/e9cb8c816fc99fc9.wav",
+    "2cc948764342b6a3": "files/2cc948764342b6a3.wav",
+    "cfa123d21e9a22cd": "files/cfa123d21e9a22cd.wav",
+    "756c86276bcc8b46": "files/756c86276bcc8b46.wav",
+    "142a111bdbd817ad": "files/142a111bdbd817ad.wav",
+    "7ff9df9923a86fd9": "files/7ff9df9923a86fd9.wav",
+    "22c95798a9323bb5": "files/22c95798a9323bb5.wav",
+    "2df23c9b4094d780": "files/2df23c9b4094d780.wav",
+    "a668052ae6ec6ecb": "files/a668052ae6ec6ecb.wav",
+    "7eccd1115f346014": "files/7eccd1115f346014.wav",
+    "e957ecd57fc8e72d": "files/e957ecd57fc8e72d.wav",
+    "320d1ab4f80f5960": "files/320d1ab4f80f5960.wav",
+    "04012b549a9301c0": "files/04012b549a9301c0.wav",
+    "0e5a53865af229fd": "files/0e5a53865af229fd.wav",
+    "d852e98c555c5dc8": "files/d852e98c555c5dc8.wav",
+    "d6374f78b2aaa8f0": "files/d6374f78b2aaa8f0.wav",
+    "00e40e78efc6941c": "files/00e40e78efc6941c.wav",
+    "116a64c9bea9198f": "files/116a64c9bea9198f.wav",
+    "b235444c9e0ab4a1": "files/b235444c9e0ab4a1.wav",
+    "cffdcf754243d0ba": "files/cffdcf754243d0ba.wav",
+    "e5fb59544273d2a0": "files/e5fb59544273d2a0.wav",
+    "da42b91a3b1f3974": "files/da42b91a3b1f3974.wav",
+    "b052bd43702ac3a8": "files/b052bd43702ac3a8.wav",
+    "14eb5942b5651f00": "files/14eb5942b5651f00.wav",
+    "f9d9faa74a1f895b": "files/f9d9faa74a1f895b.wav",
+    "3a64212bd56131cd": "files/3a64212bd56131cd.wav",
+    "23699c2cad543064": "files/23699c2cad543064.wav",
+    "1e85e9668a421952": "files/1e85e9668a421952.wav",
+    "903fd2417a6cd693": "files/903fd2417a6cd693.wav",
+    "2796340e45019887": "files/2796340e45019887.wav",
+    "d9d5e93a7021fde2": "files/d9d5e93a7021fde2.wav",
+    "3c7e3e625522b610": "files/3c7e3e625522b610.wav",
+    "9ba708d37d8a3f9b": "files/9ba708d37d8a3f9b.wav",
+    "7d7a7697eb8725ac": "files/7d7a7697eb8725ac.wav",
+    "bd35d4ccaf10fb6a": "files/bd35d4ccaf10fb6a.wav",
+    "73c9fb80f7750878": "files/73c9fb80f7750878.wav",
+    "9459fdedb4ddf7b0": "files/9459fdedb4ddf7b0.wav",
+    "c48d9a8a5e10fbe9": "files/c48d9a8a5e10fbe9.wav",
+    "4da9378368423266": "files/4da9378368423266.wav",
+    "d6561bcd8b36c908": "files/d6561bcd8b36c908.wav",
+    "f66de6c4cd41cdff": "files/f66de6c4cd41cdff.wav",
+    "92ff659f598645eb": "files/92ff659f598645eb.wav",
+    "cd44dff084066952": "files/cd44dff084066952.wav",
+    "32ad822fb2325a6c": "files/32ad822fb2325a6c.wav",
+    "4134580dd4b42b7e": "files/4134580dd4b42b7e.wav",
+    "4460823b1000bbaf": "files/4460823b1000bbaf.wav",
+    "9a56a4f7b1211a27": "files/9a56a4f7b1211a27.wav",
+    "40ba6750217b4eff": "files/40ba6750217b4eff.wav",
+    "6bbf1352438b0e0b": "files/6bbf1352438b0e0b.wav",
+    "ea8e58989f172947": "files/ea8e58989f172947.wav",
+    "04b56cd72b349607": "files/04b56cd72b349607.wav",
+    "b7fbaa85a349468e": "files/b7fbaa85a349468e.wav",
+    "d1b3721ebb6e47f5": "files/d1b3721ebb6e47f5.wav",
+    "fc5c588b7a7d5e7a": "files/fc5c588b7a7d5e7a.wav",
+    "7db8fc872c89e40d": "files/7db8fc872c89e40d.wav",
+    "5b5a665f1a5245c3": "files/5b5a665f1a5245c3.wav",
+    "7c4e639bbadcc66e": "files/7c4e639bbadcc66e.wav",
+    "099a32794c9f7440": "files/099a32794c9f7440.wav",
+    "794b0c3776f0cc51": "files/794b0c3776f0cc51.wav",
+    "064d2cc59100cc9d": "files/064d2cc59100cc9d.wav",
+    "92dfb4ae2e99b1bd": "files/92dfb4ae2e99b1bd.wav",
+    "75f577e69ab8b40c": "files/75f577e69ab8b40c.wav",
+    "1bdb3a11a1e947c2": "files/1bdb3a11a1e947c2.wav",
+    "9364638473e147a1": "files/9364638473e147a1.wav",
+    "0ecd6de1cecb7df5": "files/0ecd6de1cecb7df5.wav",
+    "cd935bc94c167316": "files/cd935bc94c167316.wav",
+    "6c4a3b3fadf5e579": "files/6c4a3b3fadf5e579.wav",
+    "72268a5956048bde": "files/72268a5956048bde.wav",
+    "e6626318d0ff063d": "files/e6626318d0ff063d.wav",
+    "701a0fc283143a37": "files/701a0fc283143a37.wav",
+    "0ecc7030d00c3366": "files/0ecc7030d00c3366.wav",
+    "3d63fa2fee9b1631": "files/3d63fa2fee9b1631.wav",
+    "e8bce9529fbbe76c": "files/e8bce9529fbbe76c.wav",
+    "b288ca94b0ae02b3": "files/b288ca94b0ae02b3.wav",
+    "e828cc29ee5a1801": "files/e828cc29ee5a1801.wav",
+    "8ea8c130574bfc07": "files/8ea8c130574bfc07.wav",
+    "2191cda8a545b174": "files/2191cda8a545b174.wav",
+    "2b264025e323409f": "files/2b264025e323409f.wav",
+    "9dfff74ae63956e0": "files/9dfff74ae63956e0.wav",
+    "f9a3556490d4176a": "files/f9a3556490d4176a.wav",
+    "0fd8abd280cfc041": "files/0fd8abd280cfc041.wav",
+    "23cc589fdfbef7af": "files/23cc589fdfbef7af.wav",
+    "d927132cf8a84695": "files/d927132cf8a84695.wav",
+    "d2d864bf3d55142e": "files/d2d864bf3d55142e.wav",
+    "e7ed30a0bca7ee7c": "files/e7ed30a0bca7ee7c.wav",
+    "76265b9a8d3b60ff": "files/76265b9a8d3b60ff.wav",
+    "8e6242ea7437f874": "files/8e6242ea7437f874.wav",
+    "a4eca93d17148c0a": "files/a4eca93d17148c0a.wav",
+    "8318d918acac24d1": "files/8318d918acac24d1.wav",
+    "aae20f94a835d314": "files/aae20f94a835d314.wav",
+    "0277278b7bc9e278": "files/0277278b7bc9e278.wav",
+    "0464e2a947088493": "files/0464e2a947088493.wav",
+    "2b217c5336bf9405": "files/2b217c5336bf9405.wav",
+    "17ab18cf33db8e11": "files/17ab18cf33db8e11.wav",
+    "770128f506263cdd": "files/770128f506263cdd.wav",
+    "6e0134e43a95a4ba": "files/6e0134e43a95a4ba.wav",
+    "9fd9672b5a8aacec": "files/9fd9672b5a8aacec.wav",
+    "314ca0235f43969f": "files/314ca0235f43969f.wav",
+    "36b8f06b5698a401": "files/36b8f06b5698a401.wav",
+    "34f52aaf45e16377": "files/34f52aaf45e16377.wav",
+    "732b53edd0488b29": "files/732b53edd0488b29.wav",
+    "920fe0be45c86d60": "files/920fe0be45c86d60.wav",
+    "8bb5ef3b10f8016e": "files/8bb5ef3b10f8016e.wav",
+    "531516cd51dbb983": "files/531516cd51dbb983.wav",
+    "ab9c2f7bc2634bdc": "files/ab9c2f7bc2634bdc.wav",
+    "f172baa79ad5f0df": "files/f172baa79ad5f0df.wav",
+    "7e8d7f70a17e9ea2": "files/7e8d7f70a17e9ea2.wav",
+    "384f68bdd164414c": "files/384f68bdd164414c.wav",
+    "aa1246f7b6eb03ef": "files/aa1246f7b6eb03ef.wav",
+    "b26aa32de3b2fa25": "files/b26aa32de3b2fa25.wav",
+    "5567212ceee452e9": "files/5567212ceee452e9.wav",
+    "48c518de61a1f490": "files/48c518de61a1f490.wav",
+    "b94fe089317d1e5f": "files/b94fe089317d1e5f.wav",
+    "f36b4109a9a6c8ef": "files/f36b4109a9a6c8ef.wav",
+    "3cc493bc5b3b9b51": "files/3cc493bc5b3b9b51.wav",
+    "4e49452494a2a422": "files/4e49452494a2a422.wav",
+    "1940119f05716460": "files/1940119f05716460.wav",
+    "62f99c9a0c50d790": "files/62f99c9a0c50d790.wav",
+    "a91e906e696fa3d4": "files/a91e906e696fa3d4.wav",
+    "30dee34962d8ef39": "files/30dee34962d8ef39.wav",
+    "961b1642835b46f7": "files/961b1642835b46f7.wav",
+    "6832da2d4b95165e": "files/6832da2d4b95165e.wav",
+    "bd945df166c48081": "files/bd945df166c48081.wav",
+    "3b190b588050c1b3": "files/3b190b588050c1b3.wav",
+    "e8589aa9b5a9b0f9": "files/e8589aa9b5a9b0f9.wav",
+    "a48de4e6035e6cce": "files/a48de4e6035e6cce.wav",
+    "896d5a78104bcf85": "files/896d5a78104bcf85.wav",
+    "6df25debda6ad816": "files/6df25debda6ad816.wav",
+    "402094d107843b28": "files/402094d107843b28.wav",
+    "75cb5d18b9ac04fe": "files/75cb5d18b9ac04fe.wav",
+    "21407d094f7456b6": "files/21407d094f7456b6.wav",
+    "dfeb5e2c9ffa6751": "files/dfeb5e2c9ffa6751.wav",
+    "619cba30f279625c": "files/619cba30f279625c.wav",
+    "cdc6f72e2be8f085": "files/cdc6f72e2be8f085.wav",
+    "35b6196553141143": "files/35b6196553141143.wav",
+    "02b5313349276ef1": "files/02b5313349276ef1.wav",
+    "31f87c5a50016abc": "files/31f87c5a50016abc.wav",
+    "9dd053ba610c7a9d": "files/9dd053ba610c7a9d.wav",
+    "ca21aa08e83a4969": "files/ca21aa08e83a4969.wav",
+    "200c6b0c908276a7": "files/200c6b0c908276a7.wav",
+    "965b009bb6c1a493": "files/965b009bb6c1a493.wav",
+    "321c18eeef8f7b3c": "files/321c18eeef8f7b3c.wav",
+    "b5f60aa908b69f89": "files/b5f60aa908b69f89.wav",
+    "d5c5d320b8af73fb": "files/d5c5d320b8af73fb.wav",
+    "6001f93c73acdb78": "files/6001f93c73acdb78.wav",
+    "59c106de5147a6e3": "files/59c106de5147a6e3.wav",
+    "2244a51e994e82d5": "files/2244a51e994e82d5.wav",
+    "53b34678bbd46f39": "files/53b34678bbd46f39.wav",
+    "63ba256fdb4a9064": "files/63ba256fdb4a9064.wav",
+    "4ca8d4f77574e43a": "files/4ca8d4f77574e43a.wav",
+    "03aeb7c768b4cb8e": "files/03aeb7c768b4cb8e.wav",
+    "f6e33dd2abdadc5f": "files/f6e33dd2abdadc5f.wav",
+    "935d53cddb95b7cd": "files/935d53cddb95b7cd.wav",
+    "defa376eabaf2fff": "files/defa376eabaf2fff.wav",
+    "f93d7367ecb3121f": "files/f93d7367ecb3121f.wav",
+    "0c9e176edb3b2de9": "files/0c9e176edb3b2de9.wav",
+    "bd0fd6c08f85085f": "files/bd0fd6c08f85085f.wav",
+    "38eebae5f97a6a11": "files/38eebae5f97a6a11.wav",
+    "6f30a7270f32fca9": "files/6f30a7270f32fca9.wav",
+    "69eb9aca068ce846": "files/69eb9aca068ce846.wav",
+    "3b275ee5f1e38217": "files/3b275ee5f1e38217.wav",
+    "9c5ae2be3a330ef3": "files/9c5ae2be3a330ef3.wav",
+    "ac56fb67ca6e2ada": "files/ac56fb67ca6e2ada.wav",
+    "7129533544ea82c5": "files/7129533544ea82c5.wav",
+    "c0bb256df2fd3f74": "files/c0bb256df2fd3f74.wav",
+    "3323e50ec5bddcc6": "files/3323e50ec5bddcc6.wav",
+    "22ccd17bae95fc0e": "files/22ccd17bae95fc0e.wav",
+    "9e4b58c308537195": "files/9e4b58c308537195.wav"
+  }
+}

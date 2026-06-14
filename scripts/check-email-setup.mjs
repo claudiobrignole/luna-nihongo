@@ -10,6 +10,7 @@ const CALLABLES = [
   'syncMarketingConsent',
   'cancelBooking',
   'rescheduleBooking',
+  'redeemCoupon',
 ];
 
 async function probeCallable(name) {

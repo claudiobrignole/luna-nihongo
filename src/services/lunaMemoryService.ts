@@ -1,4 +1,5 @@
-import { CURRICULUM_LEVELS, SYLLABUS } from '../data/curriculum';
+import { CURRICULUM_LEVELS, CURRICULUM_META, SYLLABUS } from '../data/curriculum';
+import { curriculumProgressLabel } from './tutorCurriculumKnowledge';
 import type { StudyActivity } from '../types/study';
 import type { ChatMessage, LunaUser } from '../types/user';
 
@@ -83,8 +84,8 @@ export function buildAutoMemoryLines(
   lines.push({
     id: 'progress',
     text: language === 'en'
-      ? `Progress: ${user.completedUnits.length}/60 units · ${user.xp} XP`
-      : `Progressi: ${user.completedUnits.length}/60 unità · ${user.xp} XP`,
+      ? `Progress: ${curriculumProgressLabel('en', user.completedUnits.length)} · ${user.xp} XP · ${CURRICULUM_META.unitCount} units total (N5+N4)`
+      : `Progressi: ${curriculumProgressLabel('it', user.completedUnits.length)} · ${user.xp} XP · ${CURRICULUM_META.unitCount} unità totali (N5+N4)`,
   });
 
   if (focus) {

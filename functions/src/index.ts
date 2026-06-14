@@ -349,3 +349,4 @@ export { scanGraceNoSlotsCoupons } from './graceNoSlots';
 export { sendLessonReminders } from './lessonReminders';
 export { subscribeNewsletter, syncMarketingConsent } from './sendfox';
 export { adminDeleteUser } from './adminUsers';
+export { setBookingMeetLink, setTeacherPayoutStatus } from './teacherBookings';

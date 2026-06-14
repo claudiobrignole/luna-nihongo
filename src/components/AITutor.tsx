@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import {
-  Send, Bot, User, Crown, ChevronRight, Volume2, VolumeX, MessageCircle, MessagesSquare, Mic, Radio,
+  Send, Bot, User, Crown, ChevronRight, Volume2, MessageCircle, MessagesSquare, Mic, Radio,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
 import { canUseAiTutor } from '../types/user';
@@ -12,10 +12,23 @@ import {
 } from '../services/tutorContext';
 import { fetchTutorReply } from '../services/tutorService';
 import { LunaLive } from './LunaLive';
+import { LunaLogo } from './LunaLogo';
 import { TutorSidebar } from './TutorSidebar';
 import { LiveHistoryPanel } from './LiveHistoryPanel';
 import { PremiumRetentionNotice } from './PremiumRetentionNotice';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { TutorContextSheet } from './TutorContextSheet';
+import {
+  TutorContextToolbar,
+  tutorSheetTitle,
+  type TutorContextSheetId,
+} from './TutorContextToolbar';
+import {
+  TutorMemoryPanel,
+  TutorPlanPanel,
+  TutorProfilePanel,
+  TutorProgressPanel,
+} from './tutorContextPanels';
 import { useAuth } from '../contexts/AuthContext';
 import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
 import { listStudyActivity } from '../services/studyActivityService';
@@ -77,10 +90,11 @@ export const AITutor: React.FC<AITutorProps> = ({
   const [studyPreferences, setStudyPreferences] = useState(initialProfile.studyPreferences);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [studyActivities, setStudyActivities] = useState<StudyActivity[]>([]);
-  const [voiceEnabled, setVoiceEnabled] = useState(currentUser.tutorVoiceEnabled);
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const [tutorMode, setTutorMode] = useState<TutorMode>('conversation');
   const [tutorView, setTutorView] = useState<'chat' | 'live'>('live');
+  const [activeSheet, setActiveSheet] = useState<TutorContextSheetId | null>(null);
+  const [liveSessionActive, setLiveSessionActive] = useState(false);
   const [ttsError, setTtsError] = useState<string | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -129,34 +143,22 @@ export const AITutor: React.FC<AITutorProps> = ({
     }
   };
 
-  const seedConversation = useCallback(
-    (withVoice = false) => {
-      const opener: ChatMessage = {
-        role: 'assistant',
-        content: conversationOpener(currentUser.username, language),
-        source: 'chat',
-        createdAt: new Date().toISOString(),
-      };
-      setMessages([opener]);
-      void saveUser({ chatHistory: [opener] });
-      if (withVoice && voiceEnabled) {
-        void speakReply(opener.content, 0);
-      }
-    },
-    [currentUser.username, language, voiceEnabled]
-  );
+  const seedConversation = useCallback(() => {
+    const opener: ChatMessage = {
+      role: 'assistant',
+      content: conversationOpener(currentUser.username, language),
+      source: 'chat',
+      createdAt: new Date().toISOString(),
+    };
+    setMessages([opener]);
+    void saveUser({ chatHistory: [opener] });
+  }, [currentUser.username, language]);
 
   const switchTutorMode = (mode: TutorMode) => {
     setTutorMode(mode);
     if (mode === 'conversation' && messages.length === 0) {
-      seedConversation(false);
+      seedConversation();
     }
-  };
-
-  const toggleVoice = async () => {
-    const next = !voiceEnabled;
-    setVoiceEnabled(next);
-    await onUserUpdate({ tutorVoiceEnabled: next });
   };
 
   useEffect(() => {
@@ -212,6 +214,67 @@ export const AITutor: React.FC<AITutorProps> = ({
     onNavigateToDashboard,
   };
 
+  const profilePanelProps = {
+    language,
+    currentUser,
+    studyGoal,
+    studyWeaknesses,
+    studyPreferences,
+    isEditingProfile,
+    onStudyGoalChange: setStudyGoal,
+    onStudyWeaknessesChange: setStudyWeaknesses,
+    onStudyPreferencesChange: setStudyPreferences,
+    onToggleEditProfile: () => setIsEditingProfile(!isEditingProfile),
+    onSaveProfile: () => void saveStudyProfile(),
+    onNavigateToDashboard,
+  };
+
+  const profileIncomplete = !studyGoal.trim() || !studyWeaknesses.trim();
+
+  const toggleSheet = (id: TutorContextSheetId) => {
+    if (id === 'profile' && activeSheet !== id && profileIncomplete) {
+      setIsEditingProfile(true);
+    }
+    setActiveSheet((prev) => (prev === id ? null : id));
+  };
+
+  const renderSheetPanel = () => {
+    if (!activeSheet) return null;
+    switch (activeSheet) {
+      case 'memory':
+        return (
+          <TutorMemoryPanel
+            language={language}
+            currentUser={currentUser}
+            autoMemoryLines={autoMemoryLines}
+          />
+        );
+      case 'profile':
+        return <TutorProfilePanel {...profilePanelProps} />;
+      case 'plan':
+        return <TutorPlanPanel language={language} currentUser={currentUser} />;
+      case 'progress':
+        return <TutorProgressPanel language={language} currentUser={currentUser} />;
+      case 'history':
+        return (
+          <>
+            <LiveHistoryPanel
+              language={language}
+              currentUser={currentUser}
+              chatHistory={currentUser.chatHistory ?? []}
+              onChatHistoryChange={(history) => {
+                void onUserUpdate({ chatHistory: history });
+              }}
+              onNavigateToDashboard={onNavigateToDashboard}
+            />
+            <PremiumRetentionNotice language={language} currentUser={currentUser} />
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   const sendMessage = async (textOverride?: string) => {
     const text = (textOverride ?? input).trim();
     if (!text || isLoading || isBlocked) return;
@@ -250,7 +313,6 @@ export const AITutor: React.FC<AITutorProps> = ({
       createdAt: new Date().toISOString(),
     };
     const finalMessages = [...newMessages, assistantMsg];
-    const assistantIndex = finalMessages.length - 1;
     setMessages(finalMessages);
     setIsLoading(false);
 
@@ -260,10 +322,6 @@ export const AITutor: React.FC<AITutorProps> = ({
       messagesCount: newCount,
       chatHistory: finalMessages,
     });
-
-    if (voiceEnabled) {
-      void speakReply(replyText, assistantIndex);
-    }
   };
 
   const handleMicDictation = () => {
@@ -298,18 +356,23 @@ export const AITutor: React.FC<AITutorProps> = ({
 
   useEffect(() => {
     if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
-      seedConversation(false);
+      seedConversation();
     }
   }, []);
 
   return (
-    <div className="tutor-layout page-view">
+    <div
+      className={`tutor-layout page-view${liveSessionActive && tutorView === 'live' ? ' tutor-layout--live-focus' : ''}`}
+    >
       <div className="tutor-shell">
         <div className="tutor-view-tabs">
           <button
             type="button"
             className={`tutor-view-tab ${tutorView === 'live' ? 'active' : ''}`}
-            onClick={() => setTutorView('live')}
+            onClick={() => {
+              setTutorView('live');
+              setActiveSheet(null);
+            }}
           >
             <Radio size={16} />
             {language === 'en' ? 'Live voice' : 'Voce live'}
@@ -317,16 +380,36 @@ export const AITutor: React.FC<AITutorProps> = ({
           <button
             type="button"
             className={`tutor-view-tab ${tutorView === 'chat' ? 'active' : ''}`}
-            onClick={() => setTutorView('chat')}
+            onClick={() => {
+              setTutorView('chat');
+              setActiveSheet(null);
+            }}
           >
             <MessageCircle size={16} />
             {language === 'en' ? 'Text chat' : 'Chat testuale'}
           </button>
         </div>
 
+        <TutorContextToolbar
+          language={language}
+          showHistory={tutorView === 'live'}
+          profileIncomplete={profileIncomplete}
+          activeSheet={activeSheet}
+          onOpen={toggleSheet}
+        />
+
+        <TutorContextSheet
+          open={activeSheet !== null}
+          title={activeSheet ? tutorSheetTitle(activeSheet, language) : ''}
+          language={language}
+          onClose={() => setActiveSheet(null)}
+        >
+          {renderSheetPanel()}
+        </TutorContextSheet>
+
         <div className="tutor-content">
           {tutorView === 'live' ? (
-            <div className="tutor-chat-wrap">
+            <div className="tutor-chat-wrap tutor-chat-wrap--live">
               <TutorSidebar {...sidebarProps}>
                 <LiveHistoryPanel
                   language={language}
@@ -344,6 +427,7 @@ export const AITutor: React.FC<AITutorProps> = ({
                   language={language}
                   currentUser={currentUser}
                   onNavigateToDashboard={onNavigateToDashboard}
+                  onSessionActiveChange={setLiveSessionActive}
                   onSessionLogged={(label, meta) => {
                     onTutorMessage?.(label);
                     const secs = meta?.durationSeconds;
@@ -360,25 +444,14 @@ export const AITutor: React.FC<AITutorProps> = ({
               </div>
             </div>
           ) : (
-            <div className="tutor-chat-wrap">
+            <div className="tutor-chat-wrap tutor-chat-wrap--text">
       <TutorSidebar {...sidebarProps} />
 
       {/* ── Right Panel: Chat ── */}
       <div className="glass-panel tutor-chat-panel">
         {/* Chat Header */}
         <div className="tutor-chat-header">
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '1.3rem',
-            fontWeight: '700'
-          }}>月</div>
+          <LunaLogo layout="icon" className="luna-logo--icon-sm" alt="" />
           <div>
             <div style={{ fontWeight: 700, fontSize: '1rem' }}>Luna-sensei</div>
             <div style={{ fontSize: '0.78rem', color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -386,37 +459,11 @@ export const AITutor: React.FC<AITutorProps> = ({
                 width: '7px', height: '7px', borderRadius: '50%',
                 backgroundColor: 'var(--success)', display: 'inline-block'
               }} />
-              {language === 'en' ? 'Online • Text & voice' : 'Online • Testo e voce'}
+              {language === 'en' ? 'Online • Text chat' : 'Online • Chat testuale'}
             </div>
           </div>
-          <button
-            type="button"
-            onClick={() => void toggleVoice()}
-            className="btn btn-secondary"
-            style={{
-              marginLeft: 'auto',
-              padding: '0.45rem 0.75rem',
-              fontSize: '0.78rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-            }}
-            title={language === 'en' ? 'Toggle voice replies' : 'Attiva/disattiva voce'}
-          >
-            {voiceEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-            {voiceEnabled
-              ? (language === 'en' ? 'Voice on' : 'Voce attiva')
-              : (language === 'en' ? 'Voice off' : 'Voce spenta')}
-          </button>
           {isBlocked && (
-            <div style={{
-              fontSize: '0.78rem',
-              color: 'var(--error)',
-              fontWeight: 600,
-              backgroundColor: 'var(--error-glow)',
-              padding: '4px 10px',
-              borderRadius: '12px'
-            }}>
+            <div className="tutor-chat-limit-badge">
               {language === 'en' ? 'Limit reached' : 'Limite raggiunto'}
             </div>
           )}
@@ -443,7 +490,7 @@ export const AITutor: React.FC<AITutorProps> = ({
             <button
               type="button"
               className="tutor-new-session"
-              onClick={() => seedConversation(voiceEnabled)}
+              onClick={() => seedConversation()}
             >
               {language === 'en' ? 'New topic' : 'Nuovo argomento'}
             </button>
@@ -480,50 +527,31 @@ export const AITutor: React.FC<AITutorProps> = ({
               alignItems: 'flex-start'
             }}>
               {msg.role === 'assistant' && (
-                <div style={{
-                  width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: 'white', fontSize: '0.9rem', fontWeight: '700'
-                }}>月</div>
+                <LunaLogo layout="icon" className="luna-logo--icon-xs" alt="" />
               )}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: msg.role === 'user' ? 'flex-end' : 'flex-start', gap: '0.35rem', maxWidth: '75%' }}>
-                <div style={{
-                  padding: '0.75rem 1rem',
-                  borderRadius: msg.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                  backgroundColor: msg.role === 'user' ? 'var(--primary)' : 'var(--bg-input)',
-                  color: msg.role === 'user' ? 'white' : 'var(--text-main)',
-                  fontSize: '0.9rem',
-                  lineHeight: '1.5',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-                }}>
+              <div className="tutor-msg-bubble-wrap" style={{ maxWidth: '75%' }}>
+                <div
+                  className={`tutor-msg-bubble ${msg.role === 'user' ? 'tutor-msg-bubble--user' : 'tutor-msg-bubble--assistant'}`}
+                >
                   {msg.content}
                   {msg.source === 'live' && (
                     <span className="tutor-msg-live-badge">
                       {language === 'en' ? 'live' : 'live'}
                     </span>
                   )}
+                  {msg.role === 'assistant' && !msg.sessionDivider && (
+                    <button
+                      type="button"
+                      className="tutor-msg-listen-btn"
+                      onClick={() => void speakReply(msg.content, i)}
+                      disabled={speakingIndex === i}
+                      title={language === 'en' ? 'Listen to Japanese' : 'Ascolta il giapponese'}
+                      aria-label={language === 'en' ? 'Listen to Japanese' : 'Ascolta il giapponese'}
+                    >
+                      <Volume2 size={15} />
+                    </button>
+                  )}
                 </div>
-                {msg.role === 'assistant' && !msg.sessionDivider && (
-                  <button
-                    type="button"
-                    onClick={() => void speakReply(msg.content, i)}
-                    disabled={speakingIndex === i}
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'var(--text-muted)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.25rem',
-                      padding: '2px 6px',
-                    }}
-                  >
-                    <Volume2 size={14} />
-                    {speakingIndex === i
-                      ? (language === 'en' ? 'Playing…' : 'Riproduzione…')
-                      : (language === 'en' ? 'Listen' : 'Ascolta')}
-                  </button>
-                )}
               </div>
               {msg.role === 'user' && (
                 <div style={{
@@ -539,12 +567,7 @@ export const AITutor: React.FC<AITutorProps> = ({
 
           {isLoading && (
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-              <div style={{
-                width: '34px', height: '34px', borderRadius: '50%', flexShrink: 0,
-                background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'white', fontSize: '0.9rem', fontWeight: '700'
-              }}>月</div>
+              <LunaLogo layout="icon" className="luna-logo--icon-xs" alt="" />
               <div style={{
                 padding: '0.75rem 1rem',
                 borderRadius: '18px 18px 18px 4px',
@@ -675,7 +698,7 @@ export const AITutor: React.FC<AITutorProps> = ({
         }}>
           <div className="glass-panel" style={{
             maxWidth: '420px', width: '100%', padding: '2.5rem 2rem', textAlign: 'center',
-            background: 'var(--bg-app)', boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+            boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
           }}>
             <div style={{
               width: '70px', height: '70px', borderRadius: '50%',

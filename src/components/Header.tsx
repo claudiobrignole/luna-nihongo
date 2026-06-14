@@ -12,8 +12,9 @@ import {
   X,
 } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isAdminRole } from '../types/user';
+import { isStaffRole, isTeacherRole } from '../types/user';
 import { UserMenu } from './UserMenu';
+import { LunaLogo } from './LunaLogo';
 
 export type TabType =
   | 'home'
@@ -24,6 +25,7 @@ export type TabType =
   | 'dashboard'
   | 'tutor'
   | 'admin'
+  | 'teacher-dashboard'
   | 'auth'
   | 'privacy'
   | 'cookies'
@@ -140,11 +142,7 @@ export function Header({
               aria-label="Luna Nihongo"
               onClick={() => navigate('home')}
             >
-              <div className="logo-circle" lang="ja">るな</div>
-              <div className="logo-text logo-text-desktop">
-                <span className="logo-text-primary">Luna</span>
-                <span className="logo-text-secondary">Nihongo</span>
-              </div>
+              <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
             </button>
 
             <nav className="header-desktop-nav" aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}>
@@ -241,11 +239,7 @@ export function Header({
       <header className="main-header">
         <div className="header-content header-content-app">
           <div className="header-brand">
-            <div className="logo-circle" lang="ja">るな</div>
-            <div className="logo-text logo-text-desktop">
-              <span className="logo-text-primary">Luna</span>
-              <span className="logo-text-secondary">Nihongo</span>
-            </div>
+            <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
           </div>
 
           <nav className="header-desktop-nav" aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}>
@@ -340,7 +334,16 @@ export function Header({
                 {language === 'en' ? 'Book a lesson' : 'Prenota lezione'}
               </button>
 
-              {currentUser && isAdminRole(currentUser.role) && (
+              {currentUser && isTeacherRole(currentUser.role) && (
+                <button
+                  type="button"
+                  className={`mobile-sheet-link ${activeTab === 'teacher-dashboard' ? 'active' : ''}`}
+                  onClick={() => navigate('teacher-dashboard')}
+                >
+                  {language === 'en' ? 'Teacher dashboard' : 'Dashboard maestro'}
+                </button>
+              )}
+              {currentUser && isStaffRole(currentUser.role) && (
                 <button
                   type="button"
                   className={`mobile-sheet-link mobile-sheet-link-admin ${activeTab === 'admin' ? 'active' : ''}`}

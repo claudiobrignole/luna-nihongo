@@ -125,7 +125,7 @@ test('lesson_reminder_day_before email includes meet link', () => {
     },
   });
 
-  assert.match(subject, /domani/i);
+  assert.match(subject, /36 ore/i);
   assert.match(html, /luna-rem/);
 });
 
@@ -136,12 +136,12 @@ test('lesson_reminder_ten_min email urges join', () => {
       name: 'Alex',
       date: '2026-06-10',
       time: '14:30 – 15:30',
-      meetLink: 'https://lunanihongo.com/call/luna-now',
+      meetLink: 'https://meet.google.com/abc-defg-hij',
     },
   });
 
-  assert.match(subject, /few minutes/i);
-  assert.match(html, /Join now/);
+  assert.match(subject, /1 hour/i);
+  assert.match(html, /Open video call/);
 });
 
 test('trial_started email mentions trial days', () => {

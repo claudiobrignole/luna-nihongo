@@ -1,4 +1,4 @@
-export type SRSCardType = 'hiragana' | 'katakana' | 'kanji' | 'vocab' | 'grammar';
+export type SRSCardType = 'hiragana' | 'katakana' | 'kanji' | 'vocab' | 'grammar' | 'dialogue';
 
 export interface SRSCardBase {
   id: string;

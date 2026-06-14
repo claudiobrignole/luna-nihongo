@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Video, Calendar, Sparkles, AlertCircle, Trash2, Crown, LogOut, User, Shield, Zap, CalendarClock, Ticket, Gift } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { canManageUsers, hasActiveSubscription, isAdminRole, isTrialActive, roleLabel } from '../types/user';
+import { canManageUsers, hasActiveSubscription, isStaffRole, isTrialActive, roleLabel } from '../types/user';
 import type { BookingMode } from './BookingCalendar';
 import type { BookedLesson } from '../types/booking';
+import { hasMeetLink } from '../types/booking';
 import { loadBookings } from '../services/bookingService';
 import { loadPurchasedGiftCoupons, loadUserCoupons, redeemCouponCode } from '../services/couponService';
 import { cancelBookingRemote, formatEmailCallableError } from '../services/emailService';
@@ -193,7 +194,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         flexWrap: 'wrap',
         background: isPremium
           ? 'linear-gradient(135deg, rgba(155,89,182,0.08), rgba(155,89,182,0.02))'
-          : 'var(--bg-panel)',
+          : 'var(--ln-card-bg)',
         borderColor: isPremium ? 'rgba(155,89,182,0.25)' : 'var(--border)'
       }}>
         {/* Avatar */}
@@ -223,10 +224,10 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
               {isPremium ? <Crown size={11} /> : <Zap size={11} />}
               {isPremium ? 'PREMIUM' : 'FREE'}
             </span>
-            {isAdminRole(currentUser.role) && (
+            {isStaffRole(currentUser.role) && (
               <span style={{
                 fontSize: '0.75rem', fontWeight: 700, padding: '3px 10px', borderRadius: '20px',
-                backgroundColor: 'rgba(231, 76, 60, 0.12)',
+                backgroundColor: 'var(--ln-red-a12)',
                 color: 'var(--primary)',
                 display: 'flex', alignItems: 'center', gap: '0.3rem'
               }}>
@@ -555,15 +556,26 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
                       📝 "{booking.notes}"
                     </p>
                   )}
+                  {booking.teacherDisplayName && (
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                      👤 {booking.teacherDisplayName}
+                    </div>
+                  )}
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                  <a href={booking.meetLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{
+                  {hasMeetLink(booking) ? (
+                  <a href={booking.meetLink!} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{
                     background: 'linear-gradient(135deg, #4285F4, #34A853)', color: 'white',
                     boxShadow: '0 4px 10px rgba(66,133,244,0.25)', padding: '0.6rem 1.2rem', fontSize: '0.9rem', borderRadius: '12px'
                   }}>
                     <Video size={16} />
-                    <span>{language === 'en' ? 'Join Meet' : 'Entra nel Meet'}</span>
+                    <span>{language === 'en' ? 'Join video call' : 'Entra in videochiamata'}</span>
                   </a>
+                  ) : (
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+                      {language === 'en' ? 'Video link pending from teacher' : 'Link video in attesa dal maestro'}
+                    </span>
+                  )}
                   <button
                     type="button"
                     onClick={() => onNavigateToBooking(booking.slotType === 'intro' ? 'intro' : 'regular', booking.id)}
@@ -613,7 +625,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         }}>
           <div className="glass-panel" style={{
             maxWidth: '420px', width: '100%', padding: '2rem',
-            background: 'var(--bg-app)', display: 'flex', flexDirection: 'column', gap: '1rem',
+            display: 'flex', flexDirection: 'column', gap: '1rem',
           }}>
             <h3 style={{ margin: 0 }}>
               {language === 'en' ? 'Cancel this lesson?' : 'Annullare questa lezione?'}
@@ -648,7 +660,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
         }}>
           <div className="glass-panel" style={{
             maxWidth: '380px', width: '100%', padding: '2rem', textAlign: 'center',
-            background: 'var(--bg-app)', display: 'flex', flexDirection: 'column', gap: '1.2rem'
+            display: 'flex', flexDirection: 'column', gap: '1.2rem'
           }}>
             <div style={{
               width: '60px', height: '60px', borderRadius: '50%',

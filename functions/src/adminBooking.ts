@@ -1,7 +1,7 @@
 import { getFirestore } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
-import { assertAdmin } from './adminAuth';
+import { assertSuperAdmin } from './adminAuth';
 import { cancelBookingByLuna } from './lunaCancel';
 
 const resendApiKey = defineSecret('RESEND_API_KEY');
@@ -13,7 +13,7 @@ export const adminCancelBooking = onCall(
     invoker: 'public',
   },
   async (request) => {
-    await assertAdmin(request);
+    await assertSuperAdmin(request);
 
     const targetUid = typeof request.data?.targetUid === 'string' ? request.data.targetUid.trim() : '';
     const bookingId = typeof request.data?.bookingId === 'string' ? request.data.bookingId.trim() : '';
@@ -39,7 +39,7 @@ export const adminDeactivateSlot = onCall(
     invoker: 'public',
   },
   async (request) => {
-    await assertAdmin(request);
+    await assertSuperAdmin(request);
 
     const slotId = typeof request.data?.slotId === 'string' ? request.data.slotId.trim() : '';
     const reason = typeof request.data?.reason === 'string' ? request.data.reason.trim() : '';

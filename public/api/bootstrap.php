@@ -118,9 +118,8 @@ function luna_gemini_error_message(?array $decoded): string
 function luna_call_gemini_tts(string $apiKey, string $text, string $language = 'ja-JP'): array
 {
     $models = [
-        'gemini-3.1-flash-tts-preview',
         'gemini-2.5-flash-preview-tts',
-        'gemini-2.5-pro-preview-tts',
+        'gemini-3.1-flash-tts-preview',
     ];
 
     $prompt = "Read the following Japanese text aloud naturally, clearly, and at a moderate pace for a language learner:\n\n" . $text;

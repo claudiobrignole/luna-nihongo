@@ -1,5 +1,6 @@
-import { ArrowRight, UserPlus, X } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import type { LanguageType } from './Header';
+import { LunaLogo } from './LunaLogo';
 
 interface RegisterPromptProps {
   language: LanguageType;
@@ -45,7 +46,7 @@ export function RegisterPrompt({ language, open, onClose, onRegister, reason = '
           <X size={20} />
         </button>
         <div className="register-prompt-icon">
-          <UserPlus size={28} />
+          <LunaLogo layout="icon" className="luna-logo--icon-md" alt="" />
         </div>
         <h2>{language === 'en' ? 'Free registration' : 'Registrazione gratuita'}</h2>
         <p>{msg[language]}</p>

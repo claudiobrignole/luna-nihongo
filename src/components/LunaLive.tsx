@@ -12,6 +12,7 @@ import {
 import { useGeminiLive } from '../hooks/useGeminiLive';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { connectSimliAvatar, isSimliConfigured, type SimliSession } from '../services/simliAvatar';
+import { LunaLogo } from './LunaLogo';
 
 interface LunaLiveProps {
   language: 'en' | 'it';
@@ -19,6 +20,7 @@ interface LunaLiveProps {
   onNavigateToDashboard: () => void;
   onSessionLogged?: (label: string, meta?: Record<string, string | number>) => void;
   onSessionSaved?: (chatHistory: ChatMessage[]) => void;
+  onSessionActiveChange?: (active: boolean) => void;
 }
 
 function formatTime(seconds: number): string {
@@ -44,6 +46,7 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
   currentUser,
   onSessionLogged,
   onSessionSaved,
+  onSessionActiveChange,
 }) => {
   const remaining = liveMinutesRemaining(currentUser);
   const isFree = !canUseAiTutor(currentUser);
@@ -91,6 +94,10 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
     isActive,
     playbackStream,
   } = useGeminiLive({ language, user: currentUser, onSessionEnded: handleSessionEnded });
+
+  useEffect(() => {
+    onSessionActiveChange?.(isActive);
+  }, [isActive, onSessionActiveChange]);
 
   useEffect(() => {
     if (!isActive || !playbackStream || !simliEnabled) {
@@ -150,7 +157,7 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
           ref={avatarRef}
           className={`luna-avatar ${status === 'speaking' ? 'speaking' : ''} ${isActive ? 'active' : ''}`}
         >
-          {!simliEnabled && <span className="luna-avatar-mark">月</span>}
+          {!simliEnabled && <LunaLogo layout="icon" className="luna-logo--icon-live" alt="" />}
           <p className="luna-avatar-status">
             <Radio size={14} />
             {statusLabel(status, language)}

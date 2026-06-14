@@ -16,16 +16,20 @@ import {
 import type { LunaUser, UserRole } from '../types/user';
 import {
   assignableRoles,
+  canChangeRole,
   canDeleteUser,
   canManageTier,
-  isAdminRole,
+  isProtectedSuperAdmin,
+  isStaffRole,
+  isSuperAdminRole,
   roleLabel,
 } from '../types/user';
 import { listAllUsers, setUserRole, setUserTier } from '../services/userService';
-import { adminDeleteUser } from '../services/adminUserService';
+import { adminDeleteUser, formatCallableError } from '../services/adminUserService';
 import { listStudyActivity } from '../services/studyActivityService';
 import type { StudyActivity } from '../types/study';
 import { AdminAvailabilityPanel } from './AdminAvailabilityPanel';
+import { TeacherPaymentsPanel } from './TeacherPaymentsPanel';
 
 interface AdminPanelProps {
   language: 'en' | 'it';
@@ -39,13 +43,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   const [search, setSearch] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
-  const [adminSection, setAdminSection] = useState<'users' | 'availability'>('users');
+  const [adminSection, setAdminSection] = useState<'users' | 'availability' | 'payouts'>('users');
   const [activityUser, setActivityUser] = useState<LunaUser | null>(null);
   const [activityLog, setActivityLog] = useState<StudyActivity[]>([]);
   const [activityLoading, setActivityLoading] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<LunaUser | null>(null);
 
-  const isSuperAdmin = currentUser.role === 'super_admin';
+  const isSuperAdmin = isSuperAdminRole(currentUser.role);
 
   const fetchUsers = useCallback(async () => {
     setLoading(true);
@@ -81,7 +85,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   const stats = useMemo(() => ({
     total: users.length,
     students: users.filter((u) => u.role === 'user').length,
-    admins: users.filter((u) => u.role === 'admin' || u.role === 'super_admin').length,
+    teachers: users.filter((u) => u.role === 'teacher' || u.role === 'super_admin').length,
     premium: users.filter((u) => u.tier === 'premium').length,
   }), [users]);
 
@@ -174,13 +178,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
       );
       setDeleteTarget(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error');
+      setError(formatCallableError(err));
     } finally {
       setBusyId(null);
     }
   };
 
-  if (!isAdminRole(currentUser.role)) {
+  if (!isStaffRole(currentUser.role)) {
     return (
       <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>
         <AlertCircle size={40} style={{ color: 'var(--error)', marginBottom: '1rem' }} />
@@ -195,8 +199,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
       {/* Header */}
       <div className="glass-panel" style={{
         padding: '1.5rem 2rem',
-        background: 'linear-gradient(135deg, rgba(231,76,60,0.08), rgba(155,89,182,0.04))',
-        borderColor: 'rgba(231,76,60,0.2)',
+        background: 'linear-gradient(135deg, var(--ln-red-a08), rgba(155,89,182,0.04))',
+        borderColor: 'var(--ln-red-a20)',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.5rem' }}>
           <Shield size={24} style={{ color: 'var(--primary)' }} />
@@ -205,13 +209,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
           </h2>
         </div>
         <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          {isSuperAdmin
+          { isSuperAdmin
             ? (language === 'en'
-              ? 'Manage users, roles, and subscription tiers.'
-              : 'Gestisci utenti, ruoli e piani di abbonamento.')
+              ? 'Manage users, roles, tiers, availability and teacher payments.'
+              : 'Gestisci utenti, ruoli, piani, disponibilità e pagamenti maestri.')
             : (language === 'en'
-              ? 'View users and manage student subscription tiers.'
-              : 'Visualizza utenti e gestisci i piani degli studenti.')}
+              ? 'View users and manage your lesson availability.'
+              : 'Visualizza utenti e gestisci la tua disponibilità lezioni.')}
         </p>
       </div>
 
@@ -220,7 +224,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
         {[
           { label: language === 'en' ? 'Total' : 'Totale', value: stats.total, icon: Users, color: 'var(--text-main)' },
           { label: language === 'en' ? 'Students' : 'Studenti', value: stats.students, icon: GraduationCap, color: 'var(--primary)' },
-          { label: language === 'en' ? 'Admins' : 'Admin', value: stats.admins, icon: Shield, color: 'var(--secondary)' },
+          { label: language === 'en' ? 'Teachers' : 'Maestri', value: stats.teachers, icon: Shield, color: 'var(--secondary)' },
           { label: 'Premium', value: stats.premium, icon: Crown, color: 'var(--accent)' },
         ].map(({ label, value, icon: Icon, color }) => (
           <div key={label} className="glass-panel" style={{ padding: '1.2rem', textAlign: 'center' }}>
@@ -246,10 +250,21 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
         >
           {language === 'en' ? 'Availability' : 'Disponibilità'}
         </button>
+        {isSuperAdmin && (
+          <button
+            type="button"
+            className={adminSection === 'payouts' ? 'btn btn-primary' : 'btn btn-secondary'}
+            onClick={() => setAdminSection('payouts')}
+          >
+            {language === 'en' ? 'Teacher payments' : 'Pagamenti maestri'}
+          </button>
+        )}
       </div>
 
       {adminSection === 'availability' ? (
-        <AdminAvailabilityPanel language={language} />
+        <AdminAvailabilityPanel language={language} currentUser={currentUser} />
+      ) : adminSection === 'payouts' && isSuperAdmin ? (
+        <TeacherPaymentsPanel language={language} />
       ) : (
         <>
       {/* Toolbar */}
@@ -331,8 +346,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                   const isSelf = user.id === currentUser.id;
                   const isBusy = busyId === user.id;
                   const roles = assignableRoles(currentUser, user);
+                  const canRole = canChangeRole(currentUser, user);
                   const canTier = canManageTier(currentUser, user);
                   const canDelete = canDeleteUser(currentUser, user);
+                  const roleLocked = isProtectedSuperAdmin(user.email);
 
                   return (
                     <tr key={user.id} style={{ borderBottom: '1px solid var(--border)' }}>
@@ -346,10 +363,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                       </td>
                       <td style={{ padding: '0.9rem 1rem', color: 'var(--text-muted)' }}>{user.email}</td>
                       <td style={{ padding: '0.9rem 1rem' }}>
-                        {roles.length > 0 ? (
+                        {canRole ? (
                           <select
-                            value={user.role === 'super_admin' ? 'super_admin' : user.role}
-                            disabled={isBusy || user.role === 'super_admin'}
+                            value={user.role}
+                            disabled={isBusy || roleLocked}
                             onChange={(e) => void handleRoleChange(user, e.target.value as UserRole)}
                             style={{
                               padding: '0.35rem 0.6rem',
@@ -360,17 +377,15 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
                               fontWeight: 600,
                             }}
                           >
-                            {user.role === 'super_admin' && (
-                              <option value="super_admin">{roleLabel('super_admin', language)}</option>
-                            )}
-                            <option value="user">{roleLabel('user', language)}</option>
-                            <option value="admin">{roleLabel('admin', language)}</option>
+                            {roles.map((role) => (
+                              <option key={role} value={role}>{roleLabel(role, language)}</option>
+                            ))}
                           </select>
                         ) : (
                           <span style={{
                             fontSize: '0.78rem', fontWeight: 700, padding: '3px 8px', borderRadius: '8px',
-                            backgroundColor: user.role === 'super_admin' ? 'rgba(231,76,60,0.12)' : user.role === 'admin' ? 'rgba(155,89,182,0.12)' : 'var(--primary-glow)',
-                            color: user.role === 'super_admin' ? 'var(--primary)' : user.role === 'admin' ? 'var(--secondary)' : 'var(--text-muted)',
+                            backgroundColor: user.role === 'super_admin' ? 'var(--ln-red-a12)' : user.role === 'teacher' ? 'rgba(155,89,182,0.12)' : 'var(--primary-glow)',
+                            color: user.role === 'super_admin' ? 'var(--primary)' : user.role === 'teacher' ? 'var(--secondary)' : 'var(--text-muted)',
                           }}>
                             {roleLabel(user.role, language)}
                           </span>

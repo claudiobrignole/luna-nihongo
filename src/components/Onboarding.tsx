@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, X } from 'lucide-react';
 import { CURRICULUM_LEVELS, unitCountForLevel } from '../data/curriculum';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import type { LanguageType } from './Header';
+import { LunaLogo } from './LunaLogo';
 
 interface OnboardingProps {
   language: LanguageType;
@@ -45,7 +46,7 @@ export function Onboarding({
       <div className="onboarding-overlay">
         <div className="onboarding-panel glass-panel">
           {closeButton}
-          <div className="onboarding-icon">月</div>
+          <LunaLogo layout="icon" className="luna-logo--icon-md" />
           <h2>
             {language === 'en' ? `Welcome, ${username}!` : `Benvenuto, ${username}!`}
           </h2>

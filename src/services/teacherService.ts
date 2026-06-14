@@ -1,0 +1,146 @@
+import { collection, collectionGroup, doc, getDoc, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { getFirebaseApp, getFirebaseDb } from '../lib/firebase';
+import type { TeacherBookingView, TeacherPayoutMonth } from '../types/teacher';
+import { TEACHER_LESSON_PAYOUT_EUR, monthKeyFromDate } from '../types/teacher';
+import type { BookingPlan } from '../types/booking';
+
+function docToTeacherBooking(
+  id: string,
+  studentUid: string,
+  data: Record<string, unknown>,
+): TeacherBookingView {
+  return {
+    id,
+    studentUid,
+    name: String(data.name ?? ''),
+    email: String(data.email ?? ''),
+    level: String(data.level ?? ''),
+    notes: data.notes ? String(data.notes) : undefined,
+    date: String(data.date ?? ''),
+    time: String(data.time ?? ''),
+    plan: String(data.plan ?? ''),
+    slotId: data.slotId ? String(data.slotId) : undefined,
+    slotType: data.slotType === 'intro' ? 'intro' : data.slotType === 'regular' ? 'regular' : undefined,
+    meetLink: data.meetLink != null ? String(data.meetLink) : null,
+    meetLinkSetAt: data.meetLinkSetAt ? String(data.meetLinkSetAt) : null,
+    price: String(data.price ?? ''),
+    timestamp: String(data.timestamp ?? ''),
+    slotStartAt: data.slotStartAt ? String(data.slotStartAt) : null,
+    teacherId: String(data.teacherId ?? ''),
+    teacherDisplayName: String(data.teacherDisplayName ?? ''),
+    teacherEmail: String(data.teacherEmail ?? ''),
+  };
+}
+
+export async function loadTeacherBookings(teacherId: string): Promise<TeacherBookingView[]> {
+  const q = query(
+    collectionGroup(getFirebaseDb(), 'bookings'),
+    where('teacherId', '==', teacherId),
+    orderBy('slotStartAt', 'asc'),
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) =>
+    docToTeacherBooking(d.id, d.ref.parent.parent?.id ?? '', d.data() as Record<string, unknown>),
+  );
+}
+
+export async function setBookingMeetLinkRemote(
+  studentUid: string,
+  bookingId: string,
+  meetLink: string,
+): Promise<void> {
+  const fn = httpsCallable(getFunctions(getFirebaseApp(), 'europe-west1'), 'setBookingMeetLink');
+  await fn({ studentUid, bookingId, meetLink });
+}
+
+export async function setTeacherPayoutStatusRemote(
+  teacherId: string,
+  monthKey: string,
+  status: 'pending_invoice' | 'paid',
+  lessonCount: number,
+): Promise<void> {
+  const fn = httpsCallable(getFunctions(getFirebaseApp(), 'europe-west1'), 'setTeacherPayoutStatus');
+  await fn({ teacherId, monthKey, status, lessonCount });
+}
+
+export async function loadTeacherPayoutMonth(
+  teacherId: string,
+  monthKey: string,
+): Promise<TeacherPayoutMonth | null> {
+  const ref = doc(getFirebaseDb(), 'teacherPayouts', teacherId, 'months', monthKey);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) return null;
+  const data = snap.data();
+  return {
+    id: monthKey,
+    status: data.status as TeacherPayoutMonth['status'],
+    lessonCount: typeof data.lessonCount === 'number' ? data.lessonCount : 0,
+    amountEur: typeof data.amountEur === 'number' ? data.amountEur : 0,
+    updatedAt: String(data.updatedAt ?? ''),
+    updatedBy: String(data.updatedBy ?? ''),
+    paidAt: data.paidAt ? String(data.paidAt) : null,
+  };
+}
+
+export async function loadTeacherPayoutMonths(teacherId: string): Promise<TeacherPayoutMonth[]> {
+  const snap = await getDocs(collection(getFirebaseDb(), 'teacherPayouts', teacherId, 'months'));
+  return snap.docs
+    .map((d) => {
+      const data = d.data();
+      return {
+        id: d.id,
+        status: data.status as TeacherPayoutMonth['status'],
+        lessonCount: typeof data.lessonCount === 'number' ? data.lessonCount : 0,
+        amountEur: typeof data.amountEur === 'number' ? data.amountEur : 0,
+        updatedAt: String(data.updatedAt ?? ''),
+        updatedBy: String(data.updatedBy ?? ''),
+        paidAt: data.paidAt ? String(data.paidAt) : null,
+      };
+    })
+    .sort((a, b) => b.id.localeCompare(a.id));
+}
+
+export function countCompletedRegularLessons(bookings: TeacherBookingView[], now = Date.now()): number {
+  return bookings.filter((b) => {
+    if (b.slotType !== 'regular') return false;
+    const start = b.slotStartAt ? new Date(b.slotStartAt).getTime() : NaN;
+    return !Number.isNaN(start) && start < now;
+  }).length;
+}
+
+export function earningsByMonth(
+  bookings: TeacherBookingView[],
+  now = Date.now(),
+): Map<string, number> {
+  const map = new Map<string, number>();
+  for (const b of bookings) {
+    if (b.slotType !== 'regular') continue;
+    const start = b.slotStartAt ? new Date(b.slotStartAt).getTime() : NaN;
+    if (Number.isNaN(start) || start >= now) continue;
+    const key = monthKeyFromDate(b.slotStartAt ?? b.date);
+    map.set(key, (map.get(key) ?? 0) + 1);
+  }
+  return map;
+}
+
+export function payoutAmount(lessonCount: number): number {
+  return lessonCount * TEACHER_LESSON_PAYOUT_EUR;
+}
+
+export function isUpcomingBooking(booking: TeacherBookingView, now = Date.now()): boolean {
+  const start = booking.slotStartAt ? new Date(booking.slotStartAt).getTime() : NaN;
+  return !Number.isNaN(start) && start >= now;
+}
+
+export function planLabel(plan: string, language: 'en' | 'it'): string {
+  const labels: Record<string, { en: string; it: string }> = {
+    trial_intro: { en: 'Intro', it: 'Intro' },
+    included: { en: 'Included', it: 'Inclusa' },
+    extra: { en: 'Extra', it: 'Extra' },
+    extra_rebook: { en: 'Extra rebook', it: 'Extra riprenot.' },
+    coupon: { en: 'Coupon', it: 'Coupon' },
+    replacement: { en: 'Replacement', it: 'Sostitutiva' },
+  };
+  return labels[plan as BookingPlan]?.[language] ?? plan;
+}

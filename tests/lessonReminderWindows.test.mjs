@@ -1,41 +1,43 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  DAY_BEFORE_MIN_MS,
-  DAY_BEFORE_MAX_MS,
-  TEN_MIN_MIN_MS,
-  TEN_MIN_MAX_MS,
+  THIRTY_SIX_HOURS_MIN_MS,
+  THIRTY_SIX_HOURS_MAX_MS,
+  ONE_HOUR_MIN_MS,
+  ONE_HOUR_MAX_MS,
+  isInThirtySixHourWindow,
+  isInOneHourWindow,
   isInDayBeforeWindow,
   isInTenMinWindow,
   reminderQueryRangeIso,
 } from '../functions/lib/lessonReminderWindows.js';
 import { resolveBookingSlotStartMs } from '../functions/lib/lessonReminders.js';
 
-test('isInDayBeforeWindow matches 23–25h before lesson', () => {
+test('isInThirtySixHourWindow matches 35–37h before lesson', () => {
   const slotStart = Date.parse('2026-06-10T14:00:00Z');
-  const nowInside = slotStart - 24 * 60 * 60 * 1000;
+  const nowInside = slotStart - 36 * 60 * 60 * 1000;
+  assert.equal(isInThirtySixHourWindow(slotStart, nowInside), true);
+  assert.equal(isInThirtySixHourWindow(slotStart, slotStart - THIRTY_SIX_HOURS_MIN_MS), true);
+  assert.equal(isInThirtySixHourWindow(slotStart, slotStart - THIRTY_SIX_HOURS_MAX_MS), true);
+  assert.equal(isInThirtySixHourWindow(slotStart, slotStart - THIRTY_SIX_HOURS_MIN_MS + 1), false);
   assert.equal(isInDayBeforeWindow(slotStart, nowInside), true);
-  assert.equal(isInDayBeforeWindow(slotStart, slotStart - DAY_BEFORE_MIN_MS), true);
-  assert.equal(isInDayBeforeWindow(slotStart, slotStart - DAY_BEFORE_MAX_MS), true);
-  assert.equal(isInDayBeforeWindow(slotStart, slotStart - DAY_BEFORE_MIN_MS + 1), false);
-  assert.equal(isInDayBeforeWindow(slotStart, slotStart - DAY_BEFORE_MAX_MS - 1), false);
 });
 
-test('isInTenMinWindow matches 8–12 min before lesson', () => {
+test('isInOneHourWindow matches 55–65 min before lesson', () => {
   const slotStart = Date.parse('2026-06-10T14:00:00Z');
-  const nowInside = slotStart - 10 * 60 * 1000;
+  const nowInside = slotStart - 60 * 60 * 1000;
+  assert.equal(isInOneHourWindow(slotStart, nowInside), true);
+  assert.equal(isInOneHourWindow(slotStart, slotStart - ONE_HOUR_MIN_MS), true);
+  assert.equal(isInOneHourWindow(slotStart, slotStart - ONE_HOUR_MAX_MS), true);
+  assert.equal(isInOneHourWindow(slotStart, slotStart - ONE_HOUR_MIN_MS + 1), false);
   assert.equal(isInTenMinWindow(slotStart, nowInside), true);
-  assert.equal(isInTenMinWindow(slotStart, slotStart - TEN_MIN_MIN_MS), true);
-  assert.equal(isInTenMinWindow(slotStart, slotStart - TEN_MIN_MAX_MS), true);
-  assert.equal(isInTenMinWindow(slotStart, slotStart - TEN_MIN_MIN_MS + 1), false);
-  assert.equal(isInTenMinWindow(slotStart, slotStart - TEN_MIN_MAX_MS - 1), false);
 });
 
-test('reminderQueryRangeIso spans ten-min through day-before windows', () => {
+test('reminderQueryRangeIso spans one-hour through 36-hour windows', () => {
   const now = Date.parse('2026-06-09T12:00:00Z');
   const { from, to } = reminderQueryRangeIso(now);
-  assert.equal(from, new Date(now + TEN_MIN_MIN_MS).toISOString());
-  assert.equal(to, new Date(now + DAY_BEFORE_MAX_MS).toISOString());
+  assert.equal(from, new Date(now + ONE_HOUR_MIN_MS).toISOString());
+  assert.equal(to, new Date(now + THIRTY_SIX_HOURS_MAX_MS).toISOString());
 });
 
 test('resolveBookingSlotStartMs prefers slotStartAt then date/time', () => {

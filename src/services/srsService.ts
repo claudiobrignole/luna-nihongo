@@ -62,25 +62,31 @@ async function migrateSRSFromLocalStorage(userId: string): Promise<boolean> {
 }
 
 export async function loadSRSCards(userId: string, locale: 'en' | 'it' = 'it'): Promise<SRSCard[]> {
-  const snap = await getDocs(srsCollection(userId));
-  const progressMap: Record<string, CardProgress> = {};
+  let progressMap: Record<string, CardProgress> = {};
 
-  snap.forEach((docSnap) => {
-    const data = docSnap.data();
-    progressMap[docSnap.id] = {
-      id: docSnap.id,
-      repetitions: data.repetitions ?? 0,
-      interval: data.interval ?? 0,
-      easiness: data.easiness ?? 2.5,
-      dueDate: data.dueDate ?? new Date().toISOString().split('T')[0],
-    };
-  });
+  try {
+    const snap = await getDocs(srsCollection(userId));
 
-  if (snap.empty) {
-    const migrated = await migrateSRSFromLocalStorage(userId);
-    if (migrated) {
-      return loadSRSCards(userId, locale);
+    snap.forEach((docSnap) => {
+      const data = docSnap.data();
+      progressMap[docSnap.id] = {
+        id: docSnap.id,
+        repetitions: data.repetitions ?? 0,
+        interval: data.interval ?? 0,
+        easiness: data.easiness ?? 2.5,
+        dueDate: data.dueDate ?? new Date().toISOString().split('T')[0],
+      };
+    });
+
+    if (snap.empty) {
+      const migrated = await migrateSRSFromLocalStorage(userId);
+      if (migrated) {
+        return loadSRSCards(userId, locale);
+      }
     }
+  } catch (err) {
+    console.warn('SRS progress unavailable — using fresh deck catalog', err);
+    progressMap = {};
   }
 
   return buildCardsFromProgress(progressMap, locale);

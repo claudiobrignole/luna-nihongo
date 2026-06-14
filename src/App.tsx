@@ -7,6 +7,7 @@ import { TeacherProfile } from './components/TeacherProfile';
 import { BookingCalendar, type BookingMode } from './components/BookingCalendar';
 import { StudentDashboard } from './components/StudentDashboard';
 import { AdminPanel } from './components/AdminPanel';
+import { TeacherDashboard } from './components/TeacherDashboard';
 import { AITutor } from './components/AITutor';
 import { Header, type TabType, type LanguageType } from './components/Header';
 import { HomeLanding } from './components/HomeLanding';
@@ -24,12 +25,13 @@ import { SiteFooter } from './components/SiteFooter';
 import { CookieConsent } from './components/CookieConsent';
 import { ConsentProvider, useConsent } from './contexts/ConsentContext';
 import { useAuth } from './contexts/AuthContext';
-import { isAdminRole, hasActiveSubscription } from './types/user';
+import { isStaffRole, isTeacherRole, hasActiveSubscription } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
 import { startFreeTrial } from './services/trialService';
 import { syncMarketingConsent } from './services/emailService';
 import { CURRICULUM_LEVELS } from './data/curriculum';
+import { LunaLogo } from './components/LunaLogo';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
@@ -292,7 +294,7 @@ function AppInner() {
     return (
       <div className="app-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
         <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-          <div className="logo-circle" lang="ja" style={{ margin: '0 auto 1rem', width: 48, height: 48, fontSize: '1.05rem' }}>るな</div>
+          <LunaLogo layout="icon" className="luna-logo--loading" />
           <p>{language === 'en' ? 'Loading...' : 'Caricamento...'}</p>
         </div>
       </div>
@@ -554,8 +556,12 @@ function AppInner() {
           />
         )}
 
-        {activeTab === 'admin' && isAdminRole(currentUser.role) && (
+        {activeTab === 'admin' && isStaffRole(currentUser.role) && (
           <AdminPanel language={language} currentUser={currentUser} />
+        )}
+
+        {activeTab === 'teacher-dashboard' && isTeacherRole(currentUser.role) && (
+          <TeacherDashboard language={language} currentUser={currentUser} />
         )}
       </main>
 

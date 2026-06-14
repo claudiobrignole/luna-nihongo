@@ -1,5 +1,6 @@
 import { Globe } from 'lucide-react';
 import type { LanguageType, TabType } from './Header';
+import { LunaLogo } from './LunaLogo';
 
 interface SiteFooterProps {
   language: LanguageType;
@@ -16,11 +17,7 @@ export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLangu
     <footer className="mg-footer">
       <div className="mg-footer-inner">
         <div className="mg-footer-brand">
-          <div className="logo-circle" lang="ja">るな</div>
-          <div className="logo-text">
-            <span className="logo-text-primary">Luna Nihongo</span>
-            <span className="logo-text-secondary" lang="ja">るな・日本語</span>
-          </div>
+          <LunaLogo layout="horizontal" theme="dark" className="luna-logo--footer" />
         </div>
 
         <nav className="mg-footer-links" aria-label={it ? 'Note legali' : 'Legal'}>

@@ -1,16 +1,21 @@
 # Luna Nihongo
 
-Piattaforma web per imparare il giapponese: percorso guidato, flashcard SRS, tutor AI (Gemini), prenotazione lezioni e pannello admin.
+Piattaforma web bilingue **IT/EN** per imparare il giapponese: percorso guidato da zero fino al **JLPT N4** (142 unità), flashcard SRS, tutor AI (Gemini), prenotazione lezioni con Luna e pannello admin.
+
+**Produzione:** [lunanihongo.com](https://lunanihongo.com) · **Repo:** [github.com/claudiobrignole/luna-nihongo](https://github.com/claudiobrignole/luna-nihongo)
 
 ## Stack
 
 - **Frontend:** React 19 + TypeScript + Vite
 - **Database / Auth:** Firebase (Firestore + Email/Password)
 - **AI Chat:** Gemini 2.5 Flash via `api/tutor.php`
-- **Voce naturale:** Gemini TTS via `api/tts.php`
+- **Voce naturale:** audio precalcolati del curriculum in `public/audio/curriculum/` (Studio, dialoghi, flashcard); Gemini TTS via `api/tts.php` solo per il tutor chat
 - **Luna Live:** conversazione vocale via `api/live-session.php` + Firebase Functions
 - **Premium:** Stripe Checkout + webhook (Firebase Functions)
+- **Email:** Resend (transazionali) + SendFox (newsletter) via Cloud Functions
 - **Hosting:** Hostinger (statico + PHP)
+
+Panoramica architettura e convenzioni per agenti AI: [`.cursor/PROJECT_MEMORY.md`](.cursor/PROJECT_MEMORY.md)
 
 ## Setup locale
 
@@ -119,8 +124,11 @@ Se fallisce, apri Cloud Run → Security → **Allow public access** per ciascun
 Serve un ruolo con permesso IAM su Cloud Run (es. **Owner** o **Cloud Run Admin** sul progetto).
 
 **Callable (Cloud Run invoker pubblico + auth Firebase nel body):**
-- `createLiveSession`, `endLiveSession`, `deleteLiveSession`
-- `createStripeCheckout`, `createStripePortal`
+- Live: `createLiveSession`, `endLiveSession`, `deleteLiveSession`
+- Stripe: `createStripeCheckout`, `createExtraLessonCheckout`, `createStripePortal`
+- Booking: `bookAvailabilitySlot`, `cancelBooking`, `rescheduleBooking`, `redeemCoupon`, `checkGraceNoSlotsCoupon`, `adminCancelBooking`, `adminDeactivateSlot`, `startFreeTrial`
+- Email: `subscribeNewsletter`, `syncMarketingConsent`
+- Admin: `adminDeleteUser`
 
 **Webhook Stripe:** configura in Stripe Dashboard l'URL  
 `https://europe-west1-luna-nihongo.cloudfunctions.net/stripeWebhook`
@@ -205,28 +213,65 @@ npm run build:hostinger
 | `npm run dev:api` | Dev API PHP locale |
 | `npm run curriculum:check` | Valida JSON curriculum (CI) |
 | `npm run curriculum:build` | Valida + genera `build/curriculum.json` |
+| `npm run audio:sync` | Rigenera solo gli audio curriculum cambiati (delta); usa Batch API se ≥10 file mancanti |
+| `npm run audio:batch` | Forza Batch API per tutti i file mancanti (~50% costo, quote separate) |
+| `npm run audio:batch:resume` | Scarica risultati di un batch job in corso |
+| `npm run audio:sync -- --sync` | Forza generazione sincrona live (max ~100/giorno per modello TTS) |
+| `npm run audio:sync -- --all` | Rigenera tutti gli audio (~620 file, richiede `GEMINI_API_KEY`) |
+| `npm run audio:sync -- --id hira-a,dlg-self-intro-L0` | Rigenera singole entry |
+| `npm run audio:sync -- --id dlg-self-intro-L0 --force` | Sovrascrive audio con stesso testo |
+| `npm run audio:verify` | Verifica manifest + file WAV vs curriculum (CI/prebuild) |
 | `npm run build` | Build Vite (include curriculum) |
 | `npm run build:hostinger` | Build + verifica deploy |
 | `npm run functions:deploy` | Build + deploy Cloud Functions |
 | `npm run functions:allow-public` | IAM Cloud Run invoker per callable |
 | `npm test` | Unit test leggeri |
 
-## Curriculum didattico (N5)
+## Curriculum didattico (N5 + N4)
 
-Sorgente in `content/curriculum/`:
+Sorgente in `content/curriculum/` (schema **1.1.0**, target **N4**):
+
+| Traccia | Livelli | Unità |
+|---------|---------|-------|
+| JLPT N5 | L0–L6 | 85 |
+| JLPT N4 | L7–L12 | 57 |
+| **Totale** | **13 livelli (0–12)** | **142 unità** |
+
+Repository atomici (dopo `hydrate.mjs --check`): 211 kana · 116 kanji · 137 vocab · 47 grammatica · 20 dialoghi.
 
 ```
 content/curriculum/
-├── manifest.json       # unitOrder = sequenza canonica
-├── levels.json         # 7 macro-livelli
-├── repositories/       # kana, kanji, vocab, grammar (atomici)
-├── units/*.json        # 60 unità (un file per id)
+├── manifest.json       # unitOrder = sequenza canonica (fonte di verità)
+├── levels.json         # macro-livelli 0–12
+├── repositories/       # kana, kanji, vocab, grammar, dialogues (atomici)
+├── units/*.json        # 142 unità (un file per id)
 ├── hydrate.mjs         # validatore + build bundle
+├── insert-units.mjs    # inserisce nuove unità in unitOrder
 └── build/              # generato — curriculum.json per React
 ```
 
-**Aggiungere o modificare lezioni:** edita JSON in `repositories/` o `units/`, aggiorna `manifest.unitOrder` se aggiungi unità, poi `npm run curriculum:check`.
+**Aggiungere o modificare lezioni:** edita JSON in `repositories/` o `units/`. Per nuove unità usa `insert-units.mjs` (non modificare `unitOrder` a mano), poi `npm run curriculum:check` e `npm run audio:sync`.
 
-Il deploy Hostinger esegue la validazione automaticamente prima del build.
+## Audio curriculum (precalcolato)
 
-Guida operativa (IT): [`content/curriculum/GUIDA-CONTENUTI.md`](content/curriculum/GUIDA-CONTENUTI.md)
+Studio, dialoghi e flashcard usano file WAV statici in `public/audio/curriculum/` (manifest + dedup per testo). Il tutor chat e Luna Live restano su Gemini.
+
+Dopo ogni modifica al testo giapponese nel curriculum:
+
+```bash
+npm run curriculum:build
+npm run audio:sync          # solo delta
+npm run audio:verify
+```
+
+Prima generazione o cambio voce/modello TTS: `npm run audio:sync -- --all` (richiede `GEMINI_API_KEY` in `.env`).
+
+**Nota quota Gemini TTS live:** i modelli `*-tts-preview` hanno cap bassi (~100 req/giorno) anche con billing. Per generare tutti i ~642 file usa la **Batch API** (automatica con `npm run audio:sync` se mancano ≥10 file, oppure `npm run audio:batch`). Completamento tipico: minuti–ore, max 24h.
+
+Solo manifest (senza chiamate API): `npm run audio:sync -- --manifest-only`
+
+Il deploy Hostinger esegue la validazione automaticamente prima del build (`prebuild`).
+
+Guide:
+- [`content/curriculum/README.md`](content/curriculum/README.md) — struttura, convenzioni id, schema
+- [`content/curriculum/GUIDA-CONTENUTI.md`](content/curriculum/GUIDA-CONTENUTI.md) — guida operativa (IT)

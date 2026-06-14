@@ -19,6 +19,9 @@ fi
 echo "→ Validating curriculum..."
 npm run curriculum:check
 
+echo "→ Verifying curriculum audio..."
+npm run audio:verify
+
 echo "→ Generating Gemini secret file..."
 node scripts/generate-gemini-secret.mjs
 
@@ -29,6 +32,7 @@ echo "→ Verifying deploy artifacts..."
 test -f dist/index.html
 test -f dist/.htaccess
 test -f dist/api/tts.php
+test -f dist/audio/curriculum/manifest.json
 test -f dist/api/tutor.php
 test -f dist/api/live-session.php
 test -f dist/api/writing-grade.php

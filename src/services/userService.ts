@@ -118,6 +118,9 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
     trialEndsAt: normalized.trialEndsAt ?? null,
     trialUsed: normalized.trialUsed === true,
     introCallBookedAt: normalized.introCallBookedAt ?? null,
+    teacherDisplayName: normalized.teacherDisplayName
+      ? String(normalized.teacherDisplayName)
+      : undefined,
     preferredLanguage: normalized.preferredLanguage === 'en' ? 'en' : 'it',
     marketingConsent: normalized.marketingConsent === true,
     marketingConsentAt: normalized.marketingConsentAt ?? null,
@@ -260,10 +263,6 @@ export async function setUserRole(
   targetUid: string,
   newRole: UserRole
 ): Promise<LunaUser> {
-  if (newRole === 'super_admin') {
-    throw new Error('Il ruolo super admin non può essere assegnato manualmente.');
-  }
-
   const targetSnap = await getDoc(doc(getFirebaseDb(), USERS_COLLECTION, targetUid));
   if (!targetSnap.exists()) {
     throw new Error('Utente target non trovato.');
@@ -275,7 +274,7 @@ export async function setUserRole(
     throw new Error('Permessi insufficienti per modificare questo ruolo.');
   }
 
-  if (newRole !== 'user' && newRole !== 'admin') {
+  if (newRole !== 'user' && newRole !== 'teacher' && newRole !== 'super_admin') {
     throw new Error('Ruolo non valido.');
   }
 
@@ -286,6 +285,18 @@ export async function setUserRole(
 
   const updated = await getDoc(doc(getFirebaseDb(), USERS_COLLECTION, targetUid));
   return docToUser(targetUid, updated.data()!);
+}
+
+export async function listTeachers(): Promise<LunaUser[]> {
+  const all = await listAllUsers();
+  return all.filter((u) => u.role === 'teacher' || u.role === 'super_admin');
+}
+
+export async function updateTeacherDisplayName(uid: string, teacherDisplayName: string): Promise<void> {
+  await updateDoc(doc(getFirebaseDb(), USERS_COLLECTION, uid), {
+    teacherDisplayName: teacherDisplayName.trim(),
+    updatedAt: new Date().toISOString(),
+  });
 }
 
 function adminPremiumPeriod(now = new Date()) {

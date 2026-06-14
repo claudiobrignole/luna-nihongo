@@ -1,5 +1,6 @@
 import { Bot, MessageCircle, Send, Volume2 } from 'lucide-react';
 import type { LanguageType } from './Header';
+import { LunaLogo } from './LunaLogo';
 
 interface GuestTutorPreviewProps {
   language: LanguageType;
@@ -11,7 +12,7 @@ export function GuestTutorPreview({ language, onRequireAuth }: GuestTutorPreview
     <div className="guest-tutor-preview page-view">
       <div className="guest-tutor-chat glass-panel">
         <div className="guest-tutor-header">
-          <div className="logo-circle" style={{ width: 44, height: 44, fontSize: '1.2rem' }}>月</div>
+          <LunaLogo layout="icon" className="luna-logo--icon-sm" />
           <div>
             <strong>Luna-sensei</strong>
             <span>{language === 'en' ? 'AI tutor · preview' : 'Tutor AI · anteprima'}</span>

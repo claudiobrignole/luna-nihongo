@@ -22,7 +22,7 @@ type Variant = 'washi' | 'yellow' | 'purple' | 'ink' | 'red';
 interface HeroConfig {
   variant: Variant;
   index: string;
-  watermark: string;
+  watermark?: string;
   titleJa: string;
   sub: { it: string; en: string };
   image: string;
@@ -36,7 +36,6 @@ const HERO: Record<PageHeroKey, HeroConfig> = {
   study: {
     variant: 'washi',
     index: '01.STUDY',
-    watermark: 'S',
     titleJa: 'まなぶ — ガイドつきの道',
     sub: {
       it: 'Il percorso guidato da hiragana al JLPT N4, al tuo ritmo.',
@@ -162,7 +161,9 @@ export function PageHero({ page, language, subOverride }: PageHeroProps) {
   return (
     <section className={`mg-band mg-band--${cfg.variant} mg-bleed page-hero`}>
       <div className="mg-band-inner">
-        <span className="mg-watermark" aria-hidden="true" lang="ja">{cfg.watermark}</span>
+        {cfg.watermark ? (
+          <span className="mg-watermark" aria-hidden="true" lang="ja">{cfg.watermark}</span>
+        ) : null}
         <div className="mg-band-copy">
           <p className="mg-index" style={{ color: indexColor }}>{cfg.index}</p>
           <h1 className="mg-band-title" lang="ja">{cfg.titleJa}</h1>

@@ -25,6 +25,9 @@ SERVICES=(
   admindeactivateslot
   subscribenewsletter
   syncmarketingconsent
+  admindeleteuser
+  setbookingmeetlink
+  setteacherpayoutstatus
 )
 
 echo "Project: $PROJECT  Region: $REGION"

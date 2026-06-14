@@ -24,12 +24,12 @@ service cloud.firestore {
       return isSignedIn() && userDoc().role == 'super_admin';
     }
 
-    function isAdmin() {
-      return isSignedIn() && userDoc().role in ['super_admin', 'admin'];
+    function isTeacher() {
+      return isSignedIn() && userDoc().role == 'teacher';
     }
 
-    function isAdminOnly() {
-      return isSignedIn() && userDoc().role == 'admin';
+    function isStaff() {
+      return isSignedIn() && userDoc().role in ['super_admin', 'teacher'];
     }
 
     function protectedSuperAdminEmail() {
@@ -88,7 +88,12 @@ service cloud.firestore {
         ]);
     }
 
-    function adminTierManagedKeys() {
+    function ownerCannotChangeRoleOrTier() {
+      return !request.resource.data.diff(resource.data).affectedKeys()
+        .hasAny(['role', 'tier']);
+    }
+
+    function staffTierManagedKeys() {
       return [
         'tier',
         'updatedAt',
@@ -110,16 +115,21 @@ service cloud.firestore {
 
     function onlyTierChanged() {
       return request.resource.data.diff(resource.data).affectedKeys()
-        .hasOnly(adminTierManagedKeys());
+        .hasOnly(staffTierManagedKeys());
     }
 
     function onlyRoleOrTierChanged() {
       return request.resource.data.diff(resource.data).affectedKeys()
-        .hasOnly(['role'].concat(adminTierManagedKeys()));
+        .hasOnly(['role'].concat(staffTierManagedKeys()));
+    }
+
+    function teacherProfileKeysOnly() {
+      return request.resource.data.diff(resource.data).affectedKeys()
+        .hasOnly(['teacherDisplayName', 'updatedAt']);
     }
 
     match /users/{userId} {
-      allow read: if isOwner(userId) || isAdmin();
+      allow read: if isOwner(userId) || isStaff();
 
       allow create: if isOwner(userId)
         && request.resource.data.email.lower() == request.auth.token.email.lower()
@@ -133,30 +143,21 @@ service cloud.firestore {
         && ownerCannotChangeStripeFields()
         && ownerCannotChangeTrialFields()
         && ownerCannotChangeServerEmailFields()
+        && ownerCannotChangeRoleOrTier()
         && (
-          !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role'])
-          || isSuperAdmin()
-          || isPrimarySuperAdmin()
-        )
-        && (
-          !isProtectedAccount(resource.data.email)
-          || request.resource.data.role == 'super_admin'
+          !isTeacher()
+          || teacherProfileKeysOnly()
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['teacherDisplayName', 'updatedAt'])
         );
 
       allow update: if isSuperAdmin()
         && !isOwner(userId)
         && onlyRoleOrTierChanged()
-        && request.resource.data.role in ['user', 'admin', 'super_admin']
+        && request.resource.data.role in ['user', 'teacher', 'super_admin']
         && (
           !isProtectedAccount(resource.data.email)
           || request.resource.data.role == 'super_admin'
         );
-
-      allow update: if isAdminOnly()
-        && !isOwner(userId)
-        && resource.data.role == 'user'
-        && request.resource.data.role == 'user'
-        && onlyTierChanged();
 
       allow delete: if isSuperAdmin()
         && !isProtectedAccount(resource.data.email);
@@ -166,25 +167,37 @@ service cloud.firestore {
       }
 
       match /bookings/{bookingId} {
-        allow read: if isOwner(userId) || isAdmin();
+        allow read: if isOwner(userId) || isStaff();
         allow create, update, delete: if false;
       }
 
       match /activity/{activityId} {
-        allow read: if isOwner(userId) || isAdmin();
+        allow read: if isOwner(userId) || isStaff();
         allow create: if isOwner(userId);
         allow update, delete: if false;
       }
 
       match /liveSessions/{sessionId} {
-        allow read: if isOwner(userId) || isAdmin();
+        allow read: if isOwner(userId) || isStaff();
         allow write: if false;
       }
     }
 
     match /availabilitySlots/{slotId} {
       allow read: if isSignedIn();
-      allow create, update, delete: if isAdmin();
+      allow create: if isSuperAdmin()
+        || (isTeacher() && request.resource.data.teacherId == request.auth.uid);
+      allow update: if isSuperAdmin()
+        || (isTeacher()
+          && resource.data.teacherId == request.auth.uid
+          && request.resource.data.teacherId == request.auth.uid);
+      allow delete: if isSuperAdmin()
+        || (isTeacher() && resource.data.teacherId == request.auth.uid);
+    }
+
+    match /teacherPayouts/{teacherId}/months/{monthId} {
+      allow read: if isSuperAdmin() || (isTeacher() && request.auth.uid == teacherId);
+      allow write: if isSuperAdmin();
     }
 
     match /trialIpClaims/{claimId} {

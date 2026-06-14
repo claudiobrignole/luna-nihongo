@@ -17,11 +17,20 @@ export interface BookedLesson {
   plan: BookingPlan;
   slotId?: string;
   slotType?: 'intro' | 'regular';
-  meetLink: string;
+  teacherId?: string;
+  teacherDisplayName?: string;
+  teacherEmail?: string;
+  meetLink?: string | null;
+  meetLinkSetAt?: string | null;
   price: string;
   timestamp: string;
   slotStartAt?: string | null;
   couponId?: string | null;
+  remindersSent?: {
+    thirtySixHours?: string;
+    oneHour?: string;
+    teacherAddLink?: string;
+  };
 }
 
 export type NewBooking = Omit<BookedLesson, 'id' | 'timestamp'>;
@@ -40,4 +49,9 @@ export function bookingPlanLabel(plan: BookingPlan, language: 'en' | 'it'): stri
 
 export function isExtraLikePlan(plan: BookingPlan): boolean {
   return plan === 'extra' || plan === 'extra_rebook';
+}
+
+export function hasMeetLink(booking: Pick<BookedLesson, 'meetLink'>): boolean {
+  const link = booking.meetLink?.trim();
+  return Boolean(link);
 }

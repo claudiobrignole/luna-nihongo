@@ -4,6 +4,7 @@ import type { LunaUser } from '../types/user';
 import { hasActiveSubscription, isTrialActive, trialDaysRemaining, includedLessonsRemaining, MONTHLY_SUBSCRIPTION_LABEL, EXTRA_LESSON_PRICE_LABEL, AI_MINUTES_WEEKLY } from '../types/user';
 import { FreeTrialButton } from './FreeTrialButton';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { LunaLogo } from './LunaLogo';
 
 interface TeacherProfileProps {
   language: 'en' | 'it';
@@ -12,6 +13,9 @@ interface TeacherProfileProps {
   onTrialRefresh?: () => void | Promise<void>;
   onRequireAuth?: () => void;
 }
+
+const INK = 'var(--ln-card-border)';
+const HARD_SHADOW = '4px 4px 0 var(--ln-card-shadow)';
 
 export const TeacherProfile: React.FC<TeacherProfileProps> = ({
   language,
@@ -62,58 +66,40 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
 
   return (
     <div className="teacher-profile-view page-view" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-      
-      {/* Hero Section */}
-      <div 
-        className="glass-panel" 
+
+      {/* Bio card */}
+      <div
+        className="glass-panel"
         style={{
           display: 'flex',
           flexWrap: 'wrap',
-          padding: '2.5rem',
-          gap: '2.5rem',
+          padding: '2rem',
+          gap: '2rem',
           alignItems: 'center',
-          background: 'linear-gradient(135deg, var(--bg-panel), var(--primary-glow))'
         }}
       >
-        {/* Profile Circle Illustration */}
-        <div style={{
-          flex: '1 1 200px',
-          display: 'flex',
-          justifyContent: 'center'
-        }}>
-          <div style={{
-            position: 'relative',
-            width: '180px',
-            height: '180px',
-            borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--primary), var(--accent))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 8px 30px var(--primary-glow)',
-            border: '4px solid var(--bg-app)'
-          }}>
-            <span className="ja-text" style={{
-              fontSize: '4.5rem',
-              color: 'white',
-              fontWeight: '700'
-            }}>
-              月
-            </span>
+        {/* Marchio Luna */}
+        <div style={{ flex: '1 1 180px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ position: 'relative', display: 'inline-flex' }}>
+            <LunaLogo layout="icon" className="luna-logo--icon-lg" />
             <div style={{
               position: 'absolute',
-              bottom: '5px',
-              right: '5px',
-              backgroundColor: 'var(--success)',
-              color: 'white',
-              padding: '6px 12px',
-              borderRadius: '20px',
-              fontSize: '0.75rem',
+              bottom: '-6px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: 'var(--ln-teal)',
+              color: '#fff',
+              padding: '5px 12px',
+              borderRadius: '999px',
+              fontSize: '0.72rem',
               fontWeight: 700,
+              fontFamily: 'var(--font-heading)',
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              boxShadow: '0 4px 10px var(--success-glow)'
+              border: `2px solid ${INK}`,
+              boxShadow: HARD_SHADOW,
+              whiteSpace: 'nowrap',
             }}>
               <ShieldCheck size={14} />
               ONLINE
@@ -123,47 +109,48 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
 
         {/* Luna Bio */}
         <div style={{ flex: '2 1 350px', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div>
             <span style={{
-              fontSize: '0.75rem',
+              display: 'inline-block',
+              fontSize: '0.72rem',
               fontWeight: 700,
-              color: 'var(--primary)',
-              backgroundColor: 'var(--primary-glow)',
-              padding: '4px 10px',
-              borderRadius: '8px',
-              letterSpacing: '0.05em'
+              fontFamily: 'var(--font-heading)',
+              color: 'var(--ln-ink)',
+              backgroundColor: 'var(--ln-yellow)',
+              padding: '5px 12px',
+              borderRadius: '999px',
+              border: `2px solid ${INK}`,
+              letterSpacing: '0.05em',
             }}>
               {language === 'en' ? 'NATIVE JAPANESE SPEAKER' : 'MADRELINGUA GIAPPONESE'}
             </span>
           </div>
 
-          <h2 style={{ fontSize: '2.5rem', lineHeight: '1.1' }}>
+          <h2 style={{ fontSize: '2.2rem', lineHeight: '1.15' }}>
             {language === 'en' ? 'Learn Japanese with Luna' : 'Impara il Giapponese con Luna'}
           </h2>
 
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.02rem', lineHeight: 1.6 }}>
             {language === 'en'
               ? "Hi! I'm Luna. I help language enthusiasts master Japanese from absolute beginner to conversational fluency. I design custom paths focusing on practical speaking, particle clarity, and natural pronunciation, tailored for Italian and English speakers."
               : "Ciao! Sono Luna. Aiuto gli appassionati di lingue a padroneggiare il giapponese, dal livello principiante assoluto alla conversazione fluente. Creo percorsi personalizzati focalizzati sulla lingua parlata e sulla grammatica, su misura per italiani ed anglofoni."}
           </p>
 
-          {/* Teacher Badges */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.8rem', marginTop: '0.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <Clock size={16} style={{ color: 'var(--primary)' }} />
+              <Clock size={16} style={{ color: 'var(--ln-red)' }} />
               <span>{language === 'en' ? 'Custom Schedule' : 'Orari Flessibili'}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <Globe size={16} style={{ color: 'var(--primary)' }} />
+              <Globe size={16} style={{ color: 'var(--ln-red)' }} />
               <span>{language === 'en' ? 'Bilingual Support' : 'Supporto Bilingue'}</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-              <Award size={16} style={{ color: 'var(--primary)' }} />
+              <Award size={16} style={{ color: 'var(--ln-red)' }} />
               <span>{language === 'en' ? '5+ Years Teaching' : '5+ Anni Esperienza'}</span>
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Why Choose 1-on-1 */}
@@ -173,9 +160,9 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
         </h3>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-          
-          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: '4px solid var(--primary)' }}>
-            <div style={{ color: 'var(--primary)', marginBottom: '0.8rem' }}><MessageSquare size={28} /></div>
+
+          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: `6px solid var(--ln-red)` }}>
+            <div style={{ color: 'var(--ln-red)', marginBottom: '0.8rem' }}><MessageSquare size={28} /></div>
             <h4 style={{ marginBottom: '0.5rem' }}>{language === 'en' ? 'Natural Conversation' : 'Conversazione Naturale'}</h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {language === 'en'
@@ -184,8 +171,8 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
             </p>
           </div>
 
-          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: '4px solid var(--accent)' }}>
-            <div style={{ color: 'var(--accent)', marginBottom: '0.8rem' }}><BookOpen size={28} /></div>
+          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: `6px solid var(--ln-yellow)` }}>
+            <div style={{ color: 'var(--ln-yellow)', marginBottom: '0.8rem' }}><BookOpen size={28} /></div>
             <h4 style={{ marginBottom: '0.5rem' }}>{language === 'en' ? 'Grammar Clarity' : 'Chiarezza Grammaticale'}</h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {language === 'en'
@@ -194,8 +181,8 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
             </p>
           </div>
 
-          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: '4px solid var(--secondary)' }}>
-            <div style={{ color: 'var(--secondary)', marginBottom: '0.8rem' }}><Clock size={28} /></div>
+          <div className="glass-panel" style={{ padding: '1.5rem', borderTop: `6px solid var(--ln-purple)` }}>
+            <div style={{ color: 'var(--ln-purple)', marginBottom: '0.8rem' }}><Clock size={28} /></div>
             <h4 style={{ marginBottom: '0.5rem' }}>{language === 'en' ? 'In-app scheduling' : 'Prenotazione integrata'}</h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {language === 'en'
@@ -213,15 +200,10 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           {language === 'en' ? 'Lesson Plans & Investment' : 'Piani di Studio e Tariffe'}
         </h3>
 
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '2rem',
-        }}>
-          
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
+
           {/* Plan 1: Free trial */}
-          <div 
+          <div
             className="glass-panel"
             style={{
               flex: '1 1 280px',
@@ -231,28 +213,30 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
               alignItems: 'center',
               textAlign: 'center',
               gap: '1rem',
-              border: '2px solid var(--accent)',
-              position: 'relative'
+              position: 'relative',
             }}
           >
             <div style={{
               position: 'absolute',
-              top: '-15px',
-              backgroundColor: 'var(--accent)',
-              color: 'white',
-              padding: '4px 12px',
-              borderRadius: '20px',
-              fontSize: '0.75rem',
+              top: '-16px',
+              backgroundColor: 'var(--ln-yellow)',
+              color: 'var(--ln-ink)',
+              padding: '4px 14px',
+              borderRadius: '999px',
+              fontSize: '0.72rem',
               fontWeight: 700,
+              fontFamily: 'var(--font-heading)',
+              border: `2px solid ${INK}`,
+              boxShadow: HARD_SHADOW,
             }}>
               {language === 'en' ? 'NEW' : 'NOVITÀ'}
             </div>
 
-            <h4 style={{ fontSize: '1.2rem', color: 'var(--accent)', fontWeight: 700 }}>
+            <h4 style={{ fontSize: '1.2rem', color: 'var(--ln-red-deep)', fontWeight: 700 }}>
               {language === 'en' ? '7 days free' : '7 giorni gratuiti'}
             </h4>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>
+              <span style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>
                 {language === 'en' ? '7 days' : '7 giorni'}
               </span>
             </div>
@@ -263,7 +247,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
             </p>
             <div style={{
               width: '100%',
-              borderTop: '1px solid var(--border)',
+              borderTop: `2px solid var(--ln-card-border)`,
               paddingTop: '1rem',
               textAlign: 'left',
               display: 'flex',
@@ -276,7 +260,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
               <div>✔️ {language === 'en' ? 'Lessons & flashcards stay free after trial' : 'Lezioni e flashcard restano free dopo la prova'}</div>
             </div>
             {trialActive && (
-              <p style={{ fontSize: '0.8rem', color: 'var(--primary)', margin: 0 }}>
+              <p style={{ fontSize: '0.8rem', color: 'var(--ln-red-deep)', margin: 0 }}>
                 {language === 'en'
                   ? `${trialDays} day(s) left in your trial`
                   : `${trialDays} giorno/i rimasti di prova`}
@@ -300,7 +284,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           </div>
 
           {/* Plan 2: Monthly lesson package */}
-          <div 
+          <div
             className="glass-panel"
             style={{
               flex: '1 1 280px',
@@ -310,29 +294,32 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
               alignItems: 'center',
               textAlign: 'center',
               gap: '1rem',
-              border: '2px solid var(--primary)',
-              position: 'relative'
+              border: `3px solid var(--ln-red)`,
+              position: 'relative',
             }}
           >
             <div style={{
               position: 'absolute',
-              top: '-15px',
-              backgroundColor: 'var(--primary)',
-              color: 'white',
-              padding: '4px 12px',
-              borderRadius: '20px',
-              fontSize: '0.75rem',
+              top: '-16px',
+              backgroundColor: 'var(--ln-red)',
+              color: '#fff',
+              padding: '4px 14px',
+              borderRadius: '999px',
+              fontSize: '0.72rem',
               fontWeight: 700,
-              letterSpacing: '0.05em'
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '0.04em',
+              border: `2px solid ${INK}`,
+              boxShadow: HARD_SHADOW,
             }}>
               {language === 'en' ? 'BEST VALUE (15% OFF)' : 'CONSIGLIATO (15% SCONTO)'}
             </div>
 
-            <h4 style={{ fontSize: '1.2rem', color: 'var(--primary)', fontWeight: 700 }}>
+            <h4 style={{ fontSize: '1.2rem', color: 'var(--ln-red-deep)', fontWeight: 700 }}>
               {language === 'en' ? 'Monthly Sub' : 'Abbonamento Mensile'}
             </h4>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--text-main)' }}>{MONTHLY_SUBSCRIPTION_LABEL}</span>
+              <span style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-heading)' }}>{MONTHLY_SUBSCRIPTION_LABEL}</span>
               <span style={{ color: 'var(--text-light)', fontSize: '0.9rem' }}>/ mo</span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', minHeight: '60px' }}>
@@ -342,7 +329,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
             </p>
             <div style={{
               width: '100%',
-              borderTop: '1px solid var(--border)',
+              borderTop: `2px solid var(--ln-card-border)`,
               paddingTop: '1rem',
               textAlign: 'left',
               display: 'flex',
@@ -379,9 +366,9 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
         </div>
       </div>
 
-      {/* Testimonials Carousel */}
-      <div 
-        className="glass-panel" 
+      {/* Testimonials */}
+      <div
+        className="glass-panel"
         style={{
           padding: '2rem',
           textAlign: 'center',
@@ -391,7 +378,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           gap: '1rem'
         }}
       >
-        <div style={{ display: 'flex', gap: '4px', color: 'var(--accent)' }}>
+        <div style={{ display: 'flex', gap: '4px', color: 'var(--ln-yellow)' }}>
           {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
         </div>
 
@@ -400,7 +387,7 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           fontStyle: 'italic',
           color: 'var(--text-main)',
           maxWidth: '80%',
-          lineHeight: '1.4',
+          lineHeight: '1.5',
           minHeight: '80px',
           display: 'flex',
           alignItems: 'center',
@@ -418,10 +405,10 @@ export const TeacherProfile: React.FC<TeacherProfileProps> = ({
           </span>
         </div>
 
-        <button 
+        <button
           onClick={handleNextReview}
           className="btn btn-secondary"
-          style={{ padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.8rem', marginTop: '0.5rem' }}
+          style={{ padding: '0.5rem 1.1rem', fontSize: '0.8rem', marginTop: '0.5rem' }}
         >
           <ArrowRight size={14} style={{ marginRight: '4px' }} />
           {language === 'en' ? 'Next Review' : 'Prossima Recensione'}

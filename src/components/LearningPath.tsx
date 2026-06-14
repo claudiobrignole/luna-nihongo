@@ -16,13 +16,18 @@ import {
 } from '../utils/curriculumDisplay';
 import { WritingQuizPanel } from './WritingQuizPanel';
 import { StrokeOrderQuizPanel } from './StrokeOrderQuizPanel';
+import { DialogueStudyPanel } from './DialogueStudyPanel';
+import { CanDoPanel } from './CanDoPanel';
+import { dialogueHasContent } from '../utils/dialogueDisplay';
+import { grammarExampleId, prefetchCurriculumAudioManifest } from '../utils/curriculumAudio';
+import { stopJapaneseSpeech } from '../services/ttsService';
 import type { WritingQuizExtended } from '../types/writingGrading';
 import type { SyllabusLevel } from '../types/curriculum';
 import {
+  ArrowLeft,
   BookOpen,
   CheckCircle,
   Trophy,
-  X,
   Award,
   Volume2,
   Mic,
@@ -63,7 +68,18 @@ export const LearningPath: React.FC<LearningPathProps> = ({
   useEffect(() => {
     setActiveLevel(initialLevel);
   }, [initialLevel]);
+
   const [selectedUnit, setSelectedUnit] = useState<HydratedUnit | null>(null);
+
+  useEffect(() => {
+    prefetchCurriculumAudioManifest();
+  }, []);
+
+  useEffect(() => {
+    if (selectedUnit) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedUnit]);
   const [quizActive, setQuizActive] = useState<boolean>(false);
   const [currentQuizIndex, setCurrentQuizIndex] = useState<number>(0);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
@@ -180,6 +196,15 @@ export const LearningPath: React.FC<LearningPathProps> = ({
   const currentQuiz: Quiz | undefined = selectedUnit?.quizzes[currentQuizIndex];
   const displayCards = selectedUnit ? getDisplayCards(selectedUnit, language) : [];
   const grammarPoints = selectedUnit ? getGrammarPoints(selectedUnit) : [];
+  const unitDialogues = selectedUnit?.dialogues ?? [];
+  const unitCanDo = selectedUnit?.canDo ?? [];
+  const isSituationUnit = selectedUnit?.type === 'situation';
+
+  const closeUnitDrawer = () => {
+    stopJapaneseSpeech();
+    clearSpeechFeedback();
+    setSelectedUnit(null);
+  };
 
   const isSubmitDisabled = () => {
     if (!currentQuiz) return true;
@@ -197,6 +222,8 @@ export const LearningPath: React.FC<LearningPathProps> = ({
 
   return (
     <div className="study-hub page-view">
+      {!selectedUnit ? (
+      <>
       <header className="study-hub-header">
         <div>
           <h2>{language === 'en' ? 'Studio' : 'Studio'}</h2>
@@ -287,60 +314,54 @@ export const LearningPath: React.FC<LearningPathProps> = ({
           );
         })}
       </div>
+      </>
+      ) : (
+        <article className="study-unit-page glass-panel">
+            <button type="button" className="study-unit-back" onClick={closeUnitDrawer}>
+              <ArrowLeft size={18} />
+              {language === 'en' ? 'Back to pathway' : 'Torna al percorso'}
+            </button>
 
-      {/* Unit Study Drawer / Modal Overlay */}
-      {selectedUnit && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          backdropFilter: 'blur(8px)',
-          zIndex: 200,
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'stretch'
-        }} onClick={() => setSelectedUnit(null)}>
-          
-          <div 
-            style={{
-              width: '100%',
-              maxWidth: '550px',
-              backgroundColor: 'var(--bg-app)',
-              borderLeft: '1px solid var(--border)',
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '2rem 1.5rem',
-              overflowY: 'auto'
-            }}
-            onClick={(e) => e.stopPropagation()}
-            className="drawer-content"
-          >
-            {/* Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <div className="study-unit-page-header">
               <span className={`study-unit-type type-${selectedUnit.type}`}>
                 {unitTypeLabel(selectedUnit.type, language, selectedUnit.id)}
               </span>
-              <button onClick={() => setSelectedUnit(null)} style={{ color: 'var(--text-muted)' }}>
-                <X size={24} />
-              </button>
             </div>
 
-            <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', borderBottom: '2px solid var(--border)', paddingBottom: '0.5rem' }}>
+            <h2 className="study-unit-page-title">
               {selectedUnit.title[language]}
             </h2>
+
+            <p className="study-unit-description">{selectedUnit.description[language]}</p>
 
             {/* Quiz Screen vs Study Screen */}
             {!quizActive ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', flex: 1 }}>
-                
+
+                {isSituationUnit && unitCanDo.length > 0 && (
+                  <CanDoPanel language={language} canDo={unitCanDo} />
+                )}
+
+                {dialogueHasContent(unitDialogues) && (
+                  <DialogueStudyPanel
+                    language={language}
+                    dialogues={unitDialogues}
+                    showRomaji={showRomaji}
+                    speakJapanese={speakJapanese}
+                    startSpeechRecognition={startSpeechRecognition}
+                    speechFeedback={speechFeedback}
+                    activeMicItemId={activeMicItemId}
+                    speakingItemId={speakingItemId}
+                  />
+                )}
+
                 {/* Character/Vocabulary List */}
                 {displayCards.length > 0 && (
                   <div>
                     <h3 style={{ marginBottom: '1rem' }}>
-                      {language === 'en' ? 'Characters & Vocabulary' : 'Caratteri e Vocabolario'}
+                      {isSituationUnit
+                        ? (language === 'en' ? 'Key vocabulary' : 'Vocabolario chiave')
+                        : (language === 'en' ? 'Characters & Vocabulary' : 'Caratteri e Vocabolario')}
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                       {displayCards.map((item) => (
@@ -353,7 +374,6 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             padding: '1rem',
                             gap: '0.6rem',
                             borderLeft: '4px solid var(--primary)',
-                            background: 'var(--bg-panel)'
                           }}
                         >
                           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -474,7 +494,9 @@ export const LearningPath: React.FC<LearningPathProps> = ({
 
                     <h4 style={{ marginTop: '0.5rem' }}>{language === 'en' ? 'Examples' : 'Esempi'}</h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                      {grammarPoint.examples.map((example, i) => (
+                      {grammarPoint.examples.map((example, i) => {
+                        const exampleAudioId = grammarExampleId(grammarPoint.id, i);
+                        return (
                         <div 
                           key={i} 
                           className="glass-panel" 
@@ -492,7 +514,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                               {example.japanese}
                             </div>
                             <button 
-                              onClick={() => void speakJapanese(example.japanese, `ex-${i}`)}
+                              onClick={() => void speakJapanese(example.japanese, exampleAudioId)}
                               disabled={speakingItemId !== null}
                               style={{
                                 padding: '6px',
@@ -502,11 +524,11 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                opacity: speakingItemId === `ex-${i}` ? 0.6 : 1,
+                                opacity: speakingItemId === exampleAudioId ? 0.6 : 1,
                               }}
                               title={language === 'en' ? 'Listen' : 'Ascolta'}
                             >
-                              {speakingItemId === `ex-${i}` ? <Loader2 size={16} className="spin" /> : <Volume2 size={16} />}
+                              {speakingItemId === exampleAudioId ? <Loader2 size={16} className="spin" /> : <Volume2 size={16} />}
                             </button>
                           </div>
                           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -521,7 +543,8 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                             </div>
                           )}
                         </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
@@ -590,7 +613,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                     </div>
 
                     <button 
-                      onClick={() => setSelectedUnit(null)}
+                      onClick={closeUnitDrawer}
                       className="btn btn-primary"
                       style={{ width: '100%', marginTop: '2rem' }}
                     >
@@ -753,8 +776,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                 )}
               </div>
             )}
-          </div>
-        </div>
+        </article>
       )}
 
       {/* Embedded CSS Animations */}
@@ -765,9 +787,9 @@ export const LearningPath: React.FC<LearningPathProps> = ({
           20%, 40%, 60%, 80% { transform: translateX(5px); }
         }
         @keyframes pulse {
-          0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-          70% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(231, 76, 60, 0); }
-          100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+          0% { transform: scale(1); box-shadow: 0 0 0 0 var(--ln-red-a40); }
+          70% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(var(--ln-red-rgb), 0); }
+          100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(var(--ln-red-rgb), 0); }
         }
       `}</style>
     </div>

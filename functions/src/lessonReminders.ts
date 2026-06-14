@@ -3,11 +3,13 @@ import { defineSecret } from 'firebase-functions/params';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
 import {
-  isInDayBeforeWindow,
-  isInTenMinWindow,
+  isInOneHourWindow,
+  isInTeacherAddLinkBeforeLessonWindow,
+  isInThirtySixHourWindow,
   reminderQueryRangeIso,
 } from './lessonReminderWindows';
 import { parseSlotStartMs } from './schedulingRules';
+import { teacherDashboardUrl } from './teacherBookings';
 
 const resendApiKey = defineSecret('RESEND_API_KEY');
 
@@ -16,9 +18,16 @@ interface BookingReminderDoc {
   email?: string;
   date?: string;
   time?: string;
-  meetLink?: string;
+  meetLink?: string | null;
   slotStartAt?: string | null;
+  timestamp?: string;
+  teacherId?: string;
+  teacherEmail?: string;
+  teacherDisplayName?: string;
   remindersSent?: {
+    thirtySixHours?: string;
+    oneHour?: string;
+    teacherAddLink?: string;
     dayBefore?: string;
     tenMin?: string;
   };
@@ -34,10 +43,20 @@ export function resolveBookingSlotStartMs(booking: BookingReminderDoc): number |
   return parseSlotStartMs(date, startTime);
 }
 
+function meetLinkBlock(meetLink: string | null | undefined, it: boolean): string {
+  const link = String(meetLink ?? '').trim();
+  if (!link) {
+    return `<p style="font-size:14px;color:#666">${it
+      ? 'Il link video sarà inviato appena il maestro lo inserirà.'
+      : 'The video link will be sent once your teacher adds it.'}</p>`;
+  }
+  return `<p><a href="${link}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Apri videochiamata' : 'Open video call'}</a></p>`;
+}
+
 export async function processLessonReminders(
   apiKey: string,
   now = Date.now(),
-): Promise<{ dayBefore: number; tenMin: number; scanned: number }> {
+): Promise<{ thirtySixHours: number; oneHour: number; teacherAddLink: number; scanned: number }> {
   const db = getFirestore();
   const { from, to } = reminderQueryRangeIso(now);
 
@@ -47,9 +66,11 @@ export async function processLessonReminders(
     .where('slotStartAt', '<=', to)
     .get();
 
-  let dayBefore = 0;
-  let tenMin = 0;
+  let thirtySixHours = 0;
+  let oneHour = 0;
+  let teacherAddLink = 0;
   const userCache = new Map<string, Record<string, unknown>>();
+  const teacherCache = new Map<string, Record<string, unknown>>();
 
   for (const doc of snap.docs) {
     const booking = doc.data() as BookingReminderDoc;
@@ -64,14 +85,58 @@ export async function processLessonReminders(
     if (!email || !name) continue;
 
     const remindersSent = booking.remindersSent ?? {};
+    const meetLink = String(booking.meetLink ?? '').trim() || null;
     const mailBase = {
       name,
+      teacherName: String(booking.teacherDisplayName ?? ''),
       date: String(booking.date ?? ''),
       time: String(booking.time ?? ''),
-      meetLink: String(booking.meetLink ?? ''),
+      meetLink: meetLink ?? '',
     };
 
-    if (isInDayBeforeWindow(slotStartMs, now) && !remindersSent.dayBefore) {
+    const teacherId = String(booking.teacherId ?? '');
+    const teacherEmail = String(booking.teacherEmail ?? '').trim();
+
+    if (
+      !meetLink
+      && teacherEmail
+      && !remindersSent.teacherAddLink
+      && isInTeacherAddLinkBeforeLessonWindow(slotStartMs, now)
+    ) {
+      let teacher = teacherCache.get(teacherId);
+      if (!teacher && teacherId) {
+        const teacherSnap = await db.collection('users').doc(teacherId).get();
+        teacher = teacherSnap.data() ?? {};
+        teacherCache.set(teacherId, teacher);
+      }
+
+      queueTransactionalEmail({
+        apiKey,
+        to: teacherEmail,
+        language: resolveUserLanguage(teacher ?? {}),
+        type: 'teacher_add_link_reminder',
+        data: {
+          teacherName: String(booking.teacherDisplayName ?? ''),
+          studentName: name,
+          date: mailBase.date,
+          time: mailBase.time,
+          dashboardUrl: teacherDashboardUrl(),
+        },
+      });
+
+      await doc.ref.set(
+        {
+          remindersSent: {
+            ...remindersSent,
+            teacherAddLink: new Date(now).toISOString(),
+          },
+        },
+        { merge: true },
+      );
+      teacherAddLink += 1;
+    }
+
+    if (isInThirtySixHourWindow(slotStartMs, now) && !remindersSent.thirtySixHours && !remindersSent.dayBefore) {
       let user = userCache.get(uid);
       if (!user) {
         const userSnap = await db.collection('users').doc(uid).get();
@@ -83,24 +148,46 @@ export async function processLessonReminders(
         apiKey,
         to: email,
         language: resolveUserLanguage(user),
-        type: 'lesson_reminder_day_before',
+        type: 'lesson_reminder_36h',
         data: mailBase,
       });
+
+      if (teacherEmail) {
+        let teacher = teacherCache.get(teacherId);
+        if (!teacher && teacherId) {
+          const teacherSnap = await db.collection('users').doc(teacherId).get();
+          teacher = teacherSnap.data() ?? {};
+          teacherCache.set(teacherId, teacher);
+        }
+        queueTransactionalEmail({
+          apiKey,
+          to: teacherEmail,
+          language: resolveUserLanguage(teacher ?? {}),
+          type: 'lesson_reminder_36h_teacher',
+          data: {
+            teacherName: String(booking.teacherDisplayName ?? ''),
+            studentName: name,
+            date: mailBase.date,
+            time: mailBase.time,
+            meetLink: meetLink ?? '',
+          },
+        });
+      }
 
       await doc.ref.set(
         {
           remindersSent: {
             ...remindersSent,
-            dayBefore: new Date(now).toISOString(),
+            thirtySixHours: new Date(now).toISOString(),
           },
         },
         { merge: true },
       );
-      dayBefore += 1;
+      thirtySixHours += 1;
       continue;
     }
 
-    if (isInTenMinWindow(slotStartMs, now) && !remindersSent.tenMin) {
+    if (isInOneHourWindow(slotStartMs, now) && !remindersSent.oneHour && !remindersSent.tenMin) {
       let user = userCache.get(uid);
       if (!user) {
         const userSnap = await db.collection('users').doc(uid).get();
@@ -112,24 +199,46 @@ export async function processLessonReminders(
         apiKey,
         to: email,
         language: resolveUserLanguage(user),
-        type: 'lesson_reminder_ten_min',
+        type: 'lesson_reminder_1h',
         data: mailBase,
       });
+
+      if (teacherEmail) {
+        let teacher = teacherCache.get(teacherId);
+        if (!teacher && teacherId) {
+          const teacherSnap = await db.collection('users').doc(teacherId).get();
+          teacher = teacherSnap.data() ?? {};
+          teacherCache.set(teacherId, teacher);
+        }
+        queueTransactionalEmail({
+          apiKey,
+          to: teacherEmail,
+          language: resolveUserLanguage(teacher ?? {}),
+          type: 'lesson_reminder_1h_teacher',
+          data: {
+            teacherName: String(booking.teacherDisplayName ?? ''),
+            studentName: name,
+            date: mailBase.date,
+            time: mailBase.time,
+            meetLink: meetLink ?? '',
+          },
+        });
+      }
 
       await doc.ref.set(
         {
           remindersSent: {
             ...remindersSent,
-            tenMin: new Date(now).toISOString(),
+            oneHour: new Date(now).toISOString(),
           },
         },
         { merge: true },
       );
-      tenMin += 1;
+      oneHour += 1;
     }
   }
 
-  return { dayBefore, tenMin, scanned: snap.size };
+  return { thirtySixHours, oneHour, teacherAddLink, scanned: snap.size };
 }
 
 export const sendLessonReminders = onSchedule(
@@ -141,8 +250,10 @@ export const sendLessonReminders = onSchedule(
   },
   async () => {
     const result = await processLessonReminders(resendApiKey.value());
-    if (result.dayBefore > 0 || result.tenMin > 0) {
+    if (result.thirtySixHours > 0 || result.oneHour > 0 || result.teacherAddLink > 0) {
       console.log('Lesson reminders sent', result);
     }
   },
 );
+
+export { meetLinkBlock };

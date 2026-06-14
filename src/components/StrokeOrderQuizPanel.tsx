@@ -194,7 +194,7 @@ export const StrokeOrderQuizPanel: React.FC<StrokeOrderQuizPanelProps> = ({
     };
 
     for (const stroke of userStrokesRef.current) {
-      drawStroke(stroke, canvasColor('--primary', '#e74c3c'), 5);
+      drawStroke(stroke, canvasColor('--primary', '#d6304a'), 5);
     }
     if (currentStroke.length > 1) {
       drawStroke(currentStroke, canvasColor('--secondary', '#9b59b6'), 5);

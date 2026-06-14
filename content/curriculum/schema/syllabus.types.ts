@@ -115,9 +115,11 @@ export interface GrammarExample {
 // DIALOGUES (v1.1.0 situational layer)
 // ------------------------------------------------------------
 
-/** One line in a situational dialogue scene. id e.g. "dlg-cafe-order". */
+/** One line in a situational dialogue scene. */
 export interface DialogueLine {
-  speaker: Bilingual;
+  /** Speaker role id (e.g. "A", "B") — display name is in speakerLabel. */
+  speaker: string;
+  speakerLabel: Bilingual;
   japanese: string;
   kana: string;
   romaji: string;
@@ -129,10 +131,10 @@ export interface DialogueScene {
   id: string;              // dlg-<slug>
   title: Bilingual;
   /** Setting / communicative goal of the scene. */
-  context: Bilingual;
+  setting: Bilingual;
   lines: DialogueLine[];
-  vocabRefs?: string[];
-  grammarRefs?: string[];
+  usesGrammarRefs?: string[];
+  usesVocabRefs?: string[];
 }
 
 /** Can-do statement (CEFR-style communicative outcome). */
@@ -296,7 +298,7 @@ export interface ManifestUnitMapEntry {
 
 export interface Manifest {
   schemaVersion: string;      // "1.1.0"
-  targetLevel: "N5";
+  targetLevel: "N5" | "N4";
   /** Ordered list of unit ids = the canonical learning path. */
   unitOrder: string[];
   /** Human-readable index; levels live in levels.json, not here. */

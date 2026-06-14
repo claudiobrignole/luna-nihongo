@@ -21,6 +21,8 @@ function docToSlot(id: string, data: Record<string, unknown>): AvailabilitySlot 
     startTime: String(data.startTime ?? ''),
     endTime: String(data.endTime ?? ''),
     slotType,
+    teacherId: String(data.teacherId ?? ''),
+    teacherDisplayName: String(data.teacherDisplayName ?? ''),
     maxParticipants: typeof data.maxParticipants === 'number'
       ? data.maxParticipants
       : defaultMaxParticipants(slotType),
@@ -34,23 +36,34 @@ function docToSlot(id: string, data: Record<string, unknown>): AvailabilitySlot 
 }
 
 export async function loadAvailabilitySlots(
-  slotType?: SlotType,
-  fromDate?: string,
+  options?: {
+    slotType?: SlotType;
+    fromDate?: string;
+    teacherId?: string;
+  },
 ): Promise<AvailabilitySlot[]> {
-  const q = query(collection(getFirebaseDb(), COLLECTION), where('active', '==', true));
+  const constraints = [where('active', '==', true)];
+  if (options?.teacherId) {
+    constraints.push(where('teacherId', '==', options.teacherId));
+  }
+  const q = query(collection(getFirebaseDb(), COLLECTION), ...constraints);
   const snap = await getDocs(q);
   let slots = snap.docs.map((d) => docToSlot(d.id, d.data() as Record<string, unknown>));
-  if (slotType) {
-    slots = slots.filter((s) => s.slotType === slotType);
+  if (options?.slotType) {
+    slots = slots.filter((s) => s.slotType === options.slotType);
   }
-  if (fromDate) {
+  if (options?.fromDate) {
+    const fromDate = options.fromDate;
     slots = slots.filter((s) => s.date >= fromDate);
   }
   return slots.sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime));
 }
 
-export async function loadAllAvailabilitySlotsAdmin(): Promise<AvailabilitySlot[]> {
-  const snap = await getDocs(collection(getFirebaseDb(), COLLECTION));
+export async function loadAllAvailabilitySlotsAdmin(teacherId?: string): Promise<AvailabilitySlot[]> {
+  const q = teacherId
+    ? query(collection(getFirebaseDb(), COLLECTION), where('teacherId', '==', teacherId))
+    : collection(getFirebaseDb(), COLLECTION);
+  const snap = await getDocs(q);
   return snap.docs
     .map((d) => docToSlot(d.id, d.data() as Record<string, unknown>))
     .sort((a, b) => a.date.localeCompare(b.date) || a.startTime.localeCompare(b.startTime));
@@ -74,6 +87,8 @@ export async function createAvailabilitySlot(input: NewAvailabilitySlot): Promis
     startTime: slot.startTime,
     endTime: slot.endTime,
     slotType: slot.slotType,
+    teacherId: slot.teacherId,
+    teacherDisplayName: slot.teacherDisplayName,
     maxParticipants: slot.maxParticipants,
     participantCount: 0,
     participantIds: [],

@@ -1,15 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Yuji+Syuku&display=swap');
 
 :root {
-  /* HSL Color System */
-  /* Theme: Japanese Sakura Sunset & Tokyo Midnight */
-  --primary-hue: 350; /* Crimson / Sakura theme */
+  /* Sfondo pagina (#FAF6ED) — vedi design.md; solo pagina + header, non pannelli */
+  --ln-cream: #FAF6ED;
+
+  /* Brand red — unica fonte (home manga), vedi DESIGN_SYSTEM.md */
+  --ln-red: #d6304a;
+  --ln-red-deep: #a8203a;
+  --ln-red-rgb: 214, 48, 74;
+  --ln-red-a08: rgba(var(--ln-red-rgb), 0.08);
+  --ln-red-a10: rgba(var(--ln-red-rgb), 0.1);
+  --ln-red-a12: rgba(var(--ln-red-rgb), 0.12);
+  --ln-red-a15: rgba(var(--ln-red-rgb), 0.15);
+  --ln-red-a20: rgba(var(--ln-red-rgb), 0.2);
+  --ln-red-a25: rgba(var(--ln-red-rgb), 0.25);
+  --ln-red-a40: rgba(var(--ln-red-rgb), 0.4);
+
   --accent-hue: 38;   /* Golden Washi / Sunset theme */
   
-  --primary: hsl(var(--primary-hue), 85%, 50%);
-  --primary-hover: hsl(var(--primary-hue), 85%, 43%);
-  --primary-light: hsl(var(--primary-hue), 90%, 95%);
-  --primary-glow: hsla(var(--primary-hue), 85%, 50%, 0.15);
+  --primary: var(--ln-red);
+  --primary-hover: var(--ln-red-deep);
+  --primary-light: var(--ln-red-a10);
+  --primary-glow: var(--ln-red-a15);
   
   --secondary: hsl(280, 75%, 60%);
   --accent: hsl(var(--accent-hue), 90%, 55%);
@@ -19,16 +31,15 @@
   /* Status Colors */
   --success: hsl(150, 75%, 40%);
   --success-glow: hsla(150, 75%, 40%, 0.15);
-  --error: hsl(5, 80%, 50%);
-  --error-glow: hsla(5, 80%, 50%, 0.15);
+  --error: var(--ln-red);
+  --error-glow: var(--ln-red-a15);
   --warning: hsl(38, 95%, 50%);
   
   /* Neutrals - Light Mode (Warm Washi Paper) */
-  --bg-app: hsl(40, 24%, 96%);
-  --bg-panel: hsla(0, 0%, 100%, 0.75);
+  --bg-app: var(--ln-cream);
   --bg-input: hsl(0, 0%, 100%);
   --border: hsla(220, 15%, 15%, 0.08);
-  --border-glow: hsla(var(--primary-hue), 85%, 50%, 0.15);
+  --border-glow: var(--ln-red-a15);
   
   --text-main: hsl(220, 20%, 18%);
   --text-muted: hsl(220, 10%, 45%);
@@ -69,10 +80,10 @@
     --bg-panel: hsla(224, 25%, 14%, 0.7);
     --bg-input: hsl(224, 25%, 12%);
     --border: hsla(224, 20%, 90%, 0.08);
-    --border-glow: hsla(var(--primary-hue), 80%, 55%, 0.25);
+    --border-glow: var(--ln-red-a25);
     
-    --primary-light: hsl(var(--primary-hue), 30%, 18%);
-    --primary-glow: hsla(var(--primary-hue), 85%, 50%, 0.25);
+    --primary-light: var(--ln-red-a20);
+    --primary-glow: var(--ln-red-a25);
     
     --accent-light: hsl(var(--accent-hue), 30%, 18%);
     
@@ -201,6 +212,7 @@ textarea:focus-visible {
   width: 100%;
   min-height: 100dvh;
   position: relative;
+  background-color: var(--bg-app);
 }
 
 .app-container:has(.tutor-layout) {
@@ -247,7 +259,7 @@ textarea:focus-visible {
   z-index: 100;
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  background-color: var(--bg-panel);
+  background-color: var(--ln-cream);
   border-bottom: 1px solid var(--border);
   transition: all var(--transition-normal);
   padding-top: var(--safe-area-top);
@@ -307,62 +319,83 @@ textarea:focus-visible {
   justify-self: start;
 }
 
-.logo-circle {
+.luna-logo {
+  display: block;
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  min-width: 42px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--ln-red);
-  border: 2px solid var(--ln-ink);
-  position: relative;
-  display: flex;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.luna-logo--header,
+.luna-logo--auto .luna-logo__img {
+  height: 2.4rem;
+  width: auto;
+  max-width: min(13.8rem, 52vw);
+}
+
+.luna-logo--footer {
+  height: 2.22rem;
+  width: auto;
+  max-width: 14.4rem;
+}
+
+.luna-logo--auth {
+  height: 5.4rem;
+  width: auto;
+  margin: 0 auto 1rem;
+}
+
+.luna-logo--loading {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+}
+
+.luna-logo--icon-sm {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.luna-logo--icon-xs {
+  width: 2.125rem;
+  height: 2.125rem;
+}
+
+.luna-logo--icon-md {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+}
+
+.luna-logo--icon-lg {
+  width: 10.625rem;
+  height: 10.625rem;
+}
+
+.luna-logo--icon-live {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+.luna-logo--auto {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 400;
-  font-size: 0.95rem;
-  font-family: var(--ln-font-brush);
-  line-height: 1;
-  box-shadow: 2px 2px 0 rgba(43, 35, 51, 0.3);
+  line-height: 0;
 }
 
-/* falce di luna gialla sul marchio */
-.logo-circle::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ln-yellow);
-  border: 2px solid var(--ln-ink);
+.luna-logo--auto .luna-logo__img--on-dark {
+  display: none;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-  min-width: 0;
-}
+@media (prefers-color-scheme: dark) {
+  .luna-logo--auto .luna-logo__img--on-light {
+    display: none;
+  }
 
-.logo-text-primary {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-}
-
-.logo-text-secondary {
-  font-family: var(--font-heading);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  .luna-logo--auto .luna-logo__img--on-dark {
+    display: block;
+  }
 }
 
 .header-desktop-nav {
@@ -539,7 +572,7 @@ textarea:focus-visible {
 }
 
 .user-menu-badge-admin {
-  background: rgba(231, 76, 60, 0.12);
+  background: var(--ln-red-a12);
   color: var(--primary);
 }
 
@@ -748,10 +781,6 @@ textarea:focus-visible {
     display: none;
   }
 
-  .logo-text-desktop {
-    display: none;
-  }
-
   .mobile-bottom-nav {
     display: flex;
   }
@@ -907,10 +936,8 @@ textarea:focus-visible {
 /* ── Manga brand tokens — vedi DESIGN_SYSTEM.md ── */
 :root {
   --ln-ink: #2b2333;
-  --ln-paper: #faf5ea;
+  --ln-paper: var(--ln-cream);
   --ln-washi: #efe3c8;
-  --ln-red: #d6304a;
-  --ln-red-deep: #a8203a;
   --ln-yellow: #f0a92e;
   --ln-purple: #7c4bb2;
   --ln-purple-deep: #5b3389;
@@ -921,6 +948,7 @@ textarea:focus-visible {
 
   /* Superfici manga condivise (box, bottoni, input) — adattive a dark mode */
   --ln-card-bg: #ffffff;
+  --bg-panel: var(--ln-card-bg);
   --ln-card-border: var(--ln-ink);
   --ln-card-shadow: rgba(43, 35, 51, 0.18);
   --ln-card-shadow-strong: rgba(43, 35, 51, 0.28);
@@ -1072,6 +1100,7 @@ textarea:focus-visible {
 .page-hero {
   margin-top: -2rem;
   margin-bottom: 1.75rem;
+  border-bottom: 3px solid var(--ln-ink);
 }
 
 .page-hero .mg-band-inner {
@@ -1096,12 +1125,17 @@ textarea:focus-visible {
 
 .page-hero .mg-watermark {
   top: -2.5rem;
+  right: 24%;
   font-size: clamp(8rem, 18vw, 13rem);
 }
 
 @media (max-width: 860px) {
   .page-hero { margin-top: -1rem; }
   .page-hero .mg-fig { height: 220px !important; }
+  .page-hero .mg-watermark {
+    right: 14%;
+    font-size: clamp(6rem, 24vw, 9rem);
+  }
 }
 
 .mg-btn {
@@ -1384,15 +1418,22 @@ textarea:focus-visible {
   text-align: left;
 }
 
-.header-login-btn {
-  font-size: 0.88rem;
-  padding: 0.55rem 1rem;
+.header-login-btn,
+.header-register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 40px;
+  padding: 0 0.85rem !important;
+  border-radius: 10px !important;
+  font-size: 0.82rem !important;
+  white-space: nowrap;
+  box-shadow: none !important;
 }
 
 .header-register-btn {
-  font-size: 0.88rem;
-  padding: 0.55rem 1rem;
-  white-space: nowrap;
+  font-size: 0.82rem;
 }
 
 @media (max-width: 900px) {
@@ -1400,14 +1441,10 @@ textarea:focus-visible {
     display: none;
   }
 
-  .header-register-btn {
-    font-size: 0.72rem;
-    padding: 0.45rem 0.65rem;
-  }
-
+  .header-register-btn,
   .header-login-btn {
-    font-size: 0.72rem;
-    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem !important;
+    padding: 0 0.7rem !important;
   }
 }
 
@@ -1507,11 +1544,6 @@ textarea:focus-visible {
 }
 
 .register-prompt-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--primary-glow);
-  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1842,6 +1874,10 @@ textarea:focus-visible {
   position: relative;
 }
 
+.onboarding-panel.glass-panel {
+  background: var(--ln-cream);
+}
+
 .onboarding-close {
   position: absolute;
   top: 0.75rem;
@@ -1859,23 +1895,6 @@ textarea:focus-visible {
 .onboarding-panel-wide {
   max-width: 720px;
   text-align: left;
-}
-
-.onboarding-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--ln-red);
-  border: 2px solid var(--ln-card-border);
-  color: white;
-  font-family: var(--ln-font-brush);
-  font-size: 1.1rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  box-shadow: 4px 4px 0 var(--ln-card-shadow);
 }
 
 .onboarding-list {
@@ -2040,7 +2059,7 @@ textarea:focus-visible {
 }
 
 .hub-filter-chip.active.accent-primary {
-  background: linear-gradient(135deg, var(--primary), hsl(var(--primary-hue), 85%, 45%));
+  background: linear-gradient(135deg, var(--ln-red), var(--ln-red-deep));
   border-color: var(--primary);
   color: var(--text-inverse);
   box-shadow: 0 3px 12px var(--primary-glow);
@@ -2942,13 +2961,6 @@ textarea:focus-visible {
   50% { transform: scale(1.04); }
 }
 
-.luna-avatar-mark {
-  font-family: var(--ln-font-brush);
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
 .luna-avatar-status {
   display: flex;
   align-items: center;
@@ -2981,7 +2993,7 @@ textarea:focus-visible {
 }
 
 .luna-live-btn.danger {
-  background: #e74c3c;
+  background: var(--ln-red-deep);
   color: white;
 }
 
@@ -3006,8 +3018,8 @@ textarea:focus-visible {
 }
 
 .luna-live-banner.error {
-  background: rgba(231, 76, 60, 0.1);
-  border: 1px solid rgba(231, 76, 60, 0.25);
+  background: var(--ln-red-a10);
+  border: 1px solid var(--ln-red-a25);
   color: var(--error);
 }
 
@@ -3277,7 +3289,7 @@ textarea:focus-visible {
 .tutor-sheet {
   width: 100%;
   max-height: min(85dvh, 720px);
-  background: var(--bg-app);
+  background: var(--bg-panel);
   border-radius: 20px 20px 0 0;
   border: 1px solid var(--border);
   box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.18);
@@ -3708,10 +3720,6 @@ body.has-mobile-nav .app-container:has(.tutor-layout--live-focus) {
     margin-bottom: 0.85rem;
   }
 
-  .luna-avatar-mark {
-    font-size: 1.6rem;
-  }
-
   .luna-live-btn {
     font-size: 0.88rem;
     padding: 0.65rem 1.25rem;
@@ -3947,8 +3955,8 @@ body.has-mobile-nav .app-container:has(.tutor-layout--live-focus) {
   gap: 0.75rem;
   padding: 1rem;
   border-radius: 12px;
-  background: rgba(231, 76, 60, 0.08);
-  border: 1px solid rgba(231, 76, 60, 0.25);
+  background: var(--ln-red-a08);
+  border: 1px solid var(--ln-red-a25);
   color: var(--text-main);
 }
 
@@ -4353,21 +4361,6 @@ body.has-mobile-nav .app-container:has(.tutor-layout--live-focus) {
 .mg-footer-brand {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-}
-
-.mg-footer-brand .logo-text-primary {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: var(--ln-paper);
-}
-
-.mg-footer-brand .logo-text-secondary {
-  font-family: var(--ln-font-brush);
-  font-size: 0.78rem;
-  color: var(--ln-washi);
-  opacity: 0.8;
 }
 
 .mg-footer-links {
@@ -4422,7 +4415,7 @@ body.has-mobile-nav .app-container:has(.tutor-layout--live-focus) {
   right: 0;
   bottom: 0;
   z-index: 2000;
-  background: var(--ln-paper);
+  background: var(--ln-card-bg);
   border-top: 3px solid var(--ln-ink);
   box-shadow: 0 -8px 24px rgba(43, 35, 51, 0.18);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -4512,6 +4505,10 @@ body.has-mobile-nav .cookie-banner {
   max-width: 540px;
   max-height: 88vh;
   overflow-y: auto;
+}
+
+.cookie-modal.mg-card {
+  background: var(--ln-cream);
 }
 
 .cookie-modal-head {

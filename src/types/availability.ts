@@ -6,6 +6,8 @@ export interface AvailabilitySlot {
   startTime: string;
   endTime: string;
   slotType: SlotType;
+  teacherId: string;
+  teacherDisplayName: string;
   maxParticipants: number;
   participantCount: number;
   participantIds: string[];

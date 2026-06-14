@@ -1,5 +1,5 @@
 import { createHash } from 'crypto';
-import { FieldValue, getFirestore, type DocumentReference, type Transaction } from 'firebase-admin/firestore';
+import { FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Transaction } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError, type CallableRequest } from 'firebase-functions/v2/https';
 import { hasPremiumAccess, hasActiveSubscription } from './access';
@@ -15,6 +15,7 @@ import {
   releaseBookingForUser,
   releaseBookingInTransaction,
 } from './schedulingRelease';
+import { notifyTeacherNewBooking } from './teacherBookings';
 import type { BookingPlan, BookingResult } from './schedulingTypes';
 
 export type { BookingPlan, BookingResult } from './schedulingTypes';
@@ -29,10 +30,6 @@ function addDaysIso(days: number): string {
   const d = new Date();
   d.setUTCDate(d.getUTCDate() + days);
   return d.toISOString();
-}
-
-function buildVideoRoomId(slotId: string): string {
-  return `luna-${slotId.replace(/[^a-zA-Z0-9]/g, '').slice(-12)}`;
 }
 
 function hashClientIp(request: CallableRequest): string | null {
@@ -73,11 +70,31 @@ function buildSlotStartAt(date: string, startTime: string): string | null {
   return startMs ? new Date(startMs).toISOString() : null;
 }
 
-export function notifyBookingConfirmed(
+function resolveTeacherFromSlot(
+  slot: Record<string, unknown>,
+  teacherSnap: DocumentSnapshot | null,
+): { teacherId: string; teacherDisplayName: string; teacherEmail: string } {
+  const teacherId = String(slot.teacherId ?? '');
+  if (!teacherId) {
+    throw new HttpsError('failed-precondition', 'Slot has no teacher assigned.');
+  }
+  const teacher = teacherSnap?.data() ?? {};
+  const teacherDisplayName = String(
+    slot.teacherDisplayName ?? teacher.teacherDisplayName ?? teacher.username ?? 'Maestro/a',
+  );
+  const teacherEmail = String(teacher.email ?? '');
+  if (!teacherEmail) {
+    throw new HttpsError('failed-precondition', 'Teacher profile has no email.');
+  }
+  return { teacherId, teacherDisplayName, teacherEmail };
+}
+
+export function notifyBookingParties(
   uid: string,
-  booking: Pick<BookingResult, 'email' | 'name' | 'date' | 'time' | 'meetLink' | 'price'>,
+  booking: BookingResult,
   apiKey: string,
   userData?: Record<string, unknown>,
+  teacherData?: Record<string, unknown>,
 ): void {
   const language = resolveUserLanguage(userData ?? {});
   queueTransactionalEmail({
@@ -87,12 +104,38 @@ export function notifyBookingConfirmed(
     type: 'booking_confirmed',
     data: {
       name: booking.name,
+      teacherName: booking.teacherDisplayName,
       date: booking.date,
       time: booking.time,
-      meetLink: booking.meetLink,
+      meetLink: booking.meetLink ?? '',
       plan: booking.price,
     },
   });
+
+  notifyTeacherNewBooking(apiKey, booking.teacherEmail, teacherData ?? {}, {
+    teacherName: booking.teacherDisplayName,
+    studentName: booking.name,
+    studentEmail: booking.email,
+    date: booking.date,
+    time: booking.time,
+    plan: booking.price,
+  });
+}
+
+/** @deprecated use notifyBookingParties */
+export function notifyBookingConfirmed(
+  uid: string,
+  booking: Pick<BookingResult, 'email' | 'name' | 'date' | 'time' | 'meetLink' | 'price' | 'teacherDisplayName' | 'teacherEmail'>,
+  apiKey: string,
+  userData?: Record<string, unknown>,
+): void {
+  notifyBookingParties(
+    uid,
+    booking as BookingResult,
+    apiKey,
+    userData,
+    {},
+  );
 }
 
 export interface BookSlotInput {
@@ -129,6 +172,11 @@ async function bookSlotInTransaction(
 
   const user = userSnap.data() ?? {};
   const slot = slotSnap.data() ?? {};
+  const teacherIdOnSlot = String(slot.teacherId ?? '');
+  const teacherSnap = teacherIdOnSlot
+    ? await tx.get(db.collection('users').doc(teacherIdOnSlot))
+    : null;
+  const teacherInfo = resolveTeacherFromSlot(slot, teacherSnap);
 
   if (slot.active === false) {
     throw new HttpsError('failed-precondition', 'Slot is not available.');
@@ -201,8 +249,6 @@ async function bookSlotInTransaction(
     }
   }
 
-  const videoRoomId = buildVideoRoomId(slotId);
-  const meetLink = `${APP_ORIGIN}/call/${videoRoomId}`;
   const date = String(slot.date ?? '');
   const slotStartTime = String(slot.startTime ?? '');
   const time = `${slotStartTime} – ${slot.endTime ?? ''}`;
@@ -231,11 +277,15 @@ async function bookSlotInTransaction(
     plan: resolvedPlan,
     slotId,
     slotType,
-    meetLink,
+    teacherId: teacherInfo.teacherId,
+    teacherDisplayName: teacherInfo.teacherDisplayName,
+    teacherEmail: teacherInfo.teacherEmail,
+    meetLink: null,
     price: planPriceLabel(resolvedPlan),
     timestamp,
     slotStartAt,
     couponId: plan === 'coupon' ? couponId ?? null : null,
+    studentUid: uid,
   };
 
   tx.set(userRef.collection('bookings').doc(bookingId), bookingPayload);
@@ -277,6 +327,31 @@ export async function bookSlotForUser(input: BookSlotInput): Promise<BookingResu
   return db.runTransaction(async (tx) =>
     bookSlotInTransaction(tx, uid, input, bookingId, timestamp),
   );
+}
+
+function notifyTeacherCancelled(
+  apiKey: string,
+  booking: Record<string, unknown>,
+  teacherData: Record<string, unknown>,
+  emailType: 'booking_cancelled_grace' | 'booking_cancelled_forfeit',
+  date: string,
+  time: string,
+): void {
+  const teacherEmail = String(booking.teacherEmail ?? '').trim();
+  if (!teacherEmail) return;
+  queueTransactionalEmail({
+    apiKey,
+    to: teacherEmail,
+    language: resolveUserLanguage(teacherData),
+    type: emailType,
+    data: {
+      name: String(booking.teacherDisplayName ?? teacherData.username ?? ''),
+      teacherName: String(booking.teacherDisplayName ?? ''),
+      date,
+      time,
+      meetLink: String(booking.meetLink ?? ''),
+    },
+  });
 }
 
 export const cancelBooking = onCall(
@@ -338,6 +413,19 @@ export const cancelBooking = onCall(
         plan: released.plan,
       },
     });
+
+    const teacherId = String(booking.teacherId ?? '');
+    if (teacherId) {
+      const teacherSnap = await db.collection('users').doc(teacherId).get();
+      notifyTeacherCancelled(
+        resendApiKey.value(),
+        booking,
+        teacherSnap.data() ?? {},
+        emailType,
+        released.date,
+        released.time,
+      );
+    }
 
     return { ok: true, outcome: released.cancelOutcome ?? 'grace' };
   },
@@ -584,7 +672,8 @@ export const bookAvailabilitySlot = onCall(
       couponId,
     });
 
-    notifyBookingConfirmed(uid, result, resendApiKey.value(), user);
+    const teacherSnap = await getFirestore().collection('users').doc(result.teacherId).get();
+    notifyBookingParties(uid, result, resendApiKey.value(), user, teacherSnap.data() ?? {});
 
     return result;
   },

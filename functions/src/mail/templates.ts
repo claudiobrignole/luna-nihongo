@@ -2,6 +2,10 @@ export type MailLanguage = 'it' | 'en';
 
 export type TransactionalMailType =
   | 'booking_confirmed'
+  | 'booking_link_added'
+  | 'booking_link_added_teacher'
+  | 'teacher_booking_new'
+  | 'teacher_add_link_reminder'
   | 'booking_cancelled'
   | 'booking_cancelled_grace'
   | 'booking_cancelled_forfeit'
@@ -11,6 +15,10 @@ export type TransactionalMailType =
   | 'gift_coupon_purchased'
   | 'lesson_reminder_day_before'
   | 'lesson_reminder_ten_min'
+  | 'lesson_reminder_36h'
+  | 'lesson_reminder_1h'
+  | 'lesson_reminder_36h_teacher'
+  | 'lesson_reminder_1h_teacher'
   | 'premium_welcome'
   | 'trial_started';
 
@@ -18,8 +26,24 @@ export interface BookingMailData {
   name: string;
   date: string;
   time: string;
-  meetLink: string;
+  meetLink?: string | null;
   plan?: string;
+  teacherName?: string;
+}
+
+export interface TeacherMailData {
+  teacherName: string;
+  studentName: string;
+  studentEmail?: string;
+  date: string;
+  time: string;
+  meetLink?: string | null;
+  plan?: string;
+  dashboardUrl?: string;
+}
+
+export interface LinkAddedMailData extends BookingMailData {
+  teacherName: string;
 }
 
 export interface RescheduleMailData extends BookingMailData {
@@ -54,6 +78,10 @@ export interface CouponNoSlotsMailData {
 
 type MailPayload =
   | { type: 'booking_confirmed'; data: BookingMailData }
+  | { type: 'booking_link_added'; data: LinkAddedMailData }
+  | { type: 'booking_link_added_teacher'; data: TeacherMailData }
+  | { type: 'teacher_booking_new'; data: TeacherMailData }
+  | { type: 'teacher_add_link_reminder'; data: TeacherMailData }
   | { type: 'booking_cancelled'; data: BookingMailData }
   | { type: 'booking_cancelled_grace'; data: BookingMailData }
   | { type: 'booking_cancelled_forfeit'; data: BookingMailData }
@@ -63,8 +91,22 @@ type MailPayload =
   | { type: 'gift_coupon_purchased'; data: CouponNoSlotsMailData }
   | { type: 'lesson_reminder_day_before'; data: BookingMailData }
   | { type: 'lesson_reminder_ten_min'; data: BookingMailData }
+  | { type: 'lesson_reminder_36h'; data: BookingMailData }
+  | { type: 'lesson_reminder_1h'; data: BookingMailData }
+  | { type: 'lesson_reminder_36h_teacher'; data: TeacherMailData }
+  | { type: 'lesson_reminder_1h_teacher'; data: TeacherMailData }
   | { type: 'premium_welcome'; data: PremiumWelcomeData }
   | { type: 'trial_started'; data: TrialStartedData };
+
+function meetLinkHtml(meetLink: string | null | undefined, it: boolean): string {
+  const link = String(meetLink ?? '').trim();
+  if (!link) {
+    return `<p style="font-size:14px;color:#666">${it
+      ? 'Riceverai il link video appena il maestro lo inserirà.'
+      : 'You will receive the video link once your teacher adds it.'}</p>`;
+  }
+  return `<p><a href="${link}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Apri videochiamata' : 'Open video call'}</a></p>`;
+}
 
 function wrapHtml(body: string): string {
   return `<!DOCTYPE html><html><body style="font-family:system-ui,sans-serif;line-height:1.5;color:#1a1a1a;max-width:560px;margin:0 auto;padding:24px">${body}<p style="margin-top:2rem;font-size:12px;color:#666">Luna Nihongo · <a href="https://lunanihongo.com">lunanihongo.com</a></p></body></html>`;
@@ -78,16 +120,60 @@ export function buildTransactionalEmail(
 
   switch (payload.type) {
     case 'booking_confirmed': {
-      const { name, date, time, meetLink, plan } = payload.data;
+      const { name, date, time, meetLink, plan, teacherName } = payload.data;
       return {
         subject: it ? 'Lezione confermata — Luna Nihongo' : 'Lesson confirmed — Luna Nihongo',
         html: wrapHtml(`
           <h2>${it ? `Ciao ${name}!` : `Hi ${name}!`}</h2>
-          <p>${it ? 'La tua lezione con Luna è confermata.' : 'Your lesson with Luna is confirmed.'}</p>
+          <p>${it
+            ? `La tua lezione con ${teacherName ?? 'il maestro'} è confermata.`
+            : `Your lesson with ${teacherName ?? 'your teacher'} is confirmed.`}</p>
           <p><strong>${it ? 'Data' : 'Date'}:</strong> ${date}<br/>
           <strong>${it ? 'Orario' : 'Time'}:</strong> ${time}</p>
           ${plan ? `<p><strong>${it ? 'Piano' : 'Plan'}:</strong> ${plan}</p>` : ''}
-          <p><a href="${meetLink}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Entra nel Meet' : 'Join Google Meet'}</a></p>
+          ${meetLinkHtml(meetLink, it)}
+        `),
+      };
+    }
+    case 'booking_link_added': {
+      const { name, date, time, meetLink, teacherName } = payload.data;
+      return {
+        subject: it ? 'Link video lezione — Luna Nihongo' : 'Lesson video link — Luna Nihongo',
+        html: wrapHtml(`
+          <h2>${it ? `Ciao ${name}!` : `Hi ${name}!`}</h2>
+          <p>${it
+            ? `${teacherName ?? 'Il tuo maestro'} ha inserito il link per la videochiamata.`
+            : `${teacherName ?? 'Your teacher'} added the video call link.`}</p>
+          <p><strong>${date}</strong> · ${time}</p>
+          ${meetLinkHtml(meetLink, it)}
+        `),
+      };
+    }
+    case 'booking_link_added_teacher':
+    case 'teacher_booking_new':
+    case 'teacher_add_link_reminder': {
+      const { teacherName, studentName, studentEmail, date, time, dashboardUrl } = payload.data;
+      const isNew = payload.type === 'teacher_booking_new';
+      const isReminder = payload.type === 'teacher_add_link_reminder';
+      return {
+        subject: isReminder
+          ? (it ? 'Inserisci il link video — Luna Nihongo' : 'Add the video link — Luna Nihongo')
+          : isNew
+            ? (it ? 'Nuova prenotazione lezione' : 'New lesson booking')
+            : (it ? 'Link video salvato' : 'Video link saved'),
+        html: wrapHtml(`
+          <h2>${it ? `Ciao ${teacherName}!` : `Hi ${teacherName}!`}</h2>
+          <p>${isReminder
+            ? (it
+              ? `Manca il link video per la lezione con ${studentName} (${date} · ${time}). Inseriscilo nella dashboard.`
+              : `The video link is missing for your lesson with ${studentName} (${date} · ${time}). Add it in your dashboard.`)
+            : isNew
+              ? (it
+                ? `Hai una nuova prenotazione con ${studentName}${studentEmail ? ` (${studentEmail})` : ''}.`
+                : `You have a new booking with ${studentName}${studentEmail ? ` (${studentEmail})` : ''}.`)
+              : (it ? 'Link video salvato correttamente.' : 'Video link saved successfully.')}</p>
+          <p><strong>${date}</strong> · ${time}</p>
+          ${isNew || isReminder ? `<p><a href="${dashboardUrl ?? 'https://lunanihongo.com'}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Vai alla dashboard maestro' : 'Go to teacher dashboard'}</a></p>` : ''}
         `),
       };
     }
@@ -145,7 +231,7 @@ export function buildTransactionalEmail(
           <p>${it ? 'La tua lezione è stata riprogrammata.' : 'Your lesson has been rescheduled.'}</p>
           <p style="text-decoration:line-through;color:#888">${oldDate} · ${oldTime}</p>
           <p><strong>${date}</strong> · ${time}</p>
-          <p><a href="${meetLink}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Nuovo link Meet' : 'New Meet link'}</a></p>
+          ${meetLinkHtml(meetLink, it)}
         `),
       };
     }
@@ -202,35 +288,65 @@ export function buildTransactionalEmail(
         `),
       };
     }
-    case 'lesson_reminder_day_before': {
-      const { name, date, time, meetLink } = payload.data;
+    case 'lesson_reminder_day_before':
+    case 'lesson_reminder_36h': {
+      const { name, date, time, meetLink, teacherName } = payload.data;
       return {
         subject: it
-          ? 'Promemoria: lezione domani con Luna'
-          : 'Reminder: your lesson with Luna is tomorrow',
+          ? 'Promemoria: lezione tra 36 ore'
+          : 'Reminder: lesson in 36 hours',
         html: wrapHtml(`
           <h2>${it ? `Ciao ${name}!` : `Hi ${name}!`}</h2>
           <p>${it
-            ? 'Ti ricordiamo che domani hai una lezione live con Luna.'
-            : 'This is a reminder that you have a live lesson with Luna tomorrow.'}</p>
+            ? `Tra circa 36 ore hai una lezione${teacherName ? ` con ${teacherName}` : ''}.`
+            : `You have a lesson${teacherName ? ` with ${teacherName}` : ''} in about 36 hours.`}</p>
           <p><strong>${date}</strong> · ${time}</p>
-          <p><a href="${meetLink}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Apri link Meet' : 'Open Meet link'}</a></p>
+          ${meetLinkHtml(meetLink, it)}
         `),
       };
     }
-    case 'lesson_reminder_ten_min': {
-      const { name, date, time, meetLink } = payload.data;
+    case 'lesson_reminder_36h_teacher': {
+      const { teacherName, studentName, date, time, meetLink } = payload.data;
+      return {
+        subject: it ? 'Promemoria lezione tra 36 ore' : 'Lesson reminder — 36 hours',
+        html: wrapHtml(`
+          <h2>${it ? `Ciao ${teacherName}!` : `Hi ${teacherName}!`}</h2>
+          <p>${it
+            ? `Tra circa 36 ore hai una lezione con ${studentName}.`
+            : `You have a lesson with ${studentName} in about 36 hours.`}</p>
+          <p><strong>${date}</strong> · ${time}</p>
+          ${meetLinkHtml(meetLink, it)}
+        `),
+      };
+    }
+    case 'lesson_reminder_ten_min':
+    case 'lesson_reminder_1h': {
+      const { name, date, time, meetLink, teacherName } = payload.data;
       return {
         subject: it
-          ? 'La lezione con Luna inizia tra pochi minuti'
-          : 'Your lesson with Luna starts in a few minutes',
+          ? 'La lezione inizia tra circa 1 ora'
+          : 'Your lesson starts in about 1 hour',
         html: wrapHtml(`
           <h2>${it ? `Ciao ${name}!` : `Hi ${name}!`}</h2>
           <p>${it
-            ? 'La tua lezione con Luna inizia tra circa 10 minuti. Preparati ad entrare.'
-            : 'Your lesson with Luna starts in about 10 minutes. Get ready to join.'}</p>
+            ? `La tua lezione${teacherName ? ` con ${teacherName}` : ''} inizia tra circa un'ora.`
+            : `Your lesson${teacherName ? ` with ${teacherName}` : ''} starts in about one hour.`}</p>
           <p><strong>${date}</strong> · ${time}</p>
-          <p><a href="${meetLink}" style="display:inline-block;padding:12px 20px;background:#9b59b6;color:#fff;text-decoration:none;border-radius:8px">${it ? 'Entra ora' : 'Join now'}</a></p>
+          ${meetLinkHtml(meetLink, it)}
+        `),
+      };
+    }
+    case 'lesson_reminder_1h_teacher': {
+      const { teacherName, studentName, date, time, meetLink } = payload.data;
+      return {
+        subject: it ? 'Lezione tra 1 ora' : 'Lesson in 1 hour',
+        html: wrapHtml(`
+          <h2>${it ? `Ciao ${teacherName}!` : `Hi ${teacherName}!`}</h2>
+          <p>${it
+            ? `Tra circa un'ora hai una lezione con ${studentName}.`
+            : `You have a lesson with ${studentName} in about one hour.`}</p>
+          <p><strong>${date}</strong> · ${time}</p>
+          ${meetLinkHtml(meetLink, it)}
         `),
       };
     }

@@ -4,7 +4,7 @@ import { onCall, onRequest, HttpsError } from 'firebase-functions/v2/https';
 import Stripe from 'stripe';
 import { assertPercentOffCouponRedeemable, issueGiftCouponForPurchase, markCouponDiscountUsed } from './coupons';
 import { queueTransactionalEmail, resolveUserLanguage } from './mail/sendTransactional';
-import { bookSlotForUser, notifyBookingConfirmed } from './scheduling';
+import { bookSlotForUser, notifyBookingParties } from './scheduling';
 
 const stripeSecretKey = defineSecret('STRIPE_SECRET_KEY');
 const stripeWebhookSecret = defineSecret('STRIPE_WEBHOOK_SECRET');
@@ -407,7 +407,8 @@ export const stripeWebhook = onRequest(
               await markCouponDiscountUsed(discountCouponId);
             }
             const userSnap = await (await userRef(uid)).get();
-            notifyBookingConfirmed(uid, booking, resendApiKey.value(), userSnap.data() ?? {});
+            const teacherSnap = await getFirestore().collection('users').doc(booking.teacherId).get();
+            notifyBookingParties(uid, booking, resendApiKey.value(), userSnap.data() ?? {}, teacherSnap.data() ?? {});
             break;
           }
 

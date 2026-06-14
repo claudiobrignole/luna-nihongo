@@ -33,6 +33,9 @@ const SERVICES = [
   'admindeactivateslot',
   'subscribenewsletter',
   'syncmarketingconsent',
+  'admindeleteuser',
+  'setbookingmeetlink',
+  'setteacherpayoutstatus',
 ];
 
 async function getAccessToken() {

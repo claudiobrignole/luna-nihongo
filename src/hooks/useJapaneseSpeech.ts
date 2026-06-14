@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { speakJapaneseText, stopJapaneseSpeech, type TTSSource } from '../services/ttsService';
+import { speakCurriculumJapanese, stopJapaneseSpeech, type TTSSource } from '../services/ttsService';
 import { matchesJapaneseSpeech } from '../utils/speechMatch';
 
 export type SpeechFeedbackStatus = 'idle' | 'listening' | 'success' | 'fail';
@@ -48,7 +48,7 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
     setSpeakingItemId(itemId);
     clearSpeechFeedback();
     try {
-      const result = await speakJapaneseText(text, language);
+      const result = await speakCurriculumJapanese(itemId, text, language);
       if ('source' in result) {
         setLastTtsSource(result.source);
       } else {
@@ -59,8 +59,8 @@ export function useJapaneseSpeech({ language }: UseJapaneseSpeechOptions) {
           status: 'fail',
           text:
             language === 'en'
-              ? `Audio unavailable.${detail} Run "npm run dev:api" locally or check GEMINI_API_KEY on the server.`
-              : `Audio non disponibile.${detail} In locale avvia "npm run dev:api" o verifica GEMINI_API_KEY sul server.`,
+              ? `Audio unavailable.${detail} Run "npm run audio:sync" after curriculum changes.`
+              : `Audio non disponibile.${detail} Esegui "npm run audio:sync" dopo modifiche al curriculum.`,
         });
       }
     } finally {

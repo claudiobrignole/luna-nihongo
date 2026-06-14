@@ -2,10 +2,12 @@ import {
   buildTransactionalEmail,
   type BookingMailData,
   type CouponNoSlotsMailData,
+  type LinkAddedMailData,
   type LunaCancelMailData,
   type MailLanguage,
   type PremiumWelcomeData,
   type RescheduleMailData,
+  type TeacherMailData,
   type TransactionalMailType,
   type TrialStartedData,
 } from './templates';
@@ -13,6 +15,8 @@ import { sendResendEmail } from './resendClient';
 
 export type TransactionalMailData =
   | BookingMailData
+  | LinkAddedMailData
+  | TeacherMailData
   | RescheduleMailData
   | LunaCancelMailData
   | CouponNoSlotsMailData
