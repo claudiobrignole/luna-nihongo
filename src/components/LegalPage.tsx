@@ -1,6 +1,6 @@
 import { AlertTriangle, Settings2 } from 'lucide-react';
 import { PageHero } from './PageHero';
-import { useConsent } from '../contexts/ConsentContext';
+import { useConsent } from '../contexts/useConsent';
 import type { LanguageType } from './Header';
 
 export type LegalDoc = 'privacy' | 'cookies' | 'terms';

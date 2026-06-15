@@ -47,6 +47,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
   const [busyKey, setBusyKey] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState(currentUser.teacherDisplayName ?? '');
   const [error, setError] = useState<string | null>(null);
+  const [now, setNow] = useState(0);
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -75,6 +76,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
         );
       }
     } finally {
+      setNow(Date.now());
       setLoading(false);
     }
   }, [currentUser.id, language]);
@@ -83,7 +85,6 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
     void refresh();
   }, [refresh]);
 
-  const now = Date.now();
   const upcoming = useMemo(
     () => bookings.filter((b) => isUpcomingBooking(b, now)).sort((a, b) =>
       String(a.slotStartAt).localeCompare(String(b.slotStartAt)),

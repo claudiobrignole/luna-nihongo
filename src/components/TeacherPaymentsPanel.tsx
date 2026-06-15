@@ -24,6 +24,7 @@ export const TeacherPaymentsPanel: React.FC<TeacherPaymentsPanelProps> = ({ lang
   const [busyMonth, setBusyMonth] = useState<string | null>(null);
   const [bookings, setBookings] = useState<Awaited<ReturnType<typeof loadTeacherBookings>>>([]);
   const [payouts, setPayouts] = useState<Awaited<ReturnType<typeof loadTeacherPayoutMonths>>>([]);
+  const [now, setNow] = useState(0);
 
   useEffect(() => {
     void listAllUsers().then((users) => {
@@ -45,6 +46,7 @@ export const TeacherPaymentsPanel: React.FC<TeacherPaymentsPanelProps> = ({ lang
       setBookings(b);
       setPayouts(p);
     } finally {
+      setNow(Date.now());
       setLoading(false);
     }
   }, []);
@@ -53,7 +55,6 @@ export const TeacherPaymentsPanel: React.FC<TeacherPaymentsPanelProps> = ({ lang
     if (selectedId) void loadTeacherData(selectedId);
   }, [selectedId, loadTeacherData]);
 
-  const now = Date.now();
   const monthCounts = useMemo(() => earningsByMonth(bookings, now), [bookings, now]);
   const completedRegular = countCompletedRegularLessons(bookings, now);
   const selectedTeacher = teachers.find((t) => t.id === selectedId);

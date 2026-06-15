@@ -20,9 +20,9 @@ import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { TutorContextSheet } from './TutorContextSheet';
 import {
   TutorContextToolbar,
-  tutorSheetTitle,
   type TutorContextSheetId,
 } from './TutorContextToolbar';
+import { tutorSheetTitle } from '../utils/tutorSheetTitle';
 import {
   TutorMemoryPanel,
   TutorPlanPanel,

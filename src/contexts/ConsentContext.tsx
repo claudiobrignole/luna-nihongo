@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import {
   ALL_DENIED,
@@ -21,6 +21,8 @@ interface ConsentContextValue {
 }
 
 const ConsentContext = createContext<ConsentContextValue | null>(null);
+
+export { ConsentContext };
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
   const [decision, setDecision] = useState<ConsentState | null>(() => loadConsent()?.categories ?? null);
@@ -62,10 +64,4 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   );
 
   return <ConsentContext.Provider value={value}>{children}</ConsentContext.Provider>;
-}
-
-export function useConsent(): ConsentContextValue {
-  const ctx = useContext(ConsentContext);
-  if (!ctx) throw new Error('useConsent must be used within ConsentProvider');
-  return ctx;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Cookie, X } from 'lucide-react';
-import { useConsent } from '../contexts/ConsentContext';
+import { useConsent } from '../contexts/useConsent';
 import { ALL_DENIED, type ConsentCategory, type ConsentState } from '../utils/consent';
 import type { LanguageType } from './Header';
 
