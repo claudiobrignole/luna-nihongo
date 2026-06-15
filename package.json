@@ -31,6 +31,8 @@
     "functions:allow-public:gcloud": "npm run allow-public:gcloud --prefix functions",
     "check:stripe": "node scripts/check-stripe-setup.mjs",
     "check:email": "node scripts/check-email-setup.mjs",
+    "check:booking": "node scripts/check-booking-setup.mjs",
+    "fix:functions-iam": "bash scripts/fix-functions-firestore-iam.sh",
     "pretest": "npm run functions:build",
     "test": "node --test tests/**/*.test.mjs",
     "prepare": "husky"

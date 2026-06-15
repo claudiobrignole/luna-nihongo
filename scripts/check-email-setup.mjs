@@ -23,12 +23,16 @@ async function probeCallable(name) {
     });
     const text = await res.text();
     const reachable =
+      res.status === 200 ||
       res.status === 401 ||
       res.status === 403 ||
       res.status === 400 ||
+      res.status === 429 ||
       text.includes('UNAUTHENTICATED') ||
       text.includes('Login required') ||
-      text.includes('invalid-argument');
+      text.includes('invalid-argument') ||
+      text.includes('"ok":true') ||
+      text.includes('resource-exhausted');
     return { name, url, status: res.status, reachable, snippet: text.slice(0, 120) };
   } catch (err) {
     return { name, url, status: 0, reachable: false, snippet: String(err.message ?? err) };
@@ -68,6 +72,14 @@ console.log('Probing callable endpoints…\n');
 for (const name of CALLABLES) {
   const r = await probeCallable(name);
   const icon = r.reachable ? '✓' : '✗';
-  console.log(`${icon} ${name} → HTTP ${r.status}`);
+  let hint = '';
+  if (!r.reachable && r.status === 500 && name === 'subscribeNewsletter') {
+    hint = ' — Firestore IAM (run: npm run fix:functions-iam)';
+  }
+  console.log(`${icon} ${name} → HTTP ${r.status}${hint}`);
   if (!r.reachable) console.log(`    ${r.snippet}`);
 }
+
+console.log('\nIf subscribeNewsletter returns 500 INTERNAL:');
+console.log('   Logs show PERMISSION_DENIED on newsletterAttempts (rate limit).');
+console.log('   Fix: npm run fix:functions-iam  then  npm run check:booking');

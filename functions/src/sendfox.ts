@@ -1,6 +1,9 @@
 import { getFirestore } from 'firebase-admin/firestore';
 import { defineSecret } from 'firebase-functions/params';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { ensureFirebaseAdmin } from './ensureAdmin';
+
+ensureFirebaseAdmin();
 
 const sendfoxApiToken = defineSecret('SENDFOX_API_TOKEN');
 const sendfoxListIdLunaIt = defineSecret('SENDFOX_LIST_ID_LUNA_IT');
