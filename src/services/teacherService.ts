@@ -38,26 +38,28 @@ function docToTeacherBooking(
 
 export async function listBookableTeachersRemote(): Promise<BookableTeacher[]> {
   await ensureFreshAuthToken();
-  const fn = httpsCallable<Record<string, never>, { teachers: BookableTeacher[] }>(
+  const fn = httpsCallable<Record<string, never>, { teachers: Array<BookableTeacher & { role?: string }> }>(
     getFunctions(getFirebaseApp(), 'europe-west1'),
     'listPublicTeachers',
   );
   const result = await fn({});
-  return result.data.teachers ?? [];
+  return (result.data.teachers ?? []).filter((t) => t.role !== 'super_admin');
 }
 
-/** Callable first; if IAM/403 or empty, derive teachers from published availability slots. */
+/** Bookable teachers = those with published slots; callable fallback is role `teacher` only (not super_admin). */
 export async function listBookableTeachers(options?: {
   slotType?: SlotType;
   fromDate?: string;
 }): Promise<BookableTeacher[]> {
+  const fromSlots = await listTeachersFromAvailabilitySlots(options);
+  if (fromSlots.length > 0) return fromSlots;
+
   try {
-    const fromCallable = await listBookableTeachersRemote();
-    if (fromCallable.length > 0) return fromCallable;
+    return await listBookableTeachersRemote();
   } catch (err) {
-    console.warn('listPublicTeachers unavailable, using slot-based teacher list', err);
+    console.warn('listPublicTeachers unavailable', err);
+    return [];
   }
-  return listTeachersFromAvailabilitySlots(options);
 }
 
 export async function loadTeacherBookings(teacherId: string): Promise<TeacherBookingView[]> {

@@ -5,7 +5,7 @@ export interface PublicTeacherRecord {
   id: string;
   username: string;
   teacherDisplayName: string;
-  role: 'teacher' | 'super_admin';
+  role: 'teacher';
 }
 
 export const listPublicTeachers = onCall(
@@ -19,22 +19,18 @@ export const listPublicTeachers = onCall(
     }
 
     const db = getFirestore();
-    const teachers: PublicTeacherRecord[] = [];
-
-    for (const role of ['teacher', 'super_admin'] as const) {
-      const snap = await db.collection('users').where('role', '==', role).get();
-      for (const doc of snap.docs) {
-        const data = doc.data();
-        const username = String(data.username ?? 'Teacher');
-        const nick = String(data.teacherDisplayName ?? '').trim();
-        teachers.push({
-          id: doc.id,
-          username,
-          teacherDisplayName: nick || username,
-          role,
-        });
-      }
-    }
+    const snap = await db.collection('users').where('role', '==', 'teacher').get();
+    const teachers: PublicTeacherRecord[] = snap.docs.map((doc) => {
+      const data = doc.data();
+      const username = String(data.username ?? 'Teacher');
+      const nick = String(data.teacherDisplayName ?? '').trim();
+      return {
+        id: doc.id,
+        username,
+        teacherDisplayName: nick || username,
+        role: 'teacher' as const,
+      };
+    });
 
     teachers.sort((a, b) =>
       a.teacherDisplayName.localeCompare(b.teacherDisplayName, 'it', { sensitivity: 'base' }),
