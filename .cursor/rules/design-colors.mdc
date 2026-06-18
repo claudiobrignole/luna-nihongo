@@ -1,7 +1,6 @@
 ---
 description: Regole colore sfondo — crema solo pagina/header, bianco per pannelli
 globs: src/**/*.{css,tsx}
-alwaysApply: true
 ---
 
 # Sfondi Luna Nihongo

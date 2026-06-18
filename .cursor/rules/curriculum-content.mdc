@@ -1,0 +1,28 @@
+---
+description: Regole curriculum didattico — id unità, hydrate, audio
+globs: content/curriculum/**
+---
+
+# Curriculum Luna Nihongo
+
+## Numeri (schema 1.1.0)
+- 142 unità, livelli 0–12 (N5: L0–6, N4: L7–12).
+- Sequenza canonica: `content/curriculum/manifest.json` → `unitOrder`.
+
+## Regole critiche
+- **Non rinominare** id unità/refs già pubblicati (`completedUnits` in Firestore).
+- Nuove unità: `node content/curriculum/insert-units.mjs`, poi `npm run curriculum:check`.
+- Non modificare `unitOrder` a mano.
+- Build: `npm run curriculum:build` → `build/curriculum.json` (gitignored) → `src/data/curriculum.ts`.
+
+## Audio
+- File statici: `public/audio/curriculum/` + `manifest.json`.
+- Sync: `npm run audio:sync` · bulk: `npm run audio:batch`.
+- Studio/dialoghi usano audio precalcolato; Gemini TTS solo per tutor chat.
+
+## Integrazione delta N4
+- Cartelle `delta-n4-l7/` … `delta-n4-l12/`: applicare → insert-units → curriculum:check → commit.
+
+## Guide operative
+- `content/curriculum/GUIDA-CONTENUTI.md`
+- `content/curriculum/README.md`

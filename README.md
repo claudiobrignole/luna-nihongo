@@ -4,6 +4,8 @@ Piattaforma web bilingue **IT/EN** per imparare il giapponese: percorso guidato 
 
 **Produzione:** [lunanihongo.com](https://lunanihongo.com) · **Repo:** [github.com/claudiobrignole/luna-nihongo](https://github.com/claudiobrignole/luna-nihongo)
 
+Documentazione prodotto: [PRD.md](PRD.md) · Contesto agenti Cursor: [`.cursor/`](.cursor/) e [`.cursor/PROJECT_MEMORY.md`](.cursor/PROJECT_MEMORY.md)
+
 ## Stack
 
 - **Frontend:** React 19 + TypeScript + Vite
@@ -46,13 +48,33 @@ Genera la cartella `dist/` pronta per l'upload.
 
 ## Deploy su Hostinger
 
-### 1. Build
+> **Flusso attuale:** push su `main` → GitHub → Hostinger auto-deploy.  
+> Non serve upload FTP manuale salvo emergenza.
+
+### 1. Push
+
+```bash
+git push origin main
+```
+
+Hostinger esegue `npm ci && npm run build:hostinger` e pubblica `dist/`.
+
+### 2. Variabili ambiente (hPanel, una tantum)
+
+Aggiungi nelle Environment Variables del deploy Git:
+
+- Tutte le `VITE_FIREBASE_*`
+- `GEMINI_API_KEY`
+- `FIREBASE_WEB_API_KEY` (stesso valore di `VITE_FIREBASE_API_KEY`, per `live-session.php`)
+
+### 3. Deploy manuale (solo emergenza)
+
+<details>
+<summary>Upload FTP / File Manager (deprecato)</summary>
 
 ```bash
 npm run build:hostinger
 ```
-
-### 2. Upload FTP / File Manager
 
 Carica **tutto il contenuto** di `dist/` in `public_html/`:
 
@@ -71,13 +93,28 @@ public_html/
 └── favicon.svg
 ```
 
-### 3. Gemini API key (automatica al build)
+</details>
+
+### 4. Gemini API key (automatica al build)
 
 **Non serve creare file manuali nel File Manager.**
 
 Aggiungi `GEMINI_API_KEY` nelle **Environment Variables** del deploy Git in hPanel (stessa schermata delle `VITE_FIREBASE_*`).  
 Aggiungi anche `FIREBASE_WEB_API_KEY` (stesso valore di `VITE_FIREBASE_API_KEY`) per verificare i token su `live-session.php`.
 A ogni build viene generato `public_html/api/gemini-secret.php` dentro `dist/` — resta in `public_html`, non fuori.
+
+## Cursor (rules, comandi, agenti)
+
+Struttura in [`.cursor/`](.cursor/):
+
+| Cartella | Contenuto |
+|----------|-----------|
+| `rules/` | `00-foundation` … `03-security`, design-colors, curriculum |
+| `commands/` | `/commit-push`, `/verify-deploy`, `/review-code`, … |
+| `agents/` | code-simplifier, security-reviewer, verify-app |
+| `plans/` | Piani salvati da Plan mode |
+| `skills/firebase-luna/` | Firebase, IAM, callable |
+
 
 L'accesso HTTP diretto a quel file è bloccato da `api/.htaccess`.
 

@@ -1,0 +1,43 @@
+---
+description: Workflow git, deploy e flusso agente
+alwaysApply: true
+---
+
+# Workflow Luna Nihongo
+
+## Git
+- Branch principale: `main`.
+- **Push diretto su `main`** → Hostinger auto-deploy frontend (`npm ci && npm run build:hostinger` → `dist/`).
+- Commit **solo su richiesta esplicita** dell'utente.
+- Convenzione messaggi: `feat:`, `fix:`, `docs:`, `refactor:`.
+- PR opzionali (collaborazione); non obbligatorie per deploy quotidiano.
+
+## Prima di ogni commit
+```bash
+npm run lint && npm test && npm run build
+```
+(allineato a `.github/workflows/ci.yml`)
+
+## Deploy
+
+### Frontend (automatico)
+`git push origin main` — nessuna configurazione manuale Hostinger per deploy ordinari.
+
+### Backend (da locale, non Hostinger)
+```bash
+firebase deploy --only firestore
+npm run functions:deploy
+npm run fix:functions-iam          # se callables 500 su Firestore
+npm run functions:allow-public:gcloud   # IAM Cloud Run invoker
+```
+
+## Flusso agente consigliato
+1. **Esplora** (Ask/Plan) — leggi codice esistente, non modificare.
+2. **Pianifica** — task multi-file: piano in `.cursor/plans/`, attendi approvazione.
+3. **Implementa** — diff focalizzati.
+4. **Verifica** — `npm test`, `npm run check:booking` se tocca prenotazioni/Stripe.
+5. **Commit** — solo se richiesto.
+
+## Sessioni
+- Nuova conversazione per task diversi o dopo 2+ tentativi falliti sullo stesso bug.
+- Se l'implementazione non corrisponde al intento: rifinisci il piano, non accumulare correzioni a catena.

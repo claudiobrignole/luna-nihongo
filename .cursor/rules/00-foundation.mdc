@@ -1,0 +1,31 @@
+---
+description: Identità progetto Luna Nihongo, stack e comandi essenziali
+alwaysApply: true
+---
+
+# Luna Nihongo — fondamenta
+
+## Identità
+- Piattaforma bilingue **IT/EN** per imparare il giapponese (Studio, Deck, Tutor AI, lezioni live).
+- Produzione: https://lunanihongo.com · Firebase project `luna-nihongo` · regione Functions `europe-west1`.
+- Lingua chat con l'utente: **italiano**.
+
+## Stack
+- Frontend: React 19, TypeScript, Vite, CSS custom (`src/index.css`).
+- Backend: Firebase Auth + Firestore + Cloud Functions; PHP API Hostinger (Gemini tutor/TTS/live).
+- Pagamenti: Stripe · Email: Resend + SendFox.
+
+## Comandi essenziali
+- Dev: `npm run dev`
+- Test: `npm test` · Lint: `npm run lint` · Build: `npm run build`
+- Build Hostinger: `npm run build:hostinger`
+- Health-check: `npm run check:booking`, `check:stripe`, `check:email`
+- IAM Functions: `npm run fix:functions-iam`
+
+## Dettaglio completo
+Consulta `.cursor/PROJECT_MEMORY.md` per architettura, curriculum (142 unità), deploy e convenzioni.
+
+## Non fare mai
+- Installare librerie senza conferma.
+- Modificare schema Firestore o curriculum id pubblicati senza piano approvato.
+- Committare `.env`, secret o `delta-stroke/`.

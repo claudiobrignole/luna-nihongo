@@ -1,0 +1,29 @@
+---
+description: Regole di sicurezza non negoziabili
+alwaysApply: true
+---
+
+# Sicurezza
+
+## Segreti
+- Mai chiavi API, password o token nel codice sorgente.
+- `.env` e `.env.*` non vanno committati (solo `.env.example`).
+- Hostinger build env: `VITE_FIREBASE_*`, `GEMINI_API_KEY`, `FIREBASE_WEB_API_KEY`.
+- Functions secrets: `firebase functions:secrets:set` (Stripe, Resend, SendFox, Gemini).
+
+## Firebase / Firestore
+- `bookings` e campi Stripe: scrittura solo via Cloud Functions, mai dal client.
+- Deploy rules/indexes solo consapevole; niente migrazioni distruttive in prod senza conferma esplicita.
+- Account protetto da delete: solo `claudio@brignole.ch`.
+
+## Cloud Functions IAM
+- Service account default: `617461430146-compute@developer.gserviceaccount.com`.
+- Richiede `roles/datastore.user` e `roles/secretmanager.secretAccessor` (`npm run fix:functions-iam`).
+- Org policy può bloccare `allUsers` su Cloud Run: abilitare invoker pubblico dalla console GCP se lo script IAM fallisce.
+
+## PHP / API
+- `public/api/bootstrap.local.php` e `gemini-secret.php` generati al build — non committare con chiavi reali.
+- Verificare auth token su `live-session.php` in produzione.
+
+## Prima del deploy
+- Eseguire `security-reviewer` agent su percorsi auth, booking, pagamenti se modificati.

@@ -122,8 +122,10 @@ Cartelle `delta-n4-l7/` … `delta-n4-l12/` contengono patch atomiche + script `
 | `LearningPath.tsx` | Studio: griglia unità, drawer lezione, quiz, scrittura, stroke-order |
 | `Flashcards.tsx` | Deck SRS |
 | `AITutor.tsx` | Chat + Luna Live + sidebar storico Premium |
-| `BookingCalendar.tsx` | Prenotazioni (trial / included / extra) |
+| `BookingCalendar.tsx` | Prenotazioni due step (maestro → slot): trial / included / extra |
 | `StudentDashboard.tsx` | Progressi, booking, impostazioni |
+| `TeacherDashboard.tsx` | Dashboard maestro: lezioni, Meet, disponibilità, compensi |
+| `TeacherPaymentsPanel.tsx` | Super admin: payout maestri per mese |
 | `AdminPanel.tsx` | Admin / super_admin |
 | `PublicLanding.tsx` / `HomeLanding.tsx` | Marketing / home autenticata |
 | `Onboarding.tsx` | Livello iniziale + marketing opt-in |
@@ -140,45 +142,52 @@ Cartelle `delta-n4-l7/` … `delta-n4-l12/` contengono patch atomiche + script `
 
 **Collezione `users/{uid}`** (campi principali): `username`, `role`, `xp`, `completedUnits[]`, `preferredStartLevel`, `tier`, `subscriptionStatus`, `trialEndsAt`, `chatHistory`, `liveMinutesUsed`, `marketingConsent`, `showRomaji`, …
 
-**Ruoli:** `user` | `admin` | `super_admin` (email protetta `claudio@brignole.ch`).
+**Ruoli:** `user` | `teacher` | `super_admin` (email protetta `claudio@brignole.ch`).
 
-**Firestore rules:** client non può scrivere su `bookings` (solo Functions). Quote live minutes con limiti lato rules.
+**Firestore rules:** client non può scrivere su `bookings` (solo Functions). Slot `availabilitySlots` leggibili da utenti loggati; creazione slot da teacher (proprio `teacherId`) o super_admin. Quote live minutes con limiti lato rules.
 
 ### Cloud Functions (callable / HTTP / scheduled)
 
 - **Live:** `createLiveSession`, `endLiveSession`, `deleteLiveSession`, `purgeExpiredLiveHistory`
-- **Stripe:** `createStripeCheckout`, `createExtraLessonCheckout`, `createStripePortal`, `stripeWebhook`
-- **Booking:** `bookAvailabilitySlot`, `cancelBooking`, `rescheduleBooking`, `startFreeTrial`
-- **Email:** `subscribeNewsletter`, `syncMarketingConsent` (+ Resend interno per mail transazionali)
+- **Stripe:** `createStripeCheckout`, `createExtraLessonCheckout`, `createGiftLessonCheckout`, `createStripePortal`, `stripeWebhook`
+- **Booking:** `bookAvailabilitySlot`, `cancelBooking`, `rescheduleBooking`, `startFreeTrial`, `redeemCoupon`
+- **Teachers:** `listPublicTeachers`, `listTeacherBookings`, `setBookingMeetLink`, `setTeacherPayoutStatus`, `ensureTeacherPayoutDrafts` (scheduler)
+- **Email:** `subscribeNewsletter`, `syncMarketingConsent` (+ Resend per mail transazionali)
 - **Admin:** `adminDeleteUser`
 
-Dopo deploy: `npm run functions:allow-public` (IAM Cloud Run invoker).
+Regione: **`europe-west1`**. Init Admin SDK: `functions/src/ensureAdmin.ts` per function isolate Gen2.
+
+Dopo deploy: `npm run functions:allow-public:gcloud`. IAM compute SA: `npm run fix:functions-iam` se 500 PERMISSION_DENIED su Firestore.
 
 ---
 
 ## Deploy
 
-### Hostinger (frontend + PHP)
+### Hostinger (frontend + PHP) — automatico
 
-Git auto-deploy: branch `main`, build `npm ci && npm run build:hostinger`, output `dist`.
+- Branch `main` → push GitHub → Hostinger build `npm ci && npm run build:hostinger` → `dist/`
+- **Nessuna configurazione manuale hPanel** per deploy ordinari
+- Env build: `VITE_FIREBASE_*`, `GEMINI_API_KEY`, `FIREBASE_WEB_API_KEY`
 
-**Workflow operativo (Claudio):** push su GitHub → Hostinger deploy automatico. **Nessuna configurazione manuale su hPanel** per i deploy ordinari.
-
-### Firebase (backend — solo da locale, non Hostinger)
-
-```bash
-npm run build:hostinger   # → dist/
-```
-
-Git auto-deploy: branch `main`, build `npm ci && npm run build:hostinger`, output `dist`.  
-Env build: tutte le `VITE_FIREBASE_*`, `GEMINI_API_KEY`, `FIREBASE_WEB_API_KEY`.
-
-### Firebase
+### Firebase (backend — solo da locale)
 
 ```bash
 firebase deploy --only firestore
+firebase deploy --only firestore:indexes
 npm run functions:deploy
+npm run fix:functions-iam              # roles/datastore.user su compute SA
+npm run functions:allow-public:gcloud  # invoker pubblico callables
 ```
+
+### Health-check pre-deploy
+
+```bash
+npm run check:booking
+npm run check:stripe
+npm run check:email
+```
+
+Script slot legacy: `node scripts/backfill-teacher-slots.mjs`
 
 ---
 
@@ -191,6 +200,10 @@ npm run functions:deploy
 | `npm run curriculum:build` | Genera `build/curriculum.json` |
 | `npm run build:hostinger` | Build produzione Hostinger |
 | `npm test` | Test in `tests/` |
+| `npm run check:booking` | Health-check prenotazioni + IAM |
+| `npm run check:stripe` | Health-check Stripe callables |
+| `npm run check:email` | Health-check SendFox/Resend |
+| `npm run fix:functions-iam` | Grant Firestore/Secret Manager al SA Cloud Run |
 | `npm run kanjivg:bundle` | Rigenera bundle SVG KanjiVG |
 
 ---

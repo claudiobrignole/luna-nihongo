@@ -1,0 +1,27 @@
+---
+description: Convenzioni di codice Luna Nihongo
+alwaysApply: true
+---
+
+# Stile e architettura
+
+## Codice
+- TypeScript strict, ES modules (`import`/`export`).
+- Componenti React come funzioni, non classi.
+- Nomi variabili e API in inglese; copy utente IT/EN tramite `language` prop.
+
+## Struttura
+- UI: `src/components/` · logica Firebase: `src/services/` · stato globale: `src/contexts/`
+- Cloud Functions: `functions/src/` · test: `tests/*.test.mjs`
+- Curriculum sorgente: `content/curriculum/` → build → `src/data/curriculum.ts`
+
+## Pattern di riferimento
+- Componenti UI: `src/components/PremiumUpgradeButton.tsx`
+- Callable client: `src/services/trialService.ts`, `src/services/teacherService.ts`
+- Copy Premium: `src/utils/premiumCopy.ts` (`Passa a Premium` / `Go Premium`)
+
+## Regole
+- Diff minimi; niente refactor non richiesti.
+- Copy curriculum: usare `CURRICULUM_META.unitCount` (142), mai "60 unità".
+- Nuove unità: `npm run curriculum:insert`, mai editare `unitOrder` a mano.
+- Non rinominare id unità già pubblicati (Firestore `completedUnits`).
