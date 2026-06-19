@@ -4,12 +4,13 @@ import type { LanguageType } from './Header';
 interface BookingPreviewProps {
   language: LanguageType;
   onRegister: () => void;
+  embedded?: boolean;
 }
 
 /** Static preview of the live-lesson booking flow for guests (full flow after signup). */
-export function BookingPreview({ language, onRegister }: BookingPreviewProps) {
+export function BookingPreview({ language, onRegister, embedded }: BookingPreviewProps) {
   return (
-    <div className="booking-preview page-view">
+    <div className={embedded ? 'booking-preview booking-preview--embedded' : 'booking-preview page-view'}>
       <header className="booking-preview-header">
         <h2>{language === 'en' ? 'Book a lesson with Luna' : 'Prenota una lezione con Luna'}</h2>
         <p>

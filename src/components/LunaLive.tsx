@@ -10,9 +10,10 @@ import {
   canUseAiTutor,
 } from '../types/user';
 import { useGeminiLive } from '../hooks/useGeminiLive';
+import lunaTalk from '../assets/brand/luna-talk.webp';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { TUTOR_ASSISTANT_NAME } from '../services/tutorPersona';
 import { connectSimliAvatar, isSimliConfigured, type SimliSession } from '../services/simliAvatar';
-import { LunaLogo } from './LunaLogo';
 
 interface LunaLiveProps {
   language: 'en' | 'it';
@@ -131,11 +132,11 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
     <div className="luna-live">
       <header className="luna-live-header">
         <div>
-          <h2>{language === 'en' ? 'Talk with Luna AI' : 'Parla con Luna AI'}</h2>
+          <h2>{TUTOR_ASSISTANT_NAME}</h2>
           <p>
             {language === 'en'
-              ? 'Real-time voice conversation — speak freely, the AI corrects you and lets you hear the right pronunciation.'
-              : 'Conversazione vocale in tempo reale — parla liberamente, la AI ti corregge e ti fa ascoltare la giusta pronuncia.'}
+              ? 'Real-time voice conversation — speak freely, ask about lessons or anime/manga lines, and hear natural Japanese.'
+              : 'Conversazione vocale in tempo reale — parla liberamente, chiedi lezioni o frasi da anime/manga e ascolta il giapponese naturale.'}
           </p>
         </div>
         <div className="luna-live-quota">
@@ -153,11 +154,21 @@ export const LunaLive: React.FC<LunaLiveProps> = ({
       </header>
 
       <div className="luna-live-stage">
-        <div
-          ref={avatarRef}
-          className={`luna-avatar ${status === 'speaking' ? 'speaking' : ''} ${isActive ? 'active' : ''}`}
-        >
-          {!simliEnabled && <LunaLogo layout="icon" className="luna-logo--icon-live" alt="" />}
+        <div className="luna-avatar-wrap">
+          {(status === 'listening' || status === 'speaking' || status === 'connected') && (
+            <>
+              <span className="luna-avatar-ring" aria-hidden />
+              <span className="luna-avatar-ring luna-avatar-ring--delay" aria-hidden />
+            </>
+          )}
+          <div
+            ref={avatarRef}
+            className={`luna-avatar luna-avatar--portrait luna-avatar--${status} ${status === 'speaking' ? 'speaking' : ''} ${isActive ? 'active' : ''}`}
+          >
+            {!simliEnabled && (
+              <img src={lunaTalk} alt="" className="luna-avatar-img" />
+            )}
+          </div>
           <p className="luna-avatar-status">
             <Radio size={14} />
             {statusLabel(status, language)}

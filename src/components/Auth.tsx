@@ -96,22 +96,7 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
   }
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '60vh',
-      padding: '1rem'
-    }}>
-      <div className="glass-panel" style={{
-        width: '100%',
-        maxWidth: '400px',
-        padding: '2.5rem 2rem',
-        boxShadow: 'var(--glass-shadow)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1.5rem'
-      }}>
+    <div className="glass-panel auth-panel">
         <div style={{ textAlign: 'center' }}>
           <LunaLogo layout="vertical" theme="light" className="luna-logo--auth" />
           <h2 style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
@@ -199,7 +184,7 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
               }} />
               <input
                 type="email"
-                placeholder="claudio@brignole.ch"
+                placeholder={language === 'en' ? 'your@email.com' : 'tua@email.it'}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
@@ -307,7 +292,6 @@ export const Auth: React.FC<AuthProps> = ({ language, initialSignup = false }) =
               : (language === 'en' ? 'Already have an account? Log In' : 'Hai già un account? Accedi')}
           </button>
         </div>
-      </div>
     </div>
   );
 };

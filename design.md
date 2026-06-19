@@ -15,3 +15,17 @@ Riferimento rapido per decisioni visive permanenti. Dettaglio completo in [`DESI
 **CSS:** `src/index.css` (`--ln-cream`, `--ln-washi`, `--ln-card-bg`, `--bg-panel`).
 
 **Non confondere:** il crema `#FAF6ED` è pagina + header; il washi `#EFE3C8` è solo per le bande hero/home; il bianco è per tutte le superfici contenuto.
+
+## Tipografia
+
+| Token | Font | Uso |
+|-------|------|-----|
+| `--font-heading` / `--font-body` | **Outfit** | Tutti i titoli e testi in italiano/inglese |
+| `--font-japanese` | **Noto Sans JP** | Solo testo giapponese (`lang="ja"`) |
+| `--ln-font-brush` | Yuji Syuku | Calligrafia decorativa (ribbon, `.mg-vertical`) |
+
+**Regola:** mai Plus Jakarta Sans. Outfit per tutto il latino; Noto Sans JP solo per giapponese.
+
+**Nav:** tab **Luna** unifica profilo + prenotazione; **Blog** in header; voce Book/Prenota rimossa.
+
+**Scala corpo testo:** `--ln-body-text-scale: 1.21` (+21% su `html`) compensa Outfit vs Plus Jakarta. I titoli dividono per lo stesso fattore per restare invariati.

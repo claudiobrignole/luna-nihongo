@@ -67,6 +67,13 @@ export function getLiveSessionMessages(
   );
 }
 
+export function removeLiveSessionFromHistory(
+  chatHistory: ChatMessage[],
+  liveSessionId: string,
+): ChatMessage[] {
+  return chatHistory.filter((m) => m.liveSessionId !== liveSessionId);
+}
+
 export function filterLiveSessions(
   sessions: LiveSessionSummary[],
   filters: { month?: string; day?: number; text?: string },

@@ -1,24 +1,22 @@
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { BookingPreview } from './BookingPreview';
-import type { LanguageType } from './Header';
-import { CURRICULUM_META } from '../data/curriculum';
+import { BlogTeaserSection } from './BlogTeaserSection';
+import { LandingBands } from './LandingBands';
+import type { LanguageType, TabType } from './Header';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import { formatEmailCallableError, subscribeNewsletter } from '../services/emailService';
 import lunaWave from '../assets/brand/luna-wave.webp';
-import lunaStudy from '../assets/brand/luna-study.webp';
-import lunaFlash from '../assets/brand/luna-flash.webp';
-import lunaTalk from '../assets/brand/luna-talk.webp';
-import lunaTorii from '../assets/brand/luna-torii.webp';
 import sakura from '../assets/brand/sakura.svg';
 
 interface PublicLandingProps {
   language: LanguageType;
   onRegister: () => void;
   onExploreStudy: () => void;
+  onNavigate: (tab: TabType, blogSlug?: string | null) => void;
 }
 
-export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLandingProps) {
+export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate }: PublicLandingProps) {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [newsletterError, setNewsletterError] = useState('');
@@ -69,122 +67,41 @@ export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLa
                 </button>
               </div>
               <p className="mg-hero-free" style={{ color: 'var(--ln-ink)' }}>
+                <span className="mg-badge mg-badge--free" style={{ marginRight: '0.5rem' }} lang="ja">
+                  {en ? '無料 · FREE' : '無料 · GRATIS'}
+                </span>
                 {en
-                  ? 'Lessons, flashcards and the full path are free — registration saves your progress.'
-                  : 'Lezioni, flashcard e percorso completo sono gratuiti — la registrazione salva i progressi.'}
+                  ? 'Study path & flashcards are free.'
+                  : 'Percorso Studio e flashcard gratuiti.'}
               </p>
             </div>
           </div>
           <div className="mg-fig">
-            <img
-              src={lunaWave}
-              alt={en ? 'Luna waves hello among falling cherry blossoms, manga style' : 'Luna saluta tra i petali di ciliegio, in stile manga'}
-            />
+            <div className="mg-fig-media mg-zoom-media">
+              <img
+                src={lunaWave}
+                alt={en ? 'Luna waves hello among falling cherry blossoms, manga style' : 'Luna saluta tra i petali di ciliegio, in stile manga'}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mg-band mg-band--washi mg-bleed">
-        <div className="mg-band-inner">
-          <span className="mg-watermark" aria-hidden="true">S</span>
-          <span className="mg-vertical" aria-hidden="true" lang="ja">もっと見る</span>
-          <div className="mg-band-copy">
-            <p className="mg-index" style={{ color: 'var(--ln-red-deep)' }}>01.STUDY</p>
-            <h2 className="mg-band-title" lang="ja">まなぶ — ガイドつきの道</h2>
-            <p className="mg-band-sub">
-              {en
-                ? `A guided path: ${CURRICULUM_META.unitCount} units from hiragana to JLPT N4 — kanji, grammar, dialogues, audio and quizzes. Free with registration.`
-                : `Percorso guidato: ${CURRICULUM_META.unitCount} unità da hiragana fino al JLPT N4 — kanji, grammatica, dialoghi, audio e quiz. Gratuito con la registrazione.`}
-            </p>
-            <button type="button" className="mg-btn mg-btn--red" onClick={onExploreStudy}>
-              {en ? 'Open the path' : 'Apri il percorso'}
-              <ArrowRight size={16} />
-            </button>
-          </div>
-          <div className="mg-fig">
-            <img
-              src={lunaStudy}
-              alt={en ? 'Luna studies on a tablet, manga style' : 'Luna studia su un tablet, in stile manga'}
-            />
-          </div>
-        </div>
-      </section>
+      <LandingBands
+        language={language}
+        variant="public"
+        onStudy={onExploreStudy}
+        onFlashcards={onRegister}
+        onTalk={onRegister}
+        onAnime={onRegister}
+        onLessons={scrollToBooking}
+      />
 
-      <section className="mg-band mg-band--yellow mg-bleed">
-        <div className="mg-band-inner">
-          <span className="mg-watermark" aria-hidden="true">F</span>
-          <span className="mg-vertical" aria-hidden="true" lang="ja">もっと見る</span>
-          <div className="mg-band-copy">
-            <p className="mg-index" style={{ color: 'var(--ln-red-deep)' }}>02.FLASHCARDS</p>
-            <h2 className="mg-band-title" lang="ja">くりかえす — SRSデッキ</h2>
-            <p className="mg-band-sub">
-              {en
-                ? 'Spaced repetition: browse the whole deck, filter by level or type and review what you choose, whenever you want.'
-                : 'Ripasso spaziato: sfoglia tutto il deck, filtra per livello o tipo e ripassa ciò che scegli tu, quando vuoi.'}
-            </p>
-            <button type="button" className="mg-btn mg-btn--ink" onClick={onRegister}>
-              {en ? 'Try them free' : 'Provale gratis'}
-            </button>
-          </div>
-          <div className="mg-fig" style={{ right: '8%' }}>
-            <img
-              src={lunaFlash}
-              alt={en ? 'Luna holds up あ and 水 flashcards, manga style' : 'Luna mostra le flashcard あ e 水, in stile manga'}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="mg-band mg-band--purple mg-bleed">
-        <div className="mg-band-inner">
-          <span className="mg-watermark" aria-hidden="true">T</span>
-          <span className="mg-vertical" aria-hidden="true" lang="ja">もっと見る</span>
-          <div className="mg-band-copy">
-            <p className="mg-index" style={{ color: 'var(--ln-yellow)' }}>03.TALK</p>
-            <h2 className="mg-band-title" lang="ja">はなす — るな先生といつでも</h2>
-            <p className="mg-band-sub">
-              {en
-                ? 'AI tutor in text and voice: Luna-sensei answers your questions and speaks natural Japanese — and Luna Live gives you real conversation practice.'
-                : 'Tutor AI in testo e voce: Luna-sensei risponde alle tue domande e parla giapponese in modo naturale — e con Luna Live ti alleni nella conversazione vera.'}
-            </p>
-            <button type="button" className="mg-btn mg-btn--yellow" onClick={onRegister}>
-              {en ? 'Talk with るな' : 'Parla con るな'}
-            </button>
-          </div>
-          <div className="mg-fig">
-            <img
-              src={lunaTalk}
-              alt={en ? 'Luna in a kimono opens her arms saying hello, manga style' : 'Luna in kimono apre le braccia salutando, in stile manga'}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="mg-band mg-band--ink mg-bleed">
-        <div className="mg-band-inner">
-          <span className="mg-watermark" aria-hidden="true">L</span>
-          <span className="mg-vertical" aria-hidden="true" lang="ja">もっと見る</span>
-          <div className="mg-band-copy">
-            <p className="mg-index" style={{ color: 'var(--ln-yellow)' }}>04.LESSONS</p>
-            <h2 className="mg-band-title" lang="ja">ライブレッスン</h2>
-            <p className="mg-band-sub" style={{ color: 'var(--ln-washi)' }}>
-              {en
-                ? 'One-on-one online lessons with Luna — native speaker, fluent in Italian and English. Book from the calendar below.'
-                : 'Lezioni individuali online con Luna — madrelingua, parla italiano e inglese. Prenota dal calendario qui sotto.'}
-            </p>
-            <button type="button" className="mg-btn mg-btn--red" onClick={scrollToBooking} style={{ borderColor: 'var(--ln-paper)' }}>
-              {en ? 'Book a lesson' : 'Prenota una lezione'}
-              <ArrowRight size={16} />
-            </button>
-          </div>
-          <div className="mg-fig">
-            <img
-              src={lunaTorii}
-              alt={en ? 'Luna in a kimono in front of a torii gate, manga style' : 'Luna in kimono davanti a un torii, in stile manga'}
-            />
-          </div>
-        </div>
-      </section>
+      <BlogTeaserSection
+        language={language}
+        onOpenBlog={() => onNavigate('blog')}
+        onOpenPost={(slug) => onNavigate('blog', slug)}
+      />
 
       <section className="mg-section" id="mg-booking">
         <BookingPreview language={language} onRegister={onRegister} />
@@ -193,7 +110,7 @@ export function PublicLanding({ language, onRegister, onExploreStudy }: PublicLa
       <section className="mg-section">
         <div className="mg-card mg-newsletter-card">
           <img src={sakura} className="mg-newsletter-sakura" alt="" aria-hidden="true" />
-          <h2 style={{ fontFamily: 'var(--ln-font-display)', fontWeight: 900, fontSize: '1.4rem' }}>
+          <h2>
             <span lang="ja">るな</span>{en ? ' newsletter' : ' — la newsletter'}
           </h2>
           <p className="mg-band-sub" style={{ marginTop: '0.5rem' }}>

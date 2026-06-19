@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronDown, Compass, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
+import { ChevronDown, Compass, FileText, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isStaffRole, canAccessTeacherDashboard, roleLabel } from '../types/user';
+import { isStaffRole, isSuperAdminRole, canAccessTeacherDashboard, roleLabel } from '../types/user';
 import type { TabType, LanguageType } from './Header';
+import type { AdminPanelSection } from './AdminPanel';
 
 interface UserMenuProps {
   currentUser: LunaUser;
@@ -12,6 +13,7 @@ interface UserMenuProps {
   onLogout: () => void;
   onOpenOnboarding?: () => void;
   onMarketingConsentChange?: (consent: boolean) => void;
+  onOpenAdmin?: (section?: AdminPanelSection) => void;
 }
 
 export function UserMenu({
@@ -22,11 +24,13 @@ export function UserMenu({
   onLogout,
   onOpenOnboarding,
   onMarketingConsentChange,
+  onOpenAdmin,
 }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const [marketingBusy, setMarketingBusy] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const isStaff = isStaffRole(currentUser.role);
+  const isSuperAdmin = isSuperAdminRole(currentUser.role);
   const showTeacherDashboard = canAccessTeacherDashboard(currentUser.role);
   const initial = currentUser.username.charAt(0).toUpperCase();
 
@@ -154,6 +158,21 @@ export function UserMenu({
             >
               <Shield size={18} />
               {language === 'en' ? 'Staff panel' : 'Pannello staff'}
+            </button>
+          )}
+
+          {isSuperAdmin && onOpenAdmin && (
+            <button
+              type="button"
+              role="menuitem"
+              className={`user-menu-item user-menu-item-admin ${activeTab === 'admin' ? 'active' : ''}`}
+              onClick={() => {
+                setOpen(false);
+                onOpenAdmin('blog');
+              }}
+            >
+              <FileText size={18} />
+              {language === 'en' ? 'Blog articles' : 'Articoli blog'}
             </button>
           )}
 

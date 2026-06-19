@@ -1,5 +1,6 @@
-import { Globe } from 'lucide-react';
+import { Globe, Rss } from 'lucide-react';
 import type { LanguageType, TabType } from './Header';
+import { BLOG_RSS_URL } from '../constants/blogFeeds';
 import { LunaLogo } from './LunaLogo';
 
 interface SiteFooterProps {
@@ -12,6 +13,7 @@ interface SiteFooterProps {
 export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLanguageToggle }: SiteFooterProps) {
   const it = language === 'it';
   const year = new Date().getFullYear();
+  const rssHref = `${BLOG_RSS_URL}?lang=${language}`;
 
   return (
     <footer className="mg-footer">
@@ -20,7 +22,12 @@ export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLangu
           <LunaLogo layout="horizontal" theme="dark" className="luna-logo--footer" />
         </div>
 
-        <nav className="mg-footer-links" aria-label={it ? 'Note legali' : 'Legal'}>
+        <nav className="mg-footer-links" aria-label={it ? 'Link sito' : 'Site links'}>
+          <button type="button" onClick={() => onNavigate('blog')}>Blog</button>
+          <a href={rssHref} target="_blank" rel="noopener noreferrer" className="mg-footer-rss">
+            <Rss size={14} aria-hidden="true" />
+            RSS
+          </a>
           <button type="button" onClick={() => onNavigate('privacy')}>{it ? 'Privacy' : 'Privacy'}</button>
           <button type="button" onClick={() => onNavigate('cookies')}>{it ? 'Cookie' : 'Cookies'}</button>
           <button type="button" onClick={() => onNavigate('terms')}>{it ? 'Termini e condizioni' : 'Terms & conditions'}</button>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://europe-west1-luna-nihongo.cloudfunctions.net/blogSitemap

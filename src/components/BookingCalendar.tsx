@@ -38,6 +38,7 @@ interface BookingCalendarProps {
   defaultPlan?: BookingPlan;
   rescheduleBookingId?: string | null;
   onBookingSuccess: () => void;
+  embedded?: boolean;
 }
 
 export const BookingCalendar: React.FC<BookingCalendarProps> = ({
@@ -49,7 +50,9 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   defaultPlan,
   rescheduleBookingId = null,
   onBookingSuccess,
+  embedded = false,
 }) => {
+  const viewClass = embedded ? 'booking-view' : 'page-view booking-view';
   const isReschedule = Boolean(rescheduleBookingId);
   const slotType = mode === 'intro' ? 'intro' : 'regular';
   const subscribed = hasActiveSubscription(currentUser);
@@ -322,7 +325,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
   if (mode === 'regular' && !canBookWithoutSub && !isReschedule) {
     return (
-      <div className="page-view booking-view">
+      <div className={viewClass}>
         <div
           className="glass-panel"
           style={{
@@ -358,7 +361,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
   if (bookingCompleted) {
     return (
-      <div className="page-view booking-view">
+      <div className={viewClass}>
         <div className="glass-panel" style={{ padding: '2.5rem', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '1rem', border: '2px solid var(--success)' }}>
           <CheckCircle2 size={48} color="var(--success)" style={{ margin: '0 auto' }} />
           <h2>{language === 'en' ? 'Booking confirmed!' : 'Prenotazione confermata!'}</h2>
@@ -382,7 +385,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   }
 
   return (
-    <div className="page-view booking-view" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div className={viewClass} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       <div style={{ textAlign: 'center' }}>
         <h2 style={{ marginBottom: '0.4rem' }}>
           {isReschedule

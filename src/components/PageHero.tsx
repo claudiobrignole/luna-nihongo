@@ -10,7 +10,7 @@ export type PageHeroKey =
   | 'decks'
   | 'tutor'
   | 'teacher'
-  | 'booking'
+  | 'blog'
   | 'dashboard'
   | 'auth'
   | 'privacy'
@@ -71,22 +71,22 @@ const HERO: Record<PageHeroKey, HeroConfig> = {
     watermark: '月',
     titleJa: 'るな先生のこと',
     sub: {
-      it: 'Chi è Luna, il metodo e le lezioni dal vivo.',
-      en: 'Who Luna is, the method and the live lessons.',
+      it: 'Lezioni live N5–N4, biografia e prenotazione in un unico posto.',
+      en: 'Live N5–N4 lessons, bio and booking — all in one place.',
     },
     image: lunaTorii,
     imageRight: '6%',
   },
-  booking: {
-    variant: 'red',
-    index: 'LESSONS',
-    watermark: 'ラ',
-    titleJa: 'ライブレッスン',
+  blog: {
+    variant: 'washi',
+    index: 'BLOG',
+    watermark: 'ブ',
+    titleJa: 'ぶろぐ',
     sub: {
-      it: 'Prenota una lezione individuale online con Luna.',
-      en: 'Book a one-on-one online lesson with Luna.',
+      it: 'Consigli di giapponese, cultura, anime e aggiornamenti da Luna.',
+      en: 'Japanese tips, culture, anime and updates from Luna.',
     },
-    image: lunaWave,
+    image: lunaStudy,
   },
   dashboard: {
     variant: 'red',

@@ -64,12 +64,18 @@ invariati per ruoli non-rossi.
 
 | Token | Font | Uso |
 |-------|------|-----|
-| `--ln-font-display` | Noto Sans JP 800–900 | Titoli giapponesi delle bande, headline hero |
-| `--ln-font-brush` | Yuji Syuku 400 | Calligrafia: るな nel logo, kanji decorativi, etichette verticali |
-| `--font-heading` | Outfit 700–800 | Titoli latini, watermark gigante, indici `01.STUDY` |
-| `--font-body` | Plus Jakarta Sans | Corpo testo (invariato) |
+| `--font-heading` | **Outfit** 700–800 | Titoli e testi in italiano/inglese |
+| `--font-body` | **Outfit** 400–500 | Corpo, UI, form, blog (stesso font dei titoli) |
+| `--font-japanese` / `--ln-font-display` | **Noto Sans JP** 400–900 | Solo testo giapponese (`lang="ja"`, titoli di banda, kana nei fumetti) |
+| `--ln-font-brush` | Yuji Syuku 400 | Calligrafia: ribbon, etichette verticali `.mg-vertical` |
 
-Regole: i titoli di banda sono giapponese prima, traduzione sotto in latino più
+**Regola obbligatoria:** usare **sempre Outfit** per titoli e testi latini. **Mai Plus Jakarta Sans.**  
+Per il giapponese usare **Noto Sans JP** (`lang="ja"` o `.ja-text`, `.mg-kana`, `.mg-bubble`).  
+Yuji Syuku solo per elementi calligrafici espliciti, mai per paragrafi in IT/EN.
+
+**Scala corpo testo:** `--ln-body-text-scale: 1.21` (+21% sulla root `html`) — compensazione Outfit vs Plus Jakarta (base tipografica +10%, aggiustamento +10%). I titoli usano `calc(Nrem / var(--ln-body-text-scale))`.
+
+Regole: i titoli di banda sono giapponese prima (`lang="ja"` → Noto), traduzione sotto in Outfit più
 piccolo. Indici di sezione in Outfit maiuscolo con numero (`01.STUDY`). Etichette
 verticali (`writing-mode: vertical-rl`) in Yuji Syuku per il sapore calligrafico.
 Yuji Syuku non funziona dentro SVG caricati via `<img>`: la calligrafia vive

@@ -29,21 +29,25 @@ import { adminDeleteUser, formatCallableError } from '../services/adminUserServi
 import { listStudyActivity } from '../services/studyActivityService';
 import type { StudyActivity } from '../types/study';
 import { AdminAvailabilityPanel } from './AdminAvailabilityPanel';
+import { AdminBlogPanel } from './AdminBlogPanel';
 import { TeacherPaymentsPanel } from './TeacherPaymentsPanel';
+
+export type AdminPanelSection = 'users' | 'availability' | 'payouts' | 'blog';
 
 interface AdminPanelProps {
   language: 'en' | 'it';
   currentUser: LunaUser;
+  initialSection?: AdminPanelSection;
 }
 
-export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser }) => {
+export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, initialSection = 'users' }) => {
   const [users, setUsers] = useState<LunaUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [busyId, setBusyId] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
-  const [adminSection, setAdminSection] = useState<'users' | 'availability' | 'payouts'>('users');
+  const [adminSection, setAdminSection] = useState<AdminPanelSection>(initialSection);
   const [activityUser, setActivityUser] = useState<LunaUser | null>(null);
   const [activityLog, setActivityLog] = useState<StudyActivity[]>([]);
   const [activityLoading, setActivityLoading] = useState(false);
@@ -71,6 +75,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
   useEffect(() => {
     fetchUsers();
   }, [fetchUsers]);
+
+  useEffect(() => {
+    setAdminSection(initialSection);
+  }, [initialSection]);
 
   const filteredUsers = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -211,8 +219,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
         <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '0.9rem' }}>
           { isSuperAdmin
             ? (language === 'en'
-              ? 'Manage users, roles, tiers, availability and teacher payments.'
-              : 'Gestisci utenti, ruoli, piani, disponibilità e pagamenti maestri.')
+              ? 'Manage users, availability, teacher payments and blog posts.'
+              : 'Gestisci utenti, disponibilità, pagamenti maestri e articoli del blog.')
             : (language === 'en'
               ? 'View users and manage your lesson availability.'
               : 'Visualizza utenti e gestisci la tua disponibilità lezioni.')}
@@ -259,12 +267,23 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser })
             {language === 'en' ? 'Teacher payments' : 'Pagamenti maestri'}
           </button>
         )}
+        {isSuperAdmin && (
+          <button
+            type="button"
+            className={adminSection === 'blog' ? 'btn btn-primary' : 'btn btn-secondary'}
+            onClick={() => setAdminSection('blog')}
+          >
+            Blog
+          </button>
+        )}
       </div>
 
       {adminSection === 'availability' ? (
         <AdminAvailabilityPanel language={language} currentUser={currentUser} />
       ) : adminSection === 'payouts' && isSuperAdmin ? (
         <TeacherPaymentsPanel language={language} />
+      ) : adminSection === 'blog' && isSuperAdmin ? (
+        <AdminBlogPanel language={language} currentUser={currentUser} />
       ) : (
         <>
       {/* Toolbar */}

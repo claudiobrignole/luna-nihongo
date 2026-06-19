@@ -4,9 +4,9 @@ import { getFirebaseAuth } from './lib/firebase';
 import { LearningPath } from './components/LearningPath';
 import { Flashcards } from './components/Flashcards';
 import { TeacherProfile } from './components/TeacherProfile';
-import { BookingCalendar, type BookingMode } from './components/BookingCalendar';
+import { type BookingMode } from './components/BookingCalendar';
 import { StudentDashboard } from './components/StudentDashboard';
-import { AdminPanel } from './components/AdminPanel';
+import { AdminPanel, type AdminPanelSection } from './components/AdminPanel';
 import { TeacherDashboard } from './components/TeacherDashboard';
 import { AITutor } from './components/AITutor';
 import { Header, type TabType, type LanguageType } from './components/Header';
@@ -16,12 +16,12 @@ import { PublicLanding } from './components/PublicLanding';
 import { AuthPage } from './components/AuthPage';
 import { RegisterPrompt } from './components/RegisterPrompt';
 import { CreditsModal } from './components/CreditsModal';
-import { BookingPreview } from './components/BookingPreview';
 import { GuestTutorPreview } from './components/GuestTutorPreview';
 import { GuestFlashcardsPreview } from './components/GuestFlashcardsPreview';
 import { PageHero, type PageHeroKey } from './components/PageHero';
 import { LegalPage } from './components/LegalPage';
 import { SiteFooter } from './components/SiteFooter';
+import { LunaLogo } from './components/LunaLogo';
 import { CookieConsent } from './components/CookieConsent';
 import { ConsentProvider } from './contexts/ConsentContext';
 import { useConsent } from './contexts/useConsent';
@@ -32,7 +32,8 @@ import { logStudyActivity } from './services/studyActivityService';
 import { startFreeTrial } from './services/trialService';
 import { syncMarketingConsent } from './services/emailService';
 import { CURRICULUM_LEVELS } from './data/curriculum';
-import { LunaLogo } from './components/LunaLogo';
+import { BlogListPage } from './components/BlogListPage';
+import { BlogPostPage } from './components/BlogPostPage';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
@@ -42,7 +43,7 @@ const HERO_FOR: Partial<Record<TabType, PageHeroKey>> = {
   flashcards: 'decks',
   tutor: 'tutor',
   teacher: 'teacher',
-  booking: 'booking',
+  blog: 'blog',
   auth: 'auth',
   dashboard: 'dashboard',
 };
@@ -63,7 +64,7 @@ const AUTH_TABS = new Set<TabType>([
 ]);
 
 function isKnownTab(tab: string): tab is TabType {
-  return AUTH_TABS.has(tab as TabType) || tab === 'home' || tab === 'auth' || isLegalTab(tab as TabType);
+  return AUTH_TABS.has(tab as TabType) || tab === 'home' || tab === 'auth' || tab === 'blog' || isLegalTab(tab as TabType);
 }
 
 function canOpenTab(tab: TabType, user: LunaUser | null): boolean {
@@ -84,6 +85,7 @@ function AppInner() {
   const [verifyEmailBusy, setVerifyEmailBusy] = useState(false);
   const [verifyEmailInfo, setVerifyEmailInfo] = useState('');
   const [activeTab, setActiveTab] = useState<TabType>('home');
+  const [blogSlug, setBlogSlug] = useState<string | null>(null);
   const [language, setLanguage] = useState<LanguageType>('it');
   const [bookingMode, setBookingMode] = useState<BookingMode>('intro');
   const [rescheduleBookingId, setRescheduleBookingId] = useState<string | null>(null);
@@ -93,7 +95,9 @@ function AppInner() {
   const [onboardingOpen, setOnboardingOpen] = useState(false);
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [subscribeBookOpen, setSubscribeBookOpen] = useState(false);
+  const [adminSection, setAdminSection] = useState<AdminPanelSection>('users');
   const onboardingAutoOpened = useRef(false);
+  const lunaBookingRef = useRef<HTMLElement>(null);
 
   const openRegister = (reason: RegisterReason = 'study') => {
     setRegisterReason(reason);
@@ -178,8 +182,7 @@ function AppInner() {
       } catch (err) {
         console.warn('Auto trial start skipped', err);
       }
-      setBookingMode('intro');
-      setActiveTab('booking');
+      openLunaBooking('intro');
       return;
     }
 
@@ -231,22 +234,69 @@ function AppInner() {
     setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
 
-  // Navigazione con hash per le pagine legali (link condivisibili dal footer/banner).
-  const navigateTab = (tab: TabType) => {
-    setActiveTab(tab);
-    if (typeof window === 'undefined') return;
-    if (isLegalTab(tab)) {
-      window.location.hash = tab;
-    } else if (window.location.hash) {
+  const scrollToLunaBooking = () => {
+    window.setTimeout(() => {
+      (lunaBookingRef.current ?? document.getElementById('luna-booking'))?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 50);
+  };
+
+  const openLunaBooking = (mode: BookingMode = 'regular', bookingId?: string | null) => {
+    setBookingMode(mode);
+    setRescheduleBookingId(bookingId ?? null);
+    setActiveTab('teacher');
+    if (typeof window !== 'undefined' && window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
+    scrollToLunaBooking();
+  };
+
+  const navigateApp = (tab: TabType, slug?: string | null) => {
+    if (tab === 'booking') {
+      openLunaBooking('regular');
+      return;
+    }
+    setActiveTab(tab);
+    if (typeof window === 'undefined') return;
+    if (tab === 'blog') {
+      const nextSlug = slug ?? null;
+      setBlogSlug(nextSlug);
+      window.location.hash = nextSlug ? `blog/${nextSlug}` : 'blog';
+    } else {
+      setBlogSlug(null);
+      if (isLegalTab(tab)) {
+        window.location.hash = tab;
+      } else if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
     window.scrollTo({ top: 0 });
+  };
+
+  const openAdmin = (section: AdminPanelSection = 'users') => {
+    setAdminSection(section);
+    navigateApp('admin');
+  };
+
+  // Navigazione con hash per legal e blog (link condivisibili).
+  const navigateTab = (tab: TabType) => {
+    navigateApp(tab);
   };
 
   useEffect(() => {
     const applyHash = () => {
       const h = window.location.hash.replace('#', '');
-      if (h === 'privacy' || h === 'cookies' || h === 'terms') setActiveTab(h);
+      if (h === 'privacy' || h === 'cookies' || h === 'terms') {
+        setActiveTab(h);
+        setBlogSlug(null);
+        return;
+      }
+      if (h === 'blog' || h.startsWith('blog/')) {
+        setActiveTab('blog');
+        setBlogSlug(h.startsWith('blog/') ? h.slice(5) : null);
+      }
     };
     applyHash();
     window.addEventListener('hashchange', applyHash);
@@ -342,12 +392,10 @@ function AppInner() {
   if (!currentUser) {
     return (
       <div className="app-container">
-        <div className="bg-glow-1" />
-        <div className="bg-glow-2" />
         <Header
           variant="guest"
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={navigateApp}
           language={language}
           onLanguageToggle={handleLanguageToggle}
           onRegister={() => openRegister('study')}
@@ -362,7 +410,20 @@ function AppInner() {
             <PublicLanding
               language={language}
               onRegister={() => openRegister('study')}
-              onExploreStudy={() => setActiveTab('path')}
+              onExploreStudy={() => navigateApp('path')}
+              onNavigate={navigateApp}
+            />
+          )}
+
+          {activeTab === 'blog' && !blogSlug && (
+            <BlogListPage language={language} onOpenPost={(slug) => navigateApp('blog', slug)} />
+          )}
+          {activeTab === 'blog' && blogSlug && (
+            <BlogPostPage
+              slug={blogSlug}
+              language={language}
+              onBack={() => navigateApp('blog')}
+              onOpenPost={(slug) => navigateApp('blog', slug)}
             />
           )}
 
@@ -393,15 +454,9 @@ function AppInner() {
           {activeTab === 'teacher' && (
             <TeacherProfile
               language={language}
-              onNavigateToBooking={() => promptRegister('booking')}
+              bookingSectionRef={lunaBookingRef}
+              onScrollToBooking={(mode) => openLunaBooking(mode)}
               onRequireAuth={() => promptRegister('booking')}
-            />
-          )}
-
-          {activeTab === 'booking' && (
-            <BookingPreview
-              language={language}
-              onRegister={() => openRegister('booking')}
             />
           )}
 
@@ -409,7 +464,6 @@ function AppInner() {
             <AuthPage
               language={language}
               initialSignup={authSignupMode}
-              onBack={() => setActiveTab('home')}
             />
           )}
         </main>
@@ -438,19 +492,17 @@ function AppInner() {
 
   return (
     <div className="app-container">
-      <div className="bg-glow-1" />
-      <div className="bg-glow-2" />
-
       <Header
         variant="app"
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={navigateApp}
         language={language}
         onLanguageToggle={handleLanguageToggle}
         currentUser={currentUser}
         onLogout={handleLogout}
         onOpenOnboarding={openOnboarding}
         onMarketingConsentChange={handleMarketingConsentChange}
+        onOpenAdmin={openAdmin}
       />
 
       {firebaseUser && !firebaseUser.emailVerified && (
@@ -505,8 +557,20 @@ function AppInner() {
           <HomeLanding
             language={language}
             currentUser={currentUser}
-            onNavigate={setActiveTab}
+            onNavigate={navigateApp}
             onOpenOnboarding={openOnboarding}
+          />
+        )}
+
+        {activeTab === 'blog' && !blogSlug && (
+          <BlogListPage language={language} onOpenPost={(slug) => navigateApp('blog', slug)} />
+        )}
+        {activeTab === 'blog' && blogSlug && (
+          <BlogPostPage
+            slug={blogSlug}
+            language={language}
+            onBack={() => navigateApp('blog')}
+            onOpenPost={(slug) => navigateApp('blog', slug)}
           />
         )}
 
@@ -554,23 +618,11 @@ function AppInner() {
           <TeacherProfile
             language={language}
             currentUser={currentUser}
-            onNavigateToBooking={(mode) => {
-              setBookingMode(mode);
-              setActiveTab('booking');
-            }}
-            onTrialRefresh={() => refreshUser()}
-          />
-        )}
-
-        {activeTab === 'booking' && (
-          <BookingCalendar
-            language={language}
-            userEmail={currentUser.email}
-            userName={currentUser.username}
-            currentUser={currentUser}
-            mode={bookingMode}
-            defaultPlan={bookingMode === 'regular' ? 'included' : 'trial_intro'}
+            bookingMode={bookingMode}
             rescheduleBookingId={rescheduleBookingId}
+            bookingSectionRef={lunaBookingRef}
+            onScrollToBooking={(mode) => openLunaBooking(mode)}
+            onTrialRefresh={() => refreshUser()}
             onBookingSuccess={() => {
               void refreshUser();
               setRescheduleBookingId(null);
@@ -582,11 +634,7 @@ function AppInner() {
         {activeTab === 'dashboard' && (
           <StudentDashboard
             language={language}
-            onNavigateToBooking={(mode, bookingId) => {
-              setBookingMode(mode);
-              setRescheduleBookingId(bookingId ?? null);
-              setActiveTab('booking');
-            }}
+            onNavigateToBooking={(mode, bookingId) => openLunaBooking(mode, bookingId)}
             currentUser={currentUser}
             onLogout={handleLogout}
             onUserUpdate={handleUserUpdate}
@@ -595,7 +643,7 @@ function AppInner() {
         )}
 
         {activeTab === 'admin' && isStaffRole(currentUser.role) && (
-          <AdminPanel language={language} currentUser={currentUser} />
+          <AdminPanel language={language} currentUser={currentUser} initialSection={adminSection} />
         )}
 
         {activeTab === 'teacher-dashboard' && currentUser && canAccessTeacherDashboard(currentUser.role) && (
@@ -618,8 +666,7 @@ function AppInner() {
                 className="btn btn-primary"
                 onClick={() => {
                   setSubscribeBookOpen(false);
-                  setBookingMode('regular');
-                  setActiveTab('booking');
+                  openLunaBooking('regular');
                 }}
               >
                 {language === 'en' ? 'Book included lessons' : 'Prenota lezioni incluse'}

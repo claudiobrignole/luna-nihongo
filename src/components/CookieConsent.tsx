@@ -124,8 +124,8 @@ export function CookieConsent({ language, onOpenPolicy }: CookieConsentProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="cookie-modal-head">
-              <h2 className="cookie-modal-title" lang="ja">
-                クッキー設定
+              <h2 className="cookie-modal-title">
+                <span lang="ja">クッキー設定</span>
                 <span>{it ? 'Preferenze cookie' : 'Cookie preferences'}</span>
               </h2>
               <button type="button" className="cookie-modal-close" onClick={closePreferences} aria-label={it ? 'Chiudi' : 'Close'}>

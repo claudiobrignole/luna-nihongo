@@ -216,5 +216,10 @@ service cloud.firestore {
         );
       allow create, update, delete: if false;
     }
+
+    match /blogPosts/{postId} {
+      allow read: if resource.data.published == true || isSuperAdmin();
+      allow create, update, delete: if isSuperAdmin();
+    }
   }
 }

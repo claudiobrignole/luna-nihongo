@@ -1,18 +1,8 @@
 import { useEffect, useState } from 'react';
-import {
-  Calendar,
-  Globe,
-  GraduationCap,
-  Home,
-  Layers,
-  MessageCircle,
-  MoreHorizontal,
-  Shield,
-  User,
-  X,
-} from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import type { LunaUser } from '../types/user';
-import { isStaffRole, canAccessTeacherDashboard } from '../types/user';
+import { isStaffRole, isSuperAdminRole, canAccessTeacherDashboard } from '../types/user';
+import type { AdminPanelSection } from './AdminPanel';
 import { UserMenu } from './UserMenu';
 import { LunaLogo } from './LunaLogo';
 
@@ -29,29 +19,22 @@ export type TabType =
   | 'auth'
   | 'privacy'
   | 'cookies'
-  | 'terms';
+  | 'terms'
+  | 'blog';
 export type LanguageType = 'en' | 'it';
 
 interface NavItem {
   id: TabType;
-  icon: typeof GraduationCap;
   label: { en: string; it: string };
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { id: 'home', icon: Home, label: { en: 'Home', it: 'Home' } },
-  { id: 'path', icon: GraduationCap, label: { en: 'Study', it: 'Studio' } },
-  { id: 'flashcards', icon: Layers, label: { en: 'Decks', it: 'Deck' } },
-  { id: 'tutor', icon: MessageCircle, label: { en: 'Tutor', it: 'Tutor' } },
-  { id: 'teacher', icon: User, label: { en: 'Luna', it: 'Luna' } },
-  { id: 'booking', icon: Calendar, label: { en: 'Book', it: 'Prenota' } },
-];
-
-const MOBILE_PRIMARY: NavItem[] = [
-  { id: 'home', icon: Home, label: { en: 'Home', it: 'Home' } },
-  { id: 'path', icon: GraduationCap, label: { en: 'Study', it: 'Studio' } },
-  { id: 'flashcards', icon: Layers, label: { en: 'Decks', it: 'Deck' } },
-  { id: 'teacher', icon: User, label: { en: 'Luna', it: 'Luna' } },
+  { id: 'home', label: { en: 'Home', it: 'Home' } },
+  { id: 'path', label: { en: 'Study', it: 'Studio' } },
+  { id: 'flashcards', label: { en: 'Decks', it: 'Deck' } },
+  { id: 'tutor', label: { en: 'Tutor', it: 'Tutor' } },
+  { id: 'teacher', label: { en: 'Luna', it: 'Luna' } },
+  { id: 'blog', label: { en: 'Blog', it: 'Blog' } },
 ];
 
 interface HeaderProps {
@@ -66,6 +49,7 @@ interface HeaderProps {
   onLogin?: () => void;
   onOpenOnboarding?: () => void;
   onMarketingConsentChange?: (consent: boolean) => void | Promise<void>;
+  onOpenAdmin?: (section?: AdminPanelSection) => void;
 }
 
 function NavButton({
@@ -79,7 +63,6 @@ function NavButton({
   activeTab: TabType;
   onClick: () => void;
 }) {
-  const Icon = item.icon;
   const isActive = activeTab === item.id;
 
   return (
@@ -88,11 +71,49 @@ function NavButton({
       onClick={onClick}
       className={`nav-link ${isActive ? 'active' : ''}`}
       aria-current={isActive ? 'page' : undefined}
-      title={item.label[language]}
     >
-      <Icon size={18} />
-      <span>{item.label[language]}</span>
+      {item.label[language]}
     </button>
+  );
+}
+
+/* Toggle lingua unito: due segmenti IT / EN, quello attivo evidenziato. */
+function LangToggle({
+  language,
+  onToggle,
+  className = '',
+}: {
+  language: LanguageType;
+  onToggle: () => void;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`lang-toggle ${className}`}
+      role="group"
+      aria-label={language === 'en' ? 'Language' : 'Lingua'}
+    >
+      <button
+        type="button"
+        className={`lang-seg ${language === 'it' ? 'active' : ''}`}
+        aria-pressed={language === 'it'}
+        onClick={() => {
+          if (language !== 'it') onToggle();
+        }}
+      >
+        IT
+      </button>
+      <button
+        type="button"
+        className={`lang-seg ${language === 'en' ? 'active' : ''}`}
+        aria-pressed={language === 'en'}
+        onClick={() => {
+          if (language !== 'en') onToggle();
+        }}
+      >
+        EN
+      </button>
+    </div>
   );
 }
 
@@ -104,38 +125,42 @@ export function Header({
   onLanguageToggle,
   currentUser,
   onLogout,
-  onRegister,
   onLogin,
   onOpenOnboarding,
   onMarketingConsentChange,
+  onOpenAdmin,
 }: HeaderProps) {
-  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
-  const hasMobileNav = variant === 'app' || variant === 'guest';
+  const [menuOpen, setMenuOpen] = useState(false);
+  const isGuest = variant === 'guest';
 
   useEffect(() => {
-    document.body.classList.toggle('has-mobile-nav', hasMobileNav);
-    return () => document.body.classList.remove('has-mobile-nav');
-  }, [hasMobileNav]);
-
-  useEffect(() => {
-    if (!mobileMoreOpen) return;
+    if (!menuOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileMoreOpen(false);
+      if (event.key === 'Escape') setMenuOpen(false);
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [mobileMoreOpen]);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    document.body.classList.toggle('drawer-open', menuOpen);
+    return () => document.body.classList.remove('drawer-open');
+  }, [menuOpen]);
 
   const navigate = (tab: TabType) => {
     onTabChange?.(tab);
-    setMobileMoreOpen(false);
+    setMenuOpen(false);
   };
 
-  if (variant === 'guest') {
-    return (
-      <>
-        <header className="main-header">
-          <div className="header-content header-content-app">
+  const showTeacherDashboard = !isGuest && !!currentUser && canAccessTeacherDashboard(currentUser.role);
+  const showAdmin = !isGuest && !!currentUser && isStaffRole(currentUser.role);
+  const showBlogAdmin = !isGuest && !!currentUser && isSuperAdminRole(currentUser.role) && !!onOpenAdmin;
+
+  return (
+    <>
+      <header className="main-header">
+        <div className="header-content header-content-app">
+          {isGuest ? (
             <button
               type="button"
               className="header-brand header-brand-btn"
@@ -144,106 +169,17 @@ export function Header({
             >
               <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
             </button>
-
-            <nav className="header-desktop-nav" aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}>
-              {NAV_ITEMS.map((item) => (
-                <NavButton
-                  key={item.id}
-                  item={item}
-                  language={language}
-                  activeTab={activeTab}
-                  onClick={() => navigate(item.id)}
-                />
-              ))}
-            </nav>
-
-            <div className="header-actions">
-              <button type="button" onClick={onLanguageToggle} className="btn btn-secondary header-lang-btn">
-                <Globe size={16} />
-                <span className="header-lang-label">{language === 'it' ? 'ITA' : 'ENG'}</span>
-              </button>
-              <button type="button" className="btn btn-secondary header-login-btn" onClick={onLogin}>
-                {language === 'en' ? 'Log in' : 'Accedi'}
-              </button>
-              <button type="button" className="btn btn-primary header-register-btn" onClick={onRegister}>
-                {language === 'en' ? 'Sign up free' : 'Registrati gratuitamente'}
-              </button>
+          ) : (
+            <div className="header-brand">
+              <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
             </div>
-          </div>
-        </header>
+          )}
 
-        <nav className="mobile-bottom-nav" aria-label={language === 'en' ? 'Mobile navigation' : 'Navigazione mobile'}>
-          {MOBILE_PRIMARY.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => navigate(item.id)}
-                className={`mobile-nav-item ${isActive ? 'active' : ''}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <Icon size={20} />
-                <span>{item.label[language]}</span>
-              </button>
-            );
-          })}
-          <button
-            type="button"
-            onClick={() => setMobileMoreOpen(true)}
-            className={`mobile-nav-item ${mobileMoreOpen ? 'active' : ''}`}
-            aria-label={language === 'en' ? 'More' : 'Altro'}
+          <nav
+            className="header-desktop-nav"
+            aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}
           >
-            <MoreHorizontal size={20} />
-            <span>{language === 'en' ? 'More' : 'Altro'}</span>
-          </button>
-        </nav>
-
-        {mobileMoreOpen && (
-          <div className="mobile-sheet-backdrop" onClick={() => setMobileMoreOpen(false)}>
-            <div className="mobile-sheet" onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true">
-              <div className="mobile-sheet-header">
-                <h3>{language === 'en' ? 'Menu' : 'Menu'}</h3>
-                <button type="button" className="mobile-sheet-close" onClick={() => setMobileMoreOpen(false)} aria-label="Close">
-                  <X size={20} />
-                </button>
-              </div>
-              <div className="mobile-sheet-links">
-                <button type="button" className={`mobile-sheet-link ${activeTab === 'tutor' ? 'active' : ''}`} onClick={() => navigate('tutor')}>
-                  <MessageCircle size={20} />
-                  {language === 'en' ? 'AI Tutor' : 'Tutor AI'}
-                </button>
-                <button type="button" className={`mobile-sheet-link ${activeTab === 'booking' ? 'active' : ''}`} onClick={() => navigate('booking')}>
-                  <Calendar size={20} />
-                  {language === 'en' ? 'Book a lesson' : 'Prenota lezione'}
-                </button>
-                <button type="button" className="mobile-sheet-link" onClick={() => { setMobileMoreOpen(false); onRegister?.(); }}>
-                  <User size={20} />
-                  {language === 'en' ? 'Sign up free' : 'Registrati gratuitamente'}
-                </button>
-                <button type="button" className="mobile-sheet-link" onClick={onLanguageToggle}>
-                  <Globe size={20} />
-                  {language === 'en' ? 'Switch to Italian' : 'Passa all\'inglese'}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </>
-    );
-  }
-
-  return (
-    <>
-      <header className="main-header">
-        <div className="header-content header-content-app">
-          <div className="header-brand">
-            <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
-          </div>
-
-          <nav className="header-desktop-nav" aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}>
-            {NAV_ITEMS.map(item => (
+            {NAV_ITEMS.map((item) => (
               <NavButton
                 key={item.id}
                 item={item}
@@ -255,109 +191,126 @@ export function Header({
           </nav>
 
           <div className="header-actions">
-            <button type="button" onClick={onLanguageToggle} className="btn btn-secondary header-lang-btn">
-              <Globe size={16} />
-              <span className="header-lang-label">{language === 'it' ? 'ITA' : 'ENG'}</span>
-            </button>
+            <LangToggle language={language} onToggle={onLanguageToggle} className="header-lang-toggle" />
 
-            {currentUser && onLogout && (
-              <UserMenu
-                currentUser={currentUser}
-                language={language}
-                activeTab={activeTab}
-                onNavigate={navigate}
-                onLogout={onLogout}
-                onOpenOnboarding={onOpenOnboarding}
-                onMarketingConsentChange={onMarketingConsentChange}
-              />
+            {isGuest ? (
+              <button type="button" className="btn btn-primary header-login-btn" onClick={onLogin}>
+                {language === 'en' ? 'Log in' : 'Accedi'}
+              </button>
+            ) : (
+              currentUser &&
+              onLogout && (
+                <UserMenu
+                  currentUser={currentUser}
+                  language={language}
+                  activeTab={activeTab}
+                  onNavigate={navigate}
+                  onLogout={onLogout}
+                  onOpenOnboarding={onOpenOnboarding}
+                  onMarketingConsentChange={onMarketingConsentChange}
+                  onOpenAdmin={onOpenAdmin}
+                />
+              )
             )}
+
+            <button
+              type="button"
+              className="header-menu-btn"
+              aria-label={language === 'en' ? 'Open menu' : 'Apri menu'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+            >
+              <Menu size={22} />
+            </button>
           </div>
         </div>
       </header>
 
-      <nav className="mobile-bottom-nav" aria-label={language === 'en' ? 'Mobile navigation' : 'Navigazione mobile'}>
-        {MOBILE_PRIMARY.map(item => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.id;
-
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => navigate(item.id)}
-              className={`mobile-nav-item ${isActive ? 'active' : ''}`}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              <Icon size={20} />
-              <span>{item.label[language]}</span>
-            </button>
-          );
-        })}
-
-        <button
-          type="button"
-          onClick={() => setMobileMoreOpen(true)}
-          className={`mobile-nav-item ${mobileMoreOpen ? 'active' : ''}`}
-          aria-label={language === 'en' ? 'More' : 'Altro'}
-        >
-          <MoreHorizontal size={20} />
-          <span>{language === 'en' ? 'More' : 'Altro'}</span>
-        </button>
-      </nav>
-
-      {mobileMoreOpen && (
-        <div className="mobile-sheet-backdrop" onClick={() => setMobileMoreOpen(false)}>
-          <div className="mobile-sheet" onClick={event => event.stopPropagation()} role="dialog" aria-modal="true">
-            <div className="mobile-sheet-header">
-              <h3>{language === 'en' ? 'Menu' : 'Menu'}</h3>
-              <button type="button" className="mobile-sheet-close" onClick={() => setMobileMoreOpen(false)} aria-label="Close">
+      {menuOpen && (
+        <div className="nav-drawer-backdrop" onClick={() => setMenuOpen(false)}>
+          <div
+            className="nav-drawer"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={language === 'en' ? 'Menu' : 'Menu'}
+          >
+            <div className="nav-drawer-header">
+              <span className="nav-drawer-title">Menu</span>
+              <button
+                type="button"
+                className="nav-drawer-close"
+                onClick={() => setMenuOpen(false)}
+                aria-label={language === 'en' ? 'Close menu' : 'Chiudi menu'}
+              >
                 <X size={20} />
               </button>
             </div>
 
-            <div className="mobile-sheet-links">
-              <button
-                type="button"
-                className={`mobile-sheet-link ${activeTab === 'tutor' ? 'active' : ''}`}
-                onClick={() => navigate('tutor')}
-              >
-                <MessageCircle size={20} />
-                {language === 'en' ? 'AI Tutor' : 'Tutor AI'}
-              </button>
+            <nav
+              className="nav-drawer-links"
+              aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}
+            >
+              {NAV_ITEMS.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`nav-drawer-link ${activeTab === item.id ? 'active' : ''}`}
+                  onClick={() => navigate(item.id)}
+                >
+                  {item.label[language]}
+                </button>
+              ))}
 
-              <button
-                type="button"
-                className={`mobile-sheet-link ${activeTab === 'booking' ? 'active' : ''}`}
-                onClick={() => navigate('booking')}
-              >
-                <Calendar size={20} />
-                {language === 'en' ? 'Book a lesson' : 'Prenota lezione'}
-              </button>
-
-              {currentUser && canAccessTeacherDashboard(currentUser.role) && (
+              {showTeacherDashboard && (
                 <button
                   type="button"
-                  className={`mobile-sheet-link ${activeTab === 'teacher-dashboard' ? 'active' : ''}`}
+                  className={`nav-drawer-link ${activeTab === 'teacher-dashboard' ? 'active' : ''}`}
                   onClick={() => navigate('teacher-dashboard')}
                 >
                   {language === 'en' ? 'Teacher dashboard' : 'Dashboard maestro'}
                 </button>
               )}
-              {currentUser && isStaffRole(currentUser.role) && (
+
+              {showAdmin && (
                 <button
                   type="button"
-                  className={`mobile-sheet-link mobile-sheet-link-admin ${activeTab === 'admin' ? 'active' : ''}`}
+                  className={`nav-drawer-link nav-drawer-link-admin ${activeTab === 'admin' ? 'active' : ''}`}
                   onClick={() => navigate('admin')}
                 >
-                  <Shield size={20} />
                   {language === 'en' ? 'Admin panel' : 'Pannello admin'}
                 </button>
               )}
 
-              <button type="button" className="mobile-sheet-link" onClick={onLanguageToggle}>
-                <Globe size={20} />
-                {language === 'en' ? 'Switch to Italian' : 'Passa all\'inglese'}
-              </button>
+              {showBlogAdmin && (
+                <button
+                  type="button"
+                  className="nav-drawer-link nav-drawer-link-admin"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onOpenAdmin?.('blog');
+                  }}
+                >
+                  {language === 'en' ? 'Blog articles' : 'Articoli blog'}
+                </button>
+              )}
+            </nav>
+
+            <div className="nav-drawer-footer">
+              <LangToggle language={language} onToggle={onLanguageToggle} className="lang-toggle--block" />
+
+              {isGuest && (
+                <button
+                  type="button"
+                  className="btn btn-primary nav-drawer-cta"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onLogin?.();
+                  }}
+                >
+                  {language === 'en' ? 'Log in' : 'Accedi'}
+                </button>
+              )}
             </div>
           </div>
         </div>

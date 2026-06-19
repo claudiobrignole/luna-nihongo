@@ -1,11 +1,12 @@
-import React, { useMemo, useState } from 'react';
-import { Search, Trash2, Radio, Lock, Calendar, ChevronRight } from 'lucide-react';
+import React, { useMemo, useState, useEffect } from 'react';
+import { Search, Trash2, Radio, Lock, Calendar, ChevronRight, ChevronDown } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
 import { hasPremiumAccess } from '../types/user';
 import {
   filterLiveSessions,
   getLiveSessionMessages,
   listLiveSessions,
+  removeLiveSessionFromHistory,
 } from '../utils/chatHistory';
 import { deleteLiveSessionRecord } from '../services/liveSessionService';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
@@ -16,6 +17,8 @@ interface LiveHistoryPanelProps {
   chatHistory: ChatMessage[];
   onChatHistoryChange: (chatHistory: ChatMessage[]) => void;
   onNavigateToDashboard: () => void;
+  /** When rendered inside tutor context tiles (no outer glass panel). */
+  embedded?: boolean;
 }
 
 function formatListDate(iso: string, language: 'en' | 'it'): string {
@@ -32,6 +35,7 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
   currentUser,
   chatHistory,
   onChatHistoryChange,
+  embedded = false,
 }) => {
   const isPremium = hasPremiumAccess(currentUser);
   const [month, setMonth] = useState('');
@@ -56,9 +60,15 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
     [allSessions, chatHistory, day, month, textQuery],
   );
 
-  const selectedMessages = selectedId
-    ? getLiveSessionMessages(chatHistory, selectedId)
-    : [];
+  useEffect(() => {
+    if (!selectedId) return;
+    const el = document.getElementById(`live-history-detail-${selectedId}`);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, [selectedId]);
+
+  const toggleSession = (sessionId: string) => {
+    setSelectedId((prev) => (prev === sessionId ? null : sessionId));
+  };
 
   const handleDelete = async (liveSessionId: string) => {
     const confirmMsg =
@@ -74,6 +84,13 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
       if (selectedId === liveSessionId) setSelectedId(null);
     } catch (err) {
       console.error('deleteLiveSession failed', err);
+      const nextHistory = removeLiveSessionFromHistory(chatHistory, liveSessionId);
+      if (nextHistory.length < chatHistory.length) {
+        onChatHistoryChange(nextHistory);
+        if (selectedId === liveSessionId) setSelectedId(null);
+        return;
+      }
+
       const msg =
         err instanceof Error && err.message === 'DELETE_SERVICE_UNAVAILABLE'
           ? language === 'en'
@@ -88,8 +105,12 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
     }
   };
 
+  const panelClass = embedded
+    ? 'live-history-panel live-history-panel--embedded'
+    : 'glass-panel live-history-panel';
+
   return (
-    <div className="glass-panel live-history-panel">
+    <div className={panelClass}>
       <div className="live-history-header">
         <Radio size={16} style={{ color: 'var(--secondary)' }} />
         <span>{language === 'en' ? 'Live history' : 'Storico live'}</span>
@@ -135,6 +156,7 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
             <Search size={14} />
             <input
               type="search"
+              className="live-history-search-input"
               value={textQuery}
               onChange={(e) => setTextQuery(e.target.value)}
               placeholder={
@@ -145,7 +167,7 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
             />
           </label>
 
-          <div className="live-history-list">
+          <div className={`live-history-list${embedded ? ' live-history-list--embedded' : ''}`}>
             {filteredSessions.length === 0 ? (
               <p className="live-history-empty">
                 {language === 'en'
@@ -153,46 +175,83 @@ export const LiveHistoryPanel: React.FC<LiveHistoryPanelProps> = ({
                   : 'Nessuna sessione live salvata.'}
               </p>
             ) : (
-              filteredSessions.map((session) => (
-                <div key={session.id} className="live-history-item-wrap">
-                  <button
-                    type="button"
-                    className={`live-history-item ${selectedId === session.id ? 'active' : ''}`}
-                    onClick={() => setSelectedId(session.id === selectedId ? null : session.id)}
+              filteredSessions.map((session) => {
+                const isOpen = selectedId === session.id;
+                const sessionMessages = isOpen
+                  ? getLiveSessionMessages(chatHistory, session.id)
+                  : [];
+
+                return (
+                  <div
+                    key={session.id}
+                    className={`live-history-item-wrap${isOpen ? ' live-history-item-wrap--open' : ''}`}
                   >
-                    <div>
-                      <strong>{formatListDate(session.startedAt, language)}</strong>
-                      <span>{session.messageCount} {language === 'en' ? 'lines' : 'righe'}</span>
+                    <div className="live-history-item-row">
+                      <button
+                        type="button"
+                        className={`live-history-item${isOpen ? ' active' : ''}`}
+                        aria-expanded={isOpen}
+                        onClick={() => toggleSession(session.id)}
+                      >
+                        <div>
+                          <strong>{formatListDate(session.startedAt, language)}</strong>
+                          <span>
+                            {session.messageCount} {language === 'en' ? 'lines' : 'righe'}
+                          </span>
+                        </div>
+                        {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                      </button>
+                      <button
+                        type="button"
+                        className="live-history-delete"
+                        disabled={deletingId === session.id}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          void handleDelete(session.id);
+                        }}
+                        title={language === 'en' ? 'Delete session' : 'Elimina sessione'}
+                      >
+                        <Trash2 size={14} />
+                      </button>
                     </div>
-                    <ChevronRight size={14} />
-                  </button>
-                  <button
-                    type="button"
-                    className="live-history-delete"
-                    disabled={deletingId === session.id}
-                    onClick={() => void handleDelete(session.id)}
-                    title={language === 'en' ? 'Delete session' : 'Elimina sessione'}
-                  >
-                    <Trash2 size={14} />
-                  </button>
-                </div>
-              ))
+
+                    {isOpen && (
+                      <div
+                        id={`live-history-detail-${session.id}`}
+                        className="live-history-detail live-history-detail--inline"
+                      >
+                        <h4>{language === 'en' ? 'Transcript' : 'Trascrizione'}</h4>
+                        {sessionMessages.length === 0 ? (
+                          <p className="live-history-empty">
+                            {language === 'en'
+                              ? 'No transcript lines saved for this session.'
+                              : 'Nessuna riga salvata per questa sessione.'}
+                          </p>
+                        ) : (
+                          <ul>
+                            {sessionMessages.map((line, i) => (
+                              <li key={`${session.id}-${i}`} className={`live-line ${line.role}`}>
+                                <strong>
+                                  {line.role === 'user'
+                                    ? language === 'en'
+                                      ? 'You'
+                                      : 'Tu'
+                                    : 'Luna'}
+                                  :
+                                </strong>{' '}
+                                {line.content}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })
             )}
           </div>
-
-          {selectedId && selectedMessages.length > 0 && (
-            <div className="live-history-detail">
-              <h4>{language === 'en' ? 'Transcript' : 'Trascrizione'}</h4>
-              <ul>
-                {selectedMessages.map((line, i) => (
-                  <li key={`${selectedId}-${i}`} className={`live-line ${line.role}`}>
-                    <strong>{line.role === 'user' ? (language === 'en' ? 'You' : 'Tu') : 'Luna'}:</strong>{' '}
-                    {line.content}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
         </>
       )}
     </div>

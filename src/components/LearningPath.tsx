@@ -686,7 +686,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                               borderRadius: '12px',
                               border: selectedOptionIndex === index
                                 ? '2px solid var(--primary)'
-                                : '1px solid var(--border)',
+                                : '2px solid var(--ln-card-border)',
                               backgroundColor: selectedOptionIndex === index
                                 ? 'var(--primary-glow)'
                                 : 'var(--bg-input)',
@@ -716,7 +716,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                                   minWidth: '120px',
                                   padding: '0.75rem',
                                   borderRadius: '10px',
-                                  border: '1px solid var(--border)',
+                                  border: '2px solid var(--ln-card-border)',
                                   backgroundColor: 'var(--bg-input)',
                                   color: 'var(--text-main)',
                                 }}
@@ -741,7 +741,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({
                           style={{
                             padding: '1rem',
                             borderRadius: '12px',
-                            border: '1px solid var(--border)',
+                            border: '2px solid var(--ln-card-border)',
                             backgroundColor: 'var(--bg-input)',
                             fontSize: '1.1rem',
                             color: 'var(--text-main)'

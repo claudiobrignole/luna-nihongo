@@ -7,7 +7,7 @@ import {
   countCardsInDeckFilter,
   getLevelSourceIds,
 } from '../utils/curriculumDeck';
-import { RotateCw, RefreshCw, Layers, Smile, BookOpen, AlertCircle, Loader2, Volume2 } from 'lucide-react';
+import { RotateCw, RefreshCw, Layers, Smile, BookOpen, AlertCircle, Loader2, Volume2, ChevronLeft, ChevronRight, SkipForward } from 'lucide-react';
 import { useJapaneseSpeech } from '../hooks/useJapaneseSpeech';
 import { HubFilterGrid, HubFilterStack } from './HubFilterGrid';
 import type { SyllabusLevel } from '../types/curriculum';
@@ -17,12 +17,45 @@ interface FlashcardsProps {
   userId: string;
 }
 
+type DeckSession = { ids: string[]; index: number };
+
+const EMPTY_DECK_SESSION: DeckSession = { ids: [], index: 0 };
+
+function startDeckSession(firstCardId: string | undefined): DeckSession {
+  return firstCardId ? { ids: [firstCardId], index: 0 } : EMPTY_DECK_SESSION;
+}
+
+function getNextDeckCardId(
+  currentId: string,
+  deck: SRSCard[],
+  cramming: boolean,
+  deckAfterRemoval?: SRSCard[],
+): string | null {
+  const idx = deck.findIndex((c) => c.id === currentId);
+  if (cramming) {
+    if (idx === -1) return deck[0]?.id ?? null;
+    return idx + 1 < deck.length ? deck[idx + 1].id : null;
+  }
+  const nextDeck = deckAfterRemoval ?? deck;
+  if (idx === -1) return nextDeck[0]?.id ?? null;
+  return idx < nextDeck.length ? nextDeck[idx]?.id ?? null : null;
+}
+
+function advanceDeckSession(session: DeckSession, nextId: string): DeckSession {
+  const trimmed = session.ids.slice(0, session.index + 1);
+  if (trimmed[trimmed.length - 1] === nextId) {
+    return { ids: trimmed, index: trimmed.length - 1 };
+  }
+  const ids = [...trimmed, nextId];
+  return { ids, index: ids.length - 1 };
+}
+
 export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
   const [cards, setCards] = useState<SRSCard[]>([]);
   const [activeLevel, setActiveLevel] = useState<number | 'all'>('all');
   const [activeType, setActiveType] = useState<SRSCardType | 'all'>('all');
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
-  const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
+  const [session, setSession] = useState<DeckSession>(EMPTY_DECK_SESSION);
   const [isCramming, setIsCramming] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -86,7 +119,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
 
   const refreshDeck = async () => {
     const loaded = await fetchCards({ refresh: true });
-    setCurrentCardIndex(0);
     setIsFlipped(false);
     if (!loaded) return;
 
@@ -99,6 +131,13 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     if (inFilter.length > 0 && dueInFilter.length === 0) {
       setIsCramming(true);
     }
+
+    const deckForSession = (inFilter.length > 0 && dueInFilter.length === 0)
+      ? inFilter
+      : dueInFilter.length > 0
+        ? dueInFilter
+        : inFilter;
+    setSession(startDeckSession(deckForSession[0]?.id));
   };
 
   const todayStr = new Date().toISOString().split('T')[0];
@@ -131,12 +170,30 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     if (isLoading || deckTotalInFilter === 0) return;
     if (dueCountInFilter === 0) {
       setIsCramming(true);
-      setCurrentCardIndex(0);
-      setIsFlipped(false);
     } else {
       setIsCramming(false);
     }
   }, [activeLevel, activeType, isLoading, deckTotalInFilter, dueCountInFilter]);
+
+  const sessionFilterKey = `${activeLevel}|${activeType}|${isCramming}`;
+
+  useEffect(() => {
+    if (isLoading) return;
+    if (filteredCards.length === 0) {
+      setSession(EMPTY_DECK_SESSION);
+      setIsFlipped(false);
+      return;
+    }
+    setSession(startDeckSession(filteredCards[0].id));
+    setIsFlipped(false);
+  }, [sessionFilterKey, isLoading]);
+
+  useEffect(() => {
+    if (isLoading || filteredCards.length === 0) return;
+    setSession((prev) =>
+      prev.ids.length === 0 ? startDeckSession(filteredCards[0].id) : prev,
+    );
+  }, [isLoading, filteredCards.length, filteredCards[0]?.id]);
 
   const deckEmptyReason = useMemo(() => {
     if (cards.length === 0) return 'no-catalog' as const;
@@ -157,19 +214,39 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     dialogue: { en: 'Dialogue', it: 'Dialogo' },
   };
 
-  useEffect(() => {
-    if (filteredCards.length === 0) {
-      if (currentCardIndex !== 0) setCurrentCardIndex(0);
+  const activeCardId = session.ids[session.index];
+  const activeCard = useMemo(() => {
+    if (!activeCardId) return undefined;
+    return cards.find((c) => c.id === activeCardId);
+  }, [cards, activeCardId]);
+
+  const deckPosition = activeCard
+    ? filteredCards.findIndex((c) => c.id === activeCard.id) + 1
+    : 0;
+
+  const canGoBack = session.index > 0;
+  const canGoForwardInHistory = session.index < session.ids.length - 1;
+  const nextSkipId = activeCard
+    ? getNextDeckCardId(activeCard.id, filteredCards, isCramming)
+    : null;
+  const canSkip = !canGoForwardInHistory && nextSkipId !== null;
+
+  const goBack = () => {
+    if (!canGoBack) return;
+    setSession((s) => ({ ...s, index: s.index - 1 }));
+    setIsFlipped(false);
+  };
+
+  const goForwardOrSkip = () => {
+    if (canGoForwardInHistory) {
+      setSession((s) => ({ ...s, index: s.index + 1 }));
+      setIsFlipped(false);
       return;
     }
-    if (currentCardIndex >= filteredCards.length) {
-      setCurrentCardIndex(0);
-    }
-  }, [filteredCards.length, currentCardIndex]);
-
-  const safeCardIndex =
-    filteredCards.length === 0 ? 0 : Math.min(currentCardIndex, filteredCards.length - 1);
-  const activeCard = filteredCards[safeCardIndex];
+    if (!activeCard || !nextSkipId) return;
+    setSession((s) => advanceDeckSession(s, nextSkipId));
+    setIsFlipped(false);
+  };
 
   const activeLevelMeta =
     activeLevel === 'all' ? null : CURRICULUM_LEVELS.find((l) => l.level === activeLevel);
@@ -209,46 +286,35 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
     }
 
     setIsFlipped(false);
-    
-    // Animate transition to next card
+
     setTimeout(() => {
-      // Refresh local list
-      const updatedCards = cards.map(c => {
+      const updatedCards = cards.map((c) => {
         if (c.id === activeCard.id) {
           return {
             ...c,
             repetitions: scheduling.repetitions,
             interval: scheduling.interval,
             easiness: scheduling.easiness,
-            dueDate: scheduling.dueDate
+            dueDate: scheduling.dueDate,
           };
         }
         return c;
       });
       setCards(updatedCards);
 
-      // If we're not at the end of the filtered list, move index.
-      // Else, reset index (which will show completion if list is empty).
-      if (currentCardIndex + 1 < filteredCards.length) {
-        // Stay on current index if we filtered the rated card out, 
-        // since the list has shrunk and the next card slid into our current index!
-        // Wait, if it shrinks, currentCardIndex points to the next item automatically.
-        // Let's check if the list shrinks because it is no longer due.
-        // If isCramming is false, the card we just rated will be filtered out.
-        // Therefore, filteredCards will change. If we increment currentCardIndex, we might skip a card!
-        // To be safe: if the card is filtered out, we do NOT increment index, unless we were at the very end of the list.
-        if (isCramming) {
-          setCurrentCardIndex(prev => prev + 1);
-        } else {
-          // The current card will be removed from filteredCards on re-render.
-          // So the next card will automatically occupy the same index.
-          // We only need to adjust if we were at the last card.
-          if (currentCardIndex >= filteredCards.length - 1) {
-            setCurrentCardIndex(0);
-          }
-        }
-      } else {
-        setCurrentCardIndex(0);
+      const newFiltered = isCramming
+        ? updatedCards.filter((card) =>
+            cardMatchesDeckFilter(card, activeLevel, activeType, levelSourceIds),
+          )
+        : updatedCards.filter(
+            (card) =>
+              cardMatchesDeckFilter(card, activeLevel, activeType, levelSourceIds) &&
+              card.dueDate <= todayStr,
+          );
+
+      const nextId = getNextDeckCardId(activeCard.id, filteredCards, isCramming, newFiltered);
+      if (nextId) {
+        setSession((s) => advanceDeckSession(s, nextId));
       }
     }, 300);
   };
@@ -303,8 +369,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                 onClick={() => {
                   setActiveLevel('all');
                   setIsCramming(false);
-                  setCurrentCardIndex(0);
-                  setIsFlipped(false);
                 }}
               >
                 {language === 'en' ? 'All levels' : 'Tutti i livelli'}
@@ -325,8 +389,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                     onClick={() => {
                       setActiveLevel(lvl.level);
                       setIsCramming(false);
-                      setCurrentCardIndex(0);
-                      setIsFlipped(false);
                     }}
                   >
                     {levelTabLabel(lvl)}
@@ -348,8 +410,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
           onChange={(tab) => {
             setActiveType(tab);
             setIsCramming(false);
-            setCurrentCardIndex(0);
-            setIsFlipped(false);
           }}
         />
       </HubFilterStack>
@@ -385,13 +445,41 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
       )}
 
       {/* Main Flashcard Display */}
-      {filteredCards.length > 0 ? (
+      {filteredCards.length > 0 && activeCard ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           {/* Progress Indicator */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            <span>{language === 'en' ? 'Progress' : 'Progresso'}: {safeCardIndex + 1} / {filteredCards.length}</span>
+            <span>
+              {language === 'en' ? 'Progress' : 'Progresso'}:{' '}
+              {deckPosition > 0
+                ? `${deckPosition} / ${filteredCards.length}`
+                : `${session.index + 1} (${language === 'en' ? 'review' : 'revisione'})`}
+            </span>
             <span>{isCramming ? (language === 'en' ? 'Cram Mode' : 'Modalità Cramming') : (language === 'en' ? 'Spaced Repetition' : 'Ripetizione Spaziata')}</span>
+          </div>
+
+          <div className="deck-nav">
+            <button
+              type="button"
+              className="btn btn-secondary deck-nav-btn"
+              disabled={!canGoBack}
+              onClick={goBack}
+            >
+              <ChevronLeft size={18} />
+              {language === 'en' ? 'Back' : 'Indietro'}
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary deck-nav-btn"
+              disabled={!canGoForwardInHistory && !canSkip}
+              onClick={goForwardOrSkip}
+            >
+              {canGoForwardInHistory
+                ? (language === 'en' ? 'Forward' : 'Avanti')
+                : (language === 'en' ? 'Skip' : 'Salta')}
+              {canGoForwardInHistory ? <ChevronRight size={18} /> : <SkipForward size={18} />}
+            </button>
           </div>
 
           {/* 3D Flip Card Container */}
@@ -615,77 +703,61 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
               {language === 'en' ? 'How well did you know this?' : 'Quanto bene lo sapevi?'}
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.6rem' }}>
+            <div className="deck-rate-grid">
               
               {/* AGAIN */}
               <button 
                 onClick={() => handleRate(1)}
-                className="btn"
+                className="btn deck-rate-btn"
                 style={{
                   backgroundColor: 'var(--error-glow)',
                   border: '1px solid hsla(5, 80%, 50%, 0.3)',
                   color: 'var(--error)',
-                  flexDirection: 'column',
-                  padding: '0.6rem',
-                  borderRadius: '12px',
-                  fontSize: '0.8rem'
                 }}
               >
-                <RefreshCw size={16} style={{ marginBottom: '4px' }} />
+                <RefreshCw size={16} />
                 <span>{language === 'en' ? 'Again' : 'Ricomincia'}</span>
               </button>
 
               {/* HARD */}
               <button 
                 onClick={() => handleRate(3)}
-                className="btn"
+                className="btn deck-rate-btn"
                 style={{
                   backgroundColor: 'var(--accent-light)',
                   border: '1px solid hsla(var(--accent-hue), 90%, 55%, 0.3)',
                   color: 'var(--accent)',
-                  flexDirection: 'column',
-                  padding: '0.6rem',
-                  borderRadius: '12px',
-                  fontSize: '0.8rem'
                 }}
               >
-                <AlertCircle size={16} style={{ marginBottom: '4px' }} />
+                <AlertCircle size={16} />
                 <span>{language === 'en' ? 'Hard' : 'Difficile'}</span>
               </button>
 
               {/* GOOD */}
               <button 
                 onClick={() => handleRate(4)}
-                className="btn"
+                className="btn deck-rate-btn"
                 style={{
                   backgroundColor: 'var(--success-glow)',
                   border: '1px solid hsla(150, 75%, 40%, 0.3)',
                   color: 'var(--success)',
-                  flexDirection: 'column',
-                  padding: '0.6rem',
-                  borderRadius: '12px',
-                  fontSize: '0.8rem'
                 }}
               >
-                <Smile size={16} style={{ marginBottom: '4px' }} />
+                <Smile size={16} />
                 <span>{language === 'en' ? 'Good' : 'Buono'}</span>
               </button>
 
               {/* EASY */}
               <button 
                 onClick={() => handleRate(5)}
-                className="btn"
+                className="btn deck-rate-btn"
                 style={{
                   backgroundColor: 'rgba(52, 152, 219, 0.1)',
                   border: '1px solid rgba(52, 152, 219, 0.3)',
                   color: '#3498db',
-                  flexDirection: 'column',
-                  padding: '0.6rem',
-                  borderRadius: '12px',
-                  fontSize: '0.8rem'
                 }}
               >
-                <BookOpen size={16} style={{ marginBottom: '4px' }} />
+                <BookOpen size={16} />
                 <span>{language === 'en' ? 'Easy' : 'Facile'}</span>
               </button>
 
@@ -772,7 +844,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                 onClick={() => {
                   setActiveType('all');
                   setIsCramming(false);
-                  setCurrentCardIndex(0);
                   setIsFlipped(false);
                 }}
                 className="btn btn-primary"
@@ -788,7 +859,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                 type="button"
                 onClick={() => {
                   setIsCramming(true);
-                  setCurrentCardIndex(0);
                   setIsFlipped(false);
                 }}
                 className="btn btn-primary"
@@ -804,7 +874,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({ language, userId }) => {
                 type="button"
                 onClick={() => {
                   setIsCramming(false);
-                  setCurrentCardIndex(0);
                   setIsFlipped(false);
                 }}
                 className="btn btn-primary"

@@ -1,36 +1,19 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import {
-  Send, Bot, User, Crown, ChevronRight, Volume2, MessageCircle, MessagesSquare, Mic, Radio,
+  Send, Bot, User, Crown, ChevronRight, Volume2, MessageCircle, MessagesSquare, Radio,
 } from 'lucide-react';
 import type { ChatMessage, LunaUser } from '../types/user';
 import { canUseAiTutor } from '../types/user';
 import { trimChatHistory } from '../utils/chatHistory';
-import {
-  buildTutorSystemPrompt,
-  conversationOpener,
-  type TutorMode,
-} from '../services/tutorContext';
+import { buildTutorSystemPrompt, conversationOpener, type TutorMode } from '../services/tutorContext';
+import { TUTOR_ASSISTANT_NAME } from '../services/tutorPersona';
 import { fetchTutorReply } from '../services/tutorService';
 import { LunaLive } from './LunaLive';
 import { LunaLogo } from './LunaLogo';
-import { TutorSidebar } from './TutorSidebar';
-import { LiveHistoryPanel } from './LiveHistoryPanel';
-import { PremiumRetentionNotice } from './PremiumRetentionNotice';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
-import { TutorContextSheet } from './TutorContextSheet';
-import {
-  TutorContextToolbar,
-  type TutorContextSheetId,
-} from './TutorContextToolbar';
-import { tutorSheetTitle } from '../utils/tutorSheetTitle';
-import {
-  TutorMemoryPanel,
-  TutorPlanPanel,
-  TutorProfilePanel,
-  TutorProgressPanel,
-} from './tutorContextPanels';
+import { TutorContextTiles } from './TutorContextTiles';
 import { useAuth } from '../contexts/AuthContext';
-import { extractJapaneseForSpeech, speakJapaneseText, stopJapaneseSpeech } from '../services/ttsService';
+import { extractJapaneseForSpeech, speakJapaneseText } from '../services/ttsService';
 import { listStudyActivity } from '../services/studyActivityService';
 import type { StudyActivity } from '../types/study';
 import {
@@ -93,7 +76,6 @@ export const AITutor: React.FC<AITutorProps> = ({
   const [speakingIndex, setSpeakingIndex] = useState<number | null>(null);
   const [tutorMode, setTutorMode] = useState<TutorMode>('conversation');
   const [tutorView, setTutorView] = useState<'chat' | 'live'>('live');
-  const [activeSheet, setActiveSheet] = useState<TutorContextSheetId | null>(null);
   const [liveSessionActive, setLiveSessionActive] = useState(false);
   const [ttsError, setTtsError] = useState<string | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
@@ -198,22 +180,6 @@ export const AITutor: React.FC<AITutorProps> = ({
     });
   };
 
-  const sidebarProps = {
-    language,
-    currentUser,
-    autoMemoryLines,
-    studyGoal,
-    studyWeaknesses,
-    studyPreferences,
-    isEditingProfile,
-    onStudyGoalChange: setStudyGoal,
-    onStudyWeaknessesChange: setStudyWeaknesses,
-    onStudyPreferencesChange: setStudyPreferences,
-    onToggleEditProfile: () => setIsEditingProfile(!isEditingProfile),
-    onSaveProfile: () => void saveStudyProfile(),
-    onNavigateToDashboard,
-  };
-
   const profilePanelProps = {
     language,
     currentUser,
@@ -230,50 +196,6 @@ export const AITutor: React.FC<AITutorProps> = ({
   };
 
   const profileIncomplete = !studyGoal.trim() || !studyWeaknesses.trim();
-
-  const toggleSheet = (id: TutorContextSheetId) => {
-    if (id === 'profile' && activeSheet !== id && profileIncomplete) {
-      setIsEditingProfile(true);
-    }
-    setActiveSheet((prev) => (prev === id ? null : id));
-  };
-
-  const renderSheetPanel = () => {
-    if (!activeSheet) return null;
-    switch (activeSheet) {
-      case 'memory':
-        return (
-          <TutorMemoryPanel
-            language={language}
-            currentUser={currentUser}
-            autoMemoryLines={autoMemoryLines}
-          />
-        );
-      case 'profile':
-        return <TutorProfilePanel {...profilePanelProps} />;
-      case 'plan':
-        return <TutorPlanPanel language={language} currentUser={currentUser} />;
-      case 'progress':
-        return <TutorProgressPanel language={language} currentUser={currentUser} />;
-      case 'history':
-        return (
-          <>
-            <LiveHistoryPanel
-              language={language}
-              currentUser={currentUser}
-              chatHistory={currentUser.chatHistory ?? []}
-              onChatHistoryChange={(history) => {
-                void onUserUpdate({ chatHistory: history });
-              }}
-              onNavigateToDashboard={onNavigateToDashboard}
-            />
-            <PremiumRetentionNotice language={language} currentUser={currentUser} />
-          </>
-        );
-      default:
-        return null;
-    }
-  };
 
   const sendMessage = async (textOverride?: string) => {
     const text = (textOverride ?? input).trim();
@@ -324,36 +246,6 @@ export const AITutor: React.FC<AITutorProps> = ({
     });
   };
 
-  const handleMicDictation = () => {
-    type RecognitionCtor = new () => {
-      lang: string;
-      interimResults: boolean;
-      onresult: ((event: { results: { [i: number]: { [j: number]: { transcript: string } } } }) => void) | null;
-      onerror: (() => void) | null;
-      start: () => void;
-    };
-    const win = window as Window & {
-      SpeechRecognition?: RecognitionCtor;
-      webkitSpeechRecognition?: RecognitionCtor;
-    };
-    const Recognition = win.SpeechRecognition || win.webkitSpeechRecognition;
-    if (!Recognition) {
-      alert(language === 'en' ? 'Use Chrome or Safari for the mic.' : 'Usa Chrome o Safari per il microfono.');
-      return;
-    }
-    stopJapaneseSpeech();
-    const recognition = new Recognition();
-    recognition.lang = language === 'it' ? 'it-IT' : 'en-US';
-    recognition.interimResults = false;
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript.trim();
-      if (transcript) {
-        setInput((prev) => (prev ? `${prev} ${transcript}` : transcript));
-      }
-    };
-    recognition.start();
-  };
-
   useEffect(() => {
     if ((currentUser.chatHistory?.length ?? 0) === 0 && tutorMode === 'conversation') {
       seedConversation();
@@ -369,10 +261,7 @@ export const AITutor: React.FC<AITutorProps> = ({
           <button
             type="button"
             className={`tutor-view-tab ${tutorView === 'live' ? 'active' : ''}`}
-            onClick={() => {
-              setTutorView('live');
-              setActiveSheet(null);
-            }}
+            onClick={() => setTutorView('live')}
           >
             <Radio size={16} />
             {language === 'en' ? 'Live voice' : 'Voce live'}
@@ -380,48 +269,16 @@ export const AITutor: React.FC<AITutorProps> = ({
           <button
             type="button"
             className={`tutor-view-tab ${tutorView === 'chat' ? 'active' : ''}`}
-            onClick={() => {
-              setTutorView('chat');
-              setActiveSheet(null);
-            }}
+            onClick={() => setTutorView('chat')}
           >
             <MessageCircle size={16} />
             {language === 'en' ? 'Text chat' : 'Chat testuale'}
           </button>
         </div>
 
-        <TutorContextToolbar
-          language={language}
-          showHistory={tutorView === 'live'}
-          profileIncomplete={profileIncomplete}
-          activeSheet={activeSheet}
-          onOpen={toggleSheet}
-        />
-
-        <TutorContextSheet
-          open={activeSheet !== null}
-          title={activeSheet ? tutorSheetTitle(activeSheet, language) : ''}
-          language={language}
-          onClose={() => setActiveSheet(null)}
-        >
-          {renderSheetPanel()}
-        </TutorContextSheet>
-
         <div className="tutor-content">
-          {tutorView === 'live' ? (
-            <div className="tutor-chat-wrap tutor-chat-wrap--live">
-              <TutorSidebar {...sidebarProps}>
-                <LiveHistoryPanel
-                  language={language}
-                  currentUser={currentUser}
-                  chatHistory={currentUser.chatHistory ?? []}
-                  onChatHistoryChange={(history) => {
-                    void onUserUpdate({ chatHistory: history });
-                  }}
-                  onNavigateToDashboard={onNavigateToDashboard}
-                />
-                <PremiumRetentionNotice language={language} currentUser={currentUser} />
-              </TutorSidebar>
+          <div className="tutor-main-area">
+            {tutorView === 'live' ? (
               <div className="tutor-live-main glass-panel">
                 <LunaLive
                   language={language}
@@ -442,18 +299,14 @@ export const AITutor: React.FC<AITutorProps> = ({
                   }}
                 />
               </div>
-            </div>
-          ) : (
-            <div className="tutor-chat-wrap tutor-chat-wrap--text">
-      <TutorSidebar {...sidebarProps} />
-
-      {/* ── Right Panel: Chat ── */}
-      <div className="glass-panel tutor-chat-panel">
+            ) : (
+              <div className="glass-panel tutor-chat-panel">
+                <div className="tutor-chat-panel-inner">
         {/* Chat Header */}
         <div className="tutor-chat-header">
           <LunaLogo layout="icon" className="luna-logo--icon-sm" alt="" />
           <div>
-            <div style={{ fontWeight: 700, fontSize: '1rem' }}>Luna-sensei</div>
+            <div style={{ fontWeight: 700, fontSize: '1rem' }}>{TUTOR_ASSISTANT_NAME}</div>
             <div style={{ fontSize: '0.78rem', color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
               <span style={{
                 width: '7px', height: '7px', borderRadius: '50%',
@@ -623,17 +476,6 @@ export const AITutor: React.FC<AITutorProps> = ({
             </div>
           ) : (
             <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-end' }}>
-              {tutorMode === 'conversation' && (
-                <button
-                  type="button"
-                  className="btn btn-secondary tutor-mic-btn"
-                  onClick={handleMicDictation}
-                  title={language === 'en' ? 'Speak your reply' : 'Parla la tua risposta'}
-                  disabled={isLoading}
-                >
-                  <Mic size={18} />
-                </button>
-              )}
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -682,9 +524,21 @@ export const AITutor: React.FC<AITutorProps> = ({
             </div>
           )}
         </div>
-      </div>
-            </div>
-          )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <TutorContextTiles
+            showHistory={tutorView === 'live'}
+            profileIncomplete={profileIncomplete}
+            autoMemoryLines={autoMemoryLines}
+            chatHistory={currentUser.chatHistory ?? []}
+            onChatHistoryChange={(history) => {
+              void onUserUpdate({ chatHistory: history });
+            }}
+            {...profilePanelProps}
+          />
         </div>
       </div>
 

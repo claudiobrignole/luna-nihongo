@@ -352,3 +352,4 @@ export { adminDeleteUser } from './adminUsers';
 export { setBookingMeetLink, setTeacherPayoutStatus, listTeacherBookings } from './teacherBookings';
 export { listPublicTeachers } from './teachersPublic';
 export { ensureTeacherPayoutDrafts } from './teacherPayouts';
+export { blogRss, blogSitemap } from './blogFeeds';
