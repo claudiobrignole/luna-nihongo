@@ -1,9 +1,13 @@
-const CACHE_NAME = 'luna-nihongo-v1';
+const CACHE_NAME = 'luna-nihongo-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/favicon.svg',
-  '/manifest.json'
+  '/manifest.json',
+  '/pwa/icon-192.png',
+  '/pwa/icon-512.png',
+  '/pwa/apple-touch-icon.png',
+  '/pwa/splash-logo.svg'
 ];
 
 // Install Event

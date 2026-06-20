@@ -48,7 +48,6 @@ interface HeaderProps {
   onRegister?: () => void;
   onLogin?: () => void;
   onOpenOnboarding?: () => void;
-  onMarketingConsentChange?: (consent: boolean) => void | Promise<void>;
   onOpenAdmin?: (section?: AdminPanelSection) => void;
 }
 
@@ -127,7 +126,6 @@ export function Header({
   onLogout,
   onLogin,
   onOpenOnboarding,
-  onMarketingConsentChange,
   onOpenAdmin,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -207,7 +205,6 @@ export function Header({
                   onNavigate={navigate}
                   onLogout={onLogout}
                   onOpenOnboarding={onOpenOnboarding}
-                  onMarketingConsentChange={onMarketingConsentChange}
                   onOpenAdmin={onOpenAdmin}
                 />
               )

@@ -1,4 +1,4 @@
-import { Globe, Rss } from 'lucide-react';
+import { Download, Globe, Rss } from 'lucide-react';
 import type { LanguageType, TabType } from './Header';
 import { BLOG_RSS_URL } from '../constants/blogFeeds';
 import { LunaLogo } from './LunaLogo';
@@ -8,9 +8,16 @@ interface SiteFooterProps {
   onNavigate: (tab: TabType) => void;
   onOpenCookieSettings: () => void;
   onLanguageToggle: () => void;
+  onInstallApp: () => void;
 }
 
-export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLanguageToggle }: SiteFooterProps) {
+export function SiteFooter({
+  language,
+  onNavigate,
+  onOpenCookieSettings,
+  onLanguageToggle,
+  onInstallApp,
+}: SiteFooterProps) {
   const it = language === 'it';
   const year = new Date().getFullYear();
   const rssHref = `${BLOG_RSS_URL}?lang=${language}`;
@@ -23,7 +30,6 @@ export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLangu
         </div>
 
         <nav className="mg-footer-links" aria-label={it ? 'Link sito' : 'Site links'}>
-          <button type="button" onClick={() => onNavigate('blog')}>Blog</button>
           <a href={rssHref} target="_blank" rel="noopener noreferrer" className="mg-footer-rss">
             <Rss size={14} aria-hidden="true" />
             RSS
@@ -32,6 +38,10 @@ export function SiteFooter({ language, onNavigate, onOpenCookieSettings, onLangu
           <button type="button" onClick={() => onNavigate('cookies')}>{it ? 'Cookie' : 'Cookies'}</button>
           <button type="button" onClick={() => onNavigate('terms')}>{it ? 'Termini e condizioni' : 'Terms & conditions'}</button>
           <button type="button" onClick={onOpenCookieSettings}>{it ? 'Impostazioni cookie' : 'Cookie settings'}</button>
+          <button type="button" onClick={onInstallApp}>
+            <Download size={14} aria-hidden="true" />
+            {it ? 'Installa app' : 'Install app'}
+          </button>
           <button type="button" onClick={onLanguageToggle} className="mg-footer-lang">
             <Globe size={14} aria-hidden="true" />
             {language === 'it' ? 'English' : 'Italiano'}

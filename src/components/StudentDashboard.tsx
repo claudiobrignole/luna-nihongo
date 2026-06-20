@@ -11,6 +11,8 @@ import { cancelBookingRemote, formatEmailCallableError } from '../services/email
 import type { PurchasedGiftCoupon, UserCouponSummary } from '../types/coupon';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { PremiumRetentionNotice } from './PremiumRetentionNotice';
+import { ThemePreferenceSettings } from './ThemePreferenceSettings';
+import { NewsletterPreferenceSettings } from './NewsletterPreferenceSettings';
 import { formatStripeCallableError, openPremiumPortal, startGiftLessonCheckout } from '../services/stripeService';
 
 interface StudentDashboardProps {
@@ -19,6 +21,7 @@ interface StudentDashboardProps {
   currentUser: LunaUser;
   onLogout: () => void;
   onUserUpdate: (updates: Partial<LunaUser>) => Promise<void>;
+  onMarketingConsentChange: (consent: boolean) => Promise<void>;
   onBookingCancelled?: () => void;
 }
 
@@ -28,6 +31,7 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
   currentUser,
   onLogout,
   onUserUpdate,
+  onMarketingConsentChange,
   onBookingCancelled,
 }) => {
   const [bookings, setBookings] = useState<BookedLesson[]>([]);
@@ -294,6 +298,14 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
           </div>
         </div>
       </div>
+
+      <ThemePreferenceSettings language={language} />
+
+      <NewsletterPreferenceSettings
+        language={language}
+        currentUser={currentUser}
+        onMarketingConsentChange={onMarketingConsentChange}
+      />
 
       {/* ── Subscription Management ── */}
       <div className="glass-panel" style={{

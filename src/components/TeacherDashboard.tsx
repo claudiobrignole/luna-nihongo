@@ -25,6 +25,7 @@ import {
   setBookingMeetLinkRemote,
 } from '../services/teacherService';
 import { AdminAvailabilityPanel } from './AdminAvailabilityPanel';
+import { ThemePreferenceSettings } from './ThemePreferenceSettings';
 import { useAuth } from '../contexts/AuthContext';
 
 interface TeacherDashboardProps {
@@ -169,25 +170,28 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
       ) : section === 'availability' ? (
         <AdminAvailabilityPanel language={language} currentUser={currentUser} />
       ) : section === 'profile' ? (
-        <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: 480 }}>
-          <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>
-            {language === 'en' ? 'Public display name' : 'Nome pubblico'}
-          </label>
-          <input
-            type="text"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            placeholder={currentUser.username}
-            style={{ padding: '0.65rem 0.85rem', borderRadius: 10, border: '1px solid var(--border)' }}
-          />
-          <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            {language === 'en'
-              ? `Students will see: ${displayName.trim() || currentUser.username}`
-              : `Gli studenti ti vedranno come: ${displayName.trim() || currentUser.username}`}
-          </p>
-          <button type="button" className="btn btn-primary" disabled={busyKey === 'profile'} onClick={() => void handleSaveDisplayName()}>
-            <Save size={16} /> {language === 'en' ? 'Save' : 'Salva'}
-          </button>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: 520 }}>
+          <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <label style={{ fontWeight: 600, fontSize: '0.9rem' }}>
+              {language === 'en' ? 'Public display name' : 'Nome pubblico'}
+            </label>
+            <input
+              type="text"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              placeholder={currentUser.username}
+              style={{ padding: '0.65rem 0.85rem', borderRadius: 10, border: '1px solid var(--border)' }}
+            />
+            <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              {language === 'en'
+                ? `Students will see: ${displayName.trim() || currentUser.username}`
+                : `Gli studenti ti vedranno come: ${displayName.trim() || currentUser.username}`}
+            </p>
+            <button type="button" className="btn btn-primary" disabled={busyKey === 'profile'} onClick={() => void handleSaveDisplayName()}>
+              <Save size={16} /> {language === 'en' ? 'Save' : 'Salva'}
+            </button>
+          </div>
+          <ThemePreferenceSettings language={language} />
         </div>
       ) : section === 'earnings' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

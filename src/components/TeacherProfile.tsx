@@ -49,12 +49,16 @@ export function TeacherProfile({
   return (
     <div className="teacher-profile-view page-view">
       <div className="glass-panel luna-profile-bio">
-        <div
-          className="luna-photo-placeholder"
-          role="img"
-          aria-label={copy.photoPlaceholder[lang]}
-        >
-          <span className="luna-photo-placeholder-label">{copy.photoPlaceholder[lang]}</span>
+        <div className="luna-photo-placeholder">
+          <img
+            src={copy.photo}
+            alt={copy.photoAlt[lang]}
+            className="luna-photo"
+            width={312}
+            height={312}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div className="luna-profile-copy">

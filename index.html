@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/pwa/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Luna Nihongo - Impara il Giapponese con il Ripasso Spaziato e Lezioni Private</title>
     <meta name="description" content="Impara il giapponese (hiragana, katakana, kanji e grammatica) in modo semplice ed efficace grazie al metodo a ripetizione spaziata (SRS) e prenota lezioni private personalizzate 1-on-1 con Luna." />
@@ -15,8 +17,36 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Luna Nihongo" />
+    <meta name="theme-color" content="#FAF6ED" />
+    <script>
+      (function () {
+        var key = 'luna-theme-preference';
+        var pref = 'system';
+        try {
+          var stored = localStorage.getItem(key);
+          if (stored === 'light' || stored === 'dark' || stored === 'system') pref = stored;
+        } catch (e) {}
+        var dark =
+          pref === 'dark' ||
+          (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', dark ? 'hsl(224, 25%, 10%)' : '#FAF6ED');
+      })();
+    </script>
   </head>
   <body>
+    <div id="pwa-splash" hidden>
+      <img src="/pwa/splash-logo.svg" alt="Luna Nihongo" />
+    </div>
+    <script>
+      (function () {
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+          var splash = document.getElementById('pwa-splash');
+          if (splash) splash.removeAttribute('hidden');
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

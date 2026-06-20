@@ -125,6 +125,10 @@ function docToUser(uid: string, data: DocumentData): LunaUser {
       ? String(normalized.teacherDisplayName)
       : undefined,
     preferredLanguage: normalized.preferredLanguage === 'en' ? 'en' : 'it',
+    themePreference:
+      normalized.themePreference === 'light' || normalized.themePreference === 'dark'
+        ? normalized.themePreference
+        : 'system',
     marketingConsent: normalized.marketingConsent === true,
     marketingConsentAt: normalized.marketingConsentAt ?? null,
     sendfoxSyncedAt: normalized.sendfoxSyncedAt ?? null,
@@ -181,6 +185,7 @@ export async function ensureUserProfile(
     onboardingCompleted: false,
     preferredStartLevel: 0,
     preferredLanguage: language,
+    themePreference: 'system',
     showRomaji: true,
     tutorVoiceEnabled: true,
     liveMinutesUsed: 0,
@@ -214,6 +219,7 @@ export async function updateUserProfile(
       | 'onboardingCompleted'
       | 'preferredStartLevel'
       | 'preferredLanguage'
+      | 'themePreference'
       | 'marketingConsent'
       | 'marketingConsentAt'
       | 'showRomaji'

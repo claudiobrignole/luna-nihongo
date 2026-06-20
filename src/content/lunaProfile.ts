@@ -1,4 +1,11 @@
+import lunaPortrait from '../assets/brand/luna-portrait.png';
+
 export const LUNA_PROFILE = {
+  photo: lunaPortrait,
+  photoAlt: {
+    it: 'Luna, insegnante madrelingua giapponese',
+    en: 'Luna, native Japanese teacher',
+  },
   title: {
     it: 'Impara il giapponese con Luna',
     en: 'Learn Japanese with Luna',
@@ -26,9 +33,5 @@ export const LUNA_PROFILE = {
       'Bachelor of Journalism (magazine sequence), University of Oregon',
       'Fluent English, Italian at B2 level',
     ],
-  },
-  photoPlaceholder: {
-    it: 'Foto di Luna — in arrivo',
-    en: 'Photo of Luna — coming soon',
   },
 } as const;

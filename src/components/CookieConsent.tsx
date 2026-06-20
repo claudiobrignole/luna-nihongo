@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Cookie, X } from 'lucide-react';
 import { useConsent } from '../contexts/useConsent';
 import { ALL_DENIED, type ConsentCategory, type ConsentState } from '../utils/consent';
@@ -76,7 +77,7 @@ export function CookieConsent({ language, onOpenPolicy }: CookieConsentProps) {
 
   const showBanner = bannerOpen && !prefsOpen;
 
-  return (
+  const ui = (
     <>
       {showBanner && (
         <div className="cookie-banner" role="dialog" aria-modal="false" aria-label={it ? 'Consenso cookie' : 'Cookie consent'}>
@@ -173,4 +174,7 @@ export function CookieConsent({ language, onOpenPolicy }: CookieConsentProps) {
       )}
     </>
   );
+
+  if (typeof document === 'undefined') return null;
+  return createPortal(ui, document.body);
 }

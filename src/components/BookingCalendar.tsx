@@ -24,6 +24,7 @@ import { formatEmailCallableError, rescheduleBookingRemote } from '../services/e
 import { checkGraceNoSlotsCoupon, loadUserCoupons } from '../services/couponService';
 import { startExtraLessonCheckout } from '../services/stripeService';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
+import { SHOW_TEACHER_PICKER_UI } from '../constants/booking';
 
 type LessonPlan = 'included' | 'extra' | 'extra_rebook' | 'coupon' | 'replacement';
 
@@ -104,6 +105,8 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const [teachers, setTeachers] = useState<BookableTeacher[]>([]);
   const [selectedTeacherId, setSelectedTeacherId] = useState<string | null>(null);
   const [loadingTeachers, setLoadingTeachers] = useState(true);
+
+  const showTeacherPicker = SHOW_TEACHER_PICKER_UI && teachers.length > 1;
 
   const todayIso = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
@@ -430,7 +433,8 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
         </div>
       ) : (
         <>
-      <div className="glass-panel" style={{ padding: '1.25rem' }}>
+      {showTeacherPicker && (
+      <div className="glass-panel booking-teacher-picker" style={{ padding: '1.25rem' }}>
         <h3 style={{ margin: '0 0 0.75rem', fontSize: '1rem' }}>
           {language === 'en' ? '1. Choose your teacher' : '1. Scegli il maestro'}
         </h3>
@@ -451,6 +455,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
           ))}
         </div>
       </div>
+      )}
 
       {!selectedTeacherId ? null : (
       <form onSubmit={(e) => void handleBook(e)} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>

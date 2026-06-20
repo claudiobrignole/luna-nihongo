@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import {
   ALL_DENIED,
   ALL_GRANTED,
+  CONSENT_EVENT,
   loadConsent,
   saveConsent,
   type ConsentState,
@@ -40,13 +41,19 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   const openPreferences = useCallback(() => setPrefsOpen(true), []);
   const closePreferences = useCallback(() => setPrefsOpen(false), []);
 
-  // Sincronizza tra schede/finestre dello stesso browser.
+  // Sincronizza tra schede/finestre e dopo reset esplicito del consenso.
   useEffect(() => {
+    const sync = () => setDecision(loadConsent()?.categories ?? null);
     const onStorage = (e: StorageEvent) => {
-      if (e.key === 'luna_cookie_consent') setDecision(loadConsent()?.categories ?? null);
+      if (e.key === 'luna_cookie_consent') sync();
     };
+    const onConsentEvent = () => sync();
     window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
+    window.addEventListener(CONSENT_EVENT, onConsentEvent);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener(CONSENT_EVENT, onConsentEvent);
+    };
   }, []);
 
   const value = useMemo<ConsentContextValue>(

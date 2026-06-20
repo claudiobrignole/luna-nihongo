@@ -1,5 +1,6 @@
 export type UserRole = 'super_admin' | 'teacher' | 'user';
 export type SubscriptionTier = 'free' | 'premium';
+export type ThemePreference = 'system' | 'light' | 'dark';
 
 export const TRIAL_DAYS = 7;
 export const AI_MINUTES_WEEKLY = 120;
@@ -59,6 +60,7 @@ export interface LunaUser {
   trialUsed?: boolean;
   introCallBookedAt?: string | null;
   preferredLanguage?: 'it' | 'en';
+  themePreference?: ThemePreference;
   marketingConsent?: boolean;
   marketingConsentAt?: string | null;
   sendfoxSyncedAt?: string | null;
@@ -103,6 +105,7 @@ export interface UserProfileDocument {
   trialUsed?: boolean;
   introCallBookedAt?: string | null;
   preferredLanguage?: 'it' | 'en';
+  themePreference?: ThemePreference;
   marketingConsent?: boolean;
   marketingConsentAt?: string | null;
   sendfoxSyncedAt?: string | null;

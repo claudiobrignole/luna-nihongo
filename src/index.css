@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Yuji+Syuku&display=swap');
 
 :root {
+  color-scheme: light dark;
+
   /* Sfondo pagina (#FAF6ED) — vedi design.md; solo pagina + header, non pannelli */
   --ln-cream: #FAF6ED;
 
@@ -83,27 +85,39 @@
   --safe-area-right: env(safe-area-inset-right, 0px);
 }
 
-/* Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-app: hsl(224, 25%, 10%);
-    --bg-panel: hsla(224, 25%, 14%, 0.7);
-    --bg-input: hsl(224, 25%, 12%);
-    --border: hsla(224, 20%, 90%, 0.08);
-    --border-glow: var(--ln-red-a25);
-    
-    --primary-light: var(--ln-red-a20);
-    --primary-glow: var(--ln-red-a25);
-    
-    --accent-light: hsl(var(--accent-hue), 30%, 18%);
-    
-    --text-main: hsl(220, 20%, 92%);
-    --text-muted: hsl(220, 10%, 75%);
-    --text-light: hsl(220, 10%, 55%);
-    
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
-                    inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
-  }
+/* Dark mode — controlled via html[data-theme="dark"] (ThemeContext) */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --ln-cream: hsl(224, 25%, 10%);
+  --ln-ink: rgba(250, 245, 234, 0.92);
+  --ln-paper: hsl(224, 24%, 13%);
+  --ln-washi: hsl(224, 20%, 16%);
+  --ln-sakura: hsl(350, 28%, 22%);
+
+  --bg-app: hsl(224, 25%, 10%);
+  --bg-panel: hsla(224, 25%, 14%, 0.7);
+  --bg-input: hsl(224, 25%, 12%);
+  --border: hsla(224, 20%, 90%, 0.08);
+  --border-glow: var(--ln-red-a25);
+
+  --primary-light: var(--ln-red-a20);
+  --primary-glow: var(--ln-red-a25);
+
+  --accent-light: hsl(var(--accent-hue), 30%, 18%);
+
+  --text-main: hsl(220, 20%, 92%);
+  --text-muted: hsl(220, 10%, 75%);
+  --text-light: hsl(220, 10%, 55%);
+
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+
+  --ln-shadow: rgba(0, 0, 0, 0.45);
+  --ln-card-bg: hsl(224, 24%, 15%);
+  --ln-card-border: rgba(250, 245, 234, 0.72);
+  --ln-card-shadow: rgba(0, 0, 0, 0.5);
+  --ln-card-shadow-strong: rgba(0, 0, 0, 0.62);
 }
 
 /* Global Reset */
@@ -387,14 +401,12 @@ textarea:focus-visible {
   display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .luna-logo--auto .luna-logo__img--on-light {
-    display: none;
-  }
+:root[data-theme="dark"] .luna-logo--auto .luna-logo__img--on-light {
+  display: none;
+}
 
-  .luna-logo--auto .luna-logo__img--on-dark {
-    display: block;
-  }
+:root[data-theme="dark"] .luna-logo--auto .luna-logo__img--on-dark {
+  display: block;
 }
 
 .header-desktop-nav {
@@ -949,15 +961,6 @@ textarea:focus-visible {
   --ln-card-border: var(--ln-ink);
   --ln-card-shadow: rgba(43, 35, 51, 0.18);
   --ln-card-shadow-strong: rgba(43, 35, 51, 0.28);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ln-card-bg: hsl(224, 24%, 15%);
-    --ln-card-border: rgba(250, 245, 234, 0.72);
-    --ln-card-shadow: rgba(0, 0, 0, 0.5);
-    --ln-card-shadow-strong: rgba(0, 0, 0, 0.62);
-  }
 }
 
 /* ── Manga landing (guest home) ── */
@@ -1957,6 +1960,84 @@ textarea:focus-visible {
   background: var(--ln-cream);
 }
 
+/* Dark mode — blog cards, home blog strip, manga landing bands, footer */
+:root[data-theme="dark"] .mg-landing {
+  --ln-ink: #2b2333;
+  --ln-paper: #faf6ed;
+  --ln-washi: #efe3c8;
+  --ln-sakura: #f5d6dc;
+  --ln-shadow: rgba(43, 35, 51, 0.3);
+}
+
+:root[data-theme="dark"] .mg-landing .blog-teaser-section {
+  color: rgba(250, 245, 234, 0.92);
+}
+
+:root[data-theme="dark"] .mg-landing .blog-teaser-section .mg-band-title {
+  color: #fff;
+}
+
+:root[data-theme="dark"] .blog-teaser-header .mg-btn {
+  background: #fff;
+  color: #2b2333;
+  border-color: #2b2333;
+}
+
+:root[data-theme="dark"] .blog-teaser-header .mg-btn:hover {
+  color: #2b2333;
+}
+
+:root[data-theme="dark"] .blog-card {
+  background: #0a0a0c;
+  border-color: #fff;
+}
+
+:root[data-theme="dark"] .blog-card-title {
+  color: #fff;
+}
+
+:root[data-theme="dark"] .blog-card-title:hover {
+  color: var(--ln-red);
+}
+
+:root[data-theme="dark"] .blog-card-excerpt {
+  color: #fff;
+}
+
+:root[data-theme="dark"] .blog-tag {
+  background: #efe3c8;
+  border-color: #2b2333;
+  color: #2b2333;
+}
+
+:root[data-theme="dark"] .blog-tag-filter {
+  background: #0a0a0c;
+  border-color: #fff;
+  color: #fff;
+}
+
+:root[data-theme="dark"] .blog-tag-filter.active {
+  background: var(--ln-red);
+  border-color: var(--ln-red);
+  color: #fff;
+}
+
+:root[data-theme="dark"] .mg-footer {
+  background: #2b2333;
+  color: #faf6ed;
+  border-top-color: #2b2333;
+}
+
+:root[data-theme="dark"] .mg-footer-links button,
+:root[data-theme="dark"] .mg-footer-rss {
+  color: #faf6ed;
+}
+
+:root[data-theme="dark"] .mg-footer-links button:hover,
+:root[data-theme="dark"] .mg-footer-rss:hover {
+  color: #fff;
+}
+
 
 .mg-newsletter-card {
   position: relative;
@@ -2235,27 +2316,39 @@ textarea:focus-visible {
   align-items: flex-start;
 }
 
+@media (min-width: 901px) {
+  .luna-profile-bio {
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .luna-photo-placeholder {
+    margin-inline: auto;
+  }
+}
+
 .luna-photo-placeholder {
-  flex: 0 1 220px;
-  width: min(100%, 260px);
-  aspect-ratio: 3 / 4;
+  flex: 0 0 min(100%, 312px);
+  width: min(100%, 312px);
+  height: min(100%, 312px);
+  aspect-ratio: 1;
   border: 2px solid var(--ln-ink);
-  border-radius: 10px;
+  border-radius: 50%;
   box-shadow: 5px 5px 0 var(--ln-shadow);
   background: var(--ln-washi);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0;
+  overflow: hidden;
 }
 
-.luna-photo-placeholder-label {
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-align: center;
-  line-height: 1.4;
+.luna-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
 .luna-profile-copy {
@@ -3500,6 +3593,163 @@ textarea:focus-visible {
   background: var(--primary);
   border-color: var(--primary);
   color: white;
+}
+
+.theme-preference-settings {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.theme-preference-settings__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.theme-preference-settings__subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.theme-preference-settings__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.theme-preference-settings__option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-preference-settings__option-hint {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.theme-preference-settings__option.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.theme-preference-settings__option.active .theme-preference-settings__option-hint {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 640px) {
+  .theme-preference-settings__options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.newsletter-preference-settings {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.newsletter-preference-settings__title {
+  margin: 0;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.newsletter-preference-settings__subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.newsletter-preference-settings__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.newsletter-preference-settings__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.newsletter-preference-settings__field input {
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.newsletter-preference-settings__privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.newsletter-preference-settings__privacy input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.newsletter-preference-settings__privacy a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.newsletter-preference-settings__error {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--error);
+}
+
+.newsletter-preference-settings__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.newsletter-preference-settings__status {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.newsletter-preference-settings__submit {
+  align-self: flex-start;
 }
 
 .tutor-content {
@@ -5687,7 +5937,7 @@ body.has-mobile-nav .app-container:has(.tutor-layout--live-focus) {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2000;
+  z-index: 2300;
   background: var(--ln-card-bg);
   border-top: 3px solid var(--ln-ink);
   box-shadow: 0 -8px 24px rgba(43, 35, 51, 0.18);
@@ -5763,7 +6013,7 @@ body.has-mobile-nav .cookie-banner {
 .cookie-modal-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 2100;
+  z-index: 2400;
   background: rgba(43, 35, 51, 0.5);
   display: flex;
   align-items: center;
@@ -5913,6 +6163,145 @@ body.has-mobile-nav .cookie-banner {
 
 .cookie-modal-actions .mg-btn {
   margin-top: 0;
+}
+
+/* ── PWA splash / install UI ── */
+#pwa-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pwa-splash[hidden] {
+  display: none;
+}
+
+#pwa-splash img {
+  width: min(70vw, 420px);
+  height: auto;
+}
+
+.pwa-install-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2050;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--ln-card-bg);
+  border-top: 3px solid var(--ln-ink);
+  box-shadow: 0 -8px 24px rgba(43, 35, 51, 0.18);
+}
+
+.pwa-install-banner__inner {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 1rem var(--page-gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pwa-install-banner__copy {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.pwa-install-banner__copy strong {
+  display: block;
+  font-family: var(--font-heading);
+  margin-bottom: 0.25rem;
+}
+
+.pwa-install-banner__copy p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.pwa-install-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pwa-install-banner__actions .mg-btn {
+  margin-top: 0;
+}
+
+.pwa-install-banner__dismiss {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-input);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pwa-install-modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2150;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.pwa-install-modal {
+  width: min(92vw, 460px);
+  position: relative;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.pwa-install-modal__close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pwa-install-modal h3 {
+  margin: 0 1.75rem 0.9rem 0;
+  font-size: 1.05rem;
+}
+
+.pwa-install-modal ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pwa-install-modal li {
+  color: var(--text-main);
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
 }
 
 /* ── Pagine legali ── */

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ChevronDown, Compass, FileText, LayoutDashboard, LogOut, Mail, Shield } from 'lucide-react';
+import { ChevronDown, Compass, FileText, LayoutDashboard, LogOut, Shield } from 'lucide-react';
 import type { LunaUser } from '../types/user';
 import { isStaffRole, isSuperAdminRole, canAccessTeacherDashboard, roleLabel } from '../types/user';
 import type { TabType, LanguageType } from './Header';
@@ -12,7 +12,6 @@ interface UserMenuProps {
   onNavigate: (tab: TabType) => void;
   onLogout: () => void;
   onOpenOnboarding?: () => void;
-  onMarketingConsentChange?: (consent: boolean) => void;
   onOpenAdmin?: (section?: AdminPanelSection) => void;
 }
 
@@ -23,11 +22,9 @@ export function UserMenu({
   onNavigate,
   onLogout,
   onOpenOnboarding,
-  onMarketingConsentChange,
   onOpenAdmin,
 }: UserMenuProps) {
   const [open, setOpen] = useState(false);
-  const [marketingBusy, setMarketingBusy] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const isStaff = isStaffRole(currentUser.role);
   const isSuperAdmin = isSuperAdminRole(currentUser.role);
@@ -63,16 +60,6 @@ export function UserMenu({
   const closeAndLogout = () => {
     setOpen(false);
     onLogout();
-  };
-
-  const toggleMarketing = async () => {
-    if (!onMarketingConsentChange || marketingBusy) return;
-    setMarketingBusy(true);
-    try {
-      await onMarketingConsentChange(!currentUser.marketingConsent);
-    } finally {
-      setMarketingBusy(false);
-    }
   };
 
   return (
@@ -173,23 +160,6 @@ export function UserMenu({
             >
               <FileText size={18} />
               {language === 'en' ? 'Blog articles' : 'Articoli blog'}
-            </button>
-          )}
-
-          {onMarketingConsentChange && (
-            <button
-              type="button"
-              role="menuitem"
-              className="user-menu-item"
-              onClick={() => void toggleMarketing()}
-              disabled={marketingBusy}
-            >
-              <Mail size={18} />
-              {marketingBusy
-                ? (language === 'en' ? 'Saving…' : 'Salvataggio…')
-                : currentUser.marketingConsent
-                  ? (language === 'en' ? 'Unsubscribe from newsletter' : 'Disiscriviti dalla newsletter')
-                  : (language === 'en' ? 'Subscribe to newsletter' : 'Iscriviti alla newsletter')}
             </button>
           )}
 

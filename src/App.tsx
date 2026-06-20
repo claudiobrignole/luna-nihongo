@@ -23,9 +23,12 @@ import { LegalPage } from './components/LegalPage';
 import { SiteFooter } from './components/SiteFooter';
 import { LunaLogo } from './components/LunaLogo';
 import { CookieConsent } from './components/CookieConsent';
+import { PwaInstallBanner } from './components/PwaInstallBanner';
+import { PwaInstallModal } from './components/PwaInstallModal';
 import { ConsentProvider } from './contexts/ConsentContext';
 import { useConsent } from './contexts/useConsent';
 import { useAuth } from './contexts/AuthContext';
+import { usePwaInstall } from './hooks/usePwaInstall';
 import { isStaffRole, hasActiveSubscription, canAccessTeacherDashboard } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
@@ -98,6 +101,7 @@ function AppInner() {
   const [adminSection, setAdminSection] = useState<AdminPanelSection>('users');
   const onboardingAutoOpened = useRef(false);
   const lunaBookingRef = useRef<HTMLElement>(null);
+  const pwa = usePwaInstall();
 
   const openRegister = (reason: RegisterReason = 'study') => {
     setRegisterReason(reason);
@@ -483,8 +487,21 @@ function AppInner() {
           onNavigate={navigateTab}
           onOpenCookieSettings={openPreferences}
           onLanguageToggle={handleLanguageToggle}
+          onInstallApp={() => void pwa.promptInstall()}
         />
 
+        <PwaInstallBanner
+          language={language}
+          visible={pwa.canInstall && !pwa.dismissed}
+          onInstall={() => void pwa.promptInstall()}
+          onDismiss={pwa.dismissInstallPrompt}
+        />
+        <PwaInstallModal
+          language={language}
+          variant={pwa.installHelpVariant}
+          open={pwa.installHelpVariant !== null}
+          onClose={() => pwa.setInstallHelpVariant(null)}
+        />
         <CookieConsent language={language} onOpenPolicy={navigateTab} />
       </div>
     );
@@ -501,7 +518,6 @@ function AppInner() {
         currentUser={currentUser}
         onLogout={handleLogout}
         onOpenOnboarding={openOnboarding}
-        onMarketingConsentChange={handleMarketingConsentChange}
         onOpenAdmin={openAdmin}
       />
 
@@ -638,6 +654,7 @@ function AppInner() {
             currentUser={currentUser}
             onLogout={handleLogout}
             onUserUpdate={handleUserUpdate}
+            onMarketingConsentChange={handleMarketingConsentChange}
             onBookingCancelled={() => void refreshUser()}
           />
         )}
@@ -686,8 +703,21 @@ function AppInner() {
         onNavigate={navigateTab}
         onOpenCookieSettings={openPreferences}
         onLanguageToggle={handleLanguageToggle}
+        onInstallApp={() => void pwa.promptInstall()}
       />
 
+      <PwaInstallBanner
+        language={language}
+        visible={pwa.canInstall && !pwa.dismissed}
+        onInstall={() => void pwa.promptInstall()}
+        onDismiss={pwa.dismissInstallPrompt}
+      />
+      <PwaInstallModal
+        language={language}
+        variant={pwa.installHelpVariant}
+        open={pwa.installHelpVariant !== null}
+        onClose={() => pwa.setInstallHelpVariant(null)}
+      />
       <CookieConsent language={language} onOpenPolicy={navigateTab} />
     </div>
   );

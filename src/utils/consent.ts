@@ -64,6 +64,17 @@ export function saveConsent(categories: ConsentState): StoredConsent {
   return record;
 }
 
+export function clearConsent(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // ignore
+  }
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: null }));
+  }
+}
+
 /** Comodo per gating di script futuri: `if (isAllowed('analytics')) {...}`. */
 export function isAllowed(category: ConsentCategory): boolean {
   if (category === 'necessary') return true;
