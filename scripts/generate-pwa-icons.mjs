@@ -3,9 +3,10 @@
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = '/Users/claudio2/.gemini/antigravity/scratch/luna-nihongo';
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const sourceSvgPath = join(ROOT, 'public/favicon.svg');
 const outDir = join(ROOT, 'public/pwa');
 
@@ -16,7 +17,12 @@ if (!pathMatch) {
   throw new Error('Could not parse path from public/favicon.svg');
 }
 
-const iconPath = pathMatch[1];
+const subpaths = pathMatch[1].split(/(?=M)/).filter(Boolean);
+if (subpaths.length < 2) {
+  throw new Error('Expected circle + moon subpaths in public/favicon.svg');
+}
+
+const [circlePath, moonPath] = subpaths;
 const sourceWidth = 1455;
 const sourceHeight = 1440;
 const canvas = 1024;
@@ -31,7 +37,8 @@ const translateY = (canvas - scaledHeight) / 2;
 const composedSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas}" height="${canvas}" viewBox="0 0 ${canvas} ${canvas}">
   <rect width="${canvas}" height="${canvas}" fill="#000000" />
   <g transform="translate(${translateX} ${translateY}) scale(${scale})">
-    <path fill="#d6304a" d="${iconPath}" />
+    <path fill="#d6304a" d="${circlePath}" />
+    <path fill="#ffffff" d="${moonPath}" />
   </g>
 </svg>
 `;
