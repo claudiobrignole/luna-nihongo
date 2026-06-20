@@ -2098,18 +2098,62 @@ textarea:focus-visible {
 }
 
 @media (max-width: 860px) {
-  .mg-fig,
-  .mg-hero .mg-fig {
-    position: relative;
-    right: auto;
-    height: 270px !important;
-    margin: 1.75rem auto 0;
-    justify-content: center;
+  .mg-landing .mg-band-inner {
+    min-height: 0;
+    padding-bottom: 17.5rem;
   }
 
-  .mg-hero .mg-fig { height: 325px !important; }
-  .mg-band--purple .mg-band-inner { min-height: 0; }
-  .mg-band--ink .mg-fig { top: auto; transform: none; }
+  .mg-landing .mg-hero .mg-band-inner {
+    padding-bottom: 21rem;
+  }
+
+  .mg-landing .mg-fig,
+  .mg-landing .mg-hero .mg-fig {
+    position: absolute;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 0;
+    height: 270px !important;
+    margin: 0;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .mg-landing .mg-hero .mg-fig {
+    height: 325px !important;
+  }
+
+  /* Banda 06 lessons: figura centrata verticalmente (come desktop) */
+  .mg-landing .mg-band--ink .mg-band-inner {
+    min-height: 26rem;
+    padding-bottom: 3rem;
+  }
+
+  .mg-landing .mg-band--ink .mg-fig {
+    top: 50%;
+    bottom: auto;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+
+  .mg-landing .mg-band--purple .mg-band-inner {
+    min-height: 0;
+  }
+
+  .page-hero .mg-fig {
+    position: absolute;
+    right: 4%;
+    left: auto;
+    bottom: 0;
+    top: auto;
+    margin: 0;
+    transform: none;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 
   .mg-band-inner { min-height: 0; }
   .mg-watermark { font-size: 9rem; right: -1.5rem; }
