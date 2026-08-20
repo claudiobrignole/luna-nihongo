@@ -17,7 +17,7 @@ export function BlogPostCard({ post, language, onOpen, compact }: BlogPostCardPr
 
   return (
     <article className={`blog-card${compact ? ' blog-card--compact' : ''}`}>
-      <button type="button" className="blog-card-cover mg-zoom-media" onClick={() => onOpen(post.slug)}>
+      <button type="button" className="blog-card-cover" onClick={() => onOpen(post.slug)}>
         <img src={coverUrl} alt="" />
       </button>
       <div className="blog-card-body">

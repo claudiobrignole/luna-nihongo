@@ -1367,33 +1367,6 @@ textarea:focus-visible {
   object-position: bottom right;
 }
 
-.mg-zoom-media {
-  overflow: hidden;
-}
-
-.mg-zoom-media img {
-  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform-origin: center center;
-  will-change: transform;
-}
-
-@media (hover: hover) {
-  .blog-card:hover .blog-card-cover img,
-  .blog-card:focus-within .blog-card-cover img,
-  .mg-band:hover .mg-zoom-media img,
-  .blog-article-cover:hover img {
-    transform: scale(1.06);
-  }
-}
-
-@media (hover: none) {
-  .blog-card:active .blog-card-cover img,
-  .mg-band:active .mg-zoom-media img,
-  .blog-article-cover:active img {
-    transform: scale(1.04);
-  }
-}
-
 .mg-hero .mg-fig,
 .mg-band--washi .mg-fig,
 .mg-band--yellow .mg-fig,
@@ -1691,6 +1664,12 @@ textarea:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .blog-teaser-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .blog-card {

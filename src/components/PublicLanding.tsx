@@ -77,7 +77,7 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
             </div>
           </div>
           <div className="mg-fig">
-            <div className="mg-fig-media mg-zoom-media">
+            <div className="mg-fig-media">
               <img
                 src={lunaWave}
                 alt={en ? 'Luna waves hello among falling cherry blossoms, manga style' : 'Luna saluta tra i petali di ciliegio, in stile manga'}

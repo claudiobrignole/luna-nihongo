@@ -16,7 +16,7 @@ export function BlogTeaserSection({ language, onOpenBlog, onOpenPost }: BlogTeas
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    void listPublishedPosts(2)
+    void listPublishedPosts(3)
       .then(setPosts)
       .catch(() => setPosts([]));
   }, []);

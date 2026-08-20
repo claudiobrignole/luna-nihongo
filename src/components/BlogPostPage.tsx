@@ -95,7 +95,7 @@ export function BlogPostPage({ slug, language, onBack, onOpenPost }: BlogPostPag
         <p className="blog-article-excerpt">{post.excerpt[lang]}</p>
       </header>
 
-      <div className="blog-article-cover mg-zoom-media">
+      <div className="blog-article-cover">
         <img src={coverUrl} alt="" />
       </div>
 

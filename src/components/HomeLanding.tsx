@@ -63,7 +63,7 @@ export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboardin
             </div>
           </div>
           <div className="mg-fig">
-            <div className="mg-fig-media mg-zoom-media">
+            <div className="mg-fig-media">
               <img src={lunaWave} alt={en ? 'Luna waves hello, manga style' : 'Luna saluta, in stile manga'} />
             </div>
           </div>

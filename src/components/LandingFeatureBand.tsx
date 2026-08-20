@@ -70,7 +70,7 @@ export function LandingFeatureBand({
         <div className={`mg-fig${section.imagePlaceholder ? ' mg-fig--placeholder' : ''}`}>
           {section.imagePlaceholder ? (
             <div className="mg-fig-placeholder-inner" aria-hidden="true">
-              <div className="mg-fig-media mg-zoom-media">
+              <div className="mg-fig-media">
                 <img src={section.image} alt="" />
               </div>
               <span className="mg-fig-placeholder-label">
@@ -78,7 +78,7 @@ export function LandingFeatureBand({
               </span>
             </div>
           ) : (
-            <div className="mg-fig-media mg-zoom-media">
+            <div className="mg-fig-media">
               <img src={section.image} alt={section.imageAlt[lang]} />
             </div>
           )}
