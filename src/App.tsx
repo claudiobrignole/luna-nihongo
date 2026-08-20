@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { sendEmailVerification } from 'firebase/auth';
 import { getFirebaseAuth } from './lib/firebase';
 import { LearningPath } from './components/LearningPath';
@@ -9,7 +9,7 @@ import { StudentDashboard } from './components/StudentDashboard';
 import { AdminPanel, type AdminPanelSection } from './components/AdminPanel';
 import { TeacherDashboard } from './components/TeacherDashboard';
 import { AITutor } from './components/AITutor';
-import { Header, type TabType, type LanguageType } from './components/Header';
+import { Header, type TabType } from './components/Header';
 import { HomeLanding } from './components/HomeLanding';
 import { Onboarding } from './components/Onboarding';
 import { PublicLanding } from './components/PublicLanding';
@@ -23,12 +23,19 @@ import { LegalPage } from './components/LegalPage';
 import { SiteFooter } from './components/SiteFooter';
 import { LunaLogo } from './components/LunaLogo';
 import { CookieConsent } from './components/CookieConsent';
+import { LanguageSuggestModal } from './components/LanguageSuggestModal';
 import { PwaInstallBanner } from './components/PwaInstallBanner';
 import { PwaInstallModal } from './components/PwaInstallModal';
 import { ConsentProvider } from './contexts/ConsentContext';
 import { useConsent } from './contexts/useConsent';
 import { useAuth } from './contexts/AuthContext';
+import { useLanguage } from './contexts/LanguageContext';
 import { usePwaInstall } from './hooks/usePwaInstall';
+import {
+  readLanguageSuggestDismissed,
+  readStoredLanguage,
+  shouldSuggestEnglish,
+} from './utils/language';
 import { isStaffRole, hasActiveSubscription, canAccessTeacherDashboard } from './types/user';
 import type { LunaUser } from './types/user';
 import { logStudyActivity } from './services/studyActivityService';
@@ -47,7 +54,6 @@ const HERO_FOR: Partial<Record<TabType, PageHeroKey>> = {
   tutor: 'tutor',
   teacher: 'teacher',
   blog: 'blog',
-  auth: 'auth',
   dashboard: 'dashboard',
 };
 
@@ -84,12 +90,12 @@ function canOpenTab(tab: TabType, user: LunaUser | null): boolean {
 
 function AppInner() {
   const { currentUser, firebaseUser, loading, signOut, updateUser, refreshUser } = useAuth();
-  const { openPreferences } = useConsent();
+  const { openPreferences, decision, bannerOpen, prefsOpen } = useConsent();
+  const { language } = useLanguage();
   const [verifyEmailBusy, setVerifyEmailBusy] = useState(false);
   const [verifyEmailInfo, setVerifyEmailInfo] = useState('');
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [blogSlug, setBlogSlug] = useState<string | null>(null);
-  const [language, setLanguage] = useState<LanguageType>('it');
   const [bookingMode, setBookingMode] = useState<BookingMode>('intro');
   const [rescheduleBookingId, setRescheduleBookingId] = useState<string | null>(null);
   const [authSignupMode, setAuthSignupMode] = useState(true);
@@ -102,6 +108,19 @@ function AppInner() {
   const onboardingAutoOpened = useRef(false);
   const lunaBookingRef = useRef<HTMLElement>(null);
   const pwa = usePwaInstall();
+
+  const languageSuggestOpen = useMemo(
+    () =>
+      decision !== null &&
+      !bannerOpen &&
+      !prefsOpen &&
+      shouldSuggestEnglish(
+        readStoredLanguage(),
+        readLanguageSuggestDismissed(),
+        language,
+      ),
+    [decision, bannerOpen, prefsOpen, language],
+  );
 
   const openRegister = (reason: RegisterReason = 'study') => {
     setRegisterReason(reason);
@@ -232,10 +251,6 @@ function AppInner() {
     } finally {
       setVerifyEmailBusy(false);
     }
-  };
-
-  const handleLanguageToggle = () => {
-    setLanguage((prev) => (prev === 'it' ? 'en' : 'it'));
   };
 
   const scrollToLunaBooking = () => {
@@ -401,7 +416,6 @@ function AppInner() {
           activeTab={activeTab}
           onTabChange={navigateApp}
           language={language}
-          onLanguageToggle={handleLanguageToggle}
           onRegister={() => openRegister('study')}
           onLogin={openLogin}
         />
@@ -483,10 +497,8 @@ function AppInner() {
         <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
 
         <SiteFooter
-          language={language}
           onNavigate={navigateTab}
           onOpenCookieSettings={openPreferences}
-          onLanguageToggle={handleLanguageToggle}
           onInstallApp={() => void pwa.promptInstall()}
         />
 
@@ -503,6 +515,7 @@ function AppInner() {
           onClose={() => pwa.setInstallHelpVariant(null)}
         />
         <CookieConsent language={language} onOpenPolicy={navigateTab} />
+        <LanguageSuggestModal open={languageSuggestOpen} />
       </div>
     );
   }
@@ -514,7 +527,6 @@ function AppInner() {
         activeTab={activeTab}
         onTabChange={navigateApp}
         language={language}
-        onLanguageToggle={handleLanguageToggle}
         currentUser={currentUser}
         onLogout={handleLogout}
         onOpenOnboarding={openOnboarding}
@@ -699,10 +711,8 @@ function AppInner() {
       <CreditsModal language={language} open={creditsOpen} onClose={() => setCreditsOpen(false)} />
 
       <SiteFooter
-        language={language}
         onNavigate={navigateTab}
         onOpenCookieSettings={openPreferences}
-        onLanguageToggle={handleLanguageToggle}
         onInstallApp={() => void pwa.promptInstall()}
       />
 
@@ -719,6 +729,7 @@ function AppInner() {
         onClose={() => pwa.setInstallHelpVariant(null)}
       />
       <CookieConsent language={language} onOpenPolicy={navigateTab} />
+      <LanguageSuggestModal open={languageSuggestOpen} />
     </div>
   );
 }

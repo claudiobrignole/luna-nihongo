@@ -5,6 +5,7 @@ import { isStaffRole, isSuperAdminRole, canAccessTeacherDashboard } from '../typ
 import type { AdminPanelSection } from './AdminPanel';
 import { UserMenu } from './UserMenu';
 import { LunaLogo } from './LunaLogo';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export type TabType =
   | 'home'
@@ -42,7 +43,6 @@ interface HeaderProps {
   activeTab?: TabType;
   onTabChange?: (tab: TabType) => void;
   language: LanguageType;
-  onLanguageToggle: () => void;
   currentUser?: LunaUser;
   onLogout?: () => void;
   onRegister?: () => void;
@@ -121,7 +121,6 @@ export function Header({
   activeTab = 'home',
   onTabChange,
   language,
-  onLanguageToggle,
   currentUser,
   onLogout,
   onLogin,
@@ -129,6 +128,7 @@ export function Header({
   onOpenAdmin,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { toggleLanguage } = useLanguage();
   const isGuest = variant === 'guest';
 
   useEffect(() => {
@@ -189,8 +189,6 @@ export function Header({
           </nav>
 
           <div className="header-actions">
-            <LangToggle language={language} onToggle={onLanguageToggle} className="header-lang-toggle" />
-
             {isGuest ? (
               <button type="button" className="btn btn-primary header-login-btn" onClick={onLogin}>
                 {language === 'en' ? 'Log in' : 'Accedi'}
@@ -294,7 +292,7 @@ export function Header({
             </nav>
 
             <div className="nav-drawer-footer">
-              <LangToggle language={language} onToggle={onLanguageToggle} className="lang-toggle--block" />
+              <LangToggle language={language} onToggle={() => void toggleLanguage()} className="lang-toggle--block" />
 
               {isGuest && (
                 <button

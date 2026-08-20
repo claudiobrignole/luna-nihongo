@@ -26,6 +26,7 @@ import {
 } from '../services/teacherService';
 import { AdminAvailabilityPanel } from './AdminAvailabilityPanel';
 import { ThemePreferenceSettings } from './ThemePreferenceSettings';
+import { LanguagePreferenceSettings } from './LanguagePreferenceSettings';
 import { useAuth } from '../contexts/AuthContext';
 
 interface TeacherDashboardProps {
@@ -192,6 +193,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
             </button>
           </div>
           <ThemePreferenceSettings language={language} />
+          <LanguagePreferenceSettings language={language} />
         </div>
       ) : section === 'earnings' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

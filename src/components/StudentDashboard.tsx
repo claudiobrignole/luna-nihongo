@@ -12,6 +12,7 @@ import type { PurchasedGiftCoupon, UserCouponSummary } from '../types/coupon';
 import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { PremiumRetentionNotice } from './PremiumRetentionNotice';
 import { ThemePreferenceSettings } from './ThemePreferenceSettings';
+import { LanguagePreferenceSettings } from './LanguagePreferenceSettings';
 import { NewsletterPreferenceSettings } from './NewsletterPreferenceSettings';
 import { formatStripeCallableError, openPremiumPortal, startGiftLessonCheckout } from '../services/stripeService';
 
@@ -300,6 +301,8 @@ export const StudentDashboard: React.FC<StudentDashboardProps> = ({
       </div>
 
       <ThemePreferenceSettings language={language} />
+
+      <LanguagePreferenceSettings language={language} />
 
       <NewsletterPreferenceSettings
         language={language}

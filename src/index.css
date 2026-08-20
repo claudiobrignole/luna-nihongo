@@ -2147,6 +2147,8 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3701,6 +3703,31 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+.language-preference-settings {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.language-preference-settings__title {
+  margin: 0;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.language-preference-settings__subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.language-preference-settings__toggle {
+  align-self: flex-start;
 }
 
 .theme-preference-settings__title {

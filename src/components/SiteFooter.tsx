@@ -1,23 +1,21 @@
 import { Download, Globe, Rss } from 'lucide-react';
-import type { LanguageType, TabType } from './Header';
+import type { TabType } from './Header';
 import { BLOG_RSS_URL } from '../constants/blogFeeds';
+import { useLanguage } from '../contexts/LanguageContext';
 import { LunaLogo } from './LunaLogo';
 
 interface SiteFooterProps {
-  language: LanguageType;
   onNavigate: (tab: TabType) => void;
   onOpenCookieSettings: () => void;
-  onLanguageToggle: () => void;
   onInstallApp: () => void;
 }
 
 export function SiteFooter({
-  language,
   onNavigate,
   onOpenCookieSettings,
-  onLanguageToggle,
   onInstallApp,
 }: SiteFooterProps) {
+  const { language, toggleLanguage } = useLanguage();
   const it = language === 'it';
   const year = new Date().getFullYear();
   const rssHref = `${BLOG_RSS_URL}?lang=${language}`;
@@ -42,7 +40,7 @@ export function SiteFooter({
             <Download size={14} aria-hidden="true" />
             {it ? 'Installa app' : 'Install app'}
           </button>
-          <button type="button" onClick={onLanguageToggle} className="mg-footer-lang">
+          <button type="button" onClick={() => void toggleLanguage()} className="mg-footer-lang">
             <Globe size={14} aria-hidden="true" />
             {language === 'it' ? 'English' : 'Italiano'}
           </button>
