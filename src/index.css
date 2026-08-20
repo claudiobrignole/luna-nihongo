@@ -1937,6 +1937,39 @@ textarea:focus-visible {
   gap: 1rem;
 }
 
+.blog-admin-help {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ln-ink);
+  border-radius: var(--radius-card);
+  background: var(--ln-cream);
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.blog-admin-help summary {
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ln-red-deep);
+}
+
+.blog-admin-help ol {
+  margin: 0.65rem 0 0.5rem;
+  padding-left: 1.25rem;
+  line-height: 1.55;
+}
+
+.blog-admin-help li + li {
+  margin-top: 0.35rem;
+}
+
+.blog-admin-help-note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 .blog-admin-lang-tabs {
   display: flex;
   gap: 0.5rem;

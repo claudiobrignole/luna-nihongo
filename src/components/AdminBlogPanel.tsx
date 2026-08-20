@@ -123,11 +123,25 @@ export function AdminBlogPanel({ language, currentUser }: AdminBlogPanelProps) {
 
   return (
     <div className="blog-admin-editor">
-      <p style={{ margin: '0 0 1rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+      <p style={{ margin: '0 0 0.75rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
         {lang === 'en'
           ? 'Create or edit articles here. Toggle “Published” and save to show them on the blog.'
           : 'Crea o modifica gli articoli qui. Attiva «Pubblicato» e salva per mostrarli sul blog.'}
       </p>
+      <details className="blog-admin-help">
+        <summary>{lang === 'en' ? 'How to publish an article' : 'Come pubblicare un articolo'}</summary>
+        <ol>
+          <li>{lang === 'en' ? 'New post → fill slug, tags, cover (JPEG/PNG/WebP, max 2 MB).' : 'Nuovo articolo → slug, tag, cover (JPEG/PNG/WebP, max 2 MB).'}</li>
+          <li>{lang === 'en' ? 'Write title, excerpt and body in Markdown (IT + EN tabs).' : 'Titolo, excerpt e corpo in Markdown (tab IT + EN).'}</li>
+          <li>{lang === 'en' ? 'Inline images: Markdown only — ![alt](https://public-url.jpg). No upload in editor.' : 'Immagini nel testo: solo Markdown — ![alt](https://url-pubblico.jpg). Nessun upload inline.'}</li>
+          <li>{lang === 'en' ? 'Check Published, Save, then open /#blog/{slug}.' : 'Spunta Pubblicato, Salva, poi apri /#blog/{slug}.'}</li>
+        </ol>
+        <p className="blog-admin-help-note">
+          {lang === 'en'
+            ? 'Without a cover, a default image is chosen from the first tag. Full guide: docs/BLOG.md in the repo.'
+            : 'Senza cover, il sito usa un’immagine di fallback dal primo tag. Guida completa: docs/BLOG.md nel repo.'}
+        </p>
+      </details>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem' }}>
         <button type="button" className="btn btn-primary" onClick={startNew}>
           <Plus size={16} />

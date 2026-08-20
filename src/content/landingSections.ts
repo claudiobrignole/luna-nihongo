@@ -4,6 +4,7 @@ import lunaStudy from '../assets/brand/luna-study.webp';
 import lunaFlash from '../assets/brand/luna-flash.webp';
 import lunaTalk from '../assets/brand/luna-talk.webp';
 import lunaTorii from '../assets/brand/luna-torii.webp';
+import lunaAnime from '../assets/brand/luna-anime.webp';
 
 export type LandingBadgeKind = 'free' | 'trial' | 'live' | 'otaku';
 export type LandingBandVariant = 'washi' | 'yellow' | 'purple' | 'sakura' | 'ink';
@@ -131,11 +132,10 @@ export const LANDING_SECTIONS: LandingSectionCopy[] = [
     verticalJa: { it: 'もっと見る', en: 'もっと見る' },
     watermark: 'A',
     variant: 'sakura',
-    image: lunaTalk,
-    imagePlaceholder: true,
+    image: lunaAnime,
     imageAlt: {
-      it: 'Luna otaku di anime e manga — illustrazione in arrivo',
-      en: 'Luna, anime and manga otaku — illustration coming soon',
+      it: 'Luna al centro di un collage manga con personaggi di anime e manga',
+      en: 'Luna at the centre of a manga collage with anime and manga characters',
     },
     badge: { kind: 'otaku', it: 'オタク', en: 'オタク' },
     lead: {

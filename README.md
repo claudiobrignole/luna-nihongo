@@ -240,7 +240,9 @@ npm run build:hostinger
 |-------|----------|
 | `user` | Studente standard |
 | `admin` | Vede utenti, gestisce tier studenti |
-| `super_admin` | Tutto + promuove admin (`claudio@brignole.ch`) |
+| `super_admin` | Tutto + promuove admin (`claudio@brignole.ch`) + **editor blog** |
+
+**Blog:** guida pubblicazione articoli → [`docs/BLOG.md`](docs/BLOG.md) (editor in menu utente → Articoli blog).
 
 ## Script utili
 
@@ -263,6 +265,11 @@ npm run build:hostinger
 | `npm run functions:deploy` | Build + deploy Cloud Functions |
 | `npm run functions:allow-public` | IAM Cloud Run invoker per callable |
 | `npm test` | Unit test leggeri |
+| `npm run seed:blog` | Seed articoli blog di esempio (Firebase Admin, solo dev) |
+
+## Blog
+
+Articoli editoriali: Firestore `blogPosts` + cover su Storage. Pubblicazione solo **super_admin** via pannello in-app. Vedi [`docs/BLOG.md`](docs/BLOG.md).
 
 ## Curriculum didattico (N5 + N4)
 
