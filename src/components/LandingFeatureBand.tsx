@@ -43,6 +43,28 @@ export function LandingFeatureBand({
         <span className="mg-vertical" aria-hidden="true" lang="ja">
           {verticalJa ?? section.verticalJa[lang]}
         </span>
+        <div
+          className={`mg-fig${section.imagePlaceholder ? ' mg-fig--placeholder' : ''}${section.id === 'anime' ? ' mg-fig--anime' : ''}`}
+          style={{
+            ...(section.imageRight ? { right: section.imageRight } : {}),
+            shapeOutside: `url("${section.image}")`,
+          }}
+        >
+          {section.imagePlaceholder ? (
+            <div className="mg-fig-placeholder-inner" aria-hidden="true">
+              <div className="mg-fig-media mg-zoom-media">
+                <img src={section.image} alt="" />
+              </div>
+              <span className="mg-fig-placeholder-label">
+                {lang === 'en' ? 'Luna anime art — coming soon' : 'Luna anime — in arrivo'}
+              </span>
+            </div>
+          ) : (
+            <div className="mg-fig-media mg-zoom-media">
+              <img src={section.image} alt={section.imageAlt[lang]} />
+            </div>
+          )}
+        </div>
         <div className="mg-band-copy">
           <div className="mg-band-meta">
             <p className="mg-index" style={{ color: indexColor }}>
@@ -66,25 +88,6 @@ export function LandingFeatureBand({
             ))}
           </ul>
           {children}
-        </div>
-        <div
-          className={`mg-fig${section.imagePlaceholder ? ' mg-fig--placeholder' : ''}`}
-          style={section.imageRight ? { right: section.imageRight } : undefined}
-        >
-          {section.imagePlaceholder ? (
-            <div className="mg-fig-placeholder-inner" aria-hidden="true">
-              <div className="mg-fig-media mg-zoom-media">
-                <img src={section.image} alt="" />
-              </div>
-              <span className="mg-fig-placeholder-label">
-                {lang === 'en' ? 'Luna anime art — coming soon' : 'Luna anime — in arrivo'}
-              </span>
-            </div>
-          ) : (
-            <div className="mg-fig-media mg-zoom-media">
-              <img src={section.image} alt={section.imageAlt[lang]} />
-            </div>
-          )}
         </div>
       </div>
     </section>

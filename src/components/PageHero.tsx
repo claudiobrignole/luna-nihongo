@@ -164,15 +164,21 @@ export function PageHero({ page, language, subOverride }: PageHeroProps) {
         {cfg.watermark ? (
           <span className="mg-watermark" aria-hidden="true" lang="ja">{cfg.watermark}</span>
         ) : null}
+        <div
+          className="mg-fig"
+          style={{
+            ...(cfg.imageRight ? { right: cfg.imageRight } : {}),
+            shapeOutside: `url("${cfg.image}")`,
+          }}
+        >
+          <img src={cfg.image} alt="" aria-hidden="true" />
+        </div>
         <div className="mg-band-copy">
           <p className="mg-index" style={{ color: indexColor }}>{cfg.index}</p>
           <h1 className="mg-band-title" lang="ja">{cfg.titleJa}</h1>
           <p className="mg-band-sub" style={cfg.variant === 'ink' ? { color: 'var(--ln-washi)' } : undefined}>
             {subOverride ?? cfg.sub[language]}
           </p>
-        </div>
-        <div className="mg-fig" style={cfg.imageRight ? { right: cfg.imageRight } : undefined}>
-          <img src={cfg.image} alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

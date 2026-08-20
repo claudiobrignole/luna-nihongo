@@ -1003,12 +1003,18 @@ textarea:focus-visible {
   max-width: var(--page-max-width);
   margin: 0 auto;
   padding: 2.75rem var(--page-gutter) 3rem;
-  min-height: 460px;
+  min-height: 0;
+}
+
+.mg-band-inner::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .mg-band-copy {
   position: relative;
-  max-width: 30rem;
+  max-width: none;
   z-index: 2;
 }
 
@@ -1292,9 +1298,7 @@ textarea:focus-visible {
   border-radius: 6px;
 }
 
-.mg-band--sakura .mg-fig { height: 420px; }
-
-.mg-band--sakura .mg-band-inner { min-height: 480px; }
+.mg-band--sakura .mg-band-inner { min-height: 0; }
 
 .mg-watermark {
   position: absolute;
@@ -1320,18 +1324,25 @@ textarea:focus-visible {
   font-size: 0.85rem;
   letter-spacing: 0.35em;
   opacity: 0.65;
-  z-index: 2;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .mg-fig {
-  position: absolute;
-  right: 4%;
-  bottom: 0;
-  height: 380px;
+  position: relative;
+  float: right;
+  height: 280px;
+  margin: 0 0.25rem 1.1rem 1.35rem;
   display: flex;
   align-items: flex-end;
   z-index: 1;
   pointer-events: none;
+  shape-margin: 0.85rem;
+  shape-image-threshold: 0.2;
+}
+
+.mg-fig--anime {
+  height: 220px;
 }
 
 .mg-fig-media {
@@ -1346,6 +1357,10 @@ textarea:focus-visible {
   height: 100%;
   width: auto;
   display: block;
+}
+
+.mg-landing .mg-zoom-media {
+  overflow: visible;
 }
 
 .mg-zoom-media {
@@ -1375,22 +1390,17 @@ textarea:focus-visible {
   }
 }
 
-/* Luna-01 (hero): figura più grande, resta appoggiata al bordo inferiore */
-.mg-hero .mg-fig { height: 410px; }
+.mg-hero .mg-fig { height: 300px; }
 
-/* Study (banda washi): luna-study più grande del 10% */
-.mg-band--washi .mg-fig { height: 418px; }
+.mg-band--washi .mg-fig { height: 290px; }
 
-/* Talk (banda viola): luna-talk più grande del 20% */
-.mg-band--purple .mg-band-inner { min-height: 500px; }
-.mg-band--purple .mg-fig { height: 456px; }
+.mg-band--purple .mg-band-inner { min-height: 0; }
+.mg-band--purple .mg-fig { height: 300px; }
 
-/* Lessons (banda ink): luna-torii centrato verticalmente, non appoggiato al fondo */
 .mg-band--ink .mg-fig {
-  top: 50%;
-  bottom: auto;
-  transform: translateY(-50%);
-  align-items: center;
+  height: 280px;
+  transform: none;
+  align-items: flex-end;
 }
 
 /* ── Page hero: banda compatta in cima alle pagine interne ── */
@@ -1415,11 +1425,9 @@ textarea:focus-visible {
   margin: 0.35rem 0 0.5rem;
 }
 
-/* Le figure degli header poggiano sul bordo inferiore, anche su banda ink */
 .page-hero .mg-fig {
-  height: 215px;
-  bottom: 0;
-  top: auto;
+  height: 190px;
+  margin: 0 0 0.75rem 1.1rem;
   transform: none;
   align-items: flex-end;
 }
@@ -1432,7 +1440,7 @@ textarea:focus-visible {
 
 @media (max-width: 860px) {
   .page-hero { margin-top: -1rem; }
-  .page-hero .mg-fig { height: 220px !important; }
+  .page-hero .mg-fig { height: 150px; }
   .page-hero .mg-watermark {
     right: 14%;
     font-size: clamp(6rem, 24vw, 9rem);
@@ -1498,7 +1506,7 @@ textarea:focus-visible {
 
 /* Hero */
 .mg-hero .mg-band-inner {
-  min-height: 490px;
+  min-height: 0;
   padding-top: 3.5rem;
 }
 
@@ -2133,64 +2141,62 @@ textarea:focus-visible {
 @media (max-width: 860px) {
   .mg-landing .mg-band-inner {
     min-height: 0;
-    padding-bottom: 17.5rem;
+    padding-bottom: 2.5rem;
   }
 
-  .mg-landing .mg-hero .mg-band-inner {
-    padding-bottom: 21rem;
-  }
-
+  .mg-fig,
   .mg-landing .mg-fig,
-  .mg-landing .mg-hero .mg-fig {
-    position: absolute;
-    left: 50% !important;
-    right: auto !important;
-    bottom: 0;
-    height: 270px !important;
-    margin: 0;
-    transform: translateX(-50%);
-    justify-content: center;
+  .mg-landing .mg-hero .mg-fig,
+  .mg-band--washi .mg-fig,
+  .mg-band--purple .mg-fig,
+  .mg-band--ink .mg-fig {
+    position: relative;
+    float: right;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    height: 170px;
+    margin: 0 0 0.85rem 1rem;
+    transform: none;
+    justify-content: flex-end;
     align-items: flex-end;
   }
 
   .mg-landing .mg-hero .mg-fig {
-    height: 325px !important;
+    height: 190px;
   }
 
-  /* Banda 06 lessons: figura centrata verticalmente (come desktop) */
-  .mg-landing .mg-band--ink .mg-band-inner {
-    min-height: 26rem;
-    padding-bottom: 3rem;
+  .mg-fig--anime {
+    height: 150px;
   }
 
-  .mg-landing .mg-band--ink .mg-fig {
-    top: 50%;
-    bottom: auto;
-    left: 50% !important;
-    right: auto !important;
-    transform: translate(-50%, -50%);
-    align-items: center;
-  }
-
+  .mg-landing .mg-band--ink .mg-band-inner,
   .mg-landing .mg-band--purple .mg-band-inner {
     min-height: 0;
-  }
-
-  .page-hero .mg-fig {
-    position: absolute;
-    right: 4%;
-    left: auto;
-    bottom: 0;
-    top: auto;
-    margin: 0;
-    transform: none;
-    align-items: flex-end;
-    justify-content: flex-end;
+    padding-bottom: 2.5rem;
   }
 
   .mg-band-inner { min-height: 0; }
   .mg-watermark { font-size: 9rem; right: -1.5rem; }
   .mg-kana, .mg-bubble { display: none; }
+}
+
+@media (max-width: 480px) {
+  .mg-fig,
+  .mg-landing .mg-fig,
+  .mg-landing .mg-hero .mg-fig,
+  .mg-band--washi .mg-fig,
+  .mg-band--purple .mg-fig,
+  .mg-band--ink .mg-fig,
+  .page-hero .mg-fig {
+    height: 128px;
+    margin: 0 0 0.7rem 0.75rem;
+  }
+
+  .mg-fig--anime {
+    height: 118px;
+  }
 }
 
 /* Guest header CTAs */

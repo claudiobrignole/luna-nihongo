@@ -25,6 +25,11 @@ export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboardin
         <div className="mg-ribbon" aria-hidden="true"><span lang="ja">おかえり</span></div>
         <div className="mg-band-inner">
           <span className="mg-watermark" aria-hidden="true" lang="ja">月</span>
+          <div className="mg-fig" style={{ shapeOutside: `url("${lunaWave}")` }}>
+            <div className="mg-fig-media mg-zoom-media">
+              <img src={lunaWave} alt={en ? 'Luna waves hello, manga style' : 'Luna saluta, in stile manga'} />
+            </div>
+          </div>
           <div className="mg-band-copy">
             <h1 className="mg-hero-title" lang="ja">
               おかえりなさい、<br />{currentUser.username}さん。
@@ -60,11 +65,6 @@ export function HomeLanding({ language, currentUser, onNavigate, onOpenOnboardin
                   </button>
                 )}
               </div>
-            </div>
-          </div>
-          <div className="mg-fig">
-            <div className="mg-fig-media mg-zoom-media">
-              <img src={lunaWave} alt={en ? 'Luna waves hello, manga style' : 'Luna saluta, in stile manga'} />
             </div>
           </div>
         </div>

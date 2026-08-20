@@ -47,6 +47,14 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
         <div className="mg-ribbon" aria-hidden="true"><span lang="ja">ようこそ</span></div>
         <div className="mg-band-inner">
           <span className="mg-watermark" aria-hidden="true" lang="ja">な</span>
+          <div className="mg-fig" style={{ shapeOutside: `url("${lunaWave}")` }}>
+            <div className="mg-fig-media mg-zoom-media">
+              <img
+                src={lunaWave}
+                alt={en ? 'Luna waves hello among falling cherry blossoms, manga style' : 'Luna saluta tra i petali di ciliegio, in stile manga'}
+              />
+            </div>
+          </div>
           <div className="mg-band-copy">
             <h1 className="mg-hero-title" lang="ja">
               ゼロから N4 まで、<br />るなと学ぶ日本語。
@@ -74,14 +82,6 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
                   ? 'Study path & flashcards are free.'
                   : 'Percorso Studio e flashcard gratuiti.'}
               </p>
-            </div>
-          </div>
-          <div className="mg-fig">
-            <div className="mg-fig-media mg-zoom-media">
-              <img
-                src={lunaWave}
-                alt={en ? 'Luna waves hello among falling cherry blossoms, manga style' : 'Luna saluta tra i petali di ciliegio, in stile manga'}
-              />
             </div>
           </div>
         </div>
