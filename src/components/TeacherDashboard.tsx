@@ -164,12 +164,12 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({ language, cu
         <div className="glass-panel" style={{ padding: '1rem', color: 'var(--error)' }}>{error}</div>
       )}
 
-      {loading ? (
+      {section === 'availability' ? (
+        <AdminAvailabilityPanel language={language} currentUser={currentUser} />
+      ) : loading ? (
         <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
           <Loader2 size={28} className="spin" />
         </div>
-      ) : section === 'availability' ? (
-        <AdminAvailabilityPanel language={language} currentUser={currentUser} />
       ) : section === 'profile' ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: 520 }}>
           <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

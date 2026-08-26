@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { CalendarPlus, Loader2, Trash2, ToggleLeft, ToggleRight } from 'lucide-react';
 import type { SlotType } from '../types/availability';
-import { INTRO_SLOT_DURATION_MINUTES, defaultMaxParticipants } from '../types/availability';
+import {
+  DEFAULT_TEACHER_SLOT_TYPE,
+  INTRO_SLOT_DURATION_MINUTES,
+  defaultMaxParticipants,
+} from '../types/availability';
 import type { LunaUser } from '../types/user';
 import { isSuperAdminRole, isTeacherRole } from '../types/user';
 import { getTeacherPublicName } from '../types/teacher';
@@ -27,6 +31,13 @@ function addMinutesToTime(time: string, minutes: number): string {
   return `${String(nh).padStart(2, '0')}:${String(nm).padStart(2, '0')}`;
 }
 
+function slotTypeLabel(slotType: SlotType, language: 'en' | 'it'): string {
+  if (slotType === 'intro') {
+    return language === 'en' ? 'Intro 30′' : 'Intro 30′';
+  }
+  return language === 'en' ? 'Regular 60′' : 'Lezione 60′';
+}
+
 export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ language, currentUser }) => {
   const isSuperAdmin = isSuperAdminRole(currentUser.role);
   const isTeacher = isTeacherRole(currentUser.role);
@@ -35,9 +46,10 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
   const [slots, setSlots] = useState<Awaited<ReturnType<typeof loadAllAvailabilitySlotsAdmin>>>([]);
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [date, setDate] = useState('');
   const [startTime, setStartTime] = useState('10:00');
-  const [slotType, setSlotType] = useState<SlotType>('intro');
+  const [slotType, setSlotType] = useState<SlotType>(DEFAULT_TEACHER_SLOT_TYPE);
   const [notes, setNotes] = useState('');
 
   const activeTeacherId = isTeacher ? currentUser.id : selectedTeacherId;
@@ -70,6 +82,7 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
     e.preventDefault();
     if (!date || !activeTeacherId) return;
     setBusyId('create');
+    setError(null);
     try {
       const duration = slotType === 'intro' ? INTRO_SLOT_DURATION_MINUTES : 60;
       await createAvailabilitySlot({
@@ -84,7 +97,10 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
         notes,
       });
       setNotes('');
+      // Keep selected slotType (do not reset to intro).
       await refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : (language === 'en' ? 'Could not create slot.' : 'Impossibile creare lo slot.'));
     } finally {
       setBusyId(null);
     }
@@ -95,6 +111,12 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
       <h3 style={{ margin: 0 }}>
         {language === 'en' ? 'Lesson availability' : 'Disponibilità lezioni'}
       </h3>
+
+      <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+        {language === 'en'
+          ? 'Students booking lessons only see Regular 60′ slots; free trial only sees Intro 30′.'
+          : 'Gli studenti che prenotano lezioni vedono solo gli slot Lezione 60′; la prova gratuita solo Intro 30′.'}
+      </p>
 
       {isSuperAdmin && teachers.length > 0 && (
         <label style={{ fontSize: '0.85rem', fontWeight: 600 }}>
@@ -119,6 +141,10 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
         </p>
       )}
 
+      {error && (
+        <p style={{ margin: 0, color: 'var(--error)', fontSize: '0.9rem' }}>{error}</p>
+      )}
+
       <form onSubmit={(e) => void handleCreate(e)} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'flex-end' }}>
         <label>
           {language === 'en' ? 'Date' : 'Data'}
@@ -131,8 +157,8 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
         <label>
           {language === 'en' ? 'Type' : 'Tipo'}
           <select value={slotType} onChange={(e) => setSlotType(e.target.value as SlotType)} style={{ display: 'block', marginTop: 4, padding: '0.45rem' }}>
-            <option value="intro">{language === 'en' ? 'Intro (30 min)' : 'Intro (30 min)'}</option>
-            <option value="regular">{language === 'en' ? 'Regular (60 min)' : 'Regolare (60 min)'}</option>
+            <option value="regular">{language === 'en' ? 'Regular 60′' : 'Lezione 60′'}</option>
+            <option value="intro">{language === 'en' ? 'Intro 30′ (trial)' : 'Intro 30′ (prova)'}</option>
           </select>
         </label>
         <button type="submit" className="btn btn-primary" disabled={busyId === 'create'}>
@@ -149,7 +175,7 @@ export const AdminAvailabilityPanel: React.FC<AdminAvailabilityPanelProps> = ({ 
           {slots.map((slot) => (
             <div key={slot.id} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', padding: '0.65rem', border: '1px solid var(--border)', borderRadius: 10 }}>
               <strong>{slot.date}</strong> {slot.startTime}–{slot.endTime}
-              <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>{slot.slotType}</span>
+              <span style={{ fontSize: '0.8rem', opacity: 0.8 }}>{slotTypeLabel(slot.slotType, language)}</span>
               <span style={{ fontSize: '0.8rem' }}>{slot.participantCount}/{slot.maxParticipants}</span>
               <button type="button" className="btn btn-secondary" disabled={busyId === slot.id} onClick={() => void toggleAvailabilitySlot(slot.id, !slot.active).then(refresh)}>
                 {slot.active ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}

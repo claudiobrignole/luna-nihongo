@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Shield,
   Users,
@@ -51,6 +51,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, i
   const [activityUser, setActivityUser] = useState<LunaUser | null>(null);
   const [activityLog, setActivityLog] = useState<StudyActivity[]>([]);
   const [activityLoading, setActivityLoading] = useState(false);
+  const [activityError, setActivityError] = useState<string | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<LunaUser | null>(null);
 
   const isSuperAdmin = isSuperAdminRole(currentUser.role);
@@ -120,21 +121,40 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, i
     }
   };
 
+  const activityReqId = useRef(0);
+
+  const closeActivity = () => {
+    activityReqId.current += 1;
+    setActivityUser(null);
+    setActivityLog([]);
+    setActivityError(null);
+    setActivityLoading(false);
+    setBusyId(null);
+  };
+
   const openActivity = async (target: LunaUser) => {
+    const reqId = ++activityReqId.current;
     setActivityUser(target);
     setActivityLoading(true);
     setActivityLog([]);
+    setActivityError(null);
+    setBusyId(target.id);
     try {
       const items = await listStudyActivity(target.id, 60);
+      if (reqId !== activityReqId.current) return;
       setActivityLog(items);
     } catch {
-      setError(
+      if (reqId !== activityReqId.current) return;
+      setActivityError(
         language === 'en'
           ? 'Could not load study history.'
           : 'Impossibile caricare lo storico studio.'
       );
     } finally {
-      setActivityLoading(false);
+      if (reqId === activityReqId.current) {
+        setActivityLoading(false);
+        setBusyId(null);
+      }
     }
   };
 
@@ -176,8 +196,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, i
       await adminDeleteUser(deleteTarget.id);
       setUsers((prev) => prev.filter((u) => u.id !== deleteTarget.id));
       if (activityUser?.id === deleteTarget.id) {
-        setActivityUser(null);
-        setActivityLog([]);
+        closeActivity();
       }
       showSuccess(
         language === 'en'
@@ -434,10 +453,22 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, i
                           <button
                             type="button"
                             onClick={() => void openActivity(user)}
+                            disabled={isBusy}
                             className="btn btn-secondary"
-                            style={{ fontSize: '0.78rem', padding: '0.35rem 0.7rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
+                            style={{
+                              fontSize: '0.78rem',
+                              padding: '0.35rem 0.7rem',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.3rem',
+                              opacity: isBusy ? 0.6 : 1,
+                            }}
                           >
-                            <History size={14} />
+                            {isBusy && activityLoading && activityUser?.id === user.id ? (
+                              <Loader2 size={14} className="spin" />
+                            ) : (
+                              <History size={14} />
+                            )}
                             {language === 'en' ? 'History' : 'Storico'}
                           </button>
                           {canTier ? (
@@ -494,60 +525,78 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ language, currentUser, i
         )}
       </div>
 
+        </>
+      )}
+
       {activityUser && (
-        <div className="glass-panel admin-activity-panel">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-            <History size={20} style={{ color: 'var(--primary)' }} />
-            <div style={{ flex: 1 }}>
-              <h3 style={{ margin: 0, fontSize: '1.1rem' }}>
-                {language === 'en' ? 'Study history' : 'Storico studio'} — {activityUser.username}
-              </h3>
-              <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                {activityUser.email} · {activityUser.completedUnits.length}{' '}
-                {language === 'en' ? 'units completed' : 'unità completate'}
-              </p>
-            </div>
+        <div className="register-prompt-backdrop" onClick={closeActivity} role="presentation">
+          <div
+            className="register-prompt-panel glass-panel admin-activity-dialog"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="admin-activity-title"
+          >
             <button
               type="button"
-              onClick={() => setActivityUser(null)}
-              className="btn btn-secondary"
-              style={{ padding: '0.4rem' }}
-              aria-label="Close"
+              className="register-prompt-close"
+              onClick={closeActivity}
+              aria-label={language === 'en' ? 'Close' : 'Chiudi'}
             >
-              <X size={18} />
+              <X size={20} />
             </button>
-          </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', paddingRight: '2rem' }}>
+              <History size={20} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h2 id="admin-activity-title" style={{ margin: 0, fontSize: '1.15rem', textAlign: 'left' }}>
+                  {language === 'en' ? 'Study history' : 'Storico studio'} — {activityUser.username}
+                </h2>
+                <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-muted)', textAlign: 'left' }}>
+                  {activityUser.email} · {activityUser.completedUnits.length}{' '}
+                  {language === 'en' ? 'units completed' : 'unità completate'}
+                </p>
+              </div>
+            </div>
 
-          {activityLoading ? (
-            <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
-              <Loader2 size={28} style={{ margin: '0 auto 0.75rem' }} />
-              {language === 'en' ? 'Loading activity…' : 'Caricamento attività…'}
-            </div>
-          ) : activityLog.length === 0 ? (
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
-              {language === 'en'
-                ? 'No logged activity yet. Events appear when the student opens units, completes lessons, or chats with the tutor.'
-                : 'Nessuna attività registrata. Gli eventi compaiono quando lo studente apre unità, completa lezioni o usa il tutor.'}
-            </p>
-          ) : (
-            <div className="admin-activity-list">
-              {activityLog.map((item) => (
-                <div key={item.id} className="admin-activity-item">
-                  <span className="admin-activity-type">{activityTypeLabel(item.type)}</span>
-                  <span>{item.label}</span>
-                  {item.unitId && (
-                    <span style={{ color: 'var(--text-light)', fontSize: '0.75rem' }}>{item.unitId}</span>
-                  )}
-                  <time className="admin-activity-time">
-                    {new Date(item.createdAt).toLocaleString(language === 'en' ? 'en-US' : 'it-IT')}
-                  </time>
-                </div>
-              ))}
-            </div>
-          )}
+            {activityLoading ? (
+              <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+                <Loader2 size={28} style={{ margin: '0 auto 0.75rem' }} />
+                {language === 'en' ? 'Loading activity…' : 'Caricamento attività…'}
+              </div>
+            ) : activityError ? (
+              <div style={{
+                padding: '0.8rem 1rem', borderRadius: '10px',
+                backgroundColor: 'var(--error-glow)', color: 'var(--error)',
+                fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem',
+                textAlign: 'left',
+              }}>
+                <AlertCircle size={16} style={{ flexShrink: 0 }} />
+                {activityError}
+              </div>
+            ) : activityLog.length === 0 ? (
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', textAlign: 'left', margin: 0 }}>
+                {language === 'en'
+                  ? 'No logged activity yet. Events appear when the student opens units, completes lessons, or chats with the tutor.'
+                  : 'Nessuna attività registrata. Gli eventi compaiono quando lo studente apre unità, completa lezioni o usa il tutor.'}
+              </p>
+            ) : (
+              <div className="admin-activity-list">
+                {activityLog.map((item) => (
+                  <div key={item.id} className="admin-activity-item">
+                    <span className="admin-activity-type">{activityTypeLabel(item.type)}</span>
+                    <span>{item.label}</span>
+                    {item.unitId && (
+                      <span style={{ color: 'var(--text-light)', fontSize: '0.75rem' }}>{item.unitId}</span>
+                    )}
+                    <time className="admin-activity-time">
+                      {new Date(item.createdAt).toLocaleString(language === 'en' ? 'en-US' : 'it-IT')}
+                    </time>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      )}
-        </>
       )}
 
       {deleteTarget && (

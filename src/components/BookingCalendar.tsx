@@ -14,7 +14,12 @@ import {
   INCLUDED_LESSONS_PER_CYCLE,
 } from '../types/user';
 import type { UserCouponSummary } from '../types/coupon';
-import { formatSlotLabel, slotSeatsLeft } from '../types/availability';
+import {
+  formatSlotLabel,
+  oppositeSlotType,
+  otherModeAvailabilityHint,
+  slotSeatsLeft,
+} from '../types/availability';
 import { loadAvailabilitySlots } from '../services/availabilityService';
 import { listTeachers } from '../services/userService';
 import type { BookableTeacher } from '../types/teacher';
@@ -78,6 +83,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
 
   const [slots, setSlots] = useState<AvailabilitySlot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(true);
+  const [otherTypeHasSlots, setOtherTypeHasSlots] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedSlotId, setSelectedSlotId] = useState<string | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -133,14 +139,27 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
   const refreshSlots = useCallback(async () => {
     if (!selectedTeacherId) {
       setSlots([]);
+      setOtherTypeHasSlots(false);
       setLoadingSlots(false);
       return;
     }
     setLoadingSlots(true);
     try {
-      setSlots(await loadAvailabilitySlots({ slotType, fromDate: todayIso, teacherId: selectedTeacherId }));
+      const loaded = await loadAvailabilitySlots({ slotType, fromDate: todayIso, teacherId: selectedTeacherId });
+      setSlots(loaded);
+      if (loaded.length === 0) {
+        const other = await loadAvailabilitySlots({
+          slotType: oppositeSlotType(slotType),
+          fromDate: todayIso,
+          teacherId: selectedTeacherId,
+        });
+        setOtherTypeHasSlots(other.length > 0);
+      } else {
+        setOtherTypeHasSlots(false);
+      }
     } catch (err) {
       console.error(err);
+      setOtherTypeHasSlots(false);
       setError(language === 'en' ? 'Could not load availability.' : 'Impossibile caricare la disponibilità.');
     } finally {
       setLoadingSlots(false);
@@ -479,9 +498,15 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({
             </div>
           ) : slots.length === 0 ? (
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-              {language === 'en'
-                ? 'No slots published yet. Luna will open new dates soon.'
-                : 'Nessuno slot pubblicato. Luna aprirà presto nuove date.'}
+              {otherTypeHasSlots
+                ? otherModeAvailabilityHint(language, slotType)
+                : language === 'en'
+                  ? (slotType === 'intro'
+                    ? 'No Intro 30′ (trial) slots published yet. Regular 60′ lessons are booked separately.'
+                    : 'No Regular 60′ slots published yet. Intro (trial) slots are booked separately.')
+                  : (slotType === 'intro'
+                    ? 'Nessuno slot Intro 30′ (prova) pubblicato. Le lezioni 60′ si prenotano separatamente.'
+                    : 'Nessuno slot Lezione 60′ pubblicato. Gli slot Intro (prova) si prenotano separatamente.')}
             </p>
           ) : (
             <>
