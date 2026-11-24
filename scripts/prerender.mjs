@@ -275,13 +275,21 @@ function writeStaticPage(pagePath, headInjection, lang, extraBodyHtml) {
   // html lang coerente con la pagina.
   html = html.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
 
-  // Rimuove i meta/title dinamici di fallback gia' presenti in index.html e
-  // inietta il blocco statico per questa route subito prima di </head>.
+  // Rimuove i meta/title/link dinamici di fallback gia' presenti in
+  // index.html e inietta il blocco statico per questa route subito prima
+  // di </head>.
   html = html.replace(/<title>[\s\S]*?<\/title>\s*/, '');
   html = html.replace(/<meta name="description"[^>]*>\s*/, '');
+  html = html.replace(/<link rel="canonical"[^>]*>\s*/, '');
+  html = html.replace(/<link rel="alternate" hreflang="[^"]*"[^>]*>\s*/g, '');
   html = html.replace(/<meta property="og:title"[^>]*>\s*/, '');
   html = html.replace(/<meta property="og:description"[^>]*>\s*/, '');
   html = html.replace(/<meta property="og:type"[^>]*>\s*/, '');
+  html = html.replace(/<meta property="og:url"[^>]*>\s*/, '');
+  html = html.replace(/<meta property="og:image"[^>]*>\s*/, '');
+  html = html.replace(/<meta property="og:site_name"[^>]*>\s*/, '');
+  html = html.replace(/<meta property="og:locale"[^>]*>\s*/, '');
+  html = html.replace(/<meta name="twitter:card"[^>]*>\s*/, '');
   html = html.replace(/<!-- Open Graph tags for premium sharing appearance -->\s*/, '');
 
   html = html.replace('</head>', `    ${headInjection}\n  </head>`);
