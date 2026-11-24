@@ -10,7 +10,7 @@
     "dev:api:php": "php -S localhost:8080 -t public",
     "dev:all": "npm run curriculum:build && node scripts/dev-all.mjs",
     "prebuild": "npm run curriculum:check",
-    "build": "node scripts/generate-gemini-secret.mjs && npm run curriculum:build && tsc -b && vite build",
+    "build": "node scripts/generate-gemini-secret.mjs && npm run curriculum:build && tsc -b && vite build && node scripts/prerender.mjs",
     "build:hostinger": "bash scripts/build-hostinger.sh",
     "curriculum:check": "node content/curriculum/hydrate.mjs --check",
     "curriculum:build": "node content/curriculum/hydrate.mjs",

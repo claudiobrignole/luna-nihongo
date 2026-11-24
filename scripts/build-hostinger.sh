@@ -39,6 +39,11 @@ test -f dist/api/tutor.php
 test -f dist/api/live-session.php
 test -f dist/api/writing-grade.php
 test -f dist/api/bootstrap.php
+test -f dist/sitemap.xml
+test -f dist/blog/index.html
+test -f dist/en/index.html
+test -f dist/insegnante/index.html
+test -f dist/en/teacher/index.html
 if [ -f dist/api/gemini-secret.php ]; then
   echo "→ gemini-secret.php incluso nel build ✓"
 else

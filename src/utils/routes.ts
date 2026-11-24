@@ -122,3 +122,18 @@ export function legacyHashToPath(hash: string, language: AppLanguage): string | 
   }
   return null;
 }
+
+/** True per le tab che devono restare fuori dall'indicizzazione (aree app autenticate). */
+export function isNoindexTab(tab: string): boolean {
+  const NOINDEX_TABS = new Set([
+    'path',
+    'flashcards',
+    'tutor',
+    'dashboard',
+    'admin',
+    'teacher-dashboard',
+    'auth',
+    'booking',
+  ]);
+  return NOINDEX_TABS.has(tab);
+}

@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
+Disallow: /path
+Disallow: /flashcards
+Disallow: /tutor
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /teacher-dashboard
+Disallow: /auth
+Disallow: /en/path
+Disallow: /en/flashcards
+Disallow: /en/tutor
+Disallow: /en/dashboard
+Disallow: /en/admin
+Disallow: /en/teacher-dashboard
+Disallow: /en/auth
 
-Sitemap: https://europe-west1-luna-nihongo.cloudfunctions.net/blogSitemap
+Sitemap: https://lunanihongo.com/sitemap.xml

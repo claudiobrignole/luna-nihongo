@@ -1,18 +1,58 @@
-# Apache / Hostinger — SPA routing + PHP API
+# Apache / Hostinger -- routing pubblico SEO-friendly + fallback SPA per l'app
+#
+# Ordine delle regole:
+# 1) host canonico: forza https e dominio senza www (lunanihongo.com)
+# 2) endpoint PHP (/api/...) passano diretti
+# 3) file e cartelle reali su disco vengono serviti cosi' come sono --
+#    questo include gli HTML prerenderizzati delle route pubbliche
+#    (es. dist/blog/index.html, dist/en/insegnante/index.html, ecc.),
+#    che Apache serve PRIMA di qualunque fallback qui sotto
+# 4) le route note dell'app autenticata (Studio, flashcard, tutor,
+#    dashboard, admin, auth) ricadono comunque su index.html: sono
+#    SPA pure, senza una pagina statica propria, e devono restare
+#    raggiungibili con un refresh del browser
+# 5) qualunque altro path che non e' un file reale e non e' una route
+#    app nota riceve un vero 404 (niente piu' soft-404 a 200)
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # API PHP endpoints (tutor, tts)
+  # 1) Host canonico: https://lunanihongo.com (niente www, niente http).
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2) API PHP endpoints (tutor, tts, ecc.).
   RewriteRule ^api/ - [L]
 
-  # Static files
+  # 3) File e cartelle reali: serviti direttamente (include i prerender statici).
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # React SPA fallback
-  RewriteRule ^ index.html [L]
+  # 4) Route app autenticate (nessuna pagina statica propria): fallback SPA.
+  RewriteRule ^(en/)?(path|flashcards|tutor|dashboard|admin|teacher-dashboard|auth)(/.*)?$ index.html [L]
+
+  # 5) Tutto il resto che non esiste su disco: vera 404.
+  #    R=404 con "-" come sostituto non produce un redirect visibile al
+  #    client: mod_rewrite imposta lo status 404 sulla risposta corrente,
+  #    che Apache gestisce subito con ErrorDocument 404 qui sotto (l'URL
+  #    richiesto non cambia nella barra degli indirizzi del browser).
+  RewriteRule ^ - [R=404,L]
+</IfModule>
+
+# Pagina 404 vera: Apache risponde con status HTTP 404 reale (non piu' un
+# soft-404 a 200) e mostra questo stesso index.html, che lato client fa
+# apparire NotFoundPage per qualunque path pubblico sconosciuto.
+ErrorDocument 404 /index.html
+
+# Content-Type esplicito per la sitemap XML generata in build (alcune
+# configurazioni Apache/hPanel non applicano sempre il default per .xml).
+<IfModule mod_mime.c>
+  AddType application/xml .xml
 </IfModule>
 
 # Optional: cache static assets
