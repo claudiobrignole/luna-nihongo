@@ -359,6 +359,21 @@ function AppInner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Se la lingua cambia (toggle IT/EN) mentre si è su una pagina pubblica,
+  // l'URL deve seguirla (es. /blog/slug -> /en/blog/slug) così canonical e
+  // hreflang restano coerenti con quello che l'utente vede. Si usa
+  // replaceState (non pushState) per non creare una voce di history in più
+  // a ogni toggle.
+  useEffect(() => {
+    if (typeof window === 'undefined' || notFound) return;
+    if (!isPublicTab(activeTab)) return;
+    const nextPath = buildPath(activeTab, language, blogSlug);
+    if (window.location.pathname !== nextPath) {
+      window.history.replaceState(null, '', nextPath + window.location.search);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
+
   // Aree app autenticate (Studio, flashcard, tutor, dashboard, admin, auth):
   // noindex, nofollow sempre, anche se visitate da utente guest in preview.
   useEffect(() => {

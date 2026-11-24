@@ -13,6 +13,24 @@ import {
   writeStoredLanguage,
   type AppLanguage,
 } from '../utils/language';
+import { parsePath } from '../utils/routes';
+
+/**
+ * Lingua dedotta dal path pubblico corrente, SOLO quando il path la rende
+ * esplicita (prefisso /en/...). Per un path senza quel prefisso (root /,
+ * /blog, un'area app, ecc.) ritorna null: l'assenza del prefisso /en/ non
+ * significa "italiano esplicito", significa "il path non si esprime" e la
+ * precedenza deve passare al profilo utente o al default.
+ *
+ * Usata come sorgente iniziale quando non c'e' ancora una preferenza
+ * esplicita salvata: un link /en/blog/... deve aprirsi in inglese anche al
+ * primo caricamento, senza aspettare localStorage o un profilo utente.
+ */
+function readLanguageFromPath(): AppLanguage | null {
+  if (typeof window === 'undefined') return null;
+  const { language } = parsePath(window.location.pathname);
+  return language === 'en' ? 'en' : null;
+}
 
 interface LanguageContextValue {
   language: AppLanguage;
@@ -32,7 +50,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const profileLanguage = currentUser?.preferredLanguage
     ? normalizeLanguage(currentUser.preferredLanguage)
     : null;
-  const language: AppLanguage = explicitLanguage ?? storedLanguage ?? profileLanguage ?? 'it';
+  // Priorita': scelta esplicita in questa sessione > preferenza salvata >
+  // lingua del path pubblico corrente (es. /en/...) > profilo utente > IT.
+  // Il path viene prima del profilo cosi' un link /en/... condiviso apre
+  // sempre in inglese, anche per un utente loggato con preferenza IT salvata
+  // sul profilo ma senza nulla in storage su questo dispositivo/browser.
+  const language: AppLanguage =
+    explicitLanguage ?? storedLanguage ?? readLanguageFromPath() ?? profileLanguage ?? 'it';
 
   const setLanguage = useCallback(
     async (next: AppLanguage) => {
