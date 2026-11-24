@@ -1515,6 +1515,24 @@ textarea:focus-visible {
   letter-spacing: 0;
 }
 
+/* H1 testuale (IT/EN) della home pubblica: stesso trattamento visivo
+   dell'H1 originale in giapponese, che ora resta come sottotitolo. */
+.mg-hero-title--latin {
+  margin-bottom: 0.4rem;
+}
+
+.mg-hero-title-ja {
+  font-weight: 700;
+  font-size: clamp(
+    calc(1.3rem / var(--ln-body-text-scale)),
+    3vw,
+    calc(1.9rem / var(--ln-body-text-scale))
+  );
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 1.1rem;
+}
+
 .mg-hero-lead {
   font-size: 0.98rem;
   line-height: 1.65;

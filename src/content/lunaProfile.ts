@@ -6,6 +6,7 @@ export const LUNA_PROFILE = {
     it: 'Luna, insegnante madrelingua giapponese',
     en: 'Luna, native Japanese teacher',
   },
+  fullName: 'Luna Naito',
   title: {
     it: 'Impara il giapponese con Luna',
     en: 'Learn Japanese with Luna',
@@ -15,8 +16,8 @@ export const LUNA_PROFILE = {
     en: 'NATIVE JAPANESE SPEAKER',
   },
   lead: {
-    it: "Ciao! Sono Luna, madrelingua giapponese. Le mie lezioni individuali seguono i livelli JLPT N5 e N4, ma se sei già più avanzato dimmi a che punto sei: possiamo lavorare su grammatica, conversazione e pronuncia fino all'N1.",
-    en: "Hi! I'm Luna, a native Japanese speaker. My one-on-one lessons follow JLPT N5 and N4 levels, but if you're already more advanced tell me where you're at: we can work on grammar, conversation and pronunciation up to N1.",
+    it: "Ciao! Sono Luna Naito, madrelingua giapponese. Le mie lezioni individuali seguono i livelli JLPT N5 e N4, ma se sei già più avanzato dimmi a che punto sei: possiamo lavorare su grammatica, conversazione e pronuncia fino all'N1.",
+    en: "Hi! I'm Luna Naito, a native Japanese speaker. My one-on-one lessons follow JLPT N5 and N4 levels, but if you're already more advanced tell me where you're at: we can work on grammar, conversation and pronunciation up to N1.",
   },
   bullets: {
     it: [

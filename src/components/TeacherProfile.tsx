@@ -14,6 +14,17 @@ import { PremiumUpgradeButton } from './PremiumUpgradeButton';
 import { BookingPreview } from './BookingPreview';
 import { BookingCalendar, type BookingMode } from './BookingCalendar';
 import { LUNA_PROFILE } from '../content/lunaProfile';
+import { usePageMeta, SITE_ORIGIN } from '../hooks/usePageMeta';
+import { buildPath } from '../utils/routes';
+
+const TEACHER_TITLE = {
+  it: 'Lezioni di giapponese 1-to-1 con Luna \u2013 madrelingua, JLPT N5\u2013N1 | Luna Nihongo',
+  en: '1-to-1 Japanese Lessons with Luna \u2013 Native Speaker, JLPT N5\u2013N1 | Luna Nihongo',
+};
+const TEACHER_DESCRIPTION = {
+  it: 'Prenota lezioni private 1-to-1 di giapponese con Luna, madrelingua: percorso JLPT N5-N1, grammatica, conversazione e pronuncia.',
+  en: 'Book 1-to-1 private Japanese lessons with Luna, a native speaker: JLPT N5-N1 path, grammar, conversation and pronunciation.',
+};
 
 interface TeacherProfileProps {
   language: 'en' | 'it';
@@ -40,6 +51,17 @@ export function TeacherProfile({
 }: TeacherProfileProps) {
   const lang = language;
   const copy = LUNA_PROFILE;
+
+  usePageMeta({
+    title: TEACHER_TITLE[lang],
+    description: TEACHER_DESCRIPTION[lang],
+    url: `${SITE_ORIGIN}${buildPath('teacher', lang)}`,
+    type: 'website',
+    language: lang,
+    pathIt: buildPath('teacher', 'it'),
+    pathEn: buildPath('teacher', 'en'),
+  });
+
   const subscribed = currentUser ? hasActiveSubscription(currentUser) : false;
   const includedLeft = currentUser ? includedLessonsRemaining(currentUser) : 0;
   const trialActive = currentUser ? isTrialActive(currentUser) : false;

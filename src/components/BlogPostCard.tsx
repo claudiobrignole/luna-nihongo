@@ -2,7 +2,9 @@ import { ArrowRight } from 'lucide-react';
 import type { LanguageType } from './Header';
 import type { BlogPost } from '../types/blog';
 import { blogTagLabel } from '../types/blog';
-import { resolveBlogCoverUrl } from '../content/blogCoverFallbacks';
+import { resolveBlogCoverUrl, resolveBlogCoverAlt } from '../content/blogCoverFallbacks';
+import { buildPath } from '../utils/routes';
+import { handleInternalNavClick } from '../utils/navLink';
 
 interface BlogPostCardProps {
   post: BlogPost;
@@ -14,12 +16,15 @@ interface BlogPostCardProps {
 export function BlogPostCard({ post, language, onOpen, compact }: BlogPostCardProps) {
   const lang = language;
   const coverUrl = resolveBlogCoverUrl(post);
+  const coverAlt = resolveBlogCoverAlt(post, lang);
+  const href = buildPath('blog', lang, post.slug);
+  const onClick = handleInternalNavClick(() => onOpen(post.slug));
 
   return (
     <article className={`blog-card${compact ? ' blog-card--compact' : ''}`}>
-      <button type="button" className="blog-card-cover" onClick={() => onOpen(post.slug)}>
-        <img src={coverUrl} alt="" />
-      </button>
+      <a href={href} className="blog-card-cover" onClick={onClick}>
+        <img src={coverUrl} alt={coverAlt} />
+      </a>
       <div className="blog-card-body">
         <div className="blog-card-tags">
           {post.tags.slice(0, 3).map((tag) => (
@@ -29,15 +34,15 @@ export function BlogPostCard({ post, language, onOpen, compact }: BlogPostCardPr
           ))}
         </div>
         <h3>
-          <button type="button" className="blog-card-title" onClick={() => onOpen(post.slug)}>
+          <a href={href} className="blog-card-title" onClick={onClick}>
             {post.title[lang]}
-          </button>
+          </a>
         </h3>
         <p className="blog-card-excerpt">{post.excerpt[lang]}</p>
-        <button type="button" className="mg-btn mg-btn--red blog-card-cta" onClick={() => onOpen(post.slug)}>
+        <a href={href} className="mg-btn mg-btn--red blog-card-cta" onClick={onClick}>
           {lang === 'en' ? 'Read more' : 'Leggi'}
           <ArrowRight size={14} />
-        </button>
+        </a>
       </div>
     </article>
   );

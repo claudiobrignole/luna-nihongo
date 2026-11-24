@@ -7,7 +7,9 @@ import { blogTagLabel } from '../types/blog';
 import { BlogMarkdown } from './BlogMarkdown';
 import { BlogPostCard } from './BlogPostCard';
 import { usePageMeta, blogPostUrl } from '../hooks/usePageMeta';
-import { resolveBlogCoverUrl } from '../content/blogCoverFallbacks';
+import { resolveBlogCoverUrl, resolveBlogCoverAlt } from '../content/blogCoverFallbacks';
+import { buildPath } from '../utils/routes';
+import { handleInternalNavClick } from '../utils/navLink';
 
 interface BlogPostPageProps {
   slug: string;
@@ -44,11 +46,14 @@ export function BlogPostPage({ slug, language, onBack, onOpenPost }: BlogPostPag
   usePageMeta(
     post
       ? {
-          title: `${post.title[lang]} · Luna Nihongo`,
+          title: `${post.title[lang]} \u00b7 Luna Nihongo`,
           description: post.excerpt[lang],
           image: resolveBlogCoverUrl(post),
-          url: blogPostUrl(post.slug),
+          url: blogPostUrl(post.slug, lang),
           type: 'article',
+          language: lang,
+          pathIt: buildPath('blog', 'it', post.slug),
+          pathEn: buildPath('blog', 'en', post.slug),
         }
       : null,
   );
@@ -57,7 +62,7 @@ export function BlogPostPage({ slug, language, onBack, onOpenPost }: BlogPostPag
     return (
       <p className="blog-loading page-view">
         <Loader2 size={20} className="spin" />
-        {lang === 'en' ? 'Loading…' : 'Caricamento…'}
+        {lang === 'en' ? 'Loading\u2026' : 'Caricamento\u2026'}
       </p>
     );
   }
@@ -66,22 +71,23 @@ export function BlogPostPage({ slug, language, onBack, onOpenPost }: BlogPostPag
     return (
       <div className="blog-page page-view">
         <p>{lang === 'en' ? 'Post not found.' : 'Articolo non trovato.'}</p>
-        <button type="button" className="mg-btn" onClick={onBack}>
+        <a href={buildPath('blog', lang)} className="mg-btn" onClick={handleInternalNavClick(onBack)}>
           <ArrowLeft size={16} />
           {lang === 'en' ? 'Back to blog' : 'Torna al blog'}
-        </button>
+        </a>
       </div>
     );
   }
 
   const coverUrl = resolveBlogCoverUrl(post);
+  const coverAlt = resolveBlogCoverAlt(post, lang);
 
   return (
     <article className="blog-article page-view">
-      <button type="button" className="blog-back-link" onClick={onBack}>
+      <a href={buildPath('blog', lang)} className="blog-back-link" onClick={handleInternalNavClick(onBack)}>
         <ArrowLeft size={16} />
         {lang === 'en' ? 'All posts' : 'Tutti gli articoli'}
-      </button>
+      </a>
 
       <header className="blog-article-header">
         <div className="blog-card-tags">
@@ -96,7 +102,7 @@ export function BlogPostPage({ slug, language, onBack, onOpenPost }: BlogPostPag
       </header>
 
       <div className="blog-article-cover">
-        <img src={coverUrl} alt="" />
+        <img src={coverUrl} alt={coverAlt} />
       </div>
 
       <BlogMarkdown content={post.body[lang]} />

@@ -6,8 +6,19 @@ import { LandingBands } from './LandingBands';
 import type { LanguageType, TabType } from './Header';
 import { PRIVACY_POLICY_URL } from '../constants/links';
 import { formatEmailCallableError, subscribeNewsletter } from '../services/emailService';
+import { usePageMeta, SITE_ORIGIN } from '../hooks/usePageMeta';
+import { buildPath } from '../utils/routes';
 import lunaWave from '../assets/brand/luna-wave.webp';
 import sakura from '../assets/brand/sakura.svg';
+
+const HOME_TITLE = {
+  it: 'Luna Nihongo – Impara il giapponese (JLPT N5–N4) con ripasso spaziato e lezioni private',
+  en: 'Luna Nihongo – Learn Japanese (JLPT N5–N4) with Spaced Repetition and Private Lessons',
+};
+const HOME_DESCRIPTION = {
+  it: "Impara il giapponese (hiragana, katakana, kanji e grammatica) in modo semplice ed efficace grazie al metodo a ripetizione spaziata (SRS) e prenota lezioni private personalizzate 1-on-1 con Luna.",
+  en: 'Learn Japanese (hiragana, katakana, kanji and grammar) with a guided path, SRS flashcards and 1-on-1 private lessons with Luna, a native Japanese teacher.',
+};
 
 interface PublicLandingProps {
   language: LanguageType;
@@ -21,6 +32,16 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [newsletterError, setNewsletterError] = useState('');
   const en = language === 'en';
+
+  usePageMeta({
+    title: HOME_TITLE[language],
+    description: HOME_DESCRIPTION[language],
+    url: `${SITE_ORIGIN}${buildPath('home', language)}`,
+    type: 'website',
+    language,
+    pathIt: buildPath('home', 'it'),
+    pathEn: buildPath('home', 'en'),
+  });
 
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,9 +69,14 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
         <div className="mg-band-inner">
           <span className="mg-watermark" aria-hidden="true" lang="ja">な</span>
           <div className="mg-band-copy">
-            <h1 className="mg-hero-title" lang="ja">
-              ゼロから N4 まで、<br />るなと学ぶ日本語。
+            <h1 className="mg-hero-title mg-hero-title--latin">
+              {en
+                ? 'Learn Japanese with Luna: from zero to JLPT N4'
+                : 'Impara il giapponese con Luna: da zero al JLPT N4'}
             </h1>
+            <p className="mg-hero-title-ja" lang="ja" aria-hidden="true">
+              ゼロから N4 まで、<br />るなと学ぶ日本語。
+            </p>
             <div className="mg-card">
               <p className="mg-hero-lead">
                 {en

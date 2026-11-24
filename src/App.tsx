@@ -45,7 +45,23 @@ import { CURRICULUM_LEVELS } from './data/curriculum';
 import { BlogListPage } from './components/BlogListPage';
 import { BlogPostPage } from './components/BlogPostPage';
 import { NotFoundPage } from './components/NotFoundPage';
-import { buildPath, isPublicTab, legacyHashToPath, parsePath } from './utils/routes';
+import { buildPath, isNoindexTab, isPublicTab, legacyHashToPath, parsePath } from './utils/routes';
+
+/** Imposta/rimuove <meta name="robots"> in base alla tab corrente (aree app = noindex, nofollow). */
+function setRobotsMeta(content: string | null) {
+  if (typeof document === 'undefined') return;
+  let el = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+  if (!content) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('name', 'robots');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
@@ -342,6 +358,16 @@ function AppInner() {
     return () => window.removeEventListener('popstate', applyLocation);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Aree app autenticate (Studio, flashcard, tutor, dashboard, admin, auth):
+  // noindex, nofollow sempre, anche se visitate da utente guest in preview.
+  useEffect(() => {
+    if (notFound) {
+      setRobotsMeta('noindex, follow');
+      return;
+    }
+    setRobotsMeta(isNoindexTab(activeTab) ? 'noindex, nofollow' : null);
+  }, [activeTab, notFound]);
 
   // After login: first-time users see onboarding; returning users land on Studio.
   useEffect(() => {

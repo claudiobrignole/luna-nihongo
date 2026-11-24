@@ -5,6 +5,7 @@ import { filterPostsByTag, listPublishedPosts } from '../services/blogService';
 import { BLOG_TAGS, blogTagLabel, type BlogTag } from '../types/blog';
 import { BlogPostCard } from './BlogPostCard';
 import { usePageMeta, blogListUrl } from '../hooks/usePageMeta';
+import { buildPath } from '../utils/routes';
 
 interface BlogListPageProps {
   language: LanguageType;
@@ -23,8 +24,11 @@ export function BlogListPage({ language, onOpenPost }: BlogListPageProps) {
       lang === 'en'
         ? 'Japanese tips, grammar, culture, anime and manga — articles from Luna Nihongo.'
         : 'Consigli di giapponese, grammatica, cultura, anime e manga — articoli da Luna Nihongo.',
-    url: blogListUrl(),
+    url: blogListUrl(lang),
     type: 'website',
+    language: lang,
+    pathIt: buildPath('blog', 'it'),
+    pathEn: buildPath('blog', 'en'),
   });
 
   useEffect(() => {
