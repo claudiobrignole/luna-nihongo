@@ -3,6 +3,8 @@ import type { TabType } from './Header';
 import { BLOG_RSS_URL } from '../constants/blogFeeds';
 import { useLanguage } from '../contexts/LanguageContext';
 import { LunaLogo } from './LunaLogo';
+import { buildPath } from '../utils/routes';
+import { handleInternalNavClick } from '../utils/navLink';
 
 interface SiteFooterProps {
   onNavigate: (tab: TabType) => void;
@@ -32,9 +34,15 @@ export function SiteFooter({
             <Rss size={14} aria-hidden="true" />
             RSS
           </a>
-          <button type="button" onClick={() => onNavigate('privacy')}>{it ? 'Privacy' : 'Privacy'}</button>
-          <button type="button" onClick={() => onNavigate('cookies')}>{it ? 'Cookie' : 'Cookies'}</button>
-          <button type="button" onClick={() => onNavigate('terms')}>{it ? 'Termini e condizioni' : 'Terms & conditions'}</button>
+          <a href={buildPath('privacy', language)} onClick={handleInternalNavClick(() => onNavigate('privacy'))}>
+            {it ? 'Privacy' : 'Privacy'}
+          </a>
+          <a href={buildPath('cookies', language)} onClick={handleInternalNavClick(() => onNavigate('cookies'))}>
+            {it ? 'Cookie' : 'Cookies'}
+          </a>
+          <a href={buildPath('terms', language)} onClick={handleInternalNavClick(() => onNavigate('terms'))}>
+            {it ? 'Termini e condizioni' : 'Terms & conditions'}
+          </a>
           <button type="button" onClick={onOpenCookieSettings}>{it ? 'Impostazioni cookie' : 'Cookie settings'}</button>
           <button type="button" onClick={onInstallApp}>
             <Download size={14} aria-hidden="true" />
@@ -48,7 +56,13 @@ export function SiteFooter({
       </div>
 
       <div className="mg-footer-bottom">
-        <span>© {year} Luna Nihongo</span>
+        <span>
+          © {year}{' '}
+          <a href="https://naito.work" target="_blank" rel="noopener noreferrer" className="mg-footer-credit-link">
+            Naito
+          </a>
+          {' '}&bull; {it ? 'Svizzera' : 'Switzerland'}
+        </span>
         <span className="mg-footer-tag">
           {it ? 'Impara il giapponese con calore e metodo.' : 'Learn Japanese with warmth and method.'}
         </span>

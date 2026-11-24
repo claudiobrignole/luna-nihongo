@@ -6,6 +6,8 @@ import type { AdminPanelSection } from './AdminPanel';
 import { UserMenu } from './UserMenu';
 import { LunaLogo } from './LunaLogo';
 import { useLanguage } from '../contexts/LanguageContext';
+import { buildPath, isPublicTab } from '../utils/routes';
+import { handleInternalNavClick } from '../utils/navLink';
 
 export type TabType =
   | 'home'
@@ -63,6 +65,22 @@ function NavButton({
   onClick: () => void;
 }) {
   const isActive = activeTab === item.id;
+
+  // Le voci di navigazione pubbliche (home, blog, Luna/insegnante) sono veri
+  // link <a href> con path reale: crawlabili e apribili in nuova scheda, ma
+  // intercettati per restare SPA in un click normale.
+  if (isPublicTab(item.id)) {
+    return (
+      <a
+        href={buildPath(item.id, language)}
+        onClick={handleInternalNavClick(onClick)}
+        className={`nav-link ${isActive ? 'active' : ''}`}
+        aria-current={isActive ? 'page' : undefined}
+      >
+        {item.label[language]}
+      </a>
+    );
+  }
 
   return (
     <button
@@ -159,14 +177,14 @@ export function Header({
       <header className="main-header">
         <div className="header-content header-content-app">
           {isGuest ? (
-            <button
-              type="button"
+            <a
+              href={buildPath('home', language)}
               className="header-brand header-brand-btn"
               aria-label="Luna Nihongo"
-              onClick={() => navigate('home')}
+              onClick={handleInternalNavClick(() => navigate('home'))}
             >
               <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
-            </button>
+            </a>
           ) : (
             <div className="header-brand">
               <LunaLogo layout="horizontal" theme="auto" className="luna-logo--header" />
@@ -246,16 +264,27 @@ export function Header({
               className="nav-drawer-links"
               aria-label={language === 'en' ? 'Main navigation' : 'Navigazione principale'}
             >
-              {NAV_ITEMS.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`nav-drawer-link ${activeTab === item.id ? 'active' : ''}`}
-                  onClick={() => navigate(item.id)}
-                >
-                  {item.label[language]}
-                </button>
-              ))}
+              {NAV_ITEMS.map((item) =>
+                isPublicTab(item.id) ? (
+                  <a
+                    key={item.id}
+                    href={buildPath(item.id, language)}
+                    className={`nav-drawer-link ${activeTab === item.id ? 'active' : ''}`}
+                    onClick={handleInternalNavClick(() => navigate(item.id))}
+                  >
+                    {item.label[language]}
+                  </a>
+                ) : (
+                  <button
+                    key={item.id}
+                    type="button"
+                    className={`nav-drawer-link ${activeTab === item.id ? 'active' : ''}`}
+                    onClick={() => navigate(item.id)}
+                  >
+                    {item.label[language]}
+                  </button>
+                ),
+              )}
 
               {showTeacherDashboard && (
                 <button

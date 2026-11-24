@@ -44,6 +44,8 @@ import { syncMarketingConsent } from './services/emailService';
 import { CURRICULUM_LEVELS } from './data/curriculum';
 import { BlogListPage } from './components/BlogListPage';
 import { BlogPostPage } from './components/BlogPostPage';
+import { NotFoundPage } from './components/NotFoundPage';
+import { buildPath, isPublicTab, legacyHashToPath, parsePath } from './utils/routes';
 
 type RegisterReason = 'study' | 'tutor' | 'flashcards' | 'booking';
 
@@ -96,6 +98,7 @@ function AppInner() {
   const [verifyEmailInfo, setVerifyEmailInfo] = useState('');
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [blogSlug, setBlogSlug] = useState<string | null>(null);
+  const [notFound, setNotFound] = useState(false);
   const [bookingMode, setBookingMode] = useState<BookingMode>('intro');
   const [rescheduleBookingId, setRescheduleBookingId] = useState<string | null>(null);
   const [authSignupMode, setAuthSignupMode] = useState(true);
@@ -278,18 +281,22 @@ function AppInner() {
       return;
     }
     setActiveTab(tab);
+    setNotFound(false);
     if (typeof window === 'undefined') return;
-    if (tab === 'blog') {
-      const nextSlug = slug ?? null;
-      setBlogSlug(nextSlug);
-      window.location.hash = nextSlug ? `blog/${nextSlug}` : 'blog';
-    } else {
-      setBlogSlug(null);
-      if (isLegalTab(tab)) {
-        window.location.hash = tab;
-      } else if (window.location.hash) {
-        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+
+    const nextSlug = tab === 'blog' ? (slug ?? null) : null;
+    setBlogSlug(nextSlug);
+
+    // Path pubblico reale per le tab indicizzabili; le aree app restano su '/'
+    // (niente path dedicato, noindex via meta) per non creare URL pubblici
+    // per sezioni riservate.
+    if (isPublicTab(tab)) {
+      const nextPath = buildPath(tab, language, nextSlug);
+      if (window.location.pathname !== nextPath || window.location.hash) {
+        window.history.pushState(null, '', nextPath + window.location.search);
       }
+    } else if (window.location.pathname !== '/' || window.location.hash) {
+      window.history.pushState(null, '', '/' + window.location.search);
     }
     window.scrollTo({ top: 0 });
   };
@@ -305,21 +312,35 @@ function AppInner() {
   };
 
   useEffect(() => {
-    const applyHash = () => {
-      const h = window.location.hash.replace('#', '');
-      if (h === 'privacy' || h === 'cookies' || h === 'terms') {
-        setActiveTab(h);
-        setBlogSlug(null);
+    const applyLocation = () => {
+      // Retrocompatibilità: un vecchio link con hash (/#blog/slug, #privacy, ecc.)
+      // viene tradotto subito nel path reale equivalente e sostituito nella history,
+      // così un bookmark o link esterno vecchio arriva comunque alla pagina giusta.
+      if (window.location.hash) {
+        const redirectPath = legacyHashToPath(window.location.hash, language);
+        if (redirectPath) {
+          window.history.replaceState(null, '', redirectPath + window.location.search);
+        } else {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      const { tab, slug } = parsePath(window.location.pathname);
+      if (tab === null) {
+        // Path pubblico sconosciuto: nessuna route per l'app -> vera pagina 404.
+        setNotFound(true);
         return;
       }
-      if (h === 'blog' || h.startsWith('blog/')) {
-        setActiveTab('blog');
-        setBlogSlug(h.startsWith('blog/') ? h.slice(5) : null);
+      setNotFound(false);
+      if (tab !== 'home') {
+        setActiveTab(tab);
       }
+      setBlogSlug(tab === 'blog' ? slug : null);
     };
-    applyHash();
-    window.addEventListener('hashchange', applyHash);
-    return () => window.removeEventListener('hashchange', applyHash);
+    applyLocation();
+    window.addEventListener('popstate', applyLocation);
+    return () => window.removeEventListener('popstate', applyLocation);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // After login: first-time users see onboarding; returning users land on Studio.
@@ -420,11 +441,14 @@ function AppInner() {
           onLogin={openLogin}
         />
         <main className="main-content">
-          {HERO_FOR[activeTab] && activeTab !== 'home' && (
+          {notFound && (
+            <NotFoundPage language={language} onGoHome={() => navigateApp('home')} />
+          )}
+          {!notFound && HERO_FOR[activeTab] && activeTab !== 'home' && (
             <PageHero page={HERO_FOR[activeTab]!} language={language} />
           )}
-          {isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
-          {activeTab === 'home' && (
+          {!notFound && isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
+          {!notFound && activeTab === 'home' && (
             <PublicLanding
               language={language}
               onRegister={() => openRegister('study')}
@@ -433,10 +457,10 @@ function AppInner() {
             />
           )}
 
-          {activeTab === 'blog' && !blogSlug && (
+          {!notFound && activeTab === 'blog' && !blogSlug && (
             <BlogListPage language={language} onOpenPost={(slug) => navigateApp('blog', slug)} />
           )}
-          {activeTab === 'blog' && blogSlug && (
+          {!notFound && activeTab === 'blog' && blogSlug && (
             <BlogPostPage
               slug={blogSlug}
               language={language}
@@ -445,7 +469,7 @@ function AppInner() {
             />
           )}
 
-          {activeTab === 'path' && (
+          {!notFound && activeTab === 'path' && (
             <LearningPath
               language={language}
               completedUnits={[]}
@@ -455,21 +479,21 @@ function AppInner() {
             />
           )}
 
-          {activeTab === 'flashcards' && (
+          {!notFound && activeTab === 'flashcards' && (
             <GuestFlashcardsPreview
               language={language}
               onRequireAuth={() => promptRegister('flashcards')}
             />
           )}
 
-          {activeTab === 'tutor' && (
+          {!notFound && activeTab === 'tutor' && (
             <GuestTutorPreview
               language={language}
               onRequireAuth={() => promptRegister('tutor')}
             />
           )}
 
-          {activeTab === 'teacher' && (
+          {!notFound && activeTab === 'teacher' && (
             <TeacherProfile
               language={language}
               bookingSectionRef={lunaBookingRef}
@@ -478,7 +502,7 @@ function AppInner() {
             />
           )}
 
-          {activeTab === 'auth' && (
+          {!notFound && activeTab === 'auth' && (
             <AuthPage
               language={language}
               initialSignup={authSignupMode}
@@ -567,7 +591,10 @@ function AppInner() {
       )}
 
       <main className="main-content">
-        {HERO_FOR[activeTab] && activeTab !== 'home' && activeTab !== 'tutor' && (
+        {notFound && (
+          <NotFoundPage language={language} onGoHome={() => navigateApp('home')} />
+        )}
+        {!notFound && HERO_FOR[activeTab] && activeTab !== 'home' && activeTab !== 'tutor' && (
           <PageHero
             page={HERO_FOR[activeTab]!}
             language={language}
@@ -580,8 +607,8 @@ function AppInner() {
             }
           />
         )}
-        {isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
-        {activeTab === 'home' && (
+        {!notFound && isLegalTab(activeTab) && <LegalPage doc={activeTab} language={language} />}
+        {!notFound && activeTab === 'home' && (
           <HomeLanding
             language={language}
             currentUser={currentUser}
@@ -590,10 +617,10 @@ function AppInner() {
           />
         )}
 
-        {activeTab === 'blog' && !blogSlug && (
+        {!notFound && activeTab === 'blog' && !blogSlug && (
           <BlogListPage language={language} onOpenPost={(slug) => navigateApp('blog', slug)} />
         )}
-        {activeTab === 'blog' && blogSlug && (
+        {!notFound && activeTab === 'blog' && blogSlug && (
           <BlogPostPage
             slug={blogSlug}
             language={language}
@@ -602,7 +629,7 @@ function AppInner() {
           />
         )}
 
-        {activeTab === 'path' && (
+        {!notFound && activeTab === 'path' && (
           <LearningPath
             language={language}
             completedUnits={currentUser.completedUnits}
@@ -642,7 +669,7 @@ function AppInner() {
           />
         )}
 
-        {activeTab === 'teacher' && (
+        {!notFound && activeTab === 'teacher' && (
           <TeacherProfile
             language={language}
             currentUser={currentUser}
