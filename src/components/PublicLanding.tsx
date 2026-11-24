@@ -121,6 +121,8 @@ export function PublicLanding({ language, onRegister, onExploreStudy, onNavigate
         onTalk={onRegister}
         onAnime={onRegister}
         onLessons={scrollToBooking}
+        lessonsHref={buildPath('teacher', language)}
+        onLessonsNavigate={() => onNavigate('teacher')}
       />
 
       <BlogTeaserSection
