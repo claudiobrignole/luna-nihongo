@@ -78,7 +78,16 @@ export async function listAllPostsAdmin(): Promise<BlogPost[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  const q = query(collection(getFirebaseDb(), COLLECTION), where('slug', '==', slug));
+  // Il filtro su `published` deve comparire esplicitamente nella query:
+  // le regole di sicurezza Firestore valutano una query di collezione
+  // sul suo filtro dichiarato, non sul contenuto effettivo dei documenti.
+  // Senza questo `where`, la query viene negata per i visitatori pubblici
+  // anche se ogni documento restituito avrebbe superato la regola.
+  const q = query(
+    collection(getFirebaseDb(), COLLECTION),
+    where('slug', '==', slug),
+    where('published', '==', true),
+  );
   const snap = await getDocs(q);
   if (snap.empty) return null;
   const d = snap.docs[0];

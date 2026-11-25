@@ -218,8 +218,14 @@ service cloud.firestore {
     }
 
     match /blogPosts/{postId} {
-      allow read: if resource.data.published == true || isSuperAdmin();
-      allow create, update, delete: if isSuperAdmin();
+      // Nota: il controllo su resource.data.published va PRIMA e in corto
+      // circuito esplicito, perché isSuperAdmin() chiama get() su /users/{uid}
+      // e con request.auth == null (visitatore anonimo) questo può far
+      // fallire la regola con "Missing or insufficient permissions" invece
+      // di restituire semplicemente false, negando anche le letture pubbliche
+      // che il primo operando avrebbe già permesso.
+      allow read: if resource.data.published == true || (isSignedIn() && isSuperAdmin());
+      allow create, update, delete: if isSignedIn() && isSuperAdmin();
     }
   }
 }
