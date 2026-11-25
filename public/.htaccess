@@ -47,7 +47,7 @@
 # Pagina 404 vera: Apache risponde con status HTTP 404 reale (non piu' un
 # soft-404 a 200) e mostra questo stesso index.html, che lato client fa
 # apparire NotFoundPage per qualunque path pubblico sconosciuto.
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 
 # Content-Type esplicito per la sitemap XML generata in build (alcune
 # configurazioni Apache/hPanel non applicano sempre il default per .xml).

@@ -40,6 +40,7 @@ test -f dist/api/live-session.php
 test -f dist/api/writing-grade.php
 test -f dist/api/bootstrap.php
 test -f dist/sitemap.xml
+test -f dist/404.html
 test -f dist/blog/index.html
 test -f dist/en/index.html
 test -f dist/insegnante/index.html

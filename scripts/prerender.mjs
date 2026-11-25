@@ -7,14 +7,14 @@
  * iniettando staticamente nel <head>: title, meta description, canonical,
  * hreflang (it/en/x-default), Open Graph, Twitter Card, html lang e JSON-LD.
  *
- * LIMITAZIONE NOTA (vedi resoconto finale): qui NON viene eseguito un vero
- * rendering headless-browser (niente Puppeteer/Playwright disponibili in
- * questo ambiente sandbox). Il body generato da React (bundle JS) resta
- * quello originale di Vite: l'idratazione lato client continua a renderizzare
- * il contenuto visivo normalmente. Solo il <head> (meta/canonical/hreflang/
- * JSON-LD) e, dove applicabile, un H1 statico minimale vengono iniettati nel
- * file HTML già in fase di build, cosi' da essere presenti anche per un
- * crawler che non esegue JavaScript.
+ * NOTA: non c'e' un rendering con browser headless. Oltre al <head>, lo script
+ * inserisce dentro <div id="root"> un corpo HTML statico con H1, testo reale e
+ * link interni (<a href>) per ogni pagina: cosi' un crawler che non esegue
+ * JavaScript vede contenuto e struttura. React (createRoot) sostituisce questo
+ * corpo al primo render nel browser. I testi legali e del profilo di Luna sono
+ * letti dagli stessi file TypeScript usati dall'app (src/content/*), cosi' non
+ * si disallineano; il corpo degli articoli e' convertito con le stesse
+ * librerie Markdown dell'app (react-markdown + remark-gfm + rehype-sanitize).
  *
  * Dati del blog: prova una lettura pubblica di Firestore via REST (chiavi
  * client pubbliche gia' in .env). Se fallisce (rete assente in questo
@@ -27,6 +27,37 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadDotEnv } from './load-env.mjs';
+
+/** Carica un file TypeScript senza import (src/content/*) transpilandolo al volo. */
+async function loadTsModule(relPath) {
+  const ts = (await import('typescript')).default;
+  const source = readFileSync(join(root, relPath), 'utf8');
+  const out = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  return import(`data:text/javascript;base64,${Buffer.from(out, 'utf8').toString('base64')}`);
+}
+
+/** Converte il Markdown di un articolo in HTML con le stesse librerie dell'app. */
+async function renderMarkdownToHtml(md) {
+  if (!md) return '';
+  try {
+    const React = (await import('react')).default;
+    const { renderToStaticMarkup } = await import('react-dom/server');
+    const ReactMarkdown = (await import('react-markdown')).default;
+    const remarkGfm = (await import('remark-gfm')).default;
+    const rehypeSanitize = (await import('rehype-sanitize')).default;
+    return renderToStaticMarkup(
+      React.createElement(ReactMarkdown, { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSanitize] }, md),
+    );
+  } catch (err) {
+    console.warn(`[prerender] Conversione Markdown non riuscita (${err?.message ?? err}): uso testo semplice.`);
+    return md
+      .split(/\n{2,}/)
+      .map((para) => `<p>${escapeHtml(para)}</p>`)
+      .join('\n');
+  }
+}
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = join(root, 'dist');
@@ -121,6 +152,10 @@ async function fetchPublishedPostsFromFirestore() {
         tags: arr(fields.tags),
         title: { it: mapStr(fields.title, 'it'), en: mapStr(fields.title, 'en') },
         excerpt: { it: mapStr(fields.excerpt, 'it'), en: mapStr(fields.excerpt, 'en') },
+        body: {
+          it: mapStr(fields.body, 'it') || str(fields.bodyIt),
+          en: mapStr(fields.body, 'en') || str(fields.bodyEn),
+        },
         coverImageUrl: fields.coverImageUrl?.stringValue || null,
       });
     }
@@ -254,6 +289,70 @@ function blogPostingSchema(post, lang) {
   };
 }
 
+
+// --- Corpo HTML statico (testo reale + link interni) -------------------------
+
+const BASE = (lang) => (lang === 'en' ? '/en' : '');
+const hrefs = (lang) => ({
+  home: lang === 'en' ? '/en/' : '/',
+  blog: `${BASE(lang)}/blog/`,
+  teacher: lang === 'en' ? '/en/teacher/' : '/insegnante/',
+  privacy: `${BASE(lang)}/privacy/`,
+  cookies: `${BASE(lang)}/cookies/`,
+  terms: `${BASE(lang)}/terms/`,
+  post: (slug) => `${BASE(lang)}/blog/${slug}/`,
+  other: (pathIt, pathEn) => (lang === 'en' ? pathIt : pathEn),
+});
+
+function navHtml(lang, switchTo) {
+  const h = hrefs(lang);
+  const en = lang === 'en';
+  return (
+    `<nav aria-label="${en ? 'Main' : 'Principale'}">` +
+    `<a href="${h.home}">Luna Nihongo</a> ` +
+    `<a href="${h.teacher}">${en ? 'Teacher' : 'Insegnante'}</a> ` +
+    `<a href="${h.blog}">Blog</a> ` +
+    (switchTo ? `<a href="${switchTo.href}" hreflang="${switchTo.lang}">${switchTo.label}</a>` : '') +
+    `</nav>`
+  );
+}
+
+function footerHtml(lang) {
+  const h = hrefs(lang);
+  const en = lang === 'en';
+  return (
+    `<footer><a href="${h.privacy}">Privacy</a> ` +
+    `<a href="${h.cookies}">${en ? 'Cookies' : 'Cookie'}</a> ` +
+    `<a href="${h.terms}">${en ? 'Terms and conditions' : 'Termini e condizioni'}</a></footer>`
+  );
+}
+
+function wrapPage(lang, switchTo, inner) {
+  return `<div class="prerender-static"><header>${navHtml(lang, switchTo)}</header><main>${inner}</main>${footerHtml(lang)}</div>`;
+}
+
+function postListHtml(lang, posts) {
+  const h = hrefs(lang);
+  const items = posts
+    .filter((p) => p.slug)
+    .map((p) => {
+      const t = p.title[lang] || p.title.it;
+      const ex = p.excerpt[lang] || p.excerpt.it;
+      return `<li><a href="${h.post(p.slug)}">${escapeHtml(t)}</a>${ex ? `<p>${escapeHtml(ex)}</p>` : ''}</li>`;
+    })
+    .join('');
+  return items ? `<ul>${items}</ul>` : '';
+}
+
+const HOME_LEAD = {
+  it: "Luna Nihongo è il percorso guidato dall'hiragana al JLPT N4: unità strutturate, flashcard SRS, un tutor AI che parla con te e lezioni live con Luna, in italiano e inglese.",
+  en: 'Luna Nihongo is the guided path from hiragana to JLPT N4: structured units, SRS flashcards, an AI tutor that speaks with you, and live lessons with Luna, in Italian and English.',
+};
+const BLOG_INTRO = {
+  it: 'Consigli di giapponese, cultura, anime e aggiornamenti da Luna.',
+  en: 'Japanese tips, culture, anime and updates from Luna.',
+};
+
 // Template dist/index.html letto UNA SOLA VOLTA e tenuto in memoria: alcune
 // route (la home IT) scrivono proprio su dist/index.html, quindi rileggerlo
 // da disco ad ogni chiamata farebbe iniettare l'head piu' volte in cascata.
@@ -318,6 +417,11 @@ export async function prerender() {
 
   const posts = (await fetchPublishedPostsFromFirestore()) ?? FALLBACK_POSTS;
   const usedFallback = posts === FALLBACK_POSTS;
+  const legalMod = await loadTsModule('src/content/legalDocs.ts');
+  const profileMod = await loadTsModule('src/content/lunaProfileText.ts');
+  const LEGAL_DOCS = legalMod.LEGAL_DOCS;
+  const LAST_UPDATED = legalMod.LAST_UPDATED;
+  const PROFILE = profileMod.LUNA_PROFILE_TEXT;
 
   const HOME_TITLE = {
     it: 'Luna Nihongo – Impara il giapponese (JLPT N5–N4) con ripasso spaziato e lezioni private',
@@ -374,8 +478,14 @@ export async function prerender() {
         ogType: 'website',
         jsonLd: [websiteSchema(), orgSchema(), courseSchema(lang), offerSchema(lang), lunaPersonSchema()],
       });
-      const h1 = `<h1>${escapeHtml(HOME_H1[lang])}</h1>`;
-      const out = writeStaticPage(pagePath, head, lang, h1);
+      const h = hrefs(lang);
+      const en = lang === 'en';
+      const inner =
+        `<h1>${escapeHtml(HOME_H1[lang])}</h1><p>${escapeHtml(HOME_LEAD[lang])}</p>` +
+        `<p><a href="${h.teacher}">${en ? 'Lessons with Luna' : 'Lezioni con Luna'}</a> · <a href="${h.blog}">Blog</a></p>` +
+        `<h2>${en ? 'From the blog' : 'Dal blog'}</h2>${postListHtml(lang, posts)}`;
+      const body = wrapPage(lang, { href: lang === 'en' ? '/' : '/en/', lang: lang === 'en' ? 'it' : 'en', label: lang === 'en' ? 'Italiano' : 'English' }, inner);
+      const out = writeStaticPage(pagePath, head, lang, body);
       written.push(out);
       sitemapEntries.push({ loc: canonical, lastmod: null });
     }
@@ -395,8 +505,9 @@ export async function prerender() {
         ogType: 'website',
         jsonLd: [websiteSchema()],
       });
-      const h1 = `<h1>${escapeHtml(lang === 'en' ? 'Blog' : 'Blog')}</h1>`;
-      const out = writeStaticPage(pagePath, head, lang, h1);
+      const inner = `<h1>Blog</h1><p>${escapeHtml(BLOG_INTRO[lang])}</p>${postListHtml(lang, posts)}`;
+      const body = wrapPage(lang, { href: lang === 'en' ? '/blog/' : '/en/blog/', lang: lang === 'en' ? 'it' : 'en', label: lang === 'en' ? 'Italiano' : 'English' }, inner);
+      const out = writeStaticPage(pagePath, head, lang, body);
       written.push(out);
       sitemapEntries.push({ loc: canonical, lastmod: null });
     }
@@ -419,8 +530,17 @@ export async function prerender() {
         ogType: 'article',
         jsonLd: [blogPostingSchema(post, lang)],
       });
-      const h1 = `<h1>${escapeHtml(post.title[lang] || post.title.it)}</h1>`;
-      const out = writeStaticPage(pagePath, head, lang, h1);
+      const h = hrefs(lang);
+      const mdSource = post.body?.[lang] || post.body?.it || '';
+      const bodyHtml = mdSource
+        ? await renderMarkdownToHtml(mdSource)
+        : `<p>${escapeHtml(post.excerpt[lang] || post.excerpt.it)}</p>`;
+      const inner =
+        `<article><h1>${escapeHtml(post.title[lang] || post.title.it)}</h1>` +
+        `<div class="blog-prose">${bodyHtml}</div></article>` +
+        `<p><a href="${h.blog}">${lang === 'en' ? '← All articles' : '← Tutti gli articoli'}</a></p>`;
+      const body = wrapPage(lang, { href: lang === 'en' ? `/blog/${post.slug}/` : `/en/blog/${post.slug}/`, lang: lang === 'en' ? 'it' : 'en', label: lang === 'en' ? 'Italiano' : 'English' }, inner);
+      const out = writeStaticPage(pagePath, head, lang, body);
       written.push(out);
       sitemapEntries.push({ loc: canonical, lastmod: post.publishedAt || null });
     }
@@ -440,7 +560,15 @@ export async function prerender() {
         ogType: 'website',
         jsonLd: [lunaPersonSchema(), offerSchema(lang)],
       });
-      const out = writeStaticPage(pagePath, head, lang, null);
+      const h = hrefs(lang);
+      const bullets = PROFILE.bullets[lang].map((b) => `<li>${escapeHtml(b)}</li>`).join('');
+      const inner =
+        `<h1>${escapeHtml(PROFILE.title[lang])}</h1>` +
+        `<h2>${escapeHtml(PROFILE.fullName)}</h2><p>${escapeHtml(PROFILE.badge[lang])}</p>` +
+        `<p>${escapeHtml(PROFILE.lead[lang])}</p><ul>${bullets}</ul>` +
+        `<p><a href="${h.home}">${lang === 'en' ? 'Explore the Luna Nihongo course' : 'Scopri il percorso Luna Nihongo'}</a> · <a href="${h.blog}">Blog</a></p>`;
+      const body = wrapPage(lang, { href: lang === 'en' ? '/insegnante/' : '/en/teacher/', lang: lang === 'en' ? 'it' : 'en', label: lang === 'en' ? 'Italiano' : 'English' }, inner);
+      const out = writeStaticPage(pagePath, head, lang, body);
       written.push(out);
       sitemapEntries.push({ loc: canonical, lastmod: null });
     }
@@ -460,10 +588,35 @@ export async function prerender() {
         ogType: 'website',
         jsonLd: [],
       });
-      const out = writeStaticPage(pagePath, head, lang, null);
+      const d = LEGAL_DOCS[doc];
+      const sections = d.sections
+        .map((sec) => `<section><h2>${escapeHtml(sec.h[lang])}</h2>${sec.p.map((para) => `<p>${escapeHtml(para[lang])}</p>`).join('')}</section>`)
+        .join('');
+      const inner =
+        `<h1>${escapeHtml(d.title[lang])}</h1>` +
+        `<p>${lang === 'en' ? 'Last updated' : 'Ultimo aggiornamento'}: ${escapeHtml(LAST_UPDATED)}</p>` +
+        `<p>${escapeHtml(d.intro[lang])}</p>${sections}`;
+      const body = wrapPage(lang, { href: lang === 'en' ? `/${doc}/` : `/en/${doc}/`, lang: lang === 'en' ? 'it' : 'en', label: lang === 'en' ? 'Italiano' : 'English' }, inner);
+      const out = writeStaticPage(pagePath, head, lang, body);
       written.push(out);
       sitemapEntries.push({ loc: canonical, lastmod: null });
     }
+  }
+
+  // --- 404.html: pagina di errore vera, con noindex ---
+  {
+    let html = readTemplate();
+    html = html.replace(/<html lang="[^"]*"/, '<html lang="it"');
+    html = html.replace(/<title>[\s\S]*?<\/title>\s*/, '');
+    html = html.replace(/<meta name="description"[^>]*>\s*/, '');
+    html = html.replace(/<link rel="canonical"[^>]*>\s*/, '');
+    html = html.replace('</head>', `    <title>Pagina non trovata · Luna Nihongo</title>\n    <meta name="robots" content="noindex, nofollow" />\n  </head>`);
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root"><div class="prerender-static"><main><h1>Pagina non trovata</h1><p>La pagina che cerchi non esiste o è stata spostata.</p><p><a href="/">Vai alla home di Luna Nihongo</a></p></main></div></div>`,
+    );
+    writeFileSync(join(distDir, '404.html'), html, 'utf8');
+    written.push(join(distDir, '404.html'));
   }
 
   // --- sitemap.xml ---
